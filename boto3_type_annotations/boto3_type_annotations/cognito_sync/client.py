@@ -1,10 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -12,7 +11,7 @@ class Client(BaseClient):
     def bulk_publish(self, IdentityPoolId: str) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def delete_dataset(self, IdentityPoolId: str, IdentityId: str, DatasetName: str) -> Dict:
@@ -27,7 +26,7 @@ class Client(BaseClient):
     def describe_identity_usage(self, IdentityPoolId: str, IdentityId: str) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_bulk_publish_details(self, IdentityPoolId: str) -> Dict:
@@ -57,7 +56,7 @@ class Client(BaseClient):
     def register_device(self, IdentityPoolId: str, IdentityId: str, Platform: str, Token: str) -> Dict:
         pass
 
-    def set_cognito_events(self, IdentityPoolId: str, Events: Dict) -> NoReturn:
+    def set_cognito_events(self, IdentityPoolId: str, Events: Dict):
         pass
 
     def set_identity_pool_configuration(self, IdentityPoolId: str, PushSync: Dict = None, CognitoStreams: Dict = None) -> Dict:

@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -750,7 +749,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -2034,7 +2033,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -3530,7 +3529,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_instance_fleet(self, ClusterId: str, InstanceFleet: Dict) -> NoReturn:
+    def modify_instance_fleet(self, ClusterId: str, InstanceFleet: Dict):
         """
         
         .. note::
@@ -3576,7 +3575,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_instance_groups(self, ClusterId: str = None, InstanceGroups: List = None) -> NoReturn:
+    def modify_instance_groups(self, ClusterId: str = None, InstanceGroups: List = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/ModifyInstanceGroups>`_
@@ -5175,7 +5174,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_termination_protection(self, JobFlowIds: List, TerminationProtected: bool) -> NoReturn:
+    def set_termination_protection(self, JobFlowIds: List, TerminationProtected: bool):
         """
         
          ``SetTerminationProtection`` is used to prevent accidental termination of a cluster and to ensure that in the event of an error, the instances persist so that you can recover any data stored in their ephemeral instance storage.
@@ -5211,7 +5210,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_visible_to_all_users(self, JobFlowIds: List, VisibleToAllUsers: bool) -> NoReturn:
+    def set_visible_to_all_users(self, JobFlowIds: List, VisibleToAllUsers: bool):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/SetVisibleToAllUsers>`_
@@ -5241,7 +5240,7 @@ class Client(BaseClient):
         """
         pass
 
-    def terminate_job_flows(self, JobFlowIds: List) -> NoReturn:
+    def terminate_job_flows(self, JobFlowIds: List):
         """
         
         The maximum number of clusters allowed is 10. The call to ``TerminateJobFlows`` is asynchronous. Depending on the configuration of the cluster, it may take up to 1-5 minutes for the cluster to completely terminate and release allocated resources, such as Amazon EC2 instances.

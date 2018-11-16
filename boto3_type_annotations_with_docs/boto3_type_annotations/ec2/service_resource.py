@@ -1,10 +1,9 @@
+from typing import Union
 from typing import Optional
 from boto3.resources.collection import ResourceCollection
-from typing import Dict
-from typing import Union
 from typing import List
-from typing import NoReturn
 from datetime import datetime
+from typing import Dict
 from boto3.resources import base
 
 
@@ -1520,7 +1519,7 @@ class ServiceResource(base.ServiceResource):
         """
         pass
 
-    def create_tags(self, Resources: List[str], Tags: List, DryRun: bool = None) -> NoReturn:
+    def create_tags(self, Resources: List[str], Tags: List, DryRun: bool = None):
         """
         
         """
@@ -1767,7 +1766,7 @@ class ServiceResource(base.ServiceResource):
         """
         pass
 
-    def disassociate_route_table(self, AssociationId: str, DryRun: bool = None) -> NoReturn:
+    def disassociate_route_table(self, AssociationId: str, DryRun: bool = None):
         """
         
         After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see `Route Tables <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -2134,7 +2133,7 @@ class ClassicAddress(base.ServiceResource):
         """
         pass
 
-    def disassociate(self, AssociationId: str = None, DryRun: bool = None) -> NoReturn:
+    def disassociate(self, AssociationId: str = None, DryRun: bool = None):
         """
         
         An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -2174,7 +2173,7 @@ class ClassicAddress(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -2188,7 +2187,7 @@ class ClassicAddress(base.ServiceResource):
         """
         pass
 
-    def release(self, AllocationId: str = None, DryRun: bool = None) -> NoReturn:
+    def release(self, AllocationId: str = None, DryRun: bool = None):
         """
         
         [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. To disassociate an Elastic IP address without releasing it, use  DisassociateAddress .
@@ -2222,7 +2221,7 @@ class ClassicAddress(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -2243,7 +2242,7 @@ class DhcpOptions(base.ServiceResource):
     tags: List
     id: str
 
-    def associate_with_vpc(self, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def associate_with_vpc(self, VpcId: str, DryRun: bool = None):
         """
         
         After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
@@ -2323,7 +2322,7 @@ class DhcpOptions(base.ServiceResource):
         """
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteDhcpOptions>`_
@@ -2353,7 +2352,7 @@ class DhcpOptions(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -2367,7 +2366,7 @@ class DhcpOptions(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -2459,7 +2458,7 @@ class Image(base.ServiceResource):
         """
         pass
 
-    def deregister(self, DryRun: bool = None) -> NoReturn:
+    def deregister(self, DryRun: bool = None):
         """
         
         When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.
@@ -2712,7 +2711,7 @@ class Image(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -2726,7 +2725,7 @@ class Image(base.ServiceResource):
         """
         pass
 
-    def modify_attribute(self, Attribute: str = None, Description: Dict = None, LaunchPermission: Dict = None, OperationType: str = None, ProductCodes: List = None, UserGroups: List = None, UserIds: List = None, Value: str = None, DryRun: bool = None) -> NoReturn:
+    def modify_attribute(self, Attribute: str = None, Description: Dict = None, LaunchPermission: Dict = None, OperationType: str = None, ProductCodes: List = None, UserGroups: List = None, UserIds: List = None, Value: str = None, DryRun: bool = None):
         """
         
         AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product code cannot be made public.
@@ -2861,7 +2860,7 @@ class Image(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -2875,7 +2874,7 @@ class Image(base.ServiceResource):
         """
         pass
 
-    def reset_attribute(self, Attribute: str, DryRun: bool = None) -> NoReturn:
+    def reset_attribute(self, Attribute: str, DryRun: bool = None):
         """
         
         .. note::
@@ -2905,7 +2904,7 @@ class Image(base.ServiceResource):
         """
         pass
 
-    def wait_until_exists(self, ExecutableUsers: List = None, Filters: List = None, Owners: List = None, DryRun: bool = None) -> NoReturn:
+    def wait_until_exists(self, ExecutableUsers: List = None, Filters: List = None, Owners: List = None, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImages>`_
@@ -3494,7 +3493,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def delete_tags(self, DryRun: bool = None, Tags: List = None) -> NoReturn:
+    def delete_tags(self, DryRun: bool = None, Tags: List = None):
         """
         
         To list the current tags, use  DescribeTags . For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -3940,7 +3939,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -3954,7 +3953,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def modify_attribute(self, SourceDestCheck: Dict = None, Attribute: str = None, BlockDeviceMappings: List = None, DisableApiTermination: Dict = None, DryRun: bool = None, EbsOptimized: Dict = None, EnaSupport: Dict = None, Groups: List = None, InstanceInitiatedShutdownBehavior: Dict = None, InstanceType: Dict = None, Kernel: Dict = None, Ramdisk: Dict = None, SriovNetSupport: Dict = None, UserData: Dict = None, Value: str = None) -> NoReturn:
+    def modify_attribute(self, SourceDestCheck: Dict = None, Attribute: str = None, BlockDeviceMappings: List = None, DisableApiTermination: Dict = None, DryRun: bool = None, EbsOptimized: Dict = None, EnaSupport: Dict = None, Groups: List = None, InstanceInitiatedShutdownBehavior: Dict = None, InstanceType: Dict = None, Kernel: Dict = None, Ramdisk: Dict = None, SriovNetSupport: Dict = None, UserData: Dict = None, Value: str = None):
         """
         
          **Note:** Using this action to change the security groups associated with an elastic network interface (ENI) attached to an instance in a VPC can result in an error if the instance has more than one ENI. To change the security groups associated with an ENI attached to an instance that has multiple ENIs, we recommend that you use the  ModifyNetworkInterfaceAttribute action.
@@ -4291,7 +4290,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def reboot(self, DryRun: bool = None) -> NoReturn:
+    def reboot(self, DryRun: bool = None):
         """
         
         If an instance does not cleanly shut down within four minutes, Amazon EC2 performs a hard reboot.
@@ -4315,7 +4314,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -4329,7 +4328,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def report_status(self, ReasonCodes: List, Status: str, Description: str = None, DryRun: bool = None, EndTime: datetime = None, StartTime: datetime = None) -> NoReturn:
+    def report_status(self, ReasonCodes: List, Status: str, Description: str = None, DryRun: bool = None, EndTime: datetime = None, StartTime: datetime = None):
         """
         
         Use of this action does not change the value returned by  DescribeInstanceStatus .
@@ -4403,7 +4402,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def reset_attribute(self, Attribute: str, DryRun: bool = None) -> NoReturn:
+    def reset_attribute(self, Attribute: str, DryRun: bool = None):
         """
         
         The ``sourceDestCheck`` attribute controls whether source/destination checking is enabled. The default value is ``true`` , which means checking is enabled. This value must be ``false`` for a NAT instance to perform NAT. For more information, see `NAT Instances <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -4436,7 +4435,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def reset_kernel(self, DryRun: bool = None) -> NoReturn:
+    def reset_kernel(self, DryRun: bool = None):
         """
         
         The ``sourceDestCheck`` attribute controls whether source/destination checking is enabled. The default value is ``true`` , which means checking is enabled. This value must be ``false`` for a NAT instance to perform NAT. For more information, see `NAT Instances <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -4459,7 +4458,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def reset_ramdisk(self, DryRun: bool = None) -> NoReturn:
+    def reset_ramdisk(self, DryRun: bool = None):
         """
         
         The ``sourceDestCheck`` attribute controls whether source/destination checking is enabled. The default value is ``true`` , which means checking is enabled. This value must be ``false`` for a NAT instance to perform NAT. For more information, see `NAT Instances <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -4482,7 +4481,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def reset_source_dest_check(self, DryRun: bool = None) -> NoReturn:
+    def reset_source_dest_check(self, DryRun: bool = None):
         """
         
         The ``sourceDestCheck`` attribute controls whether source/destination checking is enabled. The default value is ``true`` , which means checking is enabled. This value must be ``false`` for a NAT instance to perform NAT. For more information, see `NAT Instances <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -4930,7 +4929,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def wait_until_exists(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> NoReturn:
+    def wait_until_exists(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances>`_
@@ -5173,7 +5172,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def wait_until_running(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> NoReturn:
+    def wait_until_running(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances>`_
@@ -5416,7 +5415,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def wait_until_stopped(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> NoReturn:
+    def wait_until_stopped(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances>`_
@@ -5659,7 +5658,7 @@ class Instance(base.ServiceResource):
         """
         pass
 
-    def wait_until_terminated(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> NoReturn:
+    def wait_until_terminated(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances>`_
@@ -5909,7 +5908,7 @@ class InternetGateway(base.ServiceResource):
     tags: List
     id: str
 
-    def attach_to_vpc(self, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def attach_to_vpc(self, VpcId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachInternetGateway>`_
@@ -5985,7 +5984,7 @@ class InternetGateway(base.ServiceResource):
         """
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteInternetGateway>`_
@@ -6006,7 +6005,7 @@ class InternetGateway(base.ServiceResource):
         """
         pass
 
-    def detach_from_vpc(self, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def detach_from_vpc(self, VpcId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachInternetGateway>`_
@@ -6042,7 +6041,7 @@ class InternetGateway(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -6056,7 +6055,7 @@ class InternetGateway(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -6077,7 +6076,7 @@ class KeyPair(base.ServiceResource):
     key_name: str
     name: str
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteKeyPair>`_
@@ -6113,7 +6112,7 @@ class KeyPairInfo(base.ServiceResource):
     key_name: str
     name: str
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteKeyPair>`_
@@ -6143,7 +6142,7 @@ class KeyPairInfo(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -6157,7 +6156,7 @@ class KeyPairInfo(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -6181,7 +6180,7 @@ class NetworkAcl(base.ServiceResource):
     vpc_id: str
     id: str
 
-    def create_entry(self, Egress: bool, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None) -> NoReturn:
+    def create_entry(self, Egress: bool, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None):
         """
         
         We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.
@@ -6329,7 +6328,7 @@ class NetworkAcl(base.ServiceResource):
         """
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkAcl>`_
@@ -6350,7 +6349,7 @@ class NetworkAcl(base.ServiceResource):
         """
         pass
 
-    def delete_entry(self, Egress: bool, RuleNumber: int, DryRun: bool = None) -> NoReturn:
+    def delete_entry(self, Egress: bool, RuleNumber: int, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkAclEntry>`_
@@ -6392,7 +6391,7 @@ class NetworkAcl(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -6406,7 +6405,7 @@ class NetworkAcl(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -6466,7 +6465,7 @@ class NetworkAcl(base.ServiceResource):
         """
         pass
 
-    def replace_entry(self, Egress: bool, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None) -> NoReturn:
+    def replace_entry(self, Egress: bool, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceNetworkAclEntry>`_
@@ -6582,7 +6581,7 @@ class NetworkInterface(base.ServiceResource):
     vpc_id: str
     id: str
 
-    def assign_private_ip_addresses(self, AllowReassignment: bool = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> NoReturn:
+    def assign_private_ip_addresses(self, AllowReassignment: bool = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None):
         """
         
         You can specify one or more specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned within the subnet's CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For information about instance types, see `Instance Types <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about Elastic IP addresses, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -6728,7 +6727,7 @@ class NetworkInterface(base.ServiceResource):
         """
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInterface>`_
@@ -6880,7 +6879,7 @@ class NetworkInterface(base.ServiceResource):
         """
         pass
 
-    def detach(self, DryRun: bool = None, Force: bool = None) -> NoReturn:
+    def detach(self, DryRun: bool = None, Force: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachNetworkInterface>`_
@@ -6916,7 +6915,7 @@ class NetworkInterface(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -6930,7 +6929,7 @@ class NetworkInterface(base.ServiceResource):
         """
         pass
 
-    def modify_attribute(self, Attachment: Dict = None, Description: Dict = None, DryRun: bool = None, Groups: List = None, SourceDestCheck: Dict = None) -> NoReturn:
+    def modify_attribute(self, Attachment: Dict = None, Description: Dict = None, DryRun: bool = None, Groups: List = None, SourceDestCheck: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyNetworkInterfaceAttribute>`_
@@ -7001,7 +7000,7 @@ class NetworkInterface(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -7015,7 +7014,7 @@ class NetworkInterface(base.ServiceResource):
         """
         pass
 
-    def reset_attribute(self, DryRun: bool = None, SourceDestCheck: str = None) -> NoReturn:
+    def reset_attribute(self, DryRun: bool = None, SourceDestCheck: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetNetworkInterfaceAttribute>`_
@@ -7041,7 +7040,7 @@ class NetworkInterface(base.ServiceResource):
         """
         pass
 
-    def unassign_private_ip_addresses(self, PrivateIpAddresses: List) -> NoReturn:
+    def unassign_private_ip_addresses(self, PrivateIpAddresses: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnassignPrivateIpAddresses>`_
@@ -7072,7 +7071,7 @@ class NetworkInterfaceAssociation(base.ServiceResource):
     public_ip: str
     id: str
 
-    def delete(self, PublicIp: str = None, DryRun: bool = None) -> NoReturn:
+    def delete(self, PublicIp: str = None, DryRun: bool = None):
         """
         
         An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -7112,7 +7111,7 @@ class NetworkInterfaceAssociation(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -7126,7 +7125,7 @@ class NetworkInterfaceAssociation(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -7148,7 +7147,7 @@ class PlacementGroup(base.ServiceResource):
     name: str
     instances: 'instances'
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeletePlacementGroup>`_
@@ -7179,7 +7178,7 @@ class PlacementGroup(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -7193,7 +7192,7 @@ class PlacementGroup(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -7223,7 +7222,7 @@ class Route(base.ServiceResource):
     route_table_id: str
     destination_cidr_block: str
 
-    def delete(self, DestinationIpv6CidrBlock: str = None, DryRun: bool = None) -> NoReturn:
+    def delete(self, DestinationIpv6CidrBlock: str = None, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteRoute>`_
@@ -7260,7 +7259,7 @@ class Route(base.ServiceResource):
         """
         pass
 
-    def replace(self, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None) -> NoReturn:
+    def replace(self, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None):
         """
         
         For more information, see `Route Tables <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -7494,7 +7493,7 @@ class RouteTable(base.ServiceResource):
         """
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteRouteTable>`_
@@ -7525,7 +7524,7 @@ class RouteTable(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -7539,7 +7538,7 @@ class RouteTable(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -7561,7 +7560,7 @@ class RouteTableAssociation(base.ServiceResource):
     subnet_id: str
     id: str
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see `Route Tables <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -7634,7 +7633,7 @@ class SecurityGroup(base.ServiceResource):
     vpc_id: str
     id: str
 
-    def authorize_egress(self, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None) -> NoReturn:
+    def authorize_egress(self, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         """
         
         Each rule consists of the protocol (for example, TCP), plus either a CIDR range or a source group. For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes. You can optionally specify a description for the rule.
@@ -7851,7 +7850,7 @@ class SecurityGroup(base.ServiceResource):
         """
         pass
 
-    def authorize_ingress(self, CidrIp: str = None, FromPort: int = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None) -> NoReturn:
+    def authorize_ingress(self, CidrIp: str = None, FromPort: int = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         """
         
         Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
@@ -8128,7 +8127,7 @@ class SecurityGroup(base.ServiceResource):
         """
         pass
 
-    def delete(self, GroupName: str = None, DryRun: bool = None) -> NoReturn:
+    def delete(self, GroupName: str = None, DryRun: bool = None):
         """
         
         If you attempt to delete a security group that is associated with an instance, or is referenced by another security group, the operation fails with ``InvalidGroup.InUse`` in EC2-Classic or ``DependencyViolation`` in EC2-VPC.
@@ -8166,7 +8165,7 @@ class SecurityGroup(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -8180,7 +8179,7 @@ class SecurityGroup(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -8194,7 +8193,7 @@ class SecurityGroup(base.ServiceResource):
         """
         pass
 
-    def revoke_egress(self, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None) -> NoReturn:
+    def revoke_egress(self, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         """
         
         Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.
@@ -8411,7 +8410,7 @@ class SecurityGroup(base.ServiceResource):
         """
         pass
 
-    def revoke_ingress(self, CidrIp: str = None, FromPort: int = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None) -> NoReturn:
+    def revoke_ingress(self, CidrIp: str = None, FromPort: int = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         """
         
         .. note::
@@ -8807,7 +8806,7 @@ class Snapshot(base.ServiceResource):
         """
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         When you make periodic snapshots of a volume, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the volume.
@@ -8934,7 +8933,7 @@ class Snapshot(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -8948,7 +8947,7 @@ class Snapshot(base.ServiceResource):
         """
         pass
 
-    def modify_attribute(self, Attribute: str = None, CreateVolumePermission: Dict = None, GroupNames: List = None, OperationType: str = None, UserIds: List = None, DryRun: bool = None) -> NoReturn:
+    def modify_attribute(self, Attribute: str = None, CreateVolumePermission: Dict = None, GroupNames: List = None, OperationType: str = None, UserIds: List = None, DryRun: bool = None):
         """
         
         Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made public. Snapshots encrypted with your default CMK cannot be shared with other accounts.
@@ -9055,7 +9054,7 @@ class Snapshot(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -9069,7 +9068,7 @@ class Snapshot(base.ServiceResource):
         """
         pass
 
-    def reset_attribute(self, Attribute: str, DryRun: bool = None) -> NoReturn:
+    def reset_attribute(self, Attribute: str, DryRun: bool = None):
         """
         
         For more information about modifying snapshot permissions, see `Sharing Snapshots <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -9097,7 +9096,7 @@ class Snapshot(base.ServiceResource):
         """
         pass
 
-    def wait_until_completed(self, Filters: List = None, MaxResults: int = None, NextToken: str = None, OwnerIds: List = None, RestorableByUserIds: List = None, DryRun: bool = None) -> NoReturn:
+    def wait_until_completed(self, Filters: List = None, MaxResults: int = None, NextToken: str = None, OwnerIds: List = None, RestorableByUserIds: List = None, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSnapshots>`_
@@ -10043,7 +10042,7 @@ class Subnet(base.ServiceResource):
         """
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSubnet>`_
@@ -10073,7 +10072,7 @@ class Subnet(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -10087,7 +10086,7 @@ class Subnet(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -10108,7 +10107,7 @@ class Tag(base.ServiceResource):
     key: str
     value: str
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         To list the current tags, use  DescribeTags . For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -10141,7 +10140,7 @@ class Tag(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -10155,7 +10154,7 @@ class Tag(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -10411,7 +10410,7 @@ class Volume(base.ServiceResource):
         """
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         The volume can remain in the ``deleting`` state for several minutes.
@@ -10857,7 +10856,7 @@ class Volume(base.ServiceResource):
         """
         pass
 
-    def enable_io(self, DryRun: bool = None) -> NoReturn:
+    def enable_io(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVolumeIO>`_
@@ -10888,7 +10887,7 @@ class Volume(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -10902,7 +10901,7 @@ class Volume(base.ServiceResource):
         """
         pass
 
-    def modify_attribute(self, AutoEnableIO: Dict = None, DryRun: bool = None) -> NoReturn:
+    def modify_attribute(self, AutoEnableIO: Dict = None, DryRun: bool = None):
         """
         
         By default, all I/O operations for the volume are suspended when the data on the volume is determined to be potentially inconsistent, to prevent undetectable, latent data corruption. The I/O access to the volume can be resumed by first enabling I/O access and then checking the data consistency on your volume.
@@ -10938,7 +10937,7 @@ class Volume(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -10974,7 +10973,7 @@ class Vpc(base.ServiceResource):
     security_groups: 'security_groups'
     subnets: 'subnets'
 
-    def associate_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None) -> NoReturn:
+    def associate_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None):
         """
         
         After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
@@ -11062,7 +11061,7 @@ class Vpc(base.ServiceResource):
         """
         pass
 
-    def attach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def attach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachInternetGateway>`_
@@ -11301,7 +11300,7 @@ class Vpc(base.ServiceResource):
         """
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpc>`_
@@ -11430,7 +11429,7 @@ class Vpc(base.ServiceResource):
         """
         pass
 
-    def detach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def detach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachInternetGateway>`_
@@ -11543,7 +11542,7 @@ class Vpc(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -11557,7 +11556,7 @@ class Vpc(base.ServiceResource):
         """
         pass
 
-    def modify_attribute(self, EnableDnsHostnames: Dict = None, EnableDnsSupport: Dict = None) -> NoReturn:
+    def modify_attribute(self, EnableDnsHostnames: Dict = None, EnableDnsSupport: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcAttribute>`_
@@ -11600,7 +11599,7 @@ class Vpc(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -11665,7 +11664,7 @@ class Vpc(base.ServiceResource):
         """
         pass
 
-    def wait_until_available(self, Filters: List = None, DryRun: bool = None) -> NoReturn:
+    def wait_until_available(self, Filters: List = None, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs>`_
@@ -11758,7 +11757,7 @@ class Vpc(base.ServiceResource):
         """
         pass
 
-    def wait_until_exists(self, Filters: List = None, DryRun: bool = None) -> NoReturn:
+    def wait_until_exists(self, Filters: List = None, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs>`_
@@ -12164,7 +12163,7 @@ class VpcPeeringConnection(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -12216,7 +12215,7 @@ class VpcPeeringConnection(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -12230,7 +12229,7 @@ class VpcPeeringConnection(base.ServiceResource):
         """
         pass
 
-    def wait_until_exists(self, Filters: List = None, DryRun: bool = None) -> NoReturn:
+    def wait_until_exists(self, Filters: List = None, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcPeeringConnections>`_
@@ -12422,7 +12421,7 @@ class VpcAddress(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -12436,7 +12435,7 @@ class VpcAddress(base.ServiceResource):
         """
         pass
 
-    def release(self, PublicIp: str = None, DryRun: bool = None) -> NoReturn:
+    def release(self, PublicIp: str = None, DryRun: bool = None):
         """
         
         [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. To disassociate an Elastic IP address without releasing it, use  DisassociateAddress .
@@ -12470,7 +12469,7 @@ class VpcAddress(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/None>`_
@@ -13091,7 +13090,7 @@ class instances(ResourceCollection):
 
     
     @classmethod
-    def create_tags(cls, Tags: List, DryRun: bool = None) -> NoReturn:
+    def create_tags(cls, Tags: List, DryRun: bool = None):
         """
         
         For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -13542,7 +13541,7 @@ class instances(ResourceCollection):
 
     
     @classmethod
-    def reboot(cls, DryRun: bool = None) -> NoReturn:
+    def reboot(cls, DryRun: bool = None):
         """
         
         If an instance does not cleanly shut down within four minutes, Amazon EC2 performs a hard reboot.

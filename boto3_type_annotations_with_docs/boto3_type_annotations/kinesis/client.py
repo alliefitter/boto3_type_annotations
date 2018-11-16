@@ -1,16 +1,15 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def add_tags_to_stream(self, StreamName: str, Tags: Dict) -> NoReturn:
+    def add_tags_to_stream(self, StreamName: str, Tags: Dict):
         """
         
         If tags have already been assigned to the stream, ``AddTagsToStream`` overwrites any existing tags that correspond to the specified tag keys.
@@ -46,7 +45,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -62,7 +61,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_stream(self, StreamName: str, ShardCount: int) -> NoReturn:
+    def create_stream(self, StreamName: str, ShardCount: int):
         """
         
         You specify and control the number of shards that a stream is composed of. Each shard can support reads up to five transactions per second, up to a maximum data read total of 2 MB per second. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MB per second. If the amount of data input increases or decreases, you can add or remove shards.
@@ -108,7 +107,7 @@ class Client(BaseClient):
         """
         pass
 
-    def decrease_stream_retention_period(self, StreamName: str, RetentionPeriodHours: int) -> NoReturn:
+    def decrease_stream_retention_period(self, StreamName: str, RetentionPeriodHours: int):
         """
         
         This operation may result in lost data. For example, if the stream's retention period is 48 hours and is decreased to 24 hours, any data already in the stream that is older than 24 hours is inaccessible.
@@ -136,7 +135,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_stream(self, StreamName: str, EnforceConsumerDeletion: bool = None) -> NoReturn:
+    def delete_stream(self, StreamName: str, EnforceConsumerDeletion: bool = None):
         """
         
         If the stream is in the ``ACTIVE`` state, you can delete it. After a ``DeleteStream`` request, the specified stream is in the ``DELETING`` state until Kinesis Data Streams completes the deletion.
@@ -172,7 +171,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deregister_stream_consumer(self, StreamARN: str = None, ConsumerName: str = None, ConsumerARN: str = None) -> NoReturn:
+    def deregister_stream_consumer(self, StreamARN: str = None, ConsumerName: str = None, ConsumerARN: str = None):
         """
         
         This operation has a limit of five transactions per second per account.
@@ -867,7 +866,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -1113,7 +1112,7 @@ class Client(BaseClient):
         """
         pass
 
-    def increase_stream_retention_period(self, StreamName: str, RetentionPeriodHours: int) -> NoReturn:
+    def increase_stream_retention_period(self, StreamName: str, RetentionPeriodHours: int):
         """
         
         If you choose a longer stream retention period, this operation increases the time period during which records that have not yet expired are accessible. However, it does not make previous, expired data (older than the stream's previous retention period) accessible after the operation has been called. For example, if a stream's retention period is set to 24 hours and is increased to 168 hours, any data that is older than 24 hours remains inaccessible to consumer applications.
@@ -1523,7 +1522,7 @@ class Client(BaseClient):
         """
         pass
 
-    def merge_shards(self, StreamName: str, ShardToMerge: str, AdjacentShardToMerge: str) -> NoReturn:
+    def merge_shards(self, StreamName: str, ShardToMerge: str, AdjacentShardToMerge: str):
         """
         
          ``MergeShards`` is called when there is a need to reduce the overall capacity of a stream because of excess capacity that is not being used. You must specify the shard to be merged and the adjacent shard for a stream. For more information about merging shards, see `Merge Two Shards <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-merge.html>`__ in the *Amazon Kinesis Data Streams Developer Guide* .
@@ -1858,7 +1857,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_tags_from_stream(self, StreamName: str, TagKeys: List) -> NoReturn:
+    def remove_tags_from_stream(self, StreamName: str, TagKeys: List):
         """
         
         If you specify a tag that does not exist, it is ignored.
@@ -1892,7 +1891,7 @@ class Client(BaseClient):
         """
         pass
 
-    def split_shard(self, StreamName: str, ShardToSplit: str, NewStartingHashKey: str) -> NoReturn:
+    def split_shard(self, StreamName: str, ShardToSplit: str, NewStartingHashKey: str):
         """
         
         You can also use ``SplitShard`` when a shard appears to be approaching its maximum utilization; for example, the producers sending data into the specific shard are suddenly sending more than previously anticipated. You can also call ``SplitShard`` to increase stream capacity, so that more Kinesis Data Streams applications can simultaneously read data from the stream for real-time processing. 
@@ -1942,7 +1941,7 @@ class Client(BaseClient):
         """
         pass
 
-    def start_stream_encryption(self, StreamName: str, EncryptionType: str, KeyId: str) -> NoReturn:
+    def start_stream_encryption(self, StreamName: str, EncryptionType: str, KeyId: str):
         """
         
         Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns immediately and sets the status of the stream to ``UPDATING`` . After the update is complete, Kinesis Data Streams sets the status of the stream back to ``ACTIVE`` . Updating or applying encryption normally takes a few seconds to complete, but it can take minutes. You can continue to read and write data to your stream while its status is ``UPDATING`` . Once the status of the stream is ``ACTIVE`` , encryption begins for records written to the stream. 
@@ -1990,7 +1989,7 @@ class Client(BaseClient):
         """
         pass
 
-    def stop_stream_encryption(self, StreamName: str, EncryptionType: str, KeyId: str) -> NoReturn:
+    def stop_stream_encryption(self, StreamName: str, EncryptionType: str, KeyId: str):
         """
         
         Stopping encryption is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns immediately and sets the status of the stream to ``UPDATING`` . After the update is complete, Kinesis Data Streams sets the status of the stream back to ``ACTIVE`` . Stopping encryption normally takes a few seconds to complete, but it can take minutes. You can continue to read and write data to your stream while its status is ``UPDATING`` . Once the status of the stream is ``ACTIVE`` , records written to the stream are no longer encrypted by Kinesis Data Streams. 

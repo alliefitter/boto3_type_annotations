@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -791,7 +790,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bot(self, name: str) -> NoReturn:
+    def delete_bot(self, name: str):
         """
         
         If a bot has an alias, you can't delete it. Instead, the ``DeleteBot`` operation returns a ``ResourceInUseException`` exception that includes a reference to the alias that refers to the bot. To remove the reference to the bot, delete the alias. If you get the same exception again, delete the referring alias until the ``DeleteBot`` operation is successful.
@@ -815,7 +814,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bot_alias(self, name: str, botName: str) -> NoReturn:
+    def delete_bot_alias(self, name: str, botName: str):
         """
         
         You can't delete an alias that is used in the association between a bot and a messaging channel. If an alias is used in a channel association, the ``DeleteBot`` operation returns a ``ResourceInUseException`` exception that includes a reference to the channel association that refers to the bot. You can remove the reference to the alias by deleting the channel association. If you get the same exception again, delete the referring association until the ``DeleteBotAlias`` operation is successful.
@@ -843,7 +842,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bot_channel_association(self, name: str, botName: str, botAlias: str) -> NoReturn:
+    def delete_bot_channel_association(self, name: str, botName: str, botAlias: str):
         """
         
         This operation requires permission for the ``lex:DeleteBotChannelAssociation`` action.
@@ -877,7 +876,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bot_version(self, name: str, version: str) -> NoReturn:
+    def delete_bot_version(self, name: str, version: str):
         """
         
         This operation requires permissions for the ``lex:DeleteBotVersion`` action.
@@ -905,7 +904,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_intent(self, name: str) -> NoReturn:
+    def delete_intent(self, name: str):
         """
         
         You can delete a version of an intent only if it is not referenced. To delete an intent that is referred to in one or more bots (see  how-it-works ), you must remove those references first. 
@@ -933,7 +932,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_intent_version(self, name: str, version: str) -> NoReturn:
+    def delete_intent_version(self, name: str, version: str):
         """
         
         This operation requires permissions for the ``lex:DeleteIntentVersion`` action.
@@ -961,7 +960,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_slot_type(self, name: str) -> NoReturn:
+    def delete_slot_type(self, name: str):
         """
         
         You can delete a version of a slot type only if it is not referenced. To delete a slot type that is referred to in one or more intents, you must remove those references first. 
@@ -989,7 +988,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_slot_type_version(self, name: str, version: str) -> NoReturn:
+    def delete_slot_type_version(self, name: str, version: str):
         """
         
         This operation requires permissions for the ``lex:DeleteSlotTypeVersion`` action.
@@ -1017,7 +1016,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_utterances(self, botName: str, userId: str) -> NoReturn:
+    def delete_utterances(self, botName: str, userId: str):
         """
         
         Amazon Lex stores the utterances that users send to your bot. Utterances are stored for 15 days for use with the  GetUtterancesView operation, and then stored indefinitely for use in improving the ability of your bot to respond to user input.
@@ -1049,7 +1048,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string

@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -175,7 +174,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -191,7 +190,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_aggregation_authorization(self, AuthorizedAccountId: str, AuthorizedAwsRegion: str) -> NoReturn:
+    def delete_aggregation_authorization(self, AuthorizedAccountId: str, AuthorizedAwsRegion: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DeleteAggregationAuthorization>`_
@@ -217,7 +216,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_config_rule(self, ConfigRuleName: str) -> NoReturn:
+    def delete_config_rule(self, ConfigRuleName: str):
         """
         
         AWS Config sets the state of a rule to ``DELETING`` until the deletion is complete. You cannot update a rule while it is in this state. If you make a ``PutConfigRule`` or ``DeleteConfigRule`` request for the rule, you will receive a ``ResourceInUseException`` .
@@ -241,7 +240,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_configuration_aggregator(self, ConfigurationAggregatorName: str) -> NoReturn:
+    def delete_configuration_aggregator(self, ConfigurationAggregatorName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DeleteConfigurationAggregator>`_
@@ -261,7 +260,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_configuration_recorder(self, ConfigurationRecorderName: str) -> NoReturn:
+    def delete_configuration_recorder(self, ConfigurationRecorderName: str):
         """
         
         After the configuration recorder is deleted, AWS Config will not record resource configuration changes until you create a new configuration recorder.
@@ -285,7 +284,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_delivery_channel(self, DeliveryChannelName: str) -> NoReturn:
+    def delete_delivery_channel(self, DeliveryChannelName: str):
         """
         
         Before you can delete the delivery channel, you must stop the configuration recorder by using the  StopConfigurationRecorder action.
@@ -340,7 +339,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_pending_aggregation_request(self, RequesterAccountId: str, RequesterAwsRegion: str) -> NoReturn:
+    def delete_pending_aggregation_request(self, RequesterAccountId: str, RequesterAwsRegion: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DeletePendingAggregationRequest>`_
@@ -366,7 +365,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_retention_configuration(self, RetentionConfigurationName: str) -> NoReturn:
+    def delete_retention_configuration(self, RetentionConfigurationName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DeleteRetentionConfiguration>`_
@@ -2109,7 +2108,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -3417,7 +3416,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_config_rule(self, ConfigRule: Dict) -> NoReturn:
+    def put_config_rule(self, ConfigRule: Dict):
         """
         
         You can use this action for custom AWS Config rules and AWS managed Config rules. A custom AWS Config rule is a rule that you develop and maintain. An AWS managed Config rule is a customizable, predefined rule that AWS Config provides.
@@ -3789,7 +3788,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_configuration_recorder(self, ConfigurationRecorder: Dict) -> NoReturn:
+    def put_configuration_recorder(self, ConfigurationRecorder: Dict):
         """
         
         You can use this action to change the role ``roleARN`` or the ``recordingGroup`` of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.
@@ -3869,7 +3868,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_delivery_channel(self, DeliveryChannel: Dict) -> NoReturn:
+    def put_delivery_channel(self, DeliveryChannel: Dict):
         """
         
         Before you can create a delivery channel, you must create a configuration recorder.
@@ -4175,7 +4174,7 @@ class Client(BaseClient):
         """
         pass
 
-    def start_configuration_recorder(self, ConfigurationRecorderName: str) -> NoReturn:
+    def start_configuration_recorder(self, ConfigurationRecorderName: str):
         """
         
         You must have created at least one delivery channel to successfully start the configuration recorder.
@@ -4197,7 +4196,7 @@ class Client(BaseClient):
         """
         pass
 
-    def stop_configuration_recorder(self, ConfigurationRecorderName: str) -> NoReturn:
+    def stop_configuration_recorder(self, ConfigurationRecorderName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/StopConfigurationRecorder>`_

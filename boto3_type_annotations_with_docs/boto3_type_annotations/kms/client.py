@@ -1,16 +1,15 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -77,7 +76,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_alias(self, AliasName: str, TargetKeyId: str) -> NoReturn:
+    def create_alias(self, AliasName: str, TargetKeyId: str):
         """
         
         Each CMK can have multiple aliases, but each alias points to only one CMK. The alias name must be unique in the AWS account and region. To simplify code that runs in multiple regions, use the same alias name, but point it to a different CMK in each region. 
@@ -531,7 +530,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_alias(self, AliasName: str) -> NoReturn:
+    def delete_alias(self, AliasName: str):
         """
         
         Because an alias is not a property of a CMK, you can delete and change the aliases of a CMK without affecting the CMK. Also, aliases do not appear in the response from the  DescribeKey operation. To get the aliases of all CMKs, use the  ListAliases operation. 
@@ -555,7 +554,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_imported_key_material(self, KeyId: str) -> NoReturn:
+    def delete_imported_key_material(self, KeyId: str):
         """
         
         When the specified CMK is in the ``PendingDeletion`` state, this operation does not change the CMK's state. Otherwise, it changes the CMK's state to ``PendingImport`` .
@@ -728,7 +727,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disable_key(self, KeyId: str) -> NoReturn:
+    def disable_key(self, KeyId: str):
         """
         
         For more information about how key state affects the use of a CMK, see `How Key State Affects the Use of a Customer Master Key <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html>`__ in the *AWS Key Management Service Developer Guide* .
@@ -762,7 +761,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disable_key_rotation(self, KeyId: str) -> NoReturn:
+    def disable_key_rotation(self, KeyId: str):
         """
         
         The result of this operation varies with the key state of the CMK. For details, see `How Key State Affects Use of a Customer Master Key <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html>`__ in the *AWS Key Management Service Developer Guide* .
@@ -794,7 +793,7 @@ class Client(BaseClient):
         """
         pass
 
-    def enable_key(self, KeyId: str) -> NoReturn:
+    def enable_key(self, KeyId: str):
         """
         
         The result of this operation varies with the key state of the CMK. For details, see `How Key State Affects Use of a Customer Master Key <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html>`__ in the *AWS Key Management Service Developer Guide* .
@@ -826,7 +825,7 @@ class Client(BaseClient):
         """
         pass
 
-    def enable_key_rotation(self, KeyId: str) -> NoReturn:
+    def enable_key_rotation(self, KeyId: str):
         """
         
         The result of this operation varies with the key state of the CMK. For details, see `How Key State Affects Use of a Customer Master Key <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html>`__ in the *AWS Key Management Service Developer Guide* .
@@ -1180,7 +1179,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -2173,7 +2172,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_key_policy(self, KeyId: str, PolicyName: str, Policy: str, BypassPolicyLockoutSafetyCheck: bool = None) -> NoReturn:
+    def put_key_policy(self, KeyId: str, PolicyName: str, Policy: str, BypassPolicyLockoutSafetyCheck: bool = None):
         """
         
         For more information about key policies, see `Key Policies <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`__ in the *AWS Key Management Service Developer Guide* .
@@ -2350,7 +2349,7 @@ class Client(BaseClient):
         """
         pass
 
-    def retire_grant(self, GrantToken: str = None, KeyId: str = None, GrantId: str = None) -> NoReturn:
+    def retire_grant(self, GrantToken: str = None, KeyId: str = None, GrantId: str = None):
         """
         Retires a grant. To clean up, you can retire a grant when you're done using it. You should revoke a grant when you intend to actively deny operations that depend on it. The following are permitted to call this API:
         
@@ -2395,7 +2394,7 @@ class Client(BaseClient):
         """
         pass
 
-    def revoke_grant(self, KeyId: str, GrantId: str) -> NoReturn:
+    def revoke_grant(self, KeyId: str, GrantId: str):
         """
         
         To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the ``KeyId`` parameter.
@@ -2503,7 +2502,7 @@ class Client(BaseClient):
         """
         pass
 
-    def tag_resource(self, KeyId: str, Tags: List) -> NoReturn:
+    def tag_resource(self, KeyId: str, Tags: List):
         """
         
         Each tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
@@ -2566,7 +2565,7 @@ class Client(BaseClient):
         """
         pass
 
-    def untag_resource(self, KeyId: str, TagKeys: List) -> NoReturn:
+    def untag_resource(self, KeyId: str, TagKeys: List):
         """
         
         To remove a tag, specify the tag key. To change the tag value of an existing tag key, use  TagResource .
@@ -2610,7 +2609,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_alias(self, AliasName: str, TargetKeyId: str) -> NoReturn:
+    def update_alias(self, AliasName: str, TargetKeyId: str):
         """
         
         This operation works only on existing aliases. To change the alias of a CMK to a new value, use  CreateAlias to create a new alias and  DeleteAlias to delete the old alias.
@@ -2656,7 +2655,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_key_description(self, KeyId: str, Description: str) -> NoReturn:
+    def update_key_description(self, KeyId: str, Description: str):
         """
         
         You cannot perform this operation on a CMK in a different AWS account.

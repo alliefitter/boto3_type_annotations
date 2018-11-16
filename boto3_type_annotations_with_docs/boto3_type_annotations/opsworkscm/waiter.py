@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class NodeAssociated(Waiter):
-    def wait(self, NodeAssociationStatusToken: str, ServerName: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, NodeAssociationStatusToken: str, ServerName: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/opsworkscm-2016-11-01/DescribeNodeAssociationStatus>`_

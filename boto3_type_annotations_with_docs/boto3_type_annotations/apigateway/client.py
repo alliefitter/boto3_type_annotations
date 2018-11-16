@@ -1,16 +1,15 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
-from typing import List
 from typing import IO
+from botocore.paginate import Paginator
+from typing import Union
+from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -2384,7 +2383,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_api_key(self, apiKey: str) -> NoReturn:
+    def delete_api_key(self, apiKey: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteApiKey>`_
@@ -2404,7 +2403,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_authorizer(self, restApiId: str, authorizerId: str) -> NoReturn:
+    def delete_authorizer(self, restApiId: str, authorizerId: str):
         """
         
          `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html>`__ 
@@ -2432,7 +2431,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_base_path_mapping(self, domainName: str, basePath: str) -> NoReturn:
+    def delete_base_path_mapping(self, domainName: str, basePath: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteBasePathMapping>`_
@@ -2458,7 +2457,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_client_certificate(self, clientCertificateId: str) -> NoReturn:
+    def delete_client_certificate(self, clientCertificateId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteClientCertificate>`_
@@ -2478,7 +2477,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_deployment(self, restApiId: str, deploymentId: str) -> NoReturn:
+    def delete_deployment(self, restApiId: str, deploymentId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteDeployment>`_
@@ -2504,7 +2503,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_documentation_part(self, restApiId: str, documentationPartId: str) -> NoReturn:
+    def delete_documentation_part(self, restApiId: str, documentationPartId: str):
         """
         
         **Request Syntax** 
@@ -2528,7 +2527,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_documentation_version(self, restApiId: str, documentationVersion: str) -> NoReturn:
+    def delete_documentation_version(self, restApiId: str, documentationVersion: str):
         """
         
         **Request Syntax** 
@@ -2552,7 +2551,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_domain_name(self, domainName: str) -> NoReturn:
+    def delete_domain_name(self, domainName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteDomainName>`_
@@ -2572,7 +2571,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_gateway_response(self, restApiId: str, responseType: str) -> NoReturn:
+    def delete_gateway_response(self, restApiId: str, responseType: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteGatewayResponse>`_
@@ -2640,7 +2639,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_integration(self, restApiId: str, resourceId: str, httpMethod: str) -> NoReturn:
+    def delete_integration(self, restApiId: str, resourceId: str, httpMethod: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteIntegration>`_
@@ -2672,7 +2671,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_integration_response(self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str) -> NoReturn:
+    def delete_integration_response(self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteIntegrationResponse>`_
@@ -2710,7 +2709,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_method(self, restApiId: str, resourceId: str, httpMethod: str) -> NoReturn:
+    def delete_method(self, restApiId: str, resourceId: str, httpMethod: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteMethod>`_
@@ -2742,7 +2741,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_method_response(self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str) -> NoReturn:
+    def delete_method_response(self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteMethodResponse>`_
@@ -2780,7 +2779,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_model(self, restApiId: str, modelName: str) -> NoReturn:
+    def delete_model(self, restApiId: str, modelName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteModel>`_
@@ -2806,7 +2805,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_request_validator(self, restApiId: str, requestValidatorId: str) -> NoReturn:
+    def delete_request_validator(self, restApiId: str, requestValidatorId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteRequestValidator>`_
@@ -2832,7 +2831,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_resource(self, restApiId: str, resourceId: str) -> NoReturn:
+    def delete_resource(self, restApiId: str, resourceId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteResource>`_
@@ -2858,7 +2857,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_rest_api(self, restApiId: str) -> NoReturn:
+    def delete_rest_api(self, restApiId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteRestApi>`_
@@ -2878,7 +2877,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_stage(self, restApiId: str, stageName: str) -> NoReturn:
+    def delete_stage(self, restApiId: str, stageName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteStage>`_
@@ -2904,7 +2903,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_usage_plan(self, usagePlanId: str) -> NoReturn:
+    def delete_usage_plan(self, usagePlanId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteUsagePlan>`_
@@ -2924,7 +2923,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_usage_plan_key(self, usagePlanId: str, keyId: str) -> NoReturn:
+    def delete_usage_plan_key(self, usagePlanId: str, keyId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteUsagePlanKey>`_
@@ -2950,7 +2949,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_vpc_link(self, vpcLinkId: str) -> NoReturn:
+    def delete_vpc_link(self, vpcLinkId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/DeleteVpcLink>`_
@@ -2970,7 +2969,7 @@ class Client(BaseClient):
         """
         pass
 
-    def flush_stage_authorizers_cache(self, restApiId: str, stageName: str) -> NoReturn:
+    def flush_stage_authorizers_cache(self, restApiId: str, stageName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/FlushStageAuthorizersCache>`_
@@ -2996,7 +2995,7 @@ class Client(BaseClient):
         """
         pass
 
-    def flush_stage_cache(self, restApiId: str, stageName: str) -> NoReturn:
+    def flush_stage_cache(self, restApiId: str, stageName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/FlushStageCache>`_
@@ -3083,7 +3082,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -10661,7 +10660,7 @@ class Client(BaseClient):
         """
         pass
 
-    def tag_resource(self, resourceArn: str, tags: Dict) -> NoReturn:
+    def tag_resource(self, resourceArn: str, tags: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/TagResource>`_
@@ -11000,7 +10999,7 @@ class Client(BaseClient):
         """
         pass
 
-    def untag_resource(self, resourceArn: str, tagKeys: List) -> NoReturn:
+    def untag_resource(self, resourceArn: str, tagKeys: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/UntagResource>`_

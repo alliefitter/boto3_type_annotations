@@ -1,10 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -15,7 +14,7 @@ class Client(BaseClient):
     def acknowledge_third_party_job(self, jobId: str, nonce: str, clientToken: str) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def create_custom_action_type(self, category: str, provider: str, version: str, inputArtifactDetails: Dict, outputArtifactDetails: Dict, settings: Dict = None, configurationProperties: List = None) -> Dict:
@@ -24,10 +23,10 @@ class Client(BaseClient):
     def create_pipeline(self, pipeline: Dict) -> Dict:
         pass
 
-    def delete_custom_action_type(self, category: str, provider: str, version: str) -> NoReturn:
+    def delete_custom_action_type(self, category: str, provider: str, version: str):
         pass
 
-    def delete_pipeline(self, name: str) -> NoReturn:
+    def delete_pipeline(self, name: str):
         pass
 
     def delete_webhook(self, name: str) -> Dict:
@@ -36,13 +35,13 @@ class Client(BaseClient):
     def deregister_webhook_with_third_party(self, webhookName: str = None) -> Dict:
         pass
 
-    def disable_stage_transition(self, pipelineName: str, stageName: str, transitionType: str, reason: str) -> NoReturn:
+    def disable_stage_transition(self, pipelineName: str, stageName: str, transitionType: str, reason: str):
         pass
 
-    def enable_stage_transition(self, pipelineName: str, stageName: str, transitionType: str) -> NoReturn:
+    def enable_stage_transition(self, pipelineName: str, stageName: str, transitionType: str):
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_job_details(self, jobId: str) -> Dict:
@@ -90,16 +89,16 @@ class Client(BaseClient):
     def put_approval_result(self, pipelineName: str, stageName: str, actionName: str, result: Dict, token: str) -> Dict:
         pass
 
-    def put_job_failure_result(self, jobId: str, failureDetails: Dict) -> NoReturn:
+    def put_job_failure_result(self, jobId: str, failureDetails: Dict):
         pass
 
-    def put_job_success_result(self, jobId: str, currentRevision: Dict = None, continuationToken: str = None, executionDetails: Dict = None) -> NoReturn:
+    def put_job_success_result(self, jobId: str, currentRevision: Dict = None, continuationToken: str = None, executionDetails: Dict = None):
         pass
 
-    def put_third_party_job_failure_result(self, jobId: str, clientToken: str, failureDetails: Dict) -> NoReturn:
+    def put_third_party_job_failure_result(self, jobId: str, clientToken: str, failureDetails: Dict):
         pass
 
-    def put_third_party_job_success_result(self, jobId: str, clientToken: str, currentRevision: Dict = None, continuationToken: str = None, executionDetails: Dict = None) -> NoReturn:
+    def put_third_party_job_success_result(self, jobId: str, clientToken: str, currentRevision: Dict = None, continuationToken: str = None, executionDetails: Dict = None):
         pass
 
     def put_webhook(self, webhook: Dict) -> Dict:

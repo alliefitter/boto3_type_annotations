@@ -1,10 +1,9 @@
 from datetime import datetime
-from typing import Dict
-from typing import Optional
-from typing import Union
-from typing import NoReturn
-from typing import List
 from boto3.resources.collection import ResourceCollection
+from typing import Union
+from typing import List
+from typing import Optional
+from typing import Dict
 from boto3.resources import base
 
 
@@ -2128,7 +2127,7 @@ class Table(base.ServiceResource):
     sse_description: Dict
     name: str
 
-    def batch_writer(self, overwrite_by_pkeys: List[str] = None) -> NoReturn:
+    def batch_writer(self, overwrite_by_pkeys: List[str] = None):
         """
         
         This method creates a context manager for writing
@@ -4290,7 +4289,7 @@ class Table(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/None>`_
@@ -6640,7 +6639,7 @@ class Table(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/None>`_
@@ -9236,7 +9235,7 @@ class Table(base.ServiceResource):
         """
         pass
 
-    def wait_until_exists(self) -> NoReturn:
+    def wait_until_exists(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeTable>`_
@@ -9250,7 +9249,7 @@ class Table(base.ServiceResource):
         """
         pass
 
-    def wait_until_not_exists(self) -> NoReturn:
+    def wait_until_not_exists(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeTable>`_

@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -93,7 +92,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -1723,7 +1722,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_endpoint(self, EndpointName: str) -> NoReturn:
+    def delete_endpoint(self, EndpointName: str):
         """
         
         Amazon SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't need to use the `RevokeGrant <http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html>`__ API call.
@@ -1745,7 +1744,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_endpoint_config(self, EndpointConfigName: str) -> NoReturn:
+    def delete_endpoint_config(self, EndpointConfigName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DeleteEndpointConfig>`_
@@ -1765,7 +1764,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_model(self, ModelName: str) -> NoReturn:
+    def delete_model(self, ModelName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DeleteModel>`_
@@ -1785,7 +1784,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_notebook_instance(self, NotebookInstanceName: str) -> NoReturn:
+    def delete_notebook_instance(self, NotebookInstanceName: str):
         """
         
         .. warning::
@@ -1809,7 +1808,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_notebook_instance_lifecycle_config(self, NotebookInstanceLifecycleConfigName: str) -> NoReturn:
+    def delete_notebook_instance_lifecycle_config(self, NotebookInstanceLifecycleConfigName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DeleteNotebookInstanceLifecycleConfig>`_
@@ -3714,7 +3713,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -5093,7 +5092,7 @@ class Client(BaseClient):
         """
         pass
 
-    def start_notebook_instance(self, NotebookInstanceName: str) -> NoReturn:
+    def start_notebook_instance(self, NotebookInstanceName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/StartNotebookInstance>`_
@@ -5113,7 +5112,7 @@ class Client(BaseClient):
         """
         pass
 
-    def stop_hyper_parameter_tuning_job(self, HyperParameterTuningJobName: str) -> NoReturn:
+    def stop_hyper_parameter_tuning_job(self, HyperParameterTuningJobName: str):
         """
         
         All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All data that the training jobs write to Amazon CloudWatch Logs are still available in CloudWatch. After the tuning job moves to the ``Stopped`` state, it releases all reserved resources for the tuning job.
@@ -5135,7 +5134,7 @@ class Client(BaseClient):
         """
         pass
 
-    def stop_notebook_instance(self, NotebookInstanceName: str) -> NoReturn:
+    def stop_notebook_instance(self, NotebookInstanceName: str):
         """
         
         To access data on the ML storage volume for a notebook instance that has been terminated, call the ``StartNotebookInstance`` API. ``StartNotebookInstance`` launches another ML compute instance, configures it, and attaches the preserved ML storage volume so you can continue your work. 
@@ -5157,7 +5156,7 @@ class Client(BaseClient):
         """
         pass
 
-    def stop_training_job(self, TrainingJobName: str) -> NoReturn:
+    def stop_training_job(self, TrainingJobName: str):
         """
         
         Training algorithms provided by Amazon SageMaker save the intermediate results of a model training job. This intermediate data is a valid model artifact. You can use the model artifacts that are saved when Amazon SageMaker stops a training job to create a model. 
@@ -5181,7 +5180,7 @@ class Client(BaseClient):
         """
         pass
 
-    def stop_transform_job(self, TransformJobName: str) -> NoReturn:
+    def stop_transform_job(self, TransformJobName: str):
         """
         
         When Amazon SageMaker receives a ``StopTransformJob`` request, the status of the job changes to ``Stopping`` . After Amazon SageMaker stops the job, the status is set to ``Stopped`` . When you stop a transform job before it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.

@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -19,7 +18,7 @@ class Client(BaseClient):
     def authorize_snapshot_access(self, SnapshotIdentifier: str, AccountWithRestoreAccess: str, SnapshotClusterIdentifier: str = None) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def copy_cluster_snapshot(self, SourceSnapshotIdentifier: str, TargetSnapshotIdentifier: str, SourceSnapshotClusterIdentifier: str = None) -> Dict:
@@ -52,37 +51,37 @@ class Client(BaseClient):
     def create_snapshot_copy_grant(self, SnapshotCopyGrantName: str, KmsKeyId: str = None, Tags: List = None) -> Dict:
         pass
 
-    def create_tags(self, ResourceName: str, Tags: List) -> NoReturn:
+    def create_tags(self, ResourceName: str, Tags: List):
         pass
 
     def delete_cluster(self, ClusterIdentifier: str, SkipFinalClusterSnapshot: bool = None, FinalClusterSnapshotIdentifier: str = None) -> Dict:
         pass
 
-    def delete_cluster_parameter_group(self, ParameterGroupName: str) -> NoReturn:
+    def delete_cluster_parameter_group(self, ParameterGroupName: str):
         pass
 
-    def delete_cluster_security_group(self, ClusterSecurityGroupName: str) -> NoReturn:
+    def delete_cluster_security_group(self, ClusterSecurityGroupName: str):
         pass
 
     def delete_cluster_snapshot(self, SnapshotIdentifier: str, SnapshotClusterIdentifier: str = None) -> Dict:
         pass
 
-    def delete_cluster_subnet_group(self, ClusterSubnetGroupName: str) -> NoReturn:
+    def delete_cluster_subnet_group(self, ClusterSubnetGroupName: str):
         pass
 
-    def delete_event_subscription(self, SubscriptionName: str) -> NoReturn:
+    def delete_event_subscription(self, SubscriptionName: str):
         pass
 
-    def delete_hsm_client_certificate(self, HsmClientCertificateIdentifier: str) -> NoReturn:
+    def delete_hsm_client_certificate(self, HsmClientCertificateIdentifier: str):
         pass
 
-    def delete_hsm_configuration(self, HsmConfigurationIdentifier: str) -> NoReturn:
+    def delete_hsm_configuration(self, HsmConfigurationIdentifier: str):
         pass
 
-    def delete_snapshot_copy_grant(self, SnapshotCopyGrantName: str) -> NoReturn:
+    def delete_snapshot_copy_grant(self, SnapshotCopyGrantName: str):
         pass
 
-    def delete_tags(self, ResourceName: str, TagKeys: List) -> NoReturn:
+    def delete_tags(self, ResourceName: str, TagKeys: List):
         pass
 
     def describe_cluster_db_revisions(self, ClusterIdentifier: str = None, MaxRecords: int = None, Marker: str = None) -> Dict:
@@ -166,7 +165,7 @@ class Client(BaseClient):
     def enable_snapshot_copy(self, ClusterIdentifier: str, DestinationRegion: str, RetentionPeriod: int = None, SnapshotCopyGrantName: str = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_cluster_credentials(self, DbUser: str, ClusterIdentifier: str, DbName: str = None, DurationSeconds: int = None, AutoCreate: bool = None, DbGroups: List = None) -> Dict:

@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class DistributionDeployed(Waiter):
-    def wait(self, Id: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Id: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/GetDistribution>`_
@@ -43,7 +42,7 @@ class DistributionDeployed(Waiter):
 
 
 class InvalidationCompleted(Waiter):
-    def wait(self, DistributionId: str, Id: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, DistributionId: str, Id: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/GetInvalidation>`_
@@ -88,7 +87,7 @@ class InvalidationCompleted(Waiter):
 
 
 class StreamingDistributionDeployed(Waiter):
-    def wait(self, Id: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Id: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/GetStreamingDistribution>`_

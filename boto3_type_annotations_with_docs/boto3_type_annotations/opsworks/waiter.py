@@ -1,11 +1,10 @@
 from typing import List
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class AppExists(Waiter):
-    def wait(self, StackId: str = None, AppIds: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StackId: str = None, AppIds: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeApps>`_
@@ -54,7 +53,7 @@ class AppExists(Waiter):
 
 
 class DeploymentSuccessful(Waiter):
-    def wait(self, StackId: str = None, AppId: str = None, DeploymentIds: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StackId: str = None, AppId: str = None, DeploymentIds: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeDeployments>`_
@@ -109,7 +108,7 @@ class DeploymentSuccessful(Waiter):
 
 
 class InstanceOnline(Waiter):
-    def wait(self, StackId: str = None, LayerId: str = None, InstanceIds: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StackId: str = None, LayerId: str = None, InstanceIds: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeInstances>`_
@@ -164,7 +163,7 @@ class InstanceOnline(Waiter):
 
 
 class InstanceRegistered(Waiter):
-    def wait(self, StackId: str = None, LayerId: str = None, InstanceIds: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StackId: str = None, LayerId: str = None, InstanceIds: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeInstances>`_
@@ -219,7 +218,7 @@ class InstanceRegistered(Waiter):
 
 
 class InstanceStopped(Waiter):
-    def wait(self, StackId: str = None, LayerId: str = None, InstanceIds: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StackId: str = None, LayerId: str = None, InstanceIds: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeInstances>`_
@@ -274,7 +273,7 @@ class InstanceStopped(Waiter):
 
 
 class InstanceTerminated(Waiter):
-    def wait(self, StackId: str = None, LayerId: str = None, InstanceIds: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StackId: str = None, LayerId: str = None, InstanceIds: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeInstances>`_

@@ -1,18 +1,17 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
-    def cancel_update_stack(self, StackName: str, ClientRequestToken: str = None) -> NoReturn:
+    def cancel_update_stack(self, StackName: str, ClientRequestToken: str = None):
         pass
 
     def continue_update_rollback(self, StackName: str, RoleARN: str = None, ResourcesToSkip: List = None, ClientRequestToken: str = None) -> Dict:
@@ -33,7 +32,7 @@ class Client(BaseClient):
     def delete_change_set(self, ChangeSetName: str, StackName: str = None) -> Dict:
         pass
 
-    def delete_stack(self, StackName: str, RetainResources: List = None, RoleARN: str = None, ClientRequestToken: str = None) -> NoReturn:
+    def delete_stack(self, StackName: str, RetainResources: List = None, RoleARN: str = None, ClientRequestToken: str = None):
         pass
 
     def delete_stack_instances(self, StackSetName: str, Accounts: List, Regions: List, RetainStacks: bool, OperationPreferences: Dict = None, OperationId: str = None) -> Dict:
@@ -87,7 +86,7 @@ class Client(BaseClient):
     def execute_change_set(self, ChangeSetName: str, StackName: str = None, ClientRequestToken: str = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
@@ -132,10 +131,10 @@ class Client(BaseClient):
     def list_stacks(self, NextToken: str = None, StackStatusFilter: List = None) -> Dict:
         pass
 
-    def set_stack_policy(self, StackName: str, StackPolicyBody: str = None, StackPolicyURL: str = None) -> NoReturn:
+    def set_stack_policy(self, StackName: str, StackPolicyBody: str = None, StackPolicyURL: str = None):
         pass
 
-    def signal_resource(self, StackName: str, LogicalResourceId: str, UniqueId: str, Status: str) -> NoReturn:
+    def signal_resource(self, StackName: str, LogicalResourceId: str, UniqueId: str, Status: str):
         pass
 
     def stop_stack_set_operation(self, StackSetName: str, OperationId: str) -> Dict:

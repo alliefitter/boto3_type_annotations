@@ -1,10 +1,9 @@
-from typing import Optional
-from typing import NoReturn
 from boto3.resources.collection import ResourceCollection
-from typing import Dict
 from typing import Union
-from typing import IO
 from typing import List
+from typing import Optional
+from typing import IO
+from typing import Dict
 from boto3.resources import base
 
 
@@ -208,7 +207,7 @@ class Archive(base.ServiceResource):
     vault_name: str
     id: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         This operation deletes an archive from a vault. Subsequent requests to initiate a retrieval of this archive will fail. Archive retrievals that are in progress for this archive ID may or may not succeed according to the following scenarios:
         
@@ -394,7 +393,7 @@ class Job(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/None>`_
@@ -408,7 +407,7 @@ class Job(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/None>`_
@@ -433,7 +432,7 @@ class MultipartUpload(base.ServiceResource):
     vault_name: str
     id: str
 
-    def abort(self) -> NoReturn:
+    def abort(self):
         """
         
         After the Abort Multipart Upload request succeeds, you cannot upload any more parts to the multipart upload or complete the multipart upload. Aborting a completed upload fails. However, aborting an already-aborted upload will succeed, for a short time. For more information about uploading a part and completing a multipart upload, see  UploadMultipartPart and  CompleteMultipartUpload .
@@ -718,7 +717,7 @@ class Notification(base.ServiceResource):
     account_id: str
     vault_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
@@ -746,7 +745,7 @@ class Notification(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/None>`_
@@ -760,7 +759,7 @@ class Notification(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/None>`_
@@ -774,7 +773,7 @@ class Notification(base.ServiceResource):
         """
         pass
 
-    def set(self, vaultNotificationConfig: Dict = None) -> NoReturn:
+    def set(self, vaultNotificationConfig: Dict = None):
         """
         
         To configure vault notifications, send a PUT request to the ``notification-configuration`` subresource of the vault. The request should include a JSON document that provides an Amazon SNS topic and specific events for which you want Amazon Glacier to send notifications to the topic.
@@ -884,7 +883,7 @@ class Vault(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         This operation is idempotent.
@@ -972,7 +971,7 @@ class Vault(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/None>`_
@@ -986,7 +985,7 @@ class Vault(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/None>`_

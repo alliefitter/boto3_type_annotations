@@ -1,10 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -12,7 +11,7 @@ class Client(BaseClient):
     def associate_team_member(self, projectId: str, userArn: str, projectRole: str, clientRequestToken: str = None, remoteAccessAllowed: bool = None) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def create_project(self, name: str, id: str, description: str = None, clientRequestToken: str = None, sourceCode: List = None, toolchain: Dict = None, tags: Dict = None) -> Dict:
@@ -36,7 +35,7 @@ class Client(BaseClient):
     def disassociate_team_member(self, projectId: str, userArn: str) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:

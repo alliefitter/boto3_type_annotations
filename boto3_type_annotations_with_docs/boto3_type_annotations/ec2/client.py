@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -750,7 +749,7 @@ class Client(BaseClient):
         """
         pass
 
-    def assign_private_ip_addresses(self, NetworkInterfaceId: str, AllowReassignment: bool = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> NoReturn:
+    def assign_private_ip_addresses(self, NetworkInterfaceId: str, AllowReassignment: bool = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None):
         """
         
         You can specify one or more specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned within the subnet's CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For information about instance types, see `Instance Types <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about Elastic IP addresses, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -883,7 +882,7 @@ class Client(BaseClient):
         """
         pass
 
-    def associate_dhcp_options(self, DhcpOptionsId: str, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def associate_dhcp_options(self, DhcpOptionsId: str, VpcId: str, DryRun: bool = None):
         """
         
         After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
@@ -1314,7 +1313,7 @@ class Client(BaseClient):
         """
         pass
 
-    def attach_internet_gateway(self, InternetGatewayId: str, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def attach_internet_gateway(self, InternetGatewayId: str, VpcId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachInternetGateway>`_
@@ -1565,7 +1564,7 @@ class Client(BaseClient):
         """
         pass
 
-    def authorize_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None) -> NoReturn:
+    def authorize_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         """
         
         Each rule consists of the protocol (for example, TCP), plus either a CIDR range or a source group. For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes. You can optionally specify a description for the rule.
@@ -1788,7 +1787,7 @@ class Client(BaseClient):
         """
         pass
 
-    def authorize_security_group_ingress(self, CidrIp: str = None, FromPort: int = None, GroupId: str = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None) -> NoReturn:
+    def authorize_security_group_ingress(self, CidrIp: str = None, FromPort: int = None, GroupId: str = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         """
         
         Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
@@ -2200,7 +2199,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -2390,7 +2389,7 @@ class Client(BaseClient):
         """
         pass
 
-    def cancel_conversion_task(self, ConversionTaskId: str, DryRun: bool = None, ReasonMessage: str = None) -> NoReturn:
+    def cancel_conversion_task(self, ConversionTaskId: str, DryRun: bool = None, ReasonMessage: str = None):
         """
         
         For more information, see `Importing a Virtual Machine Using the Amazon EC2 CLI <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html>`__ .
@@ -2424,7 +2423,7 @@ class Client(BaseClient):
         """
         pass
 
-    def cancel_export_task(self, ExportTaskId: str) -> NoReturn:
+    def cancel_export_task(self, ExportTaskId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelExportTask>`_
@@ -7142,7 +7141,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_network_acl_entry(self, Egress: bool, NetworkAclId: str, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None) -> NoReturn:
+    def create_network_acl_entry(self, Egress: bool, NetworkAclId: str, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None):
         """
         
         We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.
@@ -7743,7 +7742,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_placement_group(self, GroupName: str, Strategy: str, DryRun: bool = None) -> NoReturn:
+    def create_placement_group(self, GroupName: str, Strategy: str, DryRun: bool = None):
         """
         
         A ``cluster`` placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A ``spread`` placement group places instances on distinct hardware.
@@ -8855,7 +8854,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_tags(self, Resources: List, Tags: List, DryRun: bool = None) -> NoReturn:
+    def create_tags(self, Resources: List, Tags: List, DryRun: bool = None):
         """
         
         For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -10418,7 +10417,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_vpn_connection_route(self, DestinationCidrBlock: str, VpnConnectionId: str) -> NoReturn:
+    def create_vpn_connection_route(self, DestinationCidrBlock: str, VpnConnectionId: str):
         """
         
         For more information about VPN connections, see `AWS Managed VPN Connections <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -10581,7 +10580,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_customer_gateway(self, CustomerGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def delete_customer_gateway(self, CustomerGatewayId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteCustomerGateway>`_
@@ -10607,7 +10606,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None) -> NoReturn:
+    def delete_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteDhcpOptions>`_
@@ -10904,7 +10903,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def delete_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteInternetGateway>`_
@@ -10930,7 +10929,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_key_pair(self, KeyName: str, DryRun: bool = None) -> NoReturn:
+    def delete_key_pair(self, KeyName: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteKeyPair>`_
@@ -11223,7 +11222,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_network_acl(self, NetworkAclId: str, DryRun: bool = None) -> NoReturn:
+    def delete_network_acl(self, NetworkAclId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkAcl>`_
@@ -11249,7 +11248,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_network_acl_entry(self, Egress: bool, NetworkAclId: str, RuleNumber: int, DryRun: bool = None) -> NoReturn:
+    def delete_network_acl_entry(self, Egress: bool, NetworkAclId: str, RuleNumber: int, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkAclEntry>`_
@@ -11287,7 +11286,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_network_interface(self, NetworkInterfaceId: str, DryRun: bool = None) -> NoReturn:
+    def delete_network_interface(self, NetworkInterfaceId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInterface>`_
@@ -11364,7 +11363,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_placement_group(self, GroupName: str, DryRun: bool = None) -> NoReturn:
+    def delete_placement_group(self, GroupName: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeletePlacementGroup>`_
@@ -11390,7 +11389,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None) -> NoReturn:
+    def delete_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteRoute>`_
@@ -11428,7 +11427,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_route_table(self, RouteTableId: str, DryRun: bool = None) -> NoReturn:
+    def delete_route_table(self, RouteTableId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteRouteTable>`_
@@ -11454,7 +11453,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_security_group(self, GroupId: str = None, GroupName: str = None, DryRun: bool = None) -> NoReturn:
+    def delete_security_group(self, GroupId: str = None, GroupName: str = None, DryRun: bool = None):
         """
         
         If you attempt to delete a security group that is associated with an instance, or is referenced by another security group, the operation fails with ``InvalidGroup.InUse`` in EC2-Classic or ``DependencyViolation`` in EC2-VPC.
@@ -11488,7 +11487,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_snapshot(self, SnapshotId: str, DryRun: bool = None) -> NoReturn:
+    def delete_snapshot(self, SnapshotId: str, DryRun: bool = None):
         """
         
         When you make periodic snapshots of a volume, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the volume.
@@ -11520,7 +11519,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_spot_datafeed_subscription(self, DryRun: bool = None) -> NoReturn:
+    def delete_spot_datafeed_subscription(self, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSpotDatafeedSubscription>`_
@@ -11540,7 +11539,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_subnet(self, SubnetId: str, DryRun: bool = None) -> NoReturn:
+    def delete_subnet(self, SubnetId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSubnet>`_
@@ -11566,7 +11565,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_tags(self, Resources: List, DryRun: bool = None, Tags: List = None) -> NoReturn:
+    def delete_tags(self, Resources: List, DryRun: bool = None, Tags: List = None):
         """
         
         To list the current tags, use  DescribeTags . For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -11627,7 +11626,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_volume(self, VolumeId: str, DryRun: bool = None) -> NoReturn:
+    def delete_volume(self, VolumeId: str, DryRun: bool = None):
         """
         
         The volume can remain in the ``deleting`` state for several minutes.
@@ -11657,7 +11656,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_vpc(self, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def delete_vpc(self, VpcId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpc>`_
@@ -11953,7 +11952,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_vpn_connection(self, VpnConnectionId: str, DryRun: bool = None) -> NoReturn:
+    def delete_vpn_connection(self, VpnConnectionId: str, DryRun: bool = None):
         """
         
         If you're deleting the VPC and its associated components, we recommend that you detach the virtual private gateway from the VPC and delete the VPC before deleting the VPN connection. If you believe that the tunnel credentials for your VPN connection have been compromised, you can delete the VPN connection and create a new one that has new keys, without needing to delete the VPC or virtual private gateway. If you create a new VPN connection, you must reconfigure the customer gateway using the new configuration information returned with the new VPN connection ID.
@@ -11981,7 +11980,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_vpn_connection_route(self, DestinationCidrBlock: str, VpnConnectionId: str) -> NoReturn:
+    def delete_vpn_connection_route(self, DestinationCidrBlock: str, VpnConnectionId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnConnectionRoute>`_
@@ -12007,7 +12006,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_vpn_gateway(self, VpnGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def delete_vpn_gateway(self, VpnGatewayId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnGateway>`_
@@ -12099,7 +12098,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deregister_image(self, ImageId: str, DryRun: bool = None) -> NoReturn:
+    def deregister_image(self, ImageId: str, DryRun: bool = None):
         """
         
         When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.
@@ -31310,7 +31309,7 @@ class Client(BaseClient):
         """
         pass
 
-    def detach_internet_gateway(self, InternetGatewayId: str, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def detach_internet_gateway(self, InternetGatewayId: str, VpcId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachInternetGateway>`_
@@ -31342,7 +31341,7 @@ class Client(BaseClient):
         """
         pass
 
-    def detach_network_interface(self, AttachmentId: str, DryRun: bool = None, Force: bool = None) -> NoReturn:
+    def detach_network_interface(self, AttachmentId: str, DryRun: bool = None, Force: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachNetworkInterface>`_
@@ -31466,7 +31465,7 @@ class Client(BaseClient):
         """
         pass
 
-    def detach_vpn_gateway(self, VpcId: str, VpnGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def detach_vpn_gateway(self, VpcId: str, VpnGatewayId: str, DryRun: bool = None):
         """
         
         You must wait for the attachment's state to switch to ``detached`` before you can delete the VPC or attach a different VPC to the virtual private gateway.
@@ -31500,7 +31499,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disable_vgw_route_propagation(self, GatewayId: str, RouteTableId: str) -> NoReturn:
+    def disable_vgw_route_propagation(self, GatewayId: str, RouteTableId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableVgwRoutePropagation>`_
@@ -31606,7 +31605,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disassociate_address(self, AssociationId: str = None, PublicIp: str = None, DryRun: bool = None) -> NoReturn:
+    def disassociate_address(self, AssociationId: str = None, PublicIp: str = None, DryRun: bool = None):
         """
         
         An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -31718,7 +31717,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disassociate_route_table(self, AssociationId: str, DryRun: bool = None) -> NoReturn:
+    def disassociate_route_table(self, AssociationId: str, DryRun: bool = None):
         """
         
         After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see `Route Tables <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -31918,7 +31917,7 @@ class Client(BaseClient):
         """
         pass
 
-    def enable_vgw_route_propagation(self, GatewayId: str, RouteTableId: str) -> NoReturn:
+    def enable_vgw_route_propagation(self, GatewayId: str, RouteTableId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVgwRoutePropagation>`_
@@ -31944,7 +31943,7 @@ class Client(BaseClient):
         """
         pass
 
-    def enable_volume_io(self, VolumeId: str, DryRun: bool = None) -> NoReturn:
+    def enable_volume_io(self, VolumeId: str, DryRun: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVolumeIO>`_
@@ -32050,7 +32049,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -34907,7 +34906,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_id_format(self, Resource: str, UseLongIds: bool) -> NoReturn:
+    def modify_id_format(self, Resource: str, UseLongIds: bool):
         """
         
         This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: ``bundle`` | ``conversion-task`` | ``customer-gateway`` | ``dhcp-options`` | ``elastic-ip-allocation`` | ``elastic-ip-association`` | ``export-task`` | ``flow-log`` | ``image`` | ``import-task`` | ``internet-gateway`` | ``network-acl`` | ``network-acl-association`` | ``network-interface`` | ``network-interface-attachment`` | ``prefix-list`` | ``route-table`` | ``route-table-association`` | ``security-group`` | ``subnet`` | ``subnet-cidr-block-association`` | ``vpc`` | ``vpc-cidr-block-association`` | ``vpc-endpoint`` | ``vpc-peering-connection`` | ``vpn-connection`` | ``vpn-gateway`` .
@@ -34941,7 +34940,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_identity_id_format(self, PrincipalArn: str, Resource: str, UseLongIds: bool) -> NoReturn:
+    def modify_identity_id_format(self, PrincipalArn: str, Resource: str, UseLongIds: bool):
         """
         
         This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: ``bundle`` | ``conversion-task`` | ``customer-gateway`` | ``dhcp-options`` | ``elastic-ip-allocation`` | ``elastic-ip-association`` | ``export-task`` | ``flow-log`` | ``image`` | ``import-task`` | ``internet-gateway`` | ``network-acl`` | ``network-acl-association`` | ``network-interface`` | ``network-interface-attachment`` | ``prefix-list`` | ``route-table`` | ``route-table-association`` | ``security-group`` | ``subnet`` | ``subnet-cidr-block-association`` | ``vpc`` | ``vpc-cidr-block-association`` | ``vpc-endpoint`` | ``vpc-peering-connection`` | ``vpn-connection`` | ``vpn-gateway`` . 
@@ -34983,7 +34982,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_image_attribute(self, ImageId: str, Attribute: str = None, Description: Dict = None, LaunchPermission: Dict = None, OperationType: str = None, ProductCodes: List = None, UserGroups: List = None, UserIds: List = None, Value: str = None, DryRun: bool = None) -> NoReturn:
+    def modify_image_attribute(self, ImageId: str, Attribute: str = None, Description: Dict = None, LaunchPermission: Dict = None, OperationType: str = None, ProductCodes: List = None, UserGroups: List = None, UserIds: List = None, Value: str = None, DryRun: bool = None):
         """
         
         AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product code cannot be made public.
@@ -35124,7 +35123,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_instance_attribute(self, InstanceId: str, SourceDestCheck: Dict = None, Attribute: str = None, BlockDeviceMappings: List = None, DisableApiTermination: Dict = None, DryRun: bool = None, EbsOptimized: Dict = None, EnaSupport: Dict = None, Groups: List = None, InstanceInitiatedShutdownBehavior: Dict = None, InstanceType: Dict = None, Kernel: Dict = None, Ramdisk: Dict = None, SriovNetSupport: Dict = None, UserData: Dict = None, Value: str = None) -> NoReturn:
+    def modify_instance_attribute(self, InstanceId: str, SourceDestCheck: Dict = None, Attribute: str = None, BlockDeviceMappings: List = None, DisableApiTermination: Dict = None, DryRun: bool = None, EbsOptimized: Dict = None, EnaSupport: Dict = None, Groups: List = None, InstanceInitiatedShutdownBehavior: Dict = None, InstanceType: Dict = None, Kernel: Dict = None, Ramdisk: Dict = None, SriovNetSupport: Dict = None, UserData: Dict = None, Value: str = None):
         """
         
          **Note:** Using this action to change the security groups associated with an elastic network interface (ENI) attached to an instance in a VPC can result in an error if the instance has more than one ENI. To change the security groups associated with an ENI attached to an instance that has multiple ENIs, we recommend that you use the  ModifyNetworkInterfaceAttribute action.
@@ -35723,7 +35722,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_network_interface_attribute(self, NetworkInterfaceId: str, Attachment: Dict = None, Description: Dict = None, DryRun: bool = None, Groups: List = None, SourceDestCheck: Dict = None) -> NoReturn:
+    def modify_network_interface_attribute(self, NetworkInterfaceId: str, Attachment: Dict = None, Description: Dict = None, DryRun: bool = None, Groups: List = None, SourceDestCheck: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyNetworkInterfaceAttribute>`_
@@ -35889,7 +35888,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_snapshot_attribute(self, SnapshotId: str, Attribute: str = None, CreateVolumePermission: Dict = None, GroupNames: List = None, OperationType: str = None, UserIds: List = None, DryRun: bool = None) -> NoReturn:
+    def modify_snapshot_attribute(self, SnapshotId: str, Attribute: str = None, CreateVolumePermission: Dict = None, GroupNames: List = None, OperationType: str = None, UserIds: List = None, DryRun: bool = None):
         """
         
         Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made public. Snapshots encrypted with your default CMK cannot be shared with other accounts.
@@ -36061,7 +36060,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_subnet_attribute(self, SubnetId: str, AssignIpv6AddressOnCreation: Dict = None, MapPublicIpOnLaunch: Dict = None) -> NoReturn:
+    def modify_subnet_attribute(self, SubnetId: str, AssignIpv6AddressOnCreation: Dict = None, MapPublicIpOnLaunch: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySubnetAttribute>`_
@@ -36245,7 +36244,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_volume_attribute(self, VolumeId: str, AutoEnableIO: Dict = None, DryRun: bool = None) -> NoReturn:
+    def modify_volume_attribute(self, VolumeId: str, AutoEnableIO: Dict = None, DryRun: bool = None):
         """
         
         By default, all I/O operations for the volume are suspended when the data on the volume is determined to be potentially inconsistent, to prevent undetectable, latent data corruption. The I/O access to the volume can be resumed by first enabling I/O access and then checking the data consistency on your volume.
@@ -36287,7 +36286,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_vpc_attribute(self, VpcId: str, EnableDnsHostnames: Dict = None, EnableDnsSupport: Dict = None) -> NoReturn:
+    def modify_vpc_attribute(self, VpcId: str, EnableDnsHostnames: Dict = None, EnableDnsSupport: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcAttribute>`_
@@ -37442,7 +37441,7 @@ class Client(BaseClient):
         """
         pass
 
-    def reboot_instances(self, InstanceIds: List, DryRun: bool = None) -> NoReturn:
+    def reboot_instances(self, InstanceIds: List, DryRun: bool = None):
         """
         
         If an instance does not cleanly shut down within four minutes, Amazon EC2 performs a hard reboot.
@@ -37822,7 +37821,7 @@ class Client(BaseClient):
         """
         pass
 
-    def release_address(self, AllocationId: str = None, PublicIp: str = None, DryRun: bool = None) -> NoReturn:
+    def release_address(self, AllocationId: str = None, PublicIp: str = None, DryRun: bool = None):
         """
         
         [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. To disassociate an Elastic IP address without releasing it, use  DisassociateAddress .
@@ -38088,7 +38087,7 @@ class Client(BaseClient):
         """
         pass
 
-    def replace_network_acl_entry(self, Egress: bool, NetworkAclId: str, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None) -> NoReturn:
+    def replace_network_acl_entry(self, Egress: bool, NetworkAclId: str, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceNetworkAclEntry>`_
@@ -38186,7 +38185,7 @@ class Client(BaseClient):
         """
         pass
 
-    def replace_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None) -> NoReturn:
+    def replace_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None):
         """
         
         For more information, see `Route Tables <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -38313,7 +38312,7 @@ class Client(BaseClient):
         """
         pass
 
-    def report_instance_status(self, Instances: List, ReasonCodes: List, Status: str, Description: str = None, DryRun: bool = None, EndTime: datetime = None, StartTime: datetime = None) -> NoReturn:
+    def report_instance_status(self, Instances: List, ReasonCodes: List, Status: str, Description: str = None, DryRun: bool = None, EndTime: datetime = None, StartTime: datetime = None):
         """
         
         Use of this action does not change the value returned by  DescribeInstanceStatus .
@@ -39990,7 +39989,7 @@ class Client(BaseClient):
         """
         pass
 
-    def reset_image_attribute(self, Attribute: str, ImageId: str, DryRun: bool = None) -> NoReturn:
+    def reset_image_attribute(self, Attribute: str, ImageId: str, DryRun: bool = None):
         """
         
         .. note::
@@ -40026,7 +40025,7 @@ class Client(BaseClient):
         """
         pass
 
-    def reset_instance_attribute(self, Attribute: str, InstanceId: str, DryRun: bool = None) -> NoReturn:
+    def reset_instance_attribute(self, Attribute: str, InstanceId: str, DryRun: bool = None):
         """
         
         The ``sourceDestCheck`` attribute controls whether source/destination checking is enabled. The default value is ``true`` , which means checking is enabled. This value must be ``false`` for a NAT instance to perform NAT. For more information, see `NAT Instances <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -40064,7 +40063,7 @@ class Client(BaseClient):
         """
         pass
 
-    def reset_network_interface_attribute(self, NetworkInterfaceId: str, DryRun: bool = None, SourceDestCheck: str = None) -> NoReturn:
+    def reset_network_interface_attribute(self, NetworkInterfaceId: str, DryRun: bool = None, SourceDestCheck: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetNetworkInterfaceAttribute>`_
@@ -40096,7 +40095,7 @@ class Client(BaseClient):
         """
         pass
 
-    def reset_snapshot_attribute(self, Attribute: str, SnapshotId: str, DryRun: bool = None) -> NoReturn:
+    def reset_snapshot_attribute(self, Attribute: str, SnapshotId: str, DryRun: bool = None):
         """
         
         For more information about modifying snapshot permissions, see `Sharing Snapshots <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -40178,7 +40177,7 @@ class Client(BaseClient):
         """
         pass
 
-    def revoke_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None) -> NoReturn:
+    def revoke_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         """
         
         Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.
@@ -40401,7 +40400,7 @@ class Client(BaseClient):
         """
         pass
 
-    def revoke_security_group_ingress(self, CidrIp: str = None, FromPort: int = None, GroupId: str = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None) -> NoReturn:
+    def revoke_security_group_ingress(self, CidrIp: str = None, FromPort: int = None, GroupId: str = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         """
         
         .. note::
@@ -42822,7 +42821,7 @@ class Client(BaseClient):
         """
         pass
 
-    def unassign_private_ip_addresses(self, NetworkInterfaceId: str, PrivateIpAddresses: List) -> NoReturn:
+    def unassign_private_ip_addresses(self, NetworkInterfaceId: str, PrivateIpAddresses: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnassignPrivateIpAddresses>`_

@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class TableExists(Waiter):
-    def wait(self, TableName: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, TableName: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeTable>`_
@@ -43,7 +42,7 @@ class TableExists(Waiter):
 
 
 class TableNotExists(Waiter):
-    def wait(self, TableName: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, TableName: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeTable>`_

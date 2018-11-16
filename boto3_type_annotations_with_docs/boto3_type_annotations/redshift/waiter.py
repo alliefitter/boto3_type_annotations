@@ -1,12 +1,11 @@
 from datetime import datetime
 from typing import List
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class ClusterAvailable(Waiter):
-    def wait(self, ClusterIdentifier: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ClusterIdentifier: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeClusters>`_
@@ -85,7 +84,7 @@ class ClusterAvailable(Waiter):
 
 
 class ClusterDeleted(Waiter):
-    def wait(self, ClusterIdentifier: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ClusterIdentifier: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeClusters>`_
@@ -164,7 +163,7 @@ class ClusterDeleted(Waiter):
 
 
 class ClusterRestored(Waiter):
-    def wait(self, ClusterIdentifier: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ClusterIdentifier: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeClusters>`_
@@ -243,7 +242,7 @@ class ClusterRestored(Waiter):
 
 
 class SnapshotAvailable(Waiter):
-    def wait(self, ClusterIdentifier: str = None, SnapshotIdentifier: str = None, SnapshotType: str = None, StartTime: datetime = None, EndTime: datetime = None, MaxRecords: int = None, Marker: str = None, OwnerAccount: str = None, TagKeys: List = None, TagValues: List = None, ClusterExists: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ClusterIdentifier: str = None, SnapshotIdentifier: str = None, SnapshotType: str = None, StartTime: datetime = None, EndTime: datetime = None, MaxRecords: int = None, Marker: str = None, OwnerAccount: str = None, TagKeys: List = None, TagValues: List = None, ClusterExists: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeClusterSnapshots>`_

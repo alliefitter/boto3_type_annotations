@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def add_permission(self, QueueUrl: str, Label: str, AWSAccountIds: List, Actions: List) -> NoReturn:
+    def add_permission(self, QueueUrl: str, Label: str, AWSAccountIds: List, Actions: List):
         """
         
         When you create a queue, you have full control access rights for the queue. Only you, the owner of the queue, can grant or deny permissions to the queue. For more information about these permissions, see `Allow Developers to Write Messages to a Shared Queue <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue>`__ in the *Amazon Simple Queue Service Developer Guide* .
@@ -79,7 +78,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -95,7 +94,7 @@ class Client(BaseClient):
         """
         pass
 
-    def change_message_visibility(self, QueueUrl: str, ReceiptHandle: str, VisibilityTimeout: int) -> NoReturn:
+    def change_message_visibility(self, QueueUrl: str, ReceiptHandle: str, VisibilityTimeout: int):
         """
         
         For example, you have a message with a visibility timeout of 5 minutes. After 3 minutes, you call ``ChangeMessageVisibility`` with a timeout of 10 minutes. You can continue to call ``ChangeMessageVisibility`` to extend the visibility timeout to a maximum of 12 hours. If you try to extend the visibility timeout beyond 12 hours, your request is rejected.
@@ -418,7 +417,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_message(self, QueueUrl: str, ReceiptHandle: str) -> NoReturn:
+    def delete_message(self, QueueUrl: str, ReceiptHandle: str):
         """
         
         .. note::
@@ -574,7 +573,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_queue(self, QueueUrl: str) -> NoReturn:
+    def delete_queue(self, QueueUrl: str):
         """
         
         .. warning::
@@ -608,7 +607,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -989,7 +988,7 @@ class Client(BaseClient):
         """
         pass
 
-    def purge_queue(self, QueueUrl: str) -> NoReturn:
+    def purge_queue(self, QueueUrl: str):
         """
         
         .. warning::
@@ -1298,7 +1297,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_permission(self, QueueUrl: str, Label: str) -> NoReturn:
+    def remove_permission(self, QueueUrl: str, Label: str):
         """
         
         .. note::
@@ -1800,7 +1799,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_queue_attributes(self, QueueUrl: str, Attributes: Dict) -> NoReturn:
+    def set_queue_attributes(self, QueueUrl: str, Attributes: Dict):
         """
         
         .. note::
@@ -1888,7 +1887,7 @@ class Client(BaseClient):
         """
         pass
 
-    def tag_queue(self, QueueUrl: str, Tags: Dict) -> NoReturn:
+    def tag_queue(self, QueueUrl: str, Tags: Dict):
         """
         
         When you use queue tags, keep the following guidelines in mind:
@@ -1938,7 +1937,7 @@ class Client(BaseClient):
         """
         pass
 
-    def untag_queue(self, QueueUrl: str, TagKeys: List) -> NoReturn:
+    def untag_queue(self, QueueUrl: str, TagKeys: List):
         """
         
         When you use queue tags, keep the following guidelines in mind:

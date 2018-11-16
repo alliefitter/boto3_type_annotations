@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -474,7 +473,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deprecate_activity_type(self, domain: str, activityType: Dict) -> NoReturn:
+    def deprecate_activity_type(self, domain: str, activityType: Dict):
         """
         
         .. note::
@@ -539,7 +538,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deprecate_domain(self, name: str) -> NoReturn:
+    def deprecate_domain(self, name: str):
         """
         
         .. note::
@@ -575,7 +574,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deprecate_workflow_type(self, domain: str, workflowType: Dict) -> NoReturn:
+    def deprecate_workflow_type(self, domain: str, workflowType: Dict):
         """
         
         .. note::
@@ -1374,7 +1373,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -6950,7 +6949,7 @@ class Client(BaseClient):
         """
         pass
 
-    def register_activity_type(self, domain: str, name: str, version: str, description: str = None, defaultTaskStartToCloseTimeout: str = None, defaultTaskHeartbeatTimeout: str = None, defaultTaskList: Dict = None, defaultTaskPriority: str = None, defaultTaskScheduleToStartTimeout: str = None, defaultTaskScheduleToCloseTimeout: str = None) -> NoReturn:
+    def register_activity_type(self, domain: str, name: str, version: str, description: str = None, defaultTaskStartToCloseTimeout: str = None, defaultTaskHeartbeatTimeout: str = None, defaultTaskList: Dict = None, defaultTaskPriority: str = None, defaultTaskScheduleToStartTimeout: str = None, defaultTaskScheduleToCloseTimeout: str = None):
         """
         
         .. warning::
@@ -7070,7 +7069,7 @@ class Client(BaseClient):
         """
         pass
 
-    def register_domain(self, name: str, workflowExecutionRetentionPeriodInDays: str, description: str = None) -> NoReturn:
+    def register_domain(self, name: str, workflowExecutionRetentionPeriodInDays: str, description: str = None):
         """
         
          **Access Control**  
@@ -7120,7 +7119,7 @@ class Client(BaseClient):
         """
         pass
 
-    def register_workflow_type(self, domain: str, name: str, version: str, description: str = None, defaultTaskStartToCloseTimeout: str = None, defaultExecutionStartToCloseTimeout: str = None, defaultTaskList: Dict = None, defaultTaskPriority: str = None, defaultChildPolicy: str = None, defaultLambdaRole: str = None) -> NoReturn:
+    def register_workflow_type(self, domain: str, name: str, version: str, description: str = None, defaultTaskStartToCloseTimeout: str = None, defaultExecutionStartToCloseTimeout: str = None, defaultTaskList: Dict = None, defaultTaskPriority: str = None, defaultChildPolicy: str = None, defaultLambdaRole: str = None):
         """
         
         The retention period for the workflow history is set by the  RegisterDomain action.
@@ -7250,7 +7249,7 @@ class Client(BaseClient):
         """
         pass
 
-    def request_cancel_workflow_execution(self, domain: str, workflowId: str, runId: str = None) -> NoReturn:
+    def request_cancel_workflow_execution(self, domain: str, workflowId: str, runId: str = None):
         """
         
         .. note::
@@ -7302,7 +7301,7 @@ class Client(BaseClient):
         """
         pass
 
-    def respond_activity_task_canceled(self, taskToken: str, details: str = None) -> NoReturn:
+    def respond_activity_task_canceled(self, taskToken: str, details: str = None):
         """
         
         These ``details`` (if provided) appear in the ``ActivityTaskCanceled`` event added to the workflow history.
@@ -7352,7 +7351,7 @@ class Client(BaseClient):
         """
         pass
 
-    def respond_activity_task_completed(self, taskToken: str, result: str = None) -> NoReturn:
+    def respond_activity_task_completed(self, taskToken: str, result: str = None):
         """
         
         .. warning::
@@ -7400,7 +7399,7 @@ class Client(BaseClient):
         """
         pass
 
-    def respond_activity_task_failed(self, taskToken: str, reason: str = None, details: str = None) -> NoReturn:
+    def respond_activity_task_failed(self, taskToken: str, reason: str = None, details: str = None):
         """
         
         A task is considered open from the time that it is scheduled until it is closed. Therefore a task is reported as open while a worker is processing it. A task is closed after it has been specified in a call to  RespondActivityTaskCompleted ,  RespondActivityTaskCanceled , RespondActivityTaskFailed, or the task has `timed out <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types>`__ .
@@ -7450,7 +7449,7 @@ class Client(BaseClient):
         """
         pass
 
-    def respond_decision_task_completed(self, taskToken: str, decisions: List = None, executionContext: str = None) -> NoReturn:
+    def respond_decision_task_completed(self, taskToken: str, decisions: List = None, executionContext: str = None):
         """
         
         A ``DecisionTaskCompleted`` event is added to the workflow history. The ``executionContext`` specified is attached to the event in the workflow execution history.
@@ -8106,7 +8105,7 @@ class Client(BaseClient):
         """
         pass
 
-    def signal_workflow_execution(self, domain: str, workflowId: str, signalName: str, runId: str = None, input: str = None) -> NoReturn:
+    def signal_workflow_execution(self, domain: str, workflowId: str, signalName: str, runId: str = None, input: str = None):
         """
         
         .. note::
@@ -8366,7 +8365,7 @@ class Client(BaseClient):
         """
         pass
 
-    def terminate_workflow_execution(self, domain: str, workflowId: str, runId: str = None, reason: str = None, details: str = None, childPolicy: str = None) -> NoReturn:
+    def terminate_workflow_execution(self, domain: str, workflowId: str, runId: str = None, reason: str = None, details: str = None, childPolicy: str = None):
         """
         
         .. warning::

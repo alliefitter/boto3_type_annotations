@@ -1,16 +1,15 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def accept_certificate_transfer(self, certificateId: str, setAsActive: bool = None) -> NoReturn:
+    def accept_certificate_transfer(self, certificateId: str, setAsActive: bool = None):
         """
         
         To check for pending certificate transfers, call  ListCertificates to enumerate your certificates.
@@ -155,7 +154,7 @@ class Client(BaseClient):
         """
         pass
 
-    def attach_policy(self, policyName: str, target: str) -> NoReturn:
+    def attach_policy(self, policyName: str, target: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/AttachPolicy>`_
@@ -181,7 +180,7 @@ class Client(BaseClient):
         """
         pass
 
-    def attach_principal_policy(self, policyName: str, principal: str) -> NoReturn:
+    def attach_principal_policy(self, policyName: str, principal: str):
         """
         
          **Note:** This API is deprecated. Please use  AttachPolicy instead.
@@ -288,7 +287,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -334,7 +333,7 @@ class Client(BaseClient):
         """
         pass
 
-    def cancel_certificate_transfer(self, certificateId: str) -> NoReturn:
+    def cancel_certificate_transfer(self, certificateId: str):
         """
         
          **Note** Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use  RejectCertificateTransfer instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.
@@ -419,7 +418,7 @@ class Client(BaseClient):
         """
         pass
 
-    def cancel_job_execution(self, jobId: str, thingName: str, force: bool = None, expectedVersion: int = None, statusDetails: Dict = None) -> NoReturn:
+    def cancel_job_execution(self, jobId: str, thingName: str, force: bool = None, expectedVersion: int = None, statusDetails: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CancelJobExecution>`_
@@ -1889,7 +1888,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_topic_rule(self, ruleName: str, topicRulePayload: Dict) -> NoReturn:
+    def create_topic_rule(self, ruleName: str, topicRulePayload: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreateTopicRule>`_
@@ -2787,7 +2786,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_certificate(self, certificateId: str, forceDelete: bool = None) -> NoReturn:
+    def delete_certificate(self, certificateId: str, forceDelete: bool = None):
         """
         
         A certificate cannot be deleted if it has a policy attached to it or if its status is set to ACTIVE. To delete a certificate, first use the  DetachPrincipalPolicy API to detach all policies. Next, use the  UpdateCertificate API to set the certificate to the INACTIVE status.
@@ -2815,7 +2814,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_job(self, jobId: str, force: bool = None) -> NoReturn:
+    def delete_job(self, jobId: str, force: bool = None):
         """
         
         Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status is already "DELETION_IN_PROGRESS" will result in an error.
@@ -2851,7 +2850,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_job_execution(self, jobId: str, thingName: str, executionNumber: int, force: bool = None) -> NoReturn:
+    def delete_job_execution(self, jobId: str, thingName: str, executionNumber: int, force: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DeleteJobExecution>`_
@@ -2937,7 +2936,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_policy(self, policyName: str) -> NoReturn:
+    def delete_policy(self, policyName: str):
         """
         
         A policy cannot be deleted if it has non-default versions or it is attached to any certificate.
@@ -2963,7 +2962,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_policy_version(self, policyName: str, policyVersionId: str) -> NoReturn:
+    def delete_policy_version(self, policyName: str, policyVersionId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DeletePolicyVersion>`_
@@ -3250,7 +3249,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_topic_rule(self, ruleName: str) -> NoReturn:
+    def delete_topic_rule(self, ruleName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DeleteTopicRule>`_
@@ -3270,7 +3269,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_v2_logging_level(self, targetType: str, targetName: str) -> NoReturn:
+    def delete_v2_logging_level(self, targetType: str, targetName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DeleteV2LoggingLevel>`_
@@ -5247,7 +5246,7 @@ class Client(BaseClient):
         """
         pass
 
-    def detach_policy(self, policyName: str, target: str) -> NoReturn:
+    def detach_policy(self, policyName: str, target: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DetachPolicy>`_
@@ -5273,7 +5272,7 @@ class Client(BaseClient):
         """
         pass
 
-    def detach_principal_policy(self, policyName: str, principal: str) -> NoReturn:
+    def detach_principal_policy(self, policyName: str, principal: str):
         """
         
          **Note:** This API is deprecated. Please use  DetachPolicy instead.
@@ -5382,7 +5381,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disable_topic_rule(self, ruleName: str) -> NoReturn:
+    def disable_topic_rule(self, ruleName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DisableTopicRule>`_
@@ -5402,7 +5401,7 @@ class Client(BaseClient):
         """
         pass
 
-    def enable_topic_rule(self, ruleName: str) -> NoReturn:
+    def enable_topic_rule(self, ruleName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/EnableTopicRule>`_
@@ -5422,7 +5421,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -10627,7 +10626,7 @@ class Client(BaseClient):
         """
         pass
 
-    def reject_certificate_transfer(self, certificateId: str, rejectReason: str = None) -> NoReturn:
+    def reject_certificate_transfer(self, certificateId: str, rejectReason: str = None):
         """
         
         To check for pending certificate transfers, call  ListCertificates to enumerate your certificates.
@@ -10705,7 +10704,7 @@ class Client(BaseClient):
         """
         pass
 
-    def replace_topic_rule(self, ruleName: str, topicRulePayload: Dict) -> NoReturn:
+    def replace_topic_rule(self, ruleName: str, topicRulePayload: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/ReplaceTopicRule>`_
@@ -11712,7 +11711,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_default_policy_version(self, policyName: str, policyVersionId: str) -> NoReturn:
+    def set_default_policy_version(self, policyName: str, policyVersionId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/SetDefaultPolicyVersion>`_
@@ -11738,7 +11737,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_logging_options(self, loggingOptionsPayload: Dict) -> NoReturn:
+    def set_logging_options(self, loggingOptionsPayload: Dict):
         """
         
         NOTE: use of this command is not recommended. Use ``SetV2LoggingOptions`` instead.
@@ -11771,7 +11770,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_v2_logging_level(self, logTarget: Dict, logLevel: str) -> NoReturn:
+    def set_v2_logging_level(self, logTarget: Dict, logLevel: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/SetV2LoggingLevel>`_
@@ -11808,7 +11807,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_v2_logging_options(self, roleArn: str = None, defaultLogLevel: str = None, disableAllLogs: bool = None) -> NoReturn:
+    def set_v2_logging_options(self, roleArn: str = None, defaultLogLevel: str = None, disableAllLogs: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/SetV2LoggingOptions>`_
@@ -12487,7 +12486,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_ca_certificate(self, certificateId: str, newStatus: str = None, newAutoRegistrationStatus: str = None, registrationConfig: Dict = None, removeAutoRegistration: bool = None) -> NoReturn:
+    def update_ca_certificate(self, certificateId: str, newStatus: str = None, newAutoRegistrationStatus: str = None, registrationConfig: Dict = None, removeAutoRegistration: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/UpdateCACertificate>`_
@@ -12544,7 +12543,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_certificate(self, certificateId: str, newStatus: str) -> NoReturn:
+    def update_certificate(self, certificateId: str, newStatus: str):
         """
         
         Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect currently connected devices, but these devices will be unable to reconnect.

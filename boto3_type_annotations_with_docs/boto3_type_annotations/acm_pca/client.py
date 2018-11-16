@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -252,7 +251,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_certificate_authority(self, CertificateAuthorityArn: str, PermanentDeletionTimeInDays: int = None) -> NoReturn:
+    def delete_certificate_authority(self, CertificateAuthorityArn: str, PermanentDeletionTimeInDays: int = None):
         """
         
         Additionally, you can delete a CA if you are waiting for it to be created (the **Status** field of the  CertificateAuthority is ``CREATING`` ). You can also delete it if the CA has been created but you haven't yet imported the signed certificate (the **Status** is ``PENDING_CERTIFICATE`` ) into ACM PCA. 
@@ -572,7 +571,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -761,7 +760,7 @@ class Client(BaseClient):
         """
         pass
 
-    def import_certificate_authority_certificate(self, CertificateAuthorityArn: str, Certificate: bytes, CertificateChain: bytes) -> NoReturn:
+    def import_certificate_authority_certificate(self, CertificateAuthorityArn: str, Certificate: bytes, CertificateChain: bytes):
         """
         
         .. note::
@@ -1195,7 +1194,7 @@ class Client(BaseClient):
         """
         pass
 
-    def restore_certificate_authority(self, CertificateAuthorityArn: str) -> NoReturn:
+    def restore_certificate_authority(self, CertificateAuthorityArn: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/RestoreCertificateAuthority>`_
@@ -1217,7 +1216,7 @@ class Client(BaseClient):
         """
         pass
 
-    def revoke_certificate(self, CertificateAuthorityArn: str, CertificateSerial: str, RevocationReason: str) -> NoReturn:
+    def revoke_certificate(self, CertificateAuthorityArn: str, CertificateSerial: str, RevocationReason: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/RevokeCertificate>`_
@@ -1255,7 +1254,7 @@ class Client(BaseClient):
         """
         pass
 
-    def tag_certificate_authority(self, CertificateAuthorityArn: str, Tags: List) -> NoReturn:
+    def tag_certificate_authority(self, CertificateAuthorityArn: str, Tags: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/TagCertificateAuthority>`_
@@ -1300,7 +1299,7 @@ class Client(BaseClient):
         """
         pass
 
-    def untag_certificate_authority(self, CertificateAuthorityArn: str, Tags: List) -> NoReturn:
+    def untag_certificate_authority(self, CertificateAuthorityArn: str, Tags: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/UntagCertificateAuthority>`_
@@ -1345,7 +1344,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_certificate_authority(self, CertificateAuthorityArn: str, RevocationConfiguration: Dict = None, Status: str = None) -> NoReturn:
+    def update_certificate_authority(self, CertificateAuthorityArn: str, RevocationConfiguration: Dict = None, Status: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/UpdateCertificateAuthority>`_

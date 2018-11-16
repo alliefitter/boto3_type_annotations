@@ -1,11 +1,10 @@
 from typing import List
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class AlarmExists(Waiter):
-    def wait(self, AlarmNames: List = None, AlarmNamePrefix: str = None, StateValue: str = None, ActionPrefix: str = None, MaxRecords: int = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, AlarmNames: List = None, AlarmNamePrefix: str = None, StateValue: str = None, ActionPrefix: str = None, MaxRecords: int = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/DescribeAlarms>`_

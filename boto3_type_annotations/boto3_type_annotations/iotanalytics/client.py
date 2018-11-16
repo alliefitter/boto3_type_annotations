@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -13,7 +12,7 @@ class Client(BaseClient):
     def batch_put_message(self, channelName: str, messages: List) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def cancel_pipeline_reprocessing(self, pipelineName: str, reprocessingId: str) -> Dict:
@@ -34,19 +33,19 @@ class Client(BaseClient):
     def create_pipeline(self, pipelineName: str, pipelineActivities: List, tags: List = None) -> Dict:
         pass
 
-    def delete_channel(self, channelName: str) -> NoReturn:
+    def delete_channel(self, channelName: str):
         pass
 
-    def delete_dataset(self, datasetName: str) -> NoReturn:
+    def delete_dataset(self, datasetName: str):
         pass
 
-    def delete_dataset_content(self, datasetName: str, versionId: str = None) -> NoReturn:
+    def delete_dataset_content(self, datasetName: str, versionId: str = None):
         pass
 
-    def delete_datastore(self, datastoreName: str) -> NoReturn:
+    def delete_datastore(self, datastoreName: str):
         pass
 
-    def delete_pipeline(self, pipelineName: str) -> NoReturn:
+    def delete_pipeline(self, pipelineName: str):
         pass
 
     def describe_channel(self, channelName: str, includeStatistics: bool = None) -> Dict:
@@ -64,7 +63,7 @@ class Client(BaseClient):
     def describe_pipeline(self, pipelineName: str) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_dataset_content(self, datasetName: str, versionId: str = None) -> Dict:
@@ -94,7 +93,7 @@ class Client(BaseClient):
     def list_tags_for_resource(self, resourceArn: str) -> Dict:
         pass
 
-    def put_logging_options(self, loggingOptions: Dict) -> NoReturn:
+    def put_logging_options(self, loggingOptions: Dict):
         pass
 
     def run_pipeline_activity(self, pipelineActivity: Dict, payloads: List) -> Dict:
@@ -112,14 +111,14 @@ class Client(BaseClient):
     def untag_resource(self, resourceArn: str, tagKeys: List) -> Dict:
         pass
 
-    def update_channel(self, channelName: str, retentionPeriod: Dict = None) -> NoReturn:
+    def update_channel(self, channelName: str, retentionPeriod: Dict = None):
         pass
 
-    def update_dataset(self, datasetName: str, actions: List, triggers: List = None, retentionPeriod: Dict = None) -> NoReturn:
+    def update_dataset(self, datasetName: str, actions: List, triggers: List = None, retentionPeriod: Dict = None):
         pass
 
-    def update_datastore(self, datastoreName: str, retentionPeriod: Dict = None) -> NoReturn:
+    def update_datastore(self, datastoreName: str, retentionPeriod: Dict = None):
         pass
 
-    def update_pipeline(self, pipelineName: str, pipelineActivities: List) -> NoReturn:
+    def update_pipeline(self, pipelineName: str, pipelineActivities: List):
         pass

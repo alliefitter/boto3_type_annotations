@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class ClusterRunning(Waiter):
-    def wait(self, ClusterId: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ClusterId: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/DescribeCluster>`_
@@ -43,7 +42,7 @@ class ClusterRunning(Waiter):
 
 
 class ClusterTerminated(Waiter):
-    def wait(self, ClusterId: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ClusterId: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/DescribeCluster>`_
@@ -82,7 +81,7 @@ class ClusterTerminated(Waiter):
 
 
 class StepComplete(Waiter):
-    def wait(self, ClusterId: str, StepId: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ClusterId: str, StepId: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/DescribeStep>`_

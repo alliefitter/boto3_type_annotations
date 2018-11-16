@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class JobComplete(Waiter):
-    def wait(self, Id: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Id: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elastictranscoder-2012-09-25/ReadJob>`_

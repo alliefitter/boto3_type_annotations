@@ -1,51 +1,50 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def associate_kms_key(self, logGroupName: str, kmsKeyId: str) -> NoReturn:
+    def associate_kms_key(self, logGroupName: str, kmsKeyId: str):
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
-    def cancel_export_task(self, taskId: str) -> NoReturn:
+    def cancel_export_task(self, taskId: str):
         pass
 
     def create_export_task(self, logGroupName: str, fromTime: int, to: int, destination: str, taskName: str = None, logStreamNamePrefix: str = None, destinationPrefix: str = None) -> Dict:
         pass
 
-    def create_log_group(self, logGroupName: str, kmsKeyId: str = None, tags: Dict = None) -> NoReturn:
+    def create_log_group(self, logGroupName: str, kmsKeyId: str = None, tags: Dict = None):
         pass
 
-    def create_log_stream(self, logGroupName: str, logStreamName: str) -> NoReturn:
+    def create_log_stream(self, logGroupName: str, logStreamName: str):
         pass
 
-    def delete_destination(self, destinationName: str) -> NoReturn:
+    def delete_destination(self, destinationName: str):
         pass
 
-    def delete_log_group(self, logGroupName: str) -> NoReturn:
+    def delete_log_group(self, logGroupName: str):
         pass
 
-    def delete_log_stream(self, logGroupName: str, logStreamName: str) -> NoReturn:
+    def delete_log_stream(self, logGroupName: str, logStreamName: str):
         pass
 
-    def delete_metric_filter(self, logGroupName: str, filterName: str) -> NoReturn:
+    def delete_metric_filter(self, logGroupName: str, filterName: str):
         pass
 
-    def delete_resource_policy(self, policyName: str = None) -> NoReturn:
+    def delete_resource_policy(self, policyName: str = None):
         pass
 
-    def delete_retention_policy(self, logGroupName: str) -> NoReturn:
+    def delete_retention_policy(self, logGroupName: str):
         pass
 
-    def delete_subscription_filter(self, logGroupName: str, filterName: str) -> NoReturn:
+    def delete_subscription_filter(self, logGroupName: str, filterName: str):
         pass
 
     def describe_destinations(self, DestinationNamePrefix: str = None, nextToken: str = None, limit: int = None) -> Dict:
@@ -69,13 +68,13 @@ class Client(BaseClient):
     def describe_subscription_filters(self, logGroupName: str, filterNamePrefix: str = None, nextToken: str = None, limit: int = None) -> Dict:
         pass
 
-    def disassociate_kms_key(self, logGroupName: str) -> NoReturn:
+    def disassociate_kms_key(self, logGroupName: str):
         pass
 
     def filter_log_events(self, logGroupName: str, logStreamNames: List = None, logStreamNamePrefix: str = None, startTime: int = None, endTime: int = None, filterPattern: str = None, nextToken: str = None, limit: int = None, interleaved: bool = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_log_events(self, logGroupName: str, logStreamName: str, startTime: int = None, endTime: int = None, nextToken: str = None, limit: int = None, startFromHead: bool = None) -> Dict:
@@ -93,29 +92,29 @@ class Client(BaseClient):
     def put_destination(self, destinationName: str, targetArn: str, roleArn: str) -> Dict:
         pass
 
-    def put_destination_policy(self, destinationName: str, accessPolicy: str) -> NoReturn:
+    def put_destination_policy(self, destinationName: str, accessPolicy: str):
         pass
 
     def put_log_events(self, logGroupName: str, logStreamName: str, logEvents: List, sequenceToken: str = None) -> Dict:
         pass
 
-    def put_metric_filter(self, logGroupName: str, filterName: str, filterPattern: str, metricTransformations: List) -> NoReturn:
+    def put_metric_filter(self, logGroupName: str, filterName: str, filterPattern: str, metricTransformations: List):
         pass
 
     def put_resource_policy(self, policyName: str = None, policyDocument: str = None) -> Dict:
         pass
 
-    def put_retention_policy(self, logGroupName: str, retentionInDays: int) -> NoReturn:
+    def put_retention_policy(self, logGroupName: str, retentionInDays: int):
         pass
 
-    def put_subscription_filter(self, logGroupName: str, filterName: str, filterPattern: str, destinationArn: str, roleArn: str = None, distribution: str = None) -> NoReturn:
+    def put_subscription_filter(self, logGroupName: str, filterName: str, filterPattern: str, destinationArn: str, roleArn: str = None, distribution: str = None):
         pass
 
-    def tag_log_group(self, logGroupName: str, tags: Dict) -> NoReturn:
+    def tag_log_group(self, logGroupName: str, tags: Dict):
         pass
 
     def test_metric_filter(self, filterPattern: str, logEventMessages: List) -> Dict:
         pass
 
-    def untag_log_group(self, logGroupName: str, tags: List) -> NoReturn:
+    def untag_log_group(self, logGroupName: str, tags: List):
         pass

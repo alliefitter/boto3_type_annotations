@@ -1,11 +1,10 @@
 from typing import List
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class ServicesInactive(Waiter):
-    def wait(self, services: List, cluster: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, services: List, cluster: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DescribeServices>`_
@@ -54,7 +53,7 @@ class ServicesInactive(Waiter):
 
 
 class ServicesStable(Waiter):
-    def wait(self, services: List, cluster: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, services: List, cluster: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DescribeServices>`_
@@ -103,7 +102,7 @@ class ServicesStable(Waiter):
 
 
 class TasksRunning(Waiter):
-    def wait(self, tasks: List, cluster: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, tasks: List, cluster: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DescribeTasks>`_
@@ -152,7 +151,7 @@ class TasksRunning(Waiter):
 
 
 class TasksStopped(Waiter):
-    def wait(self, tasks: List, cluster: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, tasks: List, cluster: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DescribeTasks>`_

@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -13,7 +12,7 @@ class Client(BaseClient):
     def accept_match(self, TicketId: str, PlayerIds: List, AcceptanceType: str) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def create_alias(self, Name: str, RoutingStrategy: Dict, Description: str = None) -> Dict:
@@ -49,13 +48,13 @@ class Client(BaseClient):
     def create_vpc_peering_connection(self, FleetId: str, PeerVpcAwsAccountId: str, PeerVpcId: str) -> Dict:
         pass
 
-    def delete_alias(self, AliasId: str) -> NoReturn:
+    def delete_alias(self, AliasId: str):
         pass
 
-    def delete_build(self, BuildId: str) -> NoReturn:
+    def delete_build(self, BuildId: str):
         pass
 
-    def delete_fleet(self, FleetId: str) -> NoReturn:
+    def delete_fleet(self, FleetId: str):
         pass
 
     def delete_game_session_queue(self, Name: str) -> Dict:
@@ -64,7 +63,7 @@ class Client(BaseClient):
     def delete_matchmaking_configuration(self, Name: str) -> Dict:
         pass
 
-    def delete_scaling_policy(self, Name: str, FleetId: str) -> NoReturn:
+    def delete_scaling_policy(self, Name: str, FleetId: str):
         pass
 
     def delete_vpc_peering_authorization(self, GameLiftAwsAccountId: str, PeerVpcId: str) -> Dict:
@@ -136,7 +135,7 @@ class Client(BaseClient):
     def describe_vpc_peering_connections(self, FleetId: str = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_game_session_log_url(self, GameSessionId: str) -> Dict:

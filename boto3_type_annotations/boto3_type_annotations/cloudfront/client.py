@@ -1,14 +1,13 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
+from botocore.paginate import Paginator
+from typing import Union
+from typing import Optional
 from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def create_cloud_front_origin_access_identity(self, CloudFrontOriginAccessIdentityConfig: Dict) -> Dict:
@@ -38,25 +37,25 @@ class Client(BaseClient):
     def create_streaming_distribution_with_tags(self, StreamingDistributionConfigWithTags: Dict) -> Dict:
         pass
 
-    def delete_cloud_front_origin_access_identity(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_cloud_front_origin_access_identity(self, Id: str, IfMatch: str = None):
         pass
 
-    def delete_distribution(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_distribution(self, Id: str, IfMatch: str = None):
         pass
 
-    def delete_field_level_encryption_config(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_field_level_encryption_config(self, Id: str, IfMatch: str = None):
         pass
 
-    def delete_field_level_encryption_profile(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_field_level_encryption_profile(self, Id: str, IfMatch: str = None):
         pass
 
-    def delete_public_key(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_public_key(self, Id: str, IfMatch: str = None):
         pass
 
-    def delete_streaming_distribution(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_streaming_distribution(self, Id: str, IfMatch: str = None):
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_cloud_front_origin_access_identity(self, Id: str) -> Dict:
@@ -131,10 +130,10 @@ class Client(BaseClient):
     def list_tags_for_resource(self, Resource: str) -> Dict:
         pass
 
-    def tag_resource(self, Resource: str, Tags: Dict) -> NoReturn:
+    def tag_resource(self, Resource: str, Tags: Dict):
         pass
 
-    def untag_resource(self, Resource: str, TagKeys: Dict) -> NoReturn:
+    def untag_resource(self, Resource: str, TagKeys: Dict):
         pass
 
     def update_cloud_front_origin_access_identity(self, CloudFrontOriginAccessIdentityConfig: Dict, Id: str, IfMatch: str = None) -> Dict:

@@ -1,9 +1,8 @@
-from typing import Optional
-from boto3.resources.collection import ResourceCollection
 from typing import Dict
 from typing import Union
+from typing import Optional
+from boto3.resources.collection import ResourceCollection
 from typing import List
-from typing import NoReturn
 from datetime import datetime
 from boto3.resources import base
 
@@ -321,7 +320,7 @@ class ServiceResource(base.ServiceResource):
         """
         pass
 
-    def change_password(self, OldPassword: str, NewPassword: str) -> NoReturn:
+    def change_password(self, OldPassword: str, NewPassword: str):
         """
         
         To change the password for a different user, see  UpdateLoginProfile . For more information about modifying passwords, see `Managing Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
@@ -351,7 +350,7 @@ class ServiceResource(base.ServiceResource):
         """
         pass
 
-    def create_account_alias(self, AccountAlias: str) -> NoReturn:
+    def create_account_alias(self, AccountAlias: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateAccountAlias>`_
@@ -939,7 +938,7 @@ class AccessKey(base.ServiceResource):
     user_name: str
     id: str
 
-    def activate(self) -> NoReturn:
+    def activate(self):
         """
         
         If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
@@ -957,7 +956,7 @@ class AccessKey(base.ServiceResource):
         """
         pass
 
-    def deactivate(self) -> NoReturn:
+    def deactivate(self):
         """
         
         If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
@@ -975,7 +974,7 @@ class AccessKey(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
@@ -1011,7 +1010,7 @@ class AccessKeyPair(base.ServiceResource):
     id: str
     secret: str
 
-    def activate(self) -> NoReturn:
+    def activate(self):
         """
         
         If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
@@ -1029,7 +1028,7 @@ class AccessKeyPair(base.ServiceResource):
         """
         pass
 
-    def deactivate(self) -> NoReturn:
+    def deactivate(self):
         """
         
         If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
@@ -1047,7 +1046,7 @@ class AccessKeyPair(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
@@ -1086,7 +1085,7 @@ class AccountPasswordPolicy(base.ServiceResource):
     password_reuse_prevention: int
     hard_expiry: bool
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteAccountPasswordPolicy>`_
@@ -1110,7 +1109,7 @@ class AccountPasswordPolicy(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1124,7 +1123,7 @@ class AccountPasswordPolicy(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1138,7 +1137,7 @@ class AccountPasswordPolicy(base.ServiceResource):
         """
         pass
 
-    def update(self, MinimumPasswordLength: int = None, RequireSymbols: bool = None, RequireNumbers: bool = None, RequireUppercaseCharacters: bool = None, RequireLowercaseCharacters: bool = None, AllowUsersToChangePassword: bool = None, MaxPasswordAge: int = None, PasswordReusePrevention: int = None, HardExpiry: bool = None) -> NoReturn:
+    def update(self, MinimumPasswordLength: int = None, RequireSymbols: bool = None, RequireNumbers: bool = None, RequireUppercaseCharacters: bool = None, RequireLowercaseCharacters: bool = None, AllowUsersToChangePassword: bool = None, MaxPasswordAge: int = None, PasswordReusePrevention: int = None, HardExpiry: bool = None):
         """
         
         .. note::
@@ -1246,7 +1245,7 @@ class AccountSummary(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1260,7 +1259,7 @@ class AccountSummary(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1288,7 +1287,7 @@ class AssumeRolePolicy(base.ServiceResource):
         """
         pass
 
-    def update(self, PolicyDocument: str) -> NoReturn:
+    def update(self, PolicyDocument: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAssumeRolePolicy>`_
@@ -1339,7 +1338,7 @@ class CurrentUser(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1353,7 +1352,7 @@ class CurrentUser(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1379,7 +1378,7 @@ class Group(base.ServiceResource):
     policies: 'policies'
     users: 'users'
 
-    def add_user(self, UserName: str) -> NoReturn:
+    def add_user(self, UserName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AddUserToGroup>`_
@@ -1401,7 +1400,7 @@ class Group(base.ServiceResource):
         """
         pass
 
-    def attach_policy(self, PolicyArn: str) -> NoReturn:
+    def attach_policy(self, PolicyArn: str):
         """
         
         You use this API to attach a managed policy to a group. To embed an inline policy in a group, use  PutGroupPolicy .
@@ -1500,7 +1499,7 @@ class Group(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteGroup>`_
@@ -1514,7 +1513,7 @@ class Group(base.ServiceResource):
         """
         pass
 
-    def detach_policy(self, PolicyArn: str) -> NoReturn:
+    def detach_policy(self, PolicyArn: str):
         """
         
         A group can also have inline policies embedded with it. To delete an inline policy, use the  DeleteGroupPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -1548,7 +1547,7 @@ class Group(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1562,7 +1561,7 @@ class Group(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1576,7 +1575,7 @@ class Group(base.ServiceResource):
         """
         pass
 
-    def remove_user(self, UserName: str) -> NoReturn:
+    def remove_user(self, UserName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/RemoveUserFromGroup>`_
@@ -1644,7 +1643,7 @@ class GroupPolicy(base.ServiceResource):
     group_name: str
     name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         A group can also have managed policies attached to it. To detach a managed policy from a group, use  DetachGroupPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -1670,7 +1669,7 @@ class GroupPolicy(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1684,7 +1683,7 @@ class GroupPolicy(base.ServiceResource):
         """
         pass
 
-    def put(self, PolicyDocument: str) -> NoReturn:
+    def put(self, PolicyDocument: str):
         """
         
         A user can also have managed policies attached to it. To attach a managed policy to a group, use  AttachGroupPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -1720,7 +1719,7 @@ class GroupPolicy(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1744,7 +1743,7 @@ class InstanceProfile(base.ServiceResource):
     roles_attribute: List
     name: str
 
-    def add_role(self, RoleName: str) -> NoReturn:
+    def add_role(self, RoleName: str):
         """
         
         .. note::
@@ -1772,7 +1771,7 @@ class InstanceProfile(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         .. warning::
@@ -1802,7 +1801,7 @@ class InstanceProfile(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1816,7 +1815,7 @@ class InstanceProfile(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1830,7 +1829,7 @@ class InstanceProfile(base.ServiceResource):
         """
         pass
 
-    def remove_role(self, RoleName: str) -> NoReturn:
+    def remove_role(self, RoleName: str):
         """
         
         .. warning::
@@ -1893,7 +1892,7 @@ class LoginProfile(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         .. warning::
@@ -1921,7 +1920,7 @@ class LoginProfile(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1935,7 +1934,7 @@ class LoginProfile(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -1949,7 +1948,7 @@ class LoginProfile(base.ServiceResource):
         """
         pass
 
-    def update(self, Password: str = None, PasswordResetRequired: bool = None) -> NoReturn:
+    def update(self, Password: str = None, PasswordResetRequired: bool = None):
         """
         
         IAM users can change their own passwords by calling  ChangePassword . For more information about modifying passwords, see `Managing Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
@@ -1993,7 +1992,7 @@ class MfaDevice(base.ServiceResource):
     user_name: str
     serial_number: str
 
-    def associate(self, AuthenticationCode1: str, AuthenticationCode2: str) -> NoReturn:
+    def associate(self, AuthenticationCode1: str, AuthenticationCode2: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/EnableMFADevice>`_
@@ -2031,7 +2030,7 @@ class MfaDevice(base.ServiceResource):
         """
         pass
 
-    def disassociate(self) -> NoReturn:
+    def disassociate(self):
         """
         
         For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
@@ -2057,7 +2056,7 @@ class MfaDevice(base.ServiceResource):
         """
         pass
 
-    def resync(self, AuthenticationCode1: str, AuthenticationCode2: str) -> NoReturn:
+    def resync(self, AuthenticationCode1: str, AuthenticationCode2: str):
         """
         
         For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
@@ -2107,7 +2106,7 @@ class Policy(base.ServiceResource):
     attached_users: 'attached_users'
     versions: 'versions'
 
-    def attach_group(self, GroupName: str) -> NoReturn:
+    def attach_group(self, GroupName: str):
         """
         
         You use this API to attach a managed policy to a group. To embed an inline policy in a group, use  PutGroupPolicy .
@@ -2134,7 +2133,7 @@ class Policy(base.ServiceResource):
         """
         pass
 
-    def attach_role(self, RoleName: str) -> NoReturn:
+    def attach_role(self, RoleName: str):
         """
         
         .. note::
@@ -2163,7 +2162,7 @@ class Policy(base.ServiceResource):
         """
         pass
 
-    def attach_user(self, UserName: str) -> NoReturn:
+    def attach_user(self, UserName: str):
         """
         
         You use this API to attach a *managed* policy to a user. To embed an inline policy in a user, use  PutUserPolicy .
@@ -2233,7 +2232,7 @@ class Policy(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that it is attached to. In addition you must delete all the policy's versions. The following steps describe the process for deleting a managed policy:
@@ -2257,7 +2256,7 @@ class Policy(base.ServiceResource):
         """
         pass
 
-    def detach_group(self, GroupName: str) -> NoReturn:
+    def detach_group(self, GroupName: str):
         """
         
         A group can also have inline policies embedded with it. To delete an inline policy, use the  DeleteGroupPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -2282,7 +2281,7 @@ class Policy(base.ServiceResource):
         """
         pass
 
-    def detach_role(self, RoleName: str) -> NoReturn:
+    def detach_role(self, RoleName: str):
         """
         
         A role can also have inline policies embedded with it. To delete an inline policy, use the  DeleteRolePolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -2307,7 +2306,7 @@ class Policy(base.ServiceResource):
         """
         pass
 
-    def detach_user(self, UserName: str) -> NoReturn:
+    def detach_user(self, UserName: str):
         """
         
         A user can also have inline policies embedded with it. To delete an inline policy, use the  DeleteUserPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -2342,7 +2341,7 @@ class Policy(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2356,7 +2355,7 @@ class Policy(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2378,7 +2377,7 @@ class PolicyVersion(base.ServiceResource):
     arn: str
     version_id: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         You cannot delete the default version from a policy using this API. To delete the default version from a policy, use  DeletePolicy . To find out which version of a policy is marked as the default version, use  ListPolicyVersions .
@@ -2406,7 +2405,7 @@ class PolicyVersion(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2420,7 +2419,7 @@ class PolicyVersion(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2434,7 +2433,7 @@ class PolicyVersion(base.ServiceResource):
         """
         pass
 
-    def set_as_default(self) -> NoReturn:
+    def set_as_default(self):
         """
         
         This operation affects all users, groups, and roles that the policy is attached to. To list the users, groups, and roles that the policy is attached to, use the  ListEntitiesForPolicy API.
@@ -2468,7 +2467,7 @@ class Role(base.ServiceResource):
     instance_profiles: 'instance_profiles'
     policies: 'policies'
 
-    def attach_policy(self, PolicyArn: str) -> NoReturn:
+    def attach_policy(self, PolicyArn: str):
         """
         
         .. note::
@@ -2496,7 +2495,7 @@ class Role(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         .. warning::
@@ -2514,7 +2513,7 @@ class Role(base.ServiceResource):
         """
         pass
 
-    def detach_policy(self, PolicyArn: str) -> NoReturn:
+    def detach_policy(self, PolicyArn: str):
         """
         
         A role can also have inline policies embedded with it. To delete an inline policy, use the  DeleteRolePolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -2548,7 +2547,7 @@ class Role(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2562,7 +2561,7 @@ class Role(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2583,7 +2582,7 @@ class RolePolicy(base.ServiceResource):
     role_name: str
     name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         A role can also have managed policies attached to it. To detach a managed policy from a role, use  DetachRolePolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -2609,7 +2608,7 @@ class RolePolicy(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2623,7 +2622,7 @@ class RolePolicy(base.ServiceResource):
         """
         pass
 
-    def put(self, PolicyDocument: str) -> NoReturn:
+    def put(self, PolicyDocument: str):
         """
         
         When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy . For more information about IAM roles, go to `Using Roles to Delegate Permissions and Federate Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
@@ -2661,7 +2660,7 @@ class RolePolicy(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2682,7 +2681,7 @@ class SamlProvider(base.ServiceResource):
     valid_until: datetime
     arn: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         Deleting the provider resource from IAM does not update any roles that reference the SAML provider resource's ARN as a principal in their trust policies. Any attempt to assume a role that references a non-existent provider resource ARN fails.
@@ -2712,7 +2711,7 @@ class SamlProvider(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2726,7 +2725,7 @@ class SamlProvider(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2791,7 +2790,7 @@ class ServerCertificate(base.ServiceResource):
     certificate_chain: str
     name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         For more information about working with server certificates, see `Working with Server Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
@@ -2821,7 +2820,7 @@ class ServerCertificate(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2835,7 +2834,7 @@ class ServerCertificate(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -2899,7 +2898,7 @@ class SigningCertificate(base.ServiceResource):
     user_name: str
     id: str
 
-    def activate(self) -> NoReturn:
+    def activate(self):
         """
         
         If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
@@ -2915,7 +2914,7 @@ class SigningCertificate(base.ServiceResource):
         """
         pass
 
-    def deactivate(self) -> NoReturn:
+    def deactivate(self):
         """
         
         If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
@@ -2931,7 +2930,7 @@ class SigningCertificate(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated IAM users.
@@ -2974,7 +2973,7 @@ class User(base.ServiceResource):
     policies: 'policies'
     signing_certificates: 'signing_certificates'
 
-    def add_group(self, GroupName: str) -> NoReturn:
+    def add_group(self, GroupName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AddUserToGroup>`_
@@ -2997,7 +2996,7 @@ class User(base.ServiceResource):
         """
         pass
 
-    def attach_policy(self, PolicyArn: str) -> NoReturn:
+    def attach_policy(self, PolicyArn: str):
         """
         
         You use this API to attach a *managed* policy to a user. To embed an inline policy in a user, use  PutUserPolicy .
@@ -3153,7 +3152,7 @@ class User(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteUser>`_
@@ -3167,7 +3166,7 @@ class User(base.ServiceResource):
         """
         pass
 
-    def detach_policy(self, PolicyArn: str) -> NoReturn:
+    def detach_policy(self, PolicyArn: str):
         """
         
         A user can also have inline policies embedded with it. To delete an inline policy, use the  DeleteUserPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -3248,7 +3247,7 @@ class User(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -3262,7 +3261,7 @@ class User(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -3276,7 +3275,7 @@ class User(base.ServiceResource):
         """
         pass
 
-    def remove_group(self, GroupName: str) -> NoReturn:
+    def remove_group(self, GroupName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/RemoveUserFromGroup>`_
@@ -3345,7 +3344,7 @@ class UserPolicy(base.ServiceResource):
     user_name: str
     name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         A user can also have managed policies attached to it. To detach a managed policy from a user, use  DetachUserPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -3371,7 +3370,7 @@ class UserPolicy(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -3385,7 +3384,7 @@ class UserPolicy(base.ServiceResource):
         """
         pass
 
-    def put(self, PolicyDocument: str) -> NoReturn:
+    def put(self, PolicyDocument: str):
         """
         
         An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use  AttachUserPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -3421,7 +3420,7 @@ class UserPolicy(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/None>`_
@@ -3443,7 +3442,7 @@ class VirtualMfaDevice(base.ServiceResource):
     enable_date: datetime
     serial_number: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         .. note::

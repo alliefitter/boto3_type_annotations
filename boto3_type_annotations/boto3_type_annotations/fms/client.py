@@ -1,29 +1,28 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
+from botocore.paginate import Paginator
+from typing import Union
+from typing import Optional
 from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def associate_admin_account(self, AdminAccount: str) -> NoReturn:
+    def associate_admin_account(self, AdminAccount: str):
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
-    def delete_notification_channel(self) -> NoReturn:
+    def delete_notification_channel(self):
         pass
 
-    def delete_policy(self, PolicyId: str) -> NoReturn:
+    def delete_policy(self, PolicyId: str):
         pass
 
-    def disassociate_admin_account(self) -> NoReturn:
+    def disassociate_admin_account(self):
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_admin_account(self) -> Dict:
@@ -53,7 +52,7 @@ class Client(BaseClient):
     def list_policies(self, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
-    def put_notification_channel(self, SnsTopicArn: str, SnsRoleName: str) -> NoReturn:
+    def put_notification_channel(self, SnsTopicArn: str, SnsRoleName: str):
         pass
 
     def put_policy(self, Policy: Dict) -> Dict:

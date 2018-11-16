@@ -1,22 +1,21 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def cancel_key_deletion(self, KeyId: str) -> Dict:
         pass
 
-    def create_alias(self, AliasName: str, TargetKeyId: str) -> NoReturn:
+    def create_alias(self, AliasName: str, TargetKeyId: str):
         pass
 
     def create_grant(self, KeyId: str, GranteePrincipal: str, Operations: List, RetiringPrincipal: str = None, Constraints: Dict = None, GrantTokens: List = None, Name: str = None) -> Dict:
@@ -28,25 +27,25 @@ class Client(BaseClient):
     def decrypt(self, CiphertextBlob: bytes, EncryptionContext: Dict = None, GrantTokens: List = None) -> Dict:
         pass
 
-    def delete_alias(self, AliasName: str) -> NoReturn:
+    def delete_alias(self, AliasName: str):
         pass
 
-    def delete_imported_key_material(self, KeyId: str) -> NoReturn:
+    def delete_imported_key_material(self, KeyId: str):
         pass
 
     def describe_key(self, KeyId: str, GrantTokens: List = None) -> Dict:
         pass
 
-    def disable_key(self, KeyId: str) -> NoReturn:
+    def disable_key(self, KeyId: str):
         pass
 
-    def disable_key_rotation(self, KeyId: str) -> NoReturn:
+    def disable_key_rotation(self, KeyId: str):
         pass
 
-    def enable_key(self, KeyId: str) -> NoReturn:
+    def enable_key(self, KeyId: str):
         pass
 
-    def enable_key_rotation(self, KeyId: str) -> NoReturn:
+    def enable_key_rotation(self, KeyId: str):
         pass
 
     def encrypt(self, KeyId: str, Plaintext: bytes, EncryptionContext: Dict = None, GrantTokens: List = None) -> Dict:
@@ -58,7 +57,7 @@ class Client(BaseClient):
     def generate_data_key_without_plaintext(self, KeyId: str, EncryptionContext: Dict = None, KeySpec: str = None, NumberOfBytes: int = None, GrantTokens: List = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def generate_random(self, NumberOfBytes: int = None) -> Dict:
@@ -100,29 +99,29 @@ class Client(BaseClient):
     def list_retirable_grants(self, RetiringPrincipal: str, Limit: int = None, Marker: str = None) -> Dict:
         pass
 
-    def put_key_policy(self, KeyId: str, PolicyName: str, Policy: str, BypassPolicyLockoutSafetyCheck: bool = None) -> NoReturn:
+    def put_key_policy(self, KeyId: str, PolicyName: str, Policy: str, BypassPolicyLockoutSafetyCheck: bool = None):
         pass
 
     def re_encrypt(self, CiphertextBlob: bytes, DestinationKeyId: str, SourceEncryptionContext: Dict = None, DestinationEncryptionContext: Dict = None, GrantTokens: List = None) -> Dict:
         pass
 
-    def retire_grant(self, GrantToken: str = None, KeyId: str = None, GrantId: str = None) -> NoReturn:
+    def retire_grant(self, GrantToken: str = None, KeyId: str = None, GrantId: str = None):
         pass
 
-    def revoke_grant(self, KeyId: str, GrantId: str) -> NoReturn:
+    def revoke_grant(self, KeyId: str, GrantId: str):
         pass
 
     def schedule_key_deletion(self, KeyId: str, PendingWindowInDays: int = None) -> Dict:
         pass
 
-    def tag_resource(self, KeyId: str, Tags: List) -> NoReturn:
+    def tag_resource(self, KeyId: str, Tags: List):
         pass
 
-    def untag_resource(self, KeyId: str, TagKeys: List) -> NoReturn:
+    def untag_resource(self, KeyId: str, TagKeys: List):
         pass
 
-    def update_alias(self, AliasName: str, TargetKeyId: str) -> NoReturn:
+    def update_alias(self, AliasName: str, TargetKeyId: str):
         pass
 
-    def update_key_description(self, KeyId: str, Description: str) -> NoReturn:
+    def update_key_description(self, KeyId: str, Description: str):
         pass

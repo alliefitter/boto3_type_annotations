@@ -1,11 +1,10 @@
 from typing import List
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class BundleTaskComplete(Waiter):
-    def wait(self, BundleIds: List = None, Filters: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, BundleIds: List = None, Filters: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeBundleTasks>`_
@@ -123,7 +122,7 @@ class BundleTaskComplete(Waiter):
 
 
 class ConversionTaskCancelled(Waiter):
-    def wait(self, ConversionTaskIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ConversionTaskIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeConversionTasks>`_
@@ -172,7 +171,7 @@ class ConversionTaskCancelled(Waiter):
 
 
 class ConversionTaskCompleted(Waiter):
-    def wait(self, ConversionTaskIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ConversionTaskIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeConversionTasks>`_
@@ -221,7 +220,7 @@ class ConversionTaskCompleted(Waiter):
 
 
 class ConversionTaskDeleted(Waiter):
-    def wait(self, ConversionTaskIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ConversionTaskIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeConversionTasks>`_
@@ -270,7 +269,7 @@ class ConversionTaskDeleted(Waiter):
 
 
 class CustomerGatewayAvailable(Waiter):
-    def wait(self, CustomerGatewayIds: List = None, Filters: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, CustomerGatewayIds: List = None, Filters: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeCustomerGateways>`_
@@ -382,7 +381,7 @@ class CustomerGatewayAvailable(Waiter):
 
 
 class ExportTaskCancelled(Waiter):
-    def wait(self, ExportTaskIds: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ExportTaskIds: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeExportTasks>`_
@@ -425,7 +424,7 @@ class ExportTaskCancelled(Waiter):
 
 
 class ExportTaskCompleted(Waiter):
-    def wait(self, ExportTaskIds: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ExportTaskIds: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeExportTasks>`_
@@ -468,7 +467,7 @@ class ExportTaskCompleted(Waiter):
 
 
 class ImageAvailable(Waiter):
-    def wait(self, ExecutableUsers: List = None, Filters: List = None, ImageIds: List = None, Owners: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ExecutableUsers: List = None, Filters: List = None, ImageIds: List = None, Owners: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImages>`_
@@ -646,7 +645,7 @@ class ImageAvailable(Waiter):
 
 
 class ImageExists(Waiter):
-    def wait(self, ExecutableUsers: List = None, Filters: List = None, ImageIds: List = None, Owners: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ExecutableUsers: List = None, Filters: List = None, ImageIds: List = None, Owners: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImages>`_
@@ -824,7 +823,7 @@ class ImageExists(Waiter):
 
 
 class InstanceExists(Waiter):
-    def wait(self, Filters: List = None, InstanceIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, InstanceIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances>`_
@@ -1098,7 +1097,7 @@ class InstanceExists(Waiter):
 
 
 class InstanceRunning(Waiter):
-    def wait(self, Filters: List = None, InstanceIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, InstanceIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances>`_
@@ -1372,7 +1371,7 @@ class InstanceRunning(Waiter):
 
 
 class InstanceStatusOk(Waiter):
-    def wait(self, Filters: List = None, InstanceIds: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None, IncludeAllInstances: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, InstanceIds: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None, IncludeAllInstances: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceStatus>`_
@@ -1514,7 +1513,7 @@ class InstanceStatusOk(Waiter):
 
 
 class InstanceStopped(Waiter):
-    def wait(self, Filters: List = None, InstanceIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, InstanceIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances>`_
@@ -1788,7 +1787,7 @@ class InstanceStopped(Waiter):
 
 
 class InstanceTerminated(Waiter):
-    def wait(self, Filters: List = None, InstanceIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, InstanceIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances>`_
@@ -2062,7 +2061,7 @@ class InstanceTerminated(Waiter):
 
 
 class KeyPairExists(Waiter):
-    def wait(self, Filters: List = None, KeyNames: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, KeyNames: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeKeyPairs>`_
@@ -2164,7 +2163,7 @@ class KeyPairExists(Waiter):
 
 
 class NatGatewayAvailable(Waiter):
-    def wait(self, Filters: List = None, MaxResults: int = None, NatGatewayIds: List = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, MaxResults: int = None, NatGatewayIds: List = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNatGateways>`_
@@ -2280,7 +2279,7 @@ class NatGatewayAvailable(Waiter):
 
 
 class NetworkInterfaceAvailable(Waiter):
-    def wait(self, Filters: List = None, DryRun: bool = None, NetworkInterfaceIds: List = None, NextToken: str = None, MaxResults: int = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, DryRun: bool = None, NetworkInterfaceIds: List = None, NextToken: str = None, MaxResults: int = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInterfaces>`_
@@ -2460,7 +2459,7 @@ class NetworkInterfaceAvailable(Waiter):
 
 
 class PasswordDataAvailable(Waiter):
-    def wait(self, InstanceId: str, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, InstanceId: str, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetPasswordData>`_
@@ -2505,7 +2504,7 @@ class PasswordDataAvailable(Waiter):
 
 
 class SnapshotCompleted(Waiter):
-    def wait(self, Filters: List = None, MaxResults: int = None, NextToken: str = None, OwnerIds: List = None, RestorableByUserIds: List = None, SnapshotIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, MaxResults: int = None, NextToken: str = None, OwnerIds: List = None, RestorableByUserIds: List = None, SnapshotIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSnapshots>`_
@@ -2657,7 +2656,7 @@ class SnapshotCompleted(Waiter):
 
 
 class SpotInstanceRequestFulfilled(Waiter):
-    def wait(self, Filters: List = None, DryRun: bool = None, SpotInstanceRequestIds: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, DryRun: bool = None, SpotInstanceRequestIds: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotInstanceRequests>`_
@@ -2831,7 +2830,7 @@ class SpotInstanceRequestFulfilled(Waiter):
 
 
 class SubnetAvailable(Waiter):
-    def wait(self, Filters: List = None, SubnetIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, SubnetIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSubnets>`_
@@ -2953,7 +2952,7 @@ class SubnetAvailable(Waiter):
 
 
 class SystemStatusOk(Waiter):
-    def wait(self, Filters: List = None, InstanceIds: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None, IncludeAllInstances: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, InstanceIds: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None, IncludeAllInstances: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceStatus>`_
@@ -3095,7 +3094,7 @@ class SystemStatusOk(Waiter):
 
 
 class VolumeAvailable(Waiter):
-    def wait(self, Filters: List = None, VolumeIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, VolumeIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumes>`_
@@ -3233,7 +3232,7 @@ class VolumeAvailable(Waiter):
 
 
 class VolumeDeleted(Waiter):
-    def wait(self, Filters: List = None, VolumeIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, VolumeIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumes>`_
@@ -3371,7 +3370,7 @@ class VolumeDeleted(Waiter):
 
 
 class VolumeInUse(Waiter):
-    def wait(self, Filters: List = None, VolumeIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, VolumeIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumes>`_
@@ -3509,7 +3508,7 @@ class VolumeInUse(Waiter):
 
 
 class VpcAvailable(Waiter):
-    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs>`_
@@ -3633,7 +3632,7 @@ class VpcAvailable(Waiter):
 
 
 class VpcExists(Waiter):
-    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs>`_
@@ -3757,7 +3756,7 @@ class VpcExists(Waiter):
 
 
 class VpcPeeringConnectionDeleted(Waiter):
-    def wait(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcPeeringConnections>`_
@@ -3879,7 +3878,7 @@ class VpcPeeringConnectionDeleted(Waiter):
 
 
 class VpcPeeringConnectionExists(Waiter):
-    def wait(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcPeeringConnections>`_
@@ -4001,7 +4000,7 @@ class VpcPeeringConnectionExists(Waiter):
 
 
 class VpnConnectionAvailable(Waiter):
-    def wait(self, Filters: List = None, VpnConnectionIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, VpnConnectionIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnConnections>`_
@@ -4121,7 +4120,7 @@ class VpnConnectionAvailable(Waiter):
 
 
 class VpnConnectionDeleted(Waiter):
-    def wait(self, Filters: List = None, VpnConnectionIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Filters: List = None, VpnConnectionIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnConnections>`_

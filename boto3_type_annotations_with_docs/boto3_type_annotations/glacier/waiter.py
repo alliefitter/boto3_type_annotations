@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class VaultExists(Waiter):
-    def wait(self, vaultName: str, accountId: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, vaultName: str, accountId: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/DescribeVault>`_
@@ -50,7 +49,7 @@ class VaultExists(Waiter):
 
 
 class VaultNotExists(Waiter):
-    def wait(self, vaultName: str, accountId: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, vaultName: str, accountId: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/DescribeVault>`_

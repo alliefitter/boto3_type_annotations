@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class ResourceRecordSetsChanged(Waiter):
-    def wait(self, Id: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Id: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/route53-2013-04-01/GetChange>`_

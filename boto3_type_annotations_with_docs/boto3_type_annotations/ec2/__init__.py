@@ -8,7 +8,7 @@ from boto3_type_annotations.ec2.service_resource import InternetGateway
 from boto3_type_annotations.ec2.service_resource import KeyPair
 from boto3_type_annotations.ec2.service_resource import KeyPairInfo
 from boto3_type_annotations.ec2.service_resource import NetworkAcl
-from boto3_type_annotations.ec2.service_resource import NetworkInterface
+from boto3_type_annotations.boto3_type_annotations.ec2.service_resource import NetworkInterface
 from boto3_type_annotations.ec2.service_resource import NetworkInterfaceAssociation
 from boto3_type_annotations.ec2.service_resource import PlacementGroup
 from boto3_type_annotations.ec2.service_resource import Route

@@ -1,10 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -112,7 +111,7 @@ class Client(BaseClient):
         """
         pass
 
-    def admin_add_user_to_group(self, UserPoolId: str, Username: str, GroupName: str) -> NoReturn:
+    def admin_add_user_to_group(self, UserPoolId: str, Username: str, GroupName: str):
         """
         
         Requires developer credentials.
@@ -422,7 +421,7 @@ class Client(BaseClient):
         """
         pass
 
-    def admin_delete_user(self, UserPoolId: str, Username: str) -> NoReturn:
+    def admin_delete_user(self, UserPoolId: str, Username: str):
         """
         
         Requires developer credentials.
@@ -647,7 +646,7 @@ class Client(BaseClient):
         """
         pass
 
-    def admin_forget_device(self, UserPoolId: str, Username: str, DeviceKey: str) -> NoReturn:
+    def admin_forget_device(self, UserPoolId: str, Username: str, DeviceKey: str):
         """
         
         Requires developer credentials.
@@ -1653,7 +1652,7 @@ class Client(BaseClient):
         """
         pass
 
-    def admin_remove_user_from_group(self, UserPoolId: str, Username: str, GroupName: str) -> NoReturn:
+    def admin_remove_user_from_group(self, UserPoolId: str, Username: str, GroupName: str):
         """
         
         Requires developer credentials.
@@ -2329,7 +2328,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -4392,7 +4391,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_group(self, GroupName: str, UserPoolId: str) -> NoReturn:
+    def delete_group(self, GroupName: str, UserPoolId: str):
         """
         
         Requires developer credentials.
@@ -4420,7 +4419,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_identity_provider(self, UserPoolId: str, ProviderName: str) -> NoReturn:
+    def delete_identity_provider(self, UserPoolId: str, ProviderName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/DeleteIdentityProvider>`_
@@ -4446,7 +4445,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_resource_server(self, UserPoolId: str, Identifier: str) -> NoReturn:
+    def delete_resource_server(self, UserPoolId: str, Identifier: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/DeleteResourceServer>`_
@@ -4472,7 +4471,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_user(self, AccessToken: str) -> NoReturn:
+    def delete_user(self, AccessToken: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/DeleteUser>`_
@@ -4537,7 +4536,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_user_pool(self, UserPoolId: str) -> NoReturn:
+    def delete_user_pool(self, UserPoolId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/DeleteUserPool>`_
@@ -4557,7 +4556,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_user_pool_client(self, UserPoolId: str, ClientId: str) -> NoReturn:
+    def delete_user_pool_client(self, UserPoolId: str, ClientId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/DeleteUserPoolClient>`_
@@ -5965,7 +5964,7 @@ class Client(BaseClient):
         """
         pass
 
-    def forget_device(self, DeviceKey: str, AccessToken: str = None) -> NoReturn:
+    def forget_device(self, DeviceKey: str, AccessToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/ForgetDevice>`_
@@ -6082,7 +6081,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string

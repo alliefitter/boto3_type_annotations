@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def count_closed_workflow_executions(self, domain: str, startTimeFilter: Dict = None, closeTimeFilter: Dict = None, executionFilter: Dict = None, typeFilter: Dict = None, tagFilter: Dict = None, closeStatusFilter: Dict = None) -> Dict:
@@ -24,13 +23,13 @@ class Client(BaseClient):
     def count_pending_decision_tasks(self, domain: str, taskList: Dict) -> Dict:
         pass
 
-    def deprecate_activity_type(self, domain: str, activityType: Dict) -> NoReturn:
+    def deprecate_activity_type(self, domain: str, activityType: Dict):
         pass
 
-    def deprecate_domain(self, name: str) -> NoReturn:
+    def deprecate_domain(self, name: str):
         pass
 
-    def deprecate_workflow_type(self, domain: str, workflowType: Dict) -> NoReturn:
+    def deprecate_workflow_type(self, domain: str, workflowType: Dict):
         pass
 
     def describe_activity_type(self, domain: str, activityType: Dict) -> Dict:
@@ -45,7 +44,7 @@ class Client(BaseClient):
     def describe_workflow_type(self, domain: str, workflowType: Dict) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
@@ -81,35 +80,35 @@ class Client(BaseClient):
     def record_activity_task_heartbeat(self, taskToken: str, details: str = None) -> Dict:
         pass
 
-    def register_activity_type(self, domain: str, name: str, version: str, description: str = None, defaultTaskStartToCloseTimeout: str = None, defaultTaskHeartbeatTimeout: str = None, defaultTaskList: Dict = None, defaultTaskPriority: str = None, defaultTaskScheduleToStartTimeout: str = None, defaultTaskScheduleToCloseTimeout: str = None) -> NoReturn:
+    def register_activity_type(self, domain: str, name: str, version: str, description: str = None, defaultTaskStartToCloseTimeout: str = None, defaultTaskHeartbeatTimeout: str = None, defaultTaskList: Dict = None, defaultTaskPriority: str = None, defaultTaskScheduleToStartTimeout: str = None, defaultTaskScheduleToCloseTimeout: str = None):
         pass
 
-    def register_domain(self, name: str, workflowExecutionRetentionPeriodInDays: str, description: str = None) -> NoReturn:
+    def register_domain(self, name: str, workflowExecutionRetentionPeriodInDays: str, description: str = None):
         pass
 
-    def register_workflow_type(self, domain: str, name: str, version: str, description: str = None, defaultTaskStartToCloseTimeout: str = None, defaultExecutionStartToCloseTimeout: str = None, defaultTaskList: Dict = None, defaultTaskPriority: str = None, defaultChildPolicy: str = None, defaultLambdaRole: str = None) -> NoReturn:
+    def register_workflow_type(self, domain: str, name: str, version: str, description: str = None, defaultTaskStartToCloseTimeout: str = None, defaultExecutionStartToCloseTimeout: str = None, defaultTaskList: Dict = None, defaultTaskPriority: str = None, defaultChildPolicy: str = None, defaultLambdaRole: str = None):
         pass
 
-    def request_cancel_workflow_execution(self, domain: str, workflowId: str, runId: str = None) -> NoReturn:
+    def request_cancel_workflow_execution(self, domain: str, workflowId: str, runId: str = None):
         pass
 
-    def respond_activity_task_canceled(self, taskToken: str, details: str = None) -> NoReturn:
+    def respond_activity_task_canceled(self, taskToken: str, details: str = None):
         pass
 
-    def respond_activity_task_completed(self, taskToken: str, result: str = None) -> NoReturn:
+    def respond_activity_task_completed(self, taskToken: str, result: str = None):
         pass
 
-    def respond_activity_task_failed(self, taskToken: str, reason: str = None, details: str = None) -> NoReturn:
+    def respond_activity_task_failed(self, taskToken: str, reason: str = None, details: str = None):
         pass
 
-    def respond_decision_task_completed(self, taskToken: str, decisions: List = None, executionContext: str = None) -> NoReturn:
+    def respond_decision_task_completed(self, taskToken: str, decisions: List = None, executionContext: str = None):
         pass
 
-    def signal_workflow_execution(self, domain: str, workflowId: str, signalName: str, runId: str = None, input: str = None) -> NoReturn:
+    def signal_workflow_execution(self, domain: str, workflowId: str, signalName: str, runId: str = None, input: str = None):
         pass
 
     def start_workflow_execution(self, domain: str, workflowId: str, workflowType: Dict, taskList: Dict = None, taskPriority: str = None, input: str = None, executionStartToCloseTimeout: str = None, tagList: List = None, taskStartToCloseTimeout: str = None, childPolicy: str = None, lambdaRole: str = None) -> Dict:
         pass
 
-    def terminate_workflow_execution(self, domain: str, workflowId: str, runId: str = None, reason: str = None, details: str = None, childPolicy: str = None) -> NoReturn:
+    def terminate_workflow_execution(self, domain: str, workflowId: str, runId: str = None, reason: str = None, details: str = None, childPolicy: str = None):
         pass

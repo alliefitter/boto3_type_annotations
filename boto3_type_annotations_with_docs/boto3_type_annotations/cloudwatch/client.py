@@ -1,16 +1,15 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -26,7 +25,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_alarms(self, AlarmNames: List) -> NoReturn:
+    def delete_alarms(self, AlarmNames: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/DeleteAlarms>`_
@@ -678,7 +677,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disable_alarm_actions(self, AlarmNames: List) -> NoReturn:
+    def disable_alarm_actions(self, AlarmNames: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/DisableAlarmActions>`_
@@ -702,7 +701,7 @@ class Client(BaseClient):
         """
         pass
 
-    def enable_alarm_actions(self, AlarmNames: List) -> NoReturn:
+    def enable_alarm_actions(self, AlarmNames: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/EnableAlarmActions>`_
@@ -726,7 +725,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -1637,7 +1636,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_metric_alarm(self, AlarmName: str, MetricName: str, Namespace: str, Period: int, EvaluationPeriods: int, Threshold: float, ComparisonOperator: str, AlarmDescription: str = None, ActionsEnabled: bool = None, OKActions: List = None, AlarmActions: List = None, InsufficientDataActions: List = None, Statistic: str = None, ExtendedStatistic: str = None, Dimensions: List = None, Unit: str = None, DatapointsToAlarm: int = None, TreatMissingData: str = None, EvaluateLowSampleCountPercentile: str = None) -> NoReturn:
+    def put_metric_alarm(self, AlarmName: str, MetricName: str, Namespace: str, Period: int, EvaluationPeriods: int, Threshold: float, ComparisonOperator: str, AlarmDescription: str = None, ActionsEnabled: bool = None, OKActions: List = None, AlarmActions: List = None, InsufficientDataActions: List = None, Statistic: str = None, ExtendedStatistic: str = None, Dimensions: List = None, Unit: str = None, DatapointsToAlarm: int = None, TreatMissingData: str = None, EvaluateLowSampleCountPercentile: str = None):
         """
         
         When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA`` . The alarm is evaluated and its state is set appropriately. Any actions associated with the state are then executed.
@@ -1842,7 +1841,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_metric_data(self, Namespace: str, MetricData: List) -> NoReturn:
+    def put_metric_data(self, Namespace: str, MetricData: List):
         """
         
         You can publish either individual data points in the ``Value`` field, or arrays of values and the number of times each value occurred during the period by using the ``Values`` and ``Counts`` fields in the ``MetricDatum`` structure. Using the ``Values`` and ``Counts`` method enables you to publish up to 150 values per metric with one ``PutMetricData`` request, and supports retrieving percentile statistics on this data.
@@ -1992,7 +1991,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_alarm_state(self, AlarmName: str, StateValue: str, StateReason: str, StateReasonData: str = None) -> NoReturn:
+    def set_alarm_state(self, AlarmName: str, StateValue: str, StateReason: str, StateReasonData: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/SetAlarmState>`_

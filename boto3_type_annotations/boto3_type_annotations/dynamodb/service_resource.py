@@ -1,10 +1,9 @@
 from datetime import datetime
-from typing import Dict
-from typing import Optional
-from typing import Union
-from typing import NoReturn
-from typing import List
 from boto3.resources.collection import ResourceCollection
+from typing import Union
+from typing import List
+from typing import Optional
+from typing import Dict
 from boto3.resources import base
 
 
@@ -47,7 +46,7 @@ class Table(base.ServiceResource):
     sse_description: Dict
     name: str
 
-    def batch_writer(self, overwrite_by_pkeys: List[str] = None) -> NoReturn:
+    def batch_writer(self, overwrite_by_pkeys: List[str] = None):
         pass
 
     def delete(self) -> Dict:
@@ -62,7 +61,7 @@ class Table(base.ServiceResource):
     def get_item(self, Key: Dict, AttributesToGet: List = None, ConsistentRead: bool = None, ReturnConsumedCapacity: str = None, ProjectionExpression: str = None, ExpressionAttributeNames: Dict = None) -> Dict:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
     def put_item(self, Item: Dict, Expected: Dict = None, ReturnValues: str = None, ReturnConsumedCapacity: str = None, ReturnItemCollectionMetrics: str = None, ConditionalOperator: str = None, ConditionExpression: str = None, ExpressionAttributeNames: Dict = None, ExpressionAttributeValues: Dict = None) -> Dict:
@@ -71,7 +70,7 @@ class Table(base.ServiceResource):
     def query(self, IndexName: str = None, Select: str = None, AttributesToGet: List = None, Limit: int = None, ConsistentRead: bool = None, KeyConditions: Dict = None, QueryFilter: Dict = None, ConditionalOperator: str = None, ScanIndexForward: bool = None, ExclusiveStartKey: Dict = None, ReturnConsumedCapacity: str = None, ProjectionExpression: str = None, FilterExpression: str = None, KeyConditionExpression: str = None, ExpressionAttributeNames: Dict = None, ExpressionAttributeValues: Dict = None) -> Dict:
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
     def scan(self, IndexName: str = None, AttributesToGet: List = None, Limit: int = None, Select: str = None, ScanFilter: Dict = None, ConditionalOperator: str = None, ExclusiveStartKey: Dict = None, ReturnConsumedCapacity: str = None, TotalSegments: int = None, Segment: int = None, ProjectionExpression: str = None, FilterExpression: str = None, ExpressionAttributeNames: Dict = None, ExpressionAttributeValues: Dict = None, ConsistentRead: bool = None) -> Dict:
@@ -83,10 +82,10 @@ class Table(base.ServiceResource):
     def update_item(self, Key: Dict, AttributeUpdates: Dict = None, Expected: Dict = None, ConditionalOperator: str = None, ReturnValues: str = None, ReturnConsumedCapacity: str = None, ReturnItemCollectionMetrics: str = None, UpdateExpression: str = None, ConditionExpression: str = None, ExpressionAttributeNames: Dict = None, ExpressionAttributeValues: Dict = None) -> Dict:
         pass
 
-    def wait_until_exists(self) -> NoReturn:
+    def wait_until_exists(self):
         pass
 
-    def wait_until_not_exists(self) -> NoReturn:
+    def wait_until_not_exists(self):
         pass
 
 

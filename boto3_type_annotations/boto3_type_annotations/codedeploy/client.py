@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def add_tags_to_on_premises_instances(self, tags: List, instanceNames: List) -> NoReturn:
+    def add_tags_to_on_premises_instances(self, tags: List, instanceNames: List):
         pass
 
     def batch_get_application_revisions(self, applicationName: str, revisions: List) -> Dict:
@@ -30,10 +29,10 @@ class Client(BaseClient):
     def batch_get_on_premises_instances(self, instanceNames: List) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
-    def continue_deployment(self, deploymentId: str = None) -> NoReturn:
+    def continue_deployment(self, deploymentId: str = None):
         pass
 
     def create_application(self, applicationName: str, computePlatform: str = None) -> Dict:
@@ -48,10 +47,10 @@ class Client(BaseClient):
     def create_deployment_group(self, applicationName: str, deploymentGroupName: str, serviceRoleArn: str, deploymentConfigName: str = None, ec2TagFilters: List = None, onPremisesInstanceTagFilters: List = None, autoScalingGroups: List = None, triggerConfigurations: List = None, alarmConfiguration: Dict = None, autoRollbackConfiguration: Dict = None, deploymentStyle: Dict = None, blueGreenDeploymentConfiguration: Dict = None, loadBalancerInfo: Dict = None, ec2TagSet: Dict = None, onPremisesTagSet: Dict = None) -> Dict:
         pass
 
-    def delete_application(self, applicationName: str) -> NoReturn:
+    def delete_application(self, applicationName: str):
         pass
 
-    def delete_deployment_config(self, deploymentConfigName: str) -> NoReturn:
+    def delete_deployment_config(self, deploymentConfigName: str):
         pass
 
     def delete_deployment_group(self, applicationName: str, deploymentGroupName: str) -> Dict:
@@ -60,10 +59,10 @@ class Client(BaseClient):
     def delete_git_hub_account_token(self, tokenName: str = None) -> Dict:
         pass
 
-    def deregister_on_premises_instance(self, instanceName: str) -> NoReturn:
+    def deregister_on_premises_instance(self, instanceName: str):
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_application(self, applicationName: str) -> Dict:
@@ -120,22 +119,22 @@ class Client(BaseClient):
     def put_lifecycle_event_hook_execution_status(self, deploymentId: str = None, lifecycleEventHookExecutionId: str = None, status: str = None) -> Dict:
         pass
 
-    def register_application_revision(self, applicationName: str, revision: Dict, description: str = None) -> NoReturn:
+    def register_application_revision(self, applicationName: str, revision: Dict, description: str = None):
         pass
 
-    def register_on_premises_instance(self, instanceName: str, iamSessionArn: str = None, iamUserArn: str = None) -> NoReturn:
+    def register_on_premises_instance(self, instanceName: str, iamSessionArn: str = None, iamUserArn: str = None):
         pass
 
-    def remove_tags_from_on_premises_instances(self, tags: List, instanceNames: List) -> NoReturn:
+    def remove_tags_from_on_premises_instances(self, tags: List, instanceNames: List):
         pass
 
-    def skip_wait_time_for_instance_termination(self, deploymentId: str = None) -> NoReturn:
+    def skip_wait_time_for_instance_termination(self, deploymentId: str = None):
         pass
 
     def stop_deployment(self, deploymentId: str, autoRollbackEnabled: bool = None) -> Dict:
         pass
 
-    def update_application(self, applicationName: str = None, newApplicationName: str = None) -> NoReturn:
+    def update_application(self, applicationName: str = None, newApplicationName: str = None):
         pass
 
     def update_deployment_group(self, applicationName: str, currentDeploymentGroupName: str, newDeploymentGroupName: str = None, deploymentConfigName: str = None, ec2TagFilters: List = None, onPremisesInstanceTagFilters: List = None, autoScalingGroups: List = None, serviceRoleArn: str = None, triggerConfigurations: List = None, alarmConfiguration: Dict = None, autoRollbackConfiguration: Dict = None, deploymentStyle: Dict = None, blueGreenDeploymentConfiguration: Dict = None, loadBalancerInfo: Dict = None, ec2TagSet: Dict = None, onPremisesTagSet: Dict = None) -> Dict:

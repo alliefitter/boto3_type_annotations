@@ -1,9 +1,8 @@
-from typing import Optional
-from typing import NoReturn
 from boto3.resources.collection import ResourceCollection
-from typing import Dict
 from typing import Union
 from typing import List
+from typing import Optional
+from typing import Dict
 from boto3.resources import base
 
 
@@ -189,7 +188,7 @@ class PlatformApplication(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/DeletePlatformApplication>`_
@@ -213,7 +212,7 @@ class PlatformApplication(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/None>`_
@@ -227,7 +226,7 @@ class PlatformApplication(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/None>`_
@@ -241,7 +240,7 @@ class PlatformApplication(base.ServiceResource):
         """
         pass
 
-    def set_attributes(self, Attributes: Dict) -> NoReturn:
+    def set_attributes(self, Attributes: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetPlatformApplicationAttributes>`_
@@ -290,7 +289,7 @@ class PlatformEndpoint(base.ServiceResource):
     attributes: Dict
     arn: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.
@@ -316,7 +315,7 @@ class PlatformEndpoint(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/None>`_
@@ -479,7 +478,7 @@ class PlatformEndpoint(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/None>`_
@@ -493,7 +492,7 @@ class PlatformEndpoint(base.ServiceResource):
         """
         pass
 
-    def set_attributes(self, Attributes: Dict) -> NoReturn:
+    def set_attributes(self, Attributes: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetEndpointAttributes>`_
@@ -530,7 +529,7 @@ class Subscription(base.ServiceResource):
     attributes: Dict
     arn: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         This action is throttled at 100 transactions per second (TPS).
@@ -556,7 +555,7 @@ class Subscription(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/None>`_
@@ -570,7 +569,7 @@ class Subscription(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/None>`_
@@ -584,7 +583,7 @@ class Subscription(base.ServiceResource):
         """
         pass
 
-    def set_attributes(self, AttributeName: str, AttributeValue: str = None) -> NoReturn:
+    def set_attributes(self, AttributeName: str, AttributeValue: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetSubscriptionAttributes>`_
@@ -618,7 +617,7 @@ class Topic(base.ServiceResource):
     arn: str
     subscriptions: 'subscriptions'
 
-    def add_permission(self, Label: str, AWSAccountId: List, ActionName: List) -> NoReturn:
+    def add_permission(self, Label: str, AWSAccountId: List, ActionName: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/AddPermission>`_
@@ -687,7 +686,7 @@ class Topic(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/DeleteTopic>`_
@@ -711,7 +710,7 @@ class Topic(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/None>`_
@@ -874,7 +873,7 @@ class Topic(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/None>`_
@@ -888,7 +887,7 @@ class Topic(base.ServiceResource):
         """
         pass
 
-    def remove_permission(self, Label: str) -> NoReturn:
+    def remove_permission(self, Label: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/RemovePermission>`_
@@ -908,7 +907,7 @@ class Topic(base.ServiceResource):
         """
         pass
 
-    def set_attributes(self, AttributeName: str, AttributeValue: str = None) -> NoReturn:
+    def set_attributes(self, AttributeName: str, AttributeValue: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetTopicAttributes>`_

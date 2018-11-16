@@ -1,9 +1,8 @@
-from typing import Dict
-from typing import Optional
-from typing import Union
-from typing import NoReturn
-from typing import List
 from boto3.resources.collection import ResourceCollection
+from typing import Union
+from typing import List
+from typing import Optional
+from typing import Dict
 from boto3.resources import base
 
 
@@ -36,10 +35,10 @@ class Message(base.ServiceResource):
     queue_url: str
     receipt_handle: str
 
-    def change_visibility(self, VisibilityTimeout: int) -> NoReturn:
+    def change_visibility(self, VisibilityTimeout: int):
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
@@ -51,13 +50,13 @@ class Queue(base.ServiceResource):
     url: str
     dead_letter_source_queues: 'dead_letter_source_queues'
 
-    def add_permission(self, Label: str, AWSAccountIds: List, Actions: List) -> NoReturn:
+    def add_permission(self, Label: str, AWSAccountIds: List, Actions: List):
         pass
 
     def change_message_visibility_batch(self, Entries: List) -> Dict:
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def delete_messages(self, Entries: List) -> Dict:
@@ -66,19 +65,19 @@ class Queue(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def purge(self) -> NoReturn:
+    def purge(self):
         pass
 
     def receive_messages(self, AttributeNames: List = None, MessageAttributeNames: List = None, MaxNumberOfMessages: int = None, VisibilityTimeout: int = None, WaitTimeSeconds: int = None, ReceiveRequestAttemptId: str = None) -> List['Message']:
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def remove_permission(self, Label: str) -> NoReturn:
+    def remove_permission(self, Label: str):
         pass
 
     def send_message(self, MessageBody: str, DelaySeconds: int = None, MessageAttributes: Dict = None, MessageDeduplicationId: str = None, MessageGroupId: str = None) -> Dict:
@@ -87,7 +86,7 @@ class Queue(base.ServiceResource):
     def send_messages(self, Entries: List) -> Dict:
         pass
 
-    def set_attributes(self, Attributes: Dict) -> NoReturn:
+    def set_attributes(self, Attributes: Dict):
         pass
 
 

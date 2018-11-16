@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class CacheClusterAvailable(Waiter):
-    def wait(self, CacheClusterId: str = None, MaxRecords: int = None, Marker: str = None, ShowCacheNodeInfo: bool = None, ShowCacheClustersNotInReplicationGroups: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, CacheClusterId: str = None, MaxRecords: int = None, Marker: str = None, ShowCacheNodeInfo: bool = None, ShowCacheClustersNotInReplicationGroups: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticache-2015-02-02/DescribeCacheClusters>`_
@@ -71,7 +70,7 @@ class CacheClusterAvailable(Waiter):
 
 
 class CacheClusterDeleted(Waiter):
-    def wait(self, CacheClusterId: str = None, MaxRecords: int = None, Marker: str = None, ShowCacheNodeInfo: bool = None, ShowCacheClustersNotInReplicationGroups: bool = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, CacheClusterId: str = None, MaxRecords: int = None, Marker: str = None, ShowCacheNodeInfo: bool = None, ShowCacheClustersNotInReplicationGroups: bool = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticache-2015-02-02/DescribeCacheClusters>`_
@@ -138,7 +137,7 @@ class CacheClusterDeleted(Waiter):
 
 
 class ReplicationGroupAvailable(Waiter):
-    def wait(self, ReplicationGroupId: str = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ReplicationGroupId: str = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticache-2015-02-02/DescribeReplicationGroups>`_
@@ -195,7 +194,7 @@ class ReplicationGroupAvailable(Waiter):
 
 
 class ReplicationGroupDeleted(Waiter):
-    def wait(self, ReplicationGroupId: str = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ReplicationGroupId: str = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticache-2015-02-02/DescribeReplicationGroups>`_

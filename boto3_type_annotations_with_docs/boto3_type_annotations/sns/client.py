@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def add_permission(self, TopicArn: str, Label: str, AWSAccountId: List, ActionName: List) -> NoReturn:
+    def add_permission(self, TopicArn: str, Label: str, AWSAccountId: List, ActionName: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/AddPermission>`_
@@ -57,7 +56,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -334,7 +333,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_endpoint(self, EndpointArn: str) -> NoReturn:
+    def delete_endpoint(self, EndpointArn: str):
         """
         
         When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.
@@ -356,7 +355,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_platform_application(self, PlatformApplicationArn: str) -> NoReturn:
+    def delete_platform_application(self, PlatformApplicationArn: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/DeletePlatformApplication>`_
@@ -376,7 +375,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_topic(self, TopicArn: str) -> NoReturn:
+    def delete_topic(self, TopicArn: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/DeleteTopic>`_
@@ -396,7 +395,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -1341,7 +1340,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_permission(self, TopicArn: str, Label: str) -> NoReturn:
+    def remove_permission(self, TopicArn: str, Label: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/RemovePermission>`_
@@ -1367,7 +1366,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_endpoint_attributes(self, EndpointArn: str, Attributes: Dict) -> NoReturn:
+    def set_endpoint_attributes(self, EndpointArn: str, Attributes: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetEndpointAttributes>`_
@@ -1405,7 +1404,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_platform_application_attributes(self, PlatformApplicationArn: str, Attributes: Dict) -> NoReturn:
+    def set_platform_application_attributes(self, PlatformApplicationArn: str, Attributes: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetPlatformApplicationAttributes>`_
@@ -1538,7 +1537,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_subscription_attributes(self, SubscriptionArn: str, AttributeName: str, AttributeValue: str = None) -> NoReturn:
+    def set_subscription_attributes(self, SubscriptionArn: str, AttributeName: str, AttributeValue: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetSubscriptionAttributes>`_
@@ -1572,7 +1571,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_topic_attributes(self, TopicArn: str, AttributeName: str, AttributeValue: str = None) -> NoReturn:
+    def set_topic_attributes(self, TopicArn: str, AttributeName: str, AttributeValue: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetTopicAttributes>`_
@@ -1715,7 +1714,7 @@ class Client(BaseClient):
         """
         pass
 
-    def unsubscribe(self, SubscriptionArn: str) -> NoReturn:
+    def unsubscribe(self, SubscriptionArn: str):
         """
         
         This action is throttled at 100 transactions per second (TPS).

@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class InstanceProfileExists(Waiter):
-    def wait(self, InstanceProfileName: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, InstanceProfileName: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetInstanceProfile>`_
@@ -45,7 +44,7 @@ class InstanceProfileExists(Waiter):
 
 
 class UserExists(Waiter):
-    def wait(self, UserName: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, UserName: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetUser>`_

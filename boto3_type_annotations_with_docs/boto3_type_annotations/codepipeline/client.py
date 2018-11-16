@@ -1,10 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -105,7 +104,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -944,7 +943,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_custom_action_type(self, category: str, provider: str, version: str) -> NoReturn:
+    def delete_custom_action_type(self, category: str, provider: str, version: str):
         """
         
         .. warning::
@@ -980,7 +979,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_pipeline(self, name: str) -> NoReturn:
+    def delete_pipeline(self, name: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeletePipeline>`_
@@ -1060,7 +1059,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disable_stage_transition(self, pipelineName: str, stageName: str, transitionType: str, reason: str) -> NoReturn:
+    def disable_stage_transition(self, pipelineName: str, stageName: str, transitionType: str, reason: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DisableStageTransition>`_
@@ -1098,7 +1097,7 @@ class Client(BaseClient):
         """
         pass
 
-    def enable_stage_transition(self, pipelineName: str, stageName: str, transitionType: str) -> NoReturn:
+    def enable_stage_transition(self, pipelineName: str, stageName: str, transitionType: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/EnableStageTransition>`_
@@ -1130,7 +1129,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -3494,7 +3493,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_job_failure_result(self, jobId: str, failureDetails: Dict) -> NoReturn:
+    def put_job_failure_result(self, jobId: str, failureDetails: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobFailureResult>`_
@@ -3536,7 +3535,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_job_success_result(self, jobId: str, currentRevision: Dict = None, continuationToken: str = None, executionDetails: Dict = None) -> NoReturn:
+    def put_job_success_result(self, jobId: str, currentRevision: Dict = None, continuationToken: str = None, executionDetails: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobSuccessResult>`_
@@ -3611,7 +3610,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_third_party_job_failure_result(self, jobId: str, clientToken: str, failureDetails: Dict) -> NoReturn:
+    def put_third_party_job_failure_result(self, jobId: str, clientToken: str, failureDetails: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobFailureResult>`_
@@ -3659,7 +3658,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_third_party_job_success_result(self, jobId: str, clientToken: str, currentRevision: Dict = None, continuationToken: str = None, executionDetails: Dict = None) -> NoReturn:
+    def put_third_party_job_success_result(self, jobId: str, clientToken: str, currentRevision: Dict = None, continuationToken: str = None, executionDetails: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobSuccessResult>`_

@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class SuccessfulSigningJob(Waiter):
-    def wait(self, jobId: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, jobId: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/signer-2017-08-25/DescribeSigningJob>`_

@@ -1,10 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -12,7 +11,7 @@ class Client(BaseClient):
     def add_custom_attributes(self, UserPoolId: str, CustomAttributes: List) -> Dict:
         pass
 
-    def admin_add_user_to_group(self, UserPoolId: str, Username: str, GroupName: str) -> NoReturn:
+    def admin_add_user_to_group(self, UserPoolId: str, Username: str, GroupName: str):
         pass
 
     def admin_confirm_sign_up(self, UserPoolId: str, Username: str) -> Dict:
@@ -21,7 +20,7 @@ class Client(BaseClient):
     def admin_create_user(self, UserPoolId: str, Username: str, UserAttributes: List = None, ValidationData: List = None, TemporaryPassword: str = None, ForceAliasCreation: bool = None, MessageAction: str = None, DesiredDeliveryMediums: List = None) -> Dict:
         pass
 
-    def admin_delete_user(self, UserPoolId: str, Username: str) -> NoReturn:
+    def admin_delete_user(self, UserPoolId: str, Username: str):
         pass
 
     def admin_delete_user_attributes(self, UserPoolId: str, Username: str, UserAttributeNames: List) -> Dict:
@@ -36,7 +35,7 @@ class Client(BaseClient):
     def admin_enable_user(self, UserPoolId: str, Username: str) -> Dict:
         pass
 
-    def admin_forget_device(self, UserPoolId: str, Username: str, DeviceKey: str) -> NoReturn:
+    def admin_forget_device(self, UserPoolId: str, Username: str, DeviceKey: str):
         pass
 
     def admin_get_device(self, DeviceKey: str, UserPoolId: str, Username: str) -> Dict:
@@ -60,7 +59,7 @@ class Client(BaseClient):
     def admin_list_user_auth_events(self, UserPoolId: str, Username: str, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
-    def admin_remove_user_from_group(self, UserPoolId: str, Username: str, GroupName: str) -> NoReturn:
+    def admin_remove_user_from_group(self, UserPoolId: str, Username: str, GroupName: str):
         pass
 
     def admin_reset_user_password(self, UserPoolId: str, Username: str) -> Dict:
@@ -90,7 +89,7 @@ class Client(BaseClient):
     def associate_software_token(self, AccessToken: str = None, Session: str = None) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def change_password(self, PreviousPassword: str, ProposedPassword: str, AccessToken: str) -> Dict:
@@ -126,25 +125,25 @@ class Client(BaseClient):
     def create_user_pool_domain(self, Domain: str, UserPoolId: str, CustomDomainConfig: Dict = None) -> Dict:
         pass
 
-    def delete_group(self, GroupName: str, UserPoolId: str) -> NoReturn:
+    def delete_group(self, GroupName: str, UserPoolId: str):
         pass
 
-    def delete_identity_provider(self, UserPoolId: str, ProviderName: str) -> NoReturn:
+    def delete_identity_provider(self, UserPoolId: str, ProviderName: str):
         pass
 
-    def delete_resource_server(self, UserPoolId: str, Identifier: str) -> NoReturn:
+    def delete_resource_server(self, UserPoolId: str, Identifier: str):
         pass
 
-    def delete_user(self, AccessToken: str) -> NoReturn:
+    def delete_user(self, AccessToken: str):
         pass
 
     def delete_user_attributes(self, UserAttributeNames: List, AccessToken: str) -> Dict:
         pass
 
-    def delete_user_pool(self, UserPoolId: str) -> NoReturn:
+    def delete_user_pool(self, UserPoolId: str):
         pass
 
-    def delete_user_pool_client(self, UserPoolId: str, ClientId: str) -> NoReturn:
+    def delete_user_pool_client(self, UserPoolId: str, ClientId: str):
         pass
 
     def delete_user_pool_domain(self, Domain: str, UserPoolId: str) -> Dict:
@@ -171,13 +170,13 @@ class Client(BaseClient):
     def describe_user_pool_domain(self, Domain: str) -> Dict:
         pass
 
-    def forget_device(self, DeviceKey: str, AccessToken: str = None) -> NoReturn:
+    def forget_device(self, DeviceKey: str, AccessToken: str = None):
         pass
 
     def forgot_password(self, ClientId: str, Username: str, SecretHash: str = None, UserContextData: Dict = None, AnalyticsMetadata: Dict = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_csv_header(self, UserPoolId: str) -> Dict:

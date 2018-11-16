@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -13,7 +12,7 @@ class Client(BaseClient):
     def add_tags(self, ResourceArn: str, Tags: List) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def create_endpoint(self, EndpointName: str, EndpointConfigName: str, Tags: List = None) -> Dict:
@@ -43,19 +42,19 @@ class Client(BaseClient):
     def create_transform_job(self, TransformJobName: str, ModelName: str, TransformInput: Dict, TransformOutput: Dict, TransformResources: Dict, MaxConcurrentTransforms: int = None, MaxPayloadInMB: int = None, BatchStrategy: str = None, Environment: Dict = None, Tags: List = None) -> Dict:
         pass
 
-    def delete_endpoint(self, EndpointName: str) -> NoReturn:
+    def delete_endpoint(self, EndpointName: str):
         pass
 
-    def delete_endpoint_config(self, EndpointConfigName: str) -> NoReturn:
+    def delete_endpoint_config(self, EndpointConfigName: str):
         pass
 
-    def delete_model(self, ModelName: str) -> NoReturn:
+    def delete_model(self, ModelName: str):
         pass
 
-    def delete_notebook_instance(self, NotebookInstanceName: str) -> NoReturn:
+    def delete_notebook_instance(self, NotebookInstanceName: str):
         pass
 
-    def delete_notebook_instance_lifecycle_config(self, NotebookInstanceLifecycleConfigName: str) -> NoReturn:
+    def delete_notebook_instance_lifecycle_config(self, NotebookInstanceLifecycleConfigName: str):
         pass
 
     def delete_tags(self, ResourceArn: str, TagKeys: List) -> Dict:
@@ -85,7 +84,7 @@ class Client(BaseClient):
     def describe_transform_job(self, TransformJobName: str) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
@@ -124,19 +123,19 @@ class Client(BaseClient):
     def list_transform_jobs(self, CreationTimeAfter: datetime = None, CreationTimeBefore: datetime = None, LastModifiedTimeAfter: datetime = None, LastModifiedTimeBefore: datetime = None, NameContains: str = None, StatusEquals: str = None, SortBy: str = None, SortOrder: str = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
-    def start_notebook_instance(self, NotebookInstanceName: str) -> NoReturn:
+    def start_notebook_instance(self, NotebookInstanceName: str):
         pass
 
-    def stop_hyper_parameter_tuning_job(self, HyperParameterTuningJobName: str) -> NoReturn:
+    def stop_hyper_parameter_tuning_job(self, HyperParameterTuningJobName: str):
         pass
 
-    def stop_notebook_instance(self, NotebookInstanceName: str) -> NoReturn:
+    def stop_notebook_instance(self, NotebookInstanceName: str):
         pass
 
-    def stop_training_job(self, TrainingJobName: str) -> NoReturn:
+    def stop_training_job(self, TrainingJobName: str):
         pass
 
-    def stop_transform_job(self, TransformJobName: str) -> NoReturn:
+    def stop_transform_job(self, TransformJobName: str):
         pass
 
     def update_endpoint(self, EndpointName: str, EndpointConfigName: str) -> Dict:

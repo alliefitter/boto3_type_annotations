@@ -1,16 +1,15 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def attach_instances(self, AutoScalingGroupName: str, InstanceIds: List = None) -> NoReturn:
+    def attach_instances(self, AutoScalingGroupName: str, InstanceIds: List = None):
         """
         
         When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.
@@ -318,7 +317,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -402,7 +401,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_auto_scaling_group(self, AutoScalingGroupName: str, MinSize: int, MaxSize: int, LaunchConfigurationName: str = None, LaunchTemplate: Dict = None, InstanceId: str = None, DesiredCapacity: int = None, DefaultCooldown: int = None, AvailabilityZones: List = None, LoadBalancerNames: List = None, TargetGroupARNs: List = None, HealthCheckType: str = None, HealthCheckGracePeriod: int = None, PlacementGroup: str = None, VPCZoneIdentifier: str = None, TerminationPolicies: List = None, NewInstancesProtectedFromScaleIn: bool = None, LifecycleHookSpecificationList: List = None, Tags: List = None, ServiceLinkedRoleARN: str = None) -> NoReturn:
+    def create_auto_scaling_group(self, AutoScalingGroupName: str, MinSize: int, MaxSize: int, LaunchConfigurationName: str = None, LaunchTemplate: Dict = None, InstanceId: str = None, DesiredCapacity: int = None, DefaultCooldown: int = None, AvailabilityZones: List = None, LoadBalancerNames: List = None, TargetGroupARNs: List = None, HealthCheckType: str = None, HealthCheckGracePeriod: int = None, PlacementGroup: str = None, VPCZoneIdentifier: str = None, TerminationPolicies: List = None, NewInstancesProtectedFromScaleIn: bool = None, LifecycleHookSpecificationList: List = None, Tags: List = None, ServiceLinkedRoleARN: str = None):
         """
         
         If you exceed your maximum limit of Auto Scaling groups, the call fails. For information about viewing this limit, see  DescribeAccountLimits . For information about updating this limit, see `Auto Scaling Limits <http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html>`__ in the *Amazon EC2 Auto Scaling User Guide* .
@@ -674,7 +673,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_launch_configuration(self, LaunchConfigurationName: str, ImageId: str = None, KeyName: str = None, SecurityGroups: List = None, ClassicLinkVPCId: str = None, ClassicLinkVPCSecurityGroups: List = None, UserData: str = None, InstanceId: str = None, InstanceType: str = None, KernelId: str = None, RamdiskId: str = None, BlockDeviceMappings: List = None, InstanceMonitoring: Dict = None, SpotPrice: str = None, IamInstanceProfile: str = None, EbsOptimized: bool = None, AssociatePublicIpAddress: bool = None, PlacementTenancy: str = None) -> NoReturn:
+    def create_launch_configuration(self, LaunchConfigurationName: str, ImageId: str = None, KeyName: str = None, SecurityGroups: List = None, ClassicLinkVPCId: str = None, ClassicLinkVPCSecurityGroups: List = None, UserData: str = None, InstanceId: str = None, InstanceType: str = None, KernelId: str = None, RamdiskId: str = None, BlockDeviceMappings: List = None, InstanceMonitoring: Dict = None, SpotPrice: str = None, IamInstanceProfile: str = None, EbsOptimized: bool = None, AssociatePublicIpAddress: bool = None, PlacementTenancy: str = None):
         """
         
         If you exceed your maximum limit of launch configurations, the call fails. For information about viewing this limit, see  DescribeAccountLimits . For information about updating this limit, see `Auto Scaling Limits <http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html>`__ in the *Amazon EC2 Auto Scaling User Guide* .
@@ -914,7 +913,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_or_update_tags(self, Tags: List) -> NoReturn:
+    def create_or_update_tags(self, Tags: List):
         """
         
         When you specify a tag with a key that already exists, the operation overwrites the previous tag definition, and you do not get an error message.
@@ -970,7 +969,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_auto_scaling_group(self, AutoScalingGroupName: str, ForceDelete: bool = None) -> NoReturn:
+    def delete_auto_scaling_group(self, AutoScalingGroupName: str, ForceDelete: bool = None):
         """
         
         If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed.
@@ -1004,7 +1003,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_launch_configuration(self, LaunchConfigurationName: str) -> NoReturn:
+    def delete_launch_configuration(self, LaunchConfigurationName: str):
         """
         
         The launch configuration must not be attached to an Auto Scaling group. When this call completes, the launch configuration is no longer available for use.
@@ -1064,7 +1063,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_notification_configuration(self, AutoScalingGroupName: str, TopicARN: str) -> NoReturn:
+    def delete_notification_configuration(self, AutoScalingGroupName: str, TopicARN: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DeleteNotificationConfiguration>`_
@@ -1090,7 +1089,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_policy(self, PolicyName: str, AutoScalingGroupName: str = None) -> NoReturn:
+    def delete_policy(self, PolicyName: str, AutoScalingGroupName: str = None):
         """
         
         Deleting a policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.
@@ -1118,7 +1117,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_scheduled_action(self, AutoScalingGroupName: str, ScheduledActionName: str) -> NoReturn:
+    def delete_scheduled_action(self, AutoScalingGroupName: str, ScheduledActionName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DeleteScheduledAction>`_
@@ -1144,7 +1143,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_tags(self, Tags: List) -> NoReturn:
+    def delete_tags(self, Tags: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DeleteTags>`_
@@ -3486,7 +3485,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disable_metrics_collection(self, AutoScalingGroupName: str, Metrics: List = None) -> NoReturn:
+    def disable_metrics_collection(self, AutoScalingGroupName: str, Metrics: List = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DisableMetricsCollection>`_
@@ -3532,7 +3531,7 @@ class Client(BaseClient):
         """
         pass
 
-    def enable_metrics_collection(self, AutoScalingGroupName: str, Granularity: str, Metrics: List = None) -> NoReturn:
+    def enable_metrics_collection(self, AutoScalingGroupName: str, Granularity: str, Metrics: List = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/EnableMetricsCollection>`_
@@ -3696,7 +3695,7 @@ class Client(BaseClient):
         """
         pass
 
-    def execute_policy(self, PolicyName: str, AutoScalingGroupName: str = None, HonorCooldown: bool = None, MetricValue: float = None, BreachThreshold: float = None) -> NoReturn:
+    def execute_policy(self, PolicyName: str, AutoScalingGroupName: str = None, HonorCooldown: bool = None, MetricValue: float = None, BreachThreshold: float = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/ExecutePolicy>`_
@@ -3856,7 +3855,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -4014,7 +4013,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_notification_configuration(self, AutoScalingGroupName: str, TopicARN: str, NotificationTypes: List) -> NoReturn:
+    def put_notification_configuration(self, AutoScalingGroupName: str, TopicARN: str, NotificationTypes: List):
         """
         
         This configuration overwrites any existing configuration.
@@ -4328,7 +4327,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_scheduled_update_group_action(self, AutoScalingGroupName: str, ScheduledActionName: str, Time: datetime = None, StartTime: datetime = None, EndTime: datetime = None, Recurrence: str = None, MinSize: int = None, MaxSize: int = None, DesiredCapacity: int = None) -> NoReturn:
+    def put_scheduled_update_group_action(self, AutoScalingGroupName: str, ScheduledActionName: str, Time: datetime = None, StartTime: datetime = None, EndTime: datetime = None, Recurrence: str = None, MinSize: int = None, MaxSize: int = None, DesiredCapacity: int = None):
         """
         
         For more information, see `Scheduled Scaling <http://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html>`__ in the *Amazon EC2 Auto Scaling User Guide* .
@@ -4464,7 +4463,7 @@ class Client(BaseClient):
         """
         pass
 
-    def resume_processes(self, AutoScalingGroupName: str, ScalingProcesses: List = None) -> NoReturn:
+    def resume_processes(self, AutoScalingGroupName: str, ScalingProcesses: List = None):
         """
         
         For more information, see `Suspending and Resuming Scaling Processes <http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html>`__ in the *Amazon EC2 Auto Scaling User Guide* .
@@ -4512,7 +4511,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_desired_capacity(self, AutoScalingGroupName: str, DesiredCapacity: int, HonorCooldown: bool = None) -> NoReturn:
+    def set_desired_capacity(self, AutoScalingGroupName: str, DesiredCapacity: int, HonorCooldown: bool = None):
         """
         
         For more information about desired capacity, see `What Is Amazon EC2 Auto Scaling? <http://docs.aws.amazon.com/autoscaling/ec2/userguide/WhatIsAutoScaling.html>`__ in the *Amazon EC2 Auto Scaling User Guide* .
@@ -4546,7 +4545,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_instance_health(self, InstanceId: str, HealthStatus: str, ShouldRespectGracePeriod: bool = None) -> NoReturn:
+    def set_instance_health(self, InstanceId: str, HealthStatus: str, ShouldRespectGracePeriod: bool = None):
         """
         
         For more information, see `Health Checks <http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html>`__ in the *Amazon EC2 Auto Scaling User Guide* .
@@ -4630,7 +4629,7 @@ class Client(BaseClient):
         """
         pass
 
-    def suspend_processes(self, AutoScalingGroupName: str, ScalingProcesses: List = None) -> NoReturn:
+    def suspend_processes(self, AutoScalingGroupName: str, ScalingProcesses: List = None):
         """
         
         Note that if you suspend either the ``Launch`` or ``Terminate`` process types, it can prevent other process types from functioning properly.
@@ -4778,7 +4777,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_auto_scaling_group(self, AutoScalingGroupName: str, LaunchConfigurationName: str = None, LaunchTemplate: Dict = None, MinSize: int = None, MaxSize: int = None, DesiredCapacity: int = None, DefaultCooldown: int = None, AvailabilityZones: List = None, HealthCheckType: str = None, HealthCheckGracePeriod: int = None, PlacementGroup: str = None, VPCZoneIdentifier: str = None, TerminationPolicies: List = None, NewInstancesProtectedFromScaleIn: bool = None, ServiceLinkedRoleARN: str = None) -> NoReturn:
+    def update_auto_scaling_group(self, AutoScalingGroupName: str, LaunchConfigurationName: str = None, LaunchTemplate: Dict = None, MinSize: int = None, MaxSize: int = None, DesiredCapacity: int = None, DefaultCooldown: int = None, AvailabilityZones: List = None, HealthCheckType: str = None, HealthCheckGracePeriod: int = None, PlacementGroup: str = None, VPCZoneIdentifier: str = None, TerminationPolicies: List = None, NewInstancesProtectedFromScaleIn: bool = None, ServiceLinkedRoleARN: str = None):
         """
         
         The new settings take effect on any scaling activities after this call returns. Scaling activities that are currently in progress aren't affected.

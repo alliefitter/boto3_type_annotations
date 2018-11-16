@@ -1,9 +1,8 @@
-from typing import Dict
-from typing import Optional
-from typing import Union
-from typing import NoReturn
-from typing import List
 from boto3.resources.collection import ResourceCollection
+from typing import Union
+from typing import List
+from typing import Optional
+from typing import Dict
 from boto3.resources import base
 
 
@@ -212,7 +211,7 @@ class Message(base.ServiceResource):
     queue_url: str
     receipt_handle: str
 
-    def change_visibility(self, VisibilityTimeout: int) -> NoReturn:
+    def change_visibility(self, VisibilityTimeout: int):
         """
         
         For example, you have a message with a visibility timeout of 5 minutes. After 3 minutes, you call ``ChangeMessageVisibility`` with a timeout of 10 minutes. You can continue to call ``ChangeMessageVisibility`` to extend the visibility timeout to a maximum of 12 hours. If you try to extend the visibility timeout beyond 12 hours, your request is rejected.
@@ -246,7 +245,7 @@ class Message(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         .. note::
@@ -282,7 +281,7 @@ class Queue(base.ServiceResource):
     url: str
     dead_letter_source_queues: 'dead_letter_source_queues'
 
-    def add_permission(self, Label: str, AWSAccountIds: List, Actions: List) -> NoReturn:
+    def add_permission(self, Label: str, AWSAccountIds: List, Actions: List):
         """
         
         When you create a queue, you have full control access rights for the queue. Only you, the owner of the queue, can grant or deny permissions to the queue. For more information about these permissions, see `Allow Developers to Write Messages to a Shared Queue <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue>`__ in the *Amazon Simple Queue Service Developer Guide* .
@@ -473,7 +472,7 @@ class Queue(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         .. warning::
@@ -623,7 +622,7 @@ class Queue(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/None>`_
@@ -637,7 +636,7 @@ class Queue(base.ServiceResource):
         """
         pass
 
-    def purge(self) -> NoReturn:
+    def purge(self):
         """
         
         .. warning::
@@ -802,7 +801,7 @@ class Queue(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/None>`_
@@ -816,7 +815,7 @@ class Queue(base.ServiceResource):
         """
         pass
 
-    def remove_permission(self, Label: str) -> NoReturn:
+    def remove_permission(self, Label: str):
         """
         
         .. note::
@@ -1294,7 +1293,7 @@ class Queue(base.ServiceResource):
         """
         pass
 
-    def set_attributes(self, Attributes: Dict) -> NoReturn:
+    def set_attributes(self, Attributes: Dict):
         """
         
         .. note::

@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -92,7 +91,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -983,7 +982,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_channel(self, channelName: str) -> NoReturn:
+    def delete_channel(self, channelName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/DeleteChannel>`_
@@ -1003,7 +1002,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_dataset(self, datasetName: str) -> NoReturn:
+    def delete_dataset(self, datasetName: str):
         """
         
         You do not have to delete the content of the data set before you perform this operation.
@@ -1025,7 +1024,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_dataset_content(self, datasetName: str, versionId: str = None) -> NoReturn:
+    def delete_dataset_content(self, datasetName: str, versionId: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/DeleteDatasetContent>`_
@@ -1051,7 +1050,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_datastore(self, datastoreName: str) -> NoReturn:
+    def delete_datastore(self, datastoreName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/DeleteDatastore>`_
@@ -1071,7 +1070,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_pipeline(self, pipelineName: str) -> NoReturn:
+    def delete_pipeline(self, pipelineName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/DeletePipeline>`_
@@ -1966,7 +1965,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -2631,7 +2630,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_logging_options(self, loggingOptions: Dict) -> NoReturn:
+    def put_logging_options(self, loggingOptions: Dict):
         """
         
         Note that if you update the value of any ``loggingOptions`` field, it takes up to one minute for the change to take effect. Also, if you change the policy attached to the role you specified in the roleArn field (for example, to correct an invalid policy) it takes up to 5 minutes for that change to take effect. 
@@ -3182,7 +3181,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_channel(self, channelName: str, retentionPeriod: Dict = None) -> NoReturn:
+    def update_channel(self, channelName: str, retentionPeriod: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/UpdateChannel>`_
@@ -3219,7 +3218,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_dataset(self, datasetName: str, actions: List, triggers: List = None, retentionPeriod: Dict = None) -> NoReturn:
+    def update_dataset(self, datasetName: str, actions: List, triggers: List = None, retentionPeriod: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/UpdateDataset>`_
@@ -3429,7 +3428,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_datastore(self, datastoreName: str, retentionPeriod: Dict = None) -> NoReturn:
+    def update_datastore(self, datastoreName: str, retentionPeriod: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/UpdateDatastore>`_
@@ -3466,7 +3465,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_pipeline(self, pipelineName: str, pipelineActivities: List) -> NoReturn:
+    def update_pipeline(self, pipelineName: str, pipelineActivities: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/UpdatePipeline>`_

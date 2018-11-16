@@ -1,10 +1,9 @@
-from typing import Optional
-from typing import NoReturn
 from boto3.resources.collection import ResourceCollection
-from datetime import datetime
-from typing import Dict
 from typing import Union
 from typing import List
+from datetime import datetime
+from typing import Optional
+from typing import Dict
 from boto3.resources import base
 
 
@@ -75,19 +74,19 @@ class Stack(base.ServiceResource):
     events: 'events'
     resource_summaries: 'resource_summaries'
 
-    def cancel_update(self, ClientRequestToken: str = None) -> NoReturn:
+    def cancel_update(self, ClientRequestToken: str = None):
         pass
 
-    def delete(self, RetainResources: List = None, RoleARN: str = None, ClientRequestToken: str = None) -> NoReturn:
+    def delete(self, RetainResources: List = None, RoleARN: str = None, ClientRequestToken: str = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
     def update(self, TemplateBody: str = None, TemplateURL: str = None, UsePreviousTemplate: bool = None, StackPolicyDuringUpdateBody: str = None, StackPolicyDuringUpdateURL: str = None, Parameters: List = None, Capabilities: List = None, ResourceTypes: List = None, RoleARN: str = None, RollbackConfiguration: Dict = None, StackPolicyBody: str = None, StackPolicyURL: str = None, NotificationARNs: List = None, Tags: List = None, ClientRequestToken: str = None) -> Dict:
@@ -111,10 +110,10 @@ class StackResource(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 

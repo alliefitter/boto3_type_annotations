@@ -1,18 +1,17 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def add_permission(self, TopicArn: str, Label: str, AWSAccountId: List, ActionName: List) -> NoReturn:
+    def add_permission(self, TopicArn: str, Label: str, AWSAccountId: List, ActionName: List):
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def check_if_phone_number_is_opted_out(self, phoneNumber: str) -> Dict:
@@ -30,16 +29,16 @@ class Client(BaseClient):
     def create_topic(self, Name: str) -> Dict:
         pass
 
-    def delete_endpoint(self, EndpointArn: str) -> NoReturn:
+    def delete_endpoint(self, EndpointArn: str):
         pass
 
-    def delete_platform_application(self, PlatformApplicationArn: str) -> NoReturn:
+    def delete_platform_application(self, PlatformApplicationArn: str):
         pass
 
-    def delete_topic(self, TopicArn: str) -> NoReturn:
+    def delete_topic(self, TopicArn: str):
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_endpoint_attributes(self, EndpointArn: str) -> Dict:
@@ -87,26 +86,26 @@ class Client(BaseClient):
     def publish(self, Message: str, TopicArn: str = None, TargetArn: str = None, PhoneNumber: str = None, Subject: str = None, MessageStructure: str = None, MessageAttributes: Dict = None) -> Dict:
         pass
 
-    def remove_permission(self, TopicArn: str, Label: str) -> NoReturn:
+    def remove_permission(self, TopicArn: str, Label: str):
         pass
 
-    def set_endpoint_attributes(self, EndpointArn: str, Attributes: Dict) -> NoReturn:
+    def set_endpoint_attributes(self, EndpointArn: str, Attributes: Dict):
         pass
 
-    def set_platform_application_attributes(self, PlatformApplicationArn: str, Attributes: Dict) -> NoReturn:
+    def set_platform_application_attributes(self, PlatformApplicationArn: str, Attributes: Dict):
         pass
 
     def set_sms_attributes(self, attributes: Dict) -> Dict:
         pass
 
-    def set_subscription_attributes(self, SubscriptionArn: str, AttributeName: str, AttributeValue: str = None) -> NoReturn:
+    def set_subscription_attributes(self, SubscriptionArn: str, AttributeName: str, AttributeValue: str = None):
         pass
 
-    def set_topic_attributes(self, TopicArn: str, AttributeName: str, AttributeValue: str = None) -> NoReturn:
+    def set_topic_attributes(self, TopicArn: str, AttributeName: str, AttributeValue: str = None):
         pass
 
     def subscribe(self, TopicArn: str, Protocol: str, Endpoint: str = None, Attributes: Dict = None, ReturnSubscriptionArn: bool = None) -> Dict:
         pass
 
-    def unsubscribe(self, SubscriptionArn: str) -> NoReturn:
+    def unsubscribe(self, SubscriptionArn: str):
         pass

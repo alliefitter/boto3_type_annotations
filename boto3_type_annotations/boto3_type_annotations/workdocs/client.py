@@ -1,16 +1,15 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def abort_document_version_upload(self, DocumentId: str, VersionId: str, AuthenticationToken: str = None) -> NoReturn:
+    def abort_document_version_upload(self, DocumentId: str, VersionId: str, AuthenticationToken: str = None):
         pass
 
     def activate_user(self, UserId: str, AuthenticationToken: str = None) -> Dict:
@@ -19,7 +18,7 @@ class Client(BaseClient):
     def add_resource_permissions(self, ResourceId: str, Principals: List, AuthenticationToken: str = None, NotificationOptions: Dict = None) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def create_comment(self, DocumentId: str, VersionId: str, Text: str, AuthenticationToken: str = None, ParentId: str = None, ThreadId: str = None, Visibility: str = None, NotifyCollaborators: bool = None) -> Dict:
@@ -40,31 +39,31 @@ class Client(BaseClient):
     def create_user(self, Username: str, GivenName: str, Surname: str, Password: str, OrganizationId: str = None, EmailAddress: str = None, TimeZoneId: str = None, StorageRule: Dict = None, AuthenticationToken: str = None) -> Dict:
         pass
 
-    def deactivate_user(self, UserId: str, AuthenticationToken: str = None) -> NoReturn:
+    def deactivate_user(self, UserId: str, AuthenticationToken: str = None):
         pass
 
-    def delete_comment(self, DocumentId: str, VersionId: str, CommentId: str, AuthenticationToken: str = None) -> NoReturn:
+    def delete_comment(self, DocumentId: str, VersionId: str, CommentId: str, AuthenticationToken: str = None):
         pass
 
     def delete_custom_metadata(self, ResourceId: str, AuthenticationToken: str = None, VersionId: str = None, Keys: List = None, DeleteAll: bool = None) -> Dict:
         pass
 
-    def delete_document(self, DocumentId: str, AuthenticationToken: str = None) -> NoReturn:
+    def delete_document(self, DocumentId: str, AuthenticationToken: str = None):
         pass
 
-    def delete_folder(self, FolderId: str, AuthenticationToken: str = None) -> NoReturn:
+    def delete_folder(self, FolderId: str, AuthenticationToken: str = None):
         pass
 
-    def delete_folder_contents(self, FolderId: str, AuthenticationToken: str = None) -> NoReturn:
+    def delete_folder_contents(self, FolderId: str, AuthenticationToken: str = None):
         pass
 
     def delete_labels(self, ResourceId: str, AuthenticationToken: str = None, Labels: List = None, DeleteAll: bool = None) -> Dict:
         pass
 
-    def delete_notification_subscription(self, SubscriptionId: str, OrganizationId: str) -> NoReturn:
+    def delete_notification_subscription(self, SubscriptionId: str, OrganizationId: str):
         pass
 
-    def delete_user(self, UserId: str, AuthenticationToken: str = None) -> NoReturn:
+    def delete_user(self, UserId: str, AuthenticationToken: str = None):
         pass
 
     def describe_activities(self, AuthenticationToken: str = None, StartTime: datetime = None, EndTime: datetime = None, OrganizationId: str = None, UserId: str = None, Limit: int = None, Marker: str = None) -> Dict:
@@ -94,7 +93,7 @@ class Client(BaseClient):
     def describe_users(self, AuthenticationToken: str = None, OrganizationId: str = None, UserIds: str = None, Query: str = None, Include: str = None, Order: str = None, Sort: str = None, Marker: str = None, Limit: int = None, Fields: str = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_current_user(self, AuthenticationToken: str) -> Dict:
@@ -124,19 +123,19 @@ class Client(BaseClient):
     def initiate_document_version_upload(self, ParentFolderId: str, AuthenticationToken: str = None, Id: str = None, Name: str = None, ContentCreatedTimestamp: datetime = None, ContentModifiedTimestamp: datetime = None, ContentType: str = None, DocumentSizeInBytes: int = None) -> Dict:
         pass
 
-    def remove_all_resource_permissions(self, ResourceId: str, AuthenticationToken: str = None) -> NoReturn:
+    def remove_all_resource_permissions(self, ResourceId: str, AuthenticationToken: str = None):
         pass
 
-    def remove_resource_permission(self, ResourceId: str, PrincipalId: str, AuthenticationToken: str = None, PrincipalType: str = None) -> NoReturn:
+    def remove_resource_permission(self, ResourceId: str, PrincipalId: str, AuthenticationToken: str = None, PrincipalType: str = None):
         pass
 
-    def update_document(self, DocumentId: str, AuthenticationToken: str = None, Name: str = None, ParentFolderId: str = None, ResourceState: str = None) -> NoReturn:
+    def update_document(self, DocumentId: str, AuthenticationToken: str = None, Name: str = None, ParentFolderId: str = None, ResourceState: str = None):
         pass
 
-    def update_document_version(self, DocumentId: str, VersionId: str, AuthenticationToken: str = None, VersionStatus: str = None) -> NoReturn:
+    def update_document_version(self, DocumentId: str, VersionId: str, AuthenticationToken: str = None, VersionStatus: str = None):
         pass
 
-    def update_folder(self, FolderId: str, AuthenticationToken: str = None, Name: str = None, ParentFolderId: str = None, ResourceState: str = None) -> NoReturn:
+    def update_folder(self, FolderId: str, AuthenticationToken: str = None, Name: str = None, ParentFolderId: str = None, ResourceState: str = None):
         pass
 
     def update_user(self, UserId: str, AuthenticationToken: str = None, GivenName: str = None, Surname: str = None, Type: str = None, StorageRule: Dict = None, TimeZoneId: str = None, Locale: str = None, GrantPoweruserPrivileges: str = None) -> Dict:

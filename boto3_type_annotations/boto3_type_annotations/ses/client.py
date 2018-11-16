@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def clone_receipt_rule_set(self, RuleSetName: str, OriginalRuleSetName: str) -> Dict:
@@ -24,7 +23,7 @@ class Client(BaseClient):
     def create_configuration_set_tracking_options(self, ConfigurationSetName: str, TrackingOptions: Dict) -> Dict:
         pass
 
-    def create_custom_verification_email_template(self, TemplateName: str, FromEmailAddress: str, TemplateSubject: str, TemplateContent: str, SuccessRedirectionURL: str, FailureRedirectionURL: str) -> NoReturn:
+    def create_custom_verification_email_template(self, TemplateName: str, FromEmailAddress: str, TemplateSubject: str, TemplateContent: str, SuccessRedirectionURL: str, FailureRedirectionURL: str):
         pass
 
     def create_receipt_filter(self, Filter: Dict) -> Dict:
@@ -48,7 +47,7 @@ class Client(BaseClient):
     def delete_configuration_set_tracking_options(self, ConfigurationSetName: str) -> Dict:
         pass
 
-    def delete_custom_verification_email_template(self, TemplateName: str) -> NoReturn:
+    def delete_custom_verification_email_template(self, TemplateName: str):
         pass
 
     def delete_identity(self, Identity: str) -> Dict:
@@ -69,7 +68,7 @@ class Client(BaseClient):
     def delete_template(self, TemplateName: str) -> Dict:
         pass
 
-    def delete_verified_email_address(self, EmailAddress: str) -> NoReturn:
+    def delete_verified_email_address(self, EmailAddress: str):
         pass
 
     def describe_active_receipt_rule_set(self) -> Dict:
@@ -84,7 +83,7 @@ class Client(BaseClient):
     def describe_receipt_rule_set(self, RuleSetName: str) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_account_sending_enabled(self) -> Dict:
@@ -195,22 +194,22 @@ class Client(BaseClient):
     def test_render_template(self, TemplateName: str, TemplateData: str) -> Dict:
         pass
 
-    def update_account_sending_enabled(self, Enabled: bool = None) -> NoReturn:
+    def update_account_sending_enabled(self, Enabled: bool = None):
         pass
 
     def update_configuration_set_event_destination(self, ConfigurationSetName: str, EventDestination: Dict) -> Dict:
         pass
 
-    def update_configuration_set_reputation_metrics_enabled(self, ConfigurationSetName: str, Enabled: bool) -> NoReturn:
+    def update_configuration_set_reputation_metrics_enabled(self, ConfigurationSetName: str, Enabled: bool):
         pass
 
-    def update_configuration_set_sending_enabled(self, ConfigurationSetName: str, Enabled: bool) -> NoReturn:
+    def update_configuration_set_sending_enabled(self, ConfigurationSetName: str, Enabled: bool):
         pass
 
     def update_configuration_set_tracking_options(self, ConfigurationSetName: str, TrackingOptions: Dict) -> Dict:
         pass
 
-    def update_custom_verification_email_template(self, TemplateName: str, FromEmailAddress: str = None, TemplateSubject: str = None, TemplateContent: str = None, SuccessRedirectionURL: str = None, FailureRedirectionURL: str = None) -> NoReturn:
+    def update_custom_verification_email_template(self, TemplateName: str, FromEmailAddress: str = None, TemplateSubject: str = None, TemplateContent: str = None, SuccessRedirectionURL: str = None, FailureRedirectionURL: str = None):
         pass
 
     def update_receipt_rule(self, RuleSetName: str, Rule: Dict) -> Dict:
@@ -225,7 +224,7 @@ class Client(BaseClient):
     def verify_domain_identity(self, Domain: str) -> Dict:
         pass
 
-    def verify_email_address(self, EmailAddress: str) -> NoReturn:
+    def verify_email_address(self, EmailAddress: str):
         pass
 
     def verify_email_identity(self, EmailAddress: str) -> Dict:

@@ -1,14 +1,13 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
-from typing import List
-from typing import Callable
-from boto3.s3.transfer import TransferConfig
 from typing import IO
+from boto3.s3.transfer import TransferConfig
+from botocore.paginate import Paginator
+from typing import Callable
+from typing import Union
+from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -64,7 +63,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -186,7 +185,7 @@ class Client(BaseClient):
         """
         pass
 
-    def copy(self, CopySource: Dict = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, SourceClient: BaseClient = None, Config: TransferConfig = None) -> NoReturn:
+    def copy(self, CopySource: Dict = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, SourceClient: BaseClient = None, Config: TransferConfig = None):
         """
         
         This is a managed transfer which will perform a multipart copy in
@@ -807,7 +806,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bucket(self, Bucket: str) -> NoReturn:
+    def delete_bucket(self, Bucket: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket>`_
@@ -825,7 +824,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bucket_analytics_configuration(self, Bucket: str, Id: str) -> NoReturn:
+    def delete_bucket_analytics_configuration(self, Bucket: str, Id: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketAnalyticsConfiguration>`_
@@ -851,7 +850,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bucket_cors(self, Bucket: str) -> NoReturn:
+    def delete_bucket_cors(self, Bucket: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors>`_
@@ -869,7 +868,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bucket_encryption(self, Bucket: str) -> NoReturn:
+    def delete_bucket_encryption(self, Bucket: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketEncryption>`_
@@ -889,7 +888,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bucket_inventory_configuration(self, Bucket: str, Id: str) -> NoReturn:
+    def delete_bucket_inventory_configuration(self, Bucket: str, Id: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketInventoryConfiguration>`_
@@ -915,7 +914,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bucket_lifecycle(self, Bucket: str) -> NoReturn:
+    def delete_bucket_lifecycle(self, Bucket: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle>`_
@@ -933,7 +932,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bucket_metrics_configuration(self, Bucket: str, Id: str) -> NoReturn:
+    def delete_bucket_metrics_configuration(self, Bucket: str, Id: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketMetricsConfiguration>`_
@@ -959,7 +958,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bucket_policy(self, Bucket: str) -> NoReturn:
+    def delete_bucket_policy(self, Bucket: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketPolicy>`_
@@ -977,7 +976,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bucket_replication(self, Bucket: str) -> NoReturn:
+    def delete_bucket_replication(self, Bucket: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketReplication>`_
@@ -1003,7 +1002,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bucket_tagging(self, Bucket: str) -> NoReturn:
+    def delete_bucket_tagging(self, Bucket: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketTagging>`_
@@ -1021,7 +1020,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_bucket_website(self, Bucket: str) -> NoReturn:
+    def delete_bucket_website(self, Bucket: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite>`_
@@ -1266,7 +1265,7 @@ class Client(BaseClient):
         """
         pass
 
-    def download_file(self, Filename: str = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def download_file(self, Filename: str = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         Usage::
@@ -1302,7 +1301,7 @@ class Client(BaseClient):
         """
         pass
 
-    def download_fileobj(self, Fileobj: IO = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def download_fileobj(self, Fileobj: IO = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         The file-like object must be in binary mode.
@@ -1407,7 +1406,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -3902,7 +3901,7 @@ class Client(BaseClient):
         """
         pass
 
-    def head_bucket(self, Bucket: str) -> NoReturn:
+    def head_bucket(self, Bucket: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_
@@ -5538,7 +5537,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_accelerate_configuration(self, Bucket: str, AccelerateConfiguration: Dict) -> NoReturn:
+    def put_bucket_accelerate_configuration(self, Bucket: str, AccelerateConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAccelerateConfiguration>`_
@@ -5570,7 +5569,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_acl(self, Bucket: str, ACL: str = None, AccessControlPolicy: Dict = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWrite: str = None, GrantWriteACP: str = None) -> NoReturn:
+    def put_bucket_acl(self, Bucket: str, ACL: str = None, AccessControlPolicy: Dict = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWrite: str = None, GrantWriteACP: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAcl>`_
@@ -5683,7 +5682,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_analytics_configuration(self, Bucket: str, Id: str, AnalyticsConfiguration: Dict) -> NoReturn:
+    def put_bucket_analytics_configuration(self, Bucket: str, Id: str, AnalyticsConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAnalyticsConfiguration>`_
@@ -5828,7 +5827,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_cors(self, Bucket: str, CORSConfiguration: Dict) -> NoReturn:
+    def put_bucket_cors(self, Bucket: str, CORSConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketCors>`_
@@ -5901,7 +5900,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_encryption(self, Bucket: str, ServerSideEncryptionConfiguration: Dict, ContentMD5: str = None) -> NoReturn:
+    def put_bucket_encryption(self, Bucket: str, ServerSideEncryptionConfiguration: Dict, ContentMD5: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketEncryption>`_
@@ -5962,7 +5961,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_inventory_configuration(self, Bucket: str, Id: str, InventoryConfiguration: Dict) -> NoReturn:
+    def put_bucket_inventory_configuration(self, Bucket: str, Id: str, InventoryConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketInventoryConfiguration>`_
@@ -6096,7 +6095,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_lifecycle(self, Bucket: str, LifecycleConfiguration: Dict = None) -> NoReturn:
+    def put_bucket_lifecycle(self, Bucket: str, LifecycleConfiguration: Dict = None):
         """
         
         .. danger::
@@ -6222,7 +6221,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_lifecycle_configuration(self, Bucket: str, LifecycleConfiguration: Dict = None) -> NoReturn:
+    def put_bucket_lifecycle_configuration(self, Bucket: str, LifecycleConfiguration: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration>`_
@@ -6408,7 +6407,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_logging(self, Bucket: str, BucketLoggingStatus: Dict) -> NoReturn:
+    def put_bucket_logging(self, Bucket: str, BucketLoggingStatus: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLogging>`_
@@ -6490,7 +6489,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_metrics_configuration(self, Bucket: str, Id: str, MetricsConfiguration: Dict) -> NoReturn:
+    def put_bucket_metrics_configuration(self, Bucket: str, Id: str, MetricsConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketMetricsConfiguration>`_
@@ -6586,7 +6585,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_notification(self, Bucket: str, NotificationConfiguration: Dict) -> NoReturn:
+    def put_bucket_notification(self, Bucket: str, NotificationConfiguration: Dict):
         """
         
         .. danger::
@@ -6696,7 +6695,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_notification_configuration(self, Bucket: str, NotificationConfiguration: Dict) -> NoReturn:
+    def put_bucket_notification_configuration(self, Bucket: str, NotificationConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketNotificationConfiguration>`_
@@ -6904,7 +6903,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_policy(self, Bucket: str, Policy: str, ConfirmRemoveSelfBucketAccess: bool = None) -> NoReturn:
+    def put_bucket_policy(self, Bucket: str, Policy: str, ConfirmRemoveSelfBucketAccess: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketPolicy>`_
@@ -6934,7 +6933,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_replication(self, Bucket: str, ReplicationConfiguration: Dict) -> NoReturn:
+    def put_bucket_replication(self, Bucket: str, ReplicationConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketReplication>`_
@@ -7145,7 +7144,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_request_payment(self, Bucket: str, RequestPaymentConfiguration: Dict) -> NoReturn:
+    def put_bucket_request_payment(self, Bucket: str, RequestPaymentConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketRequestPayment>`_
@@ -7173,7 +7172,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_tagging(self, Bucket: str, Tagging: Dict) -> NoReturn:
+    def put_bucket_tagging(self, Bucket: str, Tagging: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketTagging>`_
@@ -7214,7 +7213,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_versioning(self, Bucket: str, VersioningConfiguration: Dict, MFA: str = None) -> NoReturn:
+    def put_bucket_versioning(self, Bucket: str, VersioningConfiguration: Dict, MFA: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_
@@ -7253,7 +7252,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_bucket_website(self, Bucket: str, WebsiteConfiguration: Dict) -> NoReturn:
+    def put_bucket_website(self, Bucket: str, WebsiteConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite>`_
@@ -8450,7 +8449,7 @@ class Client(BaseClient):
         """
         pass
 
-    def upload_file(self, Filename: str = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def upload_file(self, Filename: str = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         Usage::
@@ -8486,7 +8485,7 @@ class Client(BaseClient):
         """
         pass
 
-    def upload_fileobj(self, Fileobj: IO = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def upload_fileobj(self, Fileobj: IO = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         The file-like object must be in binary mode.

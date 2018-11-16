@@ -1,16 +1,15 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
-from typing import List
 from typing import IO
+from botocore.paginate import Paginator
+from typing import Union
+from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def create_api_key(self, name: str = None, description: str = None, enabled: bool = None, generateDistinctId: bool = None, value: str = None, stageKeys: List = None, customerId: str = None) -> Dict:
@@ -58,79 +57,79 @@ class Client(BaseClient):
     def create_vpc_link(self, name: str, targetArns: List, description: str = None) -> Dict:
         pass
 
-    def delete_api_key(self, apiKey: str) -> NoReturn:
+    def delete_api_key(self, apiKey: str):
         pass
 
-    def delete_authorizer(self, restApiId: str, authorizerId: str) -> NoReturn:
+    def delete_authorizer(self, restApiId: str, authorizerId: str):
         pass
 
-    def delete_base_path_mapping(self, domainName: str, basePath: str) -> NoReturn:
+    def delete_base_path_mapping(self, domainName: str, basePath: str):
         pass
 
-    def delete_client_certificate(self, clientCertificateId: str) -> NoReturn:
+    def delete_client_certificate(self, clientCertificateId: str):
         pass
 
-    def delete_deployment(self, restApiId: str, deploymentId: str) -> NoReturn:
+    def delete_deployment(self, restApiId: str, deploymentId: str):
         pass
 
-    def delete_documentation_part(self, restApiId: str, documentationPartId: str) -> NoReturn:
+    def delete_documentation_part(self, restApiId: str, documentationPartId: str):
         pass
 
-    def delete_documentation_version(self, restApiId: str, documentationVersion: str) -> NoReturn:
+    def delete_documentation_version(self, restApiId: str, documentationVersion: str):
         pass
 
-    def delete_domain_name(self, domainName: str) -> NoReturn:
+    def delete_domain_name(self, domainName: str):
         pass
 
-    def delete_gateway_response(self, restApiId: str, responseType: str) -> NoReturn:
+    def delete_gateway_response(self, restApiId: str, responseType: str):
         pass
 
-    def delete_integration(self, restApiId: str, resourceId: str, httpMethod: str) -> NoReturn:
+    def delete_integration(self, restApiId: str, resourceId: str, httpMethod: str):
         pass
 
-    def delete_integration_response(self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str) -> NoReturn:
+    def delete_integration_response(self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str):
         pass
 
-    def delete_method(self, restApiId: str, resourceId: str, httpMethod: str) -> NoReturn:
+    def delete_method(self, restApiId: str, resourceId: str, httpMethod: str):
         pass
 
-    def delete_method_response(self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str) -> NoReturn:
+    def delete_method_response(self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str):
         pass
 
-    def delete_model(self, restApiId: str, modelName: str) -> NoReturn:
+    def delete_model(self, restApiId: str, modelName: str):
         pass
 
-    def delete_request_validator(self, restApiId: str, requestValidatorId: str) -> NoReturn:
+    def delete_request_validator(self, restApiId: str, requestValidatorId: str):
         pass
 
-    def delete_resource(self, restApiId: str, resourceId: str) -> NoReturn:
+    def delete_resource(self, restApiId: str, resourceId: str):
         pass
 
-    def delete_rest_api(self, restApiId: str) -> NoReturn:
+    def delete_rest_api(self, restApiId: str):
         pass
 
-    def delete_stage(self, restApiId: str, stageName: str) -> NoReturn:
+    def delete_stage(self, restApiId: str, stageName: str):
         pass
 
-    def delete_usage_plan(self, usagePlanId: str) -> NoReturn:
+    def delete_usage_plan(self, usagePlanId: str):
         pass
 
-    def delete_usage_plan_key(self, usagePlanId: str, keyId: str) -> NoReturn:
+    def delete_usage_plan_key(self, usagePlanId: str, keyId: str):
         pass
 
-    def delete_vpc_link(self, vpcLinkId: str) -> NoReturn:
+    def delete_vpc_link(self, vpcLinkId: str):
         pass
 
-    def flush_stage_authorizers_cache(self, restApiId: str, stageName: str) -> NoReturn:
+    def flush_stage_authorizers_cache(self, restApiId: str, stageName: str):
         pass
 
-    def flush_stage_cache(self, restApiId: str, stageName: str) -> NoReturn:
+    def flush_stage_cache(self, restApiId: str, stageName: str):
         pass
 
     def generate_client_certificate(self, description: str = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_account(self) -> Dict:
@@ -304,7 +303,7 @@ class Client(BaseClient):
     def put_rest_api(self, restApiId: str, body: Union[bytes, IO], mode: str = None, failOnWarnings: bool = None, parameters: Dict = None) -> Dict:
         pass
 
-    def tag_resource(self, resourceArn: str, tags: Dict) -> NoReturn:
+    def tag_resource(self, resourceArn: str, tags: Dict):
         pass
 
     def test_invoke_authorizer(self, restApiId: str, authorizerId: str, headers: Dict = None, multiValueHeaders: Dict = None, pathWithQueryString: str = None, body: str = None, stageVariables: Dict = None, additionalContext: Dict = None) -> Dict:
@@ -313,7 +312,7 @@ class Client(BaseClient):
     def test_invoke_method(self, restApiId: str, resourceId: str, httpMethod: str, pathWithQueryString: str = None, body: str = None, headers: Dict = None, multiValueHeaders: Dict = None, clientCertificateId: str = None, stageVariables: Dict = None) -> Dict:
         pass
 
-    def untag_resource(self, resourceArn: str, tagKeys: List) -> NoReturn:
+    def untag_resource(self, resourceArn: str, tagKeys: List):
         pass
 
     def update_account(self, patchOperations: List = None) -> Dict:

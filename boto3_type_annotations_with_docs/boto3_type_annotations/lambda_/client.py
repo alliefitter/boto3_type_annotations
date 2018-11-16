@@ -1,12 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
 from typing import IO
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -114,7 +113,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -741,7 +740,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_alias(self, FunctionName: str, Name: str) -> NoReturn:
+    def delete_alias(self, FunctionName: str, Name: str):
         """
         
         This requires permission for the lambda:DeleteAlias action.
@@ -855,7 +854,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_function(self, FunctionName: str, Qualifier: str = None) -> NoReturn:
+    def delete_function(self, FunctionName: str, Qualifier: str = None):
         """
         
         This operation requires permission for the ``lambda:DeleteFunction`` action.
@@ -893,7 +892,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_function_concurrency(self, FunctionName: str) -> NoReturn:
+    def delete_function_concurrency(self, FunctionName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteFunctionConcurrency>`_
@@ -923,7 +922,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -2964,7 +2963,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_permission(self, FunctionName: str, StatementId: str, Qualifier: str = None, RevisionId: str = None) -> NoReturn:
+    def remove_permission(self, FunctionName: str, StatementId: str, Qualifier: str = None, RevisionId: str = None):
         """
         
         Permissions apply to the Amazon Resource Name (ARN) used to invoke the function, which can be unqualified (the unpublished version of the function), or include a version or alias. If a client uses a version or alias to invoke a function, use the ``Qualifier`` parameter to apply permissions to that ARN. For more information about versioning, see `AWS Lambda Function Versioning and Aliases <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html>`__ . 
@@ -3016,7 +3015,7 @@ class Client(BaseClient):
         """
         pass
 
-    def tag_resource(self, Resource: str, Tags: Dict) -> NoReturn:
+    def tag_resource(self, Resource: str, Tags: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/TagResource>`_
@@ -3048,7 +3047,7 @@ class Client(BaseClient):
         """
         pass
 
-    def untag_resource(self, Resource: str, TagKeys: List) -> NoReturn:
+    def untag_resource(self, Resource: str, TagKeys: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UntagResource>`_

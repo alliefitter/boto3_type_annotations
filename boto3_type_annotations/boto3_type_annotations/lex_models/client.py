@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def create_bot_version(self, name: str, checksum: str = None) -> Dict:
@@ -21,34 +20,34 @@ class Client(BaseClient):
     def create_slot_type_version(self, name: str, checksum: str = None) -> Dict:
         pass
 
-    def delete_bot(self, name: str) -> NoReturn:
+    def delete_bot(self, name: str):
         pass
 
-    def delete_bot_alias(self, name: str, botName: str) -> NoReturn:
+    def delete_bot_alias(self, name: str, botName: str):
         pass
 
-    def delete_bot_channel_association(self, name: str, botName: str, botAlias: str) -> NoReturn:
+    def delete_bot_channel_association(self, name: str, botName: str, botAlias: str):
         pass
 
-    def delete_bot_version(self, name: str, version: str) -> NoReturn:
+    def delete_bot_version(self, name: str, version: str):
         pass
 
-    def delete_intent(self, name: str) -> NoReturn:
+    def delete_intent(self, name: str):
         pass
 
-    def delete_intent_version(self, name: str, version: str) -> NoReturn:
+    def delete_intent_version(self, name: str, version: str):
         pass
 
-    def delete_slot_type(self, name: str) -> NoReturn:
+    def delete_slot_type(self, name: str):
         pass
 
-    def delete_slot_type_version(self, name: str, version: str) -> NoReturn:
+    def delete_slot_type_version(self, name: str, version: str):
         pass
 
-    def delete_utterances(self, botName: str, userId: str) -> NoReturn:
+    def delete_utterances(self, botName: str, userId: str):
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_bot(self, name: str, versionOrAlias: str) -> Dict:

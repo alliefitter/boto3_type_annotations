@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def assign_instance(self, InstanceId: str, LayerIds: List) -> NoReturn:
+    def assign_instance(self, InstanceId: str, LayerIds: List):
         """
         
         * You can assign registered on-premises instances to any layer type. 
@@ -47,7 +46,7 @@ class Client(BaseClient):
         """
         pass
 
-    def assign_volume(self, VolumeId: str, InstanceId: str = None) -> NoReturn:
+    def assign_volume(self, VolumeId: str, InstanceId: str = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -75,7 +74,7 @@ class Client(BaseClient):
         """
         pass
 
-    def associate_elastic_ip(self, ElasticIp: str, InstanceId: str = None) -> NoReturn:
+    def associate_elastic_ip(self, ElasticIp: str, InstanceId: str = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -103,7 +102,7 @@ class Client(BaseClient):
         """
         pass
 
-    def attach_elastic_load_balancer(self, ElasticLoadBalancerName: str, LayerId: str) -> NoReturn:
+    def attach_elastic_load_balancer(self, ElasticLoadBalancerName: str, LayerId: str):
         """
         
         .. note::
@@ -135,7 +134,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -1807,7 +1806,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_app(self, AppId: str) -> NoReturn:
+    def delete_app(self, AppId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -1829,7 +1828,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_instance(self, InstanceId: str, DeleteElasticIp: bool = None, DeleteVolumes: bool = None) -> NoReturn:
+    def delete_instance(self, InstanceId: str, DeleteElasticIp: bool = None, DeleteVolumes: bool = None):
         """
         
         For more information, see `Deleting Instances <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html>`__ .
@@ -1865,7 +1864,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_layer(self, LayerId: str) -> NoReturn:
+    def delete_layer(self, LayerId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -1887,7 +1886,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_stack(self, StackId: str) -> NoReturn:
+    def delete_stack(self, StackId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -1909,7 +1908,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_user_profile(self, IamUserArn: str) -> NoReturn:
+    def delete_user_profile(self, IamUserArn: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information about user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -1931,7 +1930,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deregister_ecs_cluster(self, EcsClusterArn: str) -> NoReturn:
+    def deregister_ecs_cluster(self, EcsClusterArn: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see `http\://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -1953,7 +1952,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deregister_elastic_ip(self, ElasticIp: str) -> NoReturn:
+    def deregister_elastic_ip(self, ElasticIp: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -1975,7 +1974,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deregister_instance(self, InstanceId: str) -> NoReturn:
+    def deregister_instance(self, InstanceId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -1997,7 +1996,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deregister_rds_db_instance(self, RdsDbInstanceArn: str) -> NoReturn:
+    def deregister_rds_db_instance(self, RdsDbInstanceArn: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -2019,7 +2018,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deregister_volume(self, VolumeId: str) -> NoReturn:
+    def deregister_volume(self, VolumeId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -5449,7 +5448,7 @@ class Client(BaseClient):
         """
         pass
 
-    def detach_elastic_load_balancer(self, ElasticLoadBalancerName: str, LayerId: str) -> NoReturn:
+    def detach_elastic_load_balancer(self, ElasticLoadBalancerName: str, LayerId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -5477,7 +5476,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disassociate_elastic_ip(self, ElasticIp: str) -> NoReturn:
+    def disassociate_elastic_ip(self, ElasticIp: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -5499,7 +5498,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -5732,7 +5731,7 @@ class Client(BaseClient):
         """
         pass
 
-    def reboot_instance(self, InstanceId: str) -> NoReturn:
+    def reboot_instance(self, InstanceId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -5942,7 +5941,7 @@ class Client(BaseClient):
         """
         pass
 
-    def register_rds_db_instance(self, StackId: str, RdsDbInstanceArn: str, DbUser: str, DbPassword: str) -> NoReturn:
+    def register_rds_db_instance(self, StackId: str, RdsDbInstanceArn: str, DbUser: str, DbPassword: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6029,7 +6028,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_load_based_auto_scaling(self, LayerId: str, Enable: bool = None, UpScaling: Dict = None, DownScaling: Dict = None) -> NoReturn:
+    def set_load_based_auto_scaling(self, LayerId: str, Enable: bool = None, UpScaling: Dict = None, DownScaling: Dict = None):
         """
         
         .. note::
@@ -6161,7 +6160,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_permission(self, StackId: str, IamUserArn: str, AllowSsh: bool = None, AllowSudo: bool = None, Level: str = None) -> NoReturn:
+    def set_permission(self, StackId: str, IamUserArn: str, AllowSsh: bool = None, AllowSudo: bool = None, Level: str = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6219,7 +6218,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_time_based_auto_scaling(self, InstanceId: str, AutoScalingSchedule: Dict = None) -> NoReturn:
+    def set_time_based_auto_scaling(self, InstanceId: str, AutoScalingSchedule: Dict = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6325,7 +6324,7 @@ class Client(BaseClient):
         """
         pass
 
-    def start_instance(self, InstanceId: str) -> NoReturn:
+    def start_instance(self, InstanceId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6347,7 +6346,7 @@ class Client(BaseClient):
         """
         pass
 
-    def start_stack(self, StackId: str) -> NoReturn:
+    def start_stack(self, StackId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6369,7 +6368,7 @@ class Client(BaseClient):
         """
         pass
 
-    def stop_instance(self, InstanceId: str, Force: bool = None) -> NoReturn:
+    def stop_instance(self, InstanceId: str, Force: bool = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6397,7 +6396,7 @@ class Client(BaseClient):
         """
         pass
 
-    def stop_stack(self, StackId: str) -> NoReturn:
+    def stop_stack(self, StackId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6419,7 +6418,7 @@ class Client(BaseClient):
         """
         pass
 
-    def tag_resource(self, ResourceArn: str, Tags: Dict) -> NoReturn:
+    def tag_resource(self, ResourceArn: str, Tags: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/TagResource>`_
@@ -6461,7 +6460,7 @@ class Client(BaseClient):
         """
         pass
 
-    def unassign_instance(self, InstanceId: str) -> NoReturn:
+    def unassign_instance(self, InstanceId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information about user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6483,7 +6482,7 @@ class Client(BaseClient):
         """
         pass
 
-    def unassign_volume(self, VolumeId: str) -> NoReturn:
+    def unassign_volume(self, VolumeId: str):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6505,7 +6504,7 @@ class Client(BaseClient):
         """
         pass
 
-    def untag_resource(self, ResourceArn: str, TagKeys: List) -> NoReturn:
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/UntagResource>`_
@@ -6535,7 +6534,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_app(self, AppId: str, Name: str = None, Description: str = None, DataSources: List = None, Type: str = None, AppSource: Dict = None, Domains: List = None, EnableSsl: bool = None, SslConfiguration: Dict = None, Attributes: Dict = None, Environment: List = None) -> NoReturn:
+    def update_app(self, AppId: str, Name: str = None, Description: str = None, DataSources: List = None, Type: str = None, AppSource: Dict = None, Domains: List = None, EnableSsl: bool = None, SslConfiguration: Dict = None, Attributes: Dict = None, Environment: List = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6738,7 +6737,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_elastic_ip(self, ElasticIp: str, Name: str = None) -> NoReturn:
+    def update_elastic_ip(self, ElasticIp: str, Name: str = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6766,7 +6765,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_instance(self, InstanceId: str, LayerIds: List = None, InstanceType: str = None, AutoScalingType: str = None, Hostname: str = None, Os: str = None, AmiId: str = None, SshKeyName: str = None, Architecture: str = None, InstallUpdatesOnBoot: bool = None, EbsOptimized: bool = None, AgentVersion: str = None) -> NoReturn:
+    def update_instance(self, InstanceId: str, LayerIds: List = None, InstanceType: str = None, AutoScalingType: str = None, Hostname: str = None, Os: str = None, AmiId: str = None, SshKeyName: str = None, Architecture: str = None, InstallUpdatesOnBoot: bool = None, EbsOptimized: bool = None, AgentVersion: str = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -6888,7 +6887,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_layer(self, LayerId: str, Name: str = None, Shortname: str = None, Attributes: Dict = None, CloudWatchLogsConfiguration: Dict = None, CustomInstanceProfileArn: str = None, CustomJson: str = None, CustomSecurityGroupIds: List = None, Packages: List = None, VolumeConfigurations: List = None, EnableAutoHealing: bool = None, AutoAssignElasticIps: bool = None, AutoAssignPublicIps: bool = None, CustomRecipes: Dict = None, InstallUpdatesOnBoot: bool = None, UseEbsOptimizedInstances: bool = None, LifecycleEventConfiguration: Dict = None) -> NoReturn:
+    def update_layer(self, LayerId: str, Name: str = None, Shortname: str = None, Attributes: Dict = None, CloudWatchLogsConfiguration: Dict = None, CustomInstanceProfileArn: str = None, CustomJson: str = None, CustomSecurityGroupIds: List = None, Packages: List = None, VolumeConfigurations: List = None, EnableAutoHealing: bool = None, AutoAssignElasticIps: bool = None, AutoAssignPublicIps: bool = None, CustomRecipes: Dict = None, InstallUpdatesOnBoot: bool = None, UseEbsOptimizedInstances: bool = None, LifecycleEventConfiguration: Dict = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -7216,7 +7215,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_my_user_profile(self, SshPublicKey: str = None) -> NoReturn:
+    def update_my_user_profile(self, SshPublicKey: str = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information about user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -7238,7 +7237,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_rds_db_instance(self, RdsDbInstanceArn: str, DbUser: str = None, DbPassword: str = None) -> NoReturn:
+    def update_rds_db_instance(self, RdsDbInstanceArn: str, DbUser: str = None, DbPassword: str = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -7272,7 +7271,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_stack(self, StackId: str, Name: str = None, Attributes: Dict = None, ServiceRoleArn: str = None, DefaultInstanceProfileArn: str = None, DefaultOs: str = None, HostnameTheme: str = None, DefaultAvailabilityZone: str = None, DefaultSubnetId: str = None, CustomJson: str = None, ConfigurationManager: Dict = None, ChefConfiguration: Dict = None, UseCustomCookbooks: bool = None, CustomCookbooksSource: Dict = None, DefaultSshKeyName: str = None, DefaultRootDeviceType: str = None, UseOpsworksSecurityGroups: bool = None, AgentVersion: str = None) -> NoReturn:
+    def update_stack(self, StackId: str, Name: str = None, Attributes: Dict = None, ServiceRoleArn: str = None, DefaultInstanceProfileArn: str = None, DefaultOs: str = None, HostnameTheme: str = None, DefaultAvailabilityZone: str = None, DefaultSubnetId: str = None, CustomJson: str = None, ConfigurationManager: Dict = None, ChefConfiguration: Dict = None, UseCustomCookbooks: bool = None, CustomCookbooksSource: Dict = None, DefaultSshKeyName: str = None, DefaultRootDeviceType: str = None, UseOpsworksSecurityGroups: bool = None, AgentVersion: str = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -7529,7 +7528,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_user_profile(self, IamUserArn: str, SshUsername: str = None, SshPublicKey: str = None, AllowSelfManagement: bool = None) -> NoReturn:
+    def update_user_profile(self, IamUserArn: str, SshUsername: str = None, SshPublicKey: str = None, AllowSelfManagement: bool = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information about user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .
@@ -7569,7 +7568,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_volume(self, VolumeId: str, Name: str = None, MountPoint: str = None) -> NoReturn:
+    def update_volume(self, VolumeId: str, Name: str = None, MountPoint: str = None):
         """
         
          **Required Permissions** : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see `Managing User Permissions <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>`__ .

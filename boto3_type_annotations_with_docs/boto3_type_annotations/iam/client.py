@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def add_client_id_to_open_id_connect_provider(self, OpenIDConnectProviderArn: str, ClientID: str) -> NoReturn:
+    def add_client_id_to_open_id_connect_provider(self, OpenIDConnectProviderArn: str, ClientID: str):
         """
         
         This operation is idempotent; it does not fail or return an error if you add an existing client ID to the provider.
@@ -37,7 +36,7 @@ class Client(BaseClient):
         """
         pass
 
-    def add_role_to_instance_profile(self, InstanceProfileName: str, RoleName: str) -> NoReturn:
+    def add_role_to_instance_profile(self, InstanceProfileName: str, RoleName: str):
         """
         
         .. note::
@@ -73,7 +72,7 @@ class Client(BaseClient):
         """
         pass
 
-    def add_user_to_group(self, GroupName: str, UserName: str) -> NoReturn:
+    def add_user_to_group(self, GroupName: str, UserName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AddUserToGroup>`_
@@ -103,7 +102,7 @@ class Client(BaseClient):
         """
         pass
 
-    def attach_group_policy(self, GroupName: str, PolicyArn: str) -> NoReturn:
+    def attach_group_policy(self, GroupName: str, PolicyArn: str):
         """
         
         You use this API to attach a managed policy to a group. To embed an inline policy in a group, use  PutGroupPolicy .
@@ -137,7 +136,7 @@ class Client(BaseClient):
         """
         pass
 
-    def attach_role_policy(self, RoleName: str, PolicyArn: str) -> NoReturn:
+    def attach_role_policy(self, RoleName: str, PolicyArn: str):
         """
         
         .. note::
@@ -173,7 +172,7 @@ class Client(BaseClient):
         """
         pass
 
-    def attach_user_policy(self, UserName: str, PolicyArn: str) -> NoReturn:
+    def attach_user_policy(self, UserName: str, PolicyArn: str):
         """
         
         You use this API to attach a *managed* policy to a user. To embed an inline policy in a user, use  PutUserPolicy .
@@ -207,7 +206,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -223,7 +222,7 @@ class Client(BaseClient):
         """
         pass
 
-    def change_password(self, OldPassword: str, NewPassword: str) -> NoReturn:
+    def change_password(self, OldPassword: str, NewPassword: str):
         """
         
         To change the password for a different user, see  UpdateLoginProfile . For more information about modifying passwords, see `Managing Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
@@ -328,7 +327,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_account_alias(self, AccountAlias: str) -> NoReturn:
+    def create_account_alias(self, AccountAlias: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateAccountAlias>`_
@@ -1651,7 +1650,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deactivate_mfa_device(self, UserName: str, SerialNumber: str) -> NoReturn:
+    def deactivate_mfa_device(self, UserName: str, SerialNumber: str):
         """
         
         For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
@@ -1683,7 +1682,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_access_key(self, AccessKeyId: str, UserName: str = None) -> NoReturn:
+    def delete_access_key(self, AccessKeyId: str, UserName: str = None):
         """
         
         If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
@@ -1715,7 +1714,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_account_alias(self, AccountAlias: str) -> NoReturn:
+    def delete_account_alias(self, AccountAlias: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteAccountAlias>`_
@@ -1737,7 +1736,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_account_password_policy(self) -> NoReturn:
+    def delete_account_password_policy(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteAccountPasswordPolicy>`_
@@ -1751,7 +1750,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_group(self, GroupName: str) -> NoReturn:
+    def delete_group(self, GroupName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteGroup>`_
@@ -1773,7 +1772,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_group_policy(self, GroupName: str, PolicyName: str) -> NoReturn:
+    def delete_group_policy(self, GroupName: str, PolicyName: str):
         """
         
         A group can also have managed policies attached to it. To detach a managed policy from a group, use  DetachGroupPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -1805,7 +1804,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_instance_profile(self, InstanceProfileName: str) -> NoReturn:
+    def delete_instance_profile(self, InstanceProfileName: str):
         """
         
         .. warning::
@@ -1833,7 +1832,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_login_profile(self, UserName: str) -> NoReturn:
+    def delete_login_profile(self, UserName: str):
         """
         
         .. warning::
@@ -1859,7 +1858,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_open_id_connect_provider(self, OpenIDConnectProviderArn: str) -> NoReturn:
+    def delete_open_id_connect_provider(self, OpenIDConnectProviderArn: str):
         """
         
         Deleting an IAM OIDC provider resource does not update any roles that reference the provider as a principal in their trust policies. Any attempt to assume a role that references a deleted provider fails.
@@ -1883,7 +1882,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_policy(self, PolicyArn: str) -> NoReturn:
+    def delete_policy(self, PolicyArn: str):
         """
         
         Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that it is attached to. In addition you must delete all the policy's versions. The following steps describe the process for deleting a managed policy:
@@ -1915,7 +1914,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_policy_version(self, PolicyArn: str, VersionId: str) -> NoReturn:
+    def delete_policy_version(self, PolicyArn: str, VersionId: str):
         """
         
         You cannot delete the default version from a policy using this API. To delete the default version from a policy, use  DeletePolicy . To find out which version of a policy is marked as the default version, use  ListPolicyVersions .
@@ -1951,7 +1950,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_role(self, RoleName: str) -> NoReturn:
+    def delete_role(self, RoleName: str):
         """
         
         .. warning::
@@ -1977,7 +1976,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_role_permissions_boundary(self, RoleName: str) -> NoReturn:
+    def delete_role_permissions_boundary(self, RoleName: str):
         """
         
         .. warning::
@@ -2001,7 +2000,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_role_policy(self, RoleName: str, PolicyName: str) -> NoReturn:
+    def delete_role_policy(self, RoleName: str, PolicyName: str):
         """
         
         A role can also have managed policies attached to it. To detach a managed policy from a role, use  DetachRolePolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -2033,7 +2032,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_saml_provider(self, SAMLProviderArn: str) -> NoReturn:
+    def delete_saml_provider(self, SAMLProviderArn: str):
         """
         
         Deleting the provider resource from IAM does not update any roles that reference the SAML provider resource's ARN as a principal in their trust policies. Any attempt to assume a role that references a non-existent provider resource ARN fails.
@@ -2059,7 +2058,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_server_certificate(self, ServerCertificateName: str) -> NoReturn:
+    def delete_server_certificate(self, ServerCertificateName: str):
         """
         
         For more information about working with server certificates, see `Working with Server Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
@@ -2128,7 +2127,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_service_specific_credential(self, ServiceSpecificCredentialId: str, UserName: str = None) -> NoReturn:
+    def delete_service_specific_credential(self, ServiceSpecificCredentialId: str, UserName: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteServiceSpecificCredential>`_
@@ -2158,7 +2157,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_signing_certificate(self, CertificateId: str, UserName: str = None) -> NoReturn:
+    def delete_signing_certificate(self, CertificateId: str, UserName: str = None):
         """
         
         If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated IAM users.
@@ -2190,7 +2189,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_ssh_public_key(self, UserName: str, SSHPublicKeyId: str) -> NoReturn:
+    def delete_ssh_public_key(self, UserName: str, SSHPublicKeyId: str):
         """
         
         The SSH public key deleted by this operation is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
@@ -2222,7 +2221,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_user(self, UserName: str) -> NoReturn:
+    def delete_user(self, UserName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteUser>`_
@@ -2244,7 +2243,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_user_permissions_boundary(self, UserName: str) -> NoReturn:
+    def delete_user_permissions_boundary(self, UserName: str):
         """
         
         .. warning::
@@ -2268,7 +2267,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_user_policy(self, UserName: str, PolicyName: str) -> NoReturn:
+    def delete_user_policy(self, UserName: str, PolicyName: str):
         """
         
         A user can also have managed policies attached to it. To detach a managed policy from a user, use  DetachUserPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -2300,7 +2299,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_virtual_mfa_device(self, SerialNumber: str) -> NoReturn:
+    def delete_virtual_mfa_device(self, SerialNumber: str):
         """
         
         .. note::
@@ -2326,7 +2325,7 @@ class Client(BaseClient):
         """
         pass
 
-    def detach_group_policy(self, GroupName: str, PolicyArn: str) -> NoReturn:
+    def detach_group_policy(self, GroupName: str, PolicyArn: str):
         """
         
         A group can also have inline policies embedded with it. To delete an inline policy, use the  DeleteGroupPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -2358,7 +2357,7 @@ class Client(BaseClient):
         """
         pass
 
-    def detach_role_policy(self, RoleName: str, PolicyArn: str) -> NoReturn:
+    def detach_role_policy(self, RoleName: str, PolicyArn: str):
         """
         
         A role can also have inline policies embedded with it. To delete an inline policy, use the  DeleteRolePolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -2390,7 +2389,7 @@ class Client(BaseClient):
         """
         pass
 
-    def detach_user_policy(self, UserName: str, PolicyArn: str) -> NoReturn:
+    def detach_user_policy(self, UserName: str, PolicyArn: str):
         """
         
         A user can also have inline policies embedded with it. To delete an inline policy, use the  DeleteUserPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -2422,7 +2421,7 @@ class Client(BaseClient):
         """
         pass
 
-    def enable_mfa_device(self, UserName: str, SerialNumber: str, AuthenticationCode1: str, AuthenticationCode2: str) -> NoReturn:
+    def enable_mfa_device(self, UserName: str, SerialNumber: str, AuthenticationCode1: str, AuthenticationCode2: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/EnableMFADevice>`_
@@ -2514,7 +2513,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -7658,7 +7657,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_group_policy(self, GroupName: str, PolicyName: str, PolicyDocument: str) -> NoReturn:
+    def put_group_policy(self, GroupName: str, PolicyName: str, PolicyDocument: str):
         """
         
         A user can also have managed policies attached to it. To attach a managed policy to a group, use  AttachGroupPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -7710,7 +7709,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_role_permissions_boundary(self, RoleName: str, PermissionsBoundary: str) -> NoReturn:
+    def put_role_permissions_boundary(self, RoleName: str, PermissionsBoundary: str):
         """
         
         You cannot set the boundary for a service-linked role. 
@@ -7742,7 +7741,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_role_policy(self, RoleName: str, PolicyName: str, PolicyDocument: str) -> NoReturn:
+    def put_role_policy(self, RoleName: str, PolicyName: str, PolicyDocument: str):
         """
         
         When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy . For more information about IAM roles, go to `Using Roles to Delegate Permissions and Federate Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
@@ -7796,7 +7795,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_user_permissions_boundary(self, UserName: str, PermissionsBoundary: str) -> NoReturn:
+    def put_user_permissions_boundary(self, UserName: str, PermissionsBoundary: str):
         """
         
         .. warning::
@@ -7826,7 +7825,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_user_policy(self, UserName: str, PolicyName: str, PolicyDocument: str) -> NoReturn:
+    def put_user_policy(self, UserName: str, PolicyName: str, PolicyDocument: str):
         """
         
         An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use  AttachUserPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
@@ -7878,7 +7877,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_client_id_from_open_id_connect_provider(self, OpenIDConnectProviderArn: str, ClientID: str) -> NoReturn:
+    def remove_client_id_from_open_id_connect_provider(self, OpenIDConnectProviderArn: str, ClientID: str):
         """
         
         This operation is idempotent; it does not fail or return an error if you try to remove a client ID that does not exist.
@@ -7908,7 +7907,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_role_from_instance_profile(self, InstanceProfileName: str, RoleName: str) -> NoReturn:
+    def remove_role_from_instance_profile(self, InstanceProfileName: str, RoleName: str):
         """
         
         .. warning::
@@ -7944,7 +7943,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_user_from_group(self, GroupName: str, UserName: str) -> NoReturn:
+    def remove_user_from_group(self, GroupName: str, UserName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/RemoveUserFromGroup>`_
@@ -8061,7 +8060,7 @@ class Client(BaseClient):
         """
         pass
 
-    def resync_mfa_device(self, UserName: str, SerialNumber: str, AuthenticationCode1: str, AuthenticationCode2: str) -> NoReturn:
+    def resync_mfa_device(self, UserName: str, SerialNumber: str, AuthenticationCode1: str, AuthenticationCode2: str):
         """
         
         For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
@@ -8109,7 +8108,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_default_policy_version(self, PolicyArn: str, VersionId: str) -> NoReturn:
+    def set_default_policy_version(self, PolicyArn: str, VersionId: str):
         """
         
         This operation affects all users, groups, and roles that the policy is attached to. To list the users, groups, and roles that the policy is attached to, use the  ListEntitiesForPolicy API.
@@ -8963,7 +8962,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_access_key(self, AccessKeyId: str, Status: str, UserName: str = None) -> NoReturn:
+    def update_access_key(self, AccessKeyId: str, Status: str, UserName: str = None):
         """
         
         If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
@@ -9003,7 +9002,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_account_password_policy(self, MinimumPasswordLength: int = None, RequireSymbols: bool = None, RequireNumbers: bool = None, RequireUppercaseCharacters: bool = None, RequireLowercaseCharacters: bool = None, AllowUsersToChangePassword: bool = None, MaxPasswordAge: int = None, PasswordReusePrevention: int = None, HardExpiry: bool = None) -> NoReturn:
+    def update_account_password_policy(self, MinimumPasswordLength: int = None, RequireSymbols: bool = None, RequireNumbers: bool = None, RequireUppercaseCharacters: bool = None, RequireLowercaseCharacters: bool = None, AllowUsersToChangePassword: bool = None, MaxPasswordAge: int = None, PasswordReusePrevention: int = None, HardExpiry: bool = None):
         """
         
         .. note::
@@ -9097,7 +9096,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_assume_role_policy(self, RoleName: str, PolicyDocument: str) -> NoReturn:
+    def update_assume_role_policy(self, RoleName: str, PolicyDocument: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAssumeRolePolicy>`_
@@ -9133,7 +9132,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_group(self, GroupName: str, NewPath: str = None, NewGroupName: str = None) -> NoReturn:
+    def update_group(self, GroupName: str, NewPath: str = None, NewGroupName: str = None):
         """
         
         .. warning::
@@ -9179,7 +9178,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_login_profile(self, UserName: str, Password: str = None, PasswordResetRequired: bool = None) -> NoReturn:
+    def update_login_profile(self, UserName: str, Password: str = None, PasswordResetRequired: bool = None):
         """
         
         IAM users can change their own passwords by calling  ChangePassword . For more information about modifying passwords, see `Managing Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
@@ -9225,7 +9224,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_open_id_connect_provider_thumbprint(self, OpenIDConnectProviderArn: str, ThumbprintList: List) -> NoReturn:
+    def update_open_id_connect_provider_thumbprint(self, OpenIDConnectProviderArn: str, ThumbprintList: List):
         """
         
         The list that you pass with this operation completely replaces the existing list of thumbprints. (The lists are not merged.)
@@ -9468,7 +9467,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_server_certificate(self, ServerCertificateName: str, NewPath: str = None, NewServerCertificateName: str = None) -> NoReturn:
+    def update_server_certificate(self, ServerCertificateName: str, NewPath: str = None, NewServerCertificateName: str = None):
         """
         
         For more information about working with server certificates, see `Working with Server Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
@@ -9516,7 +9515,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_service_specific_credential(self, ServiceSpecificCredentialId: str, Status: str, UserName: str = None) -> NoReturn:
+    def update_service_specific_credential(self, ServiceSpecificCredentialId: str, Status: str, UserName: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateServiceSpecificCredential>`_
@@ -9552,7 +9551,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_signing_certificate(self, CertificateId: str, Status: str, UserName: str = None) -> NoReturn:
+    def update_signing_certificate(self, CertificateId: str, Status: str, UserName: str = None):
         """
         
         If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
@@ -9590,7 +9589,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_ssh_public_key(self, UserName: str, SSHPublicKeyId: str, Status: str) -> NoReturn:
+    def update_ssh_public_key(self, UserName: str, SSHPublicKeyId: str, Status: str):
         """
         
         The SSH public key affected by this operation is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
@@ -9628,7 +9627,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_user(self, UserName: str, NewPath: str = None, NewUserName: str = None) -> NoReturn:
+    def update_user(self, UserName: str, NewPath: str = None, NewUserName: str = None):
         """
         
         .. warning::

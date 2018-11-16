@@ -1,14 +1,13 @@
-from typing import Optional
-from boto3.resources.collection import ResourceCollection
-from typing import Dict
 from typing import Union
-from typing import List
-from typing import Callable
 from boto3.s3.transfer import TransferConfig
-from typing import NoReturn
+from typing import Optional
 from botocore.client import BaseClient
+from boto3.resources.collection import ResourceCollection
+from typing import Callable
+from typing import List
 from datetime import datetime
 from typing import IO
+from typing import Dict
 from boto3.resources import base
 
 
@@ -370,7 +369,7 @@ class Bucket(base.ServiceResource):
     object_versions: 'object_versions'
     objects: 'objects'
 
-    def copy(self, CopySource: Dict = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, SourceClient: BaseClient = None, Config: TransferConfig = None) -> NoReturn:
+    def copy(self, CopySource: Dict = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, SourceClient: BaseClient = None, Config: TransferConfig = None):
         """
         
         This is a managed transfer which will perform a multipart copy in
@@ -492,7 +491,7 @@ class Bucket(base.ServiceResource):
         """
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket>`_
@@ -617,7 +616,7 @@ class Bucket(base.ServiceResource):
         """
         pass
 
-    def download_file(self, Filename: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def download_file(self, Filename: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         Usage::
@@ -650,7 +649,7 @@ class Bucket(base.ServiceResource):
         """
         pass
 
-    def download_fileobj(self, Fileobj: IO = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def download_fileobj(self, Fileobj: IO = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         The file-like object must be in binary mode.
@@ -698,7 +697,7 @@ class Bucket(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         resource.
         """
@@ -876,7 +875,7 @@ class Bucket(base.ServiceResource):
         """
         pass
 
-    def upload_file(self, Filename: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def upload_file(self, Filename: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         Usage::
@@ -909,7 +908,7 @@ class Bucket(base.ServiceResource):
         """
         pass
 
-    def upload_fileobj(self, Fileobj: IO = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def upload_fileobj(self, Fileobj: IO = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         The file-like object must be in binary mode.
@@ -947,7 +946,7 @@ class Bucket(base.ServiceResource):
         """
         pass
 
-    def wait_until_exists(self) -> NoReturn:
+    def wait_until_exists(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_
@@ -961,7 +960,7 @@ class Bucket(base.ServiceResource):
         """
         pass
 
-    def wait_until_not_exists(self) -> NoReturn:
+    def wait_until_not_exists(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_
@@ -991,7 +990,7 @@ class BucketAcl(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -1005,7 +1004,7 @@ class BucketAcl(base.ServiceResource):
         """
         pass
 
-    def put(self, ACL: str = None, AccessControlPolicy: Dict = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWrite: str = None, GrantWriteACP: str = None) -> NoReturn:
+    def put(self, ACL: str = None, AccessControlPolicy: Dict = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWrite: str = None, GrantWriteACP: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAcl>`_
@@ -1114,7 +1113,7 @@ class BucketAcl(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -1133,7 +1132,7 @@ class BucketCors(base.ServiceResource):
     cors_rules: List
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors>`_
@@ -1157,7 +1156,7 @@ class BucketCors(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -1171,7 +1170,7 @@ class BucketCors(base.ServiceResource):
         """
         pass
 
-    def put(self, CORSConfiguration: Dict) -> NoReturn:
+    def put(self, CORSConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketCors>`_
@@ -1240,7 +1239,7 @@ class BucketCors(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -1259,7 +1258,7 @@ class BucketLifecycle(base.ServiceResource):
     rules: List
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle>`_
@@ -1283,7 +1282,7 @@ class BucketLifecycle(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -1297,7 +1296,7 @@ class BucketLifecycle(base.ServiceResource):
         """
         pass
 
-    def put(self, LifecycleConfiguration: Dict = None) -> NoReturn:
+    def put(self, LifecycleConfiguration: Dict = None):
         """
         
         .. danger::
@@ -1419,7 +1418,7 @@ class BucketLifecycle(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -1438,7 +1437,7 @@ class BucketLifecycleConfiguration(base.ServiceResource):
     rules: List
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle>`_
@@ -1462,7 +1461,7 @@ class BucketLifecycleConfiguration(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -1476,7 +1475,7 @@ class BucketLifecycleConfiguration(base.ServiceResource):
         """
         pass
 
-    def put(self, LifecycleConfiguration: Dict = None) -> NoReturn:
+    def put(self, LifecycleConfiguration: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration>`_
@@ -1658,7 +1657,7 @@ class BucketLifecycleConfiguration(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -1687,7 +1686,7 @@ class BucketLogging(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -1701,7 +1700,7 @@ class BucketLogging(base.ServiceResource):
         """
         pass
 
-    def put(self, BucketLoggingStatus: Dict) -> NoReturn:
+    def put(self, BucketLoggingStatus: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLogging>`_
@@ -1779,7 +1778,7 @@ class BucketLogging(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -1810,7 +1809,7 @@ class BucketNotification(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -1824,7 +1823,7 @@ class BucketNotification(base.ServiceResource):
         """
         pass
 
-    def put(self, NotificationConfiguration: Dict) -> NoReturn:
+    def put(self, NotificationConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketNotificationConfiguration>`_
@@ -2028,7 +2027,7 @@ class BucketNotification(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -2047,7 +2046,7 @@ class BucketPolicy(base.ServiceResource):
     policy: str
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketPolicy>`_
@@ -2071,7 +2070,7 @@ class BucketPolicy(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -2085,7 +2084,7 @@ class BucketPolicy(base.ServiceResource):
         """
         pass
 
-    def put(self, Policy: str, ConfirmRemoveSelfBucketAccess: bool = None) -> NoReturn:
+    def put(self, Policy: str, ConfirmRemoveSelfBucketAccess: bool = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketPolicy>`_
@@ -2111,7 +2110,7 @@ class BucketPolicy(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -2140,7 +2139,7 @@ class BucketRequestPayment(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -2154,7 +2153,7 @@ class BucketRequestPayment(base.ServiceResource):
         """
         pass
 
-    def put(self, RequestPaymentConfiguration: Dict) -> NoReturn:
+    def put(self, RequestPaymentConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketRequestPayment>`_
@@ -2178,7 +2177,7 @@ class BucketRequestPayment(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -2197,7 +2196,7 @@ class BucketTagging(base.ServiceResource):
     tag_set: List
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketTagging>`_
@@ -2221,7 +2220,7 @@ class BucketTagging(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -2235,7 +2234,7 @@ class BucketTagging(base.ServiceResource):
         """
         pass
 
-    def put(self, Tagging: Dict) -> NoReturn:
+    def put(self, Tagging: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketTagging>`_
@@ -2272,7 +2271,7 @@ class BucketTagging(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -2292,7 +2291,7 @@ class BucketVersioning(base.ServiceResource):
     mfa_delete: str
     bucket_name: str
 
-    def enable(self, MFA: str = None) -> NoReturn:
+    def enable(self, MFA: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_
@@ -2323,7 +2322,7 @@ class BucketVersioning(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -2337,7 +2336,7 @@ class BucketVersioning(base.ServiceResource):
         """
         pass
 
-    def put(self, VersioningConfiguration: Dict, MFA: str = None) -> NoReturn:
+    def put(self, VersioningConfiguration: Dict, MFA: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_
@@ -2372,7 +2371,7 @@ class BucketVersioning(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -2386,7 +2385,7 @@ class BucketVersioning(base.ServiceResource):
         """
         pass
 
-    def suspend(self, MFA: str = None) -> NoReturn:
+    def suspend(self, MFA: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_
@@ -2415,7 +2414,7 @@ class BucketWebsite(base.ServiceResource):
     routing_rules: List
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite>`_
@@ -2439,7 +2438,7 @@ class BucketWebsite(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -2453,7 +2452,7 @@ class BucketWebsite(base.ServiceResource):
         """
         pass
 
-    def put(self, WebsiteConfiguration: Dict) -> NoReturn:
+    def put(self, WebsiteConfiguration: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite>`_
@@ -2559,7 +2558,7 @@ class BucketWebsite(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -2978,7 +2977,7 @@ class Object(base.ServiceResource):
     bucket_name: str
     key: str
 
-    def copy(self, CopySource: Dict = None, ExtraArgs: Dict = None, Callback: Callable = None, SourceClient: BaseClient = None, Config: TransferConfig = None) -> NoReturn:
+    def copy(self, CopySource: Dict = None, ExtraArgs: Dict = None, Callback: Callable = None, SourceClient: BaseClient = None, Config: TransferConfig = None):
         """
         
         This is a managed transfer which will perform a multipart copy in
@@ -3349,7 +3348,7 @@ class Object(base.ServiceResource):
         """
         pass
 
-    def download_file(self, Filename: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def download_file(self, Filename: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         Usage::
@@ -3379,7 +3378,7 @@ class Object(base.ServiceResource):
         """
         pass
 
-    def download_fileobj(self, Fileobj: IO = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def download_fileobj(self, Fileobj: IO = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         The file-like object must be in binary mode.
@@ -3844,7 +3843,7 @@ class Object(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -4075,7 +4074,7 @@ class Object(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -4445,7 +4444,7 @@ class Object(base.ServiceResource):
         """
         pass
 
-    def upload_file(self, Filename: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def upload_file(self, Filename: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         Usage::
@@ -4475,7 +4474,7 @@ class Object(base.ServiceResource):
         """
         pass
 
-    def upload_fileobj(self, Fileobj: IO = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def upload_fileobj(self, Fileobj: IO = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         """
         
         The file-like object must be in binary mode.
@@ -4511,7 +4510,7 @@ class Object(base.ServiceResource):
         """
         pass
 
-    def wait_until_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None) -> NoReturn:
+    def wait_until_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_
@@ -4592,7 +4591,7 @@ class Object(base.ServiceResource):
         """
         pass
 
-    def wait_until_not_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None) -> NoReturn:
+    def wait_until_not_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_
@@ -4691,7 +4690,7 @@ class ObjectAcl(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -4843,7 +4842,7 @@ class ObjectAcl(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_
@@ -5621,7 +5620,7 @@ class ObjectSummary(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         resource.
         """
@@ -6200,7 +6199,7 @@ class ObjectSummary(base.ServiceResource):
         """
         pass
 
-    def wait_until_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None) -> NoReturn:
+    def wait_until_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_
@@ -6281,7 +6280,7 @@ class ObjectSummary(base.ServiceResource):
         """
         pass
 
-    def wait_until_not_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None) -> NoReturn:
+    def wait_until_not_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_

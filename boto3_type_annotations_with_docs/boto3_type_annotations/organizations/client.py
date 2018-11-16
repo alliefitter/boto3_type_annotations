@@ -1,10 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -172,7 +171,7 @@ class Client(BaseClient):
         """
         pass
 
-    def attach_policy(self, PolicyId: str, TargetId: str) -> NoReturn:
+    def attach_policy(self, PolicyId: str, TargetId: str):
         """
         Attaches a policy to a root, an organizational unit (OU), or an individual account. How the policy affects accounts depends on the type of policy:
         
@@ -225,7 +224,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -997,7 +996,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_organization(self) -> NoReturn:
+    def delete_organization(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeleteOrganization>`_
@@ -1011,7 +1010,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_organizational_unit(self, OrganizationalUnitId: str) -> NoReturn:
+    def delete_organizational_unit(self, OrganizationalUnitId: str):
         """
         
         This operation can be called only from the organization's master account.
@@ -1035,7 +1034,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_policy(self, PolicyId: str) -> NoReturn:
+    def delete_policy(self, PolicyId: str):
         """
         
         This operation can be called only from the organization's master account.
@@ -1648,7 +1647,7 @@ class Client(BaseClient):
         """
         pass
 
-    def detach_policy(self, PolicyId: str, TargetId: str) -> NoReturn:
+    def detach_policy(self, PolicyId: str, TargetId: str):
         """
         
          **Note:** Every root, OU, and account must have at least one SCP attached. If you want to replace the default ``FullAWSAccess`` policy with one that limits the permissions that can be delegated, then you must attach the replacement policy before you can remove the default one. This is the authorization strategy of `whitelisting <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_whitelist>`__ . If you instead attach a second SCP and leave the ``FullAWSAccess`` SCP still attached, and specify ``"Effect": "Deny"`` in the second SCP to override the ``"Effect": "Allow"`` in the ``FullAWSAccess`` policy (or any other attached SCP), then you are using the authorization strategy of `blacklisting <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_blacklist>`__ . 
@@ -1688,7 +1687,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disable_aws_service_access(self, ServicePrincipal: str) -> NoReturn:
+    def disable_aws_service_access(self, ServicePrincipal: str):
         """
         
         .. warning::
@@ -1976,7 +1975,7 @@ class Client(BaseClient):
         """
         pass
 
-    def enable_aws_service_access(self, ServicePrincipal: str) -> NoReturn:
+    def enable_aws_service_access(self, ServicePrincipal: str):
         """
         
         .. warning::
@@ -2103,7 +2102,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -2347,7 +2346,7 @@ class Client(BaseClient):
         """
         pass
 
-    def leave_organization(self) -> NoReturn:
+    def leave_organization(self):
         """
         
         This operation can be called only from a member account in the organization.
@@ -3895,7 +3894,7 @@ class Client(BaseClient):
         """
         pass
 
-    def move_account(self, AccountId: str, SourceParentId: str, DestinationParentId: str) -> NoReturn:
+    def move_account(self, AccountId: str, SourceParentId: str, DestinationParentId: str):
         """
         
         This operation can be called only from the organization's master account.
@@ -3943,7 +3942,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_account_from_organization(self, AccountId: str) -> NoReturn:
+    def remove_account_from_organization(self, AccountId: str):
         """
         
         The removed account becomes a stand-alone account that is not a member of any organization. It is no longer subject to any policies and is responsible for its own bill payments. The organization's master account is no longer charged for any expenses accrued by the member account after it is removed from the organization.

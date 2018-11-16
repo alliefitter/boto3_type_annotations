@@ -5,7 +5,7 @@ from keyword import kwlist
 from os import mkdir, getcwd
 from os.path import isdir, dirname
 from shutil import rmtree
-from typing import IO, Set, Union, Tuple, List, Generator, NoReturn, Dict, Optional
+from typing import IO, Set, Union, Tuple, List, Generator, Dict, Optional
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from boto3.resources.collection import ResourceCollection
@@ -44,7 +44,7 @@ def create_import_statements(types: Set[type]) -> Generator[str, None, None]:
             yield f'from {normalize_type_name(getmodule(_type))} import {normalize_type_name(_type)}'
 
 
-def create_module_directory(package_name: str = 'boto3_type_annotations') -> NoReturn:
+def create_module_directory(package_name: str = 'boto3_type_annotations'):
     if isdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations'):
         rmtree(f'{dirname(getcwd())}/{package_name}')
     mkdir(f'{dirname(getcwd())}/{package_name}')
@@ -122,19 +122,19 @@ def retrieve_method_types(methods: List[Method]) -> Generator[Set, None, None]:
         yield argument_types
 
 
-def write_attributes(attributes: List[Attribute], file_object: IO) -> NoReturn:
+def write_attributes(attributes: List[Attribute], file_object: IO):
     for attribute in attributes:
         file_object.write(f'\n    {attribute.name}: {normalize_type_name(attribute.type)}')
 
 
-def write_client(client: Client, with_docs: bool = False, package_name: str = 'boto3_type_annotations') -> NoReturn:
+def write_client(client: Client, with_docs: bool = False, package_name: str = 'boto3_type_annotations'):
     print(f'Writing: {client.name}')
     normalized_module_name = normalize_module_name(client.name)
     if not isdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}'):
         mkdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}')
     file_path = f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}/client.py'
     with open(file_path, 'w') as file_object:
-        types = retrieve_types_from_client(client).union({Optional, NoReturn, BaseClient, Union})
+        types = retrieve_types_from_client(client).union({Optional, BaseClient, Union})
         file_object.write('\n'.join(list(create_import_statements(types))))
         file_object.write(f'\n\n\nclass Client(BaseClient):')
         write_methods(client.methods, file_object, include_doc=with_docs)
@@ -144,7 +144,7 @@ def write_client(client: Client, with_docs: bool = False, package_name: str = 'b
     }]
 
 
-def write_import_statements(file_object, types: Set[type]) -> NoReturn:
+def write_import_statements(file_object, types: Set[type]):
     file_object.write('\n'.join(list(create_import_statements(types))))
 
 
@@ -155,7 +155,7 @@ def write_methods(
         first_arg: str = 'self',
         decorator: str = None,
         include_doc: bool = False
-) -> NoReturn:
+):
     for method in methods:
         write_method(method, file_object, method_body, first_arg, decorator, include_doc)
 
@@ -167,7 +167,7 @@ def write_method(
         first_arg: str = 'self',
         decorator: str = None,
         include_doc: bool = False
-) -> NoReturn:
+):
 
     doc = ''
     if include_doc is True:
@@ -180,9 +180,9 @@ def write_method(
     def'''
     arguments = f', {", ".join(format_arguments(method))}' if len(method.arguments) > 0 else ''
     file_object.write(f'''
-    {def_} {method.name}({first_arg}{arguments}) -> {normalize_type_name(method.return_type) 
+    {def_} {method.name}({first_arg}{arguments}){f" -> {normalize_type_name(method.return_type)}" 
                                                         if method.return_type is not None 
-                                                        else 'NoReturn'}:
+                                                        else ''}:
 {doc}        {method_body}
 ''')
 
@@ -202,7 +202,7 @@ def write_service_resource(
                 f'service_resource.py'
     with open(file_path, 'w') as file_object:
         types = retrieve_types_from_service_resource(service_resource).union(
-            {List, Dict, ResourceCollection, Optional, NoReturn, Union}
+            {List, Dict, ResourceCollection, Optional, Union}
         )
         write_import_statements(file_object, types)
         if Boto3ServiceResource not in retrieve_types_from_service_resource(service_resource):
@@ -230,7 +230,7 @@ def write_service_resource(
     return defined_objects
 
 
-def write_collection(collection: Collection, file_object: IO, with_docs: bool = False) -> NoReturn:
+def write_collection(collection: Collection, file_object: IO, with_docs: bool = False):
     file_object.write(f'\n\nclass {collection.name}(ResourceCollection):')
     write_methods(collection.methods, file_object, first_arg='cls', decorator='@classmethod', include_doc=with_docs)
 
@@ -240,7 +240,7 @@ def write_resource(
         name: str,
         file_object: IO,
         with_docs: bool = False
-) -> NoReturn:
+):
 
     file_object.write(f'\n\nclass {name}(base.ServiceResource):')
     attributes = resource.attributes
@@ -266,7 +266,7 @@ def write_service_waiter(
             types = set()
             for waiter in service_waiter.waiters:
                 types = types.union(retrieve_types_from_methods(waiter.methods))
-            write_import_statements(file_object, types.union({NoReturn}))
+            write_import_statements(file_object, types)
             file_object.write('\nfrom botocore.waiter import Waiter\n')
             for waiter in service_waiter.waiters:
                 file_object.write(f'\n\nclass {waiter.name}(Waiter):')
@@ -338,7 +338,7 @@ def write_service_paginators(
         session: Session,
         with_docs: bool = False,
         package_name: str = 'boto3_type_annotations'
-) -> NoReturn:
+):
     for service_paginator in parse_service_paginators(session):
         write_service_paginator(service_paginator, with_docs, package_name)
 
@@ -347,7 +347,7 @@ def write_service_waiters(
         session: Session,
         with_docs: bool = False,
         package_name: str = 'boto3_type_annotations'
-) -> NoReturn:
+):
     for service_waiter in parse_service_waiters(session):
         write_service_waiter(service_waiter, with_docs, package_name)
 

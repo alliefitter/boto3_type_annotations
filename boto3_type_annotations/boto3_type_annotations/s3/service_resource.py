@@ -1,14 +1,13 @@
-from typing import Optional
-from boto3.resources.collection import ResourceCollection
-from typing import Dict
 from typing import Union
-from typing import List
-from typing import Callable
 from boto3.s3.transfer import TransferConfig
-from typing import NoReturn
+from typing import Optional
 from botocore.client import BaseClient
+from boto3.resources.collection import ResourceCollection
+from typing import Callable
+from typing import List
 from datetime import datetime
 from typing import IO
+from typing import Dict
 from boto3.resources import base
 
 
@@ -83,43 +82,43 @@ class Bucket(base.ServiceResource):
     object_versions: 'object_versions'
     objects: 'objects'
 
-    def copy(self, CopySource: Dict = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, SourceClient: BaseClient = None, Config: TransferConfig = None) -> NoReturn:
+    def copy(self, CopySource: Dict = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, SourceClient: BaseClient = None, Config: TransferConfig = None):
         pass
 
     def create(self, ACL: str = None, CreateBucketConfiguration: Dict = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWrite: str = None, GrantWriteACP: str = None) -> Dict:
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def delete_objects(self, Delete: Dict, MFA: str = None, RequestPayer: str = None) -> Dict:
         pass
 
-    def download_file(self, Filename: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def download_file(self, Filename: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         pass
 
-    def download_fileobj(self, Fileobj: IO = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def download_fileobj(self, Fileobj: IO = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
     def put_object(self, Key: str, ACL: str = None, Body: Union[bytes, IO] = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentLength: int = None, ContentMD5: str = None, ContentType: str = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, RequestPayer: str = None, Tagging: str = None) -> 'Object':
         pass
 
-    def upload_file(self, Filename: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def upload_file(self, Filename: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         pass
 
-    def upload_fileobj(self, Fileobj: IO = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def upload_fileobj(self, Fileobj: IO = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         pass
 
-    def wait_until_exists(self) -> NoReturn:
+    def wait_until_exists(self):
         pass
 
-    def wait_until_not_exists(self) -> NoReturn:
+    def wait_until_not_exists(self):
         pass
 
 
@@ -131,13 +130,13 @@ class BucketAcl(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, ACL: str = None, AccessControlPolicy: Dict = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWrite: str = None, GrantWriteACP: str = None) -> NoReturn:
+    def put(self, ACL: str = None, AccessControlPolicy: Dict = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWrite: str = None, GrantWriteACP: str = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -145,19 +144,19 @@ class BucketCors(base.ServiceResource):
     cors_rules: List
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, CORSConfiguration: Dict) -> NoReturn:
+    def put(self, CORSConfiguration: Dict):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -165,19 +164,19 @@ class BucketLifecycle(base.ServiceResource):
     rules: List
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, LifecycleConfiguration: Dict = None) -> NoReturn:
+    def put(self, LifecycleConfiguration: Dict = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -185,19 +184,19 @@ class BucketLifecycleConfiguration(base.ServiceResource):
     rules: List
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, LifecycleConfiguration: Dict = None) -> NoReturn:
+    def put(self, LifecycleConfiguration: Dict = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -208,13 +207,13 @@ class BucketLogging(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, BucketLoggingStatus: Dict) -> NoReturn:
+    def put(self, BucketLoggingStatus: Dict):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -227,13 +226,13 @@ class BucketNotification(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, NotificationConfiguration: Dict) -> NoReturn:
+    def put(self, NotificationConfiguration: Dict):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -241,19 +240,19 @@ class BucketPolicy(base.ServiceResource):
     policy: str
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, Policy: str, ConfirmRemoveSelfBucketAccess: bool = None) -> NoReturn:
+    def put(self, Policy: str, ConfirmRemoveSelfBucketAccess: bool = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -264,13 +263,13 @@ class BucketRequestPayment(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, RequestPaymentConfiguration: Dict) -> NoReturn:
+    def put(self, RequestPaymentConfiguration: Dict):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -278,19 +277,19 @@ class BucketTagging(base.ServiceResource):
     tag_set: List
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, Tagging: Dict) -> NoReturn:
+    def put(self, Tagging: Dict):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -299,22 +298,22 @@ class BucketVersioning(base.ServiceResource):
     mfa_delete: str
     bucket_name: str
 
-    def enable(self, MFA: str = None) -> NoReturn:
+    def enable(self, MFA: str = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, VersioningConfiguration: Dict, MFA: str = None) -> NoReturn:
+    def put(self, VersioningConfiguration: Dict, MFA: str = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def suspend(self, MFA: str = None) -> NoReturn:
+    def suspend(self, MFA: str = None):
         pass
 
 
@@ -325,19 +324,19 @@ class BucketWebsite(base.ServiceResource):
     routing_rules: List
     bucket_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, WebsiteConfiguration: Dict) -> NoReturn:
+    def put(self, WebsiteConfiguration: Dict):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -411,7 +410,7 @@ class Object(base.ServiceResource):
     bucket_name: str
     key: str
 
-    def copy(self, CopySource: Dict = None, ExtraArgs: Dict = None, Callback: Callable = None, SourceClient: BaseClient = None, Config: TransferConfig = None) -> NoReturn:
+    def copy(self, CopySource: Dict = None, ExtraArgs: Dict = None, Callback: Callable = None, SourceClient: BaseClient = None, Config: TransferConfig = None):
         pass
 
     def copy_from(self, CopySource: Union[str, Dict], ACL: str = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentType: str = None, CopySourceIfMatch: str = None, CopySourceIfModifiedSince: datetime = None, CopySourceIfNoneMatch: str = None, CopySourceIfUnmodifiedSince: datetime = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, MetadataDirective: str = None, TaggingDirective: str = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, CopySourceSSECustomerAlgorithm: str = None, CopySourceSSECustomerKey: str = None, CopySourceSSECustomerKeyMD5: str = None, RequestPayer: str = None, Tagging: str = None) -> Dict:
@@ -420,10 +419,10 @@ class Object(base.ServiceResource):
     def delete(self, MFA: str = None, VersionId: str = None, RequestPayer: str = None) -> Dict:
         pass
 
-    def download_file(self, Filename: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def download_file(self, Filename: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         pass
 
-    def download_fileobj(self, Fileobj: IO = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def download_fileobj(self, Fileobj: IO = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         pass
 
     def get(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, ResponseCacheControl: str = None, ResponseContentDisposition: str = None, ResponseContentEncoding: str = None, ResponseContentLanguage: str = None, ResponseContentType: str = None, ResponseExpires: datetime = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None) -> Dict:
@@ -435,28 +434,28 @@ class Object(base.ServiceResource):
     def initiate_multipart_upload(self, ACL: str = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentType: str = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, RequestPayer: str = None, Tagging: str = None) -> 'MultipartUpload':
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
     def put(self, ACL: str = None, Body: Union[bytes, IO] = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentLength: int = None, ContentMD5: str = None, ContentType: str = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, RequestPayer: str = None, Tagging: str = None) -> Dict:
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
     def restore_object(self, VersionId: str = None, RestoreRequest: Dict = None, RequestPayer: str = None) -> Dict:
         pass
 
-    def upload_file(self, Filename: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def upload_file(self, Filename: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         pass
 
-    def upload_fileobj(self, Fileobj: IO = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None) -> NoReturn:
+    def upload_fileobj(self, Fileobj: IO = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         pass
 
-    def wait_until_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None) -> NoReturn:
+    def wait_until_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None):
         pass
 
-    def wait_until_not_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None) -> NoReturn:
+    def wait_until_not_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None):
         pass
 
 
@@ -470,13 +469,13 @@ class ObjectAcl(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
     def put(self, ACL: str = None, AccessControlPolicy: Dict = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWrite: str = None, GrantWriteACP: str = None, RequestPayer: str = None, VersionId: str = None) -> Dict:
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -504,7 +503,7 @@ class ObjectSummary(base.ServiceResource):
     def initiate_multipart_upload(self, ACL: str = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentType: str = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, RequestPayer: str = None, Tagging: str = None) -> 'MultipartUpload':
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
     def put(self, ACL: str = None, Body: Union[bytes, IO] = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentLength: int = None, ContentMD5: str = None, ContentType: str = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, RequestPayer: str = None, Tagging: str = None) -> Dict:
@@ -513,10 +512,10 @@ class ObjectSummary(base.ServiceResource):
     def restore_object(self, VersionId: str = None, RestoreRequest: Dict = None, RequestPayer: str = None) -> Dict:
         pass
 
-    def wait_until_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None) -> NoReturn:
+    def wait_until_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None):
         pass
 
-    def wait_until_not_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None) -> NoReturn:
+    def wait_until_not_exists(self, IfMatch: str = None, IfModifiedSince: datetime = None, IfNoneMatch: str = None, IfUnmodifiedSince: datetime = None, Range: str = None, VersionId: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, RequestPayer: str = None, PartNumber: int = None):
         pass
 
 

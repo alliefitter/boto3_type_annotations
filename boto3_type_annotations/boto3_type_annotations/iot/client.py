@@ -1,16 +1,15 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def accept_certificate_transfer(self, certificateId: str, setAsActive: bool = None) -> NoReturn:
+    def accept_certificate_transfer(self, certificateId: str, setAsActive: bool = None):
         pass
 
     def add_thing_to_thing_group(self, thingGroupName: str = None, thingGroupArn: str = None, thingName: str = None, thingArn: str = None) -> Dict:
@@ -19,10 +18,10 @@ class Client(BaseClient):
     def associate_targets_with_job(self, targets: List, jobId: str, comment: str = None) -> Dict:
         pass
 
-    def attach_policy(self, policyName: str, target: str) -> NoReturn:
+    def attach_policy(self, policyName: str, target: str):
         pass
 
-    def attach_principal_policy(self, policyName: str, principal: str) -> NoReturn:
+    def attach_principal_policy(self, policyName: str, principal: str):
         pass
 
     def attach_security_profile(self, securityProfileName: str, securityProfileTargetArn: str) -> Dict:
@@ -31,19 +30,19 @@ class Client(BaseClient):
     def attach_thing_principal(self, thingName: str, principal: str) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def cancel_audit_task(self, taskId: str) -> Dict:
         pass
 
-    def cancel_certificate_transfer(self, certificateId: str) -> NoReturn:
+    def cancel_certificate_transfer(self, certificateId: str):
         pass
 
     def cancel_job(self, jobId: str, comment: str = None, force: bool = None) -> Dict:
         pass
 
-    def cancel_job_execution(self, jobId: str, thingName: str, force: bool = None, expectedVersion: int = None, statusDetails: Dict = None) -> NoReturn:
+    def cancel_job_execution(self, jobId: str, thingName: str, force: bool = None, expectedVersion: int = None, statusDetails: Dict = None):
         pass
 
     def clear_default_authorizer(self) -> Dict:
@@ -91,7 +90,7 @@ class Client(BaseClient):
     def create_thing_type(self, thingTypeName: str, thingTypeProperties: Dict = None) -> Dict:
         pass
 
-    def create_topic_rule(self, ruleName: str, topicRulePayload: Dict) -> NoReturn:
+    def create_topic_rule(self, ruleName: str, topicRulePayload: Dict):
         pass
 
     def delete_account_audit_configuration(self, deleteScheduledAudits: bool = None) -> Dict:
@@ -103,22 +102,22 @@ class Client(BaseClient):
     def delete_ca_certificate(self, certificateId: str) -> Dict:
         pass
 
-    def delete_certificate(self, certificateId: str, forceDelete: bool = None) -> NoReturn:
+    def delete_certificate(self, certificateId: str, forceDelete: bool = None):
         pass
 
-    def delete_job(self, jobId: str, force: bool = None) -> NoReturn:
+    def delete_job(self, jobId: str, force: bool = None):
         pass
 
-    def delete_job_execution(self, jobId: str, thingName: str, executionNumber: int, force: bool = None) -> NoReturn:
+    def delete_job_execution(self, jobId: str, thingName: str, executionNumber: int, force: bool = None):
         pass
 
     def delete_ota_update(self, otaUpdateId: str, deleteStream: bool = None, forceDeleteAWSJob: bool = None) -> Dict:
         pass
 
-    def delete_policy(self, policyName: str) -> NoReturn:
+    def delete_policy(self, policyName: str):
         pass
 
-    def delete_policy_version(self, policyName: str, policyVersionId: str) -> NoReturn:
+    def delete_policy_version(self, policyName: str, policyVersionId: str):
         pass
 
     def delete_registration_code(self) -> Dict:
@@ -145,10 +144,10 @@ class Client(BaseClient):
     def delete_thing_type(self, thingTypeName: str) -> Dict:
         pass
 
-    def delete_topic_rule(self, ruleName: str) -> NoReturn:
+    def delete_topic_rule(self, ruleName: str):
         pass
 
-    def delete_v2_logging_level(self, targetType: str, targetName: str) -> NoReturn:
+    def delete_v2_logging_level(self, targetType: str, targetName: str):
         pass
 
     def deprecate_thing_type(self, thingTypeName: str, undoDeprecate: bool = None) -> Dict:
@@ -211,10 +210,10 @@ class Client(BaseClient):
     def describe_thing_type(self, thingTypeName: str) -> Dict:
         pass
 
-    def detach_policy(self, policyName: str, target: str) -> NoReturn:
+    def detach_policy(self, policyName: str, target: str):
         pass
 
-    def detach_principal_policy(self, policyName: str, principal: str) -> NoReturn:
+    def detach_principal_policy(self, policyName: str, principal: str):
         pass
 
     def detach_security_profile(self, securityProfileName: str, securityProfileTargetArn: str) -> Dict:
@@ -223,13 +222,13 @@ class Client(BaseClient):
     def detach_thing_principal(self, thingName: str, principal: str) -> Dict:
         pass
 
-    def disable_topic_rule(self, ruleName: str) -> NoReturn:
+    def disable_topic_rule(self, ruleName: str):
         pass
 
-    def enable_topic_rule(self, ruleName: str) -> NoReturn:
+    def enable_topic_rule(self, ruleName: str):
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_effective_policies(self, principal: str = None, cognitoIdentityPoolId: str = None, thingName: str = None) -> Dict:
@@ -388,13 +387,13 @@ class Client(BaseClient):
     def register_thing(self, templateBody: str, parameters: Dict = None) -> Dict:
         pass
 
-    def reject_certificate_transfer(self, certificateId: str, rejectReason: str = None) -> NoReturn:
+    def reject_certificate_transfer(self, certificateId: str, rejectReason: str = None):
         pass
 
     def remove_thing_from_thing_group(self, thingGroupName: str = None, thingGroupArn: str = None, thingName: str = None, thingArn: str = None) -> Dict:
         pass
 
-    def replace_topic_rule(self, ruleName: str, topicRulePayload: Dict) -> NoReturn:
+    def replace_topic_rule(self, ruleName: str, topicRulePayload: Dict):
         pass
 
     def search_index(self, queryString: str, indexName: str = None, nextToken: str = None, maxResults: int = None, queryVersion: str = None) -> Dict:
@@ -403,16 +402,16 @@ class Client(BaseClient):
     def set_default_authorizer(self, authorizerName: str) -> Dict:
         pass
 
-    def set_default_policy_version(self, policyName: str, policyVersionId: str) -> NoReturn:
+    def set_default_policy_version(self, policyName: str, policyVersionId: str):
         pass
 
-    def set_logging_options(self, loggingOptionsPayload: Dict) -> NoReturn:
+    def set_logging_options(self, loggingOptionsPayload: Dict):
         pass
 
-    def set_v2_logging_level(self, logTarget: Dict, logLevel: str) -> NoReturn:
+    def set_v2_logging_level(self, logTarget: Dict, logLevel: str):
         pass
 
-    def set_v2_logging_options(self, roleArn: str = None, defaultLogLevel: str = None, disableAllLogs: bool = None) -> NoReturn:
+    def set_v2_logging_options(self, roleArn: str = None, defaultLogLevel: str = None, disableAllLogs: bool = None):
         pass
 
     def start_on_demand_audit_task(self, targetCheckNames: List) -> Dict:
@@ -439,10 +438,10 @@ class Client(BaseClient):
     def update_authorizer(self, authorizerName: str, authorizerFunctionArn: str = None, tokenKeyName: str = None, tokenSigningPublicKeys: Dict = None, status: str = None) -> Dict:
         pass
 
-    def update_ca_certificate(self, certificateId: str, newStatus: str = None, newAutoRegistrationStatus: str = None, registrationConfig: Dict = None, removeAutoRegistration: bool = None) -> NoReturn:
+    def update_ca_certificate(self, certificateId: str, newStatus: str = None, newAutoRegistrationStatus: str = None, registrationConfig: Dict = None, removeAutoRegistration: bool = None):
         pass
 
-    def update_certificate(self, certificateId: str, newStatus: str) -> NoReturn:
+    def update_certificate(self, certificateId: str, newStatus: str):
         pass
 
     def update_event_configurations(self, eventConfigurations: Dict = None) -> Dict:

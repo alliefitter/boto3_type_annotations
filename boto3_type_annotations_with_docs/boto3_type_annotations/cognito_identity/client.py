@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -284,7 +283,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_identity_pool(self, IdentityPoolId: str) -> NoReturn:
+    def delete_identity_pool(self, IdentityPoolId: str):
         """
         
         You must use AWS Developer credentials to call this API.
@@ -478,7 +477,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -1247,7 +1246,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_identity_pool_roles(self, IdentityPoolId: str, Roles: Dict, RoleMappings: Dict = None) -> NoReturn:
+    def set_identity_pool_roles(self, IdentityPoolId: str, Roles: Dict, RoleMappings: Dict = None):
         """
         
         You must use AWS Developer credentials to call this API.
@@ -1352,7 +1351,7 @@ class Client(BaseClient):
         """
         pass
 
-    def unlink_developer_identity(self, IdentityId: str, IdentityPoolId: str, DeveloperProviderName: str, DeveloperUserIdentifier: str) -> NoReturn:
+    def unlink_developer_identity(self, IdentityId: str, IdentityPoolId: str, DeveloperProviderName: str, DeveloperUserIdentifier: str):
         """
         
         You must use AWS Developer credentials to call this API.
@@ -1392,7 +1391,7 @@ class Client(BaseClient):
         """
         pass
 
-    def unlink_identity(self, IdentityId: str, Logins: Dict, LoginsToRemove: List) -> NoReturn:
+    def unlink_identity(self, IdentityId: str, Logins: Dict, LoginsToRemove: List):
         """
         
         This is a public API. You do not need any credentials to call this API.

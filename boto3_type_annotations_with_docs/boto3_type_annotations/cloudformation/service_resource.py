@@ -1,10 +1,9 @@
-from typing import Optional
-from typing import NoReturn
 from boto3.resources.collection import ResourceCollection
-from datetime import datetime
-from typing import Dict
 from typing import Union
 from typing import List
+from datetime import datetime
+from typing import Optional
+from typing import Dict
 from boto3.resources import base
 
 
@@ -381,7 +380,7 @@ class Stack(base.ServiceResource):
     events: 'events'
     resource_summaries: 'resource_summaries'
 
-    def cancel_update(self, ClientRequestToken: str = None) -> NoReturn:
+    def cancel_update(self, ClientRequestToken: str = None):
         """
         
         .. note::
@@ -405,7 +404,7 @@ class Stack(base.ServiceResource):
         """
         pass
 
-    def delete(self, RetainResources: List = None, RoleARN: str = None, ClientRequestToken: str = None) -> NoReturn:
+    def delete(self, RetainResources: List = None, RoleARN: str = None, ClientRequestToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DeleteStack>`_
@@ -459,7 +458,7 @@ class Stack(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/None>`_
@@ -473,7 +472,7 @@ class Stack(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/None>`_
@@ -771,7 +770,7 @@ class StackResource(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/None>`_
@@ -785,7 +784,7 @@ class StackResource(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/None>`_

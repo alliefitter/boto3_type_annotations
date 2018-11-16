@@ -1,10 +1,9 @@
-from typing import Optional
-from typing import NoReturn
 from boto3.resources.collection import ResourceCollection
-from typing import Dict
 from typing import Union
-from typing import IO
 from typing import List
+from typing import Optional
+from typing import IO
+from typing import Dict
 from boto3.resources import base
 
 
@@ -52,7 +51,7 @@ class Archive(base.ServiceResource):
     vault_name: str
     id: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
@@ -94,10 +93,10 @@ class Job(base.ServiceResource):
     def get_output(self, range: str = None) -> Dict:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -111,7 +110,7 @@ class MultipartUpload(base.ServiceResource):
     vault_name: str
     id: str
 
-    def abort(self) -> NoReturn:
+    def abort(self):
         pass
 
     def complete(self, archiveSize: str = None, checksum: str = None) -> Dict:
@@ -133,19 +132,19 @@ class Notification(base.ServiceResource):
     account_id: str
     vault_name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def set(self, vaultNotificationConfig: Dict = None) -> NoReturn:
+    def set(self, vaultNotificationConfig: Dict = None):
         pass
 
 
@@ -169,7 +168,7 @@ class Vault(base.ServiceResource):
     def create(self) -> Dict:
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
@@ -181,10 +180,10 @@ class Vault(base.ServiceResource):
     def initiate_multipart_upload(self, archiveDescription: str = None, partSize: str = None) -> 'MultipartUpload':
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
     def upload_archive(self, archiveDescription: str = None, checksum: str = None, body: Union[bytes, IO] = None) -> 'Archive':

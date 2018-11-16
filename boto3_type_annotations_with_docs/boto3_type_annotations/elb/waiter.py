@@ -1,11 +1,10 @@
 from typing import List
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class AnyInstanceInService(Waiter):
-    def wait(self, LoadBalancerName: str, Instances: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, LoadBalancerName: str, Instances: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancing-2012-06-01/DescribeInstanceHealth>`_
@@ -62,7 +61,7 @@ class AnyInstanceInService(Waiter):
 
 
 class InstanceDeregistered(Waiter):
-    def wait(self, LoadBalancerName: str, Instances: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, LoadBalancerName: str, Instances: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancing-2012-06-01/DescribeInstanceHealth>`_
@@ -119,7 +118,7 @@ class InstanceDeregistered(Waiter):
 
 
 class InstanceInService(Waiter):
-    def wait(self, LoadBalancerName: str, Instances: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, LoadBalancerName: str, Instances: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancing-2012-06-01/DescribeInstanceHealth>`_

@@ -1,14 +1,13 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
+from botocore.paginate import Paginator
+from typing import Union
+from typing import Optional
 from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def associate_admin_account(self, AdminAccount: str) -> NoReturn:
+    def associate_admin_account(self, AdminAccount: str):
         """
         
         The account that you associate with AWS Firewall Manager is called the AWS Firewall Manager administrator account. 
@@ -30,7 +29,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -46,7 +45,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_notification_channel(self) -> NoReturn:
+    def delete_notification_channel(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/fms-2018-01-01/DeleteNotificationChannel>`_
@@ -60,7 +59,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_policy(self, PolicyId: str) -> NoReturn:
+    def delete_policy(self, PolicyId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/fms-2018-01-01/DeletePolicy>`_
@@ -80,7 +79,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disassociate_admin_account(self) -> NoReturn:
+    def disassociate_admin_account(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/fms-2018-01-01/DisassociateAdminAccount>`_
@@ -94,7 +93,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -737,7 +736,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_notification_channel(self, SnsTopicArn: str, SnsRoleName: str) -> NoReturn:
+    def put_notification_channel(self, SnsTopicArn: str, SnsRoleName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/fms-2018-01-01/PutNotificationChannel>`_

@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def create_certificate_authority(self, CertificateAuthorityConfiguration: Dict, CertificateAuthorityType: str, RevocationConfiguration: Dict = None, IdempotencyToken: str = None) -> Dict:
@@ -18,7 +17,7 @@ class Client(BaseClient):
     def create_certificate_authority_audit_report(self, CertificateAuthorityArn: str, S3BucketName: str, AuditReportResponseFormat: str) -> Dict:
         pass
 
-    def delete_certificate_authority(self, CertificateAuthorityArn: str, PermanentDeletionTimeInDays: int = None) -> NoReturn:
+    def delete_certificate_authority(self, CertificateAuthorityArn: str, PermanentDeletionTimeInDays: int = None):
         pass
 
     def describe_certificate_authority(self, CertificateAuthorityArn: str) -> Dict:
@@ -27,7 +26,7 @@ class Client(BaseClient):
     def describe_certificate_authority_audit_report(self, CertificateAuthorityArn: str, AuditReportId: str) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_certificate(self, CertificateAuthorityArn: str, CertificateArn: str) -> Dict:
@@ -45,7 +44,7 @@ class Client(BaseClient):
     def get_waiter(self, waiter_name: str = None) -> Waiter:
         pass
 
-    def import_certificate_authority_certificate(self, CertificateAuthorityArn: str, Certificate: bytes, CertificateChain: bytes) -> NoReturn:
+    def import_certificate_authority_certificate(self, CertificateAuthorityArn: str, Certificate: bytes, CertificateChain: bytes):
         pass
 
     def issue_certificate(self, CertificateAuthorityArn: str, Csr: bytes, SigningAlgorithm: str, Validity: Dict, IdempotencyToken: str = None) -> Dict:
@@ -57,17 +56,17 @@ class Client(BaseClient):
     def list_tags(self, CertificateAuthorityArn: str, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
-    def restore_certificate_authority(self, CertificateAuthorityArn: str) -> NoReturn:
+    def restore_certificate_authority(self, CertificateAuthorityArn: str):
         pass
 
-    def revoke_certificate(self, CertificateAuthorityArn: str, CertificateSerial: str, RevocationReason: str) -> NoReturn:
+    def revoke_certificate(self, CertificateAuthorityArn: str, CertificateSerial: str, RevocationReason: str):
         pass
 
-    def tag_certificate_authority(self, CertificateAuthorityArn: str, Tags: List) -> NoReturn:
+    def tag_certificate_authority(self, CertificateAuthorityArn: str, Tags: List):
         pass
 
-    def untag_certificate_authority(self, CertificateAuthorityArn: str, Tags: List) -> NoReturn:
+    def untag_certificate_authority(self, CertificateAuthorityArn: str, Tags: List):
         pass
 
-    def update_certificate_authority(self, CertificateAuthorityArn: str, RevocationConfiguration: Dict = None, Status: str = None) -> NoReturn:
+    def update_certificate_authority(self, CertificateAuthorityArn: str, RevocationConfiguration: Dict = None, Status: str = None):
         pass

@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class StreamExists(Waiter):
-    def wait(self, StreamName: str, Limit: int = None, ExclusiveStartShardId: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StreamName: str, Limit: int = None, ExclusiveStartShardId: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/kinesis-2013-12-02/DescribeStream>`_
@@ -55,7 +54,7 @@ class StreamExists(Waiter):
 
 
 class StreamNotExists(Waiter):
-    def wait(self, StreamName: str, Limit: int = None, ExclusiveStartShardId: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StreamName: str, Limit: int = None, ExclusiveStartShardId: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/kinesis-2013-12-02/DescribeStream>`_

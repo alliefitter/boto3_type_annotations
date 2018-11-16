@@ -1,10 +1,9 @@
-from typing import Optional
-from typing import NoReturn
 from boto3.resources.collection import ResourceCollection
-from datetime import datetime
-from typing import Dict
 from typing import Union
 from typing import List
+from datetime import datetime
+from typing import Optional
+from typing import Dict
 from boto3.resources import base
 
 
@@ -50,28 +49,28 @@ class Alarm(base.ServiceResource):
     evaluate_low_sample_count_percentile: str
     name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def describe_history(self, HistoryItemType: str = None, StartDate: datetime = None, EndDate: datetime = None, MaxRecords: int = None, NextToken: str = None) -> Dict:
         pass
 
-    def disable_actions(self) -> NoReturn:
+    def disable_actions(self):
         pass
 
-    def enable_actions(self) -> NoReturn:
+    def enable_actions(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def set_state(self, StateValue: str, StateReason: str, StateReasonData: str = None) -> NoReturn:
+    def set_state(self, StateValue: str, StateReason: str, StateReasonData: str = None):
         pass
 
 
@@ -88,16 +87,16 @@ class Metric(base.ServiceResource):
     def get_statistics(self, StartTime: datetime, EndTime: datetime, Period: int, Dimensions: List = None, Statistics: List = None, ExtendedStatistics: List = None, Unit: str = None) -> Dict:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
     def put_alarm(self, AlarmName: str, Period: int, EvaluationPeriods: int, Threshold: float, ComparisonOperator: str, AlarmDescription: str = None, ActionsEnabled: bool = None, OKActions: List = None, AlarmActions: List = None, InsufficientDataActions: List = None, Statistic: str = None, ExtendedStatistic: str = None, Dimensions: List = None, Unit: str = None, DatapointsToAlarm: int = None, TreatMissingData: str = None, EvaluateLowSampleCountPercentile: str = None) -> 'Alarm':
         pass
 
-    def put_data(self) -> NoReturn:
+    def put_data(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -109,17 +108,17 @@ class alarms(ResourceCollection):
 
     
     @classmethod
-    def delete(cls) -> NoReturn:
+    def delete(cls):
         pass
 
     
     @classmethod
-    def disable_actions(cls) -> NoReturn:
+    def disable_actions(cls):
         pass
 
     
     @classmethod
-    def enable_actions(cls) -> NoReturn:
+    def enable_actions(cls):
         pass
 
     

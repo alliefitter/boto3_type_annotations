@@ -1,10 +1,9 @@
+from typing import Union
 from typing import Optional
 from boto3.resources.collection import ResourceCollection
-from typing import Dict
-from typing import Union
 from typing import List
-from typing import NoReturn
 from datetime import datetime
+from typing import Dict
 from boto3.resources import base
 
 
@@ -123,7 +122,7 @@ class ServiceResource(base.ServiceResource):
     def create_subnet(self, CidrBlock: str, VpcId: str, AvailabilityZone: str = None, Ipv6CidrBlock: str = None, DryRun: bool = None) -> 'Subnet':
         pass
 
-    def create_tags(self, Resources: List[str], Tags: List, DryRun: bool = None) -> NoReturn:
+    def create_tags(self, Resources: List[str], Tags: List, DryRun: bool = None):
         pass
 
     def create_volume(self, AvailabilityZone: str, Encrypted: bool = None, Iops: int = None, KmsKeyId: str = None, Size: int = None, SnapshotId: str = None, VolumeType: str = None, DryRun: bool = None, TagSpecifications: List = None) -> 'Volume':
@@ -135,7 +134,7 @@ class ServiceResource(base.ServiceResource):
     def create_vpc_peering_connection(self, DryRun: bool = None, PeerOwnerId: str = None, PeerVpcId: str = None, VpcId: str = None, PeerRegion: str = None) -> 'VpcPeeringConnection':
         pass
 
-    def disassociate_route_table(self, AssociationId: str, DryRun: bool = None) -> NoReturn:
+    def disassociate_route_table(self, AssociationId: str, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
@@ -163,19 +162,19 @@ class ClassicAddress(base.ServiceResource):
     def associate(self, AllocationId: str = None, InstanceId: str = None, AllowReassociation: bool = None, DryRun: bool = None, NetworkInterfaceId: str = None, PrivateIpAddress: str = None) -> Dict:
         pass
 
-    def disassociate(self, AssociationId: str = None, DryRun: bool = None) -> NoReturn:
+    def disassociate(self, AssociationId: str = None, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def release(self, AllocationId: str = None, DryRun: bool = None) -> NoReturn:
+    def release(self, AllocationId: str = None, DryRun: bool = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -185,22 +184,22 @@ class DhcpOptions(base.ServiceResource):
     tags: List
     id: str
 
-    def associate_with_vpc(self, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def associate_with_vpc(self, VpcId: str, DryRun: bool = None):
         pass
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -234,7 +233,7 @@ class Image(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def deregister(self, DryRun: bool = None) -> NoReturn:
+    def deregister(self, DryRun: bool = None):
         pass
 
     def describe_attribute(self, Attribute: str, DryRun: bool = None) -> Dict:
@@ -243,19 +242,19 @@ class Image(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def modify_attribute(self, Attribute: str = None, Description: Dict = None, LaunchPermission: Dict = None, OperationType: str = None, ProductCodes: List = None, UserGroups: List = None, UserIds: List = None, Value: str = None, DryRun: bool = None) -> NoReturn:
+    def modify_attribute(self, Attribute: str = None, Description: Dict = None, LaunchPermission: Dict = None, OperationType: str = None, ProductCodes: List = None, UserGroups: List = None, UserIds: List = None, Value: str = None, DryRun: bool = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def reset_attribute(self, Attribute: str, DryRun: bool = None) -> NoReturn:
+    def reset_attribute(self, Attribute: str, DryRun: bool = None):
         pass
 
-    def wait_until_exists(self, ExecutableUsers: List = None, Filters: List = None, Owners: List = None, DryRun: bool = None) -> NoReturn:
+    def wait_until_exists(self, ExecutableUsers: List = None, Filters: List = None, Owners: List = None, DryRun: bool = None):
         pass
 
 
@@ -321,7 +320,7 @@ class Instance(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def delete_tags(self, DryRun: bool = None, Tags: List = None) -> NoReturn:
+    def delete_tags(self, DryRun: bool = None, Tags: List = None):
         pass
 
     def describe_attribute(self, Attribute: str, DryRun: bool = None) -> Dict:
@@ -336,10 +335,10 @@ class Instance(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def modify_attribute(self, SourceDestCheck: Dict = None, Attribute: str = None, BlockDeviceMappings: List = None, DisableApiTermination: Dict = None, DryRun: bool = None, EbsOptimized: Dict = None, EnaSupport: Dict = None, Groups: List = None, InstanceInitiatedShutdownBehavior: Dict = None, InstanceType: Dict = None, Kernel: Dict = None, Ramdisk: Dict = None, SriovNetSupport: Dict = None, UserData: Dict = None, Value: str = None) -> NoReturn:
+    def modify_attribute(self, SourceDestCheck: Dict = None, Attribute: str = None, BlockDeviceMappings: List = None, DisableApiTermination: Dict = None, DryRun: bool = None, EbsOptimized: Dict = None, EnaSupport: Dict = None, Groups: List = None, InstanceInitiatedShutdownBehavior: Dict = None, InstanceType: Dict = None, Kernel: Dict = None, Ramdisk: Dict = None, SriovNetSupport: Dict = None, UserData: Dict = None, Value: str = None):
         pass
 
     def monitor(self, DryRun: bool = None) -> Dict:
@@ -348,25 +347,25 @@ class Instance(base.ServiceResource):
     def password_data(self, DryRun: bool = None) -> Dict:
         pass
 
-    def reboot(self, DryRun: bool = None) -> NoReturn:
+    def reboot(self, DryRun: bool = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def report_status(self, ReasonCodes: List, Status: str, Description: str = None, DryRun: bool = None, EndTime: datetime = None, StartTime: datetime = None) -> NoReturn:
+    def report_status(self, ReasonCodes: List, Status: str, Description: str = None, DryRun: bool = None, EndTime: datetime = None, StartTime: datetime = None):
         pass
 
-    def reset_attribute(self, Attribute: str, DryRun: bool = None) -> NoReturn:
+    def reset_attribute(self, Attribute: str, DryRun: bool = None):
         pass
 
-    def reset_kernel(self, DryRun: bool = None) -> NoReturn:
+    def reset_kernel(self, DryRun: bool = None):
         pass
 
-    def reset_ramdisk(self, DryRun: bool = None) -> NoReturn:
+    def reset_ramdisk(self, DryRun: bool = None):
         pass
 
-    def reset_source_dest_check(self, DryRun: bool = None) -> NoReturn:
+    def reset_source_dest_check(self, DryRun: bool = None):
         pass
 
     def start(self, AdditionalInfo: str = None, DryRun: bool = None) -> Dict:
@@ -381,16 +380,16 @@ class Instance(base.ServiceResource):
     def unmonitor(self, DryRun: bool = None) -> Dict:
         pass
 
-    def wait_until_exists(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> NoReturn:
+    def wait_until_exists(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None):
         pass
 
-    def wait_until_running(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> NoReturn:
+    def wait_until_running(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None):
         pass
 
-    def wait_until_stopped(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> NoReturn:
+    def wait_until_stopped(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None):
         pass
 
-    def wait_until_terminated(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> NoReturn:
+    def wait_until_terminated(self, Filters: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None):
         pass
 
 
@@ -400,25 +399,25 @@ class InternetGateway(base.ServiceResource):
     tags: List
     id: str
 
-    def attach_to_vpc(self, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def attach_to_vpc(self, VpcId: str, DryRun: bool = None):
         pass
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
-    def detach_from_vpc(self, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def detach_from_vpc(self, VpcId: str, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -428,7 +427,7 @@ class KeyPair(base.ServiceResource):
     key_name: str
     name: str
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
@@ -440,16 +439,16 @@ class KeyPairInfo(base.ServiceResource):
     key_name: str
     name: str
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -462,31 +461,31 @@ class NetworkAcl(base.ServiceResource):
     vpc_id: str
     id: str
 
-    def create_entry(self, Egress: bool, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None) -> NoReturn:
+    def create_entry(self, Egress: bool, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None):
         pass
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
-    def delete_entry(self, Egress: bool, RuleNumber: int, DryRun: bool = None) -> NoReturn:
+    def delete_entry(self, Egress: bool, RuleNumber: int, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
     def replace_association(self, AssociationId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def replace_entry(self, Egress: bool, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None) -> NoReturn:
+    def replace_entry(self, Egress: bool, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None):
         pass
 
 
@@ -513,7 +512,7 @@ class NetworkInterface(base.ServiceResource):
     vpc_id: str
     id: str
 
-    def assign_private_ip_addresses(self, AllowReassignment: bool = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> NoReturn:
+    def assign_private_ip_addresses(self, AllowReassignment: bool = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None):
         pass
 
     def attach(self, DeviceIndex: int, InstanceId: str, DryRun: bool = None) -> Dict:
@@ -522,31 +521,31 @@ class NetworkInterface(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def describe_attribute(self, Attribute: str = None, DryRun: bool = None) -> Dict:
         pass
 
-    def detach(self, DryRun: bool = None, Force: bool = None) -> NoReturn:
+    def detach(self, DryRun: bool = None, Force: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def modify_attribute(self, Attachment: Dict = None, Description: Dict = None, DryRun: bool = None, Groups: List = None, SourceDestCheck: Dict = None) -> NoReturn:
+    def modify_attribute(self, Attachment: Dict = None, Description: Dict = None, DryRun: bool = None, Groups: List = None, SourceDestCheck: Dict = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def reset_attribute(self, DryRun: bool = None, SourceDestCheck: str = None) -> NoReturn:
+    def reset_attribute(self, DryRun: bool = None, SourceDestCheck: str = None):
         pass
 
-    def unassign_private_ip_addresses(self, PrivateIpAddresses: List) -> NoReturn:
+    def unassign_private_ip_addresses(self, PrivateIpAddresses: List):
         pass
 
 
@@ -556,16 +555,16 @@ class NetworkInterfaceAssociation(base.ServiceResource):
     public_ip: str
     id: str
 
-    def delete(self, PublicIp: str = None, DryRun: bool = None) -> NoReturn:
+    def delete(self, PublicIp: str = None, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -576,16 +575,16 @@ class PlacementGroup(base.ServiceResource):
     name: str
     instances: 'instances'
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -604,13 +603,13 @@ class Route(base.ServiceResource):
     route_table_id: str
     destination_cidr_block: str
 
-    def delete(self, DestinationIpv6CidrBlock: str = None, DryRun: bool = None) -> NoReturn:
+    def delete(self, DestinationIpv6CidrBlock: str = None, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def replace(self, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None) -> NoReturn:
+    def replace(self, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None):
         pass
 
 
@@ -632,16 +631,16 @@ class RouteTable(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -652,7 +651,7 @@ class RouteTableAssociation(base.ServiceResource):
     subnet_id: str
     id: str
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
@@ -673,31 +672,31 @@ class SecurityGroup(base.ServiceResource):
     vpc_id: str
     id: str
 
-    def authorize_egress(self, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None) -> NoReturn:
+    def authorize_egress(self, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         pass
 
-    def authorize_ingress(self, CidrIp: str = None, FromPort: int = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None) -> NoReturn:
+    def authorize_ingress(self, CidrIp: str = None, FromPort: int = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         pass
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def delete(self, GroupName: str = None, DryRun: bool = None) -> NoReturn:
+    def delete(self, GroupName: str = None, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def revoke_egress(self, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None) -> NoReturn:
+    def revoke_egress(self, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         pass
 
-    def revoke_ingress(self, CidrIp: str = None, FromPort: int = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None) -> NoReturn:
+    def revoke_ingress(self, CidrIp: str = None, FromPort: int = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         pass
 
 
@@ -724,7 +723,7 @@ class Snapshot(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def describe_attribute(self, Attribute: str, DryRun: bool = None) -> Dict:
@@ -733,19 +732,19 @@ class Snapshot(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def modify_attribute(self, Attribute: str = None, CreateVolumePermission: Dict = None, GroupNames: List = None, OperationType: str = None, UserIds: List = None, DryRun: bool = None) -> NoReturn:
+    def modify_attribute(self, Attribute: str = None, CreateVolumePermission: Dict = None, GroupNames: List = None, OperationType: str = None, UserIds: List = None, DryRun: bool = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def reset_attribute(self, Attribute: str, DryRun: bool = None) -> NoReturn:
+    def reset_attribute(self, Attribute: str, DryRun: bool = None):
         pass
 
-    def wait_until_completed(self, Filters: List = None, MaxResults: int = None, NextToken: str = None, OwnerIds: List = None, RestorableByUserIds: List = None, DryRun: bool = None) -> NoReturn:
+    def wait_until_completed(self, Filters: List = None, MaxResults: int = None, NextToken: str = None, OwnerIds: List = None, RestorableByUserIds: List = None, DryRun: bool = None):
         pass
 
 
@@ -774,16 +773,16 @@ class Subnet(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -793,16 +792,16 @@ class Tag(base.ServiceResource):
     key: str
     value: str
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -831,7 +830,7 @@ class Volume(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def describe_attribute(self, Attribute: str, DryRun: bool = None) -> Dict:
@@ -843,19 +842,19 @@ class Volume(base.ServiceResource):
     def detach_from_instance(self, Device: str = None, Force: bool = None, InstanceId: str = None, DryRun: bool = None) -> Dict:
         pass
 
-    def enable_io(self, DryRun: bool = None) -> NoReturn:
+    def enable_io(self, DryRun: bool = None):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def modify_attribute(self, AutoEnableIO: Dict = None, DryRun: bool = None) -> NoReturn:
+    def modify_attribute(self, AutoEnableIO: Dict = None, DryRun: bool = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -880,13 +879,13 @@ class Vpc(base.ServiceResource):
     security_groups: 'security_groups'
     subnets: 'subnets'
 
-    def associate_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None) -> NoReturn:
+    def associate_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None):
         pass
 
     def attach_classic_link_instance(self, Groups: List, InstanceId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def attach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def attach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None):
         pass
 
     def create_network_acl(self, DryRun: bool = None) -> 'NetworkAcl':
@@ -904,7 +903,7 @@ class Vpc(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         pass
 
-    def delete(self, DryRun: bool = None) -> NoReturn:
+    def delete(self, DryRun: bool = None):
         pass
 
     def describe_attribute(self, Attribute: str, DryRun: bool = None) -> Dict:
@@ -913,7 +912,7 @@ class Vpc(base.ServiceResource):
     def detach_classic_link_instance(self, InstanceId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def detach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def detach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None):
         pass
 
     def disable_classic_link(self, DryRun: bool = None) -> Dict:
@@ -925,22 +924,22 @@ class Vpc(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def modify_attribute(self, EnableDnsHostnames: Dict = None, EnableDnsSupport: Dict = None) -> NoReturn:
+    def modify_attribute(self, EnableDnsHostnames: Dict = None, EnableDnsSupport: Dict = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
     def request_vpc_peering_connection(self, DryRun: bool = None, PeerOwnerId: str = None, PeerVpcId: str = None, PeerRegion: str = None) -> 'VpcPeeringConnection':
         pass
 
-    def wait_until_available(self, Filters: List = None, DryRun: bool = None) -> NoReturn:
+    def wait_until_available(self, Filters: List = None, DryRun: bool = None):
         pass
 
-    def wait_until_exists(self, Filters: List = None, DryRun: bool = None) -> NoReturn:
+    def wait_until_exists(self, Filters: List = None, DryRun: bool = None):
         pass
 
 
@@ -962,16 +961,16 @@ class VpcPeeringConnection(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
     def reject(self, DryRun: bool = None) -> Dict:
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def wait_until_exists(self, Filters: List = None, DryRun: bool = None) -> NoReturn:
+    def wait_until_exists(self, Filters: List = None, DryRun: bool = None):
         pass
 
 
@@ -993,13 +992,13 @@ class VpcAddress(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def release(self, PublicIp: str = None, DryRun: bool = None) -> NoReturn:
+    def release(self, PublicIp: str = None, DryRun: bool = None):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -1107,7 +1106,7 @@ class instances(ResourceCollection):
 
     
     @classmethod
-    def create_tags(cls, Tags: List, DryRun: bool = None) -> NoReturn:
+    def create_tags(cls, Tags: List, DryRun: bool = None):
         pass
 
     
@@ -1142,7 +1141,7 @@ class instances(ResourceCollection):
 
     
     @classmethod
-    def reboot(cls, DryRun: bool = None) -> NoReturn:
+    def reboot(cls, DryRun: bool = None):
         pass
 
     

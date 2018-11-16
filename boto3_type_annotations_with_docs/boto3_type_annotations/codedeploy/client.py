@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def add_tags_to_on_premises_instances(self, tags: List, instanceNames: List) -> NoReturn:
+    def add_tags_to_on_premises_instances(self, tags: List, instanceNames: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/AddTagsToOnPremisesInstances>`_
@@ -2006,7 +2005,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -2022,7 +2021,7 @@ class Client(BaseClient):
         """
         pass
 
-    def continue_deployment(self, deploymentId: str = None) -> NoReturn:
+    def continue_deployment(self, deploymentId: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/ContinueDeployment>`_
@@ -2954,7 +2953,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_application(self, applicationName: str) -> NoReturn:
+    def delete_application(self, applicationName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/DeleteApplication>`_
@@ -2974,7 +2973,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_deployment_config(self, deploymentConfigName: str) -> NoReturn:
+    def delete_deployment_config(self, deploymentConfigName: str):
         """
         
         .. note::
@@ -3099,7 +3098,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deregister_on_premises_instance(self, instanceName: str) -> NoReturn:
+    def deregister_on_premises_instance(self, instanceName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/DeregisterOnPremisesInstance>`_
@@ -3119,7 +3118,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -5905,7 +5904,7 @@ class Client(BaseClient):
         """
         pass
 
-    def register_application_revision(self, applicationName: str, revision: Dict, description: str = None) -> NoReturn:
+    def register_application_revision(self, applicationName: str, revision: Dict, description: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/RegisterApplicationRevision>`_
@@ -6024,7 +6023,7 @@ class Client(BaseClient):
         """
         pass
 
-    def register_on_premises_instance(self, instanceName: str, iamSessionArn: str = None, iamUserArn: str = None) -> NoReturn:
+    def register_on_premises_instance(self, instanceName: str, iamSessionArn: str = None, iamUserArn: str = None):
         """
         
         .. note::
@@ -6060,7 +6059,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_tags_from_on_premises_instances(self, tags: List, instanceNames: List) -> NoReturn:
+    def remove_tags_from_on_premises_instances(self, tags: List, instanceNames: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/RemoveTagsFromOnPremisesInstances>`_
@@ -6107,7 +6106,7 @@ class Client(BaseClient):
         """
         pass
 
-    def skip_wait_time_for_instance_termination(self, deploymentId: str = None) -> NoReturn:
+    def skip_wait_time_for_instance_termination(self, deploymentId: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/SkipWaitTimeForInstanceTermination>`_
@@ -6181,7 +6180,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_application(self, applicationName: str = None, newApplicationName: str = None) -> NoReturn:
+    def update_application(self, applicationName: str = None, newApplicationName: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/UpdateApplication>`_

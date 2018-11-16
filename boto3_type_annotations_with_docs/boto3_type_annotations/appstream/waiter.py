@@ -1,11 +1,10 @@
 from typing import List
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class FleetStarted(Waiter):
-    def wait(self, Names: List = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Names: List = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/DescribeFleets>`_
@@ -54,7 +53,7 @@ class FleetStarted(Waiter):
 
 
 class FleetStopped(Waiter):
-    def wait(self, Names: List = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, Names: List = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/DescribeFleets>`_

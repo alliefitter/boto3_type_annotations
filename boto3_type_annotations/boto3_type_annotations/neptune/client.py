@@ -1,28 +1,27 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def add_role_to_db_cluster(self, DBClusterIdentifier: str, RoleArn: str) -> NoReturn:
+    def add_role_to_db_cluster(self, DBClusterIdentifier: str, RoleArn: str):
         pass
 
     def add_source_identifier_to_subscription(self, SubscriptionName: str, SourceIdentifier: str) -> Dict:
         pass
 
-    def add_tags_to_resource(self, ResourceName: str, Tags: List) -> NoReturn:
+    def add_tags_to_resource(self, ResourceName: str, Tags: List):
         pass
 
     def apply_pending_maintenance_action(self, ResourceIdentifier: str, ApplyAction: str, OptInType: str) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def copy_db_cluster_parameter_group(self, SourceDBClusterParameterGroupIdentifier: str, TargetDBClusterParameterGroupIdentifier: str, TargetDBClusterParameterGroupDescription: str, Tags: List = None) -> Dict:
@@ -58,7 +57,7 @@ class Client(BaseClient):
     def delete_db_cluster(self, DBClusterIdentifier: str, SkipFinalSnapshot: bool = None, FinalDBSnapshotIdentifier: str = None) -> Dict:
         pass
 
-    def delete_db_cluster_parameter_group(self, DBClusterParameterGroupName: str) -> NoReturn:
+    def delete_db_cluster_parameter_group(self, DBClusterParameterGroupName: str):
         pass
 
     def delete_db_cluster_snapshot(self, DBClusterSnapshotIdentifier: str) -> Dict:
@@ -67,10 +66,10 @@ class Client(BaseClient):
     def delete_db_instance(self, DBInstanceIdentifier: str, SkipFinalSnapshot: bool = None, FinalDBSnapshotIdentifier: str = None) -> Dict:
         pass
 
-    def delete_db_parameter_group(self, DBParameterGroupName: str) -> NoReturn:
+    def delete_db_parameter_group(self, DBParameterGroupName: str):
         pass
 
-    def delete_db_subnet_group(self, DBSubnetGroupName: str) -> NoReturn:
+    def delete_db_subnet_group(self, DBSubnetGroupName: str):
         pass
 
     def delete_event_subscription(self, SubscriptionName: str) -> Dict:
@@ -133,7 +132,7 @@ class Client(BaseClient):
     def failover_db_cluster(self, DBClusterIdentifier: str = None, TargetDBInstanceIdentifier: str = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
@@ -172,13 +171,13 @@ class Client(BaseClient):
     def reboot_db_instance(self, DBInstanceIdentifier: str, ForceFailover: bool = None) -> Dict:
         pass
 
-    def remove_role_from_db_cluster(self, DBClusterIdentifier: str, RoleArn: str) -> NoReturn:
+    def remove_role_from_db_cluster(self, DBClusterIdentifier: str, RoleArn: str):
         pass
 
     def remove_source_identifier_from_subscription(self, SubscriptionName: str, SourceIdentifier: str) -> Dict:
         pass
 
-    def remove_tags_from_resource(self, ResourceName: str, TagKeys: List) -> NoReturn:
+    def remove_tags_from_resource(self, ResourceName: str, TagKeys: List):
         pass
 
     def reset_db_cluster_parameter_group(self, DBClusterParameterGroupName: str, ResetAllParameters: bool = None, Parameters: List = None) -> Dict:

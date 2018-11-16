@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def associate_kms_key(self, logGroupName: str, kmsKeyId: str) -> NoReturn:
+    def associate_kms_key(self, logGroupName: str, kmsKeyId: str):
         """
         
         Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.
@@ -41,7 +40,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -57,7 +56,7 @@ class Client(BaseClient):
         """
         pass
 
-    def cancel_export_task(self, taskId: str) -> NoReturn:
+    def cancel_export_task(self, taskId: str):
         """
         
         The task must be in the ``PENDING`` or ``RUNNING`` state.
@@ -156,7 +155,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_log_group(self, logGroupName: str, kmsKeyId: str = None, tags: Dict = None) -> NoReturn:
+    def create_log_group(self, logGroupName: str, kmsKeyId: str = None, tags: Dict = None):
         """
         
         You can create up to 5000 log groups per account.
@@ -208,7 +207,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_log_stream(self, logGroupName: str, logStreamName: str) -> NoReturn:
+    def create_log_stream(self, logGroupName: str, logStreamName: str):
         """
         
         There is no limit on the number of log streams that you can create for a log group.
@@ -244,7 +243,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_destination(self, destinationName: str) -> NoReturn:
+    def delete_destination(self, destinationName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/DeleteDestination>`_
@@ -264,7 +263,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_log_group(self, logGroupName: str) -> NoReturn:
+    def delete_log_group(self, logGroupName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/DeleteLogGroup>`_
@@ -284,7 +283,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_log_stream(self, logGroupName: str, logStreamName: str) -> NoReturn:
+    def delete_log_stream(self, logGroupName: str, logStreamName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/DeleteLogStream>`_
@@ -310,7 +309,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_metric_filter(self, logGroupName: str, filterName: str) -> NoReturn:
+    def delete_metric_filter(self, logGroupName: str, filterName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/DeleteMetricFilter>`_
@@ -336,7 +335,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_resource_policy(self, policyName: str = None) -> NoReturn:
+    def delete_resource_policy(self, policyName: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/DeleteResourcePolicy>`_
@@ -356,7 +355,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_retention_policy(self, logGroupName: str) -> NoReturn:
+    def delete_retention_policy(self, logGroupName: str):
         """
         
         Log events do not expire if they belong to log groups without a retention policy.
@@ -378,7 +377,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_subscription_filter(self, logGroupName: str, filterName: str) -> NoReturn:
+    def delete_subscription_filter(self, logGroupName: str, filterName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/DeleteSubscriptionFilter>`_
@@ -1153,7 +1152,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disassociate_kms_key(self, logGroupName: str) -> NoReturn:
+    def disassociate_kms_key(self, logGroupName: str):
         """
         
         After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.
@@ -1333,7 +1332,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -1619,7 +1618,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_destination_policy(self, destinationName: str, accessPolicy: str) -> NoReturn:
+    def put_destination_policy(self, destinationName: str, accessPolicy: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/PutDestinationPolicy>`_
@@ -1756,7 +1755,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_metric_filter(self, logGroupName: str, filterName: str, filterPattern: str, metricTransformations: List) -> NoReturn:
+    def put_metric_filter(self, logGroupName: str, filterName: str, filterPattern: str, metricTransformations: List):
         """
         
         The maximum number of metric filters that can be associated with a log group is 100.
@@ -1886,7 +1885,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_retention_policy(self, logGroupName: str, retentionInDays: int) -> NoReturn:
+    def put_retention_policy(self, logGroupName: str, retentionInDays: int):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/PutRetentionPolicy>`_
@@ -1912,7 +1911,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_subscription_filter(self, logGroupName: str, filterName: str, filterPattern: str, destinationArn: str, roleArn: str = None, distribution: str = None) -> NoReturn:
+    def put_subscription_filter(self, logGroupName: str, filterName: str, filterPattern: str, destinationArn: str, roleArn: str = None, distribution: str = None):
         """
         Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through  PutLogEvents and have them delivered to a specific destination. Currently, the supported destinations are:
         
@@ -1981,7 +1980,7 @@ class Client(BaseClient):
         """
         pass
 
-    def tag_log_group(self, logGroupName: str, tags: Dict) -> NoReturn:
+    def tag_log_group(self, logGroupName: str, tags: Dict):
         """
         
         To list the tags for a log group, use  ListTagsLogGroup . To remove tags, use  UntagLogGroup .
@@ -2092,7 +2091,7 @@ class Client(BaseClient):
         """
         pass
 
-    def untag_log_group(self, logGroupName: str, tags: List) -> NoReturn:
+    def untag_log_group(self, logGroupName: str, tags: List):
         """
         
         To list the tags for a log group, use  ListTagsLogGroup . To add tags, use  UntagLogGroup .

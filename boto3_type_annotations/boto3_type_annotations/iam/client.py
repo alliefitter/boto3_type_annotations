@@ -1,42 +1,41 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def add_client_id_to_open_id_connect_provider(self, OpenIDConnectProviderArn: str, ClientID: str) -> NoReturn:
+    def add_client_id_to_open_id_connect_provider(self, OpenIDConnectProviderArn: str, ClientID: str):
         pass
 
-    def add_role_to_instance_profile(self, InstanceProfileName: str, RoleName: str) -> NoReturn:
+    def add_role_to_instance_profile(self, InstanceProfileName: str, RoleName: str):
         pass
 
-    def add_user_to_group(self, GroupName: str, UserName: str) -> NoReturn:
+    def add_user_to_group(self, GroupName: str, UserName: str):
         pass
 
-    def attach_group_policy(self, GroupName: str, PolicyArn: str) -> NoReturn:
+    def attach_group_policy(self, GroupName: str, PolicyArn: str):
         pass
 
-    def attach_role_policy(self, RoleName: str, PolicyArn: str) -> NoReturn:
+    def attach_role_policy(self, RoleName: str, PolicyArn: str):
         pass
 
-    def attach_user_policy(self, UserName: str, PolicyArn: str) -> NoReturn:
+    def attach_user_policy(self, UserName: str, PolicyArn: str):
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
-    def change_password(self, OldPassword: str, NewPassword: str) -> NoReturn:
+    def change_password(self, OldPassword: str, NewPassword: str):
         pass
 
     def create_access_key(self, UserName: str = None) -> Dict:
         pass
 
-    def create_account_alias(self, AccountAlias: str) -> NoReturn:
+    def create_account_alias(self, AccountAlias: str):
         pass
 
     def create_group(self, GroupName: str, Path: str = None) -> Dict:
@@ -75,94 +74,94 @@ class Client(BaseClient):
     def create_virtual_mfa_device(self, VirtualMFADeviceName: str, Path: str = None) -> Dict:
         pass
 
-    def deactivate_mfa_device(self, UserName: str, SerialNumber: str) -> NoReturn:
+    def deactivate_mfa_device(self, UserName: str, SerialNumber: str):
         pass
 
-    def delete_access_key(self, AccessKeyId: str, UserName: str = None) -> NoReturn:
+    def delete_access_key(self, AccessKeyId: str, UserName: str = None):
         pass
 
-    def delete_account_alias(self, AccountAlias: str) -> NoReturn:
+    def delete_account_alias(self, AccountAlias: str):
         pass
 
-    def delete_account_password_policy(self) -> NoReturn:
+    def delete_account_password_policy(self):
         pass
 
-    def delete_group(self, GroupName: str) -> NoReturn:
+    def delete_group(self, GroupName: str):
         pass
 
-    def delete_group_policy(self, GroupName: str, PolicyName: str) -> NoReturn:
+    def delete_group_policy(self, GroupName: str, PolicyName: str):
         pass
 
-    def delete_instance_profile(self, InstanceProfileName: str) -> NoReturn:
+    def delete_instance_profile(self, InstanceProfileName: str):
         pass
 
-    def delete_login_profile(self, UserName: str) -> NoReturn:
+    def delete_login_profile(self, UserName: str):
         pass
 
-    def delete_open_id_connect_provider(self, OpenIDConnectProviderArn: str) -> NoReturn:
+    def delete_open_id_connect_provider(self, OpenIDConnectProviderArn: str):
         pass
 
-    def delete_policy(self, PolicyArn: str) -> NoReturn:
+    def delete_policy(self, PolicyArn: str):
         pass
 
-    def delete_policy_version(self, PolicyArn: str, VersionId: str) -> NoReturn:
+    def delete_policy_version(self, PolicyArn: str, VersionId: str):
         pass
 
-    def delete_role(self, RoleName: str) -> NoReturn:
+    def delete_role(self, RoleName: str):
         pass
 
-    def delete_role_permissions_boundary(self, RoleName: str) -> NoReturn:
+    def delete_role_permissions_boundary(self, RoleName: str):
         pass
 
-    def delete_role_policy(self, RoleName: str, PolicyName: str) -> NoReturn:
+    def delete_role_policy(self, RoleName: str, PolicyName: str):
         pass
 
-    def delete_saml_provider(self, SAMLProviderArn: str) -> NoReturn:
+    def delete_saml_provider(self, SAMLProviderArn: str):
         pass
 
-    def delete_server_certificate(self, ServerCertificateName: str) -> NoReturn:
+    def delete_server_certificate(self, ServerCertificateName: str):
         pass
 
     def delete_service_linked_role(self, RoleName: str) -> Dict:
         pass
 
-    def delete_service_specific_credential(self, ServiceSpecificCredentialId: str, UserName: str = None) -> NoReturn:
+    def delete_service_specific_credential(self, ServiceSpecificCredentialId: str, UserName: str = None):
         pass
 
-    def delete_signing_certificate(self, CertificateId: str, UserName: str = None) -> NoReturn:
+    def delete_signing_certificate(self, CertificateId: str, UserName: str = None):
         pass
 
-    def delete_ssh_public_key(self, UserName: str, SSHPublicKeyId: str) -> NoReturn:
+    def delete_ssh_public_key(self, UserName: str, SSHPublicKeyId: str):
         pass
 
-    def delete_user(self, UserName: str) -> NoReturn:
+    def delete_user(self, UserName: str):
         pass
 
-    def delete_user_permissions_boundary(self, UserName: str) -> NoReturn:
+    def delete_user_permissions_boundary(self, UserName: str):
         pass
 
-    def delete_user_policy(self, UserName: str, PolicyName: str) -> NoReturn:
+    def delete_user_policy(self, UserName: str, PolicyName: str):
         pass
 
-    def delete_virtual_mfa_device(self, SerialNumber: str) -> NoReturn:
+    def delete_virtual_mfa_device(self, SerialNumber: str):
         pass
 
-    def detach_group_policy(self, GroupName: str, PolicyArn: str) -> NoReturn:
+    def detach_group_policy(self, GroupName: str, PolicyArn: str):
         pass
 
-    def detach_role_policy(self, RoleName: str, PolicyArn: str) -> NoReturn:
+    def detach_role_policy(self, RoleName: str, PolicyArn: str):
         pass
 
-    def detach_user_policy(self, UserName: str, PolicyArn: str) -> NoReturn:
+    def detach_user_policy(self, UserName: str, PolicyArn: str):
         pass
 
-    def enable_mfa_device(self, UserName: str, SerialNumber: str, AuthenticationCode1: str, AuthenticationCode2: str) -> NoReturn:
+    def enable_mfa_device(self, UserName: str, SerialNumber: str, AuthenticationCode1: str, AuthenticationCode2: str):
         pass
 
     def generate_credential_report(self) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_access_key_last_used(self, AccessKeyId: str) -> Dict:
@@ -312,37 +311,37 @@ class Client(BaseClient):
     def list_virtual_mfa_devices(self, AssignmentStatus: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
         pass
 
-    def put_group_policy(self, GroupName: str, PolicyName: str, PolicyDocument: str) -> NoReturn:
+    def put_group_policy(self, GroupName: str, PolicyName: str, PolicyDocument: str):
         pass
 
-    def put_role_permissions_boundary(self, RoleName: str, PermissionsBoundary: str) -> NoReturn:
+    def put_role_permissions_boundary(self, RoleName: str, PermissionsBoundary: str):
         pass
 
-    def put_role_policy(self, RoleName: str, PolicyName: str, PolicyDocument: str) -> NoReturn:
+    def put_role_policy(self, RoleName: str, PolicyName: str, PolicyDocument: str):
         pass
 
-    def put_user_permissions_boundary(self, UserName: str, PermissionsBoundary: str) -> NoReturn:
+    def put_user_permissions_boundary(self, UserName: str, PermissionsBoundary: str):
         pass
 
-    def put_user_policy(self, UserName: str, PolicyName: str, PolicyDocument: str) -> NoReturn:
+    def put_user_policy(self, UserName: str, PolicyName: str, PolicyDocument: str):
         pass
 
-    def remove_client_id_from_open_id_connect_provider(self, OpenIDConnectProviderArn: str, ClientID: str) -> NoReturn:
+    def remove_client_id_from_open_id_connect_provider(self, OpenIDConnectProviderArn: str, ClientID: str):
         pass
 
-    def remove_role_from_instance_profile(self, InstanceProfileName: str, RoleName: str) -> NoReturn:
+    def remove_role_from_instance_profile(self, InstanceProfileName: str, RoleName: str):
         pass
 
-    def remove_user_from_group(self, GroupName: str, UserName: str) -> NoReturn:
+    def remove_user_from_group(self, GroupName: str, UserName: str):
         pass
 
     def reset_service_specific_credential(self, ServiceSpecificCredentialId: str, UserName: str = None) -> Dict:
         pass
 
-    def resync_mfa_device(self, UserName: str, SerialNumber: str, AuthenticationCode1: str, AuthenticationCode2: str) -> NoReturn:
+    def resync_mfa_device(self, UserName: str, SerialNumber: str, AuthenticationCode1: str, AuthenticationCode2: str):
         pass
 
-    def set_default_policy_version(self, PolicyArn: str, VersionId: str) -> NoReturn:
+    def set_default_policy_version(self, PolicyArn: str, VersionId: str):
         pass
 
     def simulate_custom_policy(self, PolicyInputList: List, ActionNames: List, ResourceArns: List = None, ResourcePolicy: str = None, ResourceOwner: str = None, CallerArn: str = None, ContextEntries: List = None, ResourceHandlingOption: str = None, MaxItems: int = None, Marker: str = None) -> Dict:
@@ -351,22 +350,22 @@ class Client(BaseClient):
     def simulate_principal_policy(self, PolicySourceArn: str, ActionNames: List, PolicyInputList: List = None, ResourceArns: List = None, ResourcePolicy: str = None, ResourceOwner: str = None, CallerArn: str = None, ContextEntries: List = None, ResourceHandlingOption: str = None, MaxItems: int = None, Marker: str = None) -> Dict:
         pass
 
-    def update_access_key(self, AccessKeyId: str, Status: str, UserName: str = None) -> NoReturn:
+    def update_access_key(self, AccessKeyId: str, Status: str, UserName: str = None):
         pass
 
-    def update_account_password_policy(self, MinimumPasswordLength: int = None, RequireSymbols: bool = None, RequireNumbers: bool = None, RequireUppercaseCharacters: bool = None, RequireLowercaseCharacters: bool = None, AllowUsersToChangePassword: bool = None, MaxPasswordAge: int = None, PasswordReusePrevention: int = None, HardExpiry: bool = None) -> NoReturn:
+    def update_account_password_policy(self, MinimumPasswordLength: int = None, RequireSymbols: bool = None, RequireNumbers: bool = None, RequireUppercaseCharacters: bool = None, RequireLowercaseCharacters: bool = None, AllowUsersToChangePassword: bool = None, MaxPasswordAge: int = None, PasswordReusePrevention: int = None, HardExpiry: bool = None):
         pass
 
-    def update_assume_role_policy(self, RoleName: str, PolicyDocument: str) -> NoReturn:
+    def update_assume_role_policy(self, RoleName: str, PolicyDocument: str):
         pass
 
-    def update_group(self, GroupName: str, NewPath: str = None, NewGroupName: str = None) -> NoReturn:
+    def update_group(self, GroupName: str, NewPath: str = None, NewGroupName: str = None):
         pass
 
-    def update_login_profile(self, UserName: str, Password: str = None, PasswordResetRequired: bool = None) -> NoReturn:
+    def update_login_profile(self, UserName: str, Password: str = None, PasswordResetRequired: bool = None):
         pass
 
-    def update_open_id_connect_provider_thumbprint(self, OpenIDConnectProviderArn: str, ThumbprintList: List) -> NoReturn:
+    def update_open_id_connect_provider_thumbprint(self, OpenIDConnectProviderArn: str, ThumbprintList: List):
         pass
 
     def update_role(self, RoleName: str, Description: str = None, MaxSessionDuration: int = None) -> Dict:
@@ -378,19 +377,19 @@ class Client(BaseClient):
     def update_saml_provider(self, SAMLMetadataDocument: str, SAMLProviderArn: str) -> Dict:
         pass
 
-    def update_server_certificate(self, ServerCertificateName: str, NewPath: str = None, NewServerCertificateName: str = None) -> NoReturn:
+    def update_server_certificate(self, ServerCertificateName: str, NewPath: str = None, NewServerCertificateName: str = None):
         pass
 
-    def update_service_specific_credential(self, ServiceSpecificCredentialId: str, Status: str, UserName: str = None) -> NoReturn:
+    def update_service_specific_credential(self, ServiceSpecificCredentialId: str, Status: str, UserName: str = None):
         pass
 
-    def update_signing_certificate(self, CertificateId: str, Status: str, UserName: str = None) -> NoReturn:
+    def update_signing_certificate(self, CertificateId: str, Status: str, UserName: str = None):
         pass
 
-    def update_ssh_public_key(self, UserName: str, SSHPublicKeyId: str, Status: str) -> NoReturn:
+    def update_ssh_public_key(self, UserName: str, SSHPublicKeyId: str, Status: str):
         pass
 
-    def update_user(self, UserName: str, NewPath: str = None, NewUserName: str = None) -> NoReturn:
+    def update_user(self, UserName: str, NewPath: str = None, NewUserName: str = None):
         pass
 
     def upload_server_certificate(self, ServerCertificateName: str, CertificateBody: str, PrivateKey: str, Path: str = None, CertificateChain: str = None) -> Dict:

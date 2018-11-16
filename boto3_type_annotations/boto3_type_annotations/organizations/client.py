@@ -1,10 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -12,10 +11,10 @@ class Client(BaseClient):
     def accept_handshake(self, HandshakeId: str) -> Dict:
         pass
 
-    def attach_policy(self, PolicyId: str, TargetId: str) -> NoReturn:
+    def attach_policy(self, PolicyId: str, TargetId: str):
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def cancel_handshake(self, HandshakeId: str) -> Dict:
@@ -36,13 +35,13 @@ class Client(BaseClient):
     def decline_handshake(self, HandshakeId: str) -> Dict:
         pass
 
-    def delete_organization(self) -> NoReturn:
+    def delete_organization(self):
         pass
 
-    def delete_organizational_unit(self, OrganizationalUnitId: str) -> NoReturn:
+    def delete_organizational_unit(self, OrganizationalUnitId: str):
         pass
 
-    def delete_policy(self, PolicyId: str) -> NoReturn:
+    def delete_policy(self, PolicyId: str):
         pass
 
     def describe_account(self, AccountId: str) -> Dict:
@@ -63,10 +62,10 @@ class Client(BaseClient):
     def describe_policy(self, PolicyId: str) -> Dict:
         pass
 
-    def detach_policy(self, PolicyId: str, TargetId: str) -> NoReturn:
+    def detach_policy(self, PolicyId: str, TargetId: str):
         pass
 
-    def disable_aws_service_access(self, ServicePrincipal: str) -> NoReturn:
+    def disable_aws_service_access(self, ServicePrincipal: str):
         pass
 
     def disable_policy_type(self, RootId: str, PolicyType: str) -> Dict:
@@ -75,13 +74,13 @@ class Client(BaseClient):
     def enable_all_features(self) -> Dict:
         pass
 
-    def enable_aws_service_access(self, ServicePrincipal: str) -> NoReturn:
+    def enable_aws_service_access(self, ServicePrincipal: str):
         pass
 
     def enable_policy_type(self, RootId: str, PolicyType: str) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
@@ -93,7 +92,7 @@ class Client(BaseClient):
     def invite_account_to_organization(self, Target: Dict, Notes: str = None) -> Dict:
         pass
 
-    def leave_organization(self) -> NoReturn:
+    def leave_organization(self):
         pass
 
     def list_accounts(self, NextToken: str = None, MaxResults: int = None) -> Dict:
@@ -135,10 +134,10 @@ class Client(BaseClient):
     def list_targets_for_policy(self, PolicyId: str, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
-    def move_account(self, AccountId: str, SourceParentId: str, DestinationParentId: str) -> NoReturn:
+    def move_account(self, AccountId: str, SourceParentId: str, DestinationParentId: str):
         pass
 
-    def remove_account_from_organization(self, AccountId: str) -> NoReturn:
+    def remove_account_from_organization(self, AccountId: str):
         pass
 
     def update_organizational_unit(self, OrganizationalUnitId: str, Name: str = None) -> Dict:

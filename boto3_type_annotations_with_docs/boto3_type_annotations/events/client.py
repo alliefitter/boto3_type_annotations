@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -25,7 +24,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_rule(self, Name: str) -> NoReturn:
+    def delete_rule(self, Name: str):
         """
         
         Before you can delete the rule, you must remove all targets, using  RemoveTargets .
@@ -159,7 +158,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disable_rule(self, Name: str) -> NoReturn:
+    def disable_rule(self, Name: str):
         """
         
         When you disable a rule, incoming events might continue to match to the disabled rule. Allow a short period of time for changes to take effect.
@@ -181,7 +180,7 @@ class Client(BaseClient):
         """
         pass
 
-    def enable_rule(self, Name: str) -> NoReturn:
+    def enable_rule(self, Name: str):
         """
         
         When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Allow a short period of time for changes to take effect.
@@ -203,7 +202,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -821,7 +820,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_permission(self, Action: str, Principal: str, StatementId: str, Condition: Dict = None) -> NoReturn:
+    def put_permission(self, Action: str, Principal: str, StatementId: str, Condition: Dict = None):
         """
         
         For another account to send events to your account, that external account must have a CloudWatch Events rule with your account's default event bus as a target.
@@ -1356,7 +1355,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_permission(self, StatementId: str) -> NoReturn:
+    def remove_permission(self, StatementId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/events-2015-10-07/RemovePermission>`_

@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -13,31 +12,31 @@ class Client(BaseClient):
     def batch_get_resource_config(self, resourceKeys: List) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
-    def delete_aggregation_authorization(self, AuthorizedAccountId: str, AuthorizedAwsRegion: str) -> NoReturn:
+    def delete_aggregation_authorization(self, AuthorizedAccountId: str, AuthorizedAwsRegion: str):
         pass
 
-    def delete_config_rule(self, ConfigRuleName: str) -> NoReturn:
+    def delete_config_rule(self, ConfigRuleName: str):
         pass
 
-    def delete_configuration_aggregator(self, ConfigurationAggregatorName: str) -> NoReturn:
+    def delete_configuration_aggregator(self, ConfigurationAggregatorName: str):
         pass
 
-    def delete_configuration_recorder(self, ConfigurationRecorderName: str) -> NoReturn:
+    def delete_configuration_recorder(self, ConfigurationRecorderName: str):
         pass
 
-    def delete_delivery_channel(self, DeliveryChannelName: str) -> NoReturn:
+    def delete_delivery_channel(self, DeliveryChannelName: str):
         pass
 
     def delete_evaluation_results(self, ConfigRuleName: str) -> Dict:
         pass
 
-    def delete_pending_aggregation_request(self, RequesterAccountId: str, RequesterAwsRegion: str) -> NoReturn:
+    def delete_pending_aggregation_request(self, RequesterAccountId: str, RequesterAwsRegion: str):
         pass
 
-    def delete_retention_configuration(self, RetentionConfigurationName: str) -> NoReturn:
+    def delete_retention_configuration(self, RetentionConfigurationName: str):
         pass
 
     def deliver_config_snapshot(self, deliveryChannelName: str) -> Dict:
@@ -85,7 +84,7 @@ class Client(BaseClient):
     def describe_retention_configurations(self, RetentionConfigurationNames: List = None, NextToken: str = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_aggregate_compliance_details_by_config_rule(self, ConfigurationAggregatorName: str, ConfigRuleName: str, AccountId: str, AwsRegion: str, ComplianceType: str = None, Limit: int = None, NextToken: str = None) -> Dict:
@@ -124,16 +123,16 @@ class Client(BaseClient):
     def put_aggregation_authorization(self, AuthorizedAccountId: str, AuthorizedAwsRegion: str) -> Dict:
         pass
 
-    def put_config_rule(self, ConfigRule: Dict) -> NoReturn:
+    def put_config_rule(self, ConfigRule: Dict):
         pass
 
     def put_configuration_aggregator(self, ConfigurationAggregatorName: str, AccountAggregationSources: List = None, OrganizationAggregationSource: Dict = None) -> Dict:
         pass
 
-    def put_configuration_recorder(self, ConfigurationRecorder: Dict) -> NoReturn:
+    def put_configuration_recorder(self, ConfigurationRecorder: Dict):
         pass
 
-    def put_delivery_channel(self, DeliveryChannel: Dict) -> NoReturn:
+    def put_delivery_channel(self, DeliveryChannel: Dict):
         pass
 
     def put_evaluations(self, ResultToken: str, Evaluations: List = None, TestMode: bool = None) -> Dict:
@@ -145,8 +144,8 @@ class Client(BaseClient):
     def start_config_rules_evaluation(self, ConfigRuleNames: List = None) -> Dict:
         pass
 
-    def start_configuration_recorder(self, ConfigurationRecorderName: str) -> NoReturn:
+    def start_configuration_recorder(self, ConfigurationRecorderName: str):
         pass
 
-    def stop_configuration_recorder(self, ConfigurationRecorderName: str) -> NoReturn:
+    def stop_configuration_recorder(self, ConfigurationRecorderName: str):
         pass

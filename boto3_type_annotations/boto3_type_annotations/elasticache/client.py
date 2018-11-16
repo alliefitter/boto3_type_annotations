@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -16,7 +15,7 @@ class Client(BaseClient):
     def authorize_cache_security_group_ingress(self, CacheSecurityGroupName: str, EC2SecurityGroupName: str, EC2SecurityGroupOwnerId: str) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def copy_snapshot(self, SourceSnapshotName: str, TargetSnapshotName: str, TargetBucket: str = None) -> Dict:
@@ -46,13 +45,13 @@ class Client(BaseClient):
     def delete_cache_cluster(self, CacheClusterId: str, FinalSnapshotIdentifier: str = None) -> Dict:
         pass
 
-    def delete_cache_parameter_group(self, CacheParameterGroupName: str) -> NoReturn:
+    def delete_cache_parameter_group(self, CacheParameterGroupName: str):
         pass
 
-    def delete_cache_security_group(self, CacheSecurityGroupName: str) -> NoReturn:
+    def delete_cache_security_group(self, CacheSecurityGroupName: str):
         pass
 
-    def delete_cache_subnet_group(self, CacheSubnetGroupName: str) -> NoReturn:
+    def delete_cache_subnet_group(self, CacheSubnetGroupName: str):
         pass
 
     def delete_replication_group(self, ReplicationGroupId: str, RetainPrimaryCluster: bool = None, FinalSnapshotIdentifier: str = None) -> Dict:
@@ -97,7 +96,7 @@ class Client(BaseClient):
     def describe_snapshots(self, ReplicationGroupId: str = None, CacheClusterId: str = None, SnapshotName: str = None, SnapshotSource: str = None, Marker: str = None, MaxRecords: int = None, ShowNodeGroupConfig: bool = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:

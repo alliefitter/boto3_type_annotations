@@ -1,10 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -12,7 +11,7 @@ class Client(BaseClient):
     def add_attributes_to_findings(self, findingArns: List, attributes: List) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def create_assessment_target(self, assessmentTargetName: str, resourceGroupArn: str = None) -> Dict:
@@ -27,13 +26,13 @@ class Client(BaseClient):
     def create_resource_group(self, resourceGroupTags: List) -> Dict:
         pass
 
-    def delete_assessment_run(self, assessmentRunArn: str) -> NoReturn:
+    def delete_assessment_run(self, assessmentRunArn: str):
         pass
 
-    def delete_assessment_target(self, assessmentTargetArn: str) -> NoReturn:
+    def delete_assessment_target(self, assessmentTargetArn: str):
         pass
 
-    def delete_assessment_template(self, assessmentTemplateArn: str) -> NoReturn:
+    def delete_assessment_template(self, assessmentTemplateArn: str):
         pass
 
     def describe_assessment_runs(self, assessmentRunArns: List) -> Dict:
@@ -60,7 +59,7 @@ class Client(BaseClient):
     def describe_rules_packages(self, rulesPackageArns: List, locale: str = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_assessment_report(self, assessmentRunArn: str, reportFileFormat: str, reportType: str) -> Dict:
@@ -108,26 +107,26 @@ class Client(BaseClient):
     def preview_agents(self, previewAgentsArn: str, nextToken: str = None, maxResults: int = None) -> Dict:
         pass
 
-    def register_cross_account_access_role(self, roleArn: str) -> NoReturn:
+    def register_cross_account_access_role(self, roleArn: str):
         pass
 
     def remove_attributes_from_findings(self, findingArns: List, attributeKeys: List) -> Dict:
         pass
 
-    def set_tags_for_resource(self, resourceArn: str, tags: List = None) -> NoReturn:
+    def set_tags_for_resource(self, resourceArn: str, tags: List = None):
         pass
 
     def start_assessment_run(self, assessmentTemplateArn: str, assessmentRunName: str = None) -> Dict:
         pass
 
-    def stop_assessment_run(self, assessmentRunArn: str, stopAction: str = None) -> NoReturn:
+    def stop_assessment_run(self, assessmentRunArn: str, stopAction: str = None):
         pass
 
-    def subscribe_to_event(self, resourceArn: str, event: str, topicArn: str) -> NoReturn:
+    def subscribe_to_event(self, resourceArn: str, event: str, topicArn: str):
         pass
 
-    def unsubscribe_from_event(self, resourceArn: str, event: str, topicArn: str) -> NoReturn:
+    def unsubscribe_from_event(self, resourceArn: str, event: str, topicArn: str):
         pass
 
-    def update_assessment_target(self, assessmentTargetArn: str, assessmentTargetName: str, resourceGroupArn: str = None) -> NoReturn:
+    def update_assessment_target(self, assessmentTargetArn: str, assessmentTargetName: str, resourceGroupArn: str = None):
         pass

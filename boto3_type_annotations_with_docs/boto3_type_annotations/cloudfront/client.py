@@ -1,14 +1,13 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
+from botocore.paginate import Paginator
+from typing import Union
+from typing import Optional
 from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -6850,7 +6849,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_cloud_front_origin_access_identity(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_cloud_front_origin_access_identity(self, Id: str, IfMatch: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/DeleteCloudFrontOriginAccessIdentity>`_
@@ -6876,7 +6875,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_distribution(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_distribution(self, Id: str, IfMatch: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/DeleteDistribution>`_
@@ -6902,7 +6901,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_field_level_encryption_config(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_field_level_encryption_config(self, Id: str, IfMatch: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/DeleteFieldLevelEncryptionConfig>`_
@@ -6928,7 +6927,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_field_level_encryption_profile(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_field_level_encryption_profile(self, Id: str, IfMatch: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/DeleteFieldLevelEncryptionProfile>`_
@@ -6954,7 +6953,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_public_key(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_public_key(self, Id: str, IfMatch: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/DeletePublicKey>`_
@@ -6980,7 +6979,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_streaming_distribution(self, Id: str, IfMatch: str = None) -> NoReturn:
+    def delete_streaming_distribution(self, Id: str, IfMatch: str = None):
         """
         
          **To delete an RTMP distribution using the CloudFront API** :
@@ -7026,7 +7025,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -14402,7 +14401,7 @@ class Client(BaseClient):
         """
         pass
 
-    def tag_resource(self, Resource: str, Tags: Dict) -> NoReturn:
+    def tag_resource(self, Resource: str, Tags: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/TagResource>`_
@@ -14455,7 +14454,7 @@ class Client(BaseClient):
         """
         pass
 
-    def untag_resource(self, Resource: str, TagKeys: Dict) -> NoReturn:
+    def untag_resource(self, Resource: str, TagKeys: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/UntagResource>`_

@@ -1,10 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -92,7 +91,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -326,7 +325,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_assessment_run(self, assessmentRunArn: str) -> NoReturn:
+    def delete_assessment_run(self, assessmentRunArn: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/DeleteAssessmentRun>`_
@@ -346,7 +345,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_assessment_target(self, assessmentTargetArn: str) -> NoReturn:
+    def delete_assessment_target(self, assessmentTargetArn: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/DeleteAssessmentTarget>`_
@@ -366,7 +365,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_assessment_template(self, assessmentTemplateArn: str) -> NoReturn:
+    def delete_assessment_template(self, assessmentTemplateArn: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/DeleteAssessmentTemplate>`_
@@ -1616,7 +1615,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -2924,7 +2923,7 @@ class Client(BaseClient):
         """
         pass
 
-    def register_cross_account_access_role(self, roleArn: str) -> NoReturn:
+    def register_cross_account_access_role(self, roleArn: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/RegisterCrossAccountAccessRole>`_
@@ -3014,7 +3013,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_tags_for_resource(self, resourceArn: str, tags: List = None) -> NoReturn:
+    def set_tags_for_resource(self, resourceArn: str, tags: List = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/SetTagsForResource>`_
@@ -3100,7 +3099,7 @@ class Client(BaseClient):
         """
         pass
 
-    def stop_assessment_run(self, assessmentRunArn: str, stopAction: str = None) -> NoReturn:
+    def stop_assessment_run(self, assessmentRunArn: str, stopAction: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/StopAssessmentRun>`_
@@ -3126,7 +3125,7 @@ class Client(BaseClient):
         """
         pass
 
-    def subscribe_to_event(self, resourceArn: str, event: str, topicArn: str) -> NoReturn:
+    def subscribe_to_event(self, resourceArn: str, event: str, topicArn: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/SubscribeToEvent>`_
@@ -3158,7 +3157,7 @@ class Client(BaseClient):
         """
         pass
 
-    def unsubscribe_from_event(self, resourceArn: str, event: str, topicArn: str) -> NoReturn:
+    def unsubscribe_from_event(self, resourceArn: str, event: str, topicArn: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/UnsubscribeFromEvent>`_
@@ -3190,7 +3189,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_assessment_target(self, assessmentTargetArn: str, assessmentTargetName: str, resourceGroupArn: str = None) -> NoReturn:
+    def update_assessment_target(self, assessmentTargetArn: str, assessmentTargetName: str, resourceGroupArn: str = None):
         """
         
         If resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included in the assessment target.

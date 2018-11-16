@@ -1,11 +1,10 @@
 from typing import List
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class LoadBalancerAvailable(Waiter):
-    def wait(self, LoadBalancerArns: List = None, Names: List = None, Marker: str = None, PageSize: int = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, LoadBalancerArns: List = None, Names: List = None, Marker: str = None, PageSize: int = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers>`_
@@ -70,7 +69,7 @@ class LoadBalancerAvailable(Waiter):
 
 
 class LoadBalancerExists(Waiter):
-    def wait(self, LoadBalancerArns: List = None, Names: List = None, Marker: str = None, PageSize: int = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, LoadBalancerArns: List = None, Names: List = None, Marker: str = None, PageSize: int = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers>`_
@@ -135,7 +134,7 @@ class LoadBalancerExists(Waiter):
 
 
 class LoadBalancersDeleted(Waiter):
-    def wait(self, LoadBalancerArns: List = None, Names: List = None, Marker: str = None, PageSize: int = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, LoadBalancerArns: List = None, Names: List = None, Marker: str = None, PageSize: int = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers>`_
@@ -200,7 +199,7 @@ class LoadBalancersDeleted(Waiter):
 
 
 class TargetDeregistered(Waiter):
-    def wait(self, TargetGroupArn: str, Targets: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, TargetGroupArn: str, Targets: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth>`_
@@ -271,7 +270,7 @@ class TargetDeregistered(Waiter):
 
 
 class TargetInService(Waiter):
-    def wait(self, TargetGroupArn: str, Targets: List = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, TargetGroupArn: str, Targets: List = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth>`_

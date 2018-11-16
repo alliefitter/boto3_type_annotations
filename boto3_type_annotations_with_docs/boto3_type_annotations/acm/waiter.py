@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class CertificateValidated(Waiter):
-    def wait(self, CertificateArn: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, CertificateArn: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DescribeCertificate>`_

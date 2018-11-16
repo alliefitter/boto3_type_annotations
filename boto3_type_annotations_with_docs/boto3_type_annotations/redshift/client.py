@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -587,7 +586,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -3115,7 +3114,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_tags(self, ResourceName: str, Tags: List) -> NoReturn:
+    def create_tags(self, ResourceName: str, Tags: List):
         """
         
         A resource can have up to 50 tags. If you try to create more than 50 tags for a resource, you will receive an error and the attempt will fail.
@@ -3771,7 +3770,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_cluster_parameter_group(self, ParameterGroupName: str) -> NoReturn:
+    def delete_cluster_parameter_group(self, ParameterGroupName: str):
         """
         
         .. note::
@@ -3801,7 +3800,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_cluster_security_group(self, ClusterSecurityGroupName: str) -> NoReturn:
+    def delete_cluster_security_group(self, ClusterSecurityGroupName: str):
         """
         
         .. note::
@@ -4075,7 +4074,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_cluster_subnet_group(self, ClusterSubnetGroupName: str) -> NoReturn:
+    def delete_cluster_subnet_group(self, ClusterSubnetGroupName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteClusterSubnetGroup>`_
@@ -4095,7 +4094,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_event_subscription(self, SubscriptionName: str) -> NoReturn:
+    def delete_event_subscription(self, SubscriptionName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteEventSubscription>`_
@@ -4115,7 +4114,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_hsm_client_certificate(self, HsmClientCertificateIdentifier: str) -> NoReturn:
+    def delete_hsm_client_certificate(self, HsmClientCertificateIdentifier: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteHsmClientCertificate>`_
@@ -4135,7 +4134,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_hsm_configuration(self, HsmConfigurationIdentifier: str) -> NoReturn:
+    def delete_hsm_configuration(self, HsmConfigurationIdentifier: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteHsmConfiguration>`_
@@ -4155,7 +4154,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_snapshot_copy_grant(self, SnapshotCopyGrantName: str) -> NoReturn:
+    def delete_snapshot_copy_grant(self, SnapshotCopyGrantName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteSnapshotCopyGrant>`_
@@ -4175,7 +4174,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_tags(self, ResourceName: str, TagKeys: List) -> NoReturn:
+    def delete_tags(self, ResourceName: str, TagKeys: List):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteTags>`_
@@ -9296,7 +9295,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string

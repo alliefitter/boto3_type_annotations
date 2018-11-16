@@ -1,9 +1,8 @@
-from typing import Optional
-from boto3.resources.collection import ResourceCollection
 from typing import Dict
 from typing import Union
+from typing import Optional
+from boto3.resources.collection import ResourceCollection
 from typing import List
-from typing import NoReturn
 from datetime import datetime
 from boto3.resources import base
 
@@ -81,10 +80,10 @@ class ServiceResource(base.ServiceResource):
     def VirtualMfaDevice(self, serial_number: str = None) -> 'VirtualMfaDevice':
         pass
 
-    def change_password(self, OldPassword: str, NewPassword: str) -> NoReturn:
+    def change_password(self, OldPassword: str, NewPassword: str):
         pass
 
-    def create_account_alias(self, AccountAlias: str) -> NoReturn:
+    def create_account_alias(self, AccountAlias: str):
         pass
 
     def create_account_password_policy(self, MinimumPasswordLength: int = None, RequireSymbols: bool = None, RequireNumbers: bool = None, RequireUppercaseCharacters: bool = None, RequireLowercaseCharacters: bool = None, AllowUsersToChangePassword: bool = None, MaxPasswordAge: int = None, PasswordReusePrevention: int = None, HardExpiry: bool = None) -> 'AccountPasswordPolicy':
@@ -128,13 +127,13 @@ class AccessKey(base.ServiceResource):
     user_name: str
     id: str
 
-    def activate(self) -> NoReturn:
+    def activate(self):
         pass
 
-    def deactivate(self) -> NoReturn:
+    def deactivate(self):
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
@@ -150,13 +149,13 @@ class AccessKeyPair(base.ServiceResource):
     id: str
     secret: str
 
-    def activate(self) -> NoReturn:
+    def activate(self):
         pass
 
-    def deactivate(self) -> NoReturn:
+    def deactivate(self):
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
@@ -175,19 +174,19 @@ class AccountPasswordPolicy(base.ServiceResource):
     password_reuse_prevention: int
     hard_expiry: bool
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def update(self, MinimumPasswordLength: int = None, RequireSymbols: bool = None, RequireNumbers: bool = None, RequireUppercaseCharacters: bool = None, RequireLowercaseCharacters: bool = None, AllowUsersToChangePassword: bool = None, MaxPasswordAge: int = None, PasswordReusePrevention: int = None, HardExpiry: bool = None) -> NoReturn:
+    def update(self, MinimumPasswordLength: int = None, RequireSymbols: bool = None, RequireNumbers: bool = None, RequireUppercaseCharacters: bool = None, RequireLowercaseCharacters: bool = None, AllowUsersToChangePassword: bool = None, MaxPasswordAge: int = None, PasswordReusePrevention: int = None, HardExpiry: bool = None):
         pass
 
 
@@ -197,10 +196,10 @@ class AccountSummary(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -210,7 +209,7 @@ class AssumeRolePolicy(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def update(self, PolicyDocument: str) -> NoReturn:
+    def update(self, PolicyDocument: str):
         pass
 
 
@@ -229,10 +228,10 @@ class CurrentUser(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -247,10 +246,10 @@ class Group(base.ServiceResource):
     policies: 'policies'
     users: 'users'
 
-    def add_user(self, UserName: str) -> NoReturn:
+    def add_user(self, UserName: str):
         pass
 
-    def attach_policy(self, PolicyArn: str) -> NoReturn:
+    def attach_policy(self, PolicyArn: str):
         pass
 
     def create(self, Path: str = None) -> List['Group']:
@@ -259,22 +258,22 @@ class Group(base.ServiceResource):
     def create_policy(self, PolicyName: str, PolicyDocument: str) -> 'GroupPolicy':
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
-    def detach_policy(self, PolicyArn: str) -> NoReturn:
+    def detach_policy(self, PolicyArn: str):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def remove_user(self, UserName: str) -> NoReturn:
+    def remove_user(self, UserName: str):
         pass
 
     def update(self, NewPath: str = None, NewGroupName: str = None) -> List['Group']:
@@ -287,19 +286,19 @@ class GroupPolicy(base.ServiceResource):
     group_name: str
     name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, PolicyDocument: str) -> NoReturn:
+    def put(self, PolicyDocument: str):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -312,22 +311,22 @@ class InstanceProfile(base.ServiceResource):
     roles_attribute: List
     name: str
 
-    def add_role(self, RoleName: str) -> NoReturn:
+    def add_role(self, RoleName: str):
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def remove_role(self, RoleName: str) -> NoReturn:
+    def remove_role(self, RoleName: str):
         pass
 
 
@@ -339,19 +338,19 @@ class LoginProfile(base.ServiceResource):
     def create(self, Password: str, PasswordResetRequired: bool = None) -> 'LoginProfile':
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def update(self, Password: str = None, PasswordResetRequired: bool = None) -> NoReturn:
+    def update(self, Password: str = None, PasswordResetRequired: bool = None):
         pass
 
 
@@ -360,16 +359,16 @@ class MfaDevice(base.ServiceResource):
     user_name: str
     serial_number: str
 
-    def associate(self, AuthenticationCode1: str, AuthenticationCode2: str) -> NoReturn:
+    def associate(self, AuthenticationCode1: str, AuthenticationCode2: str):
         pass
 
-    def disassociate(self) -> NoReturn:
+    def disassociate(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def resync(self, AuthenticationCode1: str, AuthenticationCode2: str) -> NoReturn:
+    def resync(self, AuthenticationCode1: str, AuthenticationCode2: str):
         pass
 
 
@@ -390,37 +389,37 @@ class Policy(base.ServiceResource):
     attached_users: 'attached_users'
     versions: 'versions'
 
-    def attach_group(self, GroupName: str) -> NoReturn:
+    def attach_group(self, GroupName: str):
         pass
 
-    def attach_role(self, RoleName: str) -> NoReturn:
+    def attach_role(self, RoleName: str):
         pass
 
-    def attach_user(self, UserName: str) -> NoReturn:
+    def attach_user(self, UserName: str):
         pass
 
     def create_version(self, PolicyDocument: str, SetAsDefault: bool = None) -> 'PolicyVersion':
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
-    def detach_group(self, GroupName: str) -> NoReturn:
+    def detach_group(self, GroupName: str):
         pass
 
-    def detach_role(self, RoleName: str) -> NoReturn:
+    def detach_role(self, RoleName: str):
         pass
 
-    def detach_user(self, UserName: str) -> NoReturn:
+    def detach_user(self, UserName: str):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -431,19 +430,19 @@ class PolicyVersion(base.ServiceResource):
     arn: str
     version_id: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def set_as_default(self) -> NoReturn:
+    def set_as_default(self):
         pass
 
 
@@ -462,22 +461,22 @@ class Role(base.ServiceResource):
     instance_profiles: 'instance_profiles'
     policies: 'policies'
 
-    def attach_policy(self, PolicyArn: str) -> NoReturn:
+    def attach_policy(self, PolicyArn: str):
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
-    def detach_policy(self, PolicyArn: str) -> NoReturn:
+    def detach_policy(self, PolicyArn: str):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -487,19 +486,19 @@ class RolePolicy(base.ServiceResource):
     role_name: str
     name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, PolicyDocument: str) -> NoReturn:
+    def put(self, PolicyDocument: str):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -509,16 +508,16 @@ class SamlProvider(base.ServiceResource):
     valid_until: datetime
     arn: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
     def update(self, SAMLMetadataDocument: str) -> Dict:
@@ -531,16 +530,16 @@ class ServerCertificate(base.ServiceResource):
     certificate_chain: str
     name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
     def update(self, NewPath: str = None, NewServerCertificateName: str = None) -> 'ServerCertificate':
@@ -555,13 +554,13 @@ class SigningCertificate(base.ServiceResource):
     user_name: str
     id: str
 
-    def activate(self) -> NoReturn:
+    def activate(self):
         pass
 
-    def deactivate(self) -> NoReturn:
+    def deactivate(self):
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
@@ -584,10 +583,10 @@ class User(base.ServiceResource):
     policies: 'policies'
     signing_certificates: 'signing_certificates'
 
-    def add_group(self, GroupName: str) -> NoReturn:
+    def add_group(self, GroupName: str):
         pass
 
-    def attach_policy(self, PolicyArn: str) -> NoReturn:
+    def attach_policy(self, PolicyArn: str):
         pass
 
     def create(self, Path: str = None, PermissionsBoundary: str = None) -> 'User':
@@ -602,10 +601,10 @@ class User(base.ServiceResource):
     def create_policy(self, PolicyName: str, PolicyDocument: str) -> 'UserPolicy':
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
-    def detach_policy(self, PolicyArn: str) -> NoReturn:
+    def detach_policy(self, PolicyArn: str):
         pass
 
     def enable_mfa(self, SerialNumber: str, AuthenticationCode1: str, AuthenticationCode2: str) -> 'MfaDevice':
@@ -614,13 +613,13 @@ class User(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
-    def remove_group(self, GroupName: str) -> NoReturn:
+    def remove_group(self, GroupName: str):
         pass
 
     def update(self, NewPath: str = None, NewUserName: str = None) -> 'User':
@@ -633,19 +632,19 @@ class UserPolicy(base.ServiceResource):
     user_name: str
     name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def put(self, PolicyDocument: str) -> NoReturn:
+    def put(self, PolicyDocument: str):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -656,7 +655,7 @@ class VirtualMfaDevice(base.ServiceResource):
     enable_date: datetime
     serial_number: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:

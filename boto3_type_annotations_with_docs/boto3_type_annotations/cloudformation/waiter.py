@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class ChangeSetCreateComplete(Waiter):
-    def wait(self, ChangeSetName: str, StackName: str = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, ChangeSetName: str, StackName: str = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DescribeChangeSet>`_
@@ -55,7 +54,7 @@ class ChangeSetCreateComplete(Waiter):
 
 
 class StackCreateComplete(Waiter):
-    def wait(self, StackName: str = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StackName: str = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DescribeStacks>`_
@@ -106,7 +105,7 @@ class StackCreateComplete(Waiter):
 
 
 class StackDeleteComplete(Waiter):
-    def wait(self, StackName: str = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StackName: str = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DescribeStacks>`_
@@ -157,7 +156,7 @@ class StackDeleteComplete(Waiter):
 
 
 class StackExists(Waiter):
-    def wait(self, StackName: str = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StackName: str = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DescribeStacks>`_
@@ -208,7 +207,7 @@ class StackExists(Waiter):
 
 
 class StackUpdateComplete(Waiter):
-    def wait(self, StackName: str = None, NextToken: str = None, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, StackName: str = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DescribeStacks>`_

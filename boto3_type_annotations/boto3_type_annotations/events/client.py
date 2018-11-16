@@ -1,18 +1,17 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
-    def delete_rule(self, Name: str) -> NoReturn:
+    def delete_rule(self, Name: str):
         pass
 
     def describe_event_bus(self) -> Dict:
@@ -21,13 +20,13 @@ class Client(BaseClient):
     def describe_rule(self, Name: str) -> Dict:
         pass
 
-    def disable_rule(self, Name: str) -> NoReturn:
+    def disable_rule(self, Name: str):
         pass
 
-    def enable_rule(self, Name: str) -> NoReturn:
+    def enable_rule(self, Name: str):
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
@@ -48,7 +47,7 @@ class Client(BaseClient):
     def put_events(self, Entries: List) -> Dict:
         pass
 
-    def put_permission(self, Action: str, Principal: str, StatementId: str, Condition: Dict = None) -> NoReturn:
+    def put_permission(self, Action: str, Principal: str, StatementId: str, Condition: Dict = None):
         pass
 
     def put_rule(self, Name: str, ScheduleExpression: str = None, EventPattern: str = None, State: str = None, Description: str = None, RoleArn: str = None) -> Dict:
@@ -57,7 +56,7 @@ class Client(BaseClient):
     def put_targets(self, Rule: str, Targets: List) -> Dict:
         pass
 
-    def remove_permission(self, StatementId: str) -> NoReturn:
+    def remove_permission(self, StatementId: str):
         pass
 
     def remove_targets(self, Rule: str, Ids: List) -> Dict:

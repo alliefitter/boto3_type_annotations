@@ -1,10 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -30,7 +29,7 @@ class Client(BaseClient):
     def batch_disassociate_service_action_from_provisioning_artifact(self, ServiceActionAssociations: List, AcceptLanguage: str = None) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def copy_product(self, SourceProductArn: str, IdempotencyToken: str, AcceptLanguage: str = None, TargetProductId: str = None, TargetProductName: str = None, SourceProvisioningArtifactIdentifiers: List = None, CopyOptions: List = None) -> Dict:
@@ -150,7 +149,7 @@ class Client(BaseClient):
     def execute_provisioned_product_service_action(self, ProvisionedProductId: str, ServiceActionId: str, ExecuteToken: str, AcceptLanguage: str = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_aws_organizations_access_status(self) -> Dict:

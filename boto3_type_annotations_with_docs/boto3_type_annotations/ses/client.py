@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -311,7 +310,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_custom_verification_email_template(self, TemplateName: str, FromEmailAddress: str, TemplateSubject: str, TemplateContent: str, SuccessRedirectionURL: str, FailureRedirectionURL: str) -> NoReturn:
+    def create_custom_verification_email_template(self, TemplateName: str, FromEmailAddress: str, TemplateSubject: str, TemplateContent: str, SuccessRedirectionURL: str, FailureRedirectionURL: str):
         """
         
         For more information about custom verification email templates, see `Using Custom Verification Email Templates <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html>`__ in the *Amazon SES Developer Guide* .
@@ -896,7 +895,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_custom_verification_email_template(self, TemplateName: str) -> NoReturn:
+    def delete_custom_verification_email_template(self, TemplateName: str):
         """
         
         For more information about custom verification email templates, see `Using Custom Verification Email Templates <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html>`__ in the *Amazon SES Developer Guide* .
@@ -1157,7 +1156,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_verified_email_address(self, EmailAddress: str) -> NoReturn:
+    def delete_verified_email_address(self, EmailAddress: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteVerifiedEmailAddress>`_
@@ -2198,7 +2197,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -5111,7 +5110,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_account_sending_enabled(self, Enabled: bool = None) -> NoReturn:
+    def update_account_sending_enabled(self, Enabled: bool = None):
         """
         
         You can execute this operation no more than once per second.
@@ -5272,7 +5271,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_configuration_set_reputation_metrics_enabled(self, ConfigurationSetName: str, Enabled: bool) -> NoReturn:
+    def update_configuration_set_reputation_metrics_enabled(self, ConfigurationSetName: str, Enabled: bool):
         """
         
         You can execute this operation no more than once per second.
@@ -5300,7 +5299,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_configuration_set_sending_enabled(self, ConfigurationSetName: str, Enabled: bool) -> NoReturn:
+    def update_configuration_set_sending_enabled(self, ConfigurationSetName: str, Enabled: bool):
         """
         
         You can execute this operation no more than once per second.
@@ -5377,7 +5376,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_custom_verification_email_template(self, TemplateName: str, FromEmailAddress: str = None, TemplateSubject: str = None, TemplateContent: str = None, SuccessRedirectionURL: str = None, FailureRedirectionURL: str = None) -> NoReturn:
+    def update_custom_verification_email_template(self, TemplateName: str, FromEmailAddress: str = None, TemplateSubject: str = None, TemplateContent: str = None, SuccessRedirectionURL: str = None, FailureRedirectionURL: str = None):
         """
         
         For more information about custom verification email templates, see `Using Custom Verification Email Templates <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html>`__ in the *Amazon SES Developer Guide* .
@@ -5829,7 +5828,7 @@ class Client(BaseClient):
         """
         pass
 
-    def verify_email_address(self, EmailAddress: str) -> NoReturn:
+    def verify_email_address(self, EmailAddress: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyEmailAddress>`_

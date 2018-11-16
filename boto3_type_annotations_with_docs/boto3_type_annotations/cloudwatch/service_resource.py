@@ -1,10 +1,9 @@
-from typing import Optional
-from typing import NoReturn
 from boto3.resources.collection import ResourceCollection
-from datetime import datetime
-from typing import Dict
 from typing import Union
 from typing import List
+from datetime import datetime
+from typing import Optional
+from typing import Dict
 from boto3.resources import base
 
 
@@ -81,7 +80,7 @@ class Alarm(base.ServiceResource):
     evaluate_low_sample_count_percentile: str
     name: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/DeleteAlarms>`_
@@ -195,7 +194,7 @@ class Alarm(base.ServiceResource):
         """
         pass
 
-    def disable_actions(self) -> NoReturn:
+    def disable_actions(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/DisableAlarmActions>`_
@@ -209,7 +208,7 @@ class Alarm(base.ServiceResource):
         """
         pass
 
-    def enable_actions(self) -> NoReturn:
+    def enable_actions(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/EnableAlarmActions>`_
@@ -233,7 +232,7 @@ class Alarm(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/None>`_
@@ -247,7 +246,7 @@ class Alarm(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/None>`_
@@ -261,7 +260,7 @@ class Alarm(base.ServiceResource):
         """
         pass
 
-    def set_state(self, StateValue: str, StateReason: str, StateReasonData: str = None) -> NoReturn:
+    def set_state(self, StateValue: str, StateReason: str, StateReasonData: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/SetAlarmState>`_
@@ -517,7 +516,7 @@ class Metric(base.ServiceResource):
         """
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/None>`_
@@ -725,7 +724,7 @@ class Metric(base.ServiceResource):
         """
         pass
 
-    def put_data(self) -> NoReturn:
+    def put_data(self):
         """
         
         You can publish either individual data points in the ``Value`` field, or arrays of values and the number of times each value occurred during the period by using the ``Values`` and ``Counts`` fields in the ``MetricDatum`` structure. Using the ``Values`` and ``Counts`` method enables you to publish up to 150 values per metric with one ``PutMetricData`` request, and supports retrieving percentile statistics on this data.
@@ -755,7 +754,7 @@ class Metric(base.ServiceResource):
         """
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/None>`_
@@ -790,7 +789,7 @@ class alarms(ResourceCollection):
 
     
     @classmethod
-    def delete(cls) -> NoReturn:
+    def delete(cls):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/DeleteAlarms>`_
@@ -806,7 +805,7 @@ class alarms(ResourceCollection):
 
     
     @classmethod
-    def disable_actions(cls) -> NoReturn:
+    def disable_actions(cls):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/DisableAlarmActions>`_
@@ -822,7 +821,7 @@ class alarms(ResourceCollection):
 
     
     @classmethod
-    def enable_actions(cls) -> NoReturn:
+    def enable_actions(cls):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/EnableAlarmActions>`_

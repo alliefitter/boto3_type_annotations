@@ -1,9 +1,8 @@
-from typing import Optional
-from typing import NoReturn
 from boto3.resources.collection import ResourceCollection
-from typing import Dict
 from typing import Union
 from typing import List
+from typing import Optional
+from typing import Dict
 from boto3.resources import base
 
 
@@ -52,16 +51,16 @@ class Layer(base.ServiceResource):
     lifecycle_event_configuration: Dict
     id: str
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -94,16 +93,16 @@ class Stack(base.ServiceResource):
     def create_layer(self, Type: str, Name: str, Shortname: str, Attributes: Dict = None, CloudWatchLogsConfiguration: Dict = None, CustomInstanceProfileArn: str = None, CustomJson: str = None, CustomSecurityGroupIds: List = None, Packages: List = None, VolumeConfigurations: List = None, EnableAutoHealing: bool = None, AutoAssignElasticIps: bool = None, AutoAssignPublicIps: bool = None, CustomRecipes: Dict = None, InstallUpdatesOnBoot: bool = None, UseEbsOptimizedInstances: bool = None, LifecycleEventConfiguration: Dict = None) -> 'Layer':
         pass
 
-    def delete(self) -> NoReturn:
+    def delete(self):
         pass
 
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 
@@ -118,10 +117,10 @@ class StackSummary(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def load(self) -> NoReturn:
+    def load(self):
         pass
 
-    def reload(self) -> NoReturn:
+    def reload(self):
         pass
 
 

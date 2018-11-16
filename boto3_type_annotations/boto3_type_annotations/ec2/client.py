@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -31,13 +30,13 @@ class Client(BaseClient):
     def assign_ipv6_addresses(self, NetworkInterfaceId: str, Ipv6AddressCount: int = None, Ipv6Addresses: List = None) -> Dict:
         pass
 
-    def assign_private_ip_addresses(self, NetworkInterfaceId: str, AllowReassignment: bool = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> NoReturn:
+    def assign_private_ip_addresses(self, NetworkInterfaceId: str, AllowReassignment: bool = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None):
         pass
 
     def associate_address(self, AllocationId: str = None, InstanceId: str = None, PublicIp: str = None, AllowReassociation: bool = None, DryRun: bool = None, NetworkInterfaceId: str = None, PrivateIpAddress: str = None) -> Dict:
         pass
 
-    def associate_dhcp_options(self, DhcpOptionsId: str, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def associate_dhcp_options(self, DhcpOptionsId: str, VpcId: str, DryRun: bool = None):
         pass
 
     def associate_iam_instance_profile(self, IamInstanceProfile: Dict, InstanceId: str) -> Dict:
@@ -55,7 +54,7 @@ class Client(BaseClient):
     def attach_classic_link_vpc(self, Groups: List, InstanceId: str, VpcId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def attach_internet_gateway(self, InternetGatewayId: str, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def attach_internet_gateway(self, InternetGatewayId: str, VpcId: str, DryRun: bool = None):
         pass
 
     def attach_network_interface(self, DeviceIndex: int, InstanceId: str, NetworkInterfaceId: str, DryRun: bool = None) -> Dict:
@@ -67,16 +66,16 @@ class Client(BaseClient):
     def attach_vpn_gateway(self, VpcId: str, VpnGatewayId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def authorize_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None) -> NoReturn:
+    def authorize_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         pass
 
-    def authorize_security_group_ingress(self, CidrIp: str = None, FromPort: int = None, GroupId: str = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None) -> NoReturn:
+    def authorize_security_group_ingress(self, CidrIp: str = None, FromPort: int = None, GroupId: str = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         pass
 
     def bundle_instance(self, InstanceId: str, Storage: Dict, DryRun: bool = None) -> Dict:
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         pass
 
     def cancel_bundle_task(self, BundleId: str, DryRun: bool = None) -> Dict:
@@ -85,10 +84,10 @@ class Client(BaseClient):
     def cancel_capacity_reservation(self, CapacityReservationId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def cancel_conversion_task(self, ConversionTaskId: str, DryRun: bool = None, ReasonMessage: str = None) -> NoReturn:
+    def cancel_conversion_task(self, ConversionTaskId: str, DryRun: bool = None, ReasonMessage: str = None):
         pass
 
-    def cancel_export_task(self, ExportTaskId: str) -> NoReturn:
+    def cancel_export_task(self, ExportTaskId: str):
         pass
 
     def cancel_import_task(self, CancelReason: str = None, DryRun: bool = None, ImportTaskId: str = None) -> Dict:
@@ -166,7 +165,7 @@ class Client(BaseClient):
     def create_network_acl(self, VpcId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def create_network_acl_entry(self, Egress: bool, NetworkAclId: str, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None) -> NoReturn:
+    def create_network_acl_entry(self, Egress: bool, NetworkAclId: str, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None):
         pass
 
     def create_network_interface(self, SubnetId: str, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> Dict:
@@ -175,7 +174,7 @@ class Client(BaseClient):
     def create_network_interface_permission(self, NetworkInterfaceId: str, Permission: str, AwsAccountId: str = None, AwsService: str = None, DryRun: bool = None) -> Dict:
         pass
 
-    def create_placement_group(self, GroupName: str, Strategy: str, DryRun: bool = None) -> NoReturn:
+    def create_placement_group(self, GroupName: str, Strategy: str, DryRun: bool = None):
         pass
 
     def create_reserved_instances_listing(self, ClientToken: str, InstanceCount: int, PriceSchedules: List, ReservedInstancesId: str) -> Dict:
@@ -199,7 +198,7 @@ class Client(BaseClient):
     def create_subnet(self, CidrBlock: str, VpcId: str, AvailabilityZone: str = None, Ipv6CidrBlock: str = None, DryRun: bool = None) -> Dict:
         pass
 
-    def create_tags(self, Resources: List, Tags: List, DryRun: bool = None) -> NoReturn:
+    def create_tags(self, Resources: List, Tags: List, DryRun: bool = None):
         pass
 
     def create_volume(self, AvailabilityZone: str, Encrypted: bool = None, Iops: int = None, KmsKeyId: str = None, Size: int = None, SnapshotId: str = None, VolumeType: str = None, DryRun: bool = None, TagSpecifications: List = None) -> Dict:
@@ -223,16 +222,16 @@ class Client(BaseClient):
     def create_vpn_connection(self, CustomerGatewayId: str, Type: str, VpnGatewayId: str, DryRun: bool = None, Options: Dict = None) -> Dict:
         pass
 
-    def create_vpn_connection_route(self, DestinationCidrBlock: str, VpnConnectionId: str) -> NoReturn:
+    def create_vpn_connection_route(self, DestinationCidrBlock: str, VpnConnectionId: str):
         pass
 
     def create_vpn_gateway(self, Type: str, AvailabilityZone: str = None, AmazonSideAsn: int = None, DryRun: bool = None) -> Dict:
         pass
 
-    def delete_customer_gateway(self, CustomerGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def delete_customer_gateway(self, CustomerGatewayId: str, DryRun: bool = None):
         pass
 
-    def delete_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None) -> NoReturn:
+    def delete_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None):
         pass
 
     def delete_egress_only_internet_gateway(self, EgressOnlyInternetGatewayId: str, DryRun: bool = None) -> Dict:
@@ -247,10 +246,10 @@ class Client(BaseClient):
     def delete_fpga_image(self, FpgaImageId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def delete_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def delete_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None):
         pass
 
-    def delete_key_pair(self, KeyName: str, DryRun: bool = None) -> NoReturn:
+    def delete_key_pair(self, KeyName: str, DryRun: bool = None):
         pass
 
     def delete_launch_template(self, DryRun: bool = None, LaunchTemplateId: str = None, LaunchTemplateName: str = None) -> Dict:
@@ -262,46 +261,46 @@ class Client(BaseClient):
     def delete_nat_gateway(self, NatGatewayId: str) -> Dict:
         pass
 
-    def delete_network_acl(self, NetworkAclId: str, DryRun: bool = None) -> NoReturn:
+    def delete_network_acl(self, NetworkAclId: str, DryRun: bool = None):
         pass
 
-    def delete_network_acl_entry(self, Egress: bool, NetworkAclId: str, RuleNumber: int, DryRun: bool = None) -> NoReturn:
+    def delete_network_acl_entry(self, Egress: bool, NetworkAclId: str, RuleNumber: int, DryRun: bool = None):
         pass
 
-    def delete_network_interface(self, NetworkInterfaceId: str, DryRun: bool = None) -> NoReturn:
+    def delete_network_interface(self, NetworkInterfaceId: str, DryRun: bool = None):
         pass
 
     def delete_network_interface_permission(self, NetworkInterfacePermissionId: str, Force: bool = None, DryRun: bool = None) -> Dict:
         pass
 
-    def delete_placement_group(self, GroupName: str, DryRun: bool = None) -> NoReturn:
+    def delete_placement_group(self, GroupName: str, DryRun: bool = None):
         pass
 
-    def delete_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None) -> NoReturn:
+    def delete_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None):
         pass
 
-    def delete_route_table(self, RouteTableId: str, DryRun: bool = None) -> NoReturn:
+    def delete_route_table(self, RouteTableId: str, DryRun: bool = None):
         pass
 
-    def delete_security_group(self, GroupId: str = None, GroupName: str = None, DryRun: bool = None) -> NoReturn:
+    def delete_security_group(self, GroupId: str = None, GroupName: str = None, DryRun: bool = None):
         pass
 
-    def delete_snapshot(self, SnapshotId: str, DryRun: bool = None) -> NoReturn:
+    def delete_snapshot(self, SnapshotId: str, DryRun: bool = None):
         pass
 
-    def delete_spot_datafeed_subscription(self, DryRun: bool = None) -> NoReturn:
+    def delete_spot_datafeed_subscription(self, DryRun: bool = None):
         pass
 
-    def delete_subnet(self, SubnetId: str, DryRun: bool = None) -> NoReturn:
+    def delete_subnet(self, SubnetId: str, DryRun: bool = None):
         pass
 
-    def delete_tags(self, Resources: List, DryRun: bool = None, Tags: List = None) -> NoReturn:
+    def delete_tags(self, Resources: List, DryRun: bool = None, Tags: List = None):
         pass
 
-    def delete_volume(self, VolumeId: str, DryRun: bool = None) -> NoReturn:
+    def delete_volume(self, VolumeId: str, DryRun: bool = None):
         pass
 
-    def delete_vpc(self, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def delete_vpc(self, VpcId: str, DryRun: bool = None):
         pass
 
     def delete_vpc_endpoint_connection_notifications(self, ConnectionNotificationIds: List, DryRun: bool = None) -> Dict:
@@ -316,19 +315,19 @@ class Client(BaseClient):
     def delete_vpc_peering_connection(self, VpcPeeringConnectionId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def delete_vpn_connection(self, VpnConnectionId: str, DryRun: bool = None) -> NoReturn:
+    def delete_vpn_connection(self, VpnConnectionId: str, DryRun: bool = None):
         pass
 
-    def delete_vpn_connection_route(self, DestinationCidrBlock: str, VpnConnectionId: str) -> NoReturn:
+    def delete_vpn_connection_route(self, DestinationCidrBlock: str, VpnConnectionId: str):
         pass
 
-    def delete_vpn_gateway(self, VpnGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def delete_vpn_gateway(self, VpnGatewayId: str, DryRun: bool = None):
         pass
 
     def deprovision_byoip_cidr(self, Cidr: str, DryRun: bool = None) -> Dict:
         pass
 
-    def deregister_image(self, ImageId: str, DryRun: bool = None) -> NoReturn:
+    def deregister_image(self, ImageId: str, DryRun: bool = None):
         pass
 
     def describe_account_attributes(self, AttributeNames: List = None, DryRun: bool = None) -> Dict:
@@ -592,19 +591,19 @@ class Client(BaseClient):
     def detach_classic_link_vpc(self, InstanceId: str, VpcId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def detach_internet_gateway(self, InternetGatewayId: str, VpcId: str, DryRun: bool = None) -> NoReturn:
+    def detach_internet_gateway(self, InternetGatewayId: str, VpcId: str, DryRun: bool = None):
         pass
 
-    def detach_network_interface(self, AttachmentId: str, DryRun: bool = None, Force: bool = None) -> NoReturn:
+    def detach_network_interface(self, AttachmentId: str, DryRun: bool = None, Force: bool = None):
         pass
 
     def detach_volume(self, VolumeId: str, Device: str = None, Force: bool = None, InstanceId: str = None, DryRun: bool = None) -> Dict:
         pass
 
-    def detach_vpn_gateway(self, VpcId: str, VpnGatewayId: str, DryRun: bool = None) -> NoReturn:
+    def detach_vpn_gateway(self, VpcId: str, VpnGatewayId: str, DryRun: bool = None):
         pass
 
-    def disable_vgw_route_propagation(self, GatewayId: str, RouteTableId: str) -> NoReturn:
+    def disable_vgw_route_propagation(self, GatewayId: str, RouteTableId: str):
         pass
 
     def disable_vpc_classic_link(self, VpcId: str, DryRun: bool = None) -> Dict:
@@ -613,13 +612,13 @@ class Client(BaseClient):
     def disable_vpc_classic_link_dns_support(self, VpcId: str = None) -> Dict:
         pass
 
-    def disassociate_address(self, AssociationId: str = None, PublicIp: str = None, DryRun: bool = None) -> NoReturn:
+    def disassociate_address(self, AssociationId: str = None, PublicIp: str = None, DryRun: bool = None):
         pass
 
     def disassociate_iam_instance_profile(self, AssociationId: str) -> Dict:
         pass
 
-    def disassociate_route_table(self, AssociationId: str, DryRun: bool = None) -> NoReturn:
+    def disassociate_route_table(self, AssociationId: str, DryRun: bool = None):
         pass
 
     def disassociate_subnet_cidr_block(self, AssociationId: str) -> Dict:
@@ -628,10 +627,10 @@ class Client(BaseClient):
     def disassociate_vpc_cidr_block(self, AssociationId: str) -> Dict:
         pass
 
-    def enable_vgw_route_propagation(self, GatewayId: str, RouteTableId: str) -> NoReturn:
+    def enable_vgw_route_propagation(self, GatewayId: str, RouteTableId: str):
         pass
 
-    def enable_volume_io(self, VolumeId: str, DryRun: bool = None) -> NoReturn:
+    def enable_volume_io(self, VolumeId: str, DryRun: bool = None):
         pass
 
     def enable_vpc_classic_link(self, VpcId: str, DryRun: bool = None) -> Dict:
@@ -640,7 +639,7 @@ class Client(BaseClient):
     def enable_vpc_classic_link_dns_support(self, VpcId: str = None) -> Dict:
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
     def get_console_output(self, InstanceId: str, DryRun: bool = None, Latest: bool = None) -> Dict:
@@ -694,16 +693,16 @@ class Client(BaseClient):
     def modify_hosts(self, AutoPlacement: str, HostIds: List) -> Dict:
         pass
 
-    def modify_id_format(self, Resource: str, UseLongIds: bool) -> NoReturn:
+    def modify_id_format(self, Resource: str, UseLongIds: bool):
         pass
 
-    def modify_identity_id_format(self, PrincipalArn: str, Resource: str, UseLongIds: bool) -> NoReturn:
+    def modify_identity_id_format(self, PrincipalArn: str, Resource: str, UseLongIds: bool):
         pass
 
-    def modify_image_attribute(self, ImageId: str, Attribute: str = None, Description: Dict = None, LaunchPermission: Dict = None, OperationType: str = None, ProductCodes: List = None, UserGroups: List = None, UserIds: List = None, Value: str = None, DryRun: bool = None) -> NoReturn:
+    def modify_image_attribute(self, ImageId: str, Attribute: str = None, Description: Dict = None, LaunchPermission: Dict = None, OperationType: str = None, ProductCodes: List = None, UserGroups: List = None, UserIds: List = None, Value: str = None, DryRun: bool = None):
         pass
 
-    def modify_instance_attribute(self, InstanceId: str, SourceDestCheck: Dict = None, Attribute: str = None, BlockDeviceMappings: List = None, DisableApiTermination: Dict = None, DryRun: bool = None, EbsOptimized: Dict = None, EnaSupport: Dict = None, Groups: List = None, InstanceInitiatedShutdownBehavior: Dict = None, InstanceType: Dict = None, Kernel: Dict = None, Ramdisk: Dict = None, SriovNetSupport: Dict = None, UserData: Dict = None, Value: str = None) -> NoReturn:
+    def modify_instance_attribute(self, InstanceId: str, SourceDestCheck: Dict = None, Attribute: str = None, BlockDeviceMappings: List = None, DisableApiTermination: Dict = None, DryRun: bool = None, EbsOptimized: Dict = None, EnaSupport: Dict = None, Groups: List = None, InstanceInitiatedShutdownBehavior: Dict = None, InstanceType: Dict = None, Kernel: Dict = None, Ramdisk: Dict = None, SriovNetSupport: Dict = None, UserData: Dict = None, Value: str = None):
         pass
 
     def modify_instance_capacity_reservation_attributes(self, InstanceId: str, CapacityReservationSpecification: Dict, DryRun: bool = None) -> Dict:
@@ -718,28 +717,28 @@ class Client(BaseClient):
     def modify_launch_template(self, DryRun: bool = None, ClientToken: str = None, LaunchTemplateId: str = None, LaunchTemplateName: str = None, DefaultVersion: str = None) -> Dict:
         pass
 
-    def modify_network_interface_attribute(self, NetworkInterfaceId: str, Attachment: Dict = None, Description: Dict = None, DryRun: bool = None, Groups: List = None, SourceDestCheck: Dict = None) -> NoReturn:
+    def modify_network_interface_attribute(self, NetworkInterfaceId: str, Attachment: Dict = None, Description: Dict = None, DryRun: bool = None, Groups: List = None, SourceDestCheck: Dict = None):
         pass
 
     def modify_reserved_instances(self, ReservedInstancesIds: List, TargetConfigurations: List, ClientToken: str = None) -> Dict:
         pass
 
-    def modify_snapshot_attribute(self, SnapshotId: str, Attribute: str = None, CreateVolumePermission: Dict = None, GroupNames: List = None, OperationType: str = None, UserIds: List = None, DryRun: bool = None) -> NoReturn:
+    def modify_snapshot_attribute(self, SnapshotId: str, Attribute: str = None, CreateVolumePermission: Dict = None, GroupNames: List = None, OperationType: str = None, UserIds: List = None, DryRun: bool = None):
         pass
 
     def modify_spot_fleet_request(self, SpotFleetRequestId: str, ExcessCapacityTerminationPolicy: str = None, TargetCapacity: int = None) -> Dict:
         pass
 
-    def modify_subnet_attribute(self, SubnetId: str, AssignIpv6AddressOnCreation: Dict = None, MapPublicIpOnLaunch: Dict = None) -> NoReturn:
+    def modify_subnet_attribute(self, SubnetId: str, AssignIpv6AddressOnCreation: Dict = None, MapPublicIpOnLaunch: Dict = None):
         pass
 
     def modify_volume(self, VolumeId: str, DryRun: bool = None, Size: int = None, VolumeType: str = None, Iops: int = None) -> Dict:
         pass
 
-    def modify_volume_attribute(self, VolumeId: str, AutoEnableIO: Dict = None, DryRun: bool = None) -> NoReturn:
+    def modify_volume_attribute(self, VolumeId: str, AutoEnableIO: Dict = None, DryRun: bool = None):
         pass
 
-    def modify_vpc_attribute(self, VpcId: str, EnableDnsHostnames: Dict = None, EnableDnsSupport: Dict = None) -> NoReturn:
+    def modify_vpc_attribute(self, VpcId: str, EnableDnsHostnames: Dict = None, EnableDnsSupport: Dict = None):
         pass
 
     def modify_vpc_endpoint(self, VpcEndpointId: str, DryRun: bool = None, ResetPolicy: bool = None, PolicyDocument: str = None, AddRouteTableIds: List = None, RemoveRouteTableIds: List = None, AddSubnetIds: List = None, RemoveSubnetIds: List = None, AddSecurityGroupIds: List = None, RemoveSecurityGroupIds: List = None, PrivateDnsEnabled: bool = None) -> Dict:
@@ -778,7 +777,7 @@ class Client(BaseClient):
     def purchase_scheduled_instances(self, PurchaseRequests: List, ClientToken: str = None, DryRun: bool = None) -> Dict:
         pass
 
-    def reboot_instances(self, InstanceIds: List, DryRun: bool = None) -> NoReturn:
+    def reboot_instances(self, InstanceIds: List, DryRun: bool = None):
         pass
 
     def register_image(self, Name: str, ImageLocation: str = None, Architecture: str = None, BlockDeviceMappings: List = None, Description: str = None, DryRun: bool = None, EnaSupport: bool = None, KernelId: str = None, BillingProducts: List = None, RamdiskId: str = None, RootDeviceName: str = None, SriovNetSupport: str = None, VirtualizationType: str = None) -> Dict:
@@ -790,7 +789,7 @@ class Client(BaseClient):
     def reject_vpc_peering_connection(self, VpcPeeringConnectionId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def release_address(self, AllocationId: str = None, PublicIp: str = None, DryRun: bool = None) -> NoReturn:
+    def release_address(self, AllocationId: str = None, PublicIp: str = None, DryRun: bool = None):
         pass
 
     def release_hosts(self, HostIds: List) -> Dict:
@@ -802,16 +801,16 @@ class Client(BaseClient):
     def replace_network_acl_association(self, AssociationId: str, NetworkAclId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def replace_network_acl_entry(self, Egress: bool, NetworkAclId: str, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None) -> NoReturn:
+    def replace_network_acl_entry(self, Egress: bool, NetworkAclId: str, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None):
         pass
 
-    def replace_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None) -> NoReturn:
+    def replace_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None):
         pass
 
     def replace_route_table_association(self, AssociationId: str, RouteTableId: str, DryRun: bool = None) -> Dict:
         pass
 
-    def report_instance_status(self, Instances: List, ReasonCodes: List, Status: str, Description: str = None, DryRun: bool = None, EndTime: datetime = None, StartTime: datetime = None) -> NoReturn:
+    def report_instance_status(self, Instances: List, ReasonCodes: List, Status: str, Description: str = None, DryRun: bool = None, EndTime: datetime = None, StartTime: datetime = None):
         pass
 
     def request_spot_fleet(self, SpotFleetRequestConfig: Dict, DryRun: bool = None) -> Dict:
@@ -823,25 +822,25 @@ class Client(BaseClient):
     def reset_fpga_image_attribute(self, FpgaImageId: str, DryRun: bool = None, Attribute: str = None) -> Dict:
         pass
 
-    def reset_image_attribute(self, Attribute: str, ImageId: str, DryRun: bool = None) -> NoReturn:
+    def reset_image_attribute(self, Attribute: str, ImageId: str, DryRun: bool = None):
         pass
 
-    def reset_instance_attribute(self, Attribute: str, InstanceId: str, DryRun: bool = None) -> NoReturn:
+    def reset_instance_attribute(self, Attribute: str, InstanceId: str, DryRun: bool = None):
         pass
 
-    def reset_network_interface_attribute(self, NetworkInterfaceId: str, DryRun: bool = None, SourceDestCheck: str = None) -> NoReturn:
+    def reset_network_interface_attribute(self, NetworkInterfaceId: str, DryRun: bool = None, SourceDestCheck: str = None):
         pass
 
-    def reset_snapshot_attribute(self, Attribute: str, SnapshotId: str, DryRun: bool = None) -> NoReturn:
+    def reset_snapshot_attribute(self, Attribute: str, SnapshotId: str, DryRun: bool = None):
         pass
 
     def restore_address_to_classic(self, PublicIp: str, DryRun: bool = None) -> Dict:
         pass
 
-    def revoke_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None) -> NoReturn:
+    def revoke_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         pass
 
-    def revoke_security_group_ingress(self, CidrIp: str = None, FromPort: int = None, GroupId: str = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None) -> NoReturn:
+    def revoke_security_group_ingress(self, CidrIp: str = None, FromPort: int = None, GroupId: str = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         pass
 
     def run_instances(self, MaxCount: int, MinCount: int, BlockDeviceMappings: List = None, ImageId: str = None, InstanceType: str = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, KernelId: str = None, KeyName: str = None, Monitoring: Dict = None, Placement: Dict = None, RamdiskId: str = None, SecurityGroupIds: List = None, SecurityGroups: List = None, SubnetId: str = None, UserData: str = None, AdditionalInfo: str = None, ClientToken: str = None, DisableApiTermination: bool = None, DryRun: bool = None, EbsOptimized: bool = None, IamInstanceProfile: Dict = None, InstanceInitiatedShutdownBehavior: str = None, NetworkInterfaces: List = None, PrivateIpAddress: str = None, ElasticGpuSpecification: List = None, TagSpecifications: List = None, LaunchTemplate: Dict = None, InstanceMarketOptions: Dict = None, CreditSpecification: Dict = None, CpuOptions: Dict = None, CapacityReservationSpecification: Dict = None) -> Dict:
@@ -862,7 +861,7 @@ class Client(BaseClient):
     def unassign_ipv6_addresses(self, Ipv6Addresses: List, NetworkInterfaceId: str) -> Dict:
         pass
 
-    def unassign_private_ip_addresses(self, NetworkInterfaceId: str, PrivateIpAddresses: List) -> NoReturn:
+    def unassign_private_ip_addresses(self, NetworkInterfaceId: str, PrivateIpAddresses: List):
         pass
 
     def unmonitor_instances(self, InstanceIds: List, DryRun: bool = None) -> Dict:

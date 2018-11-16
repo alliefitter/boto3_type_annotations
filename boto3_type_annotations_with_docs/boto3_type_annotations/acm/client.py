@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def add_tags_to_certificate(self, CertificateArn: str, Tags: List) -> NoReturn:
+    def add_tags_to_certificate(self, CertificateArn: str, Tags: List):
         """
         
         You can apply a tag to just one certificate if you want to identify a specific characteristic of that certificate, or you can apply the same tag to multiple certificates if you want to filter for a common relationship among those certificates. Similarly, you can apply the same tag to multiple resources if you want to specify a relationship among those resources. For example, you can add the same tag to an ACM certificate and an Elastic Load Balancing load balancer to indicate that they are both used by the same website. For more information, see `Tagging ACM certificates <http://docs.aws.amazon.com/acm/latest/userguide/tags.html>`__ . 
@@ -60,7 +59,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -76,7 +75,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_certificate(self, CertificateArn: str) -> NoReturn:
+    def delete_certificate(self, CertificateArn: str):
         """
         
         .. note::
@@ -535,7 +534,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -891,7 +890,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_tags_from_certificate(self, CertificateArn: str, Tags: List) -> NoReturn:
+    def remove_tags_from_certificate(self, CertificateArn: str, Tags: List):
         """
         
         To add tags to a certificate, use the  AddTagsToCertificate action. To view all of the tags that have been applied to a specific ACM certificate, use the  ListTagsForCertificate action. 
@@ -1066,7 +1065,7 @@ class Client(BaseClient):
         """
         pass
 
-    def resend_validation_email(self, CertificateArn: str, Domain: str, ValidationDomain: str) -> NoReturn:
+    def resend_validation_email(self, CertificateArn: str, Domain: str, ValidationDomain: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ResendValidationEmail>`_
@@ -1110,7 +1109,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_certificate_options(self, CertificateArn: str, Options: Dict) -> NoReturn:
+    def update_certificate_options(self, CertificateArn: str, Options: Dict):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/UpdateCertificateOptions>`_

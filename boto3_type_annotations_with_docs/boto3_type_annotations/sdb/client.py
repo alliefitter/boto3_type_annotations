@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def batch_delete_attributes(self, DomainName: str, Items: List) -> NoReturn:
+    def batch_delete_attributes(self, DomainName: str, Items: List):
         """
         
         The following limitations are enforced for this operation: 
@@ -65,7 +64,7 @@ class Client(BaseClient):
         """
         pass
 
-    def batch_put_attributes(self, DomainName: str, Items: List) -> NoReturn:
+    def batch_put_attributes(self, DomainName: str, Items: List):
         """
         
         The client may specify the item name with the ``Item.X.ItemName`` parameter. The client may specify new attributes using a combination of the ``Item.X.Attribute.Y.Name`` and ``Item.X.Attribute.Y.Value`` parameters. The client may specify the first attribute for the first item using the parameters ``Item.0.Attribute.0.Name`` and ``Item.0.Attribute.0.Value`` , and for the second attribute for the first item by the parameters ``Item.0.Attribute.1.Name`` and ``Item.0.Attribute.1.Value`` , and so on. 
@@ -136,7 +135,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -152,7 +151,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_domain(self, DomainName: str) -> NoReturn:
+    def create_domain(self, DomainName: str):
         """
         
         The client can create up to 100 domains per account. 
@@ -174,7 +173,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_attributes(self, DomainName: str, ItemName: str, Attributes: List = None, Expected: Dict = None) -> NoReturn:
+    def delete_attributes(self, DomainName: str, ItemName: str, Attributes: List = None, Expected: Dict = None):
         """
         
          ``DeleteAttributes`` is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response. 
@@ -241,7 +240,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_domain(self, DomainName: str) -> NoReturn:
+    def delete_domain(self, DomainName: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sdb-2009-04-15/DeleteDomain>`_
@@ -309,7 +308,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -474,7 +473,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_attributes(self, DomainName: str, ItemName: str, Attributes: List, Expected: Dict = None) -> NoReturn:
+    def put_attributes(self, DomainName: str, ItemName: str, Attributes: List, Expected: Dict = None):
         """
         
         Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes ``{ "first_name", "first_value" }`` and ``{ "first_name", second_value" }`` . However, it cannot have two attribute instances where both the ``Attribute.X.Name`` and ``Attribute.X.Value`` are the same. 

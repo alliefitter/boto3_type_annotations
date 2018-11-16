@@ -1,16 +1,15 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
-from typing import List
 from typing import IO
+from botocore.paginate import Paginator
+from typing import Union
+from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def abort_multipart_upload(self, vaultName: str, uploadId: str, accountId: str = None) -> NoReturn:
+    def abort_multipart_upload(self, vaultName: str, uploadId: str, accountId: str = None):
         """
         
         After the Abort Multipart Upload request succeeds, you cannot upload any more parts to the multipart upload or complete the multipart upload. Aborting a completed upload fails. However, aborting an already-aborted upload will succeed, for a short time. For more information about uploading a part and completing a multipart upload, see  UploadMultipartPart and  CompleteMultipartUpload .
@@ -51,7 +50,7 @@ class Client(BaseClient):
         """
         pass
 
-    def abort_vault_lock(self, vaultName: str, accountId: str = None) -> NoReturn:
+    def abort_vault_lock(self, vaultName: str, accountId: str = None):
         """
         
         A vault lock is put into the ``InProgress`` state by calling  InitiateVaultLock . A vault lock is put into the ``Locked`` state by calling  CompleteVaultLock . You can get the state of a vault lock by calling  GetVaultLock . For more information about the vault locking process, see `Amazon Glacier Vault Lock <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html>`__ . For more information about vault lock policies, see `Amazon Glacier Access Control with Vault Lock Policies <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html>`__ . 
@@ -82,7 +81,7 @@ class Client(BaseClient):
         """
         pass
 
-    def add_tags_to_vault(self, vaultName: str, accountId: str = None, Tags: Dict = None) -> NoReturn:
+    def add_tags_to_vault(self, vaultName: str, accountId: str = None, Tags: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/AddTagsToVault>`_
@@ -121,7 +120,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -234,7 +233,7 @@ class Client(BaseClient):
         """
         pass
 
-    def complete_vault_lock(self, vaultName: str, lockId: str, accountId: str = None) -> NoReturn:
+    def complete_vault_lock(self, vaultName: str, lockId: str, accountId: str = None):
         """
         
         This operation is idempotent. This request is always successful if the vault lock is in the ``Locked`` state and the provided lock ID matches the lock ID originally used to lock the vault.
@@ -329,7 +328,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_archive(self, vaultName: str, archiveId: str, accountId: str = None) -> NoReturn:
+    def delete_archive(self, vaultName: str, archiveId: str, accountId: str = None):
         """
         This operation deletes an archive from a vault. Subsequent requests to initiate a retrieval of this archive will fail. Archive retrievals that are in progress for this archive ID may or may not succeed according to the following scenarios:
         
@@ -373,7 +372,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_vault(self, vaultName: str, accountId: str = None) -> NoReturn:
+    def delete_vault(self, vaultName: str, accountId: str = None):
         """
         
         This operation is idempotent.
@@ -406,7 +405,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_vault_access_policy(self, vaultName: str, accountId: str = None) -> NoReturn:
+    def delete_vault_access_policy(self, vaultName: str, accountId: str = None):
         """
         
         This operation is idempotent. You can invoke delete multiple times, even if there is no policy associated with the vault. For more information about vault access policies, see `Amazon Glacier Access Control with Vault Access Policies <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html>`__ . 
@@ -435,7 +434,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_vault_notifications(self, vaultName: str, accountId: str = None) -> NoReturn:
+    def delete_vault_notifications(self, vaultName: str, accountId: str = None):
         """
         
         An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
@@ -951,7 +950,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -2800,7 +2799,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_tags_from_vault(self, vaultName: str, accountId: str = None, TagKeys: List = None) -> NoReturn:
+    def remove_tags_from_vault(self, vaultName: str, accountId: str = None, TagKeys: List = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/RemoveTagsFromVault>`_
@@ -2837,7 +2836,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_data_retrieval_policy(self, accountId: str = None, Policy: Dict = None) -> NoReturn:
+    def set_data_retrieval_policy(self, accountId: str = None, Policy: Dict = None):
         """
         
         The set policy operation does not affect retrieval jobs that were in progress before the policy was enacted. For more information about data retrieval policies, see `Amazon Glacier Data Retrieval Policies <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html>`__ . 
@@ -2893,7 +2892,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_vault_access_policy(self, vaultName: str, accountId: str = None, policy: Dict = None) -> NoReturn:
+    def set_vault_access_policy(self, vaultName: str, accountId: str = None, policy: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/SetVaultAccessPolicy>`_
@@ -2932,7 +2931,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_vault_notifications(self, vaultName: str, accountId: str = None, vaultNotificationConfig: Dict = None) -> NoReturn:
+    def set_vault_notifications(self, vaultName: str, accountId: str = None, vaultNotificationConfig: Dict = None):
         """
         
         To configure vault notifications, send a PUT request to the ``notification-configuration`` subresource of the vault. The request should include a JSON document that provides an Amazon SNS topic and specific events for which you want Amazon Glacier to send notifications to the topic.

@@ -1,16 +1,15 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def abort_document_version_upload(self, DocumentId: str, VersionId: str, AuthenticationToken: str = None) -> NoReturn:
+    def abort_document_version_upload(self, DocumentId: str, VersionId: str, AuthenticationToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/AbortDocumentVersionUpload>`_
@@ -303,7 +302,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -1018,7 +1017,7 @@ class Client(BaseClient):
         """
         pass
 
-    def deactivate_user(self, UserId: str, AuthenticationToken: str = None) -> NoReturn:
+    def deactivate_user(self, UserId: str, AuthenticationToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/DeactivateUser>`_
@@ -1044,7 +1043,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_comment(self, DocumentId: str, VersionId: str, CommentId: str, AuthenticationToken: str = None) -> NoReturn:
+    def delete_comment(self, DocumentId: str, VersionId: str, CommentId: str, AuthenticationToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/DeleteComment>`_
@@ -1140,7 +1139,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_document(self, DocumentId: str, AuthenticationToken: str = None) -> NoReturn:
+    def delete_document(self, DocumentId: str, AuthenticationToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/DeleteDocument>`_
@@ -1166,7 +1165,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_folder(self, FolderId: str, AuthenticationToken: str = None) -> NoReturn:
+    def delete_folder(self, FolderId: str, AuthenticationToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/DeleteFolder>`_
@@ -1192,7 +1191,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_folder_contents(self, FolderId: str, AuthenticationToken: str = None) -> NoReturn:
+    def delete_folder_contents(self, FolderId: str, AuthenticationToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/DeleteFolderContents>`_
@@ -1270,7 +1269,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_notification_subscription(self, SubscriptionId: str, OrganizationId: str) -> NoReturn:
+    def delete_notification_subscription(self, SubscriptionId: str, OrganizationId: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/DeleteNotificationSubscription>`_
@@ -1296,7 +1295,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_user(self, UserId: str, AuthenticationToken: str = None) -> NoReturn:
+    def delete_user(self, UserId: str, AuthenticationToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/DeleteUser>`_
@@ -3032,7 +3031,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -4074,7 +4073,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_all_resource_permissions(self, ResourceId: str, AuthenticationToken: str = None) -> NoReturn:
+    def remove_all_resource_permissions(self, ResourceId: str, AuthenticationToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/RemoveAllResourcePermissions>`_
@@ -4100,7 +4099,7 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_resource_permission(self, ResourceId: str, PrincipalId: str, AuthenticationToken: str = None, PrincipalType: str = None) -> NoReturn:
+    def remove_resource_permission(self, ResourceId: str, PrincipalId: str, AuthenticationToken: str = None, PrincipalType: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/RemoveResourcePermission>`_
@@ -4138,7 +4137,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_document(self, DocumentId: str, AuthenticationToken: str = None, Name: str = None, ParentFolderId: str = None, ResourceState: str = None) -> NoReturn:
+    def update_document(self, DocumentId: str, AuthenticationToken: str = None, Name: str = None, ParentFolderId: str = None, ResourceState: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/UpdateDocument>`_
@@ -4182,7 +4181,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_document_version(self, DocumentId: str, VersionId: str, AuthenticationToken: str = None, VersionStatus: str = None) -> NoReturn:
+    def update_document_version(self, DocumentId: str, VersionId: str, AuthenticationToken: str = None, VersionStatus: str = None):
         """
         
         Amazon WorkDocs also sets its document container to ACTIVE. This is the last step in a document upload, after the client uploads the document to an S3-presigned URL returned by  InitiateDocumentVersionUpload . 
@@ -4222,7 +4221,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_folder(self, FolderId: str, AuthenticationToken: str = None, Name: str = None, ParentFolderId: str = None, ResourceState: str = None) -> NoReturn:
+    def update_folder(self, FolderId: str, AuthenticationToken: str = None, Name: str = None, ParentFolderId: str = None, ResourceState: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/UpdateFolder>`_

@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -25,7 +24,7 @@ class Client(BaseClient):
         """
         pass
 
-    def cancel_update_stack(self, StackName: str, ClientRequestToken: str = None) -> NoReturn:
+    def cancel_update_stack(self, StackName: str, ClientRequestToken: str = None):
         """
         
         .. note::
@@ -1045,7 +1044,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_stack(self, StackName: str, RetainResources: List = None, RoleARN: str = None, ClientRequestToken: str = None) -> NoReturn:
+    def delete_stack(self, StackName: str, RetainResources: List = None, RoleARN: str = None, ClientRequestToken: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DeleteStack>`_
@@ -3460,7 +3459,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -4693,7 +4692,7 @@ class Client(BaseClient):
         """
         pass
 
-    def set_stack_policy(self, StackName: str, StackPolicyBody: str = None, StackPolicyURL: str = None) -> NoReturn:
+    def set_stack_policy(self, StackName: str, StackPolicyBody: str = None, StackPolicyURL: str = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/SetStackPolicy>`_
@@ -4725,7 +4724,7 @@ class Client(BaseClient):
         """
         pass
 
-    def signal_resource(self, StackName: str, LogicalResourceId: str, UniqueId: str, Status: str) -> NoReturn:
+    def signal_resource(self, StackName: str, LogicalResourceId: str, UniqueId: str, Status: str):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/SignalResource>`_

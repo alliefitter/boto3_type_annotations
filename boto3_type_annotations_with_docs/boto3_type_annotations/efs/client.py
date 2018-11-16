@@ -1,15 +1,14 @@
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
 class Client(BaseClient):
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -343,7 +342,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_tags(self, FileSystemId: str, Tags: List) -> NoReturn:
+    def create_tags(self, FileSystemId: str, Tags: List):
         """
         
         This operation requires permission for the ``elasticfilesystem:CreateTags`` action.
@@ -388,7 +387,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_file_system(self, FileSystemId: str) -> NoReturn:
+    def delete_file_system(self, FileSystemId: str):
         """
         
         You can't delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see  DescribeMountTargets and  DeleteMountTarget . 
@@ -416,7 +415,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_mount_target(self, MountTargetId: str) -> NoReturn:
+    def delete_mount_target(self, MountTargetId: str):
         """
         
         This operation forcibly breaks any mounts of the file system via the mount target that is being deleted, which might disrupt instances or applications using those mounts. To avoid applications getting cut off abruptly, you might consider unmounting any mounts of the mount target, if feasible. The operation also deletes the associated network interface. Uncommitted writes may be lost, but breaking a mount target using this operation does not corrupt the file system itself. The file system you created remains. You can mount an EC2 instance in your VPC via another mount target.
@@ -450,7 +449,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_tags(self, FileSystemId: str, TagKeys: List) -> NoReturn:
+    def delete_tags(self, FileSystemId: str, TagKeys: List):
         """
         
         This operation requires permissions for the ``elasticfilesystem:DeleteTags`` action.
@@ -874,7 +873,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string
@@ -928,7 +927,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_mount_target_security_groups(self, MountTargetId: str, SecurityGroups: List = None) -> NoReturn:
+    def modify_mount_target_security_groups(self, MountTargetId: str, SecurityGroups: List = None):
         """
         
         When you create a mount target, Amazon EFS also creates a new network interface. For more information, see  CreateMountTarget . This operation replaces the security groups in effect for the network interface associated with a mount target, with the ``SecurityGroups`` provided in the request. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not ``deleted`` . 

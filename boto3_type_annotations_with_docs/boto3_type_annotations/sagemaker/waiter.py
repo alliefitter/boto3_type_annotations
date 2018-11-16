@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class EndpointDeleted(Waiter):
-    def wait(self, EndpointName: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, EndpointName: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DescribeEndpoint>`_
@@ -43,7 +42,7 @@ class EndpointDeleted(Waiter):
 
 
 class EndpointInService(Waiter):
-    def wait(self, EndpointName: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, EndpointName: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DescribeEndpoint>`_
@@ -82,7 +81,7 @@ class EndpointInService(Waiter):
 
 
 class NotebookInstanceDeleted(Waiter):
-    def wait(self, NotebookInstanceName: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, NotebookInstanceName: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DescribeNotebookInstance>`_
@@ -121,7 +120,7 @@ class NotebookInstanceDeleted(Waiter):
 
 
 class NotebookInstanceInService(Waiter):
-    def wait(self, NotebookInstanceName: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, NotebookInstanceName: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DescribeNotebookInstance>`_
@@ -160,7 +159,7 @@ class NotebookInstanceInService(Waiter):
 
 
 class NotebookInstanceStopped(Waiter):
-    def wait(self, NotebookInstanceName: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, NotebookInstanceName: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DescribeNotebookInstance>`_
@@ -199,7 +198,7 @@ class NotebookInstanceStopped(Waiter):
 
 
 class TrainingJobCompletedOrStopped(Waiter):
-    def wait(self, TrainingJobName: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, TrainingJobName: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DescribeTrainingJob>`_
@@ -238,7 +237,7 @@ class TrainingJobCompletedOrStopped(Waiter):
 
 
 class TransformJobCompletedOrStopped(Waiter):
-    def wait(self, TransformJobName: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, TransformJobName: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DescribeTransformJob>`_

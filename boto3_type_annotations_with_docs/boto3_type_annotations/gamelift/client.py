@@ -1,11 +1,10 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
-from typing import Union
 from botocore.waiter import Waiter
-from typing import NoReturn
-from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Union
 from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
 
 
@@ -74,7 +73,7 @@ class Client(BaseClient):
         """
         pass
 
-    def can_paginate(self, operation_name: str = None) -> NoReturn:
+    def can_paginate(self, operation_name: str = None):
         """
         
         :type operation_name: string
@@ -2033,7 +2032,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_alias(self, AliasId: str) -> NoReturn:
+    def delete_alias(self, AliasId: str):
         """
         
         Alias-related operations include:
@@ -2067,7 +2066,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_build(self, BuildId: str) -> NoReturn:
+    def delete_build(self, BuildId: str):
         """
         
         To delete a build, specify its ID. Deleting a build does not affect the status of any active fleets using the build, but you can no longer create new fleets with the deleted build.
@@ -2101,7 +2100,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_fleet(self, FleetId: str) -> NoReturn:
+    def delete_fleet(self, FleetId: str):
         """
         
         This action removes the fleet's resources and the fleet record. Once a fleet is deleted, you can no longer use that fleet.
@@ -2249,7 +2248,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_scaling_policy(self, Name: str, FleetId: str) -> NoReturn:
+    def delete_scaling_policy(self, Name: str, FleetId: str):
         """
         
         To temporarily suspend scaling policies, call  StopFleetActions . This operation suspends all policies for the fleet.
@@ -5910,7 +5909,7 @@ class Client(BaseClient):
         """
         pass
 
-    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None) -> NoReturn:
+    def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         """
         
         :type ClientMethod: string

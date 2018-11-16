@@ -1,10 +1,9 @@
-from typing import NoReturn
 from typing import Dict
 from botocore.waiter import Waiter
 
 
 class ClusterActive(Waiter):
-    def wait(self, name: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, name: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/eks-2017-11-01/DescribeCluster>`_
@@ -43,7 +42,7 @@ class ClusterActive(Waiter):
 
 
 class ClusterDeleted(Waiter):
-    def wait(self, name: str, WaiterConfig: Dict = None) -> NoReturn:
+    def wait(self, name: str, WaiterConfig: Dict = None):
         """
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/eks-2017-11-01/DescribeCluster>`_
