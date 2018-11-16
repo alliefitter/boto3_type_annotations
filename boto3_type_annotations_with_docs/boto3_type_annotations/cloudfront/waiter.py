@@ -12,16 +12,16 @@ class DistributionDeployed(Waiter):
         ::
         
           waiter.wait(
-              Id='string',
+              Id=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The distribution's ID.
+          The distribution\'s ID.
         
         :type WaiterConfig: dict
         :param WaiterConfig: 
@@ -51,17 +51,17 @@ class InvalidationCompleted(Waiter):
         ::
         
           waiter.wait(
-              DistributionId='string',
-              Id='string',
+              DistributionId=\'string\',
+              Id=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type DistributionId: string
         :param DistributionId: **[REQUIRED]** 
         
-          The distribution's ID.
+          The distribution\'s ID.
         
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -96,16 +96,16 @@ class StreamingDistributionDeployed(Waiter):
         ::
         
           waiter.wait(
-              Id='string',
+              Id=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The streaming distribution's ID.
+          The streaming distribution\'s ID.
         
         :type WaiterConfig: dict
         :param WaiterConfig: 

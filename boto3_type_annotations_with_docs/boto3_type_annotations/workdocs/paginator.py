@@ -12,14 +12,14 @@ class DescribeDocumentVersions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AuthenticationToken='string',
-              DocumentId='string',
-              Include='string',
-              Fields='string',
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\',
+              Include=\'string\',
+              Fields=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AuthenticationToken: string
@@ -35,12 +35,12 @@ class DescribeDocumentVersions(Paginator):
         :type Include: string
         :param Include: 
         
-          A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
+          A comma-separated list of values. Specify \"INITIALIZED\" to include incomplete versions.
         
         :type Fields: string
         :param Fields: 
         
-          Specify "SOURCE" to include initialized versions and a URL for the source document.
+          Specify \"SOURCE\" to include initialized versions and a URL for the source document.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -67,28 +67,28 @@ class DescribeDocumentVersions(Paginator):
           ::
         
             {
-                'DocumentVersions': [
+                \'DocumentVersions\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'ContentType': 'string',
-                        'Size': 123,
-                        'Signature': 'string',
-                        'Status': 'INITIALIZED'|'ACTIVE',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'ContentCreatedTimestamp': datetime(2015, 1, 1),
-                        'ContentModifiedTimestamp': datetime(2015, 1, 1),
-                        'CreatorId': 'string',
-                        'Thumbnail': {
-                            'string': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'ContentType\': \'string\',
+                        \'Size\': 123,
+                        \'Signature\': \'string\',
+                        \'Status\': \'INITIALIZED\'|\'ACTIVE\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'ContentCreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ContentModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'CreatorId\': \'string\',
+                        \'Thumbnail\': {
+                            \'string\': \'string\'
                         },
-                        'Source': {
-                            'string': 'string'
+                        \'Source\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -180,16 +180,16 @@ class DescribeFolderContents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AuthenticationToken='string',
-              FolderId='string',
-              Sort='DATE'|'NAME',
-              Order='ASCENDING'|'DESCENDING',
-              Type='ALL'|'DOCUMENT'|'FOLDER',
-              Include='string',
+              AuthenticationToken=\'string\',
+              FolderId=\'string\',
+              Sort=\'DATE\'|\'NAME\',
+              Order=\'ASCENDING\'|\'DESCENDING\',
+              Type=\'ALL\'|\'DOCUMENT\'|\'FOLDER\',
+              Include=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AuthenticationToken: string
@@ -220,7 +220,7 @@ class DescribeFolderContents(Paginator):
         :type Include: string
         :param Include: 
         
-          The contents to include. Specify "INITIALIZED" to include initialized documents.
+          The contents to include. Specify \"INITIALIZED\" to include initialized documents.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -247,56 +247,56 @@ class DescribeFolderContents(Paginator):
           ::
         
             {
-                'Folders': [
+                \'Folders\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'CreatorId': 'string',
-                        'ParentFolderId': 'string',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'ResourceState': 'ACTIVE'|'RESTORING'|'RECYCLING'|'RECYCLED',
-                        'Signature': 'string',
-                        'Labels': [
-                            'string',
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'CreatorId\': \'string\',
+                        \'ParentFolderId\': \'string\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'ResourceState\': \'ACTIVE\'|\'RESTORING\'|\'RECYCLING\'|\'RECYCLED\',
+                        \'Signature\': \'string\',
+                        \'Labels\': [
+                            \'string\',
                         ],
-                        'Size': 123,
-                        'LatestVersionSize': 123
+                        \'Size\': 123,
+                        \'LatestVersionSize\': 123
                     },
                 ],
-                'Documents': [
+                \'Documents\': [
                     {
-                        'Id': 'string',
-                        'CreatorId': 'string',
-                        'ParentFolderId': 'string',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'LatestVersionMetadata': {
-                            'Id': 'string',
-                            'Name': 'string',
-                            'ContentType': 'string',
-                            'Size': 123,
-                            'Signature': 'string',
-                            'Status': 'INITIALIZED'|'ACTIVE',
-                            'CreatedTimestamp': datetime(2015, 1, 1),
-                            'ModifiedTimestamp': datetime(2015, 1, 1),
-                            'ContentCreatedTimestamp': datetime(2015, 1, 1),
-                            'ContentModifiedTimestamp': datetime(2015, 1, 1),
-                            'CreatorId': 'string',
-                            'Thumbnail': {
-                                'string': 'string'
+                        \'Id\': \'string\',
+                        \'CreatorId\': \'string\',
+                        \'ParentFolderId\': \'string\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'LatestVersionMetadata\': {
+                            \'Id\': \'string\',
+                            \'Name\': \'string\',
+                            \'ContentType\': \'string\',
+                            \'Size\': 123,
+                            \'Signature\': \'string\',
+                            \'Status\': \'INITIALIZED\'|\'ACTIVE\',
+                            \'CreatedTimestamp\': datetime(2015, 1, 1),
+                            \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                            \'ContentCreatedTimestamp\': datetime(2015, 1, 1),
+                            \'ContentModifiedTimestamp\': datetime(2015, 1, 1),
+                            \'CreatorId\': \'string\',
+                            \'Thumbnail\': {
+                                \'string\': \'string\'
                             },
-                            'Source': {
-                                'string': 'string'
+                            \'Source\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'ResourceState': 'ACTIVE'|'RESTORING'|'RECYCLING'|'RECYCLED',
-                        'Labels': [
-                            'string',
+                        \'ResourceState\': \'ACTIVE\'|\'RESTORING\'|\'RECYCLING\'|\'RECYCLED\',
+                        \'Labels\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -476,18 +476,18 @@ class DescribeUsers(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AuthenticationToken='string',
-              OrganizationId='string',
-              UserIds='string',
-              Query='string',
-              Include='ALL'|'ACTIVE_PENDING',
-              Order='ASCENDING'|'DESCENDING',
-              Sort='USER_NAME'|'FULL_NAME'|'STORAGE_LIMIT'|'USER_STATUS'|'STORAGE_USED',
-              Fields='string',
+              AuthenticationToken=\'string\',
+              OrganizationId=\'string\',
+              UserIds=\'string\',
+              Query=\'string\',
+              Include=\'ALL\'|\'ACTIVE_PENDING\',
+              Order=\'ASCENDING\'|\'DESCENDING\',
+              Sort=\'USER_NAME\'|\'FULL_NAME\'|\'STORAGE_LIMIT\'|\'USER_STATUS\'|\'STORAGE_USED\',
+              Fields=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AuthenticationToken: string
@@ -513,7 +513,7 @@ class DescribeUsers(Paginator):
         :type Include: string
         :param Include: 
         
-          The state of the users. Specify "ALL" to include inactive users.
+          The state of the users. Specify \"ALL\" to include inactive users.
         
         :type Order: string
         :param Order: 
@@ -528,7 +528,7 @@ class DescribeUsers(Paginator):
         :type Fields: string
         :param Fields: 
         
-          A comma-separated list of values. Specify "STORAGE_METADATA" to include the user storage quota and utilization information.
+          A comma-separated list of values. Specify \"STORAGE_METADATA\" to include the user storage quota and utilization information.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -555,33 +555,33 @@ class DescribeUsers(Paginator):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'Id': 'string',
-                        'Username': 'string',
-                        'EmailAddress': 'string',
-                        'GivenName': 'string',
-                        'Surname': 'string',
-                        'OrganizationId': 'string',
-                        'RootFolderId': 'string',
-                        'RecycleBinFolderId': 'string',
-                        'Status': 'ACTIVE'|'INACTIVE'|'PENDING',
-                        'Type': 'USER'|'ADMIN'|'POWERUSER'|'MINIMALUSER'|'WORKSPACESUSER',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'TimeZoneId': 'string',
-                        'Locale': 'en'|'fr'|'ko'|'de'|'es'|'ja'|'ru'|'zh_CN'|'zh_TW'|'pt_BR'|'default',
-                        'Storage': {
-                            'StorageUtilizedInBytes': 123,
-                            'StorageRule': {
-                                'StorageAllocatedInBytes': 123,
-                                'StorageType': 'UNLIMITED'|'QUOTA'
+                        \'Id\': \'string\',
+                        \'Username\': \'string\',
+                        \'EmailAddress\': \'string\',
+                        \'GivenName\': \'string\',
+                        \'Surname\': \'string\',
+                        \'OrganizationId\': \'string\',
+                        \'RootFolderId\': \'string\',
+                        \'RecycleBinFolderId\': \'string\',
+                        \'Status\': \'ACTIVE\'|\'INACTIVE\'|\'PENDING\',
+                        \'Type\': \'USER\'|\'ADMIN\'|\'POWERUSER\'|\'MINIMALUSER\'|\'WORKSPACESUSER\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'TimeZoneId\': \'string\',
+                        \'Locale\': \'en\'|\'fr\'|\'ko\'|\'de\'|\'es\'|\'ja\'|\'ru\'|\'zh_CN\'|\'zh_TW\'|\'pt_BR\'|\'default\',
+                        \'Storage\': {
+                            \'StorageUtilizedInBytes\': 123,
+                            \'StorageRule\': {
+                                \'StorageAllocatedInBytes\': 123,
+                                \'StorageType\': \'UNLIMITED\'|\'QUOTA\'
                             }
                         }
                     },
                 ],
-                'TotalNumberOfUsers': 123,
-                'NextToken': 'string'
+                \'TotalNumberOfUsers\': 123,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

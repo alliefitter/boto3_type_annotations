@@ -13,9 +13,9 @@ class DescribeAddresses(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,22 +43,22 @@ class DescribeAddresses(Paginator):
           ::
         
             {
-                'Addresses': [
+                \'Addresses\': [
                     {
-                        'AddressId': 'string',
-                        'Name': 'string',
-                        'Company': 'string',
-                        'Street1': 'string',
-                        'Street2': 'string',
-                        'Street3': 'string',
-                        'City': 'string',
-                        'StateOrProvince': 'string',
-                        'PrefectureOrDistrict': 'string',
-                        'Landmark': 'string',
-                        'Country': 'string',
-                        'PostalCode': 'string',
-                        'PhoneNumber': 'string',
-                        'IsRestricted': True|False
+                        \'AddressId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Company\': \'string\',
+                        \'Street1\': \'string\',
+                        \'Street2\': \'string\',
+                        \'Street3\': \'string\',
+                        \'City\': \'string\',
+                        \'StateOrProvince\': \'string\',
+                        \'PrefectureOrDistrict\': \'string\',
+                        \'Landmark\': \'string\',
+                        \'Country\': \'string\',
+                        \'PostalCode\': \'string\',
+                        \'PhoneNumber\': \'string\',
+                        \'IsRestricted\': True|False
                     },
                 ],
                 
@@ -146,9 +146,9 @@ class ListJobs(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -176,15 +176,15 @@ class ListJobs(Paginator):
           ::
         
             {
-                'JobListEntries': [
+                \'JobListEntries\': [
                     {
-                        'JobId': 'string',
-                        'JobState': 'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
-                        'IsMaster': True|False,
-                        'JobType': 'IMPORT'|'EXPORT'|'LOCAL_USE',
-                        'SnowballType': 'STANDARD'|'EDGE',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'Description': 'string'
+                        \'JobId\': \'string\',
+                        \'JobState\': \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
+                        \'IsMaster\': True|False,
+                        \'JobType\': \'IMPORT\'|\'EXPORT\'|\'LOCAL_USE\',
+                        \'SnowballType\': \'STANDARD\'|\'EDGE\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'Description\': \'string\'
                     },
                 ],
                 
@@ -195,11 +195,11 @@ class ListJobs(Paginator):
             
             - **JobListEntries** *(list) --* 
         
-              Each ``JobListEntry`` object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. 
+              Each ``JobListEntry`` object contains a job\'s state, a job\'s ID, and a value that indicates whether the job is a job part, in the case of export jobs. 
         
               - *(dict) --* 
         
-                Each ``JobListEntry`` object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of an export job.
+                Each ``JobListEntry`` object contains a job\'s state, a job\'s ID, and a value that indicates whether the job is a job part, in the case of an export job.
         
                 - **JobId** *(string) --* 
         
@@ -211,7 +211,7 @@ class ListJobs(Paginator):
         
                 - **IsMaster** *(boolean) --* 
         
-                  A value that indicates that this job is a master job. A master job represents a successful request to create an export job. Master jobs aren't associated with any Snowballs. Instead, each master job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular master job are listed, because they are created after the master job is created.
+                  A value that indicates that this job is a master job. A master job represents a successful request to create an export job. Master jobs aren\'t associated with any Snowballs. Instead, each master job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular master job are listed, because they are created after the master job is created.
         
                 - **JobType** *(string) --* 
         

@@ -14,18 +14,18 @@ class DescribeCases(Paginator):
         
           response_iterator = paginator.paginate(
               caseIdList=[
-                  'string',
+                  \'string\',
               ],
-              displayId='string',
-              afterTime='string',
-              beforeTime='string',
+              displayId=\'string\',
+              afterTime=\'string\',
+              beforeTime=\'string\',
               includeResolvedCases=True|False,
-              language='string',
+              language=\'string\',
               includeCommunications=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type caseIdList: list
@@ -58,7 +58,7 @@ class DescribeCases(Paginator):
         :type language: string
         :param language: 
         
-          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
         
         :type includeCommunications: boolean
         :param includeCommunications: 
@@ -90,41 +90,41 @@ class DescribeCases(Paginator):
           ::
         
             {
-                'cases': [
+                \'cases\': [
                     {
-                        'caseId': 'string',
-                        'displayId': 'string',
-                        'subject': 'string',
-                        'status': 'string',
-                        'serviceCode': 'string',
-                        'categoryCode': 'string',
-                        'severityCode': 'string',
-                        'submittedBy': 'string',
-                        'timeCreated': 'string',
-                        'recentCommunications': {
-                            'communications': [
+                        \'caseId\': \'string\',
+                        \'displayId\': \'string\',
+                        \'subject\': \'string\',
+                        \'status\': \'string\',
+                        \'serviceCode\': \'string\',
+                        \'categoryCode\': \'string\',
+                        \'severityCode\': \'string\',
+                        \'submittedBy\': \'string\',
+                        \'timeCreated\': \'string\',
+                        \'recentCommunications\': {
+                            \'communications\': [
                                 {
-                                    'caseId': 'string',
-                                    'body': 'string',
-                                    'submittedBy': 'string',
-                                    'timeCreated': 'string',
-                                    'attachmentSet': [
+                                    \'caseId\': \'string\',
+                                    \'body\': \'string\',
+                                    \'submittedBy\': \'string\',
+                                    \'timeCreated\': \'string\',
+                                    \'attachmentSet\': [
                                         {
-                                            'attachmentId': 'string',
-                                            'fileName': 'string'
+                                            \'attachmentId\': \'string\',
+                                            \'fileName\': \'string\'
                                         },
                                     ]
                                 },
                             ],
-                            'nextToken': 'string'
+                            \'nextToken\': \'string\'
                         },
-                        'ccEmailAddresses': [
-                            'string',
+                        \'ccEmailAddresses\': [
+                            \'string\',
                         ],
-                        'language': 'string'
+                        \'language\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -146,7 +146,7 @@ class DescribeCases(Paginator):
                  
                 * **displayId.** The identifier for the case on pages in the AWS Support Center. 
                  
-                * **language.** The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them. 
+                * **language.** The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them. 
                  
                 * **recentCommunications.** One or more  Communication objects. Fields of these objects are ``attachments`` , ``body`` , ``caseId`` , ``submittedBy`` , and ``timeCreated`` . 
                  
@@ -256,7 +256,7 @@ class DescribeCases(Paginator):
               
                 - **language** *(string) --* 
         
-                  The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+                  The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
         
             - **NextToken** *(string) --* 
         
@@ -276,13 +276,13 @@ class DescribeCommunications(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              caseId='string',
-              beforeTime='string',
-              afterTime='string',
+              caseId=\'string\',
+              beforeTime=\'string\',
+              afterTime=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type caseId: string
@@ -325,21 +325,21 @@ class DescribeCommunications(Paginator):
           ::
         
             {
-                'communications': [
+                \'communications\': [
                     {
-                        'caseId': 'string',
-                        'body': 'string',
-                        'submittedBy': 'string',
-                        'timeCreated': 'string',
-                        'attachmentSet': [
+                        \'caseId\': \'string\',
+                        \'body\': \'string\',
+                        \'submittedBy\': \'string\',
+                        \'timeCreated\': \'string\',
+                        \'attachmentSet\': [
                             {
-                                'attachmentId': 'string',
-                                'fileName': 'string'
+                                \'attachmentId\': \'string\',
+                                \'fileName\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

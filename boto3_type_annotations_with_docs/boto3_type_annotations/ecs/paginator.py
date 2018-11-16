@@ -13,9 +13,9 @@ class ListClusters(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,10 +43,10 @@ class ListClusters(Paginator):
           ::
         
             {
-                'clusterArns': [
-                    'string',
+                \'clusterArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -76,13 +76,13 @@ class ListContainerInstances(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              cluster='string',
-              filter='string',
-              status='ACTIVE'|'DRAINING',
+              cluster=\'string\',
+              filter=\'string\',
+              status=\'ACTIVE\'|\'DRAINING\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type cluster: string
@@ -125,10 +125,10 @@ class ListContainerInstances(Paginator):
           ::
         
             {
-                'containerInstanceArns': [
-                    'string',
+                \'containerInstanceArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -158,13 +158,13 @@ class ListServices(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              cluster='string',
-              launchType='EC2'|'FARGATE',
-              schedulingStrategy='REPLICA'|'DAEMON',
+              cluster=\'string\',
+              launchType=\'EC2\'|\'FARGATE\',
+              schedulingStrategy=\'REPLICA\'|\'DAEMON\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type cluster: string
@@ -207,10 +207,10 @@ class ListServices(Paginator):
           ::
         
             {
-                'serviceArns': [
-                    'string',
+                \'serviceArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -240,12 +240,12 @@ class ListTaskDefinitionFamilies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              familyPrefix='string',
-              status='ACTIVE'|'INACTIVE'|'ALL',
+              familyPrefix=\'string\',
+              status=\'ACTIVE\'|\'INACTIVE\'|\'ALL\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type familyPrefix: string
@@ -283,10 +283,10 @@ class ListTaskDefinitionFamilies(Paginator):
           ::
         
             {
-                'families': [
-                    'string',
+                \'families\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -316,13 +316,13 @@ class ListTaskDefinitions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              familyPrefix='string',
-              status='ACTIVE'|'INACTIVE',
-              sort='ASC'|'DESC',
+              familyPrefix=\'string\',
+              status=\'ACTIVE\'|\'INACTIVE\',
+              sort=\'ASC\'|\'DESC\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type familyPrefix: string
@@ -365,10 +365,10 @@ class ListTaskDefinitions(Paginator):
           ::
         
             {
-                'taskDefinitionArns': [
-                    'string',
+                \'taskDefinitionArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -398,17 +398,17 @@ class ListTasks(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              cluster='string',
-              containerInstance='string',
-              family='string',
-              startedBy='string',
-              serviceName='string',
-              desiredStatus='RUNNING'|'PENDING'|'STOPPED',
-              launchType='EC2'|'FARGATE',
+              cluster=\'string\',
+              containerInstance=\'string\',
+              family=\'string\',
+              startedBy=\'string\',
+              serviceName=\'string\',
+              desiredStatus=\'RUNNING\'|\'PENDING\'|\'STOPPED\',
+              launchType=\'EC2\'|\'FARGATE\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type cluster: string
@@ -443,7 +443,7 @@ class ListTasks(Paginator):
         
           .. note::
         
-            Although you can filter results based on a desired status of ``PENDING`` , this does not return any results because Amazon ECS never sets the desired status of a task to that value (only a task's ``lastStatus`` may have a value of ``PENDING`` ).
+            Although you can filter results based on a desired status of ``PENDING`` , this does not return any results because Amazon ECS never sets the desired status of a task to that value (only a task\'s ``lastStatus`` may have a value of ``PENDING`` ).
         
         :type launchType: string
         :param launchType: 
@@ -475,10 +475,10 @@ class ListTasks(Paginator):
           ::
         
             {
-                'taskArns': [
-                    'string',
+                \'taskArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

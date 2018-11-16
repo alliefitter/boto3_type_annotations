@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
+from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -18,7 +18,7 @@ class Client(BaseClient):
         
           response = client.batch_get_named_query(
               NamedQueryIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type NamedQueryIds: list
@@ -36,20 +36,20 @@ class Client(BaseClient):
           ::
         
             {
-                'NamedQueries': [
+                \'NamedQueries\': [
                     {
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Database': 'string',
-                        'QueryString': 'string',
-                        'NamedQueryId': 'string'
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Database\': \'string\',
+                        \'QueryString\': \'string\',
+                        \'NamedQueryId\': \'string\'
                     },
                 ],
-                'UnprocessedNamedQueryIds': [
+                \'UnprocessedNamedQueryIds\': [
                     {
-                        'NamedQueryId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'NamedQueryId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -118,7 +118,7 @@ class Client(BaseClient):
         
           response = client.batch_get_query_execution(
               QueryExecutionIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type QueryExecutionIds: list
@@ -136,38 +136,38 @@ class Client(BaseClient):
           ::
         
             {
-                'QueryExecutions': [
+                \'QueryExecutions\': [
                     {
-                        'QueryExecutionId': 'string',
-                        'Query': 'string',
-                        'StatementType': 'DDL'|'DML'|'UTILITY',
-                        'ResultConfiguration': {
-                            'OutputLocation': 'string',
-                            'EncryptionConfiguration': {
-                                'EncryptionOption': 'SSE_S3'|'SSE_KMS'|'CSE_KMS',
-                                'KmsKey': 'string'
+                        \'QueryExecutionId\': \'string\',
+                        \'Query\': \'string\',
+                        \'StatementType\': \'DDL\'|\'DML\'|\'UTILITY\',
+                        \'ResultConfiguration\': {
+                            \'OutputLocation\': \'string\',
+                            \'EncryptionConfiguration\': {
+                                \'EncryptionOption\': \'SSE_S3\'|\'SSE_KMS\'|\'CSE_KMS\',
+                                \'KmsKey\': \'string\'
                             }
                         },
-                        'QueryExecutionContext': {
-                            'Database': 'string'
+                        \'QueryExecutionContext\': {
+                            \'Database\': \'string\'
                         },
-                        'Status': {
-                            'State': 'QUEUED'|'RUNNING'|'SUCCEEDED'|'FAILED'|'CANCELLED',
-                            'StateChangeReason': 'string',
-                            'SubmissionDateTime': datetime(2015, 1, 1),
-                            'CompletionDateTime': datetime(2015, 1, 1)
+                        \'Status\': {
+                            \'State\': \'QUEUED\'|\'RUNNING\'|\'SUCCEEDED\'|\'FAILED\'|\'CANCELLED\',
+                            \'StateChangeReason\': \'string\',
+                            \'SubmissionDateTime\': datetime(2015, 1, 1),
+                            \'CompletionDateTime\': datetime(2015, 1, 1)
                         },
-                        'Statistics': {
-                            'EngineExecutionTimeInMillis': 123,
-                            'DataScannedInBytes': 123
+                        \'Statistics\': {
+                            \'EngineExecutionTimeInMillis\': 123,
+                            \'DataScannedInBytes\': 123
                         }
                     },
                 ],
-                'UnprocessedQueryExecutionIds': [
+                \'UnprocessedQueryExecutionIds\': [
                     {
-                        'QueryExecutionId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'QueryExecutionId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -284,10 +284,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -305,11 +305,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_named_query(
-              Name='string',
-              Description='string',
-              Database='string',
-              QueryString='string',
-              ClientRequestToken='string'
+              Name=\'string\',
+              Description=\'string\',
+              Database=\'string\',
+              QueryString=\'string\',
+              ClientRequestToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -350,7 +350,7 @@ class Client(BaseClient):
           ::
         
             {
-                'NamedQueryId': 'string'
+                \'NamedQueryId\': \'string\'
             }
           **Response Structure** 
         
@@ -374,7 +374,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_named_query(
-              NamedQueryId='string'
+              NamedQueryId=\'string\'
           )
         :type NamedQueryId: string
         :param NamedQueryId: **[REQUIRED]** 
@@ -413,7 +413,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -428,7 +428,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_named_query(
-              NamedQueryId='string'
+              NamedQueryId=\'string\'
           )
         :type NamedQueryId: string
         :param NamedQueryId: **[REQUIRED]** 
@@ -443,12 +443,12 @@ class Client(BaseClient):
           ::
         
             {
-                'NamedQuery': {
-                    'Name': 'string',
-                    'Description': 'string',
-                    'Database': 'string',
-                    'QueryString': 'string',
-                    'NamedQueryId': 'string'
+                \'NamedQuery\': {
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'Database\': \'string\',
+                    \'QueryString\': \'string\',
+                    \'NamedQueryId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -488,10 +488,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -511,7 +511,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_query_execution(
-              QueryExecutionId='string'
+              QueryExecutionId=\'string\'
           )
         :type QueryExecutionId: string
         :param QueryExecutionId: **[REQUIRED]** 
@@ -526,29 +526,29 @@ class Client(BaseClient):
           ::
         
             {
-                'QueryExecution': {
-                    'QueryExecutionId': 'string',
-                    'Query': 'string',
-                    'StatementType': 'DDL'|'DML'|'UTILITY',
-                    'ResultConfiguration': {
-                        'OutputLocation': 'string',
-                        'EncryptionConfiguration': {
-                            'EncryptionOption': 'SSE_S3'|'SSE_KMS'|'CSE_KMS',
-                            'KmsKey': 'string'
+                \'QueryExecution\': {
+                    \'QueryExecutionId\': \'string\',
+                    \'Query\': \'string\',
+                    \'StatementType\': \'DDL\'|\'DML\'|\'UTILITY\',
+                    \'ResultConfiguration\': {
+                        \'OutputLocation\': \'string\',
+                        \'EncryptionConfiguration\': {
+                            \'EncryptionOption\': \'SSE_S3\'|\'SSE_KMS\'|\'CSE_KMS\',
+                            \'KmsKey\': \'string\'
                         }
                     },
-                    'QueryExecutionContext': {
-                        'Database': 'string'
+                    \'QueryExecutionContext\': {
+                        \'Database\': \'string\'
                     },
-                    'Status': {
-                        'State': 'QUEUED'|'RUNNING'|'SUCCEEDED'|'FAILED'|'CANCELLED',
-                        'StateChangeReason': 'string',
-                        'SubmissionDateTime': datetime(2015, 1, 1),
-                        'CompletionDateTime': datetime(2015, 1, 1)
+                    \'Status\': {
+                        \'State\': \'QUEUED\'|\'RUNNING\'|\'SUCCEEDED\'|\'FAILED\'|\'CANCELLED\',
+                        \'StateChangeReason\': \'string\',
+                        \'SubmissionDateTime\': datetime(2015, 1, 1),
+                        \'CompletionDateTime\': datetime(2015, 1, 1)
                     },
-                    'Statistics': {
-                        'EngineExecutionTimeInMillis': 123,
-                        'DataScannedInBytes': 123
+                    \'Statistics\': {
+                        \'EngineExecutionTimeInMillis\': 123,
+                        \'DataScannedInBytes\': 123
                     }
                 }
             }
@@ -644,8 +644,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_query_results(
-              QueryExecutionId='string',
-              NextToken='string',
+              QueryExecutionId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type QueryExecutionId: string
@@ -671,35 +671,35 @@ class Client(BaseClient):
           ::
         
             {
-                'UpdateCount': 123,
-                'ResultSet': {
-                    'Rows': [
+                \'UpdateCount\': 123,
+                \'ResultSet\': {
+                    \'Rows\': [
                         {
-                            'Data': [
+                            \'Data\': [
                                 {
-                                    'VarCharValue': 'string'
+                                    \'VarCharValue\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ResultSetMetadata': {
-                        'ColumnInfo': [
+                    \'ResultSetMetadata\': {
+                        \'ColumnInfo\': [
                             {
-                                'CatalogName': 'string',
-                                'SchemaName': 'string',
-                                'TableName': 'string',
-                                'Name': 'string',
-                                'Label': 'string',
-                                'Type': 'string',
-                                'Precision': 123,
-                                'Scale': 123,
-                                'Nullable': 'NOT_NULL'|'NULLABLE'|'UNKNOWN',
-                                'CaseSensitive': True|False
+                                \'CatalogName\': \'string\',
+                                \'SchemaName\': \'string\',
+                                \'TableName\': \'string\',
+                                \'Name\': \'string\',
+                                \'Label\': \'string\',
+                                \'Type\': \'string\',
+                                \'Precision\': 123,
+                                \'Scale\': 123,
+                                \'Nullable\': \'NOT_NULL\'|\'NULLABLE\'|\'UNKNOWN\',
+                                \'CaseSensitive\': True|False
                             },
                         ]
                     }
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -779,7 +779,7 @@ class Client(BaseClient):
         
                     - **Nullable** *(string) --* 
         
-                      Indicates the column's nullable status.
+                      Indicates the column\'s nullable status.
         
                     - **CaseSensitive** *(boolean) --* 
         
@@ -815,7 +815,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_named_queries(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -836,10 +836,10 @@ class Client(BaseClient):
           ::
         
             {
-                'NamedQueryIds': [
-                    'string',
+                \'NamedQueryIds\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -869,7 +869,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_query_executions(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -890,10 +890,10 @@ class Client(BaseClient):
           ::
         
             {
-                'QueryExecutionIds': [
-                    'string',
+                \'QueryExecutionIds\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -923,16 +923,16 @@ class Client(BaseClient):
         ::
         
           response = client.start_query_execution(
-              QueryString='string',
-              ClientRequestToken='string',
+              QueryString=\'string\',
+              ClientRequestToken=\'string\',
               QueryExecutionContext={
-                  'Database': 'string'
+                  \'Database\': \'string\'
               },
               ResultConfiguration={
-                  'OutputLocation': 'string',
-                  'EncryptionConfiguration': {
-                      'EncryptionOption': 'SSE_S3'|'SSE_KMS'|'CSE_KMS',
-                      'KmsKey': 'string'
+                  \'OutputLocation\': \'string\',
+                  \'EncryptionConfiguration\': {
+                      \'EncryptionOption\': \'SSE_S3\'|\'SSE_KMS\'|\'CSE_KMS\',
+                      \'KmsKey\': \'string\'
                   }
               }
           )
@@ -990,7 +990,7 @@ class Client(BaseClient):
           ::
         
             {
-                'QueryExecutionId': 'string'
+                \'QueryExecutionId\': \'string\'
             }
           **Response Structure** 
         
@@ -1014,7 +1014,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_query_execution(
-              QueryExecutionId='string'
+              QueryExecutionId=\'string\'
           )
         :type QueryExecutionId: string
         :param QueryExecutionId: **[REQUIRED]** 

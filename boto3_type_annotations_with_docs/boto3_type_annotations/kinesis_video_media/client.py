@@ -1,9 +1,9 @@
+from typing import Optional
+from typing import Union
 from botocore.waiter import Waiter
 from botocore.paginate import Paginator
-from typing import Union
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -13,10 +13,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -39,7 +39,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -52,7 +52,7 @@ class Client(BaseClient):
         
           You must first call the ``GetDataEndpoint`` API to get an endpoint to which you can then send the ``GetMedia`` requests. 
         
-        When you put media data (fragments) on a stream, Kinesis Video Streams stores each incoming fragment and related metadata in what is called a "chunk." For more information, see . The ``GetMedia`` API returns a stream of these chunks starting from the chunk that you specify in the request. 
+        When you put media data (fragments) on a stream, Kinesis Video Streams stores each incoming fragment and related metadata in what is called a \"chunk.\" For more information, see . The ``GetMedia`` API returns a stream of these chunks starting from the chunk that you specify in the request. 
         
         The following limits apply when using the ``GetMedia`` API:
         
@@ -66,24 +66,24 @@ class Client(BaseClient):
         ::
         
           response = client.get_media(
-              StreamName='string',
-              StreamARN='string',
+              StreamName=\'string\',
+              StreamARN=\'string\',
               StartSelector={
-                  'StartSelectorType': 'FRAGMENT_NUMBER'|'SERVER_TIMESTAMP'|'PRODUCER_TIMESTAMP'|'NOW'|'EARLIEST'|'CONTINUATION_TOKEN',
-                  'AfterFragmentNumber': 'string',
-                  'StartTimestamp': datetime(2015, 1, 1),
-                  'ContinuationToken': 'string'
+                  \'StartSelectorType\': \'FRAGMENT_NUMBER\'|\'SERVER_TIMESTAMP\'|\'PRODUCER_TIMESTAMP\'|\'NOW\'|\'EARLIEST\'|\'CONTINUATION_TOKEN\',
+                  \'AfterFragmentNumber\': \'string\',
+                  \'StartTimestamp\': datetime(2015, 1, 1),
+                  \'ContinuationToken\': \'string\'
               }
           )
         :type StreamName: string
         :param StreamName: 
         
-          The Kinesis video stream name from where you want to get the media content. If you don't specify the ``streamName`` , you must specify the ``streamARN`` .
+          The Kinesis video stream name from where you want to get the media content. If you don\'t specify the ``streamName`` , you must specify the ``streamARN`` .
         
         :type StreamARN: string
         :param StreamARN: 
         
-          The ARN of the stream from where you want to get the media content. If you don't specify the ``streamARN`` , you must specify the ``streamName`` .
+          The ARN of the stream from where you want to get the media content. If you don\'t specify the ``streamARN`` , you must specify the ``streamName`` .
         
         :type StartSelector: dict
         :param StartSelector: **[REQUIRED]** 
@@ -106,7 +106,7 @@ class Client(BaseClient):
              
             .. note::
         
-              If you choose the NOW, EARLIEST, or CONTINUATION_TOKEN as the ``startSelectorType`` , you don't provide any additional information in the ``startSelector`` .
+              If you choose the NOW, EARLIEST, or CONTINUATION_TOKEN as the ``startSelectorType`` , you don\'t provide any additional information in the ``startSelector`` .
         
           - **AfterFragmentNumber** *(string) --* 
         
@@ -128,8 +128,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ContentType': 'string',
-                'Payload': StreamingBody()
+                \'ContentType\': \'string\',
+                \'Payload\': StreamingBody()
             }
           **Response Structure** 
         
@@ -165,11 +165,11 @@ class Client(BaseClient):
                
               * 4000 - Requested fragment is not found 
                
-              * 4500 - Access denied for the stream's KMS key 
+              * 4500 - Access denied for the stream\'s KMS key 
                
-              * 4501 - Stream's KMS key is disabled 
+              * 4501 - Stream\'s KMS key is disabled 
                
-              * 4502 - Validation error on the Stream's KMS key 
+              * 4502 - Validation error on the Stream\'s KMS key 
                
               * 4503 - KMS key specified in the stream is unavailable 
                
@@ -190,10 +190,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to

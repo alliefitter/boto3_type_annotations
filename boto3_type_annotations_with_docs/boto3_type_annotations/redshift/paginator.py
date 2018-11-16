@@ -14,17 +14,17 @@ class DescribeClusterParameterGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ParameterGroupName='string',
+              ParameterGroupName=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ParameterGroupName: string
@@ -71,20 +71,20 @@ class DescribeClusterParameterGroups(Paginator):
           ::
         
             {
-                'ParameterGroups': [
+                \'ParameterGroups\': [
                     {
-                        'ParameterGroupName': 'string',
-                        'ParameterGroupFamily': 'string',
-                        'Description': 'string',
-                        'Tags': [
+                        \'ParameterGroupName\': \'string\',
+                        \'ParameterGroupFamily\': \'string\',
+                        \'Description\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -146,12 +146,12 @@ class DescribeClusterParameters(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ParameterGroupName='string',
-              Source='string',
+              ParameterGroupName=\'string\',
+              Source=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ParameterGroupName: string
@@ -193,20 +193,20 @@ class DescribeClusterParameters(Paginator):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'ParameterName': 'string',
-                        'ParameterValue': 'string',
-                        'Description': 'string',
-                        'Source': 'string',
-                        'DataType': 'string',
-                        'AllowedValues': 'string',
-                        'ApplyType': 'static'|'dynamic',
-                        'IsModifiable': True|False,
-                        'MinimumEngineVersion': 'string'
+                        \'ParameterName\': \'string\',
+                        \'ParameterValue\': \'string\',
+                        \'Description\': \'string\',
+                        \'Source\': \'string\',
+                        \'DataType\': \'string\',
+                        \'AllowedValues\': \'string\',
+                        \'ApplyType\': \'static\'|\'dynamic\',
+                        \'IsModifiable\': True|False,
+                        \'MinimumEngineVersion\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -236,7 +236,7 @@ class DescribeClusterParameters(Paginator):
         
                 - **Source** *(string) --* 
         
-                  The source of the parameter value, such as "engine-default" or "user".
+                  The source of the parameter value, such as \"engine-default\" or \"user\".
         
                 - **DataType** *(string) --* 
         
@@ -276,17 +276,17 @@ class DescribeClusterSecurityGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ClusterSecurityGroupName='string',
+              ClusterSecurityGroupName=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ClusterSecurityGroupName: string
@@ -335,44 +335,44 @@ class DescribeClusterSecurityGroups(Paginator):
           ::
         
             {
-                'ClusterSecurityGroups': [
+                \'ClusterSecurityGroups\': [
                     {
-                        'ClusterSecurityGroupName': 'string',
-                        'Description': 'string',
-                        'EC2SecurityGroups': [
+                        \'ClusterSecurityGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'EC2SecurityGroups\': [
                             {
-                                'Status': 'string',
-                                'EC2SecurityGroupName': 'string',
-                                'EC2SecurityGroupOwnerId': 'string',
-                                'Tags': [
+                                \'Status\': \'string\',
+                                \'EC2SecurityGroupName\': \'string\',
+                                \'EC2SecurityGroupOwnerId\': \'string\',
+                                \'Tags\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'IPRanges': [
+                        \'IPRanges\': [
                             {
-                                'Status': 'string',
-                                'CIDRIP': 'string',
-                                'Tags': [
+                                \'Status\': \'string\',
+                                \'CIDRIP\': \'string\',
+                                \'Tags\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -440,7 +440,7 @@ class DescribeClusterSecurityGroups(Paginator):
         
                     - **Status** *(string) --* 
         
-                      The status of the IP range, for example, "authorized".
+                      The status of the IP range, for example, \"authorized\".
         
                     - **CIDRIP** *(string) --* 
         
@@ -496,23 +496,23 @@ class DescribeClusterSnapshots(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ClusterIdentifier='string',
-              SnapshotIdentifier='string',
-              SnapshotType='string',
+              ClusterIdentifier=\'string\',
+              SnapshotIdentifier=\'string\',
+              SnapshotType=\'string\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
-              OwnerAccount='string',
+              OwnerAccount=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               ClusterExists=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ClusterIdentifier: string
@@ -595,53 +595,53 @@ class DescribeClusterSnapshots(Paginator):
           ::
         
             {
-                'Snapshots': [
+                \'Snapshots\': [
                     {
-                        'SnapshotIdentifier': 'string',
-                        'ClusterIdentifier': 'string',
-                        'SnapshotCreateTime': datetime(2015, 1, 1),
-                        'Status': 'string',
-                        'Port': 123,
-                        'AvailabilityZone': 'string',
-                        'ClusterCreateTime': datetime(2015, 1, 1),
-                        'MasterUsername': 'string',
-                        'ClusterVersion': 'string',
-                        'SnapshotType': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'DBName': 'string',
-                        'VpcId': 'string',
-                        'Encrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'EncryptedWithHSM': True|False,
-                        'AccountsWithRestoreAccess': [
+                        \'SnapshotIdentifier\': \'string\',
+                        \'ClusterIdentifier\': \'string\',
+                        \'SnapshotCreateTime\': datetime(2015, 1, 1),
+                        \'Status\': \'string\',
+                        \'Port\': 123,
+                        \'AvailabilityZone\': \'string\',
+                        \'ClusterCreateTime\': datetime(2015, 1, 1),
+                        \'MasterUsername\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'SnapshotType\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'DBName\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'Encrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'EncryptedWithHSM\': True|False,
+                        \'AccountsWithRestoreAccess\': [
                             {
-                                'AccountId': 'string',
-                                'AccountAlias': 'string'
+                                \'AccountId\': \'string\',
+                                \'AccountAlias\': \'string\'
                             },
                         ],
-                        'OwnerAccount': 'string',
-                        'TotalBackupSizeInMegaBytes': 123.0,
-                        'ActualIncrementalBackupSizeInMegaBytes': 123.0,
-                        'BackupProgressInMegaBytes': 123.0,
-                        'CurrentBackupRateInMegaBytesPerSecond': 123.0,
-                        'EstimatedSecondsToCompletion': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'SourceRegion': 'string',
-                        'Tags': [
+                        \'OwnerAccount\': \'string\',
+                        \'TotalBackupSizeInMegaBytes\': 123.0,
+                        \'ActualIncrementalBackupSizeInMegaBytes\': 123.0,
+                        \'BackupProgressInMegaBytes\': 123.0,
+                        \'CurrentBackupRateInMegaBytesPerSecond\': 123.0,
+                        \'EstimatedSecondsToCompletion\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'SourceRegion\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'RestorableNodeTypes': [
-                            'string',
+                        \'RestorableNodeTypes\': [
+                            \'string\',
                         ],
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string'
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -673,11 +673,11 @@ class DescribeClusterSnapshots(Paginator):
         
                   The snapshot status. The value of the status depends on the API operation used. 
         
-                  *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as "creating".  
+                  *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as \"creating\".  
                    
-                  *  DescribeClusterSnapshots returns status as "creating", "available", "final snapshot", or "failed". 
+                  *  DescribeClusterSnapshots returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\". 
                    
-                  *  DeleteClusterSnapshot returns status as "deleted". 
+                  *  DeleteClusterSnapshot returns status as \"deleted\". 
                    
                 - **Port** *(integer) --* 
         
@@ -701,7 +701,7 @@ class DescribeClusterSnapshots(Paginator):
         
                 - **SnapshotType** *(string) --* 
         
-                  The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type "manual". 
+                  The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type \"manual\". 
         
                 - **NodeType** *(string) --* 
         
@@ -831,17 +831,17 @@ class DescribeClusterSubnetGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ClusterSubnetGroupName='string',
+              ClusterSubnetGroupName=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ClusterSubnetGroupName: string
@@ -888,35 +888,35 @@ class DescribeClusterSubnetGroups(Paginator):
           ::
         
             {
-                'ClusterSubnetGroups': [
+                \'ClusterSubnetGroups\': [
                     {
-                        'ClusterSubnetGroupName': 'string',
-                        'Description': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                        \'ClusterSubnetGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string',
-                                    'SupportedPlatforms': [
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\',
+                                    \'SupportedPlatforms\': [
                                         {
-                                            'Name': 'string'
+                                            \'Name\': \'string\'
                                         },
                                     ]
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1014,12 +1014,12 @@ class DescribeClusterVersions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ClusterVersion='string',
-              ClusterParameterGroupFamily='string',
+              ClusterVersion=\'string\',
+              ClusterParameterGroupFamily=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ClusterVersion: string
@@ -1067,14 +1067,14 @@ class DescribeClusterVersions(Paginator):
           ::
         
             {
-                'ClusterVersions': [
+                \'ClusterVersions\': [
                     {
-                        'ClusterVersion': 'string',
-                        'ClusterParameterGroupFamily': 'string',
-                        'Description': 'string'
+                        \'ClusterVersion\': \'string\',
+                        \'ClusterParameterGroupFamily\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1120,17 +1120,17 @@ class DescribeClusters(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ClusterIdentifier='string',
+              ClusterIdentifier=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ClusterIdentifier: string
@@ -1179,120 +1179,120 @@ class DescribeClusters(Paginator):
           ::
         
             {
-                'Clusters': [
+                \'Clusters\': [
                     {
-                        'ClusterIdentifier': 'string',
-                        'NodeType': 'string',
-                        'ClusterStatus': 'string',
-                        'ModifyStatus': 'string',
-                        'MasterUsername': 'string',
-                        'DBName': 'string',
-                        'Endpoint': {
-                            'Address': 'string',
-                            'Port': 123
+                        \'ClusterIdentifier\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'ClusterStatus\': \'string\',
+                        \'ModifyStatus\': \'string\',
+                        \'MasterUsername\': \'string\',
+                        \'DBName\': \'string\',
+                        \'Endpoint\': {
+                            \'Address\': \'string\',
+                            \'Port\': 123
                         },
-                        'ClusterCreateTime': datetime(2015, 1, 1),
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterSecurityGroups': [
+                        \'ClusterCreateTime\': datetime(2015, 1, 1),
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterSecurityGroups\': [
                             {
-                                'ClusterSecurityGroupName': 'string',
-                                'Status': 'string'
+                                \'ClusterSecurityGroupName\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'VpcSecurityGroups': [
+                        \'VpcSecurityGroups\': [
                             {
-                                'VpcSecurityGroupId': 'string',
-                                'Status': 'string'
+                                \'VpcSecurityGroupId\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'ClusterParameterGroups': [
+                        \'ClusterParameterGroups\': [
                             {
-                                'ParameterGroupName': 'string',
-                                'ParameterApplyStatus': 'string',
-                                'ClusterParameterStatusList': [
+                                \'ParameterGroupName\': \'string\',
+                                \'ParameterApplyStatus\': \'string\',
+                                \'ClusterParameterStatusList\': [
                                     {
-                                        'ParameterName': 'string',
-                                        'ParameterApplyStatus': 'string',
-                                        'ParameterApplyErrorDescription': 'string'
+                                        \'ParameterName\': \'string\',
+                                        \'ParameterApplyStatus\': \'string\',
+                                        \'ParameterApplyErrorDescription\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'ClusterSubnetGroupName': 'string',
-                        'VpcId': 'string',
-                        'AvailabilityZone': 'string',
-                        'PreferredMaintenanceWindow': 'string',
-                        'PendingModifiedValues': {
-                            'MasterUserPassword': 'string',
-                            'NodeType': 'string',
-                            'NumberOfNodes': 123,
-                            'ClusterType': 'string',
-                            'ClusterVersion': 'string',
-                            'AutomatedSnapshotRetentionPeriod': 123,
-                            'ClusterIdentifier': 'string',
-                            'PubliclyAccessible': True|False,
-                            'EnhancedVpcRouting': True|False,
-                            'MaintenanceTrackName': 'string',
-                            'EncryptionType': 'string'
+                        \'ClusterSubnetGroupName\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'AvailabilityZone\': \'string\',
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'PendingModifiedValues\': {
+                            \'MasterUserPassword\': \'string\',
+                            \'NodeType\': \'string\',
+                            \'NumberOfNodes\': 123,
+                            \'ClusterType\': \'string\',
+                            \'ClusterVersion\': \'string\',
+                            \'AutomatedSnapshotRetentionPeriod\': 123,
+                            \'ClusterIdentifier\': \'string\',
+                            \'PubliclyAccessible\': True|False,
+                            \'EnhancedVpcRouting\': True|False,
+                            \'MaintenanceTrackName\': \'string\',
+                            \'EncryptionType\': \'string\'
                         },
-                        'ClusterVersion': 'string',
-                        'AllowVersionUpgrade': True|False,
-                        'NumberOfNodes': 123,
-                        'PubliclyAccessible': True|False,
-                        'Encrypted': True|False,
-                        'RestoreStatus': {
-                            'Status': 'string',
-                            'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                            'SnapshotSizeInMegaBytes': 123,
-                            'ProgressInMegaBytes': 123,
-                            'ElapsedTimeInSeconds': 123,
-                            'EstimatedTimeToCompletionInSeconds': 123
+                        \'ClusterVersion\': \'string\',
+                        \'AllowVersionUpgrade\': True|False,
+                        \'NumberOfNodes\': 123,
+                        \'PubliclyAccessible\': True|False,
+                        \'Encrypted\': True|False,
+                        \'RestoreStatus\': {
+                            \'Status\': \'string\',
+                            \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                            \'SnapshotSizeInMegaBytes\': 123,
+                            \'ProgressInMegaBytes\': 123,
+                            \'ElapsedTimeInSeconds\': 123,
+                            \'EstimatedTimeToCompletionInSeconds\': 123
                         },
-                        'HsmStatus': {
-                            'HsmClientCertificateIdentifier': 'string',
-                            'HsmConfigurationIdentifier': 'string',
-                            'Status': 'string'
+                        \'HsmStatus\': {
+                            \'HsmClientCertificateIdentifier\': \'string\',
+                            \'HsmConfigurationIdentifier\': \'string\',
+                            \'Status\': \'string\'
                         },
-                        'ClusterSnapshotCopyStatus': {
-                            'DestinationRegion': 'string',
-                            'RetentionPeriod': 123,
-                            'SnapshotCopyGrantName': 'string'
+                        \'ClusterSnapshotCopyStatus\': {
+                            \'DestinationRegion\': \'string\',
+                            \'RetentionPeriod\': 123,
+                            \'SnapshotCopyGrantName\': \'string\'
                         },
-                        'ClusterPublicKey': 'string',
-                        'ClusterNodes': [
+                        \'ClusterPublicKey\': \'string\',
+                        \'ClusterNodes\': [
                             {
-                                'NodeRole': 'string',
-                                'PrivateIPAddress': 'string',
-                                'PublicIPAddress': 'string'
+                                \'NodeRole\': \'string\',
+                                \'PrivateIPAddress\': \'string\',
+                                \'PublicIPAddress\': \'string\'
                             },
                         ],
-                        'ElasticIpStatus': {
-                            'ElasticIp': 'string',
-                            'Status': 'string'
+                        \'ElasticIpStatus\': {
+                            \'ElasticIp\': \'string\',
+                            \'Status\': \'string\'
                         },
-                        'ClusterRevisionNumber': 'string',
-                        'Tags': [
+                        \'ClusterRevisionNumber\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'KmsKeyId': 'string',
-                        'EnhancedVpcRouting': True|False,
-                        'IamRoles': [
+                        \'KmsKeyId\': \'string\',
+                        \'EnhancedVpcRouting\': True|False,
+                        \'IamRoles\': [
                             {
-                                'IamRoleArn': 'string',
-                                'ApplyStatus': 'string'
+                                \'IamRoleArn\': \'string\',
+                                \'ApplyStatus\': \'string\'
                             },
                         ],
-                        'PendingActions': [
-                            'string',
+                        \'PendingActions\': [
+                            \'string\',
                         ],
-                        'MaintenanceTrackName': 'string',
-                        'ElasticResizeNumberOfNodeOptions': 'string'
+                        \'MaintenanceTrackName\': \'string\',
+                        \'ElasticResizeNumberOfNodeOptions\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1498,7 +1498,7 @@ class DescribeClusters(Paginator):
         
                   - **NodeType** *(string) --* 
         
-                    The pending or in-progress change of the cluster's node type.
+                    The pending or in-progress change of the cluster\'s node type.
         
                   - **NumberOfNodes** *(integer) --* 
         
@@ -1706,7 +1706,7 @@ class DescribeClusters(Paginator):
         
                     - **ApplyStatus** *(string) --* 
         
-                      A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                      A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                       The following are possible statuses and descriptions.
         
@@ -1748,11 +1748,11 @@ class DescribeDefaultClusterParameters(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ParameterGroupFamily='string',
+              ParameterGroupFamily=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ParameterGroupFamily: string
@@ -1785,24 +1785,24 @@ class DescribeDefaultClusterParameters(Paginator):
           ::
         
             {
-                'DefaultClusterParameters': {
-                    'ParameterGroupFamily': 'string',
-                    'Marker': 'string',
-                    'Parameters': [
+                \'DefaultClusterParameters\': {
+                    \'ParameterGroupFamily\': \'string\',
+                    \'Marker\': \'string\',
+                    \'Parameters\': [
                         {
-                            'ParameterName': 'string',
-                            'ParameterValue': 'string',
-                            'Description': 'string',
-                            'Source': 'string',
-                            'DataType': 'string',
-                            'AllowedValues': 'string',
-                            'ApplyType': 'static'|'dynamic',
-                            'IsModifiable': True|False,
-                            'MinimumEngineVersion': 'string'
+                            \'ParameterName\': \'string\',
+                            \'ParameterValue\': \'string\',
+                            \'Description\': \'string\',
+                            \'Source\': \'string\',
+                            \'DataType\': \'string\',
+                            \'AllowedValues\': \'string\',
+                            \'ApplyType\': \'static\'|\'dynamic\',
+                            \'IsModifiable\': True|False,
+                            \'MinimumEngineVersion\': \'string\'
                         },
                     ]
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1842,7 +1842,7 @@ class DescribeDefaultClusterParameters(Paginator):
         
                   - **Source** *(string) --* 
         
-                    The source of the parameter value, such as "engine-default" or "user".
+                    The source of the parameter value, such as \"engine-default\" or \"user\".
         
                   - **DataType** *(string) --* 
         
@@ -1882,17 +1882,17 @@ class DescribeEventSubscriptions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SubscriptionName='string',
+              SubscriptionName=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SubscriptionName: string
@@ -1939,31 +1939,31 @@ class DescribeEventSubscriptions(Paginator):
           ::
         
             {
-                'EventSubscriptionsList': [
+                \'EventSubscriptionsList\': [
                     {
-                        'CustomerAwsId': 'string',
-                        'CustSubscriptionId': 'string',
-                        'SnsTopicArn': 'string',
-                        'Status': 'string',
-                        'SubscriptionCreationTime': datetime(2015, 1, 1),
-                        'SourceType': 'string',
-                        'SourceIdsList': [
-                            'string',
+                        \'CustomerAwsId\': \'string\',
+                        \'CustSubscriptionId\': \'string\',
+                        \'SnsTopicArn\': \'string\',
+                        \'Status\': \'string\',
+                        \'SubscriptionCreationTime\': datetime(2015, 1, 1),
+                        \'SourceType\': \'string\',
+                        \'SourceIdsList\': [
+                            \'string\',
                         ],
-                        'EventCategoriesList': [
-                            'string',
+                        \'EventCategoriesList\': [
+                            \'string\',
                         ],
-                        'Severity': 'string',
-                        'Enabled': True|False,
-                        'Tags': [
+                        \'Severity\': \'string\',
+                        \'Enabled\': True|False,
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1997,7 +1997,7 @@ class DescribeEventSubscriptions(Paginator):
         
                   * Can be one of the following: active | no-permission | topic-not-exist 
                    
-                  * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created. 
+                  * The status \"no-permission\" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created. 
                    
                 - **SubscriptionCreationTime** *(datetime) --* 
         
@@ -2065,15 +2065,15 @@ class DescribeEvents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SourceIdentifier='string',
-              SourceType='cluster'|'cluster-parameter-group'|'cluster-security-group'|'cluster-snapshot',
+              SourceIdentifier=\'string\',
+              SourceType=\'cluster\'|\'cluster-parameter-group\'|\'cluster-security-group\'|\'cluster-snapshot\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Duration=123,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SourceIdentifier: string
@@ -2156,20 +2156,20 @@ class DescribeEvents(Paginator):
           ::
         
             {
-                'Events': [
+                \'Events\': [
                     {
-                        'SourceIdentifier': 'string',
-                        'SourceType': 'cluster'|'cluster-parameter-group'|'cluster-security-group'|'cluster-snapshot',
-                        'Message': 'string',
-                        'EventCategories': [
-                            'string',
+                        \'SourceIdentifier\': \'string\',
+                        \'SourceType\': \'cluster\'|\'cluster-parameter-group\'|\'cluster-security-group\'|\'cluster-snapshot\',
+                        \'Message\': \'string\',
+                        \'EventCategories\': [
+                            \'string\',
                         ],
-                        'Severity': 'string',
-                        'Date': datetime(2015, 1, 1),
-                        'EventId': 'string'
+                        \'Severity\': \'string\',
+                        \'Date\': datetime(2015, 1, 1),
+                        \'EventId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2235,17 +2235,17 @@ class DescribeHsmClientCertificates(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              HsmClientCertificateIdentifier='string',
+              HsmClientCertificateIdentifier=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type HsmClientCertificateIdentifier: string
@@ -2292,19 +2292,19 @@ class DescribeHsmClientCertificates(Paginator):
           ::
         
             {
-                'HsmClientCertificates': [
+                \'HsmClientCertificates\': [
                     {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmClientCertificatePublicKey': 'string',
-                        'Tags': [
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmClientCertificatePublicKey\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2360,17 +2360,17 @@ class DescribeHsmConfigurations(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              HsmConfigurationIdentifier='string',
+              HsmConfigurationIdentifier=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type HsmConfigurationIdentifier: string
@@ -2417,21 +2417,21 @@ class DescribeHsmConfigurations(Paginator):
           ::
         
             {
-                'HsmConfigurations': [
+                \'HsmConfigurations\': [
                     {
-                        'HsmConfigurationIdentifier': 'string',
-                        'Description': 'string',
-                        'HsmIpAddress': 'string',
-                        'HsmPartitionName': 'string',
-                        'Tags': [
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Description\': \'string\',
+                        \'HsmIpAddress\': \'string\',
+                        \'HsmPartitionName\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2495,12 +2495,12 @@ class DescribeOrderableClusterOptions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ClusterVersion='string',
-              NodeType='string',
+              ClusterVersion=\'string\',
+              NodeType=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ClusterVersion: string
@@ -2542,24 +2542,24 @@ class DescribeOrderableClusterOptions(Paginator):
           ::
         
             {
-                'OrderableClusterOptions': [
+                \'OrderableClusterOptions\': [
                     {
-                        'ClusterVersion': 'string',
-                        'ClusterType': 'string',
-                        'NodeType': 'string',
-                        'AvailabilityZones': [
+                        \'ClusterVersion\': \'string\',
+                        \'ClusterType\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'AvailabilityZones\': [
                             {
-                                'Name': 'string',
-                                'SupportedPlatforms': [
+                                \'Name\': \'string\',
+                                \'SupportedPlatforms\': [
                                     {
-                                        'Name': 'string'
+                                        \'Name\': \'string\'
                                     },
                                 ]
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2625,11 +2625,11 @@ class DescribeReservedNodeOfferings(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ReservedNodeOfferingId='string',
+              ReservedNodeOfferingId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ReservedNodeOfferingId: string
@@ -2662,25 +2662,25 @@ class DescribeReservedNodeOfferings(Paginator):
           ::
         
             {
-                'ReservedNodeOfferings': [
+                \'ReservedNodeOfferings\': [
                     {
-                        'ReservedNodeOfferingId': 'string',
-                        'NodeType': 'string',
-                        'Duration': 123,
-                        'FixedPrice': 123.0,
-                        'UsagePrice': 123.0,
-                        'CurrencyCode': 'string',
-                        'OfferingType': 'string',
-                        'RecurringCharges': [
+                        \'ReservedNodeOfferingId\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'Duration\': 123,
+                        \'FixedPrice\': 123.0,
+                        \'UsagePrice\': 123.0,
+                        \'CurrencyCode\': \'string\',
+                        \'OfferingType\': \'string\',
+                        \'RecurringCharges\': [
                             {
-                                'RecurringChargeAmount': 123.0,
-                                'RecurringChargeFrequency': 'string'
+                                \'RecurringChargeAmount\': 123.0,
+                                \'RecurringChargeFrequency\': \'string\'
                             },
                         ],
-                        'ReservedNodeOfferingType': 'Regular'|'Upgradable'
+                        \'ReservedNodeOfferingType\': \'Regular\'|\'Upgradable\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2758,11 +2758,11 @@ class DescribeReservedNodes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ReservedNodeId='string',
+              ReservedNodeId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ReservedNodeId: string
@@ -2795,29 +2795,29 @@ class DescribeReservedNodes(Paginator):
           ::
         
             {
-                'ReservedNodes': [
+                \'ReservedNodes\': [
                     {
-                        'ReservedNodeId': 'string',
-                        'ReservedNodeOfferingId': 'string',
-                        'NodeType': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'Duration': 123,
-                        'FixedPrice': 123.0,
-                        'UsagePrice': 123.0,
-                        'CurrencyCode': 'string',
-                        'NodeCount': 123,
-                        'State': 'string',
-                        'OfferingType': 'string',
-                        'RecurringCharges': [
+                        \'ReservedNodeId\': \'string\',
+                        \'ReservedNodeOfferingId\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'Duration\': 123,
+                        \'FixedPrice\': 123.0,
+                        \'UsagePrice\': 123.0,
+                        \'CurrencyCode\': \'string\',
+                        \'NodeCount\': 123,
+                        \'State\': \'string\',
+                        \'OfferingType\': \'string\',
+                        \'RecurringCharges\': [
                             {
-                                'RecurringChargeAmount': 123.0,
-                                'RecurringChargeFrequency': 'string'
+                                \'RecurringChargeAmount\': 123.0,
+                                \'RecurringChargeFrequency\': \'string\'
                             },
                         ],
-                        'ReservedNodeOfferingType': 'Regular'|'Upgradable'
+                        \'ReservedNodeOfferingType\': \'Regular\'|\'Upgradable\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

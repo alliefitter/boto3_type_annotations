@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -18,11 +18,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags(
-              ResourceId='string',
+              ResourceId=\'string\',
               TagsList=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -73,10 +73,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -92,16 +92,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_trail(
-              Name='string',
-              S3BucketName='string',
-              S3KeyPrefix='string',
-              SnsTopicName='string',
+              Name=\'string\',
+              S3BucketName=\'string\',
+              S3KeyPrefix=\'string\',
+              SnsTopicName=\'string\',
               IncludeGlobalServiceEvents=True|False,
               IsMultiRegionTrail=True|False,
               EnableLogFileValidation=True|False,
-              CloudWatchLogsLogGroupArn='string',
-              CloudWatchLogsRoleArn='string',
-              KmsKeyId='string'
+              CloudWatchLogsLogGroupArn=\'string\',
+              CloudWatchLogsRoleArn=\'string\',
+              KmsKeyId=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -160,12 +160,12 @@ class Client(BaseClient):
         :type CloudWatchLogsRoleArn: string
         :param CloudWatchLogsRoleArn: 
         
-          Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
+          Specifies the role for the CloudWatch Logs endpoint to assume to write to a user\'s log group.
         
         :type KmsKeyId: string
         :param KmsKeyId: 
         
-          Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+          Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by \"alias/\", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         
           Examples:
         
@@ -185,18 +185,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string',
-                'S3BucketName': 'string',
-                'S3KeyPrefix': 'string',
-                'SnsTopicName': 'string',
-                'SnsTopicARN': 'string',
-                'IncludeGlobalServiceEvents': True|False,
-                'IsMultiRegionTrail': True|False,
-                'TrailARN': 'string',
-                'LogFileValidationEnabled': True|False,
-                'CloudWatchLogsLogGroupArn': 'string',
-                'CloudWatchLogsRoleArn': 'string',
-                'KmsKeyId': 'string'
+                \'Name\': \'string\',
+                \'S3BucketName\': \'string\',
+                \'S3KeyPrefix\': \'string\',
+                \'SnsTopicName\': \'string\',
+                \'SnsTopicARN\': \'string\',
+                \'IncludeGlobalServiceEvents\': True|False,
+                \'IsMultiRegionTrail\': True|False,
+                \'TrailARN\': \'string\',
+                \'LogFileValidationEnabled\': True|False,
+                \'CloudWatchLogsLogGroupArn\': \'string\',
+                \'CloudWatchLogsRoleArn\': \'string\',
+                \'KmsKeyId\': \'string\'
             }
           **Response Structure** 
         
@@ -250,7 +250,7 @@ class Client(BaseClient):
         
             - **CloudWatchLogsRoleArn** *(string) --* 
         
-              Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
+              Specifies the role for the CloudWatch Logs endpoint to assume to write to a user\'s log group.
         
             - **KmsKeyId** *(string) --* 
         
@@ -270,7 +270,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_trail(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -304,7 +304,7 @@ class Client(BaseClient):
         
           response = client.describe_trails(
               trailNameList=[
-                  'string',
+                  \'string\',
               ],
               includeShadowTrails=True|False
           )
@@ -340,22 +340,22 @@ class Client(BaseClient):
           ::
         
             {
-                'trailList': [
+                \'trailList\': [
                     {
-                        'Name': 'string',
-                        'S3BucketName': 'string',
-                        'S3KeyPrefix': 'string',
-                        'SnsTopicName': 'string',
-                        'SnsTopicARN': 'string',
-                        'IncludeGlobalServiceEvents': True|False,
-                        'IsMultiRegionTrail': True|False,
-                        'HomeRegion': 'string',
-                        'TrailARN': 'string',
-                        'LogFileValidationEnabled': True|False,
-                        'CloudWatchLogsLogGroupArn': 'string',
-                        'CloudWatchLogsRoleArn': 'string',
-                        'KmsKeyId': 'string',
-                        'HasCustomEventSelectors': True|False
+                        \'Name\': \'string\',
+                        \'S3BucketName\': \'string\',
+                        \'S3KeyPrefix\': \'string\',
+                        \'SnsTopicName\': \'string\',
+                        \'SnsTopicARN\': \'string\',
+                        \'IncludeGlobalServiceEvents\': True|False,
+                        \'IsMultiRegionTrail\': True|False,
+                        \'HomeRegion\': \'string\',
+                        \'TrailARN\': \'string\',
+                        \'LogFileValidationEnabled\': True|False,
+                        \'CloudWatchLogsLogGroupArn\': \'string\',
+                        \'CloudWatchLogsRoleArn\': \'string\',
+                        \'KmsKeyId\': \'string\',
+                        \'HasCustomEventSelectors\': True|False
                     },
                 ]
             }
@@ -423,7 +423,7 @@ class Client(BaseClient):
         
                 - **CloudWatchLogsRoleArn** *(string) --* 
         
-                  Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
+                  Specifies the role for the CloudWatch Logs endpoint to assume to write to a user\'s log group.
         
                 - **KmsKeyId** *(string) --* 
         
@@ -454,7 +454,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -478,7 +478,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_event_selectors(
-              TrailName='string'
+              TrailName=\'string\'
           )
         :type TrailName: string
         :param TrailName: **[REQUIRED]** 
@@ -507,16 +507,16 @@ class Client(BaseClient):
           ::
         
             {
-                'TrailARN': 'string',
-                'EventSelectors': [
+                \'TrailARN\': \'string\',
+                \'EventSelectors\': [
                     {
-                        'ReadWriteType': 'ReadOnly'|'WriteOnly'|'All',
-                        'IncludeManagementEvents': True|False,
-                        'DataResources': [
+                        \'ReadWriteType\': \'ReadOnly\'|\'WriteOnly\'|\'All\',
+                        \'IncludeManagementEvents\': True|False,
+                        \'DataResources\': [
                             {
-                                'Type': 'string',
-                                'Values': [
-                                    'string',
+                                \'Type\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ]
@@ -537,7 +537,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Use event selectors to further specify the management and data event settings for your trail. By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
+                Use event selectors to further specify the management and data event settings for your trail. By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn\'t match any event selector, the trail doesn\'t log the event.
         
                 You can configure up to five event selectors for a trail.
         
@@ -577,7 +577,7 @@ class Client(BaseClient):
                      
                     * A user uploads an object to an Amazon S3 bucket named ``arn:aws:s3:::bucket-2`` . 
                      
-                    * The ``PutObject`` API operation occurred for an object in an S3 bucket that the CloudTrail user didn't specify for the trail. The trail doesn’t log the event. 
+                    * The ``PutObject`` API operation occurred for an object in an S3 bucket that the CloudTrail user didn\'t specify for the trail. The trail doesn’t log the event. 
                      
                     The following example demonstrates how logging works when you configure logging of AWS Lambda data events for a Lambda function named *MyLambdaFunction* , but not for all AWS Lambda functions.
         
@@ -630,10 +630,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -653,7 +653,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_trail_status(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -670,23 +670,23 @@ class Client(BaseClient):
           ::
         
             {
-                'IsLogging': True|False,
-                'LatestDeliveryError': 'string',
-                'LatestNotificationError': 'string',
-                'LatestDeliveryTime': datetime(2015, 1, 1),
-                'LatestNotificationTime': datetime(2015, 1, 1),
-                'StartLoggingTime': datetime(2015, 1, 1),
-                'StopLoggingTime': datetime(2015, 1, 1),
-                'LatestCloudWatchLogsDeliveryError': 'string',
-                'LatestCloudWatchLogsDeliveryTime': datetime(2015, 1, 1),
-                'LatestDigestDeliveryTime': datetime(2015, 1, 1),
-                'LatestDigestDeliveryError': 'string',
-                'LatestDeliveryAttemptTime': 'string',
-                'LatestNotificationAttemptTime': 'string',
-                'LatestNotificationAttemptSucceeded': 'string',
-                'LatestDeliveryAttemptSucceeded': 'string',
-                'TimeLoggingStarted': 'string',
-                'TimeLoggingStopped': 'string'
+                \'IsLogging\': True|False,
+                \'LatestDeliveryError\': \'string\',
+                \'LatestNotificationError\': \'string\',
+                \'LatestDeliveryTime\': datetime(2015, 1, 1),
+                \'LatestNotificationTime\': datetime(2015, 1, 1),
+                \'StartLoggingTime\': datetime(2015, 1, 1),
+                \'StopLoggingTime\': datetime(2015, 1, 1),
+                \'LatestCloudWatchLogsDeliveryError\': \'string\',
+                \'LatestCloudWatchLogsDeliveryTime\': datetime(2015, 1, 1),
+                \'LatestDigestDeliveryTime\': datetime(2015, 1, 1),
+                \'LatestDigestDeliveryError\': \'string\',
+                \'LatestDeliveryAttemptTime\': \'string\',
+                \'LatestNotificationAttemptTime\': \'string\',
+                \'LatestNotificationAttemptSucceeded\': \'string\',
+                \'LatestDeliveryAttemptSucceeded\': \'string\',
+                \'TimeLoggingStarted\': \'string\',
+                \'TimeLoggingStopped\': \'string\'
             }
           **Response Structure** 
         
@@ -712,11 +712,11 @@ class Client(BaseClient):
         
             - **LatestDeliveryTime** *(datetime) --* 
         
-              Specifies the date and time that CloudTrail last delivered log files to an account's Amazon S3 bucket.
+              Specifies the date and time that CloudTrail last delivered log files to an account\'s Amazon S3 bucket.
         
             - **LatestNotificationTime** *(datetime) --* 
         
-              Specifies the date and time of the most recent Amazon SNS notification that CloudTrail has written a new log file to an account's Amazon S3 bucket.
+              Specifies the date and time of the most recent Amazon SNS notification that CloudTrail has written a new log file to an account\'s Amazon S3 bucket.
         
             - **StartLoggingTime** *(datetime) --* 
         
@@ -736,7 +736,7 @@ class Client(BaseClient):
         
             - **LatestDigestDeliveryTime** *(datetime) --* 
         
-              Specifies the date and time that CloudTrail last delivered a digest file to an account's Amazon S3 bucket.
+              Specifies the date and time that CloudTrail last delivered a digest file to an account\'s Amazon S3 bucket.
         
             - **LatestDigestDeliveryError** *(string) --* 
         
@@ -800,7 +800,7 @@ class Client(BaseClient):
           response = client.list_public_keys(
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type StartTime: datetime
         :param StartTime: 
@@ -825,15 +825,15 @@ class Client(BaseClient):
           ::
         
             {
-                'PublicKeyList': [
+                \'PublicKeyList\': [
                     {
-                        'Value': b'bytes',
-                        'ValidityStartTime': datetime(2015, 1, 1),
-                        'ValidityEndTime': datetime(2015, 1, 1),
-                        'Fingerprint': 'string'
+                        \'Value\': b\'bytes\',
+                        \'ValidityStartTime\': datetime(2015, 1, 1),
+                        \'ValidityEndTime\': datetime(2015, 1, 1),
+                        \'Fingerprint\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -886,9 +886,9 @@ class Client(BaseClient):
         
           response = client.list_tags(
               ResourceIdList=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ResourceIdList: list
         :param ResourceIdList: **[REQUIRED]** 
@@ -912,18 +912,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceTagList': [
+                \'ResourceTagList\': [
                     {
-                        'ResourceId': 'string',
-                        'TagsList': [
+                        \'ResourceId\': \'string\',
+                        \'TagsList\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1004,14 +1004,14 @@ class Client(BaseClient):
           response = client.lookup_events(
               LookupAttributes=[
                   {
-                      'AttributeKey': 'EventId'|'EventName'|'ReadOnly'|'Username'|'ResourceType'|'ResourceName'|'EventSource'|'AccessKeyId',
-                      'AttributeValue': 'string'
+                      \'AttributeKey\': \'EventId\'|\'EventName\'|\'ReadOnly\'|\'Username\'|\'ResourceType\'|\'ResourceName\'|\'EventSource\'|\'AccessKeyId\',
+                      \'AttributeValue\': \'string\'
                   },
               ],
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type LookupAttributes: list
         :param LookupAttributes: 
@@ -1048,7 +1048,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
+          The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of \'Username\' with a value of \'root\', the call with NextToken should include those same parameters.
         
         :rtype: dict
         :returns: 
@@ -1058,25 +1058,25 @@ class Client(BaseClient):
           ::
         
             {
-                'Events': [
+                \'Events\': [
                     {
-                        'EventId': 'string',
-                        'EventName': 'string',
-                        'ReadOnly': 'string',
-                        'AccessKeyId': 'string',
-                        'EventTime': datetime(2015, 1, 1),
-                        'EventSource': 'string',
-                        'Username': 'string',
-                        'Resources': [
+                        \'EventId\': \'string\',
+                        \'EventName\': \'string\',
+                        \'ReadOnly\': \'string\',
+                        \'AccessKeyId\': \'string\',
+                        \'EventTime\': datetime(2015, 1, 1),
+                        \'EventSource\': \'string\',
+                        \'Username\': \'string\',
+                        \'Resources\': [
                             {
-                                'ResourceType': 'string',
-                                'ResourceName': 'string'
+                                \'ResourceType\': \'string\',
+                                \'ResourceName\': \'string\'
                             },
                         ],
-                        'CloudTrailEvent': 'string'
+                        \'CloudTrailEvent\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1134,7 +1134,7 @@ class Client(BaseClient):
         
                     - **ResourceName** *(string) --* 
         
-                      The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.
+                      The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be \"auto-scaling-test-group\" for an Auto Scaling Group or \"i-1234567\" for an EC2 Instance.
         
                 - **CloudTrailEvent** *(string) --* 
         
@@ -1142,7 +1142,7 @@ class Client(BaseClient):
         
             - **NextToken** *(string) --* 
         
-              The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
+              The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of \'Username\' with a value of \'root\', the call with NextToken should include those same parameters.
         
         """
         pass
@@ -1150,7 +1150,7 @@ class Client(BaseClient):
     def put_event_selectors(self, TrailName: str, EventSelectors: List) -> Dict:
         """
         
-        When an event occurs in your account, CloudTrail evaluates the event selectors in all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event. 
+        When an event occurs in your account, CloudTrail evaluates the event selectors in all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn\'t match any event selector, the trail doesn\'t log the event. 
         
         Example
         
@@ -1162,7 +1162,7 @@ class Client(BaseClient):
          
         * The ``RunInstances`` is a write-only event and it matches your event selector. The trail logs the event. 
          
-        * The ``GetConsoleOutput`` is a read-only event but it doesn't match your event selector. The trail doesn't log the event.  
+        * The ``GetConsoleOutput`` is a read-only event but it doesn\'t match your event selector. The trail doesn\'t log the event.  
          
         The ``PutEventSelectors`` operation must be called from the region in which the trail was created; otherwise, an ``InvalidHomeRegionException`` is thrown.
         
@@ -1174,16 +1174,16 @@ class Client(BaseClient):
         ::
         
           response = client.put_event_selectors(
-              TrailName='string',
+              TrailName=\'string\',
               EventSelectors=[
                   {
-                      'ReadWriteType': 'ReadOnly'|'WriteOnly'|'All',
-                      'IncludeManagementEvents': True|False,
-                      'DataResources': [
+                      \'ReadWriteType\': \'ReadOnly\'|\'WriteOnly\'|\'All\',
+                      \'IncludeManagementEvents\': True|False,
+                      \'DataResources\': [
                           {
-                              'Type': 'string',
-                              'Values': [
-                                  'string',
+                              \'Type\': \'string\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
                       ]
@@ -1216,7 +1216,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            Use event selectors to further specify the management and data event settings for your trail. By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
+            Use event selectors to further specify the management and data event settings for your trail. By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn\'t match any event selector, the trail doesn\'t log the event.
         
             You can configure up to five event selectors for a trail.
         
@@ -1256,7 +1256,7 @@ class Client(BaseClient):
                  
                 * A user uploads an object to an Amazon S3 bucket named ``arn:aws:s3:::bucket-2`` . 
                  
-                * The ``PutObject`` API operation occurred for an object in an S3 bucket that the CloudTrail user didn't specify for the trail. The trail doesn’t log the event. 
+                * The ``PutObject`` API operation occurred for an object in an S3 bucket that the CloudTrail user didn\'t specify for the trail. The trail doesn’t log the event. 
                  
                 The following example demonstrates how logging works when you configure logging of AWS Lambda data events for a Lambda function named *MyLambdaFunction* , but not for all AWS Lambda functions.
         
@@ -1308,16 +1308,16 @@ class Client(BaseClient):
           ::
         
             {
-                'TrailARN': 'string',
-                'EventSelectors': [
+                \'TrailARN\': \'string\',
+                \'EventSelectors\': [
                     {
-                        'ReadWriteType': 'ReadOnly'|'WriteOnly'|'All',
-                        'IncludeManagementEvents': True|False,
-                        'DataResources': [
+                        \'ReadWriteType\': \'ReadOnly\'|\'WriteOnly\'|\'All\',
+                        \'IncludeManagementEvents\': True|False,
+                        \'DataResources\': [
                             {
-                                'Type': 'string',
-                                'Values': [
-                                    'string',
+                                \'Type\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ]
@@ -1340,7 +1340,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Use event selectors to further specify the management and data event settings for your trail. By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
+                Use event selectors to further specify the management and data event settings for your trail. By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn\'t match any event selector, the trail doesn\'t log the event.
         
                 You can configure up to five event selectors for a trail.
         
@@ -1380,7 +1380,7 @@ class Client(BaseClient):
                      
                     * A user uploads an object to an Amazon S3 bucket named ``arn:aws:s3:::bucket-2`` . 
                      
-                    * The ``PutObject`` API operation occurred for an object in an S3 bucket that the CloudTrail user didn't specify for the trail. The trail doesn’t log the event. 
+                    * The ``PutObject`` API operation occurred for an object in an S3 bucket that the CloudTrail user didn\'t specify for the trail. The trail doesn’t log the event. 
                      
                     The following example demonstrates how logging works when you configure logging of AWS Lambda data events for a Lambda function named *MyLambdaFunction* , but not for all AWS Lambda functions.
         
@@ -1436,11 +1436,11 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags(
-              ResourceId='string',
+              ResourceId=\'string\',
               TagsList=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1494,7 +1494,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_logging(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1529,7 +1529,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_logging(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1564,16 +1564,16 @@ class Client(BaseClient):
         ::
         
           response = client.update_trail(
-              Name='string',
-              S3BucketName='string',
-              S3KeyPrefix='string',
-              SnsTopicName='string',
+              Name=\'string\',
+              S3BucketName=\'string\',
+              S3KeyPrefix=\'string\',
+              SnsTopicName=\'string\',
               IncludeGlobalServiceEvents=True|False,
               IsMultiRegionTrail=True|False,
               EnableLogFileValidation=True|False,
-              CloudWatchLogsLogGroupArn='string',
-              CloudWatchLogsRoleArn='string',
-              KmsKeyId='string'
+              CloudWatchLogsLogGroupArn=\'string\',
+              CloudWatchLogsRoleArn=\'string\',
+              KmsKeyId=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1636,12 +1636,12 @@ class Client(BaseClient):
         :type CloudWatchLogsRoleArn: string
         :param CloudWatchLogsRoleArn: 
         
-          Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
+          Specifies the role for the CloudWatch Logs endpoint to assume to write to a user\'s log group.
         
         :type KmsKeyId: string
         :param KmsKeyId: 
         
-          Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+          Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by \"alias/\", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         
           Examples:
         
@@ -1661,18 +1661,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string',
-                'S3BucketName': 'string',
-                'S3KeyPrefix': 'string',
-                'SnsTopicName': 'string',
-                'SnsTopicARN': 'string',
-                'IncludeGlobalServiceEvents': True|False,
-                'IsMultiRegionTrail': True|False,
-                'TrailARN': 'string',
-                'LogFileValidationEnabled': True|False,
-                'CloudWatchLogsLogGroupArn': 'string',
-                'CloudWatchLogsRoleArn': 'string',
-                'KmsKeyId': 'string'
+                \'Name\': \'string\',
+                \'S3BucketName\': \'string\',
+                \'S3KeyPrefix\': \'string\',
+                \'SnsTopicName\': \'string\',
+                \'SnsTopicARN\': \'string\',
+                \'IncludeGlobalServiceEvents\': True|False,
+                \'IsMultiRegionTrail\': True|False,
+                \'TrailARN\': \'string\',
+                \'LogFileValidationEnabled\': True|False,
+                \'CloudWatchLogsLogGroupArn\': \'string\',
+                \'CloudWatchLogsRoleArn\': \'string\',
+                \'KmsKeyId\': \'string\'
             }
           **Response Structure** 
         
@@ -1726,7 +1726,7 @@ class Client(BaseClient):
         
             - **CloudWatchLogsRoleArn** *(string) --* 
         
-              Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
+              Specifies the role for the CloudWatch Logs endpoint to assume to write to a user\'s log group.
         
             - **KmsKeyId** *(string) --* 
         

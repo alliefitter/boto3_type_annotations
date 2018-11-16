@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -22,7 +22,7 @@ class Client(BaseClient):
         ::
         
           response = client.accept_qualification_request(
-              QualificationRequestId='string',
+              QualificationRequestId=\'string\',
               IntegerValue=123
           )
         :type QualificationRequestId: string
@@ -52,15 +52,15 @@ class Client(BaseClient):
     def approve_assignment(self, AssignmentId: str, RequesterFeedback: str = None, OverrideRejection: bool = None) -> Dict:
         """
         
-        Approving an assignment initiates two payments from the Requester's Amazon.com account 
+        Approving an assignment initiates two payments from the Requester\'s Amazon.com account 
         
         * The Worker who submitted the results is paid the reward specified in the HIT.  
          
         * Amazon Mechanical Turk fees are debited.  
          
-        If the Requester's account does not have adequate funds for these payments, the call to ApproveAssignment returns an exception, and the approval is not processed. You can include an optional feedback message with the approval, which the Worker can see in the Status section of the web site. 
+        If the Requester\'s account does not have adequate funds for these payments, the call to ApproveAssignment returns an exception, and the approval is not processed. You can include an optional feedback message with the approval, which the Worker can see in the Status section of the web site. 
         
-        You can also call this operation for assignments that were previous rejected and approve them by explicitly overriding the previous rejection. This only works on rejected assignments that were submitted within the previous 30 days and only if the assignment's related HIT has not been deleted. 
+        You can also call this operation for assignments that were previous rejected and approve them by explicitly overriding the previous rejection. This only works on rejected assignments that were submitted within the previous 30 days and only if the assignment\'s related HIT has not been deleted. 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mturk-requester-2017-01-17/ApproveAssignment>`_
         
@@ -68,8 +68,8 @@ class Client(BaseClient):
         ::
         
           response = client.approve_assignment(
-              AssignmentId='string',
-              RequesterFeedback='string',
+              AssignmentId=\'string\',
+              RequesterFeedback=\'string\',
               OverrideRejection=True|False
           )
         :type AssignmentId: string
@@ -116,8 +116,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_qualification_with_worker(
-              QualificationTypeId='string',
-              WorkerId='string',
+              QualificationTypeId=\'string\',
+              WorkerId=\'string\',
               IntegerValue=123,
               SendNotification=True|False
           )
@@ -161,10 +161,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -188,9 +188,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_additional_assignments_for_hit(
-              HITId='string',
+              HITId=\'string\',
               NumberOfAdditionalAssignments=123,
-              UniqueRequestToken='string'
+              UniqueRequestToken=\'string\'
           )
         :type HITId: string
         :param HITId: **[REQUIRED]** 
@@ -244,43 +244,43 @@ class Client(BaseClient):
               AutoApprovalDelayInSeconds=123,
               LifetimeInSeconds=123,
               AssignmentDurationInSeconds=123,
-              Reward='string',
-              Title='string',
-              Keywords='string',
-              Description='string',
-              Question='string',
-              RequesterAnnotation='string',
+              Reward=\'string\',
+              Title=\'string\',
+              Keywords=\'string\',
+              Description=\'string\',
+              Question=\'string\',
+              RequesterAnnotation=\'string\',
               QualificationRequirements=[
                   {
-                      'QualificationTypeId': 'string',
-                      'Comparator': 'LessThan'|'LessThanOrEqualTo'|'GreaterThan'|'GreaterThanOrEqualTo'|'EqualTo'|'NotEqualTo'|'Exists'|'DoesNotExist'|'In'|'NotIn',
-                      'IntegerValues': [
+                      \'QualificationTypeId\': \'string\',
+                      \'Comparator\': \'LessThan\'|\'LessThanOrEqualTo\'|\'GreaterThan\'|\'GreaterThanOrEqualTo\'|\'EqualTo\'|\'NotEqualTo\'|\'Exists\'|\'DoesNotExist\'|\'In\'|\'NotIn\',
+                      \'IntegerValues\': [
                           123,
                       ],
-                      'LocaleValues': [
+                      \'LocaleValues\': [
                           {
-                              'Country': 'string',
-                              'Subdivision': 'string'
+                              \'Country\': \'string\',
+                              \'Subdivision\': \'string\'
                           },
                       ],
-                      'RequiredToPreview': True|False,
-                      'ActionsGuarded': 'Accept'|'PreviewAndAccept'|'DiscoverPreviewAndAccept'
+                      \'RequiredToPreview\': True|False,
+                      \'ActionsGuarded\': \'Accept\'|\'PreviewAndAccept\'|\'DiscoverPreviewAndAccept\'
                   },
               ],
-              UniqueRequestToken='string',
+              UniqueRequestToken=\'string\',
               AssignmentReviewPolicy={
-                  'PolicyName': 'string',
-                  'Parameters': [
+                  \'PolicyName\': \'string\',
+                  \'Parameters\': [
                       {
-                          'Key': 'string',
-                          'Values': [
-                              'string',
+                          \'Key\': \'string\',
+                          \'Values\': [
+                              \'string\',
                           ],
-                          'MapEntries': [
+                          \'MapEntries\': [
                               {
-                                  'Key': 'string',
-                                  'Values': [
-                                      'string',
+                                  \'Key\': \'string\',
+                                  \'Values\': [
+                                      \'string\',
                                   ]
                               },
                           ]
@@ -288,29 +288,29 @@ class Client(BaseClient):
                   ]
               },
               HITReviewPolicy={
-                  'PolicyName': 'string',
-                  'Parameters': [
+                  \'PolicyName\': \'string\',
+                  \'Parameters\': [
                       {
-                          'Key': 'string',
-                          'Values': [
-                              'string',
+                          \'Key\': \'string\',
+                          \'Values\': [
+                              \'string\',
                           ],
-                          'MapEntries': [
+                          \'MapEntries\': [
                               {
-                                  'Key': 'string',
-                                  'Values': [
-                                      'string',
+                                  \'Key\': \'string\',
+                                  \'Values\': [
+                                      \'string\',
                                   ]
                               },
                           ]
                       },
                   ]
               },
-              HITLayoutId='string',
+              HITLayoutId=\'string\',
               HITLayoutParameters=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -366,7 +366,7 @@ class Client(BaseClient):
         :type RequesterAnnotation: string
         :param RequesterAnnotation: 
         
-          An arbitrary data field. The RequesterAnnotation parameter lets your application attach arbitrary data to the HIT for tracking purposes. For example, this parameter could be an identifier internal to the Requester's application that corresponds with the HIT. 
+          An arbitrary data field. The RequesterAnnotation parameter lets your application attach arbitrary data to the HIT for tracking purposes. For example, this parameter could be an identifier internal to the Requester\'s application that corresponds with the HIT. 
         
           The RequesterAnnotation parameter for a HIT is only visible to the Requester who created the HIT. It is not shown to the Worker, or any other Requester. 
         
@@ -375,7 +375,7 @@ class Client(BaseClient):
         :type QualificationRequirements: list
         :param QualificationRequirements: 
         
-          Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
+          Conditions that a Worker\'s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
         
           - *(dict) --* 
         
@@ -387,17 +387,17 @@ class Client(BaseClient):
         
             - **Comparator** *(string) --* **[REQUIRED]** 
         
-              The kind of comparison to make against a Qualification's value. You can compare a Qualification's value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user's profile, regardless of its value. 
+              The kind of comparison to make against a Qualification\'s value. You can compare a Qualification\'s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user\'s profile, regardless of its value. 
         
             - **IntegerValues** *(list) --* 
         
-              The integer value to compare against the Qualification's value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
+              The integer value to compare against the Qualification\'s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
         
               - *(integer) --* 
         
             - **LocaleValues** *(list) --* 
         
-              The locale value to compare against the Qualification's value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
+              The locale value to compare against the Qualification\'s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
         
               - *(dict) --* 
         
@@ -413,11 +413,11 @@ class Client(BaseClient):
         
             - **RequiredToPreview** *(boolean) --* 
         
-              DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker's Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT's question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
+              DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker\'s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT\'s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
         
             - **ActionsGuarded** *(string) --* 
         
-              Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It's possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
+              Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include \"Accept\" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), \"PreviewAndAccept\" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and \"DiscoverPreviewAndAccept\" (Worker cannot accept, preview, or see the HIT in their search results). It\'s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
         
         :type UniqueRequestToken: string
         :param UniqueRequestToken: 
@@ -550,44 +550,44 @@ class Client(BaseClient):
           ::
         
             {
-                'HIT': {
-                    'HITId': 'string',
-                    'HITTypeId': 'string',
-                    'HITGroupId': 'string',
-                    'HITLayoutId': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'Title': 'string',
-                    'Description': 'string',
-                    'Question': 'string',
-                    'Keywords': 'string',
-                    'HITStatus': 'Assignable'|'Unassignable'|'Reviewable'|'Reviewing'|'Disposed',
-                    'MaxAssignments': 123,
-                    'Reward': 'string',
-                    'AutoApprovalDelayInSeconds': 123,
-                    'Expiration': datetime(2015, 1, 1),
-                    'AssignmentDurationInSeconds': 123,
-                    'RequesterAnnotation': 'string',
-                    'QualificationRequirements': [
+                \'HIT\': {
+                    \'HITId\': \'string\',
+                    \'HITTypeId\': \'string\',
+                    \'HITGroupId\': \'string\',
+                    \'HITLayoutId\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'Title\': \'string\',
+                    \'Description\': \'string\',
+                    \'Question\': \'string\',
+                    \'Keywords\': \'string\',
+                    \'HITStatus\': \'Assignable\'|\'Unassignable\'|\'Reviewable\'|\'Reviewing\'|\'Disposed\',
+                    \'MaxAssignments\': 123,
+                    \'Reward\': \'string\',
+                    \'AutoApprovalDelayInSeconds\': 123,
+                    \'Expiration\': datetime(2015, 1, 1),
+                    \'AssignmentDurationInSeconds\': 123,
+                    \'RequesterAnnotation\': \'string\',
+                    \'QualificationRequirements\': [
                         {
-                            'QualificationTypeId': 'string',
-                            'Comparator': 'LessThan'|'LessThanOrEqualTo'|'GreaterThan'|'GreaterThanOrEqualTo'|'EqualTo'|'NotEqualTo'|'Exists'|'DoesNotExist'|'In'|'NotIn',
-                            'IntegerValues': [
+                            \'QualificationTypeId\': \'string\',
+                            \'Comparator\': \'LessThan\'|\'LessThanOrEqualTo\'|\'GreaterThan\'|\'GreaterThanOrEqualTo\'|\'EqualTo\'|\'NotEqualTo\'|\'Exists\'|\'DoesNotExist\'|\'In\'|\'NotIn\',
+                            \'IntegerValues\': [
                                 123,
                             ],
-                            'LocaleValues': [
+                            \'LocaleValues\': [
                                 {
-                                    'Country': 'string',
-                                    'Subdivision': 'string'
+                                    \'Country\': \'string\',
+                                    \'Subdivision\': \'string\'
                                 },
                             ],
-                            'RequiredToPreview': True|False,
-                            'ActionsGuarded': 'Accept'|'PreviewAndAccept'|'DiscoverPreviewAndAccept'
+                            \'RequiredToPreview\': True|False,
+                            \'ActionsGuarded\': \'Accept\'|\'PreviewAndAccept\'|\'DiscoverPreviewAndAccept\'
                         },
                     ],
-                    'HITReviewStatus': 'NotReviewed'|'MarkedForReview'|'ReviewedAppropriate'|'ReviewedInappropriate',
-                    'NumberOfAssignmentsPending': 123,
-                    'NumberOfAssignmentsAvailable': 123,
-                    'NumberOfAssignmentsCompleted': 123
+                    \'HITReviewStatus\': \'NotReviewed\'|\'MarkedForReview\'|\'ReviewedAppropriate\'|\'ReviewedInappropriate\',
+                    \'NumberOfAssignmentsPending\': 123,
+                    \'NumberOfAssignmentsAvailable\': 123,
+                    \'NumberOfAssignmentsCompleted\': 123
                 }
             }
           **Response Structure** 
@@ -664,7 +664,7 @@ class Client(BaseClient):
         
               - **QualificationRequirements** *(list) --* 
         
-                Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
+                Conditions that a Worker\'s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
         
                 - *(dict) --* 
         
@@ -676,17 +676,17 @@ class Client(BaseClient):
         
                   - **Comparator** *(string) --* 
         
-                    The kind of comparison to make against a Qualification's value. You can compare a Qualification's value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user's profile, regardless of its value. 
+                    The kind of comparison to make against a Qualification\'s value. You can compare a Qualification\'s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user\'s profile, regardless of its value. 
         
                   - **IntegerValues** *(list) --* 
         
-                    The integer value to compare against the Qualification's value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
+                    The integer value to compare against the Qualification\'s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
         
                     - *(integer) --* 
                 
                   - **LocaleValues** *(list) --* 
         
-                    The locale value to compare against the Qualification's value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
+                    The locale value to compare against the Qualification\'s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
         
                     - *(dict) --* 
         
@@ -702,11 +702,11 @@ class Client(BaseClient):
         
                   - **RequiredToPreview** *(boolean) --* 
         
-                    DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker's Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT's question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
+                    DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker\'s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT\'s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
         
                   - **ActionsGuarded** *(string) --* 
         
-                    Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It's possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
+                    Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include \"Accept\" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), \"PreviewAndAccept\" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and \"DiscoverPreviewAndAccept\" (Worker cannot accept, preview, or see the HIT in their search results). It\'s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
         
               - **HITReviewStatus** *(string) --* 
         
@@ -738,25 +738,25 @@ class Client(BaseClient):
           response = client.create_hit_type(
               AutoApprovalDelayInSeconds=123,
               AssignmentDurationInSeconds=123,
-              Reward='string',
-              Title='string',
-              Keywords='string',
-              Description='string',
+              Reward=\'string\',
+              Title=\'string\',
+              Keywords=\'string\',
+              Description=\'string\',
               QualificationRequirements=[
                   {
-                      'QualificationTypeId': 'string',
-                      'Comparator': 'LessThan'|'LessThanOrEqualTo'|'GreaterThan'|'GreaterThanOrEqualTo'|'EqualTo'|'NotEqualTo'|'Exists'|'DoesNotExist'|'In'|'NotIn',
-                      'IntegerValues': [
+                      \'QualificationTypeId\': \'string\',
+                      \'Comparator\': \'LessThan\'|\'LessThanOrEqualTo\'|\'GreaterThan\'|\'GreaterThanOrEqualTo\'|\'EqualTo\'|\'NotEqualTo\'|\'Exists\'|\'DoesNotExist\'|\'In\'|\'NotIn\',
+                      \'IntegerValues\': [
                           123,
                       ],
-                      'LocaleValues': [
+                      \'LocaleValues\': [
                           {
-                              'Country': 'string',
-                              'Subdivision': 'string'
+                              \'Country\': \'string\',
+                              \'Subdivision\': \'string\'
                           },
                       ],
-                      'RequiredToPreview': True|False,
-                      'ActionsGuarded': 'Accept'|'PreviewAndAccept'|'DiscoverPreviewAndAccept'
+                      \'RequiredToPreview\': True|False,
+                      \'ActionsGuarded\': \'Accept\'|\'PreviewAndAccept\'|\'DiscoverPreviewAndAccept\'
                   },
               ]
           )
@@ -793,7 +793,7 @@ class Client(BaseClient):
         :type QualificationRequirements: list
         :param QualificationRequirements: 
         
-          Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
+          Conditions that a Worker\'s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
         
           - *(dict) --* 
         
@@ -805,17 +805,17 @@ class Client(BaseClient):
         
             - **Comparator** *(string) --* **[REQUIRED]** 
         
-              The kind of comparison to make against a Qualification's value. You can compare a Qualification's value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user's profile, regardless of its value. 
+              The kind of comparison to make against a Qualification\'s value. You can compare a Qualification\'s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user\'s profile, regardless of its value. 
         
             - **IntegerValues** *(list) --* 
         
-              The integer value to compare against the Qualification's value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
+              The integer value to compare against the Qualification\'s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
         
               - *(integer) --* 
         
             - **LocaleValues** *(list) --* 
         
-              The locale value to compare against the Qualification's value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
+              The locale value to compare against the Qualification\'s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
         
               - *(dict) --* 
         
@@ -831,11 +831,11 @@ class Client(BaseClient):
         
             - **RequiredToPreview** *(boolean) --* 
         
-              DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker's Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT's question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
+              DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker\'s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT\'s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
         
             - **ActionsGuarded** *(string) --* 
         
-              Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It's possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
+              Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include \"Accept\" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), \"PreviewAndAccept\" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and \"DiscoverPreviewAndAccept\" (Worker cannot accept, preview, or see the HIT in their search results). It\'s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
         
         :rtype: dict
         :returns: 
@@ -845,7 +845,7 @@ class Client(BaseClient):
           ::
         
             {
-                'HITTypeId': 'string'
+                \'HITTypeId\': \'string\'
             }
           **Response Structure** 
         
@@ -875,25 +875,25 @@ class Client(BaseClient):
         ::
         
           response = client.create_hit_with_hit_type(
-              HITTypeId='string',
+              HITTypeId=\'string\',
               MaxAssignments=123,
               LifetimeInSeconds=123,
-              Question='string',
-              RequesterAnnotation='string',
-              UniqueRequestToken='string',
+              Question=\'string\',
+              RequesterAnnotation=\'string\',
+              UniqueRequestToken=\'string\',
               AssignmentReviewPolicy={
-                  'PolicyName': 'string',
-                  'Parameters': [
+                  \'PolicyName\': \'string\',
+                  \'Parameters\': [
                       {
-                          'Key': 'string',
-                          'Values': [
-                              'string',
+                          \'Key\': \'string\',
+                          \'Values\': [
+                              \'string\',
                           ],
-                          'MapEntries': [
+                          \'MapEntries\': [
                               {
-                                  'Key': 'string',
-                                  'Values': [
-                                      'string',
+                                  \'Key\': \'string\',
+                                  \'Values\': [
+                                      \'string\',
                                   ]
                               },
                           ]
@@ -901,29 +901,29 @@ class Client(BaseClient):
                   ]
               },
               HITReviewPolicy={
-                  'PolicyName': 'string',
-                  'Parameters': [
+                  \'PolicyName\': \'string\',
+                  \'Parameters\': [
                       {
-                          'Key': 'string',
-                          'Values': [
-                              'string',
+                          \'Key\': \'string\',
+                          \'Values\': [
+                              \'string\',
                           ],
-                          'MapEntries': [
+                          \'MapEntries\': [
                               {
-                                  'Key': 'string',
-                                  'Values': [
-                                      'string',
+                                  \'Key\': \'string\',
+                                  \'Values\': [
+                                      \'string\',
                                   ]
                               },
                           ]
                       },
                   ]
               },
-              HITLayoutId='string',
+              HITLayoutId=\'string\',
               HITLayoutParameters=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -954,7 +954,7 @@ class Client(BaseClient):
         :type RequesterAnnotation: string
         :param RequesterAnnotation: 
         
-          An arbitrary data field. The RequesterAnnotation parameter lets your application attach arbitrary data to the HIT for tracking purposes. For example, this parameter could be an identifier internal to the Requester's application that corresponds with the HIT. 
+          An arbitrary data field. The RequesterAnnotation parameter lets your application attach arbitrary data to the HIT for tracking purposes. For example, this parameter could be an identifier internal to the Requester\'s application that corresponds with the HIT. 
         
           The RequesterAnnotation parameter for a HIT is only visible to the Requester who created the HIT. It is not shown to the Worker, or any other Requester. 
         
@@ -1091,44 +1091,44 @@ class Client(BaseClient):
           ::
         
             {
-                'HIT': {
-                    'HITId': 'string',
-                    'HITTypeId': 'string',
-                    'HITGroupId': 'string',
-                    'HITLayoutId': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'Title': 'string',
-                    'Description': 'string',
-                    'Question': 'string',
-                    'Keywords': 'string',
-                    'HITStatus': 'Assignable'|'Unassignable'|'Reviewable'|'Reviewing'|'Disposed',
-                    'MaxAssignments': 123,
-                    'Reward': 'string',
-                    'AutoApprovalDelayInSeconds': 123,
-                    'Expiration': datetime(2015, 1, 1),
-                    'AssignmentDurationInSeconds': 123,
-                    'RequesterAnnotation': 'string',
-                    'QualificationRequirements': [
+                \'HIT\': {
+                    \'HITId\': \'string\',
+                    \'HITTypeId\': \'string\',
+                    \'HITGroupId\': \'string\',
+                    \'HITLayoutId\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'Title\': \'string\',
+                    \'Description\': \'string\',
+                    \'Question\': \'string\',
+                    \'Keywords\': \'string\',
+                    \'HITStatus\': \'Assignable\'|\'Unassignable\'|\'Reviewable\'|\'Reviewing\'|\'Disposed\',
+                    \'MaxAssignments\': 123,
+                    \'Reward\': \'string\',
+                    \'AutoApprovalDelayInSeconds\': 123,
+                    \'Expiration\': datetime(2015, 1, 1),
+                    \'AssignmentDurationInSeconds\': 123,
+                    \'RequesterAnnotation\': \'string\',
+                    \'QualificationRequirements\': [
                         {
-                            'QualificationTypeId': 'string',
-                            'Comparator': 'LessThan'|'LessThanOrEqualTo'|'GreaterThan'|'GreaterThanOrEqualTo'|'EqualTo'|'NotEqualTo'|'Exists'|'DoesNotExist'|'In'|'NotIn',
-                            'IntegerValues': [
+                            \'QualificationTypeId\': \'string\',
+                            \'Comparator\': \'LessThan\'|\'LessThanOrEqualTo\'|\'GreaterThan\'|\'GreaterThanOrEqualTo\'|\'EqualTo\'|\'NotEqualTo\'|\'Exists\'|\'DoesNotExist\'|\'In\'|\'NotIn\',
+                            \'IntegerValues\': [
                                 123,
                             ],
-                            'LocaleValues': [
+                            \'LocaleValues\': [
                                 {
-                                    'Country': 'string',
-                                    'Subdivision': 'string'
+                                    \'Country\': \'string\',
+                                    \'Subdivision\': \'string\'
                                 },
                             ],
-                            'RequiredToPreview': True|False,
-                            'ActionsGuarded': 'Accept'|'PreviewAndAccept'|'DiscoverPreviewAndAccept'
+                            \'RequiredToPreview\': True|False,
+                            \'ActionsGuarded\': \'Accept\'|\'PreviewAndAccept\'|\'DiscoverPreviewAndAccept\'
                         },
                     ],
-                    'HITReviewStatus': 'NotReviewed'|'MarkedForReview'|'ReviewedAppropriate'|'ReviewedInappropriate',
-                    'NumberOfAssignmentsPending': 123,
-                    'NumberOfAssignmentsAvailable': 123,
-                    'NumberOfAssignmentsCompleted': 123
+                    \'HITReviewStatus\': \'NotReviewed\'|\'MarkedForReview\'|\'ReviewedAppropriate\'|\'ReviewedInappropriate\',
+                    \'NumberOfAssignmentsPending\': 123,
+                    \'NumberOfAssignmentsAvailable\': 123,
+                    \'NumberOfAssignmentsCompleted\': 123
                 }
             }
           **Response Structure** 
@@ -1205,7 +1205,7 @@ class Client(BaseClient):
         
               - **QualificationRequirements** *(list) --* 
         
-                Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
+                Conditions that a Worker\'s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
         
                 - *(dict) --* 
         
@@ -1217,17 +1217,17 @@ class Client(BaseClient):
         
                   - **Comparator** *(string) --* 
         
-                    The kind of comparison to make against a Qualification's value. You can compare a Qualification's value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user's profile, regardless of its value. 
+                    The kind of comparison to make against a Qualification\'s value. You can compare a Qualification\'s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user\'s profile, regardless of its value. 
         
                   - **IntegerValues** *(list) --* 
         
-                    The integer value to compare against the Qualification's value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
+                    The integer value to compare against the Qualification\'s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
         
                     - *(integer) --* 
                 
                   - **LocaleValues** *(list) --* 
         
-                    The locale value to compare against the Qualification's value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
+                    The locale value to compare against the Qualification\'s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
         
                     - *(dict) --* 
         
@@ -1243,11 +1243,11 @@ class Client(BaseClient):
         
                   - **RequiredToPreview** *(boolean) --* 
         
-                    DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker's Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT's question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
+                    DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker\'s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT\'s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
         
                   - **ActionsGuarded** *(string) --* 
         
-                    Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It's possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
+                    Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include \"Accept\" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), \"PreviewAndAccept\" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and \"DiscoverPreviewAndAccept\" (Worker cannot accept, preview, or see the HIT in their search results). It\'s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
         
               - **HITReviewStatus** *(string) --* 
         
@@ -1277,13 +1277,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_qualification_type(
-              Name='string',
-              Keywords='string',
-              Description='string',
-              QualificationTypeStatus='Active'|'Inactive',
+              Name=\'string\',
+              Keywords=\'string\',
+              Description=\'string\',
+              QualificationTypeStatus=\'Active\'|\'Inactive\',
               RetryDelayInSeconds=123,
-              Test='string',
-              AnswerKey='string',
+              Test=\'string\',
+              AnswerKey=\'string\',
               TestDurationInSeconds=123,
               AutoGranted=True|False,
               AutoGrantedValue=123
@@ -1360,20 +1360,20 @@ class Client(BaseClient):
           ::
         
             {
-                'QualificationType': {
-                    'QualificationTypeId': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'Name': 'string',
-                    'Description': 'string',
-                    'Keywords': 'string',
-                    'QualificationTypeStatus': 'Active'|'Inactive',
-                    'Test': 'string',
-                    'TestDurationInSeconds': 123,
-                    'AnswerKey': 'string',
-                    'RetryDelayInSeconds': 123,
-                    'IsRequestable': True|False,
-                    'AutoGranted': True|False,
-                    'AutoGrantedValue': 123
+                \'QualificationType\': {
+                    \'QualificationTypeId\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'Keywords\': \'string\',
+                    \'QualificationTypeStatus\': \'Active\'|\'Inactive\',
+                    \'Test\': \'string\',
+                    \'TestDurationInSeconds\': 123,
+                    \'AnswerKey\': \'string\',
+                    \'RetryDelayInSeconds\': 123,
+                    \'IsRequestable\': True|False,
+                    \'AutoGranted\': True|False,
+                    \'AutoGrantedValue\': 123
                 }
             }
           **Response Structure** 
@@ -1406,7 +1406,7 @@ class Client(BaseClient):
         
               - **QualificationTypeStatus** *(string) --* 
         
-                The status of the Qualification type. A Qualification type's status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive. 
+                The status of the Qualification type. A Qualification type\'s status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive. 
         
               - **Test** *(string) --* 
         
@@ -1448,8 +1448,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_worker_block(
-              WorkerId='string',
-              Reason='string'
+              WorkerId=\'string\',
+              Reason=\'string\'
           )
         :type WorkerId: string
         :param WorkerId: **[REQUIRED]** 
@@ -1484,7 +1484,7 @@ class Client(BaseClient):
         
           * HITs are automatically disposed of after 120 days.  
            
-          * After you dispose of a HIT, you can no longer approve the HIT's rejected assignments.  
+          * After you dispose of a HIT, you can no longer approve the HIT\'s rejected assignments.  
            
           * Disposed HITs are not returned in results for the ListHITs operation.  
            
@@ -1496,7 +1496,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_hit(
-              HITId='string'
+              HITId=\'string\'
           )
         :type HITId: string
         :param HITId: **[REQUIRED]** 
@@ -1532,7 +1532,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_qualification_type(
-              QualificationTypeId='string'
+              QualificationTypeId=\'string\'
           )
         :type QualificationTypeId: string
         :param QualificationTypeId: **[REQUIRED]** 
@@ -1562,8 +1562,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_worker_block(
-              WorkerId='string',
-              Reason='string'
+              WorkerId=\'string\',
+              Reason=\'string\'
           )
         :type WorkerId: string
         :param WorkerId: **[REQUIRED]** 
@@ -1600,9 +1600,9 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_qualification_from_worker(
-              WorkerId='string',
-              QualificationTypeId='string',
-              Reason='string'
+              WorkerId=\'string\',
+              QualificationTypeId=\'string\',
+              Reason=\'string\'
           )
         :type WorkerId: string
         :param WorkerId: **[REQUIRED]** 
@@ -1649,7 +1649,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1673,8 +1673,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AvailableBalance': 'string',
-                'OnHoldBalance': 'string'
+                \'AvailableBalance\': \'string\',
+                \'OnHoldBalance\': \'string\'
             }
           **Response Structure** 
         
@@ -1700,7 +1700,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_assignment(
-              AssignmentId='string'
+              AssignmentId=\'string\'
           )
         :type AssignmentId: string
         :param AssignmentId: **[REQUIRED]** 
@@ -1715,58 +1715,58 @@ class Client(BaseClient):
           ::
         
             {
-                'Assignment': {
-                    'AssignmentId': 'string',
-                    'WorkerId': 'string',
-                    'HITId': 'string',
-                    'AssignmentStatus': 'Submitted'|'Approved'|'Rejected',
-                    'AutoApprovalTime': datetime(2015, 1, 1),
-                    'AcceptTime': datetime(2015, 1, 1),
-                    'SubmitTime': datetime(2015, 1, 1),
-                    'ApprovalTime': datetime(2015, 1, 1),
-                    'RejectionTime': datetime(2015, 1, 1),
-                    'Deadline': datetime(2015, 1, 1),
-                    'Answer': 'string',
-                    'RequesterFeedback': 'string'
+                \'Assignment\': {
+                    \'AssignmentId\': \'string\',
+                    \'WorkerId\': \'string\',
+                    \'HITId\': \'string\',
+                    \'AssignmentStatus\': \'Submitted\'|\'Approved\'|\'Rejected\',
+                    \'AutoApprovalTime\': datetime(2015, 1, 1),
+                    \'AcceptTime\': datetime(2015, 1, 1),
+                    \'SubmitTime\': datetime(2015, 1, 1),
+                    \'ApprovalTime\': datetime(2015, 1, 1),
+                    \'RejectionTime\': datetime(2015, 1, 1),
+                    \'Deadline\': datetime(2015, 1, 1),
+                    \'Answer\': \'string\',
+                    \'RequesterFeedback\': \'string\'
                 },
-                'HIT': {
-                    'HITId': 'string',
-                    'HITTypeId': 'string',
-                    'HITGroupId': 'string',
-                    'HITLayoutId': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'Title': 'string',
-                    'Description': 'string',
-                    'Question': 'string',
-                    'Keywords': 'string',
-                    'HITStatus': 'Assignable'|'Unassignable'|'Reviewable'|'Reviewing'|'Disposed',
-                    'MaxAssignments': 123,
-                    'Reward': 'string',
-                    'AutoApprovalDelayInSeconds': 123,
-                    'Expiration': datetime(2015, 1, 1),
-                    'AssignmentDurationInSeconds': 123,
-                    'RequesterAnnotation': 'string',
-                    'QualificationRequirements': [
+                \'HIT\': {
+                    \'HITId\': \'string\',
+                    \'HITTypeId\': \'string\',
+                    \'HITGroupId\': \'string\',
+                    \'HITLayoutId\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'Title\': \'string\',
+                    \'Description\': \'string\',
+                    \'Question\': \'string\',
+                    \'Keywords\': \'string\',
+                    \'HITStatus\': \'Assignable\'|\'Unassignable\'|\'Reviewable\'|\'Reviewing\'|\'Disposed\',
+                    \'MaxAssignments\': 123,
+                    \'Reward\': \'string\',
+                    \'AutoApprovalDelayInSeconds\': 123,
+                    \'Expiration\': datetime(2015, 1, 1),
+                    \'AssignmentDurationInSeconds\': 123,
+                    \'RequesterAnnotation\': \'string\',
+                    \'QualificationRequirements\': [
                         {
-                            'QualificationTypeId': 'string',
-                            'Comparator': 'LessThan'|'LessThanOrEqualTo'|'GreaterThan'|'GreaterThanOrEqualTo'|'EqualTo'|'NotEqualTo'|'Exists'|'DoesNotExist'|'In'|'NotIn',
-                            'IntegerValues': [
+                            \'QualificationTypeId\': \'string\',
+                            \'Comparator\': \'LessThan\'|\'LessThanOrEqualTo\'|\'GreaterThan\'|\'GreaterThanOrEqualTo\'|\'EqualTo\'|\'NotEqualTo\'|\'Exists\'|\'DoesNotExist\'|\'In\'|\'NotIn\',
+                            \'IntegerValues\': [
                                 123,
                             ],
-                            'LocaleValues': [
+                            \'LocaleValues\': [
                                 {
-                                    'Country': 'string',
-                                    'Subdivision': 'string'
+                                    \'Country\': \'string\',
+                                    \'Subdivision\': \'string\'
                                 },
                             ],
-                            'RequiredToPreview': True|False,
-                            'ActionsGuarded': 'Accept'|'PreviewAndAccept'|'DiscoverPreviewAndAccept'
+                            \'RequiredToPreview\': True|False,
+                            \'ActionsGuarded\': \'Accept\'|\'PreviewAndAccept\'|\'DiscoverPreviewAndAccept\'
                         },
                     ],
-                    'HITReviewStatus': 'NotReviewed'|'MarkedForReview'|'ReviewedAppropriate'|'ReviewedInappropriate',
-                    'NumberOfAssignmentsPending': 123,
-                    'NumberOfAssignmentsAvailable': 123,
-                    'NumberOfAssignmentsCompleted': 123
+                    \'HITReviewStatus\': \'NotReviewed\'|\'MarkedForReview\'|\'ReviewedAppropriate\'|\'ReviewedInappropriate\',
+                    \'NumberOfAssignmentsPending\': 123,
+                    \'NumberOfAssignmentsAvailable\': 123,
+                    \'NumberOfAssignmentsCompleted\': 123
                 }
             }
           **Response Structure** 
@@ -1819,7 +1819,7 @@ class Client(BaseClient):
         
               - **Answer** *(string) --* 
         
-                The Worker's answers submitted for the HIT contained in a QuestionFormAnswers document, if the Worker provides an answer. If the Worker does not provide any answers, Answer may contain a QuestionFormAnswers document, or Answer may be empty.
+                The Worker\'s answers submitted for the HIT contained in a QuestionFormAnswers document, if the Worker provides an answer. If the Worker does not provide any answers, Answer may contain a QuestionFormAnswers document, or Answer may be empty.
         
               - **RequesterFeedback** *(string) --* 
         
@@ -1895,7 +1895,7 @@ class Client(BaseClient):
         
               - **QualificationRequirements** *(list) --* 
         
-                Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
+                Conditions that a Worker\'s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
         
                 - *(dict) --* 
         
@@ -1907,17 +1907,17 @@ class Client(BaseClient):
         
                   - **Comparator** *(string) --* 
         
-                    The kind of comparison to make against a Qualification's value. You can compare a Qualification's value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user's profile, regardless of its value. 
+                    The kind of comparison to make against a Qualification\'s value. You can compare a Qualification\'s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user\'s profile, regardless of its value. 
         
                   - **IntegerValues** *(list) --* 
         
-                    The integer value to compare against the Qualification's value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
+                    The integer value to compare against the Qualification\'s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
         
                     - *(integer) --* 
                 
                   - **LocaleValues** *(list) --* 
         
-                    The locale value to compare against the Qualification's value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
+                    The locale value to compare against the Qualification\'s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
         
                     - *(dict) --* 
         
@@ -1933,11 +1933,11 @@ class Client(BaseClient):
         
                   - **RequiredToPreview** *(boolean) --* 
         
-                    DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker's Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT's question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
+                    DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker\'s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT\'s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
         
                   - **ActionsGuarded** *(string) --* 
         
-                    Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It's possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
+                    Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include \"Accept\" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), \"PreviewAndAccept\" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and \"DiscoverPreviewAndAccept\" (Worker cannot accept, preview, or see the HIT in their search results). It\'s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
         
               - **HITReviewStatus** *(string) --* 
         
@@ -1967,8 +1967,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_file_upload_url(
-              AssignmentId='string',
-              QuestionIdentifier='string'
+              AssignmentId=\'string\',
+              QuestionIdentifier=\'string\'
           )
         :type AssignmentId: string
         :param AssignmentId: **[REQUIRED]** 
@@ -1988,7 +1988,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FileUploadURL': 'string'
+                \'FileUploadURL\': \'string\'
             }
           **Response Structure** 
         
@@ -2010,7 +2010,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_hit(
-              HITId='string'
+              HITId=\'string\'
           )
         :type HITId: string
         :param HITId: **[REQUIRED]** 
@@ -2025,44 +2025,44 @@ class Client(BaseClient):
           ::
         
             {
-                'HIT': {
-                    'HITId': 'string',
-                    'HITTypeId': 'string',
-                    'HITGroupId': 'string',
-                    'HITLayoutId': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'Title': 'string',
-                    'Description': 'string',
-                    'Question': 'string',
-                    'Keywords': 'string',
-                    'HITStatus': 'Assignable'|'Unassignable'|'Reviewable'|'Reviewing'|'Disposed',
-                    'MaxAssignments': 123,
-                    'Reward': 'string',
-                    'AutoApprovalDelayInSeconds': 123,
-                    'Expiration': datetime(2015, 1, 1),
-                    'AssignmentDurationInSeconds': 123,
-                    'RequesterAnnotation': 'string',
-                    'QualificationRequirements': [
+                \'HIT\': {
+                    \'HITId\': \'string\',
+                    \'HITTypeId\': \'string\',
+                    \'HITGroupId\': \'string\',
+                    \'HITLayoutId\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'Title\': \'string\',
+                    \'Description\': \'string\',
+                    \'Question\': \'string\',
+                    \'Keywords\': \'string\',
+                    \'HITStatus\': \'Assignable\'|\'Unassignable\'|\'Reviewable\'|\'Reviewing\'|\'Disposed\',
+                    \'MaxAssignments\': 123,
+                    \'Reward\': \'string\',
+                    \'AutoApprovalDelayInSeconds\': 123,
+                    \'Expiration\': datetime(2015, 1, 1),
+                    \'AssignmentDurationInSeconds\': 123,
+                    \'RequesterAnnotation\': \'string\',
+                    \'QualificationRequirements\': [
                         {
-                            'QualificationTypeId': 'string',
-                            'Comparator': 'LessThan'|'LessThanOrEqualTo'|'GreaterThan'|'GreaterThanOrEqualTo'|'EqualTo'|'NotEqualTo'|'Exists'|'DoesNotExist'|'In'|'NotIn',
-                            'IntegerValues': [
+                            \'QualificationTypeId\': \'string\',
+                            \'Comparator\': \'LessThan\'|\'LessThanOrEqualTo\'|\'GreaterThan\'|\'GreaterThanOrEqualTo\'|\'EqualTo\'|\'NotEqualTo\'|\'Exists\'|\'DoesNotExist\'|\'In\'|\'NotIn\',
+                            \'IntegerValues\': [
                                 123,
                             ],
-                            'LocaleValues': [
+                            \'LocaleValues\': [
                                 {
-                                    'Country': 'string',
-                                    'Subdivision': 'string'
+                                    \'Country\': \'string\',
+                                    \'Subdivision\': \'string\'
                                 },
                             ],
-                            'RequiredToPreview': True|False,
-                            'ActionsGuarded': 'Accept'|'PreviewAndAccept'|'DiscoverPreviewAndAccept'
+                            \'RequiredToPreview\': True|False,
+                            \'ActionsGuarded\': \'Accept\'|\'PreviewAndAccept\'|\'DiscoverPreviewAndAccept\'
                         },
                     ],
-                    'HITReviewStatus': 'NotReviewed'|'MarkedForReview'|'ReviewedAppropriate'|'ReviewedInappropriate',
-                    'NumberOfAssignmentsPending': 123,
-                    'NumberOfAssignmentsAvailable': 123,
-                    'NumberOfAssignmentsCompleted': 123
+                    \'HITReviewStatus\': \'NotReviewed\'|\'MarkedForReview\'|\'ReviewedAppropriate\'|\'ReviewedInappropriate\',
+                    \'NumberOfAssignmentsPending\': 123,
+                    \'NumberOfAssignmentsAvailable\': 123,
+                    \'NumberOfAssignmentsCompleted\': 123
                 }
             }
           **Response Structure** 
@@ -2139,7 +2139,7 @@ class Client(BaseClient):
         
               - **QualificationRequirements** *(list) --* 
         
-                Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
+                Conditions that a Worker\'s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
         
                 - *(dict) --* 
         
@@ -2151,17 +2151,17 @@ class Client(BaseClient):
         
                   - **Comparator** *(string) --* 
         
-                    The kind of comparison to make against a Qualification's value. You can compare a Qualification's value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user's profile, regardless of its value. 
+                    The kind of comparison to make against a Qualification\'s value. You can compare a Qualification\'s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user\'s profile, regardless of its value. 
         
                   - **IntegerValues** *(list) --* 
         
-                    The integer value to compare against the Qualification's value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
+                    The integer value to compare against the Qualification\'s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
         
                     - *(integer) --* 
                 
                   - **LocaleValues** *(list) --* 
         
-                    The locale value to compare against the Qualification's value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
+                    The locale value to compare against the Qualification\'s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
         
                     - *(dict) --* 
         
@@ -2177,11 +2177,11 @@ class Client(BaseClient):
         
                   - **RequiredToPreview** *(boolean) --* 
         
-                    DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker's Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT's question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
+                    DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker\'s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT\'s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
         
                   - **ActionsGuarded** *(string) --* 
         
-                    Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It's possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
+                    Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include \"Accept\" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), \"PreviewAndAccept\" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and \"DiscoverPreviewAndAccept\" (Worker cannot accept, preview, or see the HIT in their search results). It\'s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
         
               - **HITReviewStatus** *(string) --* 
         
@@ -2208,10 +2208,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2225,9 +2225,9 @@ class Client(BaseClient):
     def get_qualification_score(self, QualificationTypeId: str, WorkerId: str) -> Dict:
         """
         
-        To get a Worker's Qualification, you must know the Worker's ID. The Worker's ID is included in the assignment data returned by the ``ListAssignmentsForHIT`` operation. 
+        To get a Worker\'s Qualification, you must know the Worker\'s ID. The Worker\'s ID is included in the assignment data returned by the ``ListAssignmentsForHIT`` operation. 
         
-        Only the owner of a Qualification type can query the value of a Worker's Qualification of that type.
+        Only the owner of a Qualification type can query the value of a Worker\'s Qualification of that type.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mturk-requester-2017-01-17/GetQualificationScore>`_
         
@@ -2235,8 +2235,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_qualification_score(
-              QualificationTypeId='string',
-              WorkerId='string'
+              QualificationTypeId=\'string\',
+              WorkerId=\'string\'
           )
         :type QualificationTypeId: string
         :param QualificationTypeId: **[REQUIRED]** 
@@ -2256,16 +2256,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Qualification': {
-                    'QualificationTypeId': 'string',
-                    'WorkerId': 'string',
-                    'GrantTime': datetime(2015, 1, 1),
-                    'IntegerValue': 123,
-                    'LocaleValue': {
-                        'Country': 'string',
-                        'Subdivision': 'string'
+                \'Qualification\': {
+                    \'QualificationTypeId\': \'string\',
+                    \'WorkerId\': \'string\',
+                    \'GrantTime\': datetime(2015, 1, 1),
+                    \'IntegerValue\': 123,
+                    \'LocaleValue\': {
+                        \'Country\': \'string\',
+                        \'Subdivision\': \'string\'
                     },
-                    'Status': 'Granted'|'Revoked'
+                    \'Status\': \'Granted\'|\'Revoked\'
                 }
             }
           **Response Structure** 
@@ -2286,7 +2286,7 @@ class Client(BaseClient):
         
               - **GrantTime** *(datetime) --* 
         
-                The date and time the Qualification was granted to the Worker. If the Worker's Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
+                The date and time the Qualification was granted to the Worker. If the Worker\'s Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
         
               - **IntegerValue** *(integer) --* 
         
@@ -2320,7 +2320,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_qualification_type(
-              QualificationTypeId='string'
+              QualificationTypeId=\'string\'
           )
         :type QualificationTypeId: string
         :param QualificationTypeId: **[REQUIRED]** 
@@ -2335,20 +2335,20 @@ class Client(BaseClient):
           ::
         
             {
-                'QualificationType': {
-                    'QualificationTypeId': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'Name': 'string',
-                    'Description': 'string',
-                    'Keywords': 'string',
-                    'QualificationTypeStatus': 'Active'|'Inactive',
-                    'Test': 'string',
-                    'TestDurationInSeconds': 123,
-                    'AnswerKey': 'string',
-                    'RetryDelayInSeconds': 123,
-                    'IsRequestable': True|False,
-                    'AutoGranted': True|False,
-                    'AutoGrantedValue': 123
+                \'QualificationType\': {
+                    \'QualificationTypeId\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'Keywords\': \'string\',
+                    \'QualificationTypeStatus\': \'Active\'|\'Inactive\',
+                    \'Test\': \'string\',
+                    \'TestDurationInSeconds\': 123,
+                    \'AnswerKey\': \'string\',
+                    \'RetryDelayInSeconds\': 123,
+                    \'IsRequestable\': True|False,
+                    \'AutoGranted\': True|False,
+                    \'AutoGrantedValue\': 123
                 }
             }
           **Response Structure** 
@@ -2381,7 +2381,7 @@ class Client(BaseClient):
         
               - **QualificationTypeStatus** *(string) --* 
         
-                The status of the Qualification type. A Qualification type's status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive. 
+                The status of the Qualification type. A Qualification type\'s status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive. 
         
               - **Test** *(string) --* 
         
@@ -2443,11 +2443,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_assignments_for_hit(
-              HITId='string',
-              NextToken='string',
+              HITId=\'string\',
+              NextToken=\'string\',
               MaxResults=123,
               AssignmentStatuses=[
-                  'Submitted'|'Approved'|'Rejected',
+                  \'Submitted\'|\'Approved\'|\'Rejected\',
               ]
           )
         :type HITId: string
@@ -2478,22 +2478,22 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'NumResults': 123,
-                'Assignments': [
+                \'NextToken\': \'string\',
+                \'NumResults\': 123,
+                \'Assignments\': [
                     {
-                        'AssignmentId': 'string',
-                        'WorkerId': 'string',
-                        'HITId': 'string',
-                        'AssignmentStatus': 'Submitted'|'Approved'|'Rejected',
-                        'AutoApprovalTime': datetime(2015, 1, 1),
-                        'AcceptTime': datetime(2015, 1, 1),
-                        'SubmitTime': datetime(2015, 1, 1),
-                        'ApprovalTime': datetime(2015, 1, 1),
-                        'RejectionTime': datetime(2015, 1, 1),
-                        'Deadline': datetime(2015, 1, 1),
-                        'Answer': 'string',
-                        'RequesterFeedback': 'string'
+                        \'AssignmentId\': \'string\',
+                        \'WorkerId\': \'string\',
+                        \'HITId\': \'string\',
+                        \'AssignmentStatus\': \'Submitted\'|\'Approved\'|\'Rejected\',
+                        \'AutoApprovalTime\': datetime(2015, 1, 1),
+                        \'AcceptTime\': datetime(2015, 1, 1),
+                        \'SubmitTime\': datetime(2015, 1, 1),
+                        \'ApprovalTime\': datetime(2015, 1, 1),
+                        \'RejectionTime\': datetime(2015, 1, 1),
+                        \'Deadline\': datetime(2015, 1, 1),
+                        \'Answer\': \'string\',
+                        \'RequesterFeedback\': \'string\'
                     },
                 ]
             }
@@ -2515,7 +2515,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker's efforts to complete the HIT, and contains the results for later retrieval. 
+                The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker\'s efforts to complete the HIT, and contains the results for later retrieval. 
         
                 - **AssignmentId** *(string) --* 
         
@@ -2559,7 +2559,7 @@ class Client(BaseClient):
         
                 - **Answer** *(string) --* 
         
-                  The Worker's answers submitted for the HIT contained in a QuestionFormAnswers document, if the Worker provides an answer. If the Worker does not provide any answers, Answer may contain a QuestionFormAnswers document, or Answer may be empty.
+                  The Worker\'s answers submitted for the HIT contained in a QuestionFormAnswers document, if the Worker provides an answer. If the Worker does not provide any answers, Answer may contain a QuestionFormAnswers document, or Answer may be empty.
         
                 - **RequesterFeedback** *(string) --* 
         
@@ -2577,9 +2577,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_bonus_payments(
-              HITId='string',
-              AssignmentId='string',
-              NextToken='string',
+              HITId=\'string\',
+              AssignmentId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type HITId: string
@@ -2608,15 +2608,15 @@ class Client(BaseClient):
           ::
         
             {
-                'NumResults': 123,
-                'NextToken': 'string',
-                'BonusPayments': [
+                \'NumResults\': 123,
+                \'NextToken\': \'string\',
+                \'BonusPayments\': [
                     {
-                        'WorkerId': 'string',
-                        'BonusAmount': 'string',
-                        'AssignmentId': 'string',
-                        'Reason': 'string',
-                        'GrantTime': datetime(2015, 1, 1)
+                        \'WorkerId\': \'string\',
+                        \'BonusAmount\': \'string\',
+                        \'AssignmentId\': \'string\',
+                        \'Reason\': \'string\',
+                        \'GrantTime\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -2672,7 +2672,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_hits(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -2691,47 +2691,47 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'NumResults': 123,
-                'HITs': [
+                \'NextToken\': \'string\',
+                \'NumResults\': 123,
+                \'HITs\': [
                     {
-                        'HITId': 'string',
-                        'HITTypeId': 'string',
-                        'HITGroupId': 'string',
-                        'HITLayoutId': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'Title': 'string',
-                        'Description': 'string',
-                        'Question': 'string',
-                        'Keywords': 'string',
-                        'HITStatus': 'Assignable'|'Unassignable'|'Reviewable'|'Reviewing'|'Disposed',
-                        'MaxAssignments': 123,
-                        'Reward': 'string',
-                        'AutoApprovalDelayInSeconds': 123,
-                        'Expiration': datetime(2015, 1, 1),
-                        'AssignmentDurationInSeconds': 123,
-                        'RequesterAnnotation': 'string',
-                        'QualificationRequirements': [
+                        \'HITId\': \'string\',
+                        \'HITTypeId\': \'string\',
+                        \'HITGroupId\': \'string\',
+                        \'HITLayoutId\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'Title\': \'string\',
+                        \'Description\': \'string\',
+                        \'Question\': \'string\',
+                        \'Keywords\': \'string\',
+                        \'HITStatus\': \'Assignable\'|\'Unassignable\'|\'Reviewable\'|\'Reviewing\'|\'Disposed\',
+                        \'MaxAssignments\': 123,
+                        \'Reward\': \'string\',
+                        \'AutoApprovalDelayInSeconds\': 123,
+                        \'Expiration\': datetime(2015, 1, 1),
+                        \'AssignmentDurationInSeconds\': 123,
+                        \'RequesterAnnotation\': \'string\',
+                        \'QualificationRequirements\': [
                             {
-                                'QualificationTypeId': 'string',
-                                'Comparator': 'LessThan'|'LessThanOrEqualTo'|'GreaterThan'|'GreaterThanOrEqualTo'|'EqualTo'|'NotEqualTo'|'Exists'|'DoesNotExist'|'In'|'NotIn',
-                                'IntegerValues': [
+                                \'QualificationTypeId\': \'string\',
+                                \'Comparator\': \'LessThan\'|\'LessThanOrEqualTo\'|\'GreaterThan\'|\'GreaterThanOrEqualTo\'|\'EqualTo\'|\'NotEqualTo\'|\'Exists\'|\'DoesNotExist\'|\'In\'|\'NotIn\',
+                                \'IntegerValues\': [
                                     123,
                                 ],
-                                'LocaleValues': [
+                                \'LocaleValues\': [
                                     {
-                                        'Country': 'string',
-                                        'Subdivision': 'string'
+                                        \'Country\': \'string\',
+                                        \'Subdivision\': \'string\'
                                     },
                                 ],
-                                'RequiredToPreview': True|False,
-                                'ActionsGuarded': 'Accept'|'PreviewAndAccept'|'DiscoverPreviewAndAccept'
+                                \'RequiredToPreview\': True|False,
+                                \'ActionsGuarded\': \'Accept\'|\'PreviewAndAccept\'|\'DiscoverPreviewAndAccept\'
                             },
                         ],
-                        'HITReviewStatus': 'NotReviewed'|'MarkedForReview'|'ReviewedAppropriate'|'ReviewedInappropriate',
-                        'NumberOfAssignmentsPending': 123,
-                        'NumberOfAssignmentsAvailable': 123,
-                        'NumberOfAssignmentsCompleted': 123
+                        \'HITReviewStatus\': \'NotReviewed\'|\'MarkedForReview\'|\'ReviewedAppropriate\'|\'ReviewedInappropriate\',
+                        \'NumberOfAssignmentsPending\': 123,
+                        \'NumberOfAssignmentsAvailable\': 123,
+                        \'NumberOfAssignmentsCompleted\': 123
                     },
                 ]
             }
@@ -2821,7 +2821,7 @@ class Client(BaseClient):
         
                 - **QualificationRequirements** *(list) --* 
         
-                  Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
+                  Conditions that a Worker\'s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
         
                   - *(dict) --* 
         
@@ -2833,17 +2833,17 @@ class Client(BaseClient):
         
                     - **Comparator** *(string) --* 
         
-                      The kind of comparison to make against a Qualification's value. You can compare a Qualification's value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user's profile, regardless of its value. 
+                      The kind of comparison to make against a Qualification\'s value. You can compare a Qualification\'s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user\'s profile, regardless of its value. 
         
                     - **IntegerValues** *(list) --* 
         
-                      The integer value to compare against the Qualification's value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
+                      The integer value to compare against the Qualification\'s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
         
                       - *(integer) --* 
                   
                     - **LocaleValues** *(list) --* 
         
-                      The locale value to compare against the Qualification's value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
+                      The locale value to compare against the Qualification\'s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
         
                       - *(dict) --* 
         
@@ -2859,11 +2859,11 @@ class Client(BaseClient):
         
                     - **RequiredToPreview** *(boolean) --* 
         
-                      DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker's Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT's question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
+                      DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker\'s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT\'s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
         
                     - **ActionsGuarded** *(string) --* 
         
-                      Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It's possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
+                      Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include \"Accept\" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), \"PreviewAndAccept\" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and \"DiscoverPreviewAndAccept\" (Worker cannot accept, preview, or see the HIT in their search results). It\'s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
         
                 - **HITReviewStatus** *(string) --* 
         
@@ -2893,8 +2893,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_hits_for_qualification_type(
-              QualificationTypeId='string',
-              NextToken='string',
+              QualificationTypeId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type QualificationTypeId: string
@@ -2920,47 +2920,47 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'NumResults': 123,
-                'HITs': [
+                \'NextToken\': \'string\',
+                \'NumResults\': 123,
+                \'HITs\': [
                     {
-                        'HITId': 'string',
-                        'HITTypeId': 'string',
-                        'HITGroupId': 'string',
-                        'HITLayoutId': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'Title': 'string',
-                        'Description': 'string',
-                        'Question': 'string',
-                        'Keywords': 'string',
-                        'HITStatus': 'Assignable'|'Unassignable'|'Reviewable'|'Reviewing'|'Disposed',
-                        'MaxAssignments': 123,
-                        'Reward': 'string',
-                        'AutoApprovalDelayInSeconds': 123,
-                        'Expiration': datetime(2015, 1, 1),
-                        'AssignmentDurationInSeconds': 123,
-                        'RequesterAnnotation': 'string',
-                        'QualificationRequirements': [
+                        \'HITId\': \'string\',
+                        \'HITTypeId\': \'string\',
+                        \'HITGroupId\': \'string\',
+                        \'HITLayoutId\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'Title\': \'string\',
+                        \'Description\': \'string\',
+                        \'Question\': \'string\',
+                        \'Keywords\': \'string\',
+                        \'HITStatus\': \'Assignable\'|\'Unassignable\'|\'Reviewable\'|\'Reviewing\'|\'Disposed\',
+                        \'MaxAssignments\': 123,
+                        \'Reward\': \'string\',
+                        \'AutoApprovalDelayInSeconds\': 123,
+                        \'Expiration\': datetime(2015, 1, 1),
+                        \'AssignmentDurationInSeconds\': 123,
+                        \'RequesterAnnotation\': \'string\',
+                        \'QualificationRequirements\': [
                             {
-                                'QualificationTypeId': 'string',
-                                'Comparator': 'LessThan'|'LessThanOrEqualTo'|'GreaterThan'|'GreaterThanOrEqualTo'|'EqualTo'|'NotEqualTo'|'Exists'|'DoesNotExist'|'In'|'NotIn',
-                                'IntegerValues': [
+                                \'QualificationTypeId\': \'string\',
+                                \'Comparator\': \'LessThan\'|\'LessThanOrEqualTo\'|\'GreaterThan\'|\'GreaterThanOrEqualTo\'|\'EqualTo\'|\'NotEqualTo\'|\'Exists\'|\'DoesNotExist\'|\'In\'|\'NotIn\',
+                                \'IntegerValues\': [
                                     123,
                                 ],
-                                'LocaleValues': [
+                                \'LocaleValues\': [
                                     {
-                                        'Country': 'string',
-                                        'Subdivision': 'string'
+                                        \'Country\': \'string\',
+                                        \'Subdivision\': \'string\'
                                     },
                                 ],
-                                'RequiredToPreview': True|False,
-                                'ActionsGuarded': 'Accept'|'PreviewAndAccept'|'DiscoverPreviewAndAccept'
+                                \'RequiredToPreview\': True|False,
+                                \'ActionsGuarded\': \'Accept\'|\'PreviewAndAccept\'|\'DiscoverPreviewAndAccept\'
                             },
                         ],
-                        'HITReviewStatus': 'NotReviewed'|'MarkedForReview'|'ReviewedAppropriate'|'ReviewedInappropriate',
-                        'NumberOfAssignmentsPending': 123,
-                        'NumberOfAssignmentsAvailable': 123,
-                        'NumberOfAssignmentsCompleted': 123
+                        \'HITReviewStatus\': \'NotReviewed\'|\'MarkedForReview\'|\'ReviewedAppropriate\'|\'ReviewedInappropriate\',
+                        \'NumberOfAssignmentsPending\': 123,
+                        \'NumberOfAssignmentsAvailable\': 123,
+                        \'NumberOfAssignmentsCompleted\': 123
                     },
                 ]
             }
@@ -3050,7 +3050,7 @@ class Client(BaseClient):
         
                 - **QualificationRequirements** *(list) --* 
         
-                  Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
+                  Conditions that a Worker\'s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
         
                   - *(dict) --* 
         
@@ -3062,17 +3062,17 @@ class Client(BaseClient):
         
                     - **Comparator** *(string) --* 
         
-                      The kind of comparison to make against a Qualification's value. You can compare a Qualification's value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user's profile, regardless of its value. 
+                      The kind of comparison to make against a Qualification\'s value. You can compare a Qualification\'s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user\'s profile, regardless of its value. 
         
                     - **IntegerValues** *(list) --* 
         
-                      The integer value to compare against the Qualification's value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
+                      The integer value to compare against the Qualification\'s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
         
                       - *(integer) --* 
                   
                     - **LocaleValues** *(list) --* 
         
-                      The locale value to compare against the Qualification's value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
+                      The locale value to compare against the Qualification\'s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
         
                       - *(dict) --* 
         
@@ -3088,11 +3088,11 @@ class Client(BaseClient):
         
                     - **RequiredToPreview** *(boolean) --* 
         
-                      DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker's Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT's question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
+                      DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker\'s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT\'s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
         
                     - **ActionsGuarded** *(string) --* 
         
-                      Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It's possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
+                      Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include \"Accept\" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), \"PreviewAndAccept\" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and \"DiscoverPreviewAndAccept\" (Worker cannot accept, preview, or see the HIT in their search results). It\'s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
         
                 - **HITReviewStatus** *(string) --* 
         
@@ -3122,8 +3122,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_qualification_requests(
-              QualificationTypeId='string',
-              NextToken='string',
+              QualificationTypeId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type QualificationTypeId: string
@@ -3149,16 +3149,16 @@ class Client(BaseClient):
           ::
         
             {
-                'NumResults': 123,
-                'NextToken': 'string',
-                'QualificationRequests': [
+                \'NumResults\': 123,
+                \'NextToken\': \'string\',
+                \'QualificationRequests\': [
                     {
-                        'QualificationRequestId': 'string',
-                        'QualificationTypeId': 'string',
-                        'WorkerId': 'string',
-                        'Test': 'string',
-                        'Answer': 'string',
-                        'SubmitTime': datetime(2015, 1, 1)
+                        \'QualificationRequestId\': \'string\',
+                        \'QualificationTypeId\': \'string\',
+                        \'WorkerId\': \'string\',
+                        \'Test\': \'string\',
+                        \'Answer\': \'string\',
+                        \'SubmitTime\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -3200,7 +3200,7 @@ class Client(BaseClient):
         
                 - **Answer** *(string) --* 
         
-                  The Worker's answers for the Qualification type's test contained in a QuestionFormAnswers document, if the type has a test and the Worker has submitted answers. If the Worker does not provide any answers, Answer may be empty. 
+                  The Worker\'s answers for the Qualification type\'s test contained in a QuestionFormAnswers document, if the type has a test and the Worker has submitted answers. If the Worker does not provide any answers, Answer may be empty. 
         
                 - **SubmitTime** *(datetime) --* 
         
@@ -3218,10 +3218,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_qualification_types(
-              Query='string',
+              Query=\'string\',
               MustBeRequestable=True|False,
               MustBeOwnedByCaller=True|False,
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Query: string
@@ -3257,23 +3257,23 @@ class Client(BaseClient):
           ::
         
             {
-                'NumResults': 123,
-                'NextToken': 'string',
-                'QualificationTypes': [
+                \'NumResults\': 123,
+                \'NextToken\': \'string\',
+                \'QualificationTypes\': [
                     {
-                        'QualificationTypeId': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Keywords': 'string',
-                        'QualificationTypeStatus': 'Active'|'Inactive',
-                        'Test': 'string',
-                        'TestDurationInSeconds': 123,
-                        'AnswerKey': 'string',
-                        'RetryDelayInSeconds': 123,
-                        'IsRequestable': True|False,
-                        'AutoGranted': True|False,
-                        'AutoGrantedValue': 123
+                        \'QualificationTypeId\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Keywords\': \'string\',
+                        \'QualificationTypeStatus\': \'Active\'|\'Inactive\',
+                        \'Test\': \'string\',
+                        \'TestDurationInSeconds\': 123,
+                        \'AnswerKey\': \'string\',
+                        \'RetryDelayInSeconds\': 123,
+                        \'IsRequestable\': True|False,
+                        \'AutoGranted\': True|False,
+                        \'AutoGrantedValue\': 123
                     },
                 ]
             }
@@ -3319,7 +3319,7 @@ class Client(BaseClient):
         
                 - **QualificationTypeStatus** *(string) --* 
         
-                  The status of the Qualification type. A Qualification type's status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive. 
+                  The status of the Qualification type. A Qualification type\'s status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive. 
         
                 - **Test** *(string) --* 
         
@@ -3361,13 +3361,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_review_policy_results_for_hit(
-              HITId='string',
+              HITId=\'string\',
               PolicyLevels=[
-                  'Assignment'|'HIT',
+                  \'Assignment\'|\'HIT\',
               ],
               RetrieveActions=True|False,
               RetrieveResults=True|False,
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type HITId: string
@@ -3410,94 +3410,94 @@ class Client(BaseClient):
           ::
         
             {
-                'HITId': 'string',
-                'AssignmentReviewPolicy': {
-                    'PolicyName': 'string',
-                    'Parameters': [
+                \'HITId\': \'string\',
+                \'AssignmentReviewPolicy\': {
+                    \'PolicyName\': \'string\',
+                    \'Parameters\': [
                         {
-                            'Key': 'string',
-                            'Values': [
-                                'string',
+                            \'Key\': \'string\',
+                            \'Values\': [
+                                \'string\',
                             ],
-                            'MapEntries': [
+                            \'MapEntries\': [
                                 {
-                                    'Key': 'string',
-                                    'Values': [
-                                        'string',
+                                    \'Key\': \'string\',
+                                    \'Values\': [
+                                        \'string\',
                                     ]
                                 },
                             ]
                         },
                     ]
                 },
-                'HITReviewPolicy': {
-                    'PolicyName': 'string',
-                    'Parameters': [
+                \'HITReviewPolicy\': {
+                    \'PolicyName\': \'string\',
+                    \'Parameters\': [
                         {
-                            'Key': 'string',
-                            'Values': [
-                                'string',
+                            \'Key\': \'string\',
+                            \'Values\': [
+                                \'string\',
                             ],
-                            'MapEntries': [
+                            \'MapEntries\': [
                                 {
-                                    'Key': 'string',
-                                    'Values': [
-                                        'string',
+                                    \'Key\': \'string\',
+                                    \'Values\': [
+                                        \'string\',
                                     ]
                                 },
                             ]
                         },
                     ]
                 },
-                'AssignmentReviewReport': {
-                    'ReviewResults': [
+                \'AssignmentReviewReport\': {
+                    \'ReviewResults\': [
                         {
-                            'ActionId': 'string',
-                            'SubjectId': 'string',
-                            'SubjectType': 'string',
-                            'QuestionId': 'string',
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'ActionId\': \'string\',
+                            \'SubjectId\': \'string\',
+                            \'SubjectType\': \'string\',
+                            \'QuestionId\': \'string\',
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'ReviewActions': [
+                    \'ReviewActions\': [
                         {
-                            'ActionId': 'string',
-                            'ActionName': 'string',
-                            'TargetId': 'string',
-                            'TargetType': 'string',
-                            'Status': 'Intended'|'Succeeded'|'Failed'|'Cancelled',
-                            'CompleteTime': datetime(2015, 1, 1),
-                            'Result': 'string',
-                            'ErrorCode': 'string'
+                            \'ActionId\': \'string\',
+                            \'ActionName\': \'string\',
+                            \'TargetId\': \'string\',
+                            \'TargetType\': \'string\',
+                            \'Status\': \'Intended\'|\'Succeeded\'|\'Failed\'|\'Cancelled\',
+                            \'CompleteTime\': datetime(2015, 1, 1),
+                            \'Result\': \'string\',
+                            \'ErrorCode\': \'string\'
                         },
                     ]
                 },
-                'HITReviewReport': {
-                    'ReviewResults': [
+                \'HITReviewReport\': {
+                    \'ReviewResults\': [
                         {
-                            'ActionId': 'string',
-                            'SubjectId': 'string',
-                            'SubjectType': 'string',
-                            'QuestionId': 'string',
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'ActionId\': \'string\',
+                            \'SubjectId\': \'string\',
+                            \'SubjectType\': \'string\',
+                            \'QuestionId\': \'string\',
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'ReviewActions': [
+                    \'ReviewActions\': [
                         {
-                            'ActionId': 'string',
-                            'ActionName': 'string',
-                            'TargetId': 'string',
-                            'TargetType': 'string',
-                            'Status': 'Intended'|'Succeeded'|'Failed'|'Cancelled',
-                            'CompleteTime': datetime(2015, 1, 1),
-                            'Result': 'string',
-                            'ErrorCode': 'string'
+                            \'ActionId\': \'string\',
+                            \'ActionName\': \'string\',
+                            \'TargetId\': \'string\',
+                            \'TargetType\': \'string\',
+                            \'Status\': \'Intended\'|\'Succeeded\'|\'Failed\'|\'Cancelled\',
+                            \'CompleteTime\': datetime(2015, 1, 1),
+                            \'Result\': \'string\',
+                            \'ErrorCode\': \'string\'
                         },
                     ]
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3621,7 +3621,7 @@ class Client(BaseClient):
         
                   - **QuestionId** *(string) --* 
         
-                    Specifies the QuestionId the result is describing. Depending on whether the TargetType is a HIT or Assignment this results could specify multiple values. If TargetType is HIT and QuestionId is absent, then the result describes results of the HIT, including the HIT agreement score. If ObjectType is Assignment and QuestionId is absent, then the result describes the Worker's performance on the HIT. 
+                    Specifies the QuestionId the result is describing. Depending on whether the TargetType is a HIT or Assignment this results could specify multiple values. If TargetType is HIT and QuestionId is absent, then the result describes results of the HIT, including the HIT agreement score. If ObjectType is Assignment and QuestionId is absent, then the result describes the Worker\'s performance on the HIT. 
         
                   - **Key** *(string) --* 
         
@@ -3697,7 +3697,7 @@ class Client(BaseClient):
         
                   - **QuestionId** *(string) --* 
         
-                    Specifies the QuestionId the result is describing. Depending on whether the TargetType is a HIT or Assignment this results could specify multiple values. If TargetType is HIT and QuestionId is absent, then the result describes results of the HIT, including the HIT agreement score. If ObjectType is Assignment and QuestionId is absent, then the result describes the Worker's performance on the HIT. 
+                    Specifies the QuestionId the result is describing. Depending on whether the TargetType is a HIT or Assignment this results could specify multiple values. If TargetType is HIT and QuestionId is absent, then the result describes results of the HIT, including the HIT agreement score. If ObjectType is Assignment and QuestionId is absent, then the result describes the Worker\'s performance on the HIT. 
         
                   - **Key** *(string) --* 
         
@@ -3763,9 +3763,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_reviewable_hits(
-              HITTypeId='string',
-              Status='Reviewable'|'Reviewing',
-              NextToken='string',
+              HITTypeId=\'string\',
+              Status=\'Reviewable\'|\'Reviewing\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type HITTypeId: string
@@ -3796,47 +3796,47 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'NumResults': 123,
-                'HITs': [
+                \'NextToken\': \'string\',
+                \'NumResults\': 123,
+                \'HITs\': [
                     {
-                        'HITId': 'string',
-                        'HITTypeId': 'string',
-                        'HITGroupId': 'string',
-                        'HITLayoutId': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'Title': 'string',
-                        'Description': 'string',
-                        'Question': 'string',
-                        'Keywords': 'string',
-                        'HITStatus': 'Assignable'|'Unassignable'|'Reviewable'|'Reviewing'|'Disposed',
-                        'MaxAssignments': 123,
-                        'Reward': 'string',
-                        'AutoApprovalDelayInSeconds': 123,
-                        'Expiration': datetime(2015, 1, 1),
-                        'AssignmentDurationInSeconds': 123,
-                        'RequesterAnnotation': 'string',
-                        'QualificationRequirements': [
+                        \'HITId\': \'string\',
+                        \'HITTypeId\': \'string\',
+                        \'HITGroupId\': \'string\',
+                        \'HITLayoutId\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'Title\': \'string\',
+                        \'Description\': \'string\',
+                        \'Question\': \'string\',
+                        \'Keywords\': \'string\',
+                        \'HITStatus\': \'Assignable\'|\'Unassignable\'|\'Reviewable\'|\'Reviewing\'|\'Disposed\',
+                        \'MaxAssignments\': 123,
+                        \'Reward\': \'string\',
+                        \'AutoApprovalDelayInSeconds\': 123,
+                        \'Expiration\': datetime(2015, 1, 1),
+                        \'AssignmentDurationInSeconds\': 123,
+                        \'RequesterAnnotation\': \'string\',
+                        \'QualificationRequirements\': [
                             {
-                                'QualificationTypeId': 'string',
-                                'Comparator': 'LessThan'|'LessThanOrEqualTo'|'GreaterThan'|'GreaterThanOrEqualTo'|'EqualTo'|'NotEqualTo'|'Exists'|'DoesNotExist'|'In'|'NotIn',
-                                'IntegerValues': [
+                                \'QualificationTypeId\': \'string\',
+                                \'Comparator\': \'LessThan\'|\'LessThanOrEqualTo\'|\'GreaterThan\'|\'GreaterThanOrEqualTo\'|\'EqualTo\'|\'NotEqualTo\'|\'Exists\'|\'DoesNotExist\'|\'In\'|\'NotIn\',
+                                \'IntegerValues\': [
                                     123,
                                 ],
-                                'LocaleValues': [
+                                \'LocaleValues\': [
                                     {
-                                        'Country': 'string',
-                                        'Subdivision': 'string'
+                                        \'Country\': \'string\',
+                                        \'Subdivision\': \'string\'
                                     },
                                 ],
-                                'RequiredToPreview': True|False,
-                                'ActionsGuarded': 'Accept'|'PreviewAndAccept'|'DiscoverPreviewAndAccept'
+                                \'RequiredToPreview\': True|False,
+                                \'ActionsGuarded\': \'Accept\'|\'PreviewAndAccept\'|\'DiscoverPreviewAndAccept\'
                             },
                         ],
-                        'HITReviewStatus': 'NotReviewed'|'MarkedForReview'|'ReviewedAppropriate'|'ReviewedInappropriate',
-                        'NumberOfAssignmentsPending': 123,
-                        'NumberOfAssignmentsAvailable': 123,
-                        'NumberOfAssignmentsCompleted': 123
+                        \'HITReviewStatus\': \'NotReviewed\'|\'MarkedForReview\'|\'ReviewedAppropriate\'|\'ReviewedInappropriate\',
+                        \'NumberOfAssignmentsPending\': 123,
+                        \'NumberOfAssignmentsAvailable\': 123,
+                        \'NumberOfAssignmentsCompleted\': 123
                     },
                 ]
             }
@@ -3926,7 +3926,7 @@ class Client(BaseClient):
         
                 - **QualificationRequirements** *(list) --* 
         
-                  Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
+                  Conditions that a Worker\'s Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the ``ActionsGuarded`` field on each ``QualificationRequirement`` structure. 
         
                   - *(dict) --* 
         
@@ -3938,17 +3938,17 @@ class Client(BaseClient):
         
                     - **Comparator** *(string) --* 
         
-                      The kind of comparison to make against a Qualification's value. You can compare a Qualification's value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user's profile, regardless of its value. 
+                      The kind of comparison to make against a Qualification\'s value. You can compare a Qualification\'s value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You can compare it to a LocaleValue to see if it is EqualTo, or NotEqualTo the LocaleValue. You can check to see if the value is In or NotIn a set of IntegerValue or LocaleValue values. Lastly, a Qualification requirement can also test if a Qualification Exists or DoesNotExist in the user\'s profile, regardless of its value. 
         
                     - **IntegerValues** *(list) --* 
         
-                      The integer value to compare against the Qualification's value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
+                      The integer value to compare against the Qualification\'s value. IntegerValue must not be present if Comparator is Exists or DoesNotExist. IntegerValue can only be used if the Qualification type has an integer value; it cannot be used with the Worker_Locale QualificationType ID. When performing a set comparison by using the In or the NotIn comparator, you can use up to 15 IntegerValue elements in a QualificationRequirement data structure. 
         
                       - *(integer) --* 
                   
                     - **LocaleValues** *(list) --* 
         
-                      The locale value to compare against the Qualification's value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
+                      The locale value to compare against the Qualification\'s value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure. 
         
                       - *(dict) --* 
         
@@ -3964,11 +3964,11 @@ class Client(BaseClient):
         
                     - **RequiredToPreview** *(boolean) --* 
         
-                      DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker's Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT's question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
+                      DEPRECATED: Use the ``ActionsGuarded`` field instead. If RequiredToPreview is true, the question data for the HIT will not be shown when a Worker whose Qualifications do not meet this requirement tries to preview the HIT. That is, a Worker\'s Qualifications must meet all of the requirements for which RequiredToPreview is true in order to preview the HIT. If a Worker meets all of the requirements where RequiredToPreview is true (or if there are no such requirements), but does not meet all of the requirements for the HIT, the Worker will be allowed to preview the HIT\'s question data, but will not be allowed to accept and complete the HIT. The default is false. This should not be used in combination with the ``ActionsGuarded`` field. 
         
                     - **ActionsGuarded** *(string) --* 
         
-                      Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and "DiscoverPreviewAndAccept" (Worker cannot accept, preview, or see the HIT in their search results). It's possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
+                      Setting this attribute prevents Workers whose Qualifications do not meet this QualificationRequirement from taking the specified action. Valid arguments include \"Accept\" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results), \"PreviewAndAccept\" (Worker cannot accept or preview the HIT, but can see the HIT in their search results), and \"DiscoverPreviewAndAccept\" (Worker cannot accept, preview, or see the HIT in their search results). It\'s possible for you to create a HIT with multiple QualificationRequirements (which can have different values for the ActionGuarded attribute). In this case, the Worker is only permitted to perform an action when they have met all QualificationRequirements guarding the action. The actions in the order of least restrictive to most restrictive are Discover, Preview and Accept. For example, if a Worker meets all QualificationRequirements that are set to DiscoverPreviewAndAccept, but do not meet all requirements that are set with PreviewAndAccept, then the Worker will be able to Discover, i.e. see the HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the ``RequiredToPreview`` field. 
         
                 - **HITReviewStatus** *(string) --* 
         
@@ -3998,7 +3998,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_worker_blocks(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -4017,12 +4017,12 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'NumResults': 123,
-                'WorkerBlocks': [
+                \'NextToken\': \'string\',
+                \'NumResults\': 123,
+                \'WorkerBlocks\': [
                     {
-                        'WorkerId': 'string',
-                        'Reason': 'string'
+                        \'WorkerId\': \'string\',
+                        \'Reason\': \'string\'
                     },
                 ]
             }
@@ -4066,9 +4066,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_workers_with_qualification_type(
-              QualificationTypeId='string',
-              Status='Granted'|'Revoked',
-              NextToken='string',
+              QualificationTypeId=\'string\',
+              Status=\'Granted\'|\'Revoked\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type QualificationTypeId: string
@@ -4099,19 +4099,19 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'NumResults': 123,
-                'Qualifications': [
+                \'NextToken\': \'string\',
+                \'NumResults\': 123,
+                \'Qualifications\': [
                     {
-                        'QualificationTypeId': 'string',
-                        'WorkerId': 'string',
-                        'GrantTime': datetime(2015, 1, 1),
-                        'IntegerValue': 123,
-                        'LocaleValue': {
-                            'Country': 'string',
-                            'Subdivision': 'string'
+                        \'QualificationTypeId\': \'string\',
+                        \'WorkerId\': \'string\',
+                        \'GrantTime\': datetime(2015, 1, 1),
+                        \'IntegerValue\': 123,
+                        \'LocaleValue\': {
+                            \'Country\': \'string\',
+                            \'Subdivision\': \'string\'
                         },
-                        'Status': 'Granted'|'Revoked'
+                        \'Status\': \'Granted\'|\'Revoked\'
                     },
                 ]
             }
@@ -4145,7 +4145,7 @@ class Client(BaseClient):
         
                 - **GrantTime** *(datetime) --* 
         
-                  The date and time the Qualification was granted to the Worker. If the Worker's Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
+                  The date and time the Qualification was granted to the Worker. If the Worker\'s Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
         
                 - **IntegerValue** *(integer) --* 
         
@@ -4179,10 +4179,10 @@ class Client(BaseClient):
         ::
         
           response = client.notify_workers(
-              Subject='string',
-              MessageText='string',
+              Subject=\'string\',
+              MessageText=\'string\',
               WorkerIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Subject: string
@@ -4210,11 +4210,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NotifyWorkersFailureStatuses': [
+                \'NotifyWorkersFailureStatuses\': [
                     {
-                        'NotifyWorkersFailureCode': 'SoftFailure'|'HardFailure',
-                        'NotifyWorkersFailureMessage': 'string',
-                        'WorkerId': 'string'
+                        \'NotifyWorkersFailureCode\': \'SoftFailure\'|\'HardFailure\',
+                        \'NotifyWorkersFailureMessage\': \'string\',
+                        \'WorkerId\': \'string\'
                     },
                 ]
             }
@@ -4258,8 +4258,8 @@ class Client(BaseClient):
         ::
         
           response = client.reject_assignment(
-              AssignmentId='string',
-              RequesterFeedback='string'
+              AssignmentId=\'string\',
+              RequesterFeedback=\'string\'
           )
         :type AssignmentId: string
         :param AssignmentId: **[REQUIRED]** 
@@ -4296,8 +4296,8 @@ class Client(BaseClient):
         ::
         
           response = client.reject_qualification_request(
-              QualificationRequestId='string',
-              Reason='string'
+              QualificationRequestId=\'string\',
+              Reason=\'string\'
           )
         :type QualificationRequestId: string
         :param QualificationRequestId: **[REQUIRED]** 
@@ -4332,11 +4332,11 @@ class Client(BaseClient):
         ::
         
           response = client.send_bonus(
-              WorkerId='string',
-              BonusAmount='string',
-              AssignmentId='string',
-              Reason='string',
-              UniqueRequestToken='string'
+              WorkerId=\'string\',
+              BonusAmount=\'string\',
+              AssignmentId=\'string\',
+              Reason=\'string\',
+              UniqueRequestToken=\'string\'
           )
         :type WorkerId: string
         :param WorkerId: **[REQUIRED]** 
@@ -4346,7 +4346,7 @@ class Client(BaseClient):
         :type BonusAmount: string
         :param BonusAmount: **[REQUIRED]** 
         
-          The Bonus amount is a US Dollar amount specified using a string (for example, "5" represents $5.00 USD and "101.42" represents $101.42 USD). Do not include currency symbols or currency codes. 
+          The Bonus amount is a US Dollar amount specified using a string (for example, \"5\" represents $5.00 USD and \"101.42\" represents $101.42 USD). Do not include currency symbols or currency codes. 
         
         :type AssignmentId: string
         :param AssignmentId: **[REQUIRED]** 
@@ -4387,14 +4387,14 @@ class Client(BaseClient):
         
           response = client.send_test_event_notification(
               Notification={
-                  'Destination': 'string',
-                  'Transport': 'Email'|'SQS'|'SNS',
-                  'Version': 'string',
-                  'EventTypes': [
-                      'AssignmentAccepted'|'AssignmentAbandoned'|'AssignmentReturned'|'AssignmentSubmitted'|'AssignmentRejected'|'AssignmentApproved'|'HITCreated'|'HITExpired'|'HITReviewable'|'HITExtended'|'HITDisposed'|'Ping',
+                  \'Destination\': \'string\',
+                  \'Transport\': \'Email\'|\'SQS\'|\'SNS\',
+                  \'Version\': \'string\',
+                  \'EventTypes\': [
+                      \'AssignmentAccepted\'|\'AssignmentAbandoned\'|\'AssignmentReturned\'|\'AssignmentSubmitted\'|\'AssignmentRejected\'|\'AssignmentApproved\'|\'HITCreated\'|\'HITExpired\'|\'HITReviewable\'|\'HITExtended\'|\'HITDisposed\'|\'Ping\',
                   ]
               },
-              TestEventType='AssignmentAccepted'|'AssignmentAbandoned'|'AssignmentReturned'|'AssignmentSubmitted'|'AssignmentRejected'|'AssignmentApproved'|'HITCreated'|'HITExpired'|'HITReviewable'|'HITExtended'|'HITDisposed'|'Ping'
+              TestEventType=\'AssignmentAccepted\'|\'AssignmentAbandoned\'|\'AssignmentReturned\'|\'AssignmentSubmitted\'|\'AssignmentRejected\'|\'AssignmentApproved\'|\'HITCreated\'|\'HITExpired\'|\'HITReviewable\'|\'HITExtended\'|\'HITDisposed\'|\'Ping\'
           )
         :type Notification: dict
         :param Notification: **[REQUIRED]** 
@@ -4453,7 +4453,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_expiration_for_hit(
-              HITId='string',
+              HITId=\'string\',
               ExpireAt=datetime(2015, 1, 1)
           )
         :type HITId: string
@@ -4489,7 +4489,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_hit_review_status(
-              HITId='string',
+              HITId=\'string\',
               Revert=True|False
           )
         :type HITId: string
@@ -4529,8 +4529,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_hit_type_of_hit(
-              HITId='string',
-              HITTypeId='string'
+              HITId=\'string\',
+              HITTypeId=\'string\'
           )
         :type HITId: string
         :param HITId: **[REQUIRED]** 
@@ -4565,13 +4565,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_notification_settings(
-              HITTypeId='string',
+              HITTypeId=\'string\',
               Notification={
-                  'Destination': 'string',
-                  'Transport': 'Email'|'SQS'|'SNS',
-                  'Version': 'string',
-                  'EventTypes': [
-                      'AssignmentAccepted'|'AssignmentAbandoned'|'AssignmentReturned'|'AssignmentSubmitted'|'AssignmentRejected'|'AssignmentApproved'|'HITCreated'|'HITExpired'|'HITReviewable'|'HITExtended'|'HITDisposed'|'Ping',
+                  \'Destination\': \'string\',
+                  \'Transport\': \'Email\'|\'SQS\'|\'SNS\',
+                  \'Version\': \'string\',
+                  \'EventTypes\': [
+                      \'AssignmentAccepted\'|\'AssignmentAbandoned\'|\'AssignmentReturned\'|\'AssignmentSubmitted\'|\'AssignmentRejected\'|\'AssignmentApproved\'|\'HITCreated\'|\'HITExpired\'|\'HITReviewable\'|\'HITExtended\'|\'HITDisposed\'|\'Ping\',
                   ]
               },
               Active=True|False
@@ -4650,11 +4650,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_qualification_type(
-              QualificationTypeId='string',
-              Description='string',
-              QualificationTypeStatus='Active'|'Inactive',
-              Test='string',
-              AnswerKey='string',
+              QualificationTypeId=\'string\',
+              Description=\'string\',
+              QualificationTypeStatus=\'Active\'|\'Inactive\',
+              Test=\'string\',
+              AnswerKey=\'string\',
               TestDurationInSeconds=123,
               RetryDelayInSeconds=123,
               AutoGranted=True|False,
@@ -4719,20 +4719,20 @@ class Client(BaseClient):
           ::
         
             {
-                'QualificationType': {
-                    'QualificationTypeId': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'Name': 'string',
-                    'Description': 'string',
-                    'Keywords': 'string',
-                    'QualificationTypeStatus': 'Active'|'Inactive',
-                    'Test': 'string',
-                    'TestDurationInSeconds': 123,
-                    'AnswerKey': 'string',
-                    'RetryDelayInSeconds': 123,
-                    'IsRequestable': True|False,
-                    'AutoGranted': True|False,
-                    'AutoGrantedValue': 123
+                \'QualificationType\': {
+                    \'QualificationTypeId\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'Keywords\': \'string\',
+                    \'QualificationTypeStatus\': \'Active\'|\'Inactive\',
+                    \'Test\': \'string\',
+                    \'TestDurationInSeconds\': 123,
+                    \'AnswerKey\': \'string\',
+                    \'RetryDelayInSeconds\': 123,
+                    \'IsRequestable\': True|False,
+                    \'AutoGranted\': True|False,
+                    \'AutoGrantedValue\': 123
                 }
             }
           **Response Structure** 
@@ -4765,7 +4765,7 @@ class Client(BaseClient):
         
               - **QualificationTypeStatus** *(string) --* 
         
-                The status of the Qualification type. A Qualification type's status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive. 
+                The status of the Qualification type. A Qualification type\'s status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive. 
         
               - **Test** *(string) --* 
         

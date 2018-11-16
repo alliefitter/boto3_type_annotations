@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
+from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -29,10 +29,10 @@ class Client(BaseClient):
         ::
         
           response = client.allocate_connection_on_interconnect(
-              bandwidth='string',
-              connectionName='string',
-              ownerAccount='string',
-              interconnectId='string',
+              bandwidth=\'string\',
+              connectionName=\'string\',
+              ownerAccount=\'string\',
+              interconnectId=\'string\',
               vlan=123
           )
         :type bandwidth: string
@@ -68,20 +68,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'connectionId': 'string',
-                'connectionName': 'string',
-                'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'region': 'string',
-                'location': 'string',
-                'bandwidth': 'string',
-                'vlan': 123,
-                'partnerName': 'string',
-                'loaIssueTime': datetime(2015, 1, 1),
-                'lagId': 'string',
-                'awsDevice': 'string',
-                'jumboFrameCapable': True|False,
-                'awsDeviceV2': 'string'
+                \'ownerAccount\': \'string\',
+                \'connectionId\': \'string\',
+                \'connectionName\': \'string\',
+                \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'region\': \'string\',
+                \'location\': \'string\',
+                \'bandwidth\': \'string\',
+                \'vlan\': 123,
+                \'partnerName\': \'string\',
+                \'loaIssueTime\': datetime(2015, 1, 1),
+                \'lagId\': \'string\',
+                \'awsDevice\': \'string\',
+                \'jumboFrameCapable\': True|False,
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -179,10 +179,10 @@ class Client(BaseClient):
         ::
         
           response = client.allocate_hosted_connection(
-              connectionId='string',
-              ownerAccount='string',
-              bandwidth='string',
-              connectionName='string',
+              connectionId=\'string\',
+              ownerAccount=\'string\',
+              bandwidth=\'string\',
+              connectionName=\'string\',
               vlan=123
           )
         :type connectionId: string
@@ -218,20 +218,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'connectionId': 'string',
-                'connectionName': 'string',
-                'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'region': 'string',
-                'location': 'string',
-                'bandwidth': 'string',
-                'vlan': 123,
-                'partnerName': 'string',
-                'loaIssueTime': datetime(2015, 1, 1),
-                'lagId': 'string',
-                'awsDevice': 'string',
-                'jumboFrameCapable': True|False,
-                'awsDeviceV2': 'string'
+                \'ownerAccount\': \'string\',
+                \'connectionId\': \'string\',
+                \'connectionName\': \'string\',
+                \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'region\': \'string\',
+                \'location\': \'string\',
+                \'bandwidth\': \'string\',
+                \'vlan\': 123,
+                \'partnerName\': \'string\',
+                \'loaIssueTime\': datetime(2015, 1, 1),
+                \'lagId\': \'string\',
+                \'awsDevice\': \'string\',
+                \'jumboFrameCapable\': True|False,
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -325,17 +325,17 @@ class Client(BaseClient):
         ::
         
           response = client.allocate_private_virtual_interface(
-              connectionId='string',
-              ownerAccount='string',
+              connectionId=\'string\',
+              ownerAccount=\'string\',
               newPrivateVirtualInterfaceAllocation={
-                  'virtualInterfaceName': 'string',
-                  'vlan': 123,
-                  'asn': 123,
-                  'mtu': 123,
-                  'authKey': 'string',
-                  'amazonAddress': 'string',
-                  'addressFamily': 'ipv4'|'ipv6',
-                  'customerAddress': 'string'
+                  \'virtualInterfaceName\': \'string\',
+                  \'vlan\': 123,
+                  \'asn\': 123,
+                  \'mtu\': 123,
+                  \'authKey\': \'string\',
+                  \'amazonAddress\': \'string\',
+                  \'addressFamily\': \'ipv4\'|\'ipv6\',
+                  \'customerAddress\': \'string\'
               }
           )
         :type connectionId: string
@@ -393,44 +393,44 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'virtualInterfaceId': 'string',
-                'location': 'string',
-                'connectionId': 'string',
-                'virtualInterfaceType': 'string',
-                'virtualInterfaceName': 'string',
-                'vlan': 123,
-                'asn': 123,
-                'amazonSideAsn': 123,
-                'authKey': 'string',
-                'amazonAddress': 'string',
-                'customerAddress': 'string',
-                'addressFamily': 'ipv4'|'ipv6',
-                'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'customerRouterConfig': 'string',
-                'mtu': 123,
-                'jumboFrameCapable': True|False,
-                'virtualGatewayId': 'string',
-                'directConnectGatewayId': 'string',
-                'routeFilterPrefixes': [
+                \'ownerAccount\': \'string\',
+                \'virtualInterfaceId\': \'string\',
+                \'location\': \'string\',
+                \'connectionId\': \'string\',
+                \'virtualInterfaceType\': \'string\',
+                \'virtualInterfaceName\': \'string\',
+                \'vlan\': 123,
+                \'asn\': 123,
+                \'amazonSideAsn\': 123,
+                \'authKey\': \'string\',
+                \'amazonAddress\': \'string\',
+                \'customerAddress\': \'string\',
+                \'addressFamily\': \'ipv4\'|\'ipv6\',
+                \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'customerRouterConfig\': \'string\',
+                \'mtu\': 123,
+                \'jumboFrameCapable\': True|False,
+                \'virtualGatewayId\': \'string\',
+                \'directConnectGatewayId\': \'string\',
+                \'routeFilterPrefixes\': [
                     {
-                        'cidr': 'string'
+                        \'cidr\': \'string\'
                     },
                 ],
-                'bgpPeers': [
+                \'bgpPeers\': [
                     {
-                        'asn': 123,
-                        'authKey': 'string',
-                        'addressFamily': 'ipv4'|'ipv6',
-                        'amazonAddress': 'string',
-                        'customerAddress': 'string',
-                        'bgpPeerState': 'verifying'|'pending'|'available'|'deleting'|'deleted',
-                        'bgpStatus': 'up'|'down',
-                        'awsDeviceV2': 'string'
+                        \'asn\': 123,
+                        \'authKey\': \'string\',
+                        \'addressFamily\': \'ipv4\'|\'ipv6\',
+                        \'amazonAddress\': \'string\',
+                        \'customerAddress\': \'string\',
+                        \'bgpPeerState\': \'verifying\'|\'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'bgpStatus\': \'up\'|\'down\',
+                        \'awsDeviceV2\': \'string\'
                     },
                 ],
-                'region': 'string',
-                'awsDeviceV2': 'string'
+                \'region\': \'string\',
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -624,19 +624,19 @@ class Client(BaseClient):
         ::
         
           response = client.allocate_public_virtual_interface(
-              connectionId='string',
-              ownerAccount='string',
+              connectionId=\'string\',
+              ownerAccount=\'string\',
               newPublicVirtualInterfaceAllocation={
-                  'virtualInterfaceName': 'string',
-                  'vlan': 123,
-                  'asn': 123,
-                  'authKey': 'string',
-                  'amazonAddress': 'string',
-                  'customerAddress': 'string',
-                  'addressFamily': 'ipv4'|'ipv6',
-                  'routeFilterPrefixes': [
+                  \'virtualInterfaceName\': \'string\',
+                  \'vlan\': 123,
+                  \'asn\': 123,
+                  \'authKey\': \'string\',
+                  \'amazonAddress\': \'string\',
+                  \'customerAddress\': \'string\',
+                  \'addressFamily\': \'ipv4\'|\'ipv6\',
+                  \'routeFilterPrefixes\': [
                       {
-                          'cidr': 'string'
+                          \'cidr\': \'string\'
                       },
                   ]
               }
@@ -704,44 +704,44 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'virtualInterfaceId': 'string',
-                'location': 'string',
-                'connectionId': 'string',
-                'virtualInterfaceType': 'string',
-                'virtualInterfaceName': 'string',
-                'vlan': 123,
-                'asn': 123,
-                'amazonSideAsn': 123,
-                'authKey': 'string',
-                'amazonAddress': 'string',
-                'customerAddress': 'string',
-                'addressFamily': 'ipv4'|'ipv6',
-                'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'customerRouterConfig': 'string',
-                'mtu': 123,
-                'jumboFrameCapable': True|False,
-                'virtualGatewayId': 'string',
-                'directConnectGatewayId': 'string',
-                'routeFilterPrefixes': [
+                \'ownerAccount\': \'string\',
+                \'virtualInterfaceId\': \'string\',
+                \'location\': \'string\',
+                \'connectionId\': \'string\',
+                \'virtualInterfaceType\': \'string\',
+                \'virtualInterfaceName\': \'string\',
+                \'vlan\': 123,
+                \'asn\': 123,
+                \'amazonSideAsn\': 123,
+                \'authKey\': \'string\',
+                \'amazonAddress\': \'string\',
+                \'customerAddress\': \'string\',
+                \'addressFamily\': \'ipv4\'|\'ipv6\',
+                \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'customerRouterConfig\': \'string\',
+                \'mtu\': 123,
+                \'jumboFrameCapable\': True|False,
+                \'virtualGatewayId\': \'string\',
+                \'directConnectGatewayId\': \'string\',
+                \'routeFilterPrefixes\': [
                     {
-                        'cidr': 'string'
+                        \'cidr\': \'string\'
                     },
                 ],
-                'bgpPeers': [
+                \'bgpPeers\': [
                     {
-                        'asn': 123,
-                        'authKey': 'string',
-                        'addressFamily': 'ipv4'|'ipv6',
-                        'amazonAddress': 'string',
-                        'customerAddress': 'string',
-                        'bgpPeerState': 'verifying'|'pending'|'available'|'deleting'|'deleted',
-                        'bgpStatus': 'up'|'down',
-                        'awsDeviceV2': 'string'
+                        \'asn\': 123,
+                        \'authKey\': \'string\',
+                        \'addressFamily\': \'ipv4\'|\'ipv6\',
+                        \'amazonAddress\': \'string\',
+                        \'customerAddress\': \'string\',
+                        \'bgpPeerState\': \'verifying\'|\'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'bgpStatus\': \'up\'|\'down\',
+                        \'awsDeviceV2\': \'string\'
                     },
                 ],
-                'region': 'string',
-                'awsDeviceV2': 'string'
+                \'region\': \'string\',
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -933,8 +933,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_connection_with_lag(
-              connectionId='string',
-              lagId='string'
+              connectionId=\'string\',
+              lagId=\'string\'
           )
         :type connectionId: string
         :param connectionId: **[REQUIRED]** 
@@ -954,20 +954,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'connectionId': 'string',
-                'connectionName': 'string',
-                'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'region': 'string',
-                'location': 'string',
-                'bandwidth': 'string',
-                'vlan': 123,
-                'partnerName': 'string',
-                'loaIssueTime': datetime(2015, 1, 1),
-                'lagId': 'string',
-                'awsDevice': 'string',
-                'jumboFrameCapable': True|False,
-                'awsDeviceV2': 'string'
+                \'ownerAccount\': \'string\',
+                \'connectionId\': \'string\',
+                \'connectionName\': \'string\',
+                \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'region\': \'string\',
+                \'location\': \'string\',
+                \'bandwidth\': \'string\',
+                \'vlan\': 123,
+                \'partnerName\': \'string\',
+                \'loaIssueTime\': datetime(2015, 1, 1),
+                \'lagId\': \'string\',
+                \'awsDevice\': \'string\',
+                \'jumboFrameCapable\': True|False,
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -1063,8 +1063,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_hosted_connection(
-              connectionId='string',
-              parentConnectionId='string'
+              connectionId=\'string\',
+              parentConnectionId=\'string\'
           )
         :type connectionId: string
         :param connectionId: **[REQUIRED]** 
@@ -1084,20 +1084,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'connectionId': 'string',
-                'connectionName': 'string',
-                'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'region': 'string',
-                'location': 'string',
-                'bandwidth': 'string',
-                'vlan': 123,
-                'partnerName': 'string',
-                'loaIssueTime': datetime(2015, 1, 1),
-                'lagId': 'string',
-                'awsDevice': 'string',
-                'jumboFrameCapable': True|False,
-                'awsDeviceV2': 'string'
+                \'ownerAccount\': \'string\',
+                \'connectionId\': \'string\',
+                \'connectionName\': \'string\',
+                \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'region\': \'string\',
+                \'location\': \'string\',
+                \'bandwidth\': \'string\',
+                \'vlan\': 123,
+                \'partnerName\': \'string\',
+                \'loaIssueTime\': datetime(2015, 1, 1),
+                \'lagId\': \'string\',
+                \'awsDevice\': \'string\',
+                \'jumboFrameCapable\': True|False,
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -1193,8 +1193,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_virtual_interface(
-              virtualInterfaceId='string',
-              connectionId='string'
+              virtualInterfaceId=\'string\',
+              connectionId=\'string\'
           )
         :type virtualInterfaceId: string
         :param virtualInterfaceId: **[REQUIRED]** 
@@ -1214,44 +1214,44 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'virtualInterfaceId': 'string',
-                'location': 'string',
-                'connectionId': 'string',
-                'virtualInterfaceType': 'string',
-                'virtualInterfaceName': 'string',
-                'vlan': 123,
-                'asn': 123,
-                'amazonSideAsn': 123,
-                'authKey': 'string',
-                'amazonAddress': 'string',
-                'customerAddress': 'string',
-                'addressFamily': 'ipv4'|'ipv6',
-                'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'customerRouterConfig': 'string',
-                'mtu': 123,
-                'jumboFrameCapable': True|False,
-                'virtualGatewayId': 'string',
-                'directConnectGatewayId': 'string',
-                'routeFilterPrefixes': [
+                \'ownerAccount\': \'string\',
+                \'virtualInterfaceId\': \'string\',
+                \'location\': \'string\',
+                \'connectionId\': \'string\',
+                \'virtualInterfaceType\': \'string\',
+                \'virtualInterfaceName\': \'string\',
+                \'vlan\': 123,
+                \'asn\': 123,
+                \'amazonSideAsn\': 123,
+                \'authKey\': \'string\',
+                \'amazonAddress\': \'string\',
+                \'customerAddress\': \'string\',
+                \'addressFamily\': \'ipv4\'|\'ipv6\',
+                \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'customerRouterConfig\': \'string\',
+                \'mtu\': 123,
+                \'jumboFrameCapable\': True|False,
+                \'virtualGatewayId\': \'string\',
+                \'directConnectGatewayId\': \'string\',
+                \'routeFilterPrefixes\': [
                     {
-                        'cidr': 'string'
+                        \'cidr\': \'string\'
                     },
                 ],
-                'bgpPeers': [
+                \'bgpPeers\': [
                     {
-                        'asn': 123,
-                        'authKey': 'string',
-                        'addressFamily': 'ipv4'|'ipv6',
-                        'amazonAddress': 'string',
-                        'customerAddress': 'string',
-                        'bgpPeerState': 'verifying'|'pending'|'available'|'deleting'|'deleted',
-                        'bgpStatus': 'up'|'down',
-                        'awsDeviceV2': 'string'
+                        \'asn\': 123,
+                        \'authKey\': \'string\',
+                        \'addressFamily\': \'ipv4\'|\'ipv6\',
+                        \'amazonAddress\': \'string\',
+                        \'customerAddress\': \'string\',
+                        \'bgpPeerState\': \'verifying\'|\'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'bgpStatus\': \'up\'|\'down\',
+                        \'awsDeviceV2\': \'string\'
                     },
                 ],
-                'region': 'string',
-                'awsDeviceV2': 'string'
+                \'region\': \'string\',
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -1436,10 +1436,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -1457,7 +1457,7 @@ class Client(BaseClient):
         ::
         
           response = client.confirm_connection(
-              connectionId='string'
+              connectionId=\'string\'
           )
         :type connectionId: string
         :param connectionId: **[REQUIRED]** 
@@ -1472,7 +1472,7 @@ class Client(BaseClient):
           ::
         
             {
-                'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected'
+                \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\'
             }
           **Response Structure** 
         
@@ -1512,9 +1512,9 @@ class Client(BaseClient):
         ::
         
           response = client.confirm_private_virtual_interface(
-              virtualInterfaceId='string',
-              virtualGatewayId='string',
-              directConnectGatewayId='string'
+              virtualInterfaceId=\'string\',
+              virtualGatewayId=\'string\',
+              directConnectGatewayId=\'string\'
           )
         :type virtualInterfaceId: string
         :param virtualInterfaceId: **[REQUIRED]** 
@@ -1539,7 +1539,7 @@ class Client(BaseClient):
           ::
         
             {
-                'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected'
+                \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\'
             }
           **Response Structure** 
         
@@ -1579,7 +1579,7 @@ class Client(BaseClient):
         ::
         
           response = client.confirm_public_virtual_interface(
-              virtualInterfaceId='string'
+              virtualInterfaceId=\'string\'
           )
         :type virtualInterfaceId: string
         :param virtualInterfaceId: **[REQUIRED]** 
@@ -1594,7 +1594,7 @@ class Client(BaseClient):
           ::
         
             {
-                'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected'
+                \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\'
             }
           **Response Structure** 
         
@@ -1640,13 +1640,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_bgp_peer(
-              virtualInterfaceId='string',
+              virtualInterfaceId=\'string\',
               newBGPPeer={
-                  'asn': 123,
-                  'authKey': 'string',
-                  'addressFamily': 'ipv4'|'ipv6',
-                  'amazonAddress': 'string',
-                  'customerAddress': 'string'
+                  \'asn\': 123,
+                  \'authKey\': \'string\',
+                  \'addressFamily\': \'ipv4\'|\'ipv6\',
+                  \'amazonAddress\': \'string\',
+                  \'customerAddress\': \'string\'
               }
           )
         :type virtualInterfaceId: string
@@ -1687,45 +1687,45 @@ class Client(BaseClient):
           ::
         
             {
-                'virtualInterface': {
-                    'ownerAccount': 'string',
-                    'virtualInterfaceId': 'string',
-                    'location': 'string',
-                    'connectionId': 'string',
-                    'virtualInterfaceType': 'string',
-                    'virtualInterfaceName': 'string',
-                    'vlan': 123,
-                    'asn': 123,
-                    'amazonSideAsn': 123,
-                    'authKey': 'string',
-                    'amazonAddress': 'string',
-                    'customerAddress': 'string',
-                    'addressFamily': 'ipv4'|'ipv6',
-                    'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                    'customerRouterConfig': 'string',
-                    'mtu': 123,
-                    'jumboFrameCapable': True|False,
-                    'virtualGatewayId': 'string',
-                    'directConnectGatewayId': 'string',
-                    'routeFilterPrefixes': [
+                \'virtualInterface\': {
+                    \'ownerAccount\': \'string\',
+                    \'virtualInterfaceId\': \'string\',
+                    \'location\': \'string\',
+                    \'connectionId\': \'string\',
+                    \'virtualInterfaceType\': \'string\',
+                    \'virtualInterfaceName\': \'string\',
+                    \'vlan\': 123,
+                    \'asn\': 123,
+                    \'amazonSideAsn\': 123,
+                    \'authKey\': \'string\',
+                    \'amazonAddress\': \'string\',
+                    \'customerAddress\': \'string\',
+                    \'addressFamily\': \'ipv4\'|\'ipv6\',
+                    \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                    \'customerRouterConfig\': \'string\',
+                    \'mtu\': 123,
+                    \'jumboFrameCapable\': True|False,
+                    \'virtualGatewayId\': \'string\',
+                    \'directConnectGatewayId\': \'string\',
+                    \'routeFilterPrefixes\': [
                         {
-                            'cidr': 'string'
+                            \'cidr\': \'string\'
                         },
                     ],
-                    'bgpPeers': [
+                    \'bgpPeers\': [
                         {
-                            'asn': 123,
-                            'authKey': 'string',
-                            'addressFamily': 'ipv4'|'ipv6',
-                            'amazonAddress': 'string',
-                            'customerAddress': 'string',
-                            'bgpPeerState': 'verifying'|'pending'|'available'|'deleting'|'deleted',
-                            'bgpStatus': 'up'|'down',
-                            'awsDeviceV2': 'string'
+                            \'asn\': 123,
+                            \'authKey\': \'string\',
+                            \'addressFamily\': \'ipv4\'|\'ipv6\',
+                            \'amazonAddress\': \'string\',
+                            \'customerAddress\': \'string\',
+                            \'bgpPeerState\': \'verifying\'|\'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                            \'bgpStatus\': \'up\'|\'down\',
+                            \'awsDeviceV2\': \'string\'
                         },
                     ],
-                    'region': 'string',
-                    'awsDeviceV2': 'string'
+                    \'region\': \'string\',
+                    \'awsDeviceV2\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1922,10 +1922,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_connection(
-              location='string',
-              bandwidth='string',
-              connectionName='string',
-              lagId='string'
+              location=\'string\',
+              bandwidth=\'string\',
+              connectionName=\'string\',
+              lagId=\'string\'
           )
         :type location: string
         :param location: **[REQUIRED]** 
@@ -1955,20 +1955,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'connectionId': 'string',
-                'connectionName': 'string',
-                'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'region': 'string',
-                'location': 'string',
-                'bandwidth': 'string',
-                'vlan': 123,
-                'partnerName': 'string',
-                'loaIssueTime': datetime(2015, 1, 1),
-                'lagId': 'string',
-                'awsDevice': 'string',
-                'jumboFrameCapable': True|False,
-                'awsDeviceV2': 'string'
+                \'ownerAccount\': \'string\',
+                \'connectionId\': \'string\',
+                \'connectionName\': \'string\',
+                \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'region\': \'string\',
+                \'location\': \'string\',
+                \'bandwidth\': \'string\',
+                \'vlan\': 123,
+                \'partnerName\': \'string\',
+                \'loaIssueTime\': datetime(2015, 1, 1),
+                \'lagId\': \'string\',
+                \'awsDevice\': \'string\',
+                \'jumboFrameCapable\': True|False,
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -2060,7 +2060,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_direct_connect_gateway(
-              directConnectGatewayName='string',
+              directConnectGatewayName=\'string\',
               amazonSideAsn=123
           )
         :type directConnectGatewayName: string
@@ -2081,13 +2081,13 @@ class Client(BaseClient):
           ::
         
             {
-                'directConnectGateway': {
-                    'directConnectGatewayId': 'string',
-                    'directConnectGatewayName': 'string',
-                    'amazonSideAsn': 123,
-                    'ownerAccount': 'string',
-                    'directConnectGatewayState': 'pending'|'available'|'deleting'|'deleted',
-                    'stateChangeError': 'string'
+                \'directConnectGateway\': {
+                    \'directConnectGatewayId\': \'string\',
+                    \'directConnectGatewayName\': \'string\',
+                    \'amazonSideAsn\': 123,
+                    \'ownerAccount\': \'string\',
+                    \'directConnectGatewayState\': \'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                    \'stateChangeError\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2142,8 +2142,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_direct_connect_gateway_association(
-              directConnectGatewayId='string',
-              virtualGatewayId='string'
+              directConnectGatewayId=\'string\',
+              virtualGatewayId=\'string\'
           )
         :type directConnectGatewayId: string
         :param directConnectGatewayId: **[REQUIRED]** 
@@ -2163,13 +2163,13 @@ class Client(BaseClient):
           ::
         
             {
-                'directConnectGatewayAssociation': {
-                    'directConnectGatewayId': 'string',
-                    'virtualGatewayId': 'string',
-                    'virtualGatewayRegion': 'string',
-                    'virtualGatewayOwnerAccount': 'string',
-                    'associationState': 'associating'|'associated'|'disassociating'|'disassociated',
-                    'stateChangeError': 'string'
+                \'directConnectGatewayAssociation\': {
+                    \'directConnectGatewayId\': \'string\',
+                    \'virtualGatewayId\': \'string\',
+                    \'virtualGatewayRegion\': \'string\',
+                    \'virtualGatewayOwnerAccount\': \'string\',
+                    \'associationState\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\',
+                    \'stateChangeError\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2218,7 +2218,7 @@ class Client(BaseClient):
     def create_interconnect(self, interconnectName: str, bandwidth: str, location: str, lagId: str = None) -> Dict:
         """
         
-        An interconnect is a connection which is capable of hosting other connections. The partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the partner's network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end is connected to the partner's router, the other to an AWS Direct Connect router.
+        An interconnect is a connection which is capable of hosting other connections. The partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the partner\'s network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end is connected to the partner\'s router, the other to an AWS Direct Connect router.
         
         You can automatically add the new interconnect to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new interconnect is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no interconnect is created.
         
@@ -2234,10 +2234,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_interconnect(
-              interconnectName='string',
-              bandwidth='string',
-              location='string',
-              lagId='string'
+              interconnectName=\'string\',
+              bandwidth=\'string\',
+              location=\'string\',
+              lagId=\'string\'
           )
         :type interconnectName: string
         :param interconnectName: **[REQUIRED]** 
@@ -2267,17 +2267,17 @@ class Client(BaseClient):
           ::
         
             {
-                'interconnectId': 'string',
-                'interconnectName': 'string',
-                'interconnectState': 'requested'|'pending'|'available'|'down'|'deleting'|'deleted',
-                'region': 'string',
-                'location': 'string',
-                'bandwidth': 'string',
-                'loaIssueTime': datetime(2015, 1, 1),
-                'lagId': 'string',
-                'awsDevice': 'string',
-                'jumboFrameCapable': True|False,
-                'awsDeviceV2': 'string'
+                \'interconnectId\': \'string\',
+                \'interconnectName\': \'string\',
+                \'interconnectState\': \'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\',
+                \'region\': \'string\',
+                \'location\': \'string\',
+                \'bandwidth\': \'string\',
+                \'loaIssueTime\': datetime(2015, 1, 1),
+                \'lagId\': \'string\',
+                \'awsDevice\': \'string\',
+                \'jumboFrameCapable\': True|False,
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -2362,10 +2362,10 @@ class Client(BaseClient):
         
           response = client.create_lag(
               numberOfConnections=123,
-              location='string',
-              connectionsBandwidth='string',
-              lagName='string',
-              connectionId='string'
+              location=\'string\',
+              connectionsBandwidth=\'string\',
+              lagName=\'string\',
+              connectionId=\'string\'
           )
         :type numberOfConnections: integer
         :param numberOfConnections: **[REQUIRED]** 
@@ -2400,37 +2400,37 @@ class Client(BaseClient):
           ::
         
             {
-                'connectionsBandwidth': 'string',
-                'numberOfConnections': 123,
-                'lagId': 'string',
-                'ownerAccount': 'string',
-                'lagName': 'string',
-                'lagState': 'requested'|'pending'|'available'|'down'|'deleting'|'deleted',
-                'location': 'string',
-                'region': 'string',
-                'minimumLinks': 123,
-                'awsDevice': 'string',
-                'awsDeviceV2': 'string',
-                'connections': [
+                \'connectionsBandwidth\': \'string\',
+                \'numberOfConnections\': 123,
+                \'lagId\': \'string\',
+                \'ownerAccount\': \'string\',
+                \'lagName\': \'string\',
+                \'lagState\': \'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\',
+                \'location\': \'string\',
+                \'region\': \'string\',
+                \'minimumLinks\': 123,
+                \'awsDevice\': \'string\',
+                \'awsDeviceV2\': \'string\',
+                \'connections\': [
                     {
-                        'ownerAccount': 'string',
-                        'connectionId': 'string',
-                        'connectionName': 'string',
-                        'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                        'region': 'string',
-                        'location': 'string',
-                        'bandwidth': 'string',
-                        'vlan': 123,
-                        'partnerName': 'string',
-                        'loaIssueTime': datetime(2015, 1, 1),
-                        'lagId': 'string',
-                        'awsDevice': 'string',
-                        'jumboFrameCapable': True|False,
-                        'awsDeviceV2': 'string'
+                        \'ownerAccount\': \'string\',
+                        \'connectionId\': \'string\',
+                        \'connectionName\': \'string\',
+                        \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                        \'region\': \'string\',
+                        \'location\': \'string\',
+                        \'bandwidth\': \'string\',
+                        \'vlan\': 123,
+                        \'partnerName\': \'string\',
+                        \'loaIssueTime\': datetime(2015, 1, 1),
+                        \'lagId\': \'string\',
+                        \'awsDevice\': \'string\',
+                        \'jumboFrameCapable\': True|False,
+                        \'awsDeviceV2\': \'string\'
                     },
                 ],
-                'allowsHostedConnections': True|False,
-                'jumboFrameCapable': True|False
+                \'allowsHostedConnections\': True|False,
+                \'jumboFrameCapable\': True|False
             }
           **Response Structure** 
         
@@ -2594,18 +2594,18 @@ class Client(BaseClient):
         ::
         
           response = client.create_private_virtual_interface(
-              connectionId='string',
+              connectionId=\'string\',
               newPrivateVirtualInterface={
-                  'virtualInterfaceName': 'string',
-                  'vlan': 123,
-                  'asn': 123,
-                  'mtu': 123,
-                  'authKey': 'string',
-                  'amazonAddress': 'string',
-                  'customerAddress': 'string',
-                  'addressFamily': 'ipv4'|'ipv6',
-                  'virtualGatewayId': 'string',
-                  'directConnectGatewayId': 'string'
+                  \'virtualInterfaceName\': \'string\',
+                  \'vlan\': 123,
+                  \'asn\': 123,
+                  \'mtu\': 123,
+                  \'authKey\': \'string\',
+                  \'amazonAddress\': \'string\',
+                  \'customerAddress\': \'string\',
+                  \'addressFamily\': \'ipv4\'|\'ipv6\',
+                  \'virtualGatewayId\': \'string\',
+                  \'directConnectGatewayId\': \'string\'
               }
           )
         :type connectionId: string
@@ -2666,44 +2666,44 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'virtualInterfaceId': 'string',
-                'location': 'string',
-                'connectionId': 'string',
-                'virtualInterfaceType': 'string',
-                'virtualInterfaceName': 'string',
-                'vlan': 123,
-                'asn': 123,
-                'amazonSideAsn': 123,
-                'authKey': 'string',
-                'amazonAddress': 'string',
-                'customerAddress': 'string',
-                'addressFamily': 'ipv4'|'ipv6',
-                'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'customerRouterConfig': 'string',
-                'mtu': 123,
-                'jumboFrameCapable': True|False,
-                'virtualGatewayId': 'string',
-                'directConnectGatewayId': 'string',
-                'routeFilterPrefixes': [
+                \'ownerAccount\': \'string\',
+                \'virtualInterfaceId\': \'string\',
+                \'location\': \'string\',
+                \'connectionId\': \'string\',
+                \'virtualInterfaceType\': \'string\',
+                \'virtualInterfaceName\': \'string\',
+                \'vlan\': 123,
+                \'asn\': 123,
+                \'amazonSideAsn\': 123,
+                \'authKey\': \'string\',
+                \'amazonAddress\': \'string\',
+                \'customerAddress\': \'string\',
+                \'addressFamily\': \'ipv4\'|\'ipv6\',
+                \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'customerRouterConfig\': \'string\',
+                \'mtu\': 123,
+                \'jumboFrameCapable\': True|False,
+                \'virtualGatewayId\': \'string\',
+                \'directConnectGatewayId\': \'string\',
+                \'routeFilterPrefixes\': [
                     {
-                        'cidr': 'string'
+                        \'cidr\': \'string\'
                     },
                 ],
-                'bgpPeers': [
+                \'bgpPeers\': [
                     {
-                        'asn': 123,
-                        'authKey': 'string',
-                        'addressFamily': 'ipv4'|'ipv6',
-                        'amazonAddress': 'string',
-                        'customerAddress': 'string',
-                        'bgpPeerState': 'verifying'|'pending'|'available'|'deleting'|'deleted',
-                        'bgpStatus': 'up'|'down',
-                        'awsDeviceV2': 'string'
+                        \'asn\': 123,
+                        \'authKey\': \'string\',
+                        \'addressFamily\': \'ipv4\'|\'ipv6\',
+                        \'amazonAddress\': \'string\',
+                        \'customerAddress\': \'string\',
+                        \'bgpPeerState\': \'verifying\'|\'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'bgpStatus\': \'up\'|\'down\',
+                        \'awsDeviceV2\': \'string\'
                     },
                 ],
-                'region': 'string',
-                'awsDeviceV2': 'string'
+                \'region\': \'string\',
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -2893,18 +2893,18 @@ class Client(BaseClient):
         ::
         
           response = client.create_public_virtual_interface(
-              connectionId='string',
+              connectionId=\'string\',
               newPublicVirtualInterface={
-                  'virtualInterfaceName': 'string',
-                  'vlan': 123,
-                  'asn': 123,
-                  'authKey': 'string',
-                  'amazonAddress': 'string',
-                  'customerAddress': 'string',
-                  'addressFamily': 'ipv4'|'ipv6',
-                  'routeFilterPrefixes': [
+                  \'virtualInterfaceName\': \'string\',
+                  \'vlan\': 123,
+                  \'asn\': 123,
+                  \'authKey\': \'string\',
+                  \'amazonAddress\': \'string\',
+                  \'customerAddress\': \'string\',
+                  \'addressFamily\': \'ipv4\'|\'ipv6\',
+                  \'routeFilterPrefixes\': [
                       {
-                          'cidr': 'string'
+                          \'cidr\': \'string\'
                       },
                   ]
               }
@@ -2967,44 +2967,44 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'virtualInterfaceId': 'string',
-                'location': 'string',
-                'connectionId': 'string',
-                'virtualInterfaceType': 'string',
-                'virtualInterfaceName': 'string',
-                'vlan': 123,
-                'asn': 123,
-                'amazonSideAsn': 123,
-                'authKey': 'string',
-                'amazonAddress': 'string',
-                'customerAddress': 'string',
-                'addressFamily': 'ipv4'|'ipv6',
-                'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'customerRouterConfig': 'string',
-                'mtu': 123,
-                'jumboFrameCapable': True|False,
-                'virtualGatewayId': 'string',
-                'directConnectGatewayId': 'string',
-                'routeFilterPrefixes': [
+                \'ownerAccount\': \'string\',
+                \'virtualInterfaceId\': \'string\',
+                \'location\': \'string\',
+                \'connectionId\': \'string\',
+                \'virtualInterfaceType\': \'string\',
+                \'virtualInterfaceName\': \'string\',
+                \'vlan\': 123,
+                \'asn\': 123,
+                \'amazonSideAsn\': 123,
+                \'authKey\': \'string\',
+                \'amazonAddress\': \'string\',
+                \'customerAddress\': \'string\',
+                \'addressFamily\': \'ipv4\'|\'ipv6\',
+                \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'customerRouterConfig\': \'string\',
+                \'mtu\': 123,
+                \'jumboFrameCapable\': True|False,
+                \'virtualGatewayId\': \'string\',
+                \'directConnectGatewayId\': \'string\',
+                \'routeFilterPrefixes\': [
                     {
-                        'cidr': 'string'
+                        \'cidr\': \'string\'
                     },
                 ],
-                'bgpPeers': [
+                \'bgpPeers\': [
                     {
-                        'asn': 123,
-                        'authKey': 'string',
-                        'addressFamily': 'ipv4'|'ipv6',
-                        'amazonAddress': 'string',
-                        'customerAddress': 'string',
-                        'bgpPeerState': 'verifying'|'pending'|'available'|'deleting'|'deleted',
-                        'bgpStatus': 'up'|'down',
-                        'awsDeviceV2': 'string'
+                        \'asn\': 123,
+                        \'authKey\': \'string\',
+                        \'addressFamily\': \'ipv4\'|\'ipv6\',
+                        \'amazonAddress\': \'string\',
+                        \'customerAddress\': \'string\',
+                        \'bgpPeerState\': \'verifying\'|\'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'bgpStatus\': \'up\'|\'down\',
+                        \'awsDeviceV2\': \'string\'
                     },
                 ],
-                'region': 'string',
-                'awsDeviceV2': 'string'
+                \'region\': \'string\',
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -3194,9 +3194,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bgp_peer(
-              virtualInterfaceId='string',
+              virtualInterfaceId=\'string\',
               asn=123,
-              customerAddress='string'
+              customerAddress=\'string\'
           )
         :type virtualInterfaceId: string
         :param virtualInterfaceId: 
@@ -3221,45 +3221,45 @@ class Client(BaseClient):
           ::
         
             {
-                'virtualInterface': {
-                    'ownerAccount': 'string',
-                    'virtualInterfaceId': 'string',
-                    'location': 'string',
-                    'connectionId': 'string',
-                    'virtualInterfaceType': 'string',
-                    'virtualInterfaceName': 'string',
-                    'vlan': 123,
-                    'asn': 123,
-                    'amazonSideAsn': 123,
-                    'authKey': 'string',
-                    'amazonAddress': 'string',
-                    'customerAddress': 'string',
-                    'addressFamily': 'ipv4'|'ipv6',
-                    'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                    'customerRouterConfig': 'string',
-                    'mtu': 123,
-                    'jumboFrameCapable': True|False,
-                    'virtualGatewayId': 'string',
-                    'directConnectGatewayId': 'string',
-                    'routeFilterPrefixes': [
+                \'virtualInterface\': {
+                    \'ownerAccount\': \'string\',
+                    \'virtualInterfaceId\': \'string\',
+                    \'location\': \'string\',
+                    \'connectionId\': \'string\',
+                    \'virtualInterfaceType\': \'string\',
+                    \'virtualInterfaceName\': \'string\',
+                    \'vlan\': 123,
+                    \'asn\': 123,
+                    \'amazonSideAsn\': 123,
+                    \'authKey\': \'string\',
+                    \'amazonAddress\': \'string\',
+                    \'customerAddress\': \'string\',
+                    \'addressFamily\': \'ipv4\'|\'ipv6\',
+                    \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                    \'customerRouterConfig\': \'string\',
+                    \'mtu\': 123,
+                    \'jumboFrameCapable\': True|False,
+                    \'virtualGatewayId\': \'string\',
+                    \'directConnectGatewayId\': \'string\',
+                    \'routeFilterPrefixes\': [
                         {
-                            'cidr': 'string'
+                            \'cidr\': \'string\'
                         },
                     ],
-                    'bgpPeers': [
+                    \'bgpPeers\': [
                         {
-                            'asn': 123,
-                            'authKey': 'string',
-                            'addressFamily': 'ipv4'|'ipv6',
-                            'amazonAddress': 'string',
-                            'customerAddress': 'string',
-                            'bgpPeerState': 'verifying'|'pending'|'available'|'deleting'|'deleted',
-                            'bgpStatus': 'up'|'down',
-                            'awsDeviceV2': 'string'
+                            \'asn\': 123,
+                            \'authKey\': \'string\',
+                            \'addressFamily\': \'ipv4\'|\'ipv6\',
+                            \'amazonAddress\': \'string\',
+                            \'customerAddress\': \'string\',
+                            \'bgpPeerState\': \'verifying\'|\'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                            \'bgpStatus\': \'up\'|\'down\',
+                            \'awsDeviceV2\': \'string\'
                         },
                     ],
-                    'region': 'string',
-                    'awsDeviceV2': 'string'
+                    \'region\': \'string\',
+                    \'awsDeviceV2\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3452,7 +3452,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_connection(
-              connectionId='string'
+              connectionId=\'string\'
           )
         :type connectionId: string
         :param connectionId: **[REQUIRED]** 
@@ -3467,20 +3467,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'connectionId': 'string',
-                'connectionName': 'string',
-                'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'region': 'string',
-                'location': 'string',
-                'bandwidth': 'string',
-                'vlan': 123,
-                'partnerName': 'string',
-                'loaIssueTime': datetime(2015, 1, 1),
-                'lagId': 'string',
-                'awsDevice': 'string',
-                'jumboFrameCapable': True|False,
-                'awsDeviceV2': 'string'
+                \'ownerAccount\': \'string\',
+                \'connectionId\': \'string\',
+                \'connectionName\': \'string\',
+                \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'region\': \'string\',
+                \'location\': \'string\',
+                \'bandwidth\': \'string\',
+                \'vlan\': 123,
+                \'partnerName\': \'string\',
+                \'loaIssueTime\': datetime(2015, 1, 1),
+                \'lagId\': \'string\',
+                \'awsDevice\': \'string\',
+                \'jumboFrameCapable\': True|False,
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -3572,7 +3572,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_direct_connect_gateway(
-              directConnectGatewayId='string'
+              directConnectGatewayId=\'string\'
           )
         :type directConnectGatewayId: string
         :param directConnectGatewayId: **[REQUIRED]** 
@@ -3587,13 +3587,13 @@ class Client(BaseClient):
           ::
         
             {
-                'directConnectGateway': {
-                    'directConnectGatewayId': 'string',
-                    'directConnectGatewayName': 'string',
-                    'amazonSideAsn': 123,
-                    'ownerAccount': 'string',
-                    'directConnectGatewayState': 'pending'|'available'|'deleting'|'deleted',
-                    'stateChangeError': 'string'
+                \'directConnectGateway\': {
+                    \'directConnectGatewayId\': \'string\',
+                    \'directConnectGatewayName\': \'string\',
+                    \'amazonSideAsn\': 123,
+                    \'ownerAccount\': \'string\',
+                    \'directConnectGatewayState\': \'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                    \'stateChangeError\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3648,8 +3648,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_direct_connect_gateway_association(
-              directConnectGatewayId='string',
-              virtualGatewayId='string'
+              directConnectGatewayId=\'string\',
+              virtualGatewayId=\'string\'
           )
         :type directConnectGatewayId: string
         :param directConnectGatewayId: **[REQUIRED]** 
@@ -3669,13 +3669,13 @@ class Client(BaseClient):
           ::
         
             {
-                'directConnectGatewayAssociation': {
-                    'directConnectGatewayId': 'string',
-                    'virtualGatewayId': 'string',
-                    'virtualGatewayRegion': 'string',
-                    'virtualGatewayOwnerAccount': 'string',
-                    'associationState': 'associating'|'associated'|'disassociating'|'disassociated',
-                    'stateChangeError': 'string'
+                \'directConnectGatewayAssociation\': {
+                    \'directConnectGatewayId\': \'string\',
+                    \'virtualGatewayId\': \'string\',
+                    \'virtualGatewayRegion\': \'string\',
+                    \'virtualGatewayOwnerAccount\': \'string\',
+                    \'associationState\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\',
+                    \'stateChangeError\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3734,7 +3734,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_interconnect(
-              interconnectId='string'
+              interconnectId=\'string\'
           )
         :type interconnectId: string
         :param interconnectId: **[REQUIRED]** 
@@ -3749,7 +3749,7 @@ class Client(BaseClient):
           ::
         
             {
-                'interconnectState': 'requested'|'pending'|'available'|'down'|'deleting'|'deleted'
+                \'interconnectState\': \'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'
             }
           **Response Structure** 
         
@@ -3783,7 +3783,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_lag(
-              lagId='string'
+              lagId=\'string\'
           )
         :type lagId: string
         :param lagId: **[REQUIRED]** 
@@ -3798,37 +3798,37 @@ class Client(BaseClient):
           ::
         
             {
-                'connectionsBandwidth': 'string',
-                'numberOfConnections': 123,
-                'lagId': 'string',
-                'ownerAccount': 'string',
-                'lagName': 'string',
-                'lagState': 'requested'|'pending'|'available'|'down'|'deleting'|'deleted',
-                'location': 'string',
-                'region': 'string',
-                'minimumLinks': 123,
-                'awsDevice': 'string',
-                'awsDeviceV2': 'string',
-                'connections': [
+                \'connectionsBandwidth\': \'string\',
+                \'numberOfConnections\': 123,
+                \'lagId\': \'string\',
+                \'ownerAccount\': \'string\',
+                \'lagName\': \'string\',
+                \'lagState\': \'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\',
+                \'location\': \'string\',
+                \'region\': \'string\',
+                \'minimumLinks\': 123,
+                \'awsDevice\': \'string\',
+                \'awsDeviceV2\': \'string\',
+                \'connections\': [
                     {
-                        'ownerAccount': 'string',
-                        'connectionId': 'string',
-                        'connectionName': 'string',
-                        'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                        'region': 'string',
-                        'location': 'string',
-                        'bandwidth': 'string',
-                        'vlan': 123,
-                        'partnerName': 'string',
-                        'loaIssueTime': datetime(2015, 1, 1),
-                        'lagId': 'string',
-                        'awsDevice': 'string',
-                        'jumboFrameCapable': True|False,
-                        'awsDeviceV2': 'string'
+                        \'ownerAccount\': \'string\',
+                        \'connectionId\': \'string\',
+                        \'connectionName\': \'string\',
+                        \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                        \'region\': \'string\',
+                        \'location\': \'string\',
+                        \'bandwidth\': \'string\',
+                        \'vlan\': 123,
+                        \'partnerName\': \'string\',
+                        \'loaIssueTime\': datetime(2015, 1, 1),
+                        \'lagId\': \'string\',
+                        \'awsDevice\': \'string\',
+                        \'jumboFrameCapable\': True|False,
+                        \'awsDeviceV2\': \'string\'
                     },
                 ],
-                'allowsHostedConnections': True|False,
-                'jumboFrameCapable': True|False
+                \'allowsHostedConnections\': True|False,
+                \'jumboFrameCapable\': True|False
             }
           **Response Structure** 
         
@@ -3992,7 +3992,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_virtual_interface(
-              virtualInterfaceId='string'
+              virtualInterfaceId=\'string\'
           )
         :type virtualInterfaceId: string
         :param virtualInterfaceId: **[REQUIRED]** 
@@ -4007,7 +4007,7 @@ class Client(BaseClient):
           ::
         
             {
-                'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected'
+                \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\'
             }
           **Response Structure** 
         
@@ -4053,9 +4053,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_connection_loa(
-              connectionId='string',
-              providerName='string',
-              loaContentType='application/pdf'
+              connectionId=\'string\',
+              providerName=\'string\',
+              loaContentType=\'application/pdf\'
           )
         :type connectionId: string
         :param connectionId: **[REQUIRED]** 
@@ -4080,9 +4080,9 @@ class Client(BaseClient):
           ::
         
             {
-                'loa': {
-                    'loaContent': b'bytes',
-                    'loaContentType': 'application/pdf'
+                \'loa\': {
+                    \'loaContent\': b\'bytes\',
+                    \'loaContentType\': \'application/pdf\'
                 }
             }
           **Response Structure** 
@@ -4113,7 +4113,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_connections(
-              connectionId='string'
+              connectionId=\'string\'
           )
         :type connectionId: string
         :param connectionId: 
@@ -4128,22 +4128,22 @@ class Client(BaseClient):
           ::
         
             {
-                'connections': [
+                \'connections\': [
                     {
-                        'ownerAccount': 'string',
-                        'connectionId': 'string',
-                        'connectionName': 'string',
-                        'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                        'region': 'string',
-                        'location': 'string',
-                        'bandwidth': 'string',
-                        'vlan': 123,
-                        'partnerName': 'string',
-                        'loaIssueTime': datetime(2015, 1, 1),
-                        'lagId': 'string',
-                        'awsDevice': 'string',
-                        'jumboFrameCapable': True|False,
-                        'awsDeviceV2': 'string'
+                        \'ownerAccount\': \'string\',
+                        \'connectionId\': \'string\',
+                        \'connectionName\': \'string\',
+                        \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                        \'region\': \'string\',
+                        \'location\': \'string\',
+                        \'bandwidth\': \'string\',
+                        \'vlan\': 123,
+                        \'partnerName\': \'string\',
+                        \'loaIssueTime\': datetime(2015, 1, 1),
+                        \'lagId\': \'string\',
+                        \'awsDevice\': \'string\',
+                        \'jumboFrameCapable\': True|False,
+                        \'awsDeviceV2\': \'string\'
                     },
                 ]
             }
@@ -4253,7 +4253,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_connections_on_interconnect(
-              interconnectId='string'
+              interconnectId=\'string\'
           )
         :type interconnectId: string
         :param interconnectId: **[REQUIRED]** 
@@ -4268,22 +4268,22 @@ class Client(BaseClient):
           ::
         
             {
-                'connections': [
+                \'connections\': [
                     {
-                        'ownerAccount': 'string',
-                        'connectionId': 'string',
-                        'connectionName': 'string',
-                        'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                        'region': 'string',
-                        'location': 'string',
-                        'bandwidth': 'string',
-                        'vlan': 123,
-                        'partnerName': 'string',
-                        'loaIssueTime': datetime(2015, 1, 1),
-                        'lagId': 'string',
-                        'awsDevice': 'string',
-                        'jumboFrameCapable': True|False,
-                        'awsDeviceV2': 'string'
+                        \'ownerAccount\': \'string\',
+                        \'connectionId\': \'string\',
+                        \'connectionName\': \'string\',
+                        \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                        \'region\': \'string\',
+                        \'location\': \'string\',
+                        \'bandwidth\': \'string\',
+                        \'vlan\': 123,
+                        \'partnerName\': \'string\',
+                        \'loaIssueTime\': datetime(2015, 1, 1),
+                        \'lagId\': \'string\',
+                        \'awsDevice\': \'string\',
+                        \'jumboFrameCapable\': True|False,
+                        \'awsDeviceV2\': \'string\'
                     },
                 ]
             }
@@ -4383,10 +4383,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_direct_connect_gateway_associations(
-              directConnectGatewayId='string',
-              virtualGatewayId='string',
+              directConnectGatewayId=\'string\',
+              virtualGatewayId=\'string\',
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type directConnectGatewayId: string
         :param directConnectGatewayId: 
@@ -4416,17 +4416,17 @@ class Client(BaseClient):
           ::
         
             {
-                'directConnectGatewayAssociations': [
+                \'directConnectGatewayAssociations\': [
                     {
-                        'directConnectGatewayId': 'string',
-                        'virtualGatewayId': 'string',
-                        'virtualGatewayRegion': 'string',
-                        'virtualGatewayOwnerAccount': 'string',
-                        'associationState': 'associating'|'associated'|'disassociating'|'disassociated',
-                        'stateChangeError': 'string'
+                        \'directConnectGatewayId\': \'string\',
+                        \'virtualGatewayId\': \'string\',
+                        \'virtualGatewayRegion\': \'string\',
+                        \'virtualGatewayOwnerAccount\': \'string\',
+                        \'associationState\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\',
+                        \'stateChangeError\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4488,10 +4488,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_direct_connect_gateway_attachments(
-              directConnectGatewayId='string',
-              virtualInterfaceId='string',
+              directConnectGatewayId=\'string\',
+              virtualInterfaceId=\'string\',
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type directConnectGatewayId: string
         :param directConnectGatewayId: 
@@ -4521,17 +4521,17 @@ class Client(BaseClient):
           ::
         
             {
-                'directConnectGatewayAttachments': [
+                \'directConnectGatewayAttachments\': [
                     {
-                        'directConnectGatewayId': 'string',
-                        'virtualInterfaceId': 'string',
-                        'virtualInterfaceRegion': 'string',
-                        'virtualInterfaceOwnerAccount': 'string',
-                        'attachmentState': 'attaching'|'attached'|'detaching'|'detached',
-                        'stateChangeError': 'string'
+                        \'directConnectGatewayId\': \'string\',
+                        \'virtualInterfaceId\': \'string\',
+                        \'virtualInterfaceRegion\': \'string\',
+                        \'virtualInterfaceOwnerAccount\': \'string\',
+                        \'attachmentState\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                        \'stateChangeError\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4593,9 +4593,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_direct_connect_gateways(
-              directConnectGatewayId='string',
+              directConnectGatewayId=\'string\',
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type directConnectGatewayId: string
         :param directConnectGatewayId: 
@@ -4620,17 +4620,17 @@ class Client(BaseClient):
           ::
         
             {
-                'directConnectGateways': [
+                \'directConnectGateways\': [
                     {
-                        'directConnectGatewayId': 'string',
-                        'directConnectGatewayName': 'string',
-                        'amazonSideAsn': 123,
-                        'ownerAccount': 'string',
-                        'directConnectGatewayState': 'pending'|'available'|'deleting'|'deleted',
-                        'stateChangeError': 'string'
+                        \'directConnectGatewayId\': \'string\',
+                        \'directConnectGatewayName\': \'string\',
+                        \'amazonSideAsn\': 123,
+                        \'ownerAccount\': \'string\',
+                        \'directConnectGatewayState\': \'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'stateChangeError\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4696,7 +4696,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_hosted_connections(
-              connectionId='string'
+              connectionId=\'string\'
           )
         :type connectionId: string
         :param connectionId: **[REQUIRED]** 
@@ -4711,22 +4711,22 @@ class Client(BaseClient):
           ::
         
             {
-                'connections': [
+                \'connections\': [
                     {
-                        'ownerAccount': 'string',
-                        'connectionId': 'string',
-                        'connectionName': 'string',
-                        'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                        'region': 'string',
-                        'location': 'string',
-                        'bandwidth': 'string',
-                        'vlan': 123,
-                        'partnerName': 'string',
-                        'loaIssueTime': datetime(2015, 1, 1),
-                        'lagId': 'string',
-                        'awsDevice': 'string',
-                        'jumboFrameCapable': True|False,
-                        'awsDeviceV2': 'string'
+                        \'ownerAccount\': \'string\',
+                        \'connectionId\': \'string\',
+                        \'connectionName\': \'string\',
+                        \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                        \'region\': \'string\',
+                        \'location\': \'string\',
+                        \'bandwidth\': \'string\',
+                        \'vlan\': 123,
+                        \'partnerName\': \'string\',
+                        \'loaIssueTime\': datetime(2015, 1, 1),
+                        \'lagId\': \'string\',
+                        \'awsDevice\': \'string\',
+                        \'jumboFrameCapable\': True|False,
+                        \'awsDeviceV2\': \'string\'
                     },
                 ]
             }
@@ -4834,9 +4834,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_interconnect_loa(
-              interconnectId='string',
-              providerName='string',
-              loaContentType='application/pdf'
+              interconnectId=\'string\',
+              providerName=\'string\',
+              loaContentType=\'application/pdf\'
           )
         :type interconnectId: string
         :param interconnectId: **[REQUIRED]** 
@@ -4861,9 +4861,9 @@ class Client(BaseClient):
           ::
         
             {
-                'loa': {
-                    'loaContent': b'bytes',
-                    'loaContentType': 'application/pdf'
+                \'loa\': {
+                    \'loaContent\': b\'bytes\',
+                    \'loaContentType\': \'application/pdf\'
                 }
             }
           **Response Structure** 
@@ -4894,7 +4894,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_interconnects(
-              interconnectId='string'
+              interconnectId=\'string\'
           )
         :type interconnectId: string
         :param interconnectId: 
@@ -4909,19 +4909,19 @@ class Client(BaseClient):
           ::
         
             {
-                'interconnects': [
+                \'interconnects\': [
                     {
-                        'interconnectId': 'string',
-                        'interconnectName': 'string',
-                        'interconnectState': 'requested'|'pending'|'available'|'down'|'deleting'|'deleted',
-                        'region': 'string',
-                        'location': 'string',
-                        'bandwidth': 'string',
-                        'loaIssueTime': datetime(2015, 1, 1),
-                        'lagId': 'string',
-                        'awsDevice': 'string',
-                        'jumboFrameCapable': True|False,
-                        'awsDeviceV2': 'string'
+                        \'interconnectId\': \'string\',
+                        \'interconnectName\': \'string\',
+                        \'interconnectState\': \'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\',
+                        \'region\': \'string\',
+                        \'location\': \'string\',
+                        \'bandwidth\': \'string\',
+                        \'loaIssueTime\': datetime(2015, 1, 1),
+                        \'lagId\': \'string\',
+                        \'awsDevice\': \'string\',
+                        \'jumboFrameCapable\': True|False,
+                        \'awsDeviceV2\': \'string\'
                     },
                 ]
             }
@@ -5005,7 +5005,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_lags(
-              lagId='string'
+              lagId=\'string\'
           )
         :type lagId: string
         :param lagId: 
@@ -5020,39 +5020,39 @@ class Client(BaseClient):
           ::
         
             {
-                'lags': [
+                \'lags\': [
                     {
-                        'connectionsBandwidth': 'string',
-                        'numberOfConnections': 123,
-                        'lagId': 'string',
-                        'ownerAccount': 'string',
-                        'lagName': 'string',
-                        'lagState': 'requested'|'pending'|'available'|'down'|'deleting'|'deleted',
-                        'location': 'string',
-                        'region': 'string',
-                        'minimumLinks': 123,
-                        'awsDevice': 'string',
-                        'awsDeviceV2': 'string',
-                        'connections': [
+                        \'connectionsBandwidth\': \'string\',
+                        \'numberOfConnections\': 123,
+                        \'lagId\': \'string\',
+                        \'ownerAccount\': \'string\',
+                        \'lagName\': \'string\',
+                        \'lagState\': \'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\',
+                        \'location\': \'string\',
+                        \'region\': \'string\',
+                        \'minimumLinks\': 123,
+                        \'awsDevice\': \'string\',
+                        \'awsDeviceV2\': \'string\',
+                        \'connections\': [
                             {
-                                'ownerAccount': 'string',
-                                'connectionId': 'string',
-                                'connectionName': 'string',
-                                'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                                'region': 'string',
-                                'location': 'string',
-                                'bandwidth': 'string',
-                                'vlan': 123,
-                                'partnerName': 'string',
-                                'loaIssueTime': datetime(2015, 1, 1),
-                                'lagId': 'string',
-                                'awsDevice': 'string',
-                                'jumboFrameCapable': True|False,
-                                'awsDeviceV2': 'string'
+                                \'ownerAccount\': \'string\',
+                                \'connectionId\': \'string\',
+                                \'connectionName\': \'string\',
+                                \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                                \'region\': \'string\',
+                                \'location\': \'string\',
+                                \'bandwidth\': \'string\',
+                                \'vlan\': 123,
+                                \'partnerName\': \'string\',
+                                \'loaIssueTime\': datetime(2015, 1, 1),
+                                \'lagId\': \'string\',
+                                \'awsDevice\': \'string\',
+                                \'jumboFrameCapable\': True|False,
+                                \'awsDeviceV2\': \'string\'
                             },
                         ],
-                        'allowsHostedConnections': True|False,
-                        'jumboFrameCapable': True|False
+                        \'allowsHostedConnections\': True|False,
+                        \'jumboFrameCapable\': True|False
                     },
                 ]
             }
@@ -5226,9 +5226,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_loa(
-              connectionId='string',
-              providerName='string',
-              loaContentType='application/pdf'
+              connectionId=\'string\',
+              providerName=\'string\',
+              loaContentType=\'application/pdf\'
           )
         :type connectionId: string
         :param connectionId: **[REQUIRED]** 
@@ -5253,8 +5253,8 @@ class Client(BaseClient):
           ::
         
             {
-                'loaContent': b'bytes',
-                'loaContentType': 'application/pdf'
+                \'loaContent\': b\'bytes\',
+                \'loaContentType\': \'application/pdf\'
             }
           **Response Structure** 
         
@@ -5291,11 +5291,11 @@ class Client(BaseClient):
           ::
         
             {
-                'locations': [
+                \'locations\': [
                     {
-                        'locationCode': 'string',
-                        'locationName': 'string',
-                        'region': 'string'
+                        \'locationCode\': \'string\',
+                        \'locationName\': \'string\',
+                        \'region\': \'string\'
                     },
                 ]
             }
@@ -5336,7 +5336,7 @@ class Client(BaseClient):
         
           response = client.describe_tags(
               resourceArns=[
-                  'string',
+                  \'string\',
               ]
           )
         :type resourceArns: list
@@ -5354,13 +5354,13 @@ class Client(BaseClient):
           ::
         
             {
-                'resourceTags': [
+                \'resourceTags\': [
                     {
-                        'resourceArn': 'string',
-                        'tags': [
+                        \'resourceArn\': \'string\',
+                        \'tags\': [
                             {
-                                'key': 'string',
-                                'value': 'string'
+                                \'key\': \'string\',
+                                \'value\': \'string\'
                             },
                         ]
                     },
@@ -5421,10 +5421,10 @@ class Client(BaseClient):
           ::
         
             {
-                'virtualGateways': [
+                \'virtualGateways\': [
                     {
-                        'virtualGatewayId': 'string',
-                        'virtualGatewayState': 'string'
+                        \'virtualGatewayId\': \'string\',
+                        \'virtualGatewayState\': \'string\'
                     },
                 ]
             }
@@ -5470,8 +5470,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_virtual_interfaces(
-              connectionId='string',
-              virtualInterfaceId='string'
+              connectionId=\'string\',
+              virtualInterfaceId=\'string\'
           )
         :type connectionId: string
         :param connectionId: 
@@ -5491,46 +5491,46 @@ class Client(BaseClient):
           ::
         
             {
-                'virtualInterfaces': [
+                \'virtualInterfaces\': [
                     {
-                        'ownerAccount': 'string',
-                        'virtualInterfaceId': 'string',
-                        'location': 'string',
-                        'connectionId': 'string',
-                        'virtualInterfaceType': 'string',
-                        'virtualInterfaceName': 'string',
-                        'vlan': 123,
-                        'asn': 123,
-                        'amazonSideAsn': 123,
-                        'authKey': 'string',
-                        'amazonAddress': 'string',
-                        'customerAddress': 'string',
-                        'addressFamily': 'ipv4'|'ipv6',
-                        'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                        'customerRouterConfig': 'string',
-                        'mtu': 123,
-                        'jumboFrameCapable': True|False,
-                        'virtualGatewayId': 'string',
-                        'directConnectGatewayId': 'string',
-                        'routeFilterPrefixes': [
+                        \'ownerAccount\': \'string\',
+                        \'virtualInterfaceId\': \'string\',
+                        \'location\': \'string\',
+                        \'connectionId\': \'string\',
+                        \'virtualInterfaceType\': \'string\',
+                        \'virtualInterfaceName\': \'string\',
+                        \'vlan\': 123,
+                        \'asn\': 123,
+                        \'amazonSideAsn\': 123,
+                        \'authKey\': \'string\',
+                        \'amazonAddress\': \'string\',
+                        \'customerAddress\': \'string\',
+                        \'addressFamily\': \'ipv4\'|\'ipv6\',
+                        \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                        \'customerRouterConfig\': \'string\',
+                        \'mtu\': 123,
+                        \'jumboFrameCapable\': True|False,
+                        \'virtualGatewayId\': \'string\',
+                        \'directConnectGatewayId\': \'string\',
+                        \'routeFilterPrefixes\': [
                             {
-                                'cidr': 'string'
+                                \'cidr\': \'string\'
                             },
                         ],
-                        'bgpPeers': [
+                        \'bgpPeers\': [
                             {
-                                'asn': 123,
-                                'authKey': 'string',
-                                'addressFamily': 'ipv4'|'ipv6',
-                                'amazonAddress': 'string',
-                                'customerAddress': 'string',
-                                'bgpPeerState': 'verifying'|'pending'|'available'|'deleting'|'deleted',
-                                'bgpStatus': 'up'|'down',
-                                'awsDeviceV2': 'string'
+                                \'asn\': 123,
+                                \'authKey\': \'string\',
+                                \'addressFamily\': \'ipv4\'|\'ipv6\',
+                                \'amazonAddress\': \'string\',
+                                \'customerAddress\': \'string\',
+                                \'bgpPeerState\': \'verifying\'|\'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                                \'bgpStatus\': \'up\'|\'down\',
+                                \'awsDeviceV2\': \'string\'
                             },
                         ],
-                        'region': 'string',
-                        'awsDeviceV2': 'string'
+                        \'region\': \'string\',
+                        \'awsDeviceV2\': \'string\'
                     },
                 ]
             }
@@ -5720,7 +5720,7 @@ class Client(BaseClient):
     def disassociate_connection_from_lag(self, connectionId: str, lagId: str) -> Dict:
         """
         
-        If disassociating the connection would cause the LAG to fall below its setting for minimum number of operational connections, the request fails, except when it's the last member of the LAG. If all connections are disassociated, the LAG continues to exist as an empty LAG with no physical connections. 
+        If disassociating the connection would cause the LAG to fall below its setting for minimum number of operational connections, the request fails, except when it\'s the last member of the LAG. If all connections are disassociated, the LAG continues to exist as an empty LAG with no physical connections. 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DisassociateConnectionFromLag>`_
         
@@ -5728,8 +5728,8 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_connection_from_lag(
-              connectionId='string',
-              lagId='string'
+              connectionId=\'string\',
+              lagId=\'string\'
           )
         :type connectionId: string
         :param connectionId: **[REQUIRED]** 
@@ -5749,20 +5749,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'connectionId': 'string',
-                'connectionName': 'string',
-                'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'region': 'string',
-                'location': 'string',
-                'bandwidth': 'string',
-                'vlan': 123,
-                'partnerName': 'string',
-                'loaIssueTime': datetime(2015, 1, 1),
-                'lagId': 'string',
-                'awsDevice': 'string',
-                'jumboFrameCapable': True|False,
-                'awsDeviceV2': 'string'
+                \'ownerAccount\': \'string\',
+                \'connectionId\': \'string\',
+                \'connectionName\': \'string\',
+                \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'region\': \'string\',
+                \'location\': \'string\',
+                \'bandwidth\': \'string\',
+                \'vlan\': 123,
+                \'partnerName\': \'string\',
+                \'loaIssueTime\': datetime(2015, 1, 1),
+                \'lagId\': \'string\',
+                \'awsDevice\': \'string\',
+                \'jumboFrameCapable\': True|False,
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         
@@ -5861,7 +5861,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -5873,10 +5873,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -5910,11 +5910,11 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              resourceArn='string',
+              resourceArn=\'string\',
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -5963,9 +5963,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              resourceArn='string',
+              resourceArn=\'string\',
               tagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type resourceArn: string
@@ -6011,8 +6011,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_lag(
-              lagId='string',
-              lagName='string',
+              lagId=\'string\',
+              lagName=\'string\',
               minimumLinks=123
           )
         :type lagId: string
@@ -6038,37 +6038,37 @@ class Client(BaseClient):
           ::
         
             {
-                'connectionsBandwidth': 'string',
-                'numberOfConnections': 123,
-                'lagId': 'string',
-                'ownerAccount': 'string',
-                'lagName': 'string',
-                'lagState': 'requested'|'pending'|'available'|'down'|'deleting'|'deleted',
-                'location': 'string',
-                'region': 'string',
-                'minimumLinks': 123,
-                'awsDevice': 'string',
-                'awsDeviceV2': 'string',
-                'connections': [
+                \'connectionsBandwidth\': \'string\',
+                \'numberOfConnections\': 123,
+                \'lagId\': \'string\',
+                \'ownerAccount\': \'string\',
+                \'lagName\': \'string\',
+                \'lagState\': \'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\',
+                \'location\': \'string\',
+                \'region\': \'string\',
+                \'minimumLinks\': 123,
+                \'awsDevice\': \'string\',
+                \'awsDeviceV2\': \'string\',
+                \'connections\': [
                     {
-                        'ownerAccount': 'string',
-                        'connectionId': 'string',
-                        'connectionName': 'string',
-                        'connectionState': 'ordering'|'requested'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                        'region': 'string',
-                        'location': 'string',
-                        'bandwidth': 'string',
-                        'vlan': 123,
-                        'partnerName': 'string',
-                        'loaIssueTime': datetime(2015, 1, 1),
-                        'lagId': 'string',
-                        'awsDevice': 'string',
-                        'jumboFrameCapable': True|False,
-                        'awsDeviceV2': 'string'
+                        \'ownerAccount\': \'string\',
+                        \'connectionId\': \'string\',
+                        \'connectionName\': \'string\',
+                        \'connectionState\': \'ordering\'|\'requested\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                        \'region\': \'string\',
+                        \'location\': \'string\',
+                        \'bandwidth\': \'string\',
+                        \'vlan\': 123,
+                        \'partnerName\': \'string\',
+                        \'loaIssueTime\': datetime(2015, 1, 1),
+                        \'lagId\': \'string\',
+                        \'awsDevice\': \'string\',
+                        \'jumboFrameCapable\': True|False,
+                        \'awsDeviceV2\': \'string\'
                     },
                 ],
-                'allowsHostedConnections': True|False,
-                'jumboFrameCapable': True|False
+                \'allowsHostedConnections\': True|False,
+                \'jumboFrameCapable\': True|False
             }
           **Response Structure** 
         
@@ -6226,7 +6226,7 @@ class Client(BaseClient):
     def update_virtual_interface_attributes(self, virtualInterfaceId: str, mtu: int = None) -> Dict:
         """
         
-        Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call  DescribeConnections . To check whether your virtual interface supports jumbo frames, call  DescribeVirtualInterfaces .
+        Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to the underlying physical connection if it wasn\'t updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call  DescribeConnections . To check whether your virtual interface supports jumbo frames, call  DescribeVirtualInterfaces .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/UpdateVirtualInterfaceAttributes>`_
         
@@ -6234,7 +6234,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_virtual_interface_attributes(
-              virtualInterfaceId='string',
+              virtualInterfaceId=\'string\',
               mtu=123
           )
         :type virtualInterfaceId: string
@@ -6255,44 +6255,44 @@ class Client(BaseClient):
           ::
         
             {
-                'ownerAccount': 'string',
-                'virtualInterfaceId': 'string',
-                'location': 'string',
-                'connectionId': 'string',
-                'virtualInterfaceType': 'string',
-                'virtualInterfaceName': 'string',
-                'vlan': 123,
-                'asn': 123,
-                'amazonSideAsn': 123,
-                'authKey': 'string',
-                'amazonAddress': 'string',
-                'customerAddress': 'string',
-                'addressFamily': 'ipv4'|'ipv6',
-                'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected',
-                'customerRouterConfig': 'string',
-                'mtu': 123,
-                'jumboFrameCapable': True|False,
-                'virtualGatewayId': 'string',
-                'directConnectGatewayId': 'string',
-                'routeFilterPrefixes': [
+                \'ownerAccount\': \'string\',
+                \'virtualInterfaceId\': \'string\',
+                \'location\': \'string\',
+                \'connectionId\': \'string\',
+                \'virtualInterfaceType\': \'string\',
+                \'virtualInterfaceName\': \'string\',
+                \'vlan\': 123,
+                \'asn\': 123,
+                \'amazonSideAsn\': 123,
+                \'authKey\': \'string\',
+                \'amazonAddress\': \'string\',
+                \'customerAddress\': \'string\',
+                \'addressFamily\': \'ipv4\'|\'ipv6\',
+                \'virtualInterfaceState\': \'confirming\'|\'verifying\'|\'pending\'|\'available\'|\'down\'|\'deleting\'|\'deleted\'|\'rejected\',
+                \'customerRouterConfig\': \'string\',
+                \'mtu\': 123,
+                \'jumboFrameCapable\': True|False,
+                \'virtualGatewayId\': \'string\',
+                \'directConnectGatewayId\': \'string\',
+                \'routeFilterPrefixes\': [
                     {
-                        'cidr': 'string'
+                        \'cidr\': \'string\'
                     },
                 ],
-                'bgpPeers': [
+                \'bgpPeers\': [
                     {
-                        'asn': 123,
-                        'authKey': 'string',
-                        'addressFamily': 'ipv4'|'ipv6',
-                        'amazonAddress': 'string',
-                        'customerAddress': 'string',
-                        'bgpPeerState': 'verifying'|'pending'|'available'|'deleting'|'deleted',
-                        'bgpStatus': 'up'|'down',
-                        'awsDeviceV2': 'string'
+                        \'asn\': 123,
+                        \'authKey\': \'string\',
+                        \'addressFamily\': \'ipv4\'|\'ipv6\',
+                        \'amazonAddress\': \'string\',
+                        \'customerAddress\': \'string\',
+                        \'bgpPeerState\': \'verifying\'|\'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'bgpStatus\': \'up\'|\'down\',
+                        \'awsDeviceV2\': \'string\'
                     },
                 ],
-                'region': 'string',
-                'awsDeviceV2': 'string'
+                \'region\': \'string\',
+                \'awsDeviceV2\': \'string\'
             }
           **Response Structure** 
         

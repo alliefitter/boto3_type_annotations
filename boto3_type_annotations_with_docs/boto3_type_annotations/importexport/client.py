@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,8 +33,8 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_job(
-              JobId='string',
-              APIVersion='string'
+              JobId=\'string\',
+              APIVersion=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** A unique identifier which refers to a particular job.
@@ -50,7 +50,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Success': True|False
+                \'Success\': True|False
             }
           **Response Structure** 
         
@@ -69,11 +69,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_job(
-              JobType='Import'|'Export',
-              Manifest='string',
-              ManifestAddendum='string',
+              JobType=\'Import\'|\'Export\',
+              Manifest=\'string\',
+              ManifestAddendum=\'string\',
               ValidateOnly=True|False,
-              APIVersion='string'
+              APIVersion=\'string\'
           )
         :type JobType: string
         :param JobType: **[REQUIRED]** Specifies whether the job to initiate is an import or export job.
@@ -98,15 +98,15 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobType': 'Import'|'Export',
-                'Signature': 'string',
-                'SignatureFileContents': 'string',
-                'WarningMessage': 'string',
-                'ArtifactList': [
+                \'JobId\': \'string\',
+                \'JobType\': \'Import\'|\'Export\',
+                \'Signature\': \'string\',
+                \'SignatureFileContents\': \'string\',
+                \'WarningMessage\': \'string\',
+                \'ArtifactList\': [
                     {
-                        'Description': 'string',
-                        'URL': 'string'
+                        \'Description\': \'string\',
+                        \'URL\': \'string\'
                     },
                 ]
             }
@@ -118,7 +118,7 @@ class Client(BaseClient):
             
             - **JobType** *(string) --* Specifies whether the job to initiate is an import or export job.
             
-            - **Signature** *(string) --* An encrypted code used to authenticate the request and response, for example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to create the signature file yourself. Generally you should use the SignatureFileContents value.
+            - **Signature** *(string) --* An encrypted code used to authenticate the request and response, for example, \"DV+TpDfx1/TdSE9ktyK9k/bDTVI=\". Only use this value is you want to create the signature file yourself. Generally you should use the SignatureFileContents value.
             
             - **SignatureFileContents** *(string) --* The actual text of the SIGNATURE file to be written to disk.
             
@@ -151,7 +151,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -163,10 +163,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -187,19 +187,19 @@ class Client(BaseClient):
         
           response = client.get_shipping_label(
               jobIds=[
-                  'string',
+                  \'string\',
               ],
-              name='string',
-              company='string',
-              phoneNumber='string',
-              country='string',
-              stateOrProvince='string',
-              city='string',
-              postalCode='string',
-              street1='string',
-              street2='string',
-              street3='string',
-              APIVersion='string'
+              name=\'string\',
+              company=\'string\',
+              phoneNumber=\'string\',
+              country=\'string\',
+              stateOrProvince=\'string\',
+              city=\'string\',
+              postalCode=\'string\',
+              street1=\'string\',
+              street2=\'string\',
+              street3=\'string\',
+              APIVersion=\'string\'
           )
         :type jobIds: list
         :param jobIds: **[REQUIRED]** 
@@ -247,8 +247,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ShippingLabelURL': 'string',
-                'Warning': 'string'
+                \'ShippingLabelURL\': \'string\',
+                \'Warning\': \'string\'
             }
           **Response Structure** 
         
@@ -269,8 +269,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_status(
-              JobId='string',
-              APIVersion='string'
+              JobId=\'string\',
+              APIVersion=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** A unique identifier which refers to a particular job.
@@ -286,25 +286,25 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobType': 'Import'|'Export',
-                'LocationCode': 'string',
-                'LocationMessage': 'string',
-                'ProgressCode': 'string',
-                'ProgressMessage': 'string',
-                'Carrier': 'string',
-                'TrackingNumber': 'string',
-                'LogBucket': 'string',
-                'LogKey': 'string',
-                'ErrorCount': 123,
-                'Signature': 'string',
-                'SignatureFileContents': 'string',
-                'CurrentManifest': 'string',
-                'CreationDate': datetime(2015, 1, 1),
-                'ArtifactList': [
+                \'JobId\': \'string\',
+                \'JobType\': \'Import\'|\'Export\',
+                \'LocationCode\': \'string\',
+                \'LocationMessage\': \'string\',
+                \'ProgressCode\': \'string\',
+                \'ProgressMessage\': \'string\',
+                \'Carrier\': \'string\',
+                \'TrackingNumber\': \'string\',
+                \'LogBucket\': \'string\',
+                \'LogKey\': \'string\',
+                \'ErrorCount\': 123,
+                \'Signature\': \'string\',
+                \'SignatureFileContents\': \'string\',
+                \'CurrentManifest\': \'string\',
+                \'CreationDate\': datetime(2015, 1, 1),
+                \'ArtifactList\': [
                     {
-                        'Description': 'string',
-                        'URL': 'string'
+                        \'Description\': \'string\',
+                        \'URL\': \'string\'
                     },
                 ]
             }
@@ -316,17 +316,17 @@ class Client(BaseClient):
             
             - **JobType** *(string) --* Specifies whether the job to initiate is an import or export job.
             
-            - **LocationCode** *(string) --* A token representing the location of the storage device, such as "AtAWS".
+            - **LocationCode** *(string) --* A token representing the location of the storage device, such as \"AtAWS\".
             
             - **LocationMessage** *(string) --* A more human readable form of the physical location of the storage device.
             
-            - **ProgressCode** *(string) --* A token representing the state of the job, such as "Started".
+            - **ProgressCode** *(string) --* A token representing the state of the job, such as \"Started\".
             
             - **ProgressMessage** *(string) --* A more human readable form of the job status.
             
-            - **Carrier** *(string) --* Name of the shipping company. This value is included when the LocationCode is "Returned".
+            - **Carrier** *(string) --* Name of the shipping company. This value is included when the LocationCode is \"Returned\".
             
-            - **TrackingNumber** *(string) --* The shipping tracking number assigned by AWS Import/Export to the storage device when it's returned to you. We return this value when the LocationCode is "Returned".
+            - **TrackingNumber** *(string) --* The shipping tracking number assigned by AWS Import/Export to the storage device when it\'s returned to you. We return this value when the LocationCode is \"Returned\".
             
             - **LogBucket** *(string) --* Amazon S3 bucket for user logs.
             
@@ -334,13 +334,13 @@ class Client(BaseClient):
             
             - **ErrorCount** *(integer) --* Number of errors. We return this value when the ProgressCode is Success or SuccessWithErrors.
             
-            - **Signature** *(string) --* An encrypted code used to authenticate the request and response, for example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to create the signature file yourself. Generally you should use the SignatureFileContents value.
+            - **Signature** *(string) --* An encrypted code used to authenticate the request and response, for example, \"DV+TpDfx1/TdSE9ktyK9k/bDTVI=\". Only use this value is you want to create the signature file yourself. Generally you should use the SignatureFileContents value.
             
-            - **SignatureFileContents** *(string) --* An encrypted code used to authenticate the request and response, for example, "DV+TpDfx1/TdSE9ktyK9k/bDTVI=". Only use this value is you want to create the signature file yourself. Generally you should use the SignatureFileContents value.
+            - **SignatureFileContents** *(string) --* An encrypted code used to authenticate the request and response, for example, \"DV+TpDfx1/TdSE9ktyK9k/bDTVI=\". Only use this value is you want to create the signature file yourself. Generally you should use the SignatureFileContents value.
             
             - **CurrentManifest** *(string) --* The last manifest submitted, which will be used to process the job.
             
-            - **CreationDate** *(datetime) --* Timestamp of the CreateJob request in ISO8601 date format. For example "2010-03-28T20:27:35Z".
+            - **CreationDate** *(datetime) --* Timestamp of the CreateJob request in ISO8601 date format. For example \"2010-03-28T20:27:35Z\".
             
             - **ArtifactList** *(list) --* A collection of artifacts.
               
@@ -375,8 +375,8 @@ class Client(BaseClient):
         
           response = client.list_jobs(
               MaxJobs=123,
-              Marker='string',
-              APIVersion='string'
+              Marker=\'string\',
+              APIVersion=\'string\'
           )
         :type MaxJobs: integer
         :param MaxJobs: Sets the maximum number of jobs returned in the response. If there are additional jobs that were not returned because MaxJobs was exceeded, the response contains <IsTruncated>true</IsTruncated>. To return the additional jobs, see Marker.
@@ -395,15 +395,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Jobs': [
+                \'Jobs\': [
                     {
-                        'JobId': 'string',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'IsCanceled': True|False,
-                        'JobType': 'Import'|'Export'
+                        \'JobId\': \'string\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'IsCanceled\': True|False,
+                        \'JobType\': \'Import\'|\'Export\'
                     },
                 ],
-                'IsTruncated': True|False
+                \'IsTruncated\': True|False
             }
           **Response Structure** 
         
@@ -415,7 +415,7 @@ class Client(BaseClient):
                 
                 - **JobId** *(string) --* A unique identifier which refers to a particular job.
                 
-                - **CreationDate** *(datetime) --* Timestamp of the CreateJob request in ISO8601 date format. For example "2010-03-28T20:27:35Z".
+                - **CreationDate** *(datetime) --* Timestamp of the CreateJob request in ISO8601 date format. For example \"2010-03-28T20:27:35Z\".
                 
                 - **IsCanceled** *(boolean) --* Indicates whether the job was canceled.
                 
@@ -434,11 +434,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_job(
-              JobId='string',
-              Manifest='string',
-              JobType='Import'|'Export',
+              JobId=\'string\',
+              Manifest=\'string\',
+              JobType=\'Import\'|\'Export\',
               ValidateOnly=True|False,
-              APIVersion='string'
+              APIVersion=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** A unique identifier which refers to a particular job.
@@ -463,12 +463,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Success': True|False,
-                'WarningMessage': 'string',
-                'ArtifactList': [
+                \'Success\': True|False,
+                \'WarningMessage\': \'string\',
+                \'ArtifactList\': [
                     {
-                        'Description': 'string',
-                        'URL': 'string'
+                        \'Description\': \'string\',
+                        \'URL\': \'string\'
                     },
                 ]
             }

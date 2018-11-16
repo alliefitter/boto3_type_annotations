@@ -12,11 +12,11 @@ class DescribeSchedule(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ChannelId='string',
+              ChannelId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ChannelId: string
@@ -47,74 +47,74 @@ class DescribeSchedule(Paginator):
           ::
         
             {
-                'ScheduleActions': [
+                \'ScheduleActions\': [
                     {
-                        'ActionName': 'string',
-                        'ScheduleActionSettings': {
-                            'InputSwitchSettings': {
-                                'InputAttachmentNameReference': 'string'
+                        \'ActionName\': \'string\',
+                        \'ScheduleActionSettings\': {
+                            \'InputSwitchSettings\': {
+                                \'InputAttachmentNameReference\': \'string\'
                             },
-                            'Scte35ReturnToNetworkSettings': {
-                                'SpliceEventId': 123
+                            \'Scte35ReturnToNetworkSettings\': {
+                                \'SpliceEventId\': 123
                             },
-                            'Scte35SpliceInsertSettings': {
-                                'Duration': 123,
-                                'SpliceEventId': 123
+                            \'Scte35SpliceInsertSettings\': {
+                                \'Duration\': 123,
+                                \'SpliceEventId\': 123
                             },
-                            'Scte35TimeSignalSettings': {
-                                'Scte35Descriptors': [
+                            \'Scte35TimeSignalSettings\': {
+                                \'Scte35Descriptors\': [
                                     {
-                                        'Scte35DescriptorSettings': {
-                                            'SegmentationDescriptorScte35DescriptorSettings': {
-                                                'DeliveryRestrictions': {
-                                                    'ArchiveAllowedFlag': 'ARCHIVE_NOT_ALLOWED'|'ARCHIVE_ALLOWED',
-                                                    'DeviceRestrictions': 'NONE'|'RESTRICT_GROUP0'|'RESTRICT_GROUP1'|'RESTRICT_GROUP2',
-                                                    'NoRegionalBlackoutFlag': 'REGIONAL_BLACKOUT'|'NO_REGIONAL_BLACKOUT',
-                                                    'WebDeliveryAllowedFlag': 'WEB_DELIVERY_NOT_ALLOWED'|'WEB_DELIVERY_ALLOWED'
+                                        \'Scte35DescriptorSettings\': {
+                                            \'SegmentationDescriptorScte35DescriptorSettings\': {
+                                                \'DeliveryRestrictions\': {
+                                                    \'ArchiveAllowedFlag\': \'ARCHIVE_NOT_ALLOWED\'|\'ARCHIVE_ALLOWED\',
+                                                    \'DeviceRestrictions\': \'NONE\'|\'RESTRICT_GROUP0\'|\'RESTRICT_GROUP1\'|\'RESTRICT_GROUP2\',
+                                                    \'NoRegionalBlackoutFlag\': \'REGIONAL_BLACKOUT\'|\'NO_REGIONAL_BLACKOUT\',
+                                                    \'WebDeliveryAllowedFlag\': \'WEB_DELIVERY_NOT_ALLOWED\'|\'WEB_DELIVERY_ALLOWED\'
                                                 },
-                                                'SegmentNum': 123,
-                                                'SegmentationCancelIndicator': 'SEGMENTATION_EVENT_NOT_CANCELED'|'SEGMENTATION_EVENT_CANCELED',
-                                                'SegmentationDuration': 123,
-                                                'SegmentationEventId': 123,
-                                                'SegmentationTypeId': 123,
-                                                'SegmentationUpid': 'string',
-                                                'SegmentationUpidType': 123,
-                                                'SegmentsExpected': 123,
-                                                'SubSegmentNum': 123,
-                                                'SubSegmentsExpected': 123
+                                                \'SegmentNum\': 123,
+                                                \'SegmentationCancelIndicator\': \'SEGMENTATION_EVENT_NOT_CANCELED\'|\'SEGMENTATION_EVENT_CANCELED\',
+                                                \'SegmentationDuration\': 123,
+                                                \'SegmentationEventId\': 123,
+                                                \'SegmentationTypeId\': 123,
+                                                \'SegmentationUpid\': \'string\',
+                                                \'SegmentationUpidType\': 123,
+                                                \'SegmentsExpected\': 123,
+                                                \'SubSegmentNum\': 123,
+                                                \'SubSegmentsExpected\': 123
                                             }
                                         }
                                     },
                                 ]
                             },
-                            'StaticImageActivateSettings': {
-                                'Duration': 123,
-                                'FadeIn': 123,
-                                'FadeOut': 123,
-                                'Height': 123,
-                                'Image': {
-                                    'PasswordParam': 'string',
-                                    'Uri': 'string',
-                                    'Username': 'string'
+                            \'StaticImageActivateSettings\': {
+                                \'Duration\': 123,
+                                \'FadeIn\': 123,
+                                \'FadeOut\': 123,
+                                \'Height\': 123,
+                                \'Image\': {
+                                    \'PasswordParam\': \'string\',
+                                    \'Uri\': \'string\',
+                                    \'Username\': \'string\'
                                 },
-                                'ImageX': 123,
-                                'ImageY': 123,
-                                'Layer': 123,
-                                'Opacity': 123,
-                                'Width': 123
+                                \'ImageX\': 123,
+                                \'ImageY\': 123,
+                                \'Layer\': 123,
+                                \'Opacity\': 123,
+                                \'Width\': 123
                             },
-                            'StaticImageDeactivateSettings': {
-                                'FadeOut': 123,
-                                'Layer': 123
+                            \'StaticImageDeactivateSettings\': {
+                                \'FadeOut\': 123,
+                                \'Layer\': 123
                             }
                         },
-                        'ScheduleActionStartSettings': {
-                            'FixedModeScheduleActionStartSettings': {
-                                'Time': 'string'
+                        \'ScheduleActionStartSettings\': {
+                            \'FixedModeScheduleActionStartSettings\': {
+                                \'Time\': \'string\'
                             },
-                            'FollowModeScheduleActionStartSettings': {
-                                'FollowPoint': 'END'|'START',
-                                'ReferenceActionName': 'string'
+                            \'FollowModeScheduleActionStartSettings\': {
+                                \'FollowPoint\': \'END\'|\'START\',
+                                \'ReferenceActionName\': \'string\'
                             }
                         }
                     },
@@ -174,11 +174,11 @@ class DescribeSchedule(Paginator):
                             
                             - **SegmentationEventId** *(integer) --* Corresponds to SCTE-35 segmentation_event_id. 
                             
-                            - **SegmentationTypeId** *(integer) --* Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, "52"). In the CLI, API, or an SDK, enter the ID in hex (for example, "0x34") or decimal (for example, "52").
+                            - **SegmentationTypeId** *(integer) --* Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, \"52\"). In the CLI, API, or an SDK, enter the ID in hex (for example, \"0x34\") or decimal (for example, \"52\").
                             
-                            - **SegmentationUpid** *(string) --* Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII "ADS Information" becomes hex "41445320496e666f726d6174696f6e.
+                            - **SegmentationUpid** *(string) --* Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII \"ADS Information\" becomes hex \"41445320496e666f726d6174696f6e.
                             
-                            - **SegmentationUpidType** *(integer) --* Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, "0x0C" hex from the specification is "12" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, "0x0C" ) or in decimal (for example, "12").
+                            - **SegmentationUpidType** *(integer) --* Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, \"0x0C\" hex from the specification is \"12\" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, \"0x0C\" ) or in decimal (for example, \"12\").
                             
                             - **SegmentsExpected** *(integer) --* Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
                             
@@ -200,7 +200,7 @@ class DescribeSchedule(Paginator):
                       
                       - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                       
-                      - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
+                      - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: \"rtmp://fmsserver/live\".
                       
                       - **Username** *(string) --* Documentation update needed
                   
@@ -224,7 +224,7 @@ class DescribeSchedule(Paginator):
                   
                   - **FixedModeScheduleActionStartSettings** *(dict) --* Holds the start time for the action.
                     
-                    - **Time** *(string) --* Start time for the action to start in the channel. (Not the time for the action to be added to the schedule: actions are always added to the schedule immediately.) UTC format: yyyy-mm-ddThh:mm:ss.nnnZ. All the letters are digits (for example, mm might be 01) except for the two constants "T" for time and "Z" for "UTC format".
+                    - **Time** *(string) --* Start time for the action to start in the channel. (Not the time for the action to be added to the schedule: actions are always added to the schedule immediately.) UTC format: yyyy-mm-ddThh:mm:ss.nnnZ. All the letters are digits (for example, mm might be 01) except for the two constants \"T\" for time and \"Z\" for \"UTC format\".
                 
                   - **FollowModeScheduleActionStartSettings** *(dict) --* Specifies an action to follow for scheduling this action.
                     
@@ -247,9 +247,9 @@ class ListChannels(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -277,114 +277,114 @@ class ListChannels(Paginator):
           ::
         
             {
-                'Channels': [
+                \'Channels\': [
                     {
-                        'Arn': 'string',
-                        'Destinations': [
+                        \'Arn\': \'string\',
+                        \'Destinations\': [
                             {
-                                'Id': 'string',
-                                'Settings': [
+                                \'Id\': \'string\',
+                                \'Settings\': [
                                     {
-                                        'PasswordParam': 'string',
-                                        'StreamName': 'string',
-                                        'Url': 'string',
-                                        'Username': 'string'
+                                        \'PasswordParam\': \'string\',
+                                        \'StreamName\': \'string\',
+                                        \'Url\': \'string\',
+                                        \'Username\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'EgressEndpoints': [
+                        \'EgressEndpoints\': [
                             {
-                                'SourceIp': 'string'
+                                \'SourceIp\': \'string\'
                             },
                         ],
-                        'Id': 'string',
-                        'InputAttachments': [
+                        \'Id\': \'string\',
+                        \'InputAttachments\': [
                             {
-                                'InputAttachmentName': 'string',
-                                'InputId': 'string',
-                                'InputSettings': {
-                                    'AudioSelectors': [
+                                \'InputAttachmentName\': \'string\',
+                                \'InputId\': \'string\',
+                                \'InputSettings\': {
+                                    \'AudioSelectors\': [
                                         {
-                                            'Name': 'string',
-                                            'SelectorSettings': {
-                                                'AudioLanguageSelection': {
-                                                    'LanguageCode': 'string',
-                                                    'LanguageSelectionPolicy': 'LOOSE'|'STRICT'
+                                            \'Name\': \'string\',
+                                            \'SelectorSettings\': {
+                                                \'AudioLanguageSelection\': {
+                                                    \'LanguageCode\': \'string\',
+                                                    \'LanguageSelectionPolicy\': \'LOOSE\'|\'STRICT\'
                                                 },
-                                                'AudioPidSelection': {
-                                                    'Pid': 123
+                                                \'AudioPidSelection\': {
+                                                    \'Pid\': 123
                                                 }
                                             }
                                         },
                                     ],
-                                    'CaptionSelectors': [
+                                    \'CaptionSelectors\': [
                                         {
-                                            'LanguageCode': 'string',
-                                            'Name': 'string',
-                                            'SelectorSettings': {
-                                                'AribSourceSettings': {},
-                                                'DvbSubSourceSettings': {
-                                                    'Pid': 123
+                                            \'LanguageCode\': \'string\',
+                                            \'Name\': \'string\',
+                                            \'SelectorSettings\': {
+                                                \'AribSourceSettings\': {},
+                                                \'DvbSubSourceSettings\': {
+                                                    \'Pid\': 123
                                                 },
-                                                'EmbeddedSourceSettings': {
-                                                    'Convert608To708': 'DISABLED'|'UPCONVERT',
-                                                    'Scte20Detection': 'AUTO'|'OFF',
-                                                    'Source608ChannelNumber': 123,
-                                                    'Source608TrackNumber': 123
+                                                \'EmbeddedSourceSettings\': {
+                                                    \'Convert608To708\': \'DISABLED\'|\'UPCONVERT\',
+                                                    \'Scte20Detection\': \'AUTO\'|\'OFF\',
+                                                    \'Source608ChannelNumber\': 123,
+                                                    \'Source608TrackNumber\': 123
                                                 },
-                                                'Scte20SourceSettings': {
-                                                    'Convert608To708': 'DISABLED'|'UPCONVERT',
-                                                    'Source608ChannelNumber': 123
+                                                \'Scte20SourceSettings\': {
+                                                    \'Convert608To708\': \'DISABLED\'|\'UPCONVERT\',
+                                                    \'Source608ChannelNumber\': 123
                                                 },
-                                                'Scte27SourceSettings': {
-                                                    'Pid': 123
+                                                \'Scte27SourceSettings\': {
+                                                    \'Pid\': 123
                                                 },
-                                                'TeletextSourceSettings': {
-                                                    'PageNumber': 'string'
+                                                \'TeletextSourceSettings\': {
+                                                    \'PageNumber\': \'string\'
                                                 }
                                             }
                                         },
                                     ],
-                                    'DeblockFilter': 'DISABLED'|'ENABLED',
-                                    'DenoiseFilter': 'DISABLED'|'ENABLED',
-                                    'FilterStrength': 123,
-                                    'InputFilter': 'AUTO'|'DISABLED'|'FORCED',
-                                    'NetworkInputSettings': {
-                                        'HlsInputSettings': {
-                                            'Bandwidth': 123,
-                                            'BufferSegments': 123,
-                                            'Retries': 123,
-                                            'RetryInterval': 123
+                                    \'DeblockFilter\': \'DISABLED\'|\'ENABLED\',
+                                    \'DenoiseFilter\': \'DISABLED\'|\'ENABLED\',
+                                    \'FilterStrength\': 123,
+                                    \'InputFilter\': \'AUTO\'|\'DISABLED\'|\'FORCED\',
+                                    \'NetworkInputSettings\': {
+                                        \'HlsInputSettings\': {
+                                            \'Bandwidth\': 123,
+                                            \'BufferSegments\': 123,
+                                            \'Retries\': 123,
+                                            \'RetryInterval\': 123
                                         },
-                                        'ServerValidation': 'CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME'|'CHECK_CRYPTOGRAPHY_ONLY'
+                                        \'ServerValidation\': \'CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME\'|\'CHECK_CRYPTOGRAPHY_ONLY\'
                                     },
-                                    'SourceEndBehavior': 'CONTINUE'|'LOOP',
-                                    'VideoSelector': {
-                                        'ColorSpace': 'FOLLOW'|'REC_601'|'REC_709',
-                                        'ColorSpaceUsage': 'FALLBACK'|'FORCE',
-                                        'SelectorSettings': {
-                                            'VideoSelectorPid': {
-                                                'Pid': 123
+                                    \'SourceEndBehavior\': \'CONTINUE\'|\'LOOP\',
+                                    \'VideoSelector\': {
+                                        \'ColorSpace\': \'FOLLOW\'|\'REC_601\'|\'REC_709\',
+                                        \'ColorSpaceUsage\': \'FALLBACK\'|\'FORCE\',
+                                        \'SelectorSettings\': {
+                                            \'VideoSelectorPid\': {
+                                                \'Pid\': 123
                                             },
-                                            'VideoSelectorProgramId': {
-                                                'ProgramId': 123
+                                            \'VideoSelectorProgramId\': {
+                                                \'ProgramId\': 123
                                             }
                                         }
                                     }
                                 }
                             },
                         ],
-                        'InputSpecification': {
-                            'Codec': 'MPEG2'|'AVC'|'HEVC',
-                            'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
-                            'Resolution': 'SD'|'HD'|'UHD'
+                        \'InputSpecification\': {
+                            \'Codec\': \'MPEG2\'|\'AVC\'|\'HEVC\',
+                            \'MaximumBitrate\': \'MAX_10_MBPS\'|\'MAX_20_MBPS\'|\'MAX_50_MBPS\',
+                            \'Resolution\': \'SD\'|\'HD\'|\'UHD\'
                         },
-                        'LogLevel': 'ERROR'|'WARNING'|'INFO'|'DEBUG'|'DISABLED',
-                        'Name': 'string',
-                        'PipelinesRunningCount': 123,
-                        'RoleArn': 'string',
-                        'State': 'CREATING'|'CREATE_FAILED'|'IDLE'|'STARTING'|'RUNNING'|'RECOVERING'|'STOPPING'|'DELETING'|'DELETED'
+                        \'LogLevel\': \'ERROR\'|\'WARNING\'|\'INFO\'|\'DEBUG\'|\'DISABLED\',
+                        \'Name\': \'string\',
+                        \'PipelinesRunningCount\': 123,
+                        \'RoleArn\': \'string\',
+                        \'State\': \'CREATING\'|\'CREATE_FAILED\'|\'IDLE\'|\'STARTING\'|\'RUNNING\'|\'RECOVERING\'|\'STOPPING\'|\'DELETING\'|\'DELETED\'
                     },
                 ],
                 
@@ -421,7 +421,7 @@ class ListChannels(Paginator):
                   
                   - *(dict) --* Placeholder documentation for ChannelEgressEndpoint
                     
-                    - **SourceIp** *(string) --* Public IP of where a channel's output comes from
+                    - **SourceIp** *(string) --* Public IP of where a channel\'s output comes from
                 
                 - **Id** *(string) --* The unique id of the channel.
                 
@@ -447,7 +447,7 @@ class ListChannels(Paginator):
                               
                               - **LanguageCode** *(string) --* Selects a specific three-letter language code from within an audio source.
                               
-                              - **LanguageSelectionPolicy** *(string) --* When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
+                              - **LanguageSelectionPolicy** *(string) --* When set to \"strict\", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If \"loose\", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can\'t find one with the same language.
                           
                             - **AudioPidSelection** *(dict) --* Placeholder documentation for AudioPidSelection
                               
@@ -471,9 +471,9 @@ class ListChannels(Paginator):
                           
                             - **EmbeddedSourceSettings** *(dict) --* Placeholder documentation for EmbeddedSourceSettings
                               
-                              - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+                              - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                               
-                              - **Scte20Detection** *(string) --* Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+                              - **Scte20Detection** *(string) --* Set to \"auto\" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
                               
                               - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                               
@@ -481,17 +481,17 @@ class ListChannels(Paginator):
                           
                             - **Scte20SourceSettings** *(dict) --* Placeholder documentation for Scte20SourceSettings
                               
-                              - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+                              - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                               
                               - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                           
                             - **Scte27SourceSettings** *(dict) --* Placeholder documentation for Scte27SourceSettings
                               
-                              - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is "informational". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
+                              - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is \"informational\". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
                           
                             - **TeletextSourceSettings** *(dict) --* Placeholder documentation for TeletextSourceSettings
                               
-                              - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
+                              - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no \"0x\" prefix.
                           
                       - **DeblockFilter** *(string) --* Enable or disable the deblock filter when filtering.
                       
@@ -513,7 +513,7 @@ class ListChannels(Paginator):
                           
                           - **RetryInterval** *(integer) --* The number of seconds between retries when an attempt to read a manifest or segment fails.
                       
-                        - **ServerValidation** *(string) --* Check HTTPS server certificates. When set to checkCryptographyOnly, cryptography in the certificate will be checked, but not the server's name. Certain subdomains (notably S3 buckets that use dots in the bucket name) do not strictly match the corresponding certificate's wildcard pattern and would otherwise cause the event to error. This setting is ignored for protocols that do not use https.
+                        - **ServerValidation** *(string) --* Check HTTPS server certificates. When set to checkCryptographyOnly, cryptography in the certificate will be checked, but not the server\'s name. Certain subdomains (notably S3 buckets that use dots in the bucket name) do not strictly match the corresponding certificate\'s wildcard pattern and would otherwise cause the event to error. This setting is ignored for protocols that do not use https.
                     
                       - **SourceEndBehavior** *(string) --* Loop input if it is a file. This allows a file input to be streamed indefinitely.
                       
@@ -531,7 +531,7 @@ class ListChannels(Paginator):
                         
                           - **VideoSelectorProgramId** *(dict) --* Placeholder documentation for VideoSelectorProgramId
                             
-                            - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
+                            - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn\'t exist, the first program within the transport stream will be selected by default.
                         
                 - **InputSpecification** *(dict) --* Placeholder documentation for InputSpecification
                   
@@ -566,9 +566,9 @@ class ListInputSecurityGroups(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -596,17 +596,17 @@ class ListInputSecurityGroups(Paginator):
           ::
         
             {
-                'InputSecurityGroups': [
+                \'InputSecurityGroups\': [
                     {
-                        'Arn': 'string',
-                        'Id': 'string',
-                        'Inputs': [
-                            'string',
+                        \'Arn\': \'string\',
+                        \'Id\': \'string\',
+                        \'Inputs\': [
+                            \'string\',
                         ],
-                        'State': 'IDLE'|'IN_USE'|'UPDATING'|'DELETED',
-                        'WhitelistRules': [
+                        \'State\': \'IDLE\'|\'IN_USE\'|\'UPDATING\'|\'DELETED\',
+                        \'WhitelistRules\': [
                             {
-                                'Cidr': 'string'
+                                \'Cidr\': \'string\'
                             },
                         ]
                     },
@@ -635,7 +635,7 @@ class ListInputSecurityGroups(Paginator):
                   
                   - *(dict) --* Whitelist rule
                     
-                    - **Cidr** *(string) --* The IPv4 CIDR that's whitelisted.
+                    - **Cidr** *(string) --* The IPv4 CIDR that\'s whitelisted.
                 
         """
         pass
@@ -652,9 +652,9 @@ class ListInputs(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -682,33 +682,33 @@ class ListInputs(Paginator):
           ::
         
             {
-                'Inputs': [
+                \'Inputs\': [
                     {
-                        'Arn': 'string',
-                        'AttachedChannels': [
-                            'string',
+                        \'Arn\': \'string\',
+                        \'AttachedChannels\': [
+                            \'string\',
                         ],
-                        'Destinations': [
+                        \'Destinations\': [
                             {
-                                'Ip': 'string',
-                                'Port': 'string',
-                                'Url': 'string'
+                                \'Ip\': \'string\',
+                                \'Port\': \'string\',
+                                \'Url\': \'string\'
                             },
                         ],
-                        'Id': 'string',
-                        'Name': 'string',
-                        'SecurityGroups': [
-                            'string',
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'SecurityGroups\': [
+                            \'string\',
                         ],
-                        'Sources': [
+                        \'Sources\': [
                             {
-                                'PasswordParam': 'string',
-                                'Url': 'string',
-                                'Username': 'string'
+                                \'PasswordParam\': \'string\',
+                                \'Url\': \'string\',
+                                \'Username\': \'string\'
                             },
                         ],
-                        'State': 'CREATING'|'DETACHED'|'ATTACHED'|'DELETING'|'DELETED',
-                        'Type': 'UDP_PUSH'|'RTP_PUSH'|'RTMP_PUSH'|'RTMP_PULL'|'URL_PULL'|'MP4_FILE'
+                        \'State\': \'CREATING\'|\'DETACHED\'|\'ATTACHED\'|\'DELETING\'|\'DELETED\',
+                        \'Type\': \'UDP_PUSH\'|\'RTP_PUSH\'|\'RTMP_PUSH\'|\'RTMP_PULL\'|\'URL_PULL\'|\'MP4_FILE\'
                     },
                 ],
                 
@@ -751,7 +751,7 @@ class ListInputs(Paginator):
                     
                     - **PasswordParam** *(string) --* The key used to extract the password from EC2 Parameter store.
                     
-                    - **Url** *(string) --* This represents the customer's source URL where stream is pulled from. 
+                    - **Url** *(string) --* This represents the customer\'s source URL where stream is pulled from. 
                     
                     - **Username** *(string) --* The username for the input source.
                 
@@ -773,43 +773,43 @@ class ListOfferings(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ChannelConfiguration='string',
-              Codec='string',
-              MaximumBitrate='string',
-              MaximumFramerate='string',
-              Resolution='string',
-              ResourceType='string',
-              SpecialFeature='string',
-              VideoQuality='string',
+              ChannelConfiguration=\'string\',
+              Codec=\'string\',
+              MaximumBitrate=\'string\',
+              MaximumFramerate=\'string\',
+              Resolution=\'string\',
+              ResourceType=\'string\',
+              SpecialFeature=\'string\',
+              VideoQuality=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ChannelConfiguration: string
-        :param ChannelConfiguration: Filter to offerings that match the configuration of an existing channel, e.g. '2345678' (a channel ID) 
+        :param ChannelConfiguration: Filter to offerings that match the configuration of an existing channel, e.g. \'2345678\' (a channel ID) 
         
         :type Codec: string
-        :param Codec: Filter by codec, 'AVC', 'HEVC', 'MPEG2', or 'AUDIO'
+        :param Codec: Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', or \'AUDIO\'
         
         :type MaximumBitrate: string
-        :param MaximumBitrate: Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS' 
+        :param MaximumBitrate: Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\' 
         
         :type MaximumFramerate: string
-        :param MaximumFramerate: Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
+        :param MaximumFramerate: Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
         
         :type Resolution: string
-        :param Resolution: Filter by resolution, 'SD', 'HD', or 'UHD'
+        :param Resolution: Filter by resolution, \'SD\', \'HD\', or \'UHD\'
         
         :type ResourceType: string
-        :param ResourceType: Filter by resource type, 'INPUT', 'OUTPUT', or 'CHANNEL'
+        :param ResourceType: Filter by resource type, \'INPUT\', \'OUTPUT\', or \'CHANNEL\'
         
         :type SpecialFeature: string
-        :param SpecialFeature: Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION' 
+        :param SpecialFeature: Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\' 
         
         :type VideoQuality: string
-        :param VideoQuality: Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM' 
+        :param VideoQuality: Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\' 
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -836,27 +836,27 @@ class ListOfferings(Paginator):
           ::
         
             {
-                'Offerings': [
+                \'Offerings\': [
                     {
-                        'Arn': 'string',
-                        'CurrencyCode': 'string',
-                        'Duration': 123,
-                        'DurationUnits': 'MONTHS',
-                        'FixedPrice': 123.0,
-                        'OfferingDescription': 'string',
-                        'OfferingId': 'string',
-                        'OfferingType': 'NO_UPFRONT',
-                        'Region': 'string',
-                        'ResourceSpecification': {
-                            'Codec': 'MPEG2'|'AVC'|'HEVC'|'AUDIO',
-                            'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
-                            'MaximumFramerate': 'MAX_30_FPS'|'MAX_60_FPS',
-                            'Resolution': 'SD'|'HD'|'UHD',
-                            'ResourceType': 'INPUT'|'OUTPUT'|'CHANNEL',
-                            'SpecialFeature': 'ADVANCED_AUDIO'|'AUDIO_NORMALIZATION',
-                            'VideoQuality': 'STANDARD'|'ENHANCED'|'PREMIUM'
+                        \'Arn\': \'string\',
+                        \'CurrencyCode\': \'string\',
+                        \'Duration\': 123,
+                        \'DurationUnits\': \'MONTHS\',
+                        \'FixedPrice\': 123.0,
+                        \'OfferingDescription\': \'string\',
+                        \'OfferingId\': \'string\',
+                        \'OfferingType\': \'NO_UPFRONT\',
+                        \'Region\': \'string\',
+                        \'ResourceSpecification\': {
+                            \'Codec\': \'MPEG2\'|\'AVC\'|\'HEVC\'|\'AUDIO\',
+                            \'MaximumBitrate\': \'MAX_10_MBPS\'|\'MAX_20_MBPS\'|\'MAX_50_MBPS\',
+                            \'MaximumFramerate\': \'MAX_30_FPS\'|\'MAX_60_FPS\',
+                            \'Resolution\': \'SD\'|\'HD\'|\'UHD\',
+                            \'ResourceType\': \'INPUT\'|\'OUTPUT\'|\'CHANNEL\',
+                            \'SpecialFeature\': \'ADVANCED_AUDIO\'|\'AUDIO_NORMALIZATION\',
+                            \'VideoQuality\': \'STANDARD\'|\'ENHANCED\'|\'PREMIUM\'
                         },
-                        'UsagePrice': 123.0
+                        \'UsagePrice\': 123.0
                     },
                 ]
             }
@@ -868,41 +868,41 @@ class ListOfferings(Paginator):
               
               - *(dict) --* Reserved resources available for purchase
                 
-                - **Arn** *(string) --* Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
+                - **Arn** *(string) --* Unique offering ARN, e.g. \'arn:aws:medialive:us-west-2:123456789012:offering:87654321\'
                 
-                - **CurrencyCode** *(string) --* Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+                - **CurrencyCode** *(string) --* Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. \'USD\'
                 
-                - **Duration** *(integer) --* Lease duration, e.g. '12'
+                - **Duration** *(integer) --* Lease duration, e.g. \'12\'
                 
-                - **DurationUnits** *(string) --* Units for duration, e.g. 'MONTHS'
+                - **DurationUnits** *(string) --* Units for duration, e.g. \'MONTHS\'
                 
-                - **FixedPrice** *(float) --* One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+                - **FixedPrice** *(float) --* One-time charge for each reserved resource, e.g. \'0.0\' for a NO_UPFRONT offering
                 
-                - **OfferingDescription** *(string) --* Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+                - **OfferingDescription** *(string) --* Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)\'
                 
-                - **OfferingId** *(string) --* Unique offering ID, e.g. '87654321'
+                - **OfferingId** *(string) --* Unique offering ID, e.g. \'87654321\'
                 
-                - **OfferingType** *(string) --* Offering type, e.g. 'NO_UPFRONT'
+                - **OfferingType** *(string) --* Offering type, e.g. \'NO_UPFRONT\'
                 
-                - **Region** *(string) --* AWS region, e.g. 'us-west-2'
+                - **Region** *(string) --* AWS region, e.g. \'us-west-2\'
                 
                 - **ResourceSpecification** *(dict) --* Resource configuration details
                   
-                  - **Codec** *(string) --* Codec, e.g. 'AVC'
+                  - **Codec** *(string) --* Codec, e.g. \'AVC\'
                   
-                  - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. 'MAX_20_MBPS'
+                  - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. \'MAX_20_MBPS\'
                   
-                  - **MaximumFramerate** *(string) --* Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
+                  - **MaximumFramerate** *(string) --* Maximum framerate, e.g. \'MAX_30_FPS\' (Outputs only)
                   
-                  - **Resolution** *(string) --* Resolution, e.g. 'HD'
+                  - **Resolution** *(string) --* Resolution, e.g. \'HD\'
                   
-                  - **ResourceType** *(string) --* Resource type, 'INPUT', 'OUTPUT', or 'CHANNEL'
+                  - **ResourceType** *(string) --* Resource type, \'INPUT\', \'OUTPUT\', or \'CHANNEL\'
                   
-                  - **SpecialFeature** *(string) --* Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
+                  - **SpecialFeature** *(string) --* Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)
                   
-                  - **VideoQuality** *(string) --* Video quality, e.g. 'STANDARD' (Outputs only)
+                  - **VideoQuality** *(string) --* Video quality, e.g. \'STANDARD\' (Outputs only)
               
-                - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. '157.0'
+                - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. \'157.0\'
             
         """
         pass
@@ -918,39 +918,39 @@ class ListReservations(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Codec='string',
-              MaximumBitrate='string',
-              MaximumFramerate='string',
-              Resolution='string',
-              ResourceType='string',
-              SpecialFeature='string',
-              VideoQuality='string',
+              Codec=\'string\',
+              MaximumBitrate=\'string\',
+              MaximumFramerate=\'string\',
+              Resolution=\'string\',
+              ResourceType=\'string\',
+              SpecialFeature=\'string\',
+              VideoQuality=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Codec: string
-        :param Codec: Filter by codec, 'AVC', 'HEVC', 'MPEG2', or 'AUDIO'
+        :param Codec: Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', or \'AUDIO\'
         
         :type MaximumBitrate: string
-        :param MaximumBitrate: Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS' 
+        :param MaximumBitrate: Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\' 
         
         :type MaximumFramerate: string
-        :param MaximumFramerate: Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
+        :param MaximumFramerate: Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
         
         :type Resolution: string
-        :param Resolution: Filter by resolution, 'SD', 'HD', or 'UHD'
+        :param Resolution: Filter by resolution, \'SD\', \'HD\', or \'UHD\'
         
         :type ResourceType: string
-        :param ResourceType: Filter by resource type, 'INPUT', 'OUTPUT', or 'CHANNEL'
+        :param ResourceType: Filter by resource type, \'INPUT\', \'OUTPUT\', or \'CHANNEL\'
         
         :type SpecialFeature: string
-        :param SpecialFeature: Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION' 
+        :param SpecialFeature: Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\' 
         
         :type VideoQuality: string
-        :param VideoQuality: Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM' 
+        :param VideoQuality: Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\' 
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -977,33 +977,33 @@ class ListReservations(Paginator):
           ::
         
             {
-                'Reservations': [
+                \'Reservations\': [
                     {
-                        'Arn': 'string',
-                        'Count': 123,
-                        'CurrencyCode': 'string',
-                        'Duration': 123,
-                        'DurationUnits': 'MONTHS',
-                        'End': 'string',
-                        'FixedPrice': 123.0,
-                        'Name': 'string',
-                        'OfferingDescription': 'string',
-                        'OfferingId': 'string',
-                        'OfferingType': 'NO_UPFRONT',
-                        'Region': 'string',
-                        'ReservationId': 'string',
-                        'ResourceSpecification': {
-                            'Codec': 'MPEG2'|'AVC'|'HEVC'|'AUDIO',
-                            'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
-                            'MaximumFramerate': 'MAX_30_FPS'|'MAX_60_FPS',
-                            'Resolution': 'SD'|'HD'|'UHD',
-                            'ResourceType': 'INPUT'|'OUTPUT'|'CHANNEL',
-                            'SpecialFeature': 'ADVANCED_AUDIO'|'AUDIO_NORMALIZATION',
-                            'VideoQuality': 'STANDARD'|'ENHANCED'|'PREMIUM'
+                        \'Arn\': \'string\',
+                        \'Count\': 123,
+                        \'CurrencyCode\': \'string\',
+                        \'Duration\': 123,
+                        \'DurationUnits\': \'MONTHS\',
+                        \'End\': \'string\',
+                        \'FixedPrice\': 123.0,
+                        \'Name\': \'string\',
+                        \'OfferingDescription\': \'string\',
+                        \'OfferingId\': \'string\',
+                        \'OfferingType\': \'NO_UPFRONT\',
+                        \'Region\': \'string\',
+                        \'ReservationId\': \'string\',
+                        \'ResourceSpecification\': {
+                            \'Codec\': \'MPEG2\'|\'AVC\'|\'HEVC\'|\'AUDIO\',
+                            \'MaximumBitrate\': \'MAX_10_MBPS\'|\'MAX_20_MBPS\'|\'MAX_50_MBPS\',
+                            \'MaximumFramerate\': \'MAX_30_FPS\'|\'MAX_60_FPS\',
+                            \'Resolution\': \'SD\'|\'HD\'|\'UHD\',
+                            \'ResourceType\': \'INPUT\'|\'OUTPUT\'|\'CHANNEL\',
+                            \'SpecialFeature\': \'ADVANCED_AUDIO\'|\'AUDIO_NORMALIZATION\',
+                            \'VideoQuality\': \'STANDARD\'|\'ENHANCED\'|\'PREMIUM\'
                         },
-                        'Start': 'string',
-                        'State': 'ACTIVE'|'EXPIRED'|'CANCELED'|'DELETED',
-                        'UsagePrice': 123.0
+                        \'Start\': \'string\',
+                        \'State\': \'ACTIVE\'|\'EXPIRED\'|\'CANCELED\'|\'DELETED\',
+                        \'UsagePrice\': 123.0
                     },
                 ]
             }
@@ -1015,53 +1015,53 @@ class ListReservations(Paginator):
               
               - *(dict) --* Reserved resources available to use
                 
-                - **Arn** *(string) --* Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
+                - **Arn** *(string) --* Unique reservation ARN, e.g. \'arn:aws:medialive:us-west-2:123456789012:reservation:1234567\'
                 
                 - **Count** *(integer) --* Number of reserved resources
                 
-                - **CurrencyCode** *(string) --* Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+                - **CurrencyCode** *(string) --* Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. \'USD\'
                 
-                - **Duration** *(integer) --* Lease duration, e.g. '12'
+                - **Duration** *(integer) --* Lease duration, e.g. \'12\'
                 
-                - **DurationUnits** *(string) --* Units for duration, e.g. 'MONTHS'
+                - **DurationUnits** *(string) --* Units for duration, e.g. \'MONTHS\'
                 
-                - **End** *(string) --* Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
+                - **End** *(string) --* Reservation UTC end date and time in ISO-8601 format, e.g. \'2019-03-01T00:00:00\'
                 
-                - **FixedPrice** *(float) --* One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+                - **FixedPrice** *(float) --* One-time charge for each reserved resource, e.g. \'0.0\' for a NO_UPFRONT offering
                 
                 - **Name** *(string) --* User specified reservation name
                 
-                - **OfferingDescription** *(string) --* Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+                - **OfferingDescription** *(string) --* Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)\'
                 
-                - **OfferingId** *(string) --* Unique offering ID, e.g. '87654321'
+                - **OfferingId** *(string) --* Unique offering ID, e.g. \'87654321\'
                 
-                - **OfferingType** *(string) --* Offering type, e.g. 'NO_UPFRONT'
+                - **OfferingType** *(string) --* Offering type, e.g. \'NO_UPFRONT\'
                 
-                - **Region** *(string) --* AWS region, e.g. 'us-west-2'
+                - **Region** *(string) --* AWS region, e.g. \'us-west-2\'
                 
-                - **ReservationId** *(string) --* Unique reservation ID, e.g. '1234567'
+                - **ReservationId** *(string) --* Unique reservation ID, e.g. \'1234567\'
                 
                 - **ResourceSpecification** *(dict) --* Resource configuration details
                   
-                  - **Codec** *(string) --* Codec, e.g. 'AVC'
+                  - **Codec** *(string) --* Codec, e.g. \'AVC\'
                   
-                  - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. 'MAX_20_MBPS'
+                  - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. \'MAX_20_MBPS\'
                   
-                  - **MaximumFramerate** *(string) --* Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
+                  - **MaximumFramerate** *(string) --* Maximum framerate, e.g. \'MAX_30_FPS\' (Outputs only)
                   
-                  - **Resolution** *(string) --* Resolution, e.g. 'HD'
+                  - **Resolution** *(string) --* Resolution, e.g. \'HD\'
                   
-                  - **ResourceType** *(string) --* Resource type, 'INPUT', 'OUTPUT', or 'CHANNEL'
+                  - **ResourceType** *(string) --* Resource type, \'INPUT\', \'OUTPUT\', or \'CHANNEL\'
                   
-                  - **SpecialFeature** *(string) --* Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
+                  - **SpecialFeature** *(string) --* Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)
                   
-                  - **VideoQuality** *(string) --* Video quality, e.g. 'STANDARD' (Outputs only)
+                  - **VideoQuality** *(string) --* Video quality, e.g. \'STANDARD\' (Outputs only)
               
-                - **Start** *(string) --* Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
+                - **Start** *(string) --* Reservation UTC start date and time in ISO-8601 format, e.g. \'2018-03-01T00:00:00\'
                 
-                - **State** *(string) --* Current state of reservation, e.g. 'ACTIVE'
+                - **State** *(string) --* Current state of reservation, e.g. \'ACTIVE\'
                 
-                - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. '157.0'
+                - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. \'157.0\'
             
         """
         pass

@@ -1,7 +1,7 @@
-from boto3.resources.collection import ResourceCollection
-from typing import Union
-from typing import List
 from typing import Optional
+from typing import Union
+from boto3.resources.collection import ResourceCollection
+from typing import List
 from typing import Dict
 from boto3.resources import base
 
@@ -15,10 +15,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a PlatformApplication resource.::
         
-          platform_application = sns.PlatformApplication('arn')
+          platform_application = sns.PlatformApplication(\'arn\')
         
         :type arn: string
-        :param arn: The PlatformApplication's arn identifier. This **must** be set.
+        :param arn: The PlatformApplication\'s arn identifier. This **must** be set.
         
         :rtype: :py:class:`SNS.PlatformApplication`
         :returns: A PlatformApplication resource
@@ -29,10 +29,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a PlatformEndpoint resource.::
         
-          platform_endpoint = sns.PlatformEndpoint('arn')
+          platform_endpoint = sns.PlatformEndpoint(\'arn\')
         
         :type arn: string
-        :param arn: The PlatformEndpoint's arn identifier. This **must** be set.
+        :param arn: The PlatformEndpoint\'s arn identifier. This **must** be set.
         
         :rtype: :py:class:`SNS.PlatformEndpoint`
         :returns: A PlatformEndpoint resource
@@ -43,10 +43,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Subscription resource.::
         
-          subscription = sns.Subscription('arn')
+          subscription = sns.Subscription(\'arn\')
         
         :type arn: string
-        :param arn: The Subscription's arn identifier. This **must** be set.
+        :param arn: The Subscription\'s arn identifier. This **must** be set.
         
         :rtype: :py:class:`SNS.Subscription`
         :returns: A Subscription resource
@@ -57,10 +57,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Topic resource.::
         
-          topic = sns.Topic('arn')
+          topic = sns.Topic(\'arn\')
         
         :type arn: string
-        :param arn: The Topic's arn identifier. This **must** be set.
+        :param arn: The Topic\'s arn identifier. This **must** be set.
         
         :rtype: :py:class:`SNS.Topic`
         :returns: A Topic resource
@@ -70,7 +70,7 @@ class ServiceResource(base.ServiceResource):
     def create_platform_application(self, Name: str, Platform: str, Attributes: Dict) -> 'PlatformApplication':
         """
         
-        For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". For WNS, PlatformCredential is "secret key". For MPNS, PlatformCredential is "private key". For Baidu, PlatformCredential is "secret key". The PlatformApplicationArn that is returned when using ``CreatePlatformApplication`` is then used as an attribute for the ``CreatePlatformEndpoint`` action. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see `Getting Started with Apple Push Notification Service <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html>`__ , `Getting Started with Amazon Device Messaging <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html>`__ , `Getting Started with Baidu Cloud Push <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html>`__ , `Getting Started with Google Cloud Messaging for Android <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html>`__ , `Getting Started with MPNS <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html>`__ , or `Getting Started with WNS <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html>`__ . 
+        For APNS/APNS_SANDBOX, PlatformCredential is \"private key\". For GCM, PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client secret\". For WNS, PlatformCredential is \"secret key\". For MPNS, PlatformCredential is \"private key\". For Baidu, PlatformCredential is \"secret key\". The PlatformApplicationArn that is returned when using ``CreatePlatformApplication`` is then used as an attribute for the ``CreatePlatformEndpoint`` action. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see `Getting Started with Apple Push Notification Service <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html>`__ , `Getting Started with Amazon Device Messaging <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html>`__ , `Getting Started with Baidu Cloud Push <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html>`__ , `Getting Started with Google Cloud Messaging for Android <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html>`__ , `Getting Started with MPNS <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html>`__ , or `Getting Started with WNS <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html>`__ . 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/CreatePlatformApplication>`_
         
@@ -78,10 +78,10 @@ class ServiceResource(base.ServiceResource):
         ::
         
           platform_application = sns.create_platform_application(
-              Name='string',
-              Platform='string',
+              Name=\'string\',
+              Platform=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type Name: string
@@ -117,7 +117,7 @@ class ServiceResource(base.ServiceResource):
         ::
         
           topic = sns.create_topic(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -158,10 +158,10 @@ class PlatformApplication(base.ServiceResource):
         ::
         
           platform_endpoint = platform_application.create_platform_endpoint(
-              Token='string',
-              CustomUserData='string',
+              Token=\'string\',
+              CustomUserData=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type Token: string
@@ -250,7 +250,7 @@ class PlatformApplication(base.ServiceResource):
         
           response = platform_application.set_attributes(
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type Attributes: dict
@@ -258,9 +258,9 @@ class PlatformApplication(base.ServiceResource):
         
           A map of the platform application attributes. Attributes in this map include the following:
         
-          * ``PlatformCredential`` -- The credential received from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is private key. For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". 
+          * ``PlatformCredential`` -- The credential received from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is private key. For GCM, PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client secret\". 
            
-          * ``PlatformPrincipal`` -- The principal received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id". 
+          * ``PlatformPrincipal`` -- The principal received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is \"client id\". 
            
           * ``EventEndpointCreated`` -- Topic ARN to which EndpointCreated event notifications should be sent. 
            
@@ -268,7 +268,7 @@ class PlatformApplication(base.ServiceResource):
            
           * ``EventEndpointUpdated`` -- Topic ARN to which EndpointUpdate event notifications should be sent. 
            
-          * ``EventDeliveryFailure`` -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints. 
+          * ``EventDeliveryFailure`` -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application\'s endpoints. 
            
           * ``SuccessFeedbackRoleArn`` -- IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf. 
            
@@ -346,16 +346,16 @@ class PlatformEndpoint(base.ServiceResource):
         ::
         
           response = platform_endpoint.publish(
-              TopicArn='string',
-              PhoneNumber='string',
-              Message='string',
-              Subject='string',
-              MessageStructure='string',
+              TopicArn=\'string\',
+              PhoneNumber=\'string\',
+              Message=\'string\',
+              Subject=\'string\',
+              MessageStructure=\'string\',
               MessageAttributes={
-                  'string': {
-                      'DataType': 'string',
-                      'StringValue': 'string',
-                      'BinaryValue': b'bytes'
+                  \'string\': {
+                      \'DataType\': \'string\',
+                      \'StringValue\': \'string\',
+                      \'BinaryValue\': b\'bytes\'
                   }
               }
           )
@@ -364,14 +364,14 @@ class PlatformEndpoint(base.ServiceResource):
         
           The topic you want to publish to.
         
-          If you don't specify a value for the ``TopicArn`` parameter, you must specify a value for the ``PhoneNumber`` or ``TargetArn`` parameters.
+          If you don\'t specify a value for the ``TopicArn`` parameter, you must specify a value for the ``PhoneNumber`` or ``TargetArn`` parameters.
         
         :type PhoneNumber: string
         :param PhoneNumber: 
         
           The phone number to which you want to deliver an SMS message. Use E.164 format.
         
-          If you don't specify a value for the ``PhoneNumber`` parameter, you must specify a value for the ``TargetArn`` or ``TopicArn`` parameters.
+          If you don\'t specify a value for the ``PhoneNumber`` parameter, you must specify a value for the ``TargetArn`` or ``TopicArn`` parameters.
         
         :type Message: string
         :param Message: **[REQUIRED]** 
@@ -394,7 +394,7 @@ class PlatformEndpoint(base.ServiceResource):
            
           * Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending). 
            
-          * Values have a minimum length of 0 (the empty string, "", is allowed). 
+          * Values have a minimum length of 0 (the empty string, \"\", is allowed). 
            
           * Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes). 
            
@@ -409,7 +409,7 @@ class PlatformEndpoint(base.ServiceResource):
         :type Subject: string
         :param Subject: 
         
-          Optional parameter to be used as the "Subject" line when the message is delivered to email endpoints. This field will also be included, if present, in the standard JSON messages delivered to other endpoints.
+          Optional parameter to be used as the \"Subject\" line when the message is delivered to email endpoints. This field will also be included, if present, in the standard JSON messages delivered to other endpoints.
         
           Constraints: Subjects must be ASCII text that begins with a letter, number, or punctuation mark; must not include line breaks or control characters; and must be less than 100 characters long.
         
@@ -420,9 +420,9 @@ class PlatformEndpoint(base.ServiceResource):
         
           * be a syntactically valid JSON object; and 
            
-          * contain at least a top-level JSON key of "default" with a value that is a string. 
+          * contain at least a top-level JSON key of \"default\" with a value that is a string. 
            
-          You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").
+          You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., \"http\").
         
           For information about sending different messages for each protocol using the AWS Management Console, go to `Create Different Messages for Each Protocol <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol>`__ in the *Amazon Simple Notification Service Getting Started Guide* . 
         
@@ -461,7 +461,7 @@ class PlatformEndpoint(base.ServiceResource):
           ::
         
             {
-                'MessageId': 'string'
+                \'MessageId\': \'string\'
             }
           **Response Structure** 
         
@@ -502,7 +502,7 @@ class PlatformEndpoint(base.ServiceResource):
         
           response = platform_endpoint.set_attributes(
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type Attributes: dict
@@ -592,8 +592,8 @@ class Subscription(base.ServiceResource):
         ::
         
           response = subscription.set_attributes(
-              AttributeName='string',
-              AttributeValue='string'
+              AttributeName=\'string\',
+              AttributeValue=\'string\'
           )
         :type AttributeName: string
         :param AttributeName: **[REQUIRED]** 
@@ -626,12 +626,12 @@ class Topic(base.ServiceResource):
         ::
         
           response = topic.add_permission(
-              Label='string',
+              Label=\'string\',
               AWSAccountId=[
-                  'string',
+                  \'string\',
               ],
               ActionName=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Label: string
@@ -668,8 +668,8 @@ class Topic(base.ServiceResource):
         ::
         
           subscription = topic.confirm_subscription(
-              Token='string',
-              AuthenticateOnUnsubscribe='string'
+              Token=\'string\',
+              AuthenticateOnUnsubscribe=\'string\'
           )
         :type Token: string
         :param Token: **[REQUIRED]** 
@@ -741,16 +741,16 @@ class Topic(base.ServiceResource):
         ::
         
           response = topic.publish(
-              TargetArn='string',
-              PhoneNumber='string',
-              Message='string',
-              Subject='string',
-              MessageStructure='string',
+              TargetArn=\'string\',
+              PhoneNumber=\'string\',
+              Message=\'string\',
+              Subject=\'string\',
+              MessageStructure=\'string\',
               MessageAttributes={
-                  'string': {
-                      'DataType': 'string',
-                      'StringValue': 'string',
-                      'BinaryValue': b'bytes'
+                  \'string\': {
+                      \'DataType\': \'string\',
+                      \'StringValue\': \'string\',
+                      \'BinaryValue\': b\'bytes\'
                   }
               }
           )
@@ -759,14 +759,14 @@ class Topic(base.ServiceResource):
         
           Either TopicArn or EndpointArn, but not both.
         
-          If you don't specify a value for the ``TargetArn`` parameter, you must specify a value for the ``PhoneNumber`` or ``TopicArn`` parameters.
+          If you don\'t specify a value for the ``TargetArn`` parameter, you must specify a value for the ``PhoneNumber`` or ``TopicArn`` parameters.
         
         :type PhoneNumber: string
         :param PhoneNumber: 
         
           The phone number to which you want to deliver an SMS message. Use E.164 format.
         
-          If you don't specify a value for the ``PhoneNumber`` parameter, you must specify a value for the ``TargetArn`` or ``TopicArn`` parameters.
+          If you don\'t specify a value for the ``PhoneNumber`` parameter, you must specify a value for the ``TargetArn`` or ``TopicArn`` parameters.
         
         :type Message: string
         :param Message: **[REQUIRED]** 
@@ -789,7 +789,7 @@ class Topic(base.ServiceResource):
            
           * Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending). 
            
-          * Values have a minimum length of 0 (the empty string, "", is allowed). 
+          * Values have a minimum length of 0 (the empty string, \"\", is allowed). 
            
           * Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes). 
            
@@ -804,7 +804,7 @@ class Topic(base.ServiceResource):
         :type Subject: string
         :param Subject: 
         
-          Optional parameter to be used as the "Subject" line when the message is delivered to email endpoints. This field will also be included, if present, in the standard JSON messages delivered to other endpoints.
+          Optional parameter to be used as the \"Subject\" line when the message is delivered to email endpoints. This field will also be included, if present, in the standard JSON messages delivered to other endpoints.
         
           Constraints: Subjects must be ASCII text that begins with a letter, number, or punctuation mark; must not include line breaks or control characters; and must be less than 100 characters long.
         
@@ -815,9 +815,9 @@ class Topic(base.ServiceResource):
         
           * be a syntactically valid JSON object; and 
            
-          * contain at least a top-level JSON key of "default" with a value that is a string. 
+          * contain at least a top-level JSON key of \"default\" with a value that is a string. 
            
-          You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").
+          You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., \"http\").
         
           For information about sending different messages for each protocol using the AWS Management Console, go to `Create Different Messages for Each Protocol <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol>`__ in the *Amazon Simple Notification Service Getting Started Guide* . 
         
@@ -856,7 +856,7 @@ class Topic(base.ServiceResource):
           ::
         
             {
-                'MessageId': 'string'
+                \'MessageId\': \'string\'
             }
           **Response Structure** 
         
@@ -896,7 +896,7 @@ class Topic(base.ServiceResource):
         ::
         
           response = topic.remove_permission(
-              Label='string'
+              Label=\'string\'
           )
         :type Label: string
         :param Label: **[REQUIRED]** 
@@ -916,13 +916,13 @@ class Topic(base.ServiceResource):
         ::
         
           response = topic.set_attributes(
-              AttributeName='string',
-              AttributeValue='string'
+              AttributeName=\'string\',
+              AttributeValue=\'string\'
           )
         :type AttributeName: string
         :param AttributeName: **[REQUIRED]** 
         
-          The name of the attribute you want to set. Only a subset of the topic's attributes are mutable.
+          The name of the attribute you want to set. Only a subset of the topic\'s attributes are mutable.
         
           Valid values: ``Policy`` | ``DisplayName`` | ``DeliveryPolicy``  
         
@@ -946,10 +946,10 @@ class Topic(base.ServiceResource):
         ::
         
           subscription = topic.subscribe(
-              Protocol='string',
-              Endpoint='string',
+              Protocol=\'string\',
+              Endpoint=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               ReturnSubscriptionArn=True|False
           )
@@ -979,9 +979,9 @@ class Topic(base.ServiceResource):
         
           The endpoint that you want to receive notifications. Endpoints vary by protocol:
         
-          * For the ``http`` protocol, the endpoint is an URL beginning with "http://" 
+          * For the ``http`` protocol, the endpoint is an URL beginning with \"http://\" 
            
-          * For the ``https`` protocol, the endpoint is a URL beginning with "https://" 
+          * For the ``https`` protocol, the endpoint is a URL beginning with \"https://\" 
            
           * For the ``email`` protocol, the endpoint is an email address 
            
@@ -1009,7 +1009,7 @@ class Topic(base.ServiceResource):
         
           Sets whether the response from the ``Subscribe`` request includes the subscription ARN, even if the subscription is not yet confirmed.
         
-          If you set this parameter to ``false`` , the response includes the ARN for confirmed subscriptions, but it includes an ARN value of "pending subscription" for subscriptions that are not yet confirmed. A subscription becomes confirmed when the subscriber calls the ``ConfirmSubscription`` action with a confirmation token.
+          If you set this parameter to ``false`` , the response includes the ARN for confirmed subscriptions, but it includes an ARN value of \"pending subscription\" for subscriptions that are not yet confirmed. A subscription becomes confirmed when the subscriber calls the ``ConfirmSubscription`` action with a confirmation token.
         
           If you set this parameter to ``true`` , the response includes the ARN in all cases, even if the subscription is not yet confirmed.
         
@@ -1050,7 +1050,7 @@ class platform_applications(ResourceCollection):
         ::
         
           platform_application_iterator = sns.platform_applications.filter(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -1125,13 +1125,13 @@ class platform_applications(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -1168,7 +1168,7 @@ class subscriptions(ResourceCollection):
         ::
         
           subscription_iterator = sns.subscriptions.filter(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -1243,13 +1243,13 @@ class subscriptions(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -1286,7 +1286,7 @@ class topics(ResourceCollection):
         ::
         
           topic_iterator = sns.topics.filter(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -1361,13 +1361,13 @@ class topics(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances

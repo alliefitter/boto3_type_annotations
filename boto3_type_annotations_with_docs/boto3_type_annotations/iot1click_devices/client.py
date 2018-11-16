@@ -1,10 +1,10 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
-from typing import Union
 from typing import Optional
-from botocore.client import BaseClient
+from typing import Union
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,12 +33,12 @@ class Client(BaseClient):
         ::
         
           response = client.claim_devices_by_claim_code(
-              ClaimCode='string'
+              ClaimCode=\'string\'
           )
         :type ClaimCode: string
         :param ClaimCode: **[REQUIRED]** 
         
-          The claim code, starting with "C-", as provided by the device manufacturer.
+          The claim code, starting with \"C-\", as provided by the device manufacturer.
         
         :rtype: dict
         :returns: 
@@ -48,8 +48,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ClaimCode': 'string',
-                'Total': 123
+                \'ClaimCode\': \'string\',
+                \'Total\': 123
             }
           **Response Structure** 
         
@@ -77,7 +77,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_device(
-              DeviceId='string'
+              DeviceId=\'string\'
           )
         :type DeviceId: string
         :param DeviceId: **[REQUIRED]** 
@@ -92,14 +92,14 @@ class Client(BaseClient):
           ::
         
             {
-                'DeviceDescription': {
-                    'Attributes': {
-                        'string': 'string'
+                \'DeviceDescription\': {
+                    \'Attributes\': {
+                        \'string\': \'string\'
                     },
-                    'DeviceId': 'string',
-                    'Enabled': True|False,
-                    'RemainingLife': 123.0,
-                    'Type': 'string'
+                    \'DeviceId\': \'string\',
+                    \'Enabled\': True|False,
+                    \'RemainingLife\': 123.0,
+                    \'Type\': \'string\'
                 }
             }
           **Response Structure** 
@@ -134,7 +134,7 @@ class Client(BaseClient):
         
               - **Type** *(string) --* 
         
-                The type of the device, such as "button".
+                The type of the device, such as \"button\".
         
         """
         pass
@@ -152,7 +152,7 @@ class Client(BaseClient):
         ::
         
           response = client.finalize_device_claim(
-              DeviceId='string'
+              DeviceId=\'string\'
           )
         :type DeviceId: string
         :param DeviceId: **[REQUIRED]** 
@@ -167,7 +167,7 @@ class Client(BaseClient):
           ::
         
             {
-                'State': 'string'
+                \'State\': \'string\'
             }
           **Response Structure** 
         
@@ -177,7 +177,7 @@ class Client(BaseClient):
         
             - **State** *(string) --* 
         
-              The device's final claim state.
+              The device\'s final claim state.
         
         """
         pass
@@ -198,7 +198,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -213,7 +213,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_device_methods(
-              DeviceId='string'
+              DeviceId=\'string\'
           )
         :type DeviceId: string
         :param DeviceId: **[REQUIRED]** 
@@ -228,10 +228,10 @@ class Client(BaseClient):
           ::
         
             {
-                'DeviceMethods': [
+                \'DeviceMethods\': [
                     {
-                        'DeviceType': 'string',
-                        'MethodName': 'string'
+                        \'DeviceType\': \'string\',
+                        \'MethodName\': \'string\'
                     },
                 ]
             }
@@ -249,7 +249,7 @@ class Client(BaseClient):
                 
                 - **DeviceType** *(string) --* 
         
-                  The type of the device, such as "button".
+                  The type of the device, such as \"button\".
         
                 - **MethodName** *(string) --* 
         
@@ -264,10 +264,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -303,7 +303,7 @@ class Client(BaseClient):
         ::
         
           response = client.initiate_device_claim(
-              DeviceId='string'
+              DeviceId=\'string\'
           )
         :type DeviceId: string
         :param DeviceId: **[REQUIRED]** 
@@ -318,7 +318,7 @@ class Client(BaseClient):
           ::
         
             {
-                'State': 'string'
+                \'State\': \'string\'
             }
           **Response Structure** 
         
@@ -328,7 +328,7 @@ class Client(BaseClient):
         
             - **State** *(string) --* 
         
-              The device's final claim state.
+              The device\'s final claim state.
         
         """
         pass
@@ -342,12 +342,12 @@ class Client(BaseClient):
         ::
         
           response = client.invoke_device_method(
-              DeviceId='string',
+              DeviceId=\'string\',
               DeviceMethod={
-                  'DeviceType': 'string',
-                  'MethodName': 'string'
+                  \'DeviceType\': \'string\',
+                  \'MethodName\': \'string\'
               },
-              DeviceMethodParameters='string'
+              DeviceMethodParameters=\'string\'
           )
         :type DeviceId: string
         :param DeviceId: **[REQUIRED]** 
@@ -361,7 +361,7 @@ class Client(BaseClient):
         
           - **DeviceType** *(string) --* 
         
-            The type of the device, such as "button".
+            The type of the device, such as \"button\".
         
           - **MethodName** *(string) --* 
         
@@ -380,7 +380,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DeviceMethodResponse': 'string'
+                \'DeviceMethodResponse\': \'string\'
             }
           **Response Structure** 
         
@@ -404,10 +404,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_device_events(
-              DeviceId='string',
+              DeviceId=\'string\',
               FromTimeStamp=datetime(2015, 1, 1),
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               ToTimeStamp=datetime(2015, 1, 1)
           )
         :type DeviceId: string
@@ -443,17 +443,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Events': [
+                \'Events\': [
                     {
-                        'Device': {
-                            'Attributes': {},
-                            'DeviceId': 'string',
-                            'Type': 'string'
+                        \'Device\': {
+                            \'Attributes\': {},
+                            \'DeviceId\': \'string\',
+                            \'Type\': \'string\'
                         },
-                        'StdEvent': 'string'
+                        \'StdEvent\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -481,7 +481,7 @@ class Client(BaseClient):
         
                   - **Type** *(string) --* 
         
-                    The device type, such as "button".
+                    The device type, such as \"button\".
         
                 - **StdEvent** *(string) --* 
         
@@ -503,14 +503,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_devices(
-              DeviceType='string',
+              DeviceType=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DeviceType: string
         :param DeviceType: 
         
-          The type of the device, such as "button".
+          The type of the device, such as \"button\".
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -530,18 +530,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Devices': [
+                \'Devices\': [
                     {
-                        'Attributes': {
-                            'string': 'string'
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         },
-                        'DeviceId': 'string',
-                        'Enabled': True|False,
-                        'RemainingLife': 123.0,
-                        'Type': 'string'
+                        \'DeviceId\': \'string\',
+                        \'Enabled\': True|False,
+                        \'RemainingLife\': 123.0,
+                        \'Type\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -577,7 +577,7 @@ class Client(BaseClient):
         
                 - **Type** *(string) --* 
         
-                  The type of the device, such as "button".
+                  The type of the device, such as \"button\".
         
             - **NextToken** *(string) --* 
         
@@ -595,7 +595,7 @@ class Client(BaseClient):
         ::
         
           response = client.unclaim_device(
-              DeviceId='string'
+              DeviceId=\'string\'
           )
         :type DeviceId: string
         :param DeviceId: **[REQUIRED]** 
@@ -610,7 +610,7 @@ class Client(BaseClient):
           ::
         
             {
-                'State': 'string'
+                \'State\': \'string\'
             }
           **Response Structure** 
         
@@ -620,7 +620,7 @@ class Client(BaseClient):
         
             - **State** *(string) --* 
         
-              The device's final claim state.
+              The device\'s final claim state.
         
         """
         pass
@@ -634,7 +634,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_device_state(
-              DeviceId='string',
+              DeviceId=\'string\',
               Enabled=True|False
           )
         :type DeviceId: string

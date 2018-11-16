@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -37,7 +37,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_rule(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -66,9 +66,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string',
-                'Arn': 'string',
-                'Policy': 'string'
+                \'Name\': \'string\',
+                \'Arn\': \'string\',
+                \'Policy\': \'string\'
             }
           **Response Structure** 
         
@@ -100,7 +100,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_rule(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -115,13 +115,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string',
-                'Arn': 'string',
-                'EventPattern': 'string',
-                'ScheduleExpression': 'string',
-                'State': 'ENABLED'|'DISABLED',
-                'Description': 'string',
-                'RoleArn': 'string'
+                \'Name\': \'string\',
+                \'Arn\': \'string\',
+                \'EventPattern\': \'string\',
+                \'ScheduleExpression\': \'string\',
+                \'State\': \'ENABLED\'|\'DISABLED\',
+                \'Description\': \'string\',
+                \'RoleArn\': \'string\'
             }
           **Response Structure** 
         
@@ -141,7 +141,7 @@ class Client(BaseClient):
         
             - **ScheduleExpression** *(string) --* 
         
-              The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
+              The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\".
         
             - **State** *(string) --* 
         
@@ -169,7 +169,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_rule(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -191,7 +191,7 @@ class Client(BaseClient):
         ::
         
           response = client.enable_rule(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -218,7 +218,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -230,10 +230,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -265,8 +265,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_rule_names_by_target(
-              TargetArn='string',
-              NextToken='string',
+              TargetArn=\'string\',
+              NextToken=\'string\',
               Limit=123
           )
         :type TargetArn: string
@@ -292,10 +292,10 @@ class Client(BaseClient):
           ::
         
             {
-                'RuleNames': [
-                    'string',
+                \'RuleNames\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -325,8 +325,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_rules(
-              NamePrefix='string',
-              NextToken='string',
+              NamePrefix=\'string\',
+              NextToken=\'string\',
               Limit=123
           )
         :type NamePrefix: string
@@ -352,18 +352,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Rules': [
+                \'Rules\': [
                     {
-                        'Name': 'string',
-                        'Arn': 'string',
-                        'EventPattern': 'string',
-                        'State': 'ENABLED'|'DISABLED',
-                        'Description': 'string',
-                        'ScheduleExpression': 'string',
-                        'RoleArn': 'string'
+                        \'Name\': \'string\',
+                        \'Arn\': \'string\',
+                        \'EventPattern\': \'string\',
+                        \'State\': \'ENABLED\'|\'DISABLED\',
+                        \'Description\': \'string\',
+                        \'ScheduleExpression\': \'string\',
+                        \'RoleArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -399,7 +399,7 @@ class Client(BaseClient):
         
                 - **ScheduleExpression** *(string) --* 
         
-                  The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
+                  The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\".
         
                 - **RoleArn** *(string) --* 
         
@@ -421,8 +421,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_targets_by_rule(
-              Rule='string',
-              NextToken='string',
+              Rule=\'string\',
+              NextToken=\'string\',
               Limit=123
           )
         :type Rule: string
@@ -448,66 +448,66 @@ class Client(BaseClient):
           ::
         
             {
-                'Targets': [
+                \'Targets\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'RoleArn': 'string',
-                        'Input': 'string',
-                        'InputPath': 'string',
-                        'InputTransformer': {
-                            'InputPathsMap': {
-                                'string': 'string'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'RoleArn\': \'string\',
+                        \'Input\': \'string\',
+                        \'InputPath\': \'string\',
+                        \'InputTransformer\': {
+                            \'InputPathsMap\': {
+                                \'string\': \'string\'
                             },
-                            'InputTemplate': 'string'
+                            \'InputTemplate\': \'string\'
                         },
-                        'KinesisParameters': {
-                            'PartitionKeyPath': 'string'
+                        \'KinesisParameters\': {
+                            \'PartitionKeyPath\': \'string\'
                         },
-                        'RunCommandParameters': {
-                            'RunCommandTargets': [
+                        \'RunCommandParameters\': {
+                            \'RunCommandTargets\': [
                                 {
-                                    'Key': 'string',
-                                    'Values': [
-                                        'string',
+                                    \'Key\': \'string\',
+                                    \'Values\': [
+                                        \'string\',
                                     ]
                                 },
                             ]
                         },
-                        'EcsParameters': {
-                            'TaskDefinitionArn': 'string',
-                            'TaskCount': 123,
-                            'LaunchType': 'EC2'|'FARGATE',
-                            'NetworkConfiguration': {
-                                'awsvpcConfiguration': {
-                                    'Subnets': [
-                                        'string',
+                        \'EcsParameters\': {
+                            \'TaskDefinitionArn\': \'string\',
+                            \'TaskCount\': 123,
+                            \'LaunchType\': \'EC2\'|\'FARGATE\',
+                            \'NetworkConfiguration\': {
+                                \'awsvpcConfiguration\': {
+                                    \'Subnets\': [
+                                        \'string\',
                                     ],
-                                    'SecurityGroups': [
-                                        'string',
+                                    \'SecurityGroups\': [
+                                        \'string\',
                                     ],
-                                    'AssignPublicIp': 'ENABLED'|'DISABLED'
+                                    \'AssignPublicIp\': \'ENABLED\'|\'DISABLED\'
                                 }
                             },
-                            'PlatformVersion': 'string',
-                            'Group': 'string'
+                            \'PlatformVersion\': \'string\',
+                            \'Group\': \'string\'
                         },
-                        'BatchParameters': {
-                            'JobDefinition': 'string',
-                            'JobName': 'string',
-                            'ArrayProperties': {
-                                'Size': 123
+                        \'BatchParameters\': {
+                            \'JobDefinition\': \'string\',
+                            \'JobName\': \'string\',
+                            \'ArrayProperties\': {
+                                \'Size\': 123
                             },
-                            'RetryStrategy': {
-                                'Attempts': 123
+                            \'RetryStrategy\': {
+                                \'Attempts\': 123
                             }
                         },
-                        'SqsParameters': {
-                            'MessageGroupId': 'string'
+                        \'SqsParameters\': {
+                            \'MessageGroupId\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -553,7 +553,7 @@ class Client(BaseClient):
         
                      ``InputPathsMap`` is an array key-value pairs, where each value is a valid JSON path. You can have as many as 10 key-value pairs. You must use JSON dot notation, not bracket notation.
         
-                    The keys cannot start with "AWS." 
+                    The keys cannot start with \"AWS.\" 
         
                     - *(string) --* 
                       
@@ -571,25 +571,25 @@ class Client(BaseClient):
                      
                     The following example shows the syntax for using ``InputPathsMap`` and ``InputTemplate`` .
         
-                     ``"InputTransformer":``  
+                     ``\"InputTransformer\":``  
         
                      ``{``  
         
-                     ``"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},``  
+                     ``\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\": \"$.detail.status\"},``  
         
-                     ``"InputTemplate": "<instance> is in state <status>"``  
+                     ``\"InputTemplate\": \"<instance> is in state <status>\"``  
         
                      ``}``  
         
                     To have the ``InputTemplate`` include quote marks within a JSON string, escape each quote marks with a slash, as in the following example:
         
-                     ``"InputTransformer":``  
+                     ``\"InputTransformer\":``  
         
                      ``{``  
         
-                     ``"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},``  
+                     ``\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\": \"$.detail.status\"},``  
         
-                     ``"InputTemplate": "<instance> is in state \"<status>\""``  
+                     ``\"InputTemplate\": \"<instance> is in state \\"<status>\\"\"``  
         
                      ``}``  
         
@@ -663,7 +663,7 @@ class Client(BaseClient):
                     
                       - **AssignPublicIp** *(string) --* 
         
-                        Specifies whether the task's elastic network interface receives a public IP address. You can specify ``ENABLED`` only when ``LaunchType`` in ``EcsParameters`` is set to ``FARGATE`` .
+                        Specifies whether the task\'s elastic network interface receives a public IP address. You can specify ``ENABLED`` only when ``LaunchType`` in ``EcsParameters`` is set to ``FARGATE`` .
         
                   - **PlatformVersion** *(string) --* 
         
@@ -731,13 +731,13 @@ class Client(BaseClient):
           response = client.put_events(
               Entries=[
                   {
-                      'Time': datetime(2015, 1, 1),
-                      'Source': 'string',
-                      'Resources': [
-                          'string',
+                      \'Time\': datetime(2015, 1, 1),
+                      \'Source\': \'string\',
+                      \'Resources\': [
+                          \'string\',
                       ],
-                      'DetailType': 'string',
-                      'Detail': 'string'
+                      \'DetailType\': \'string\',
+                      \'Detail\': \'string\'
                   },
               ]
           )
@@ -780,12 +780,12 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedEntryCount': 123,
-                'Entries': [
+                \'FailedEntryCount\': 123,
+                \'Entries\': [
                     {
-                        'EventId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'EventId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -823,11 +823,11 @@ class Client(BaseClient):
     def put_permission(self, Action: str, Principal: str, StatementId: str, Condition: Dict = None):
         """
         
-        For another account to send events to your account, that external account must have a CloudWatch Events rule with your account's default event bus as a target.
+        For another account to send events to your account, that external account must have a CloudWatch Events rule with your account\'s default event bus as a target.
         
-        To enable multiple AWS accounts to put events to your default event bus, run ``PutPermission`` once for each of these accounts. Or, if all the accounts are members of the same AWS organization, you can run ``PutPermission`` once specifying ``Principal`` as "*" and specifying the AWS organization ID in ``Condition`` , to grant permissions to all accounts in that organization.
+        To enable multiple AWS accounts to put events to your default event bus, run ``PutPermission`` once for each of these accounts. Or, if all the accounts are members of the same AWS organization, you can run ``PutPermission`` once specifying ``Principal`` as \"*\" and specifying the AWS organization ID in ``Condition`` , to grant permissions to all accounts in that organization.
         
-        If you grant permissions using an organization, then accounts in that organization must specify a ``RoleArn`` with proper permissions when they use ``PutTarget`` to add your account's event bus as a target. For more information, see `Sending and Receiving Events Between AWS Accounts <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
+        If you grant permissions using an organization, then accounts in that organization must specify a ``RoleArn`` with proper permissions when they use ``PutTarget`` to add your account\'s event bus as a target. For more information, see `Sending and Receiving Events Between AWS Accounts <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
         
         The permission policy on the default event bus cannot exceed 10 KB in size.
         
@@ -837,13 +837,13 @@ class Client(BaseClient):
         ::
         
           response = client.put_permission(
-              Action='string',
-              Principal='string',
-              StatementId='string',
+              Action=\'string\',
+              Principal=\'string\',
+              StatementId=\'string\',
               Condition={
-                  'Type': 'string',
-                  'Key': 'string',
-                  'Value': 'string'
+                  \'Type\': \'string\',
+                  \'Key\': \'string\',
+                  \'Value\': \'string\'
               }
           )
         :type Action: string
@@ -854,9 +854,9 @@ class Client(BaseClient):
         :type Principal: string
         :param Principal: **[REQUIRED]** 
         
-          The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify "*" to permit any account to put events to your default event bus.
+          The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify \"*\" to permit any account to put events to your default event bus.
         
-          If you specify "*" without specifying ``Condition`` , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an ``account`` field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
+          If you specify \"*\" without specifying ``Condition`` , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an ``account`` field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
         
         :type StatementId: string
         :param StatementId: **[REQUIRED]** 
@@ -868,7 +868,7 @@ class Client(BaseClient):
         
           This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see `What Is AWS Organizations <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html>`__ in the *AWS Organizations User Guide* .
         
-          If you specify ``Condition`` with an AWS organization ID, and specify "*" as the value for ``Principal`` , you grant permission to all the accounts in the named organization.
+          If you specify ``Condition`` with an AWS organization ID, and specify \"*\" as the value for ``Principal`` , you grant permission to all the accounts in the named organization.
         
           The ``Condition`` is a JSON string which must contain ``Type`` , ``Key`` , and ``Value`` fields.
         
@@ -911,12 +911,12 @@ class Client(BaseClient):
         ::
         
           response = client.put_rule(
-              Name='string',
-              ScheduleExpression='string',
-              EventPattern='string',
-              State='ENABLED'|'DISABLED',
-              Description='string',
-              RoleArn='string'
+              Name=\'string\',
+              ScheduleExpression=\'string\',
+              EventPattern=\'string\',
+              State=\'ENABLED\'|\'DISABLED\',
+              Description=\'string\',
+              RoleArn=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -926,7 +926,7 @@ class Client(BaseClient):
         :type ScheduleExpression: string
         :param ScheduleExpression: 
         
-          The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
+          The scheduling expression. For example, \"cron(0 20 * * ? *)\" or \"rate(5 minutes)\".
         
         :type EventPattern: string
         :param EventPattern: 
@@ -956,7 +956,7 @@ class Client(BaseClient):
           ::
         
             {
-                'RuleArn': 'string'
+                \'RuleArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1012,7 +1012,7 @@ class Client(BaseClient):
         
         To be able to make API calls against the resources that you own, Amazon CloudWatch Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources, CloudWatch Events relies on resource-based policies. For EC2 instances, Kinesis data streams, and AWS Step Functions state machines, CloudWatch Events relies on IAM roles that you specify in the ``RoleARN`` argument in ``PutTargets`` . For more information, see `Authentication and Access Control <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html>`__ in the *Amazon CloudWatch Events User Guide* .
         
-        If another AWS account is in the same region and has granted you permission (using ``PutPermission`` ), you can send events to that account. Set that account's event bus as a target of the rules in your account. To send the matched events to the other account, specify that account's event bus as the ``Arn`` value when you run ``PutTargets`` . If your account sends events to another account, your account is charged for each sent event. Each event sent to another account is charged as a custom event. The account receiving the event is not charged. For more information, see `Amazon CloudWatch Pricing <https://aws.amazon.com/cloudwatch/pricing/>`__ .
+        If another AWS account is in the same region and has granted you permission (using ``PutPermission`` ), you can send events to that account. Set that account\'s event bus as a target of the rules in your account. To send the matched events to the other account, specify that account\'s event bus as the ``Arn`` value when you run ``PutTargets`` . If your account sends events to another account, your account is charged for each sent event. Each event sent to another account is charged as a custom event. The account receiving the event is not charged. For more information, see `Amazon CloudWatch Pricing <https://aws.amazon.com/cloudwatch/pricing/>`__ .
         
         If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a ``RoleArn`` with proper permissions in the ``Target`` structure. For more information, see `Sending and Receiving Events Between AWS Accounts <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
         
@@ -1040,63 +1040,63 @@ class Client(BaseClient):
         ::
         
           response = client.put_targets(
-              Rule='string',
+              Rule=\'string\',
               Targets=[
                   {
-                      'Id': 'string',
-                      'Arn': 'string',
-                      'RoleArn': 'string',
-                      'Input': 'string',
-                      'InputPath': 'string',
-                      'InputTransformer': {
-                          'InputPathsMap': {
-                              'string': 'string'
+                      \'Id\': \'string\',
+                      \'Arn\': \'string\',
+                      \'RoleArn\': \'string\',
+                      \'Input\': \'string\',
+                      \'InputPath\': \'string\',
+                      \'InputTransformer\': {
+                          \'InputPathsMap\': {
+                              \'string\': \'string\'
                           },
-                          'InputTemplate': 'string'
+                          \'InputTemplate\': \'string\'
                       },
-                      'KinesisParameters': {
-                          'PartitionKeyPath': 'string'
+                      \'KinesisParameters\': {
+                          \'PartitionKeyPath\': \'string\'
                       },
-                      'RunCommandParameters': {
-                          'RunCommandTargets': [
+                      \'RunCommandParameters\': {
+                          \'RunCommandTargets\': [
                               {
-                                  'Key': 'string',
-                                  'Values': [
-                                      'string',
+                                  \'Key\': \'string\',
+                                  \'Values\': [
+                                      \'string\',
                                   ]
                               },
                           ]
                       },
-                      'EcsParameters': {
-                          'TaskDefinitionArn': 'string',
-                          'TaskCount': 123,
-                          'LaunchType': 'EC2'|'FARGATE',
-                          'NetworkConfiguration': {
-                              'awsvpcConfiguration': {
-                                  'Subnets': [
-                                      'string',
+                      \'EcsParameters\': {
+                          \'TaskDefinitionArn\': \'string\',
+                          \'TaskCount\': 123,
+                          \'LaunchType\': \'EC2\'|\'FARGATE\',
+                          \'NetworkConfiguration\': {
+                              \'awsvpcConfiguration\': {
+                                  \'Subnets\': [
+                                      \'string\',
                                   ],
-                                  'SecurityGroups': [
-                                      'string',
+                                  \'SecurityGroups\': [
+                                      \'string\',
                                   ],
-                                  'AssignPublicIp': 'ENABLED'|'DISABLED'
+                                  \'AssignPublicIp\': \'ENABLED\'|\'DISABLED\'
                               }
                           },
-                          'PlatformVersion': 'string',
-                          'Group': 'string'
+                          \'PlatformVersion\': \'string\',
+                          \'Group\': \'string\'
                       },
-                      'BatchParameters': {
-                          'JobDefinition': 'string',
-                          'JobName': 'string',
-                          'ArrayProperties': {
-                              'Size': 123
+                      \'BatchParameters\': {
+                          \'JobDefinition\': \'string\',
+                          \'JobName\': \'string\',
+                          \'ArrayProperties\': {
+                              \'Size\': 123
                           },
-                          'RetryStrategy': {
-                              'Attempts': 123
+                          \'RetryStrategy\': {
+                              \'Attempts\': 123
                           }
                       },
-                      'SqsParameters': {
-                          'MessageGroupId': 'string'
+                      \'SqsParameters\': {
+                          \'MessageGroupId\': \'string\'
                       }
                   },
               ]
@@ -1147,7 +1147,7 @@ class Client(BaseClient):
         
                  ``InputPathsMap`` is an array key-value pairs, where each value is a valid JSON path. You can have as many as 10 key-value pairs. You must use JSON dot notation, not bracket notation.
         
-                The keys cannot start with "AWS." 
+                The keys cannot start with \"AWS.\" 
         
                 - *(string) --* 
         
@@ -1165,25 +1165,25 @@ class Client(BaseClient):
                  
                 The following example shows the syntax for using ``InputPathsMap`` and ``InputTemplate`` .
         
-                 ``"InputTransformer":``  
+                 ``\"InputTransformer\":``  
         
                  ``{``  
         
-                 ``"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},``  
+                 ``\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\": \"$.detail.status\"},``  
         
-                 ``"InputTemplate": "<instance> is in state <status>"``  
+                 ``\"InputTemplate\": \"<instance> is in state <status>\"``  
         
                  ``}``  
         
                 To have the ``InputTemplate`` include quote marks within a JSON string, escape each quote marks with a slash, as in the following example:
         
-                 ``"InputTransformer":``  
+                 ``\"InputTransformer\":``  
         
                  ``{``  
         
-                 ``"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},``  
+                 ``\"InputPathsMap\": {\"instance\": \"$.detail.instance\",\"status\": \"$.detail.status\"},``  
         
-                 ``"InputTemplate": "<instance> is in state \"<status>\""``  
+                 ``\"InputTemplate\": \"<instance> is in state \\"<status>\\"\"``  
         
                  ``}``  
         
@@ -1257,7 +1257,7 @@ class Client(BaseClient):
         
                   - **AssignPublicIp** *(string) --* 
         
-                    Specifies whether the task's elastic network interface receives a public IP address. You can specify ``ENABLED`` only when ``LaunchType`` in ``EcsParameters`` is set to ``FARGATE`` .
+                    Specifies whether the task\'s elastic network interface receives a public IP address. You can specify ``ENABLED`` only when ``LaunchType`` in ``EcsParameters`` is set to ``FARGATE`` .
         
               - **PlatformVersion** *(string) --* 
         
@@ -1315,12 +1315,12 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedEntryCount': 123,
-                'FailedEntries': [
+                \'FailedEntryCount\': 123,
+                \'FailedEntries\': [
                     {
-                        'TargetId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'TargetId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -1364,7 +1364,7 @@ class Client(BaseClient):
         ::
         
           response = client.remove_permission(
-              StatementId='string'
+              StatementId=\'string\'
           )
         :type StatementId: string
         :param StatementId: **[REQUIRED]** 
@@ -1388,9 +1388,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_targets(
-              Rule='string',
+              Rule=\'string\',
               Ids=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Rule: string
@@ -1413,12 +1413,12 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedEntryCount': 123,
-                'FailedEntries': [
+                \'FailedEntryCount\': 123,
+                \'FailedEntries\': [
                     {
-                        'TargetId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'TargetId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -1464,8 +1464,8 @@ class Client(BaseClient):
         ::
         
           response = client.test_event_pattern(
-              EventPattern='string',
-              Event='string'
+              EventPattern=\'string\',
+              Event=\'string\'
           )
         :type EventPattern: string
         :param EventPattern: **[REQUIRED]** 
@@ -1485,7 +1485,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Result': True|False
+                \'Result\': True|False
             }
           **Response Structure** 
         

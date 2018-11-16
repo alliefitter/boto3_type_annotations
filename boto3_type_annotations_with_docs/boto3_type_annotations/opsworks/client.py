@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -25,9 +25,9 @@ class Client(BaseClient):
         ::
         
           response = client.assign_instance(
-              InstanceId='string',
+              InstanceId=\'string\',
               LayerIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type InstanceId: string
@@ -57,8 +57,8 @@ class Client(BaseClient):
         ::
         
           response = client.assign_volume(
-              VolumeId='string',
-              InstanceId='string'
+              VolumeId=\'string\',
+              InstanceId=\'string\'
           )
         :type VolumeId: string
         :param VolumeId: **[REQUIRED]** 
@@ -85,8 +85,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_elastic_ip(
-              ElasticIp='string',
-              InstanceId='string'
+              ElasticIp=\'string\',
+              InstanceId=\'string\'
           )
         :type ElasticIp: string
         :param ElasticIp: **[REQUIRED]** 
@@ -117,13 +117,13 @@ class Client(BaseClient):
         ::
         
           response = client.attach_elastic_load_balancer(
-              ElasticLoadBalancerName='string',
-              LayerId='string'
+              ElasticLoadBalancerName=\'string\',
+              LayerId=\'string\'
           )
         :type ElasticLoadBalancerName: string
         :param ElasticLoadBalancerName: **[REQUIRED]** 
         
-          The Elastic Load Balancing instance's name.
+          The Elastic Load Balancing instance\'s name.
         
         :type LayerId: string
         :param LayerId: **[REQUIRED]** 
@@ -140,10 +140,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -161,45 +161,45 @@ class Client(BaseClient):
         ::
         
           response = client.clone_stack(
-              SourceStackId='string',
-              Name='string',
-              Region='string',
-              VpcId='string',
+              SourceStackId=\'string\',
+              Name=\'string\',
+              Region=\'string\',
+              VpcId=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ServiceRoleArn='string',
-              DefaultInstanceProfileArn='string',
-              DefaultOs='string',
-              HostnameTheme='string',
-              DefaultAvailabilityZone='string',
-              DefaultSubnetId='string',
-              CustomJson='string',
+              ServiceRoleArn=\'string\',
+              DefaultInstanceProfileArn=\'string\',
+              DefaultOs=\'string\',
+              HostnameTheme=\'string\',
+              DefaultAvailabilityZone=\'string\',
+              DefaultSubnetId=\'string\',
+              CustomJson=\'string\',
               ConfigurationManager={
-                  'Name': 'string',
-                  'Version': 'string'
+                  \'Name\': \'string\',
+                  \'Version\': \'string\'
               },
               ChefConfiguration={
-                  'ManageBerkshelf': True|False,
-                  'BerkshelfVersion': 'string'
+                  \'ManageBerkshelf\': True|False,
+                  \'BerkshelfVersion\': \'string\'
               },
               UseCustomCookbooks=True|False,
               UseOpsworksSecurityGroups=True|False,
               CustomCookbooksSource={
-                  'Type': 'git'|'svn'|'archive'|'s3',
-                  'Url': 'string',
-                  'Username': 'string',
-                  'Password': 'string',
-                  'SshKey': 'string',
-                  'Revision': 'string'
+                  \'Type\': \'git\'|\'svn\'|\'archive\'|\'s3\',
+                  \'Url\': \'string\',
+                  \'Username\': \'string\',
+                  \'Password\': \'string\',
+                  \'SshKey\': \'string\',
+                  \'Revision\': \'string\'
               },
-              DefaultSshKeyName='string',
+              DefaultSshKeyName=\'string\',
               ClonePermissions=True|False,
               CloneAppIds=[
-                  'string',
+                  \'string\',
               ],
-              DefaultRootDeviceType='ebs'|'instance-store',
-              AgentVersion='string'
+              DefaultRootDeviceType=\'ebs\'|\'instance-store\',
+              AgentVersion=\'string\'
           )
         :type SourceStackId: string
         :param SourceStackId: **[REQUIRED]** 
@@ -214,7 +214,7 @@ class Client(BaseClient):
         :type Region: string
         :param Region: 
         
-          The cloned stack AWS region, such as "ap-northeast-2". For more information about AWS regions, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
+          The cloned stack AWS region, such as \"ap-northeast-2\". For more information about AWS regions, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
         
         :type VpcId: string
         :param VpcId: 
@@ -247,21 +247,21 @@ class Client(BaseClient):
         :type ServiceRoleArn: string
         :param ServiceRoleArn: **[REQUIRED]** 
         
-          The stack AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. If you create a stack by using the AWS OpsWorks Stacks console, it creates the role for you. You can obtain an existing stack's IAM ARN programmatically by calling  DescribePermissions . For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+          The stack AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. If you create a stack by using the AWS OpsWorks Stacks console, it creates the role for you. You can obtain an existing stack\'s IAM ARN programmatically by calling  DescribePermissions . For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
           .. note::
         
-            You must set this parameter to a valid service role ARN or the action will fail; there is no default value. You can specify the source stack's service role ARN, if you prefer, but you must do so explicitly.
+            You must set this parameter to a valid service role ARN or the action will fail; there is no default value. You can specify the source stack\'s service role ARN, if you prefer, but you must do so explicitly.
         
         :type DefaultInstanceProfileArn: string
         :param DefaultInstanceProfileArn: 
         
-          The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+          The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack\'s EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
         :type DefaultOs: string
         :param DefaultOs: 
         
-          The stack's operating system, which must be set to one of the following.
+          The stack\'s operating system, which must be set to one of the following.
         
           * A supported Linux operating system: An Amazon Linux version, such as ``Amazon Linux 2017.09`` , ``Amazon Linux 2017.03`` , ``Amazon Linux 2016.09`` , ``Amazon Linux 2016.03`` , ``Amazon Linux 2015.09`` , or ``Amazon Linux 2015.03`` . 
            
@@ -275,7 +275,7 @@ class Client(BaseClient):
            
           * A custom AMI: ``Custom`` . You specify the custom AMI you want to use when you create instances. For more information about how to use custom AMIs with OpsWorks, see `Using Custom AMIs <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html>`__ . 
            
-          The default option is the parent stack's operating system. For more information about supported operating systems, see `AWS OpsWorks Stacks Operating Systems <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html>`__ .
+          The default option is the parent stack\'s operating system. For more information about supported operating systems, see `AWS OpsWorks Stacks Operating Systems <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html>`__ .
         
           .. note::
         
@@ -284,7 +284,7 @@ class Client(BaseClient):
         :type HostnameTheme: string
         :param HostnameTheme: 
         
-          The stack's host name theme, with spaces are replaced by underscores. The theme is used to generate host names for the stack's instances. By default, ``HostnameTheme`` is set to ``Layer_Dependent`` , which creates host names by appending integers to the layer's short name. The other themes are:
+          The stack\'s host name theme, with spaces are replaced by underscores. The theme is used to generate host names for the stack\'s instances. By default, ``HostnameTheme`` is set to ``Layer_Dependent`` , which creates host names by appending integers to the layer\'s short name. The other themes are:
         
           * ``Baked_Goods``   
            
@@ -313,19 +313,19 @@ class Client(BaseClient):
         :type DefaultAvailabilityZone: string
         :param DefaultAvailabilityZone: 
         
-          The cloned stack's default Availability Zone, which must be in the specified region. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ . If you also specify a value for ``DefaultSubnetId`` , the subnet must be in the same zone. For more information, see the ``VpcId`` parameter description. 
+          The cloned stack\'s default Availability Zone, which must be in the specified region. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ . If you also specify a value for ``DefaultSubnetId`` , the subnet must be in the same zone. For more information, see the ``VpcId`` parameter description. 
         
         :type DefaultSubnetId: string
         :param DefaultSubnetId: 
         
-          The stack's default VPC subnet ID. This parameter is required if you specify a value for the ``VpcId`` parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for ``DefaultAvailabilityZone`` , the subnet must be in that zone. For information on default values and when this parameter is required, see the ``VpcId`` parameter description. 
+          The stack\'s default VPC subnet ID. This parameter is required if you specify a value for the ``VpcId`` parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for ``DefaultAvailabilityZone`` , the subnet must be in that zone. For information on default values and when this parameter is required, see the ``VpcId`` parameter description. 
         
         :type CustomJson: string
         :param CustomJson: 
         
           A string that contains user-defined, custom JSON. It is used to override the corresponding default stack configuration JSON values. The string should be in the following format:
         
-           ``"{\"key1\": \"value1\", \"key2\": \"value2\",...}"``  
+           ``\"{\\"key1\\": \\"value1\\", \\"key2\\": \\"value2\\",...}\"``  
         
           For more information about custom JSON, see `Use Custom JSON to Modify the Stack Configuration Attributes <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html>`__  
         
@@ -336,7 +336,7 @@ class Client(BaseClient):
         
           - **Name** *(string) --* 
         
-            The name. This parameter must be set to "Chef".
+            The name. This parameter must be set to \"Chef\".
         
           - **Version** *(string) --* 
         
@@ -363,7 +363,7 @@ class Client(BaseClient):
         :type UseOpsworksSecurityGroups: boolean
         :param UseOpsworksSecurityGroups: 
         
-          Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.
+          Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack\'s layers.
         
           AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. With ``UseOpsworksSecurityGroups`` you can instead provide your own custom security groups. ``UseOpsworksSecurityGroups`` has the following settings: 
         
@@ -408,13 +408,13 @@ class Client(BaseClient):
         
           - **SshKey** *(string) --* 
         
-            In requests, the repository's SSH key.
+            In requests, the repository\'s SSH key.
         
             In responses, AWS OpsWorks Stacks returns ``*****FILTERED*****`` instead of the actual value.
         
           - **Revision** *(string) --* 
         
-            The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+            The application\'s version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
         
         :type DefaultSshKeyName: string
         :param DefaultSshKeyName: 
@@ -424,7 +424,7 @@ class Client(BaseClient):
         :type ClonePermissions: boolean
         :param ClonePermissions: 
         
-          Whether to clone the source stack's permissions.
+          Whether to clone the source stack\'s permissions.
         
         :type CloneAppIds: list
         :param CloneAppIds: 
@@ -443,15 +443,15 @@ class Client(BaseClient):
         
           The default AWS OpsWorks Stacks agent version. You have the following options:
         
-          * Auto-update - Set this parameter to ``LATEST`` . AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available. 
+          * Auto-update - Set this parameter to ``LATEST`` . AWS OpsWorks Stacks automatically installs new agent versions on the stack\'s instances as soon as they are available. 
            
-          * Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances. 
+          * Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack\'s instances. 
            
           The default setting is ``LATEST`` . To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call  DescribeAgentVersions . AgentVersion cannot be set to Chef 12.2.
         
           .. note::
         
-            You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.
+            You can also specify an agent version when you create or update an instance, which overrides the stack\'s default setting.
         
         :rtype: dict
         :returns: 
@@ -461,7 +461,7 @@ class Client(BaseClient):
           ::
         
             {
-                'StackId': 'string'
+                \'StackId\': \'string\'
             }
           **Response Structure** 
         
@@ -487,43 +487,43 @@ class Client(BaseClient):
         ::
         
           response = client.create_app(
-              StackId='string',
-              Shortname='string',
-              Name='string',
-              Description='string',
+              StackId=\'string\',
+              Shortname=\'string\',
+              Name=\'string\',
+              Description=\'string\',
               DataSources=[
                   {
-                      'Type': 'string',
-                      'Arn': 'string',
-                      'DatabaseName': 'string'
+                      \'Type\': \'string\',
+                      \'Arn\': \'string\',
+                      \'DatabaseName\': \'string\'
                   },
               ],
-              Type='aws-flow-ruby'|'java'|'rails'|'php'|'nodejs'|'static'|'other',
+              Type=\'aws-flow-ruby\'|\'java\'|\'rails\'|\'php\'|\'nodejs\'|\'static\'|\'other\',
               AppSource={
-                  'Type': 'git'|'svn'|'archive'|'s3',
-                  'Url': 'string',
-                  'Username': 'string',
-                  'Password': 'string',
-                  'SshKey': 'string',
-                  'Revision': 'string'
+                  \'Type\': \'git\'|\'svn\'|\'archive\'|\'s3\',
+                  \'Url\': \'string\',
+                  \'Username\': \'string\',
+                  \'Password\': \'string\',
+                  \'SshKey\': \'string\',
+                  \'Revision\': \'string\'
               },
               Domains=[
-                  'string',
+                  \'string\',
               ],
               EnableSsl=True|False,
               SslConfiguration={
-                  'Certificate': 'string',
-                  'PrivateKey': 'string',
-                  'Chain': 'string'
+                  \'Certificate\': \'string\',
+                  \'PrivateKey\': \'string\',
+                  \'Chain\': \'string\'
               },
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               Environment=[
                   {
-                      'Key': 'string',
-                      'Value': 'string',
-                      'Secure': True|False
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'Secure\': True|False
                   },
               ]
           )
@@ -535,7 +535,7 @@ class Client(BaseClient):
         :type Shortname: string
         :param Shortname: 
         
-          The app's short name.
+          The app\'s short name.
         
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -550,19 +550,19 @@ class Client(BaseClient):
         :type DataSources: list
         :param DataSources: 
         
-          The app's data source.
+          The app\'s data source.
         
           - *(dict) --* 
         
-            Describes an app's data source.
+            Describes an app\'s data source.
         
             - **Type** *(string) --* 
         
-              The data source's type, ``AutoSelectOpsworksMysqlInstance`` , ``OpsworksMysqlInstance`` , ``RdsDbInstance`` , or ``None`` .
+              The data source\'s type, ``AutoSelectOpsworksMysqlInstance`` , ``OpsworksMysqlInstance`` , ``RdsDbInstance`` , or ``None`` .
         
             - **Arn** *(string) --* 
         
-              The data source's ARN.
+              The data source\'s ARN.
         
             - **DatabaseName** *(string) --* 
         
@@ -571,7 +571,7 @@ class Client(BaseClient):
         :type Type: string
         :param Type: **[REQUIRED]** 
         
-          The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify ``other`` .
+          The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn\'t one of the standard types, or you prefer to implement your own Deploy recipes, specify ``other`` .
         
         :type AppSource: dict
         :param AppSource: 
@@ -608,18 +608,18 @@ class Client(BaseClient):
         
           - **SshKey** *(string) --* 
         
-            In requests, the repository's SSH key.
+            In requests, the repository\'s SSH key.
         
             In responses, AWS OpsWorks Stacks returns ``*****FILTERED*****`` instead of the actual value.
         
           - **Revision** *(string) --* 
         
-            The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+            The application\'s version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
         
         :type Domains: list
         :param Domains: 
         
-          The app virtual host settings, with multiple domains separated by commas. For example: ``'www.example.com, example.com'``  
+          The app virtual host settings, with multiple domains separated by commas. For example: ``\'www.example.com, example.com\'``  
         
           - *(string) --* 
         
@@ -635,11 +635,11 @@ class Client(BaseClient):
         
           - **Certificate** *(string) --* **[REQUIRED]** 
         
-            The contents of the certificate's domain.crt file.
+            The contents of the certificate\'s domain.crt file.
         
           - **PrivateKey** *(string) --* **[REQUIRED]** 
         
-            The private key; the contents of the certificate's domain.kex file.
+            The private key; the contents of the certificate\'s domain.kex file.
         
           - **Chain** *(string) --* 
         
@@ -659,27 +659,27 @@ class Client(BaseClient):
         
           An array of ``EnvironmentVariable`` objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instance. For more information, see `Environment Variables <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment>`__ .
         
-          There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 10KB)."
+          There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables\' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, \"Environment: is too large (maximum is 10KB).\"
         
           .. note::
         
-            This parameter is supported only by Chef 11.10 stacks. If you have specified one or more environment variables, you cannot modify the stack's Chef version.
+            This parameter is supported only by Chef 11.10 stacks. If you have specified one or more environment variables, you cannot modify the stack\'s Chef version.
         
           - *(dict) --* 
         
-            Represents an app's environment variable.
+            Represents an app\'s environment variable.
         
             - **Key** *(string) --* **[REQUIRED]** 
         
-              (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
+              (Required) The environment variable\'s name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
         
             - **Value** *(string) --* **[REQUIRED]** 
         
-              (Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
+              (Optional) The environment variable\'s value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
         
             - **Secure** *(boolean) --* 
         
-              (Optional) Whether the variable's value will be returned by the  DescribeApps action. To conceal an environment variable's value, set ``Secure`` to ``true`` . ``DescribeApps`` then returns ``*****FILTERED*****`` instead of the actual value. The default value for ``Secure`` is ``false`` . 
+              (Optional) Whether the variable\'s value will be returned by the  DescribeApps action. To conceal an environment variable\'s value, set ``Secure`` to ``true`` . ``DescribeApps`` then returns ``*****FILTERED*****`` instead of the actual value. The default value for ``Secure`` is ``false`` . 
         
         :rtype: dict
         :returns: 
@@ -689,7 +689,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AppId': 'string'
+                \'AppId\': \'string\'
             }
           **Response Structure** 
         
@@ -715,24 +715,24 @@ class Client(BaseClient):
         ::
         
           response = client.create_deployment(
-              StackId='string',
-              AppId='string',
+              StackId=\'string\',
+              AppId=\'string\',
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               LayerIds=[
-                  'string',
+                  \'string\',
               ],
               Command={
-                  'Name': 'install_dependencies'|'update_dependencies'|'update_custom_cookbooks'|'execute_recipes'|'configure'|'setup'|'deploy'|'rollback'|'start'|'stop'|'restart'|'undeploy',
-                  'Args': {
-                      'string': [
-                          'string',
+                  \'Name\': \'install_dependencies\'|\'update_dependencies\'|\'update_custom_cookbooks\'|\'execute_recipes\'|\'configure\'|\'setup\'|\'deploy\'|\'rollback\'|\'start\'|\'stop\'|\'restart\'|\'undeploy\',
+                  \'Args\': {
+                      \'string\': [
+                          \'string\',
                       ]
                   }
               },
-              Comment='string',
-              CustomJson='string'
+              Comment=\'string\',
+              CustomJson=\'string\'
           )
         :type StackId: string
         :param StackId: **[REQUIRED]** 
@@ -769,13 +769,13 @@ class Client(BaseClient):
         
             For stacks, the following commands are available:
         
-            * ``execute_recipes`` : Execute one or more recipes. To specify the recipes, set an ``Args`` parameter named ``recipes`` to the list of recipes to be executed. For example, to execute ``phpapp::appsetup`` , set ``Args`` to ``{"recipes":["phpapp::appsetup"]}`` . 
+            * ``execute_recipes`` : Execute one or more recipes. To specify the recipes, set an ``Args`` parameter named ``recipes`` to the list of recipes to be executed. For example, to execute ``phpapp::appsetup`` , set ``Args`` to ``{\"recipes\":[\"phpapp::appsetup\"]}`` . 
              
-            * ``install_dependencies`` : Install the stack's dependencies. 
+            * ``install_dependencies`` : Install the stack\'s dependencies. 
              
-            * ``update_custom_cookbooks`` : Update the stack's custom cookbooks. 
+            * ``update_custom_cookbooks`` : Update the stack\'s custom cookbooks. 
              
-            * ``update_dependencies`` : Update the stack's dependencies. 
+            * ``update_dependencies`` : Update the stack\'s dependencies. 
              
             .. note::
         
@@ -783,15 +783,15 @@ class Client(BaseClient):
         
             For apps, the following commands are available:
         
-            * ``deploy`` : Deploy an app. Ruby on Rails apps have an optional ``Args`` parameter named ``migrate`` . Set ``Args`` to {"migrate":["true"]} to migrate the database. The default setting is {"migrate":["false"]}. 
+            * ``deploy`` : Deploy an app. Ruby on Rails apps have an optional ``Args`` parameter named ``migrate`` . Set ``Args`` to {\"migrate\":[\"true\"]} to migrate the database. The default setting is {\"migrate\":[\"false\"]}. 
              
             * ``rollback`` Roll the app back to the previous version. When you update an app, AWS OpsWorks Stacks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions. 
              
-            * ``start`` : Start the app's web or application server. 
+            * ``start`` : Start the app\'s web or application server. 
              
-            * ``stop`` : Stop the app's web or application server. 
+            * ``stop`` : Stop the app\'s web or application server. 
              
-            * ``restart`` : Restart the app's web or application server. 
+            * ``restart`` : Restart the app\'s web or application server. 
              
             * ``undeploy`` : Undeploy the app. 
              
@@ -799,7 +799,7 @@ class Client(BaseClient):
         
             The arguments of those commands that take arguments. It should be set to a JSON object with the following format:
         
-             ``{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...], ...}``  
+             ``{\"arg_name1\" : [\"value1\", \"value2\", ...], \"arg_name2\" : [\"value1\", \"value2\", ...], ...}``  
         
             The ``update_dependencies`` command takes two arguments:
         
@@ -809,7 +809,7 @@ class Client(BaseClient):
              
             For example, to upgrade an instance to Amazon Linux 2016.09, set ``Args`` to the following.
         
-             ``{ "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] }``  
+             ``{ \"upgrade_os_to\":[\"Amazon Linux 2016.09\"], \"allow_reboot\":[\"true\"] }``  
         
             - *(string) --* 
         
@@ -827,7 +827,7 @@ class Client(BaseClient):
         
           A string that contains user-defined, custom JSON. It is used to override the corresponding default stack configuration JSON values. The string should be in the following format:
         
-           ``"{\"key1\": \"value1\", \"key2\": \"value2\",...}"``  
+           ``\"{\\"key1\\": \\"value1\\", \\"key2\\": \\"value2\\",...}\"``  
         
           For more information about custom JSON, see `Use Custom JSON to Modify the Stack Configuration Attributes <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html>`__ .
         
@@ -839,7 +839,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DeploymentId': 'string'
+                \'DeploymentId\': \'string\'
             }
           **Response Structure** 
         
@@ -865,39 +865,39 @@ class Client(BaseClient):
         ::
         
           response = client.create_instance(
-              StackId='string',
+              StackId=\'string\',
               LayerIds=[
-                  'string',
+                  \'string\',
               ],
-              InstanceType='string',
-              AutoScalingType='load'|'timer',
-              Hostname='string',
-              Os='string',
-              AmiId='string',
-              SshKeyName='string',
-              AvailabilityZone='string',
-              VirtualizationType='string',
-              SubnetId='string',
-              Architecture='x86_64'|'i386',
-              RootDeviceType='ebs'|'instance-store',
+              InstanceType=\'string\',
+              AutoScalingType=\'load\'|\'timer\',
+              Hostname=\'string\',
+              Os=\'string\',
+              AmiId=\'string\',
+              SshKeyName=\'string\',
+              AvailabilityZone=\'string\',
+              VirtualizationType=\'string\',
+              SubnetId=\'string\',
+              Architecture=\'x86_64\'|\'i386\',
+              RootDeviceType=\'ebs\'|\'instance-store\',
               BlockDeviceMappings=[
                   {
-                      'DeviceName': 'string',
-                      'NoDevice': 'string',
-                      'VirtualName': 'string',
-                      'Ebs': {
-                          'SnapshotId': 'string',
-                          'Iops': 123,
-                          'VolumeSize': 123,
-                          'VolumeType': 'gp2'|'io1'|'standard',
-                          'DeleteOnTermination': True|False
+                      \'DeviceName\': \'string\',
+                      \'NoDevice\': \'string\',
+                      \'VirtualName\': \'string\',
+                      \'Ebs\': {
+                          \'SnapshotId\': \'string\',
+                          \'Iops\': 123,
+                          \'VolumeSize\': 123,
+                          \'VolumeType\': \'gp2\'|\'io1\'|\'standard\',
+                          \'DeleteOnTermination\': True|False
                       }
                   },
               ],
               InstallUpdatesOnBoot=True|False,
               EbsOptimized=True|False,
-              AgentVersion='string',
-              Tenancy='string'
+              AgentVersion=\'string\',
+              Tenancy=\'string\'
           )
         :type StackId: string
         :param StackId: **[REQUIRED]** 
@@ -907,7 +907,7 @@ class Client(BaseClient):
         :type LayerIds: list
         :param LayerIds: **[REQUIRED]** 
         
-          An array that contains the instance's layer IDs.
+          An array that contains the instance\'s layer IDs.
         
           - *(string) --* 
         
@@ -929,7 +929,7 @@ class Client(BaseClient):
         :type Os: string
         :param Os: 
         
-          The instance's operating system, which must be set to one of the following.
+          The instance\'s operating system, which must be set to one of the following.
         
           * A supported Linux operating system: An Amazon Linux version, such as ``Amazon Linux 2017.09`` , ``Amazon Linux 2017.03`` , ``Amazon Linux 2016.09`` , ``Amazon Linux 2016.03`` , ``Amazon Linux 2015.09`` , or ``Amazon Linux 2015.03`` . 
            
@@ -945,7 +945,7 @@ class Client(BaseClient):
            
           For more information about the supported operating systems, see `AWS OpsWorks Stacks Operating Systems <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html>`__ .
         
-          The default option is the current Amazon Linux version. If you set this parameter to ``Custom`` , you must use the  CreateInstance action's AmiId parameter to specify the custom AMI that you want to use. Block device mappings are not supported if the value is ``Custom`` . For more information about supported operating systems, see `Operating Systems <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html>`__ For more information about how to use custom AMIs with AWS OpsWorks Stacks, see `Using Custom AMIs <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html>`__ .
+          The default option is the current Amazon Linux version. If you set this parameter to ``Custom`` , you must use the  CreateInstance action\'s AmiId parameter to specify the custom AMI that you want to use. Block device mappings are not supported if the value is ``Custom`` . For more information about supported operating systems, see `Operating Systems <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html>`__ For more information about how to use custom AMIs with AWS OpsWorks Stacks, see `Using Custom AMIs <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html>`__ .
         
         :type AmiId: string
         :param AmiId: 
@@ -959,7 +959,7 @@ class Client(BaseClient):
         :type SshKeyName: string
         :param SshKeyName: 
         
-          The instance's Amazon EC2 key-pair name.
+          The instance\'s Amazon EC2 key-pair name.
         
         :type AvailabilityZone: string
         :param AvailabilityZone: 
@@ -969,12 +969,12 @@ class Client(BaseClient):
         :type VirtualizationType: string
         :param VirtualizationType: 
         
-          The instance's virtualization type, ``paravirtual`` or ``hvm`` .
+          The instance\'s virtualization type, ``paravirtual`` or ``hvm`` .
         
         :type SubnetId: string
         :param SubnetId: 
         
-          The ID of the instance's subnet. If the stack is running in a VPC, you can use this parameter to override the stack's default subnet ID value and direct AWS OpsWorks Stacks to launch the instance in a different subnet.
+          The ID of the instance\'s subnet. If the stack is running in a VPC, you can use this parameter to override the stack\'s default subnet ID value and direct AWS OpsWorks Stacks to launch the instance in a different subnet.
         
         :type Architecture: string
         :param Architecture: 
@@ -989,7 +989,7 @@ class Client(BaseClient):
         :type BlockDeviceMappings: list
         :param BlockDeviceMappings: 
         
-          An array of ``BlockDeviceMapping`` objects that specify the instance's block devices. For more information, see `Block Device Mapping <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html>`__ . Note that block device mappings are not supported for custom AMIs.
+          An array of ``BlockDeviceMapping`` objects that specify the instance\'s block devices. For more information, see `Block Device Mapping <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html>`__ . Note that block device mappings are not supported for custom AMIs.
         
           - *(dict) --* 
         
@@ -1001,7 +1001,7 @@ class Client(BaseClient):
         
             - **NoDevice** *(string) --* 
         
-              Suppresses the specified device included in the AMI's block device mapping.
+              Suppresses the specified device included in the AMI\'s block device mapping.
         
             - **VirtualName** *(string) --* 
         
@@ -1052,16 +1052,16 @@ class Client(BaseClient):
         
           The default AWS OpsWorks Stacks agent version. You have the following options:
         
-          * ``INHERIT`` - Use the stack's default agent version setting. 
+          * ``INHERIT`` - Use the stack\'s default agent version setting. 
            
-          * *version_number* - Use the specified agent version. This value overrides the stack's default setting. To update the agent version, edit the instance configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the instance. 
+          * *version_number* - Use the specified agent version. This value overrides the stack\'s default setting. To update the agent version, edit the instance configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the instance. 
            
           The default setting is ``INHERIT`` . To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call  DescribeAgentVersions . AgentVersion cannot be set to Chef 12.2.
         
         :type Tenancy: string
         :param Tenancy: 
         
-          The instance's tenancy option. The default option is no tenancy, or if the instance is running in a VPC, inherit tenancy settings from the VPC. The following are valid values for this parameter: ``dedicated`` , ``default`` , or ``host`` . Because there are costs associated with changes in tenancy options, we recommend that you research tenancy options before choosing them for your instances. For more information about dedicated hosts, see `Dedicated Hosts Overview <http://aws.amazon.com/ec2/dedicated-hosts/>`__ and `Amazon EC2 Dedicated Hosts <http://aws.amazon.com/ec2/dedicated-hosts/>`__ . For more information about dedicated instances, see `Dedicated Instances <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html>`__ and `Amazon EC2 Dedicated Instances <http://aws.amazon.com/ec2/purchasing-options/dedicated-instances/>`__ .
+          The instance\'s tenancy option. The default option is no tenancy, or if the instance is running in a VPC, inherit tenancy settings from the VPC. The following are valid values for this parameter: ``dedicated`` , ``default`` , or ``host`` . Because there are costs associated with changes in tenancy options, we recommend that you research tenancy options before choosing them for your instances. For more information about dedicated hosts, see `Dedicated Hosts Overview <http://aws.amazon.com/ec2/dedicated-hosts/>`__ and `Amazon EC2 Dedicated Hosts <http://aws.amazon.com/ec2/dedicated-hosts/>`__ . For more information about dedicated instances, see `Dedicated Instances <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html>`__ and `Amazon EC2 Dedicated Instances <http://aws.amazon.com/ec2/purchasing-options/dedicated-instances/>`__ .
         
         :rtype: dict
         :returns: 
@@ -1071,7 +1071,7 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceId': 'string'
+                \'InstanceId\': \'string\'
             }
           **Response Structure** 
         
@@ -1101,76 +1101,76 @@ class Client(BaseClient):
         ::
         
           response = client.create_layer(
-              StackId='string',
-              Type='aws-flow-ruby'|'ecs-cluster'|'java-app'|'lb'|'web'|'php-app'|'rails-app'|'nodejs-app'|'memcached'|'db-master'|'monitoring-master'|'custom',
-              Name='string',
-              Shortname='string',
+              StackId=\'string\',
+              Type=\'aws-flow-ruby\'|\'ecs-cluster\'|\'java-app\'|\'lb\'|\'web\'|\'php-app\'|\'rails-app\'|\'nodejs-app\'|\'memcached\'|\'db-master\'|\'monitoring-master\'|\'custom\',
+              Name=\'string\',
+              Shortname=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               CloudWatchLogsConfiguration={
-                  'Enabled': True|False,
-                  'LogStreams': [
+                  \'Enabled\': True|False,
+                  \'LogStreams\': [
                       {
-                          'LogGroupName': 'string',
-                          'DatetimeFormat': 'string',
-                          'TimeZone': 'LOCAL'|'UTC',
-                          'File': 'string',
-                          'FileFingerprintLines': 'string',
-                          'MultiLineStartPattern': 'string',
-                          'InitialPosition': 'start_of_file'|'end_of_file',
-                          'Encoding': 'ascii'|'big5'|'big5hkscs'|'cp037'|'cp424'|'cp437'|'cp500'|'cp720'|'cp737'|'cp775'|'cp850'|'cp852'|'cp855'|'cp856'|'cp857'|'cp858'|'cp860'|'cp861'|'cp862'|'cp863'|'cp864'|'cp865'|'cp866'|'cp869'|'cp874'|'cp875'|'cp932'|'cp949'|'cp950'|'cp1006'|'cp1026'|'cp1140'|'cp1250'|'cp1251'|'cp1252'|'cp1253'|'cp1254'|'cp1255'|'cp1256'|'cp1257'|'cp1258'|'euc_jp'|'euc_jis_2004'|'euc_jisx0213'|'euc_kr'|'gb2312'|'gbk'|'gb18030'|'hz'|'iso2022_jp'|'iso2022_jp_1'|'iso2022_jp_2'|'iso2022_jp_2004'|'iso2022_jp_3'|'iso2022_jp_ext'|'iso2022_kr'|'latin_1'|'iso8859_2'|'iso8859_3'|'iso8859_4'|'iso8859_5'|'iso8859_6'|'iso8859_7'|'iso8859_8'|'iso8859_9'|'iso8859_10'|'iso8859_13'|'iso8859_14'|'iso8859_15'|'iso8859_16'|'johab'|'koi8_r'|'koi8_u'|'mac_cyrillic'|'mac_greek'|'mac_iceland'|'mac_latin2'|'mac_roman'|'mac_turkish'|'ptcp154'|'shift_jis'|'shift_jis_2004'|'shift_jisx0213'|'utf_32'|'utf_32_be'|'utf_32_le'|'utf_16'|'utf_16_be'|'utf_16_le'|'utf_7'|'utf_8'|'utf_8_sig',
-                          'BufferDuration': 123,
-                          'BatchCount': 123,
-                          'BatchSize': 123
+                          \'LogGroupName\': \'string\',
+                          \'DatetimeFormat\': \'string\',
+                          \'TimeZone\': \'LOCAL\'|\'UTC\',
+                          \'File\': \'string\',
+                          \'FileFingerprintLines\': \'string\',
+                          \'MultiLineStartPattern\': \'string\',
+                          \'InitialPosition\': \'start_of_file\'|\'end_of_file\',
+                          \'Encoding\': \'ascii\'|\'big5\'|\'big5hkscs\'|\'cp037\'|\'cp424\'|\'cp437\'|\'cp500\'|\'cp720\'|\'cp737\'|\'cp775\'|\'cp850\'|\'cp852\'|\'cp855\'|\'cp856\'|\'cp857\'|\'cp858\'|\'cp860\'|\'cp861\'|\'cp862\'|\'cp863\'|\'cp864\'|\'cp865\'|\'cp866\'|\'cp869\'|\'cp874\'|\'cp875\'|\'cp932\'|\'cp949\'|\'cp950\'|\'cp1006\'|\'cp1026\'|\'cp1140\'|\'cp1250\'|\'cp1251\'|\'cp1252\'|\'cp1253\'|\'cp1254\'|\'cp1255\'|\'cp1256\'|\'cp1257\'|\'cp1258\'|\'euc_jp\'|\'euc_jis_2004\'|\'euc_jisx0213\'|\'euc_kr\'|\'gb2312\'|\'gbk\'|\'gb18030\'|\'hz\'|\'iso2022_jp\'|\'iso2022_jp_1\'|\'iso2022_jp_2\'|\'iso2022_jp_2004\'|\'iso2022_jp_3\'|\'iso2022_jp_ext\'|\'iso2022_kr\'|\'latin_1\'|\'iso8859_2\'|\'iso8859_3\'|\'iso8859_4\'|\'iso8859_5\'|\'iso8859_6\'|\'iso8859_7\'|\'iso8859_8\'|\'iso8859_9\'|\'iso8859_10\'|\'iso8859_13\'|\'iso8859_14\'|\'iso8859_15\'|\'iso8859_16\'|\'johab\'|\'koi8_r\'|\'koi8_u\'|\'mac_cyrillic\'|\'mac_greek\'|\'mac_iceland\'|\'mac_latin2\'|\'mac_roman\'|\'mac_turkish\'|\'ptcp154\'|\'shift_jis\'|\'shift_jis_2004\'|\'shift_jisx0213\'|\'utf_32\'|\'utf_32_be\'|\'utf_32_le\'|\'utf_16\'|\'utf_16_be\'|\'utf_16_le\'|\'utf_7\'|\'utf_8\'|\'utf_8_sig\',
+                          \'BufferDuration\': 123,
+                          \'BatchCount\': 123,
+                          \'BatchSize\': 123
                       },
                   ]
               },
-              CustomInstanceProfileArn='string',
-              CustomJson='string',
+              CustomInstanceProfileArn=\'string\',
+              CustomJson=\'string\',
               CustomSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               Packages=[
-                  'string',
+                  \'string\',
               ],
               VolumeConfigurations=[
                   {
-                      'MountPoint': 'string',
-                      'RaidLevel': 123,
-                      'NumberOfDisks': 123,
-                      'Size': 123,
-                      'VolumeType': 'string',
-                      'Iops': 123,
-                      'Encrypted': True|False
+                      \'MountPoint\': \'string\',
+                      \'RaidLevel\': 123,
+                      \'NumberOfDisks\': 123,
+                      \'Size\': 123,
+                      \'VolumeType\': \'string\',
+                      \'Iops\': 123,
+                      \'Encrypted\': True|False
                   },
               ],
               EnableAutoHealing=True|False,
               AutoAssignElasticIps=True|False,
               AutoAssignPublicIps=True|False,
               CustomRecipes={
-                  'Setup': [
-                      'string',
+                  \'Setup\': [
+                      \'string\',
                   ],
-                  'Configure': [
-                      'string',
+                  \'Configure\': [
+                      \'string\',
                   ],
-                  'Deploy': [
-                      'string',
+                  \'Deploy\': [
+                      \'string\',
                   ],
-                  'Undeploy': [
-                      'string',
+                  \'Undeploy\': [
+                      \'string\',
                   ],
-                  'Shutdown': [
-                      'string',
+                  \'Shutdown\': [
+                      \'string\',
                   ]
               },
               InstallUpdatesOnBoot=True|False,
               UseEbsOptimizedInstances=True|False,
               LifecycleEventConfiguration={
-                  'Shutdown': {
-                      'ExecutionTimeout': 123,
-                      'DelayUntilElbConnectionsDrained': True|False
+                  \'Shutdown\': {
+                      \'ExecutionTimeout\': 123,
+                      \'DelayUntilElbConnectionsDrained\': True|False
                   }
               }
           )
@@ -1192,16 +1192,16 @@ class Client(BaseClient):
         :type Shortname: string
         :param Shortname: **[REQUIRED]** 
         
-          For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.
+          For custom layers only, use this parameter to specify the layer\'s short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, \'-\', \'_\', and \'.\'.
         
-          The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the `Layer Reference <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html>`__ .
+          The built-in layers\' short names are defined by AWS OpsWorks Stacks. For more information, see the `Layer Reference <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html>`__ .
         
         :type Attributes: dict
         :param Attributes: 
         
           One or more user-defined key-value pairs to be added to the stack attributes.
         
-          To create a cluster layer, set the ``EcsClusterArn`` attribute to the cluster's ARN.
+          To create a cluster layer, set the ``EcsClusterArn`` attribute to the cluster\'s ARN.
         
           - *(string) --* 
         
@@ -1226,7 +1226,7 @@ class Client(BaseClient):
         
               - **LogGroupName** *(string) --* 
         
-                Specifies the destination log group. A log group is created automatically if it doesn't already exist. Log group names can be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
+                Specifies the destination log group. A log group is created automatically if it doesn\'t already exist. Log group names can be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (hyphen), \'/\' (forward slash), and \'.\' (period).
         
               - **DatetimeFormat** *(string) --* 
         
@@ -1240,13 +1240,13 @@ class Client(BaseClient):
         
                 Specifies log files that you want to push to CloudWatch Logs.
         
-                 ``File`` can point to a specific file or multiple files (by using wild card characters such as ``/var/log/system.log*`` ). Only the latest file is pushed to CloudWatch Logs, based on file modification time. We recommend that you use wild card characters to specify a series of files of the same type, such as ``access_log.2014-06-01-01`` , ``access_log.2014-06-01-02`` , and so on by using a pattern like ``access_log.*`` . Don't use a wildcard to match multiple file types, such as ``access_log_80`` and ``access_log_443`` . To specify multiple, different file types, add another log stream entry to the configuration file, so that each log file type is stored in a different log group.
+                 ``File`` can point to a specific file or multiple files (by using wild card characters such as ``/var/log/system.log*`` ). Only the latest file is pushed to CloudWatch Logs, based on file modification time. We recommend that you use wild card characters to specify a series of files of the same type, such as ``access_log.2014-06-01-01`` , ``access_log.2014-06-01-02`` , and so on by using a pattern like ``access_log.*`` . Don\'t use a wildcard to match multiple file types, such as ``access_log_80`` and ``access_log_443`` . To specify multiple, different file types, add another log stream entry to the configuration file, so that each log file type is stored in a different log group.
         
                 Zipped files are not supported.
         
               - **FileFingerprintLines** *(string) --* 
         
-                Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as '1', '2-5'. The default value is '1', meaning the first line is used to calculate the fingerprint. Fingerprint lines are not sent to CloudWatch Logs unless all specified lines are available.
+                Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as \'1\', \'2-5\'. The default value is \'1\', meaning the first line is used to calculate the fingerprint. Fingerprint lines are not sent to CloudWatch Logs unless all specified lines are available.
         
               - **MultiLineStartPattern** *(string) --* 
         
@@ -1275,12 +1275,12 @@ class Client(BaseClient):
         :type CustomInstanceProfileArn: string
         :param CustomInstanceProfileArn: 
         
-          The ARN of an IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+          The ARN of an IAM profile to be used for the layer\'s EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
         :type CustomJson: string
         :param CustomJson: 
         
-          A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see `Using Custom JSON <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html>`__ . This feature is supported as of version 1.7.42 of the AWS CLI. 
+          A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer\'s instances. For more information, see `Using Custom JSON <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html>`__ . This feature is supported as of version 1.7.42 of the AWS CLI. 
         
         :type CustomSecurityGroupIds: list
         :param CustomSecurityGroupIds: 
@@ -1299,7 +1299,7 @@ class Client(BaseClient):
         :type VolumeConfigurations: list
         :param VolumeConfigurations: 
         
-          A ``VolumeConfigurations`` object that describes the layer's Amazon EBS volumes.
+          A ``VolumeConfigurations`` object that describes the layer\'s Amazon EBS volumes.
         
           - *(dict) --* 
         
@@ -1307,7 +1307,7 @@ class Client(BaseClient):
         
             - **MountPoint** *(string) --* **[REQUIRED]** 
         
-              The volume mount point. For example "/dev/sdh".
+              The volume mount point. For example \"/dev/sdh\".
         
             - **RaidLevel** *(integer) --* 
         
@@ -1351,12 +1351,12 @@ class Client(BaseClient):
         :type AutoAssignElasticIps: boolean
         :param AutoAssignElasticIps: 
         
-          Whether to automatically assign an `Elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ to the layer's instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
+          Whether to automatically assign an `Elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ to the layer\'s instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
         
         :type AutoAssignPublicIps: boolean
         :param AutoAssignPublicIps: 
         
-          For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
+          For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer\'s instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
         
         :type CustomRecipes: dict
         :param CustomRecipes: 
@@ -1432,7 +1432,7 @@ class Client(BaseClient):
           ::
         
             {
-                'LayerId': 'string'
+                \'LayerId\': \'string\'
             }
           **Response Structure** 
         
@@ -1458,40 +1458,40 @@ class Client(BaseClient):
         ::
         
           response = client.create_stack(
-              Name='string',
-              Region='string',
-              VpcId='string',
+              Name=\'string\',
+              Region=\'string\',
+              VpcId=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ServiceRoleArn='string',
-              DefaultInstanceProfileArn='string',
-              DefaultOs='string',
-              HostnameTheme='string',
-              DefaultAvailabilityZone='string',
-              DefaultSubnetId='string',
-              CustomJson='string',
+              ServiceRoleArn=\'string\',
+              DefaultInstanceProfileArn=\'string\',
+              DefaultOs=\'string\',
+              HostnameTheme=\'string\',
+              DefaultAvailabilityZone=\'string\',
+              DefaultSubnetId=\'string\',
+              CustomJson=\'string\',
               ConfigurationManager={
-                  'Name': 'string',
-                  'Version': 'string'
+                  \'Name\': \'string\',
+                  \'Version\': \'string\'
               },
               ChefConfiguration={
-                  'ManageBerkshelf': True|False,
-                  'BerkshelfVersion': 'string'
+                  \'ManageBerkshelf\': True|False,
+                  \'BerkshelfVersion\': \'string\'
               },
               UseCustomCookbooks=True|False,
               UseOpsworksSecurityGroups=True|False,
               CustomCookbooksSource={
-                  'Type': 'git'|'svn'|'archive'|'s3',
-                  'Url': 'string',
-                  'Username': 'string',
-                  'Password': 'string',
-                  'SshKey': 'string',
-                  'Revision': 'string'
+                  \'Type\': \'git\'|\'svn\'|\'archive\'|\'s3\',
+                  \'Url\': \'string\',
+                  \'Username\': \'string\',
+                  \'Password\': \'string\',
+                  \'SshKey\': \'string\',
+                  \'Revision\': \'string\'
               },
-              DefaultSshKeyName='string',
-              DefaultRootDeviceType='ebs'|'instance-store',
-              AgentVersion='string'
+              DefaultSshKeyName=\'string\',
+              DefaultRootDeviceType=\'ebs\'|\'instance-store\',
+              AgentVersion=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1501,7 +1501,7 @@ class Client(BaseClient):
         :type Region: string
         :param Region: **[REQUIRED]** 
         
-          The stack's AWS region, such as ``ap-south-1`` . For more information about Amazon regions, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
+          The stack\'s AWS region, such as ``ap-south-1`` . For more information about Amazon regions, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
         
           .. note::
         
@@ -1510,7 +1510,7 @@ class Client(BaseClient):
         :type VpcId: string
         :param VpcId: 
         
-          The ID of the VPC that the stack is to be launched into. The VPC must be in the stack's region. All instances are launched into this VPC. You cannot change the ID later.
+          The ID of the VPC that the stack is to be launched into. The VPC must be in the stack\'s region. All instances are launched into this VPC. You cannot change the ID later.
         
           * If your account supports EC2-Classic, the default value is ``no VPC`` . 
            
@@ -1538,17 +1538,17 @@ class Client(BaseClient):
         :type ServiceRoleArn: string
         :param ServiceRoleArn: **[REQUIRED]** 
         
-          The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+          The stack\'s AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
         :type DefaultInstanceProfileArn: string
         :param DefaultInstanceProfileArn: **[REQUIRED]** 
         
-          The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+          The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack\'s EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
         :type DefaultOs: string
         :param DefaultOs: 
         
-          The stack's default operating system, which is installed on every instance unless you specify a different operating system when you create the instance. You can specify one of the following.
+          The stack\'s default operating system, which is installed on every instance unless you specify a different operating system when you create the instance. You can specify one of the following.
         
           * A supported Linux operating system: An Amazon Linux version, such as ``Amazon Linux 2017.09`` , ``Amazon Linux 2017.03`` , ``Amazon Linux 2016.09`` , ``Amazon Linux 2016.03`` , ``Amazon Linux 2015.09`` , or ``Amazon Linux 2015.03`` . 
            
@@ -1567,7 +1567,7 @@ class Client(BaseClient):
         :type HostnameTheme: string
         :param HostnameTheme: 
         
-          The stack's host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, ``HostnameTheme`` is set to ``Layer_Dependent`` , which creates host names by appending integers to the layer's short name. The other themes are:
+          The stack\'s host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack\'s instances. By default, ``HostnameTheme`` is set to ``Layer_Dependent`` , which creates host names by appending integers to the layer\'s short name. The other themes are:
         
           * ``Baked_Goods``   
            
@@ -1596,19 +1596,19 @@ class Client(BaseClient):
         :type DefaultAvailabilityZone: string
         :param DefaultAvailabilityZone: 
         
-          The stack's default Availability Zone, which must be in the specified region. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ . If you also specify a value for ``DefaultSubnetId`` , the subnet must be in the same zone. For more information, see the ``VpcId`` parameter description. 
+          The stack\'s default Availability Zone, which must be in the specified region. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ . If you also specify a value for ``DefaultSubnetId`` , the subnet must be in the same zone. For more information, see the ``VpcId`` parameter description. 
         
         :type DefaultSubnetId: string
         :param DefaultSubnetId: 
         
-          The stack's default VPC subnet ID. This parameter is required if you specify a value for the ``VpcId`` parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for ``DefaultAvailabilityZone`` , the subnet must be in that zone. For information on default values and when this parameter is required, see the ``VpcId`` parameter description. 
+          The stack\'s default VPC subnet ID. This parameter is required if you specify a value for the ``VpcId`` parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for ``DefaultAvailabilityZone`` , the subnet must be in that zone. For information on default values and when this parameter is required, see the ``VpcId`` parameter description. 
         
         :type CustomJson: string
         :param CustomJson: 
         
           A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:
         
-           ``"{\"key1\": \"value1\", \"key2\": \"value2\",...}"``  
+           ``\"{\\"key1\\": \\"value1\\", \\"key2\\": \\"value2\\",...}\"``  
         
           For more information about custom JSON, see `Use Custom JSON to Modify the Stack Configuration Attributes <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html>`__ .
         
@@ -1619,7 +1619,7 @@ class Client(BaseClient):
         
           - **Name** *(string) --* 
         
-            The name. This parameter must be set to "Chef".
+            The name. This parameter must be set to \"Chef\".
         
           - **Version** *(string) --* 
         
@@ -1646,7 +1646,7 @@ class Client(BaseClient):
         :type UseOpsworksSecurityGroups: boolean
         :param UseOpsworksSecurityGroups: 
         
-          Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.
+          Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack\'s layers.
         
           AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. With ``UseOpsworksSecurityGroups`` you can instead provide your own custom security groups. ``UseOpsworksSecurityGroups`` has the following settings: 
         
@@ -1691,13 +1691,13 @@ class Client(BaseClient):
         
           - **SshKey** *(string) --* 
         
-            In requests, the repository's SSH key.
+            In requests, the repository\'s SSH key.
         
             In responses, AWS OpsWorks Stacks returns ``*****FILTERED*****`` instead of the actual value.
         
           - **Revision** *(string) --* 
         
-            The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+            The application\'s version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
         
         :type DefaultSshKeyName: string
         :param DefaultSshKeyName: 
@@ -1714,15 +1714,15 @@ class Client(BaseClient):
         
           The default AWS OpsWorks Stacks agent version. You have the following options:
         
-          * Auto-update - Set this parameter to ``LATEST`` . AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available. 
+          * Auto-update - Set this parameter to ``LATEST`` . AWS OpsWorks Stacks automatically installs new agent versions on the stack\'s instances as soon as they are available. 
            
-          * Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances. 
+          * Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack\'s instances. 
            
           The default setting is the most recent release of the agent. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call  DescribeAgentVersions . AgentVersion cannot be set to Chef 12.2.
         
           .. note::
         
-            You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.
+            You can also specify an agent version when you create or update an instance, which overrides the stack\'s default setting.
         
         :rtype: dict
         :returns: 
@@ -1732,7 +1732,7 @@ class Client(BaseClient):
           ::
         
             {
-                'StackId': 'string'
+                \'StackId\': \'string\'
             }
           **Response Structure** 
         
@@ -1758,30 +1758,30 @@ class Client(BaseClient):
         ::
         
           response = client.create_user_profile(
-              IamUserArn='string',
-              SshUsername='string',
-              SshPublicKey='string',
+              IamUserArn=\'string\',
+              SshUsername=\'string\',
+              SshPublicKey=\'string\',
               AllowSelfManagement=True|False
           )
         :type IamUserArn: string
         :param IamUserArn: **[REQUIRED]** 
         
-          The user's IAM ARN; this can also be a federated user's ARN.
+          The user\'s IAM ARN; this can also be a federated user\'s ARN.
         
         :type SshUsername: string
         :param SshUsername: 
         
-          The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, ``my.name`` will be changed to ``myname`` . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name. 
+          The user\'s SSH user name. The allowable characters are [a-z], [A-Z], [0-9], \'-\', and \'_\'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, ``my.name`` will be changed to ``myname`` . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name. 
         
         :type SshPublicKey: string
         :param SshPublicKey: 
         
-          The user's public SSH key.
+          The user\'s public SSH key.
         
         :type AllowSelfManagement: boolean
         :param AllowSelfManagement: 
         
-          Whether users can specify their own SSH public key through the My Settings page. For more information, see `Setting an IAM User's Public SSH Key <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html>`__ .
+          Whether users can specify their own SSH public key through the My Settings page. For more information, see `Setting an IAM User\'s Public SSH Key <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html>`__ .
         
         :rtype: dict
         :returns: 
@@ -1791,7 +1791,7 @@ class Client(BaseClient):
           ::
         
             {
-                'IamUserArn': 'string'
+                \'IamUserArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1801,7 +1801,7 @@ class Client(BaseClient):
         
             - **IamUserArn** *(string) --* 
         
-              The user's IAM ARN.
+              The user\'s IAM ARN.
         
         """
         pass
@@ -1817,7 +1817,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_app(
-              AppId='string'
+              AppId=\'string\'
           )
         :type AppId: string
         :param AppId: **[REQUIRED]** 
@@ -1841,7 +1841,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_instance(
-              InstanceId='string',
+              InstanceId=\'string\',
               DeleteElasticIp=True|False,
               DeleteVolumes=True|False
           )
@@ -1858,7 +1858,7 @@ class Client(BaseClient):
         :type DeleteVolumes: boolean
         :param DeleteVolumes: 
         
-          Whether to delete the instance's Amazon EBS volumes.
+          Whether to delete the instance\'s Amazon EBS volumes.
         
         :returns: None
         """
@@ -1875,7 +1875,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_layer(
-              LayerId='string'
+              LayerId=\'string\'
           )
         :type LayerId: string
         :param LayerId: **[REQUIRED]** 
@@ -1897,7 +1897,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_stack(
-              StackId='string'
+              StackId=\'string\'
           )
         :type StackId: string
         :param StackId: **[REQUIRED]** 
@@ -1919,12 +1919,12 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user_profile(
-              IamUserArn='string'
+              IamUserArn=\'string\'
           )
         :type IamUserArn: string
         :param IamUserArn: **[REQUIRED]** 
         
-          The user's IAM ARN. This can also be a federated user's ARN.
+          The user\'s IAM ARN. This can also be a federated user\'s ARN.
         
         :returns: None
         """
@@ -1941,12 +1941,12 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_ecs_cluster(
-              EcsClusterArn='string'
+              EcsClusterArn=\'string\'
           )
         :type EcsClusterArn: string
         :param EcsClusterArn: **[REQUIRED]** 
         
-          The cluster's Amazon Resource Number (ARN).
+          The cluster\'s Amazon Resource Number (ARN).
         
         :returns: None
         """
@@ -1963,7 +1963,7 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_elastic_ip(
-              ElasticIp='string'
+              ElasticIp=\'string\'
           )
         :type ElasticIp: string
         :param ElasticIp: **[REQUIRED]** 
@@ -1985,7 +1985,7 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_instance(
-              InstanceId='string'
+              InstanceId=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -2007,12 +2007,12 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_rds_db_instance(
-              RdsDbInstanceArn='string'
+              RdsDbInstanceArn=\'string\'
           )
         :type RdsDbInstanceArn: string
         :param RdsDbInstanceArn: **[REQUIRED]** 
         
-          The Amazon RDS instance's ARN.
+          The Amazon RDS instance\'s ARN.
         
         :returns: None
         """
@@ -2029,7 +2029,7 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_volume(
-              VolumeId='string'
+              VolumeId=\'string\'
           )
         :type VolumeId: string
         :param VolumeId: **[REQUIRED]** 
@@ -2049,10 +2049,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_agent_versions(
-              StackId='string',
+              StackId=\'string\',
               ConfigurationManager={
-                  'Name': 'string',
-                  'Version': 'string'
+                  \'Name\': \'string\',
+                  \'Version\': \'string\'
               }
           )
         :type StackId: string
@@ -2067,7 +2067,7 @@ class Client(BaseClient):
         
           - **Name** *(string) --* 
         
-            The name. This parameter must be set to "Chef".
+            The name. This parameter must be set to \"Chef\".
         
           - **Version** *(string) --* 
         
@@ -2081,12 +2081,12 @@ class Client(BaseClient):
           ::
         
             {
-                'AgentVersions': [
+                \'AgentVersions\': [
                     {
-                        'Version': 'string',
-                        'ConfigurationManager': {
-                            'Name': 'string',
-                            'Version': 'string'
+                        \'Version\': \'string\',
+                        \'ConfigurationManager\': {
+                            \'Name\': \'string\',
+                            \'Version\': \'string\'
                         }
                     },
                 ]
@@ -2115,7 +2115,7 @@ class Client(BaseClient):
         
                   - **Name** *(string) --* 
         
-                    The name. This parameter must be set to "Chef".
+                    The name. This parameter must be set to \"Chef\".
         
                   - **Version** *(string) --* 
         
@@ -2139,9 +2139,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_apps(
-              StackId='string',
+              StackId=\'string\',
               AppIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StackId: string
@@ -2164,47 +2164,47 @@ class Client(BaseClient):
           ::
         
             {
-                'Apps': [
+                \'Apps\': [
                     {
-                        'AppId': 'string',
-                        'StackId': 'string',
-                        'Shortname': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'DataSources': [
+                        \'AppId\': \'string\',
+                        \'StackId\': \'string\',
+                        \'Shortname\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'DataSources\': [
                             {
-                                'Type': 'string',
-                                'Arn': 'string',
-                                'DatabaseName': 'string'
+                                \'Type\': \'string\',
+                                \'Arn\': \'string\',
+                                \'DatabaseName\': \'string\'
                             },
                         ],
-                        'Type': 'aws-flow-ruby'|'java'|'rails'|'php'|'nodejs'|'static'|'other',
-                        'AppSource': {
-                            'Type': 'git'|'svn'|'archive'|'s3',
-                            'Url': 'string',
-                            'Username': 'string',
-                            'Password': 'string',
-                            'SshKey': 'string',
-                            'Revision': 'string'
+                        \'Type\': \'aws-flow-ruby\'|\'java\'|\'rails\'|\'php\'|\'nodejs\'|\'static\'|\'other\',
+                        \'AppSource\': {
+                            \'Type\': \'git\'|\'svn\'|\'archive\'|\'s3\',
+                            \'Url\': \'string\',
+                            \'Username\': \'string\',
+                            \'Password\': \'string\',
+                            \'SshKey\': \'string\',
+                            \'Revision\': \'string\'
                         },
-                        'Domains': [
-                            'string',
+                        \'Domains\': [
+                            \'string\',
                         ],
-                        'EnableSsl': True|False,
-                        'SslConfiguration': {
-                            'Certificate': 'string',
-                            'PrivateKey': 'string',
-                            'Chain': 'string'
+                        \'EnableSsl\': True|False,
+                        \'SslConfiguration\': {
+                            \'Certificate\': \'string\',
+                            \'PrivateKey\': \'string\',
+                            \'Chain\': \'string\'
                         },
-                        'Attributes': {
-                            'string': 'string'
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         },
-                        'CreatedAt': 'string',
-                        'Environment': [
+                        \'CreatedAt\': \'string\',
+                        \'Environment\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string',
-                                'Secure': True|False
+                                \'Key\': \'string\',
+                                \'Value\': \'string\',
+                                \'Secure\': True|False
                             },
                         ]
                     },
@@ -2234,7 +2234,7 @@ class Client(BaseClient):
         
                 - **Shortname** *(string) --* 
         
-                  The app's short name.
+                  The app\'s short name.
         
                 - **Name** *(string) --* 
         
@@ -2246,19 +2246,19 @@ class Client(BaseClient):
         
                 - **DataSources** *(list) --* 
         
-                  The app's data sources.
+                  The app\'s data sources.
         
                   - *(dict) --* 
         
-                    Describes an app's data source.
+                    Describes an app\'s data source.
         
                     - **Type** *(string) --* 
         
-                      The data source's type, ``AutoSelectOpsworksMysqlInstance`` , ``OpsworksMysqlInstance`` , ``RdsDbInstance`` , or ``None`` .
+                      The data source\'s type, ``AutoSelectOpsworksMysqlInstance`` , ``OpsworksMysqlInstance`` , ``RdsDbInstance`` , or ``None`` .
         
                     - **Arn** *(string) --* 
         
-                      The data source's ARN.
+                      The data source\'s ARN.
         
                     - **DatabaseName** *(string) --* 
         
@@ -2302,17 +2302,17 @@ class Client(BaseClient):
         
                   - **SshKey** *(string) --* 
         
-                    In requests, the repository's SSH key.
+                    In requests, the repository\'s SSH key.
         
                     In responses, AWS OpsWorks Stacks returns ``*****FILTERED*****`` instead of the actual value.
         
                   - **Revision** *(string) --* 
         
-                    The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+                    The application\'s version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
         
                 - **Domains** *(list) --* 
         
-                  The app vhost settings with multiple domains separated by commas. For example: ``'www.example.com, example.com'``  
+                  The app vhost settings with multiple domains separated by commas. For example: ``\'www.example.com, example.com\'``  
         
                   - *(string) --* 
               
@@ -2326,11 +2326,11 @@ class Client(BaseClient):
         
                   - **Certificate** *(string) --* 
         
-                    The contents of the certificate's domain.crt file.
+                    The contents of the certificate\'s domain.crt file.
         
                   - **PrivateKey** *(string) --* 
         
-                    The private key; the contents of the certificate's domain.kex file.
+                    The private key; the contents of the certificate\'s domain.kex file.
         
                   - **Chain** *(string) --* 
         
@@ -2354,23 +2354,23 @@ class Client(BaseClient):
         
                   .. note::
         
-                    There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variable names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases, but if you do exceed it, you will cause an exception (API) with an "Environment: is too large (maximum is 10KB)" message.
+                    There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variable names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases, but if you do exceed it, you will cause an exception (API) with an \"Environment: is too large (maximum is 10KB)\" message.
         
                   - *(dict) --* 
         
-                    Represents an app's environment variable.
+                    Represents an app\'s environment variable.
         
                     - **Key** *(string) --* 
         
-                      (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
+                      (Required) The environment variable\'s name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
         
                     - **Value** *(string) --* 
         
-                      (Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
+                      (Optional) The environment variable\'s value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
         
                     - **Secure** *(boolean) --* 
         
-                      (Optional) Whether the variable's value will be returned by the  DescribeApps action. To conceal an environment variable's value, set ``Secure`` to ``true`` . ``DescribeApps`` then returns ``*****FILTERED*****`` instead of the actual value. The default value for ``Secure`` is ``false`` . 
+                      (Optional) Whether the variable\'s value will be returned by the  DescribeApps action. To conceal an environment variable\'s value, set ``Secure`` to ``true`` . ``DescribeApps`` then returns ``*****FILTERED*****`` instead of the actual value. The default value for ``Secure`` is ``false`` . 
         
         """
         pass
@@ -2390,10 +2390,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_commands(
-              DeploymentId='string',
-              InstanceId='string',
+              DeploymentId=\'string\',
+              InstanceId=\'string\',
               CommandIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DeploymentId: string
@@ -2421,18 +2421,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Commands': [
+                \'Commands\': [
                     {
-                        'CommandId': 'string',
-                        'InstanceId': 'string',
-                        'DeploymentId': 'string',
-                        'CreatedAt': 'string',
-                        'AcknowledgedAt': 'string',
-                        'CompletedAt': 'string',
-                        'Status': 'string',
-                        'ExitCode': 123,
-                        'LogUrl': 'string',
-                        'Type': 'string'
+                        \'CommandId\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'DeploymentId\': \'string\',
+                        \'CreatedAt\': \'string\',
+                        \'AcknowledgedAt\': \'string\',
+                        \'CompletedAt\': \'string\',
+                        \'Status\': \'string\',
+                        \'ExitCode\': 123,
+                        \'LogUrl\': \'string\',
+                        \'Type\': \'string\'
                     },
                 ]
             }
@@ -2540,10 +2540,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_deployments(
-              StackId='string',
-              AppId='string',
+              StackId=\'string\',
+              AppId=\'string\',
               DeploymentIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StackId: string
@@ -2571,28 +2571,28 @@ class Client(BaseClient):
           ::
         
             {
-                'Deployments': [
+                \'Deployments\': [
                     {
-                        'DeploymentId': 'string',
-                        'StackId': 'string',
-                        'AppId': 'string',
-                        'CreatedAt': 'string',
-                        'CompletedAt': 'string',
-                        'Duration': 123,
-                        'IamUserArn': 'string',
-                        'Comment': 'string',
-                        'Command': {
-                            'Name': 'install_dependencies'|'update_dependencies'|'update_custom_cookbooks'|'execute_recipes'|'configure'|'setup'|'deploy'|'rollback'|'start'|'stop'|'restart'|'undeploy',
-                            'Args': {
-                                'string': [
-                                    'string',
+                        \'DeploymentId\': \'string\',
+                        \'StackId\': \'string\',
+                        \'AppId\': \'string\',
+                        \'CreatedAt\': \'string\',
+                        \'CompletedAt\': \'string\',
+                        \'Duration\': 123,
+                        \'IamUserArn\': \'string\',
+                        \'Comment\': \'string\',
+                        \'Command\': {
+                            \'Name\': \'install_dependencies\'|\'update_dependencies\'|\'update_custom_cookbooks\'|\'execute_recipes\'|\'configure\'|\'setup\'|\'deploy\'|\'rollback\'|\'start\'|\'stop\'|\'restart\'|\'undeploy\',
+                            \'Args\': {
+                                \'string\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Status': 'string',
-                        'CustomJson': 'string',
-                        'InstanceIds': [
-                            'string',
+                        \'Status\': \'string\',
+                        \'CustomJson\': \'string\',
+                        \'InstanceIds\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -2637,7 +2637,7 @@ class Client(BaseClient):
         
                 - **IamUserArn** *(string) --* 
         
-                  The user's IAM ARN.
+                  The user\'s IAM ARN.
         
                 - **Comment** *(string) --* 
         
@@ -2653,13 +2653,13 @@ class Client(BaseClient):
         
                     For stacks, the following commands are available:
         
-                    * ``execute_recipes`` : Execute one or more recipes. To specify the recipes, set an ``Args`` parameter named ``recipes`` to the list of recipes to be executed. For example, to execute ``phpapp::appsetup`` , set ``Args`` to ``{"recipes":["phpapp::appsetup"]}`` . 
+                    * ``execute_recipes`` : Execute one or more recipes. To specify the recipes, set an ``Args`` parameter named ``recipes`` to the list of recipes to be executed. For example, to execute ``phpapp::appsetup`` , set ``Args`` to ``{\"recipes\":[\"phpapp::appsetup\"]}`` . 
                      
-                    * ``install_dependencies`` : Install the stack's dependencies. 
+                    * ``install_dependencies`` : Install the stack\'s dependencies. 
                      
-                    * ``update_custom_cookbooks`` : Update the stack's custom cookbooks. 
+                    * ``update_custom_cookbooks`` : Update the stack\'s custom cookbooks. 
                      
-                    * ``update_dependencies`` : Update the stack's dependencies. 
+                    * ``update_dependencies`` : Update the stack\'s dependencies. 
                      
                     .. note::
         
@@ -2667,15 +2667,15 @@ class Client(BaseClient):
         
                     For apps, the following commands are available:
         
-                    * ``deploy`` : Deploy an app. Ruby on Rails apps have an optional ``Args`` parameter named ``migrate`` . Set ``Args`` to {"migrate":["true"]} to migrate the database. The default setting is {"migrate":["false"]}. 
+                    * ``deploy`` : Deploy an app. Ruby on Rails apps have an optional ``Args`` parameter named ``migrate`` . Set ``Args`` to {\"migrate\":[\"true\"]} to migrate the database. The default setting is {\"migrate\":[\"false\"]}. 
                      
                     * ``rollback`` Roll the app back to the previous version. When you update an app, AWS OpsWorks Stacks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions. 
                      
-                    * ``start`` : Start the app's web or application server. 
+                    * ``start`` : Start the app\'s web or application server. 
                      
-                    * ``stop`` : Stop the app's web or application server. 
+                    * ``stop`` : Stop the app\'s web or application server. 
                      
-                    * ``restart`` : Restart the app's web or application server. 
+                    * ``restart`` : Restart the app\'s web or application server. 
                      
                     * ``undeploy`` : Undeploy the app. 
                      
@@ -2683,7 +2683,7 @@ class Client(BaseClient):
         
                     The arguments of those commands that take arguments. It should be set to a JSON object with the following format:
         
-                     ``{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...], ...}``  
+                     ``{\"arg_name1\" : [\"value1\", \"value2\", ...], \"arg_name2\" : [\"value1\", \"value2\", ...], ...}``  
         
                     The ``update_dependencies`` command takes two arguments:
         
@@ -2693,7 +2693,7 @@ class Client(BaseClient):
                      
                     For example, to upgrade an instance to Amazon Linux 2016.09, set ``Args`` to the following.
         
-                     ``{ "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] }``  
+                     ``{ \"upgrade_os_to\":[\"Amazon Linux 2016.09\"], \"allow_reboot\":[\"true\"] }``  
         
                     - *(string) --* 
                       
@@ -2715,7 +2715,7 @@ class Client(BaseClient):
         
                   A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format:
         
-                   ``"{\"key1\": \"value1\", \"key2\": \"value2\",...}"``  
+                   ``\"{\\"key1\\": \\"value1\\", \\"key2\\": \\"value2\\",...}\"``  
         
                   For more information on custom JSON, see `Use Custom JSON to Modify the Stack Configuration Attributes <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html>`__ .
         
@@ -2742,10 +2742,10 @@ class Client(BaseClient):
         
           response = client.describe_ecs_clusters(
               EcsClusterArns=[
-                  'string',
+                  \'string\',
               ],
-              StackId='string',
-              NextToken='string',
+              StackId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type EcsClusterArns: list
@@ -2763,7 +2763,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          If the previous paginated request did not return all of the remaining results, the response object's``NextToken`` parameter value is set to a token. To retrieve the next set of results, call ``DescribeEcsClusters`` again and assign that token to the request object's ``NextToken`` parameter. If there are no remaining results, the previous response object's ``NextToken`` parameter is set to ``null`` .
+          If the previous paginated request did not return all of the remaining results, the response object\'s``NextToken`` parameter value is set to a token. To retrieve the next set of results, call ``DescribeEcsClusters`` again and assign that token to the request object\'s ``NextToken`` parameter. If there are no remaining results, the previous response object\'s ``NextToken`` parameter is set to ``null`` .
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -2778,15 +2778,15 @@ class Client(BaseClient):
           ::
         
             {
-                'EcsClusters': [
+                \'EcsClusters\': [
                     {
-                        'EcsClusterArn': 'string',
-                        'EcsClusterName': 'string',
-                        'StackId': 'string',
-                        'RegisteredAt': 'string'
+                        \'EcsClusterArn\': \'string\',
+                        \'EcsClusterName\': \'string\',
+                        \'StackId\': \'string\',
+                        \'RegisteredAt\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2804,7 +2804,7 @@ class Client(BaseClient):
         
                 - **EcsClusterArn** *(string) --* 
         
-                  The cluster's ARN.
+                  The cluster\'s ARN.
         
                 - **EcsClusterName** *(string) --* 
         
@@ -2820,7 +2820,7 @@ class Client(BaseClient):
         
             - **NextToken** *(string) --* 
         
-              If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's ``NextToken`` parameter to retrieve the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to ``null`` .
+              If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object\'s ``NextToken`` parameter to retrieve the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to ``null`` .
         
         """
         pass
@@ -2840,10 +2840,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_elastic_ips(
-              InstanceId='string',
-              StackId='string',
+              InstanceId=\'string\',
+              StackId=\'string\',
               Ips=[
-                  'string',
+                  \'string\',
               ]
           )
         :type InstanceId: string
@@ -2871,13 +2871,13 @@ class Client(BaseClient):
           ::
         
             {
-                'ElasticIps': [
+                \'ElasticIps\': [
                     {
-                        'Ip': 'string',
-                        'Name': 'string',
-                        'Domain': 'string',
-                        'Region': 'string',
-                        'InstanceId': 'string'
+                        \'Ip\': \'string\',
+                        \'Name\': \'string\',
+                        \'Domain\': \'string\',
+                        \'Region\': \'string\',
+                        \'InstanceId\': \'string\'
                     },
                 ]
             }
@@ -2933,15 +2933,15 @@ class Client(BaseClient):
         ::
         
           response = client.describe_elastic_load_balancers(
-              StackId='string',
+              StackId=\'string\',
               LayerIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StackId: string
         :param StackId: 
         
-          A stack ID. The action describes the stack's Elastic Load Balancing instances.
+          A stack ID. The action describes the stack\'s Elastic Load Balancing instances.
         
         :type LayerIds: list
         :param LayerIds: 
@@ -2958,22 +2958,22 @@ class Client(BaseClient):
           ::
         
             {
-                'ElasticLoadBalancers': [
+                \'ElasticLoadBalancers\': [
                     {
-                        'ElasticLoadBalancerName': 'string',
-                        'Region': 'string',
-                        'DnsName': 'string',
-                        'StackId': 'string',
-                        'LayerId': 'string',
-                        'VpcId': 'string',
-                        'AvailabilityZones': [
-                            'string',
+                        \'ElasticLoadBalancerName\': \'string\',
+                        \'Region\': \'string\',
+                        \'DnsName\': \'string\',
+                        \'StackId\': \'string\',
+                        \'LayerId\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'SubnetIds': [
-                            'string',
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'Ec2InstanceIds': [
-                            'string',
+                        \'Ec2InstanceIds\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -2994,15 +2994,15 @@ class Client(BaseClient):
         
                 - **ElasticLoadBalancerName** *(string) --* 
         
-                  The Elastic Load Balancing instance's name.
+                  The Elastic Load Balancing instance\'s name.
         
                 - **Region** *(string) --* 
         
-                  The instance's AWS region.
+                  The instance\'s AWS region.
         
                 - **DnsName** *(string) --* 
         
-                  The instance's public DNS name.
+                  The instance\'s public DNS name.
         
                 - **StackId** *(string) --* 
         
@@ -3052,10 +3052,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_instances(
-              StackId='string',
-              LayerId='string',
+              StackId=\'string\',
+              LayerId=\'string\',
               InstanceIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StackId: string
@@ -3083,70 +3083,70 @@ class Client(BaseClient):
           ::
         
             {
-                'Instances': [
+                \'Instances\': [
                     {
-                        'AgentVersion': 'string',
-                        'AmiId': 'string',
-                        'Architecture': 'x86_64'|'i386',
-                        'Arn': 'string',
-                        'AutoScalingType': 'load'|'timer',
-                        'AvailabilityZone': 'string',
-                        'BlockDeviceMappings': [
+                        \'AgentVersion\': \'string\',
+                        \'AmiId\': \'string\',
+                        \'Architecture\': \'x86_64\'|\'i386\',
+                        \'Arn\': \'string\',
+                        \'AutoScalingType\': \'load\'|\'timer\',
+                        \'AvailabilityZone\': \'string\',
+                        \'BlockDeviceMappings\': [
                             {
-                                'DeviceName': 'string',
-                                'NoDevice': 'string',
-                                'VirtualName': 'string',
-                                'Ebs': {
-                                    'SnapshotId': 'string',
-                                    'Iops': 123,
-                                    'VolumeSize': 123,
-                                    'VolumeType': 'gp2'|'io1'|'standard',
-                                    'DeleteOnTermination': True|False
+                                \'DeviceName\': \'string\',
+                                \'NoDevice\': \'string\',
+                                \'VirtualName\': \'string\',
+                                \'Ebs\': {
+                                    \'SnapshotId\': \'string\',
+                                    \'Iops\': 123,
+                                    \'VolumeSize\': 123,
+                                    \'VolumeType\': \'gp2\'|\'io1\'|\'standard\',
+                                    \'DeleteOnTermination\': True|False
                                 }
                             },
                         ],
-                        'CreatedAt': 'string',
-                        'EbsOptimized': True|False,
-                        'Ec2InstanceId': 'string',
-                        'EcsClusterArn': 'string',
-                        'EcsContainerInstanceArn': 'string',
-                        'ElasticIp': 'string',
-                        'Hostname': 'string',
-                        'InfrastructureClass': 'string',
-                        'InstallUpdatesOnBoot': True|False,
-                        'InstanceId': 'string',
-                        'InstanceProfileArn': 'string',
-                        'InstanceType': 'string',
-                        'LastServiceErrorId': 'string',
-                        'LayerIds': [
-                            'string',
+                        \'CreatedAt\': \'string\',
+                        \'EbsOptimized\': True|False,
+                        \'Ec2InstanceId\': \'string\',
+                        \'EcsClusterArn\': \'string\',
+                        \'EcsContainerInstanceArn\': \'string\',
+                        \'ElasticIp\': \'string\',
+                        \'Hostname\': \'string\',
+                        \'InfrastructureClass\': \'string\',
+                        \'InstallUpdatesOnBoot\': True|False,
+                        \'InstanceId\': \'string\',
+                        \'InstanceProfileArn\': \'string\',
+                        \'InstanceType\': \'string\',
+                        \'LastServiceErrorId\': \'string\',
+                        \'LayerIds\': [
+                            \'string\',
                         ],
-                        'Os': 'string',
-                        'Platform': 'string',
-                        'PrivateDns': 'string',
-                        'PrivateIp': 'string',
-                        'PublicDns': 'string',
-                        'PublicIp': 'string',
-                        'RegisteredBy': 'string',
-                        'ReportedAgentVersion': 'string',
-                        'ReportedOs': {
-                            'Family': 'string',
-                            'Name': 'string',
-                            'Version': 'string'
+                        \'Os\': \'string\',
+                        \'Platform\': \'string\',
+                        \'PrivateDns\': \'string\',
+                        \'PrivateIp\': \'string\',
+                        \'PublicDns\': \'string\',
+                        \'PublicIp\': \'string\',
+                        \'RegisteredBy\': \'string\',
+                        \'ReportedAgentVersion\': \'string\',
+                        \'ReportedOs\': {
+                            \'Family\': \'string\',
+                            \'Name\': \'string\',
+                            \'Version\': \'string\'
                         },
-                        'RootDeviceType': 'ebs'|'instance-store',
-                        'RootDeviceVolumeId': 'string',
-                        'SecurityGroupIds': [
-                            'string',
+                        \'RootDeviceType\': \'ebs\'|\'instance-store\',
+                        \'RootDeviceVolumeId\': \'string\',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ],
-                        'SshHostDsaKeyFingerprint': 'string',
-                        'SshHostRsaKeyFingerprint': 'string',
-                        'SshKeyName': 'string',
-                        'StackId': 'string',
-                        'Status': 'string',
-                        'SubnetId': 'string',
-                        'Tenancy': 'string',
-                        'VirtualizationType': 'paravirtual'|'hvm'
+                        \'SshHostDsaKeyFingerprint\': \'string\',
+                        \'SshHostRsaKeyFingerprint\': \'string\',
+                        \'SshKeyName\': \'string\',
+                        \'StackId\': \'string\',
+                        \'Status\': \'string\',
+                        \'SubnetId\': \'string\',
+                        \'Tenancy\': \'string\',
+                        \'VirtualizationType\': \'paravirtual\'|\'hvm\'
                     },
                 ]
             }
@@ -3174,11 +3174,11 @@ class Client(BaseClient):
         
                 - **Architecture** *(string) --* 
         
-                  The instance architecture: "i386" or "x86_64".
+                  The instance architecture: \"i386\" or \"x86_64\".
         
                 - **Arn** *(string) --* 
         
-                  The instance's Amazon Resource Number (ARN).
+                  The instance\'s Amazon Resource Number (ARN).
         
                 - **AutoScalingType** *(string) --* 
         
@@ -3190,7 +3190,7 @@ class Client(BaseClient):
         
                 - **BlockDeviceMappings** *(list) --* 
         
-                  An array of ``BlockDeviceMapping`` objects that specify the instance's block device mappings.
+                  An array of ``BlockDeviceMapping`` objects that specify the instance\'s block device mappings.
         
                   - *(dict) --* 
         
@@ -3202,7 +3202,7 @@ class Client(BaseClient):
         
                     - **NoDevice** *(string) --* 
         
-                      Suppresses the specified device included in the AMI's block device mapping.
+                      Suppresses the specified device included in the AMI\'s block device mapping.
         
                     - **VirtualName** *(string) --* 
         
@@ -3248,11 +3248,11 @@ class Client(BaseClient):
         
                 - **EcsClusterArn** *(string) --* 
         
-                  For container instances, the Amazon ECS cluster's ARN.
+                  For container instances, the Amazon ECS cluster\'s ARN.
         
                 - **EcsContainerInstanceArn** *(string) --* 
         
-                  For container instances, the instance's ARN.
+                  For container instances, the instance\'s ARN.
         
                 - **ElasticIp** *(string) --* 
         
@@ -3280,7 +3280,7 @@ class Client(BaseClient):
         
                 - **InstanceProfileArn** *(string) --* 
         
-                  The ARN of the instance's IAM profile. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+                  The ARN of the instance\'s IAM profile. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
                 - **InstanceType** *(string) --* 
         
@@ -3298,19 +3298,19 @@ class Client(BaseClient):
               
                 - **Os** *(string) --* 
         
-                  The instance's operating system.
+                  The instance\'s operating system.
         
                 - **Platform** *(string) --* 
         
-                  The instance's platform.
+                  The instance\'s platform.
         
                 - **PrivateDns** *(string) --* 
         
-                  The instance's private DNS name.
+                  The instance\'s private DNS name.
         
                 - **PrivateIp** *(string) --* 
         
-                  The instance's private IP address.
+                  The instance\'s private IP address.
         
                 - **PublicDns** *(string) --* 
         
@@ -3326,7 +3326,7 @@ class Client(BaseClient):
         
                 - **ReportedAgentVersion** *(string) --* 
         
-                  The instance's reported AWS OpsWorks Stacks agent version.
+                  The instance\'s reported AWS OpsWorks Stacks agent version.
         
                 - **ReportedOs** *(dict) --* 
         
@@ -3346,7 +3346,7 @@ class Client(BaseClient):
         
                 - **RootDeviceType** *(string) --* 
         
-                  The instance's root device type. For more information, see `Storage for the Root Device <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device>`__ .
+                  The instance\'s root device type. For more information, see `Storage for the Root Device <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device>`__ .
         
                 - **RootDeviceVolumeId** *(string) --* 
         
@@ -3360,15 +3360,15 @@ class Client(BaseClient):
               
                 - **SshHostDsaKeyFingerprint** *(string) --* 
         
-                  The SSH key's Deep Security Agent (DSA) fingerprint.
+                  The SSH key\'s Deep Security Agent (DSA) fingerprint.
         
                 - **SshHostRsaKeyFingerprint** *(string) --* 
         
-                  The SSH key's RSA fingerprint.
+                  The SSH key\'s RSA fingerprint.
         
                 - **SshKeyName** *(string) --* 
         
-                  The instance's Amazon EC2 key-pair name.
+                  The instance\'s Amazon EC2 key-pair name.
         
                 - **StackId** *(string) --* 
         
@@ -3410,15 +3410,15 @@ class Client(BaseClient):
                    
                 - **SubnetId** *(string) --* 
         
-                  The instance's subnet ID; applicable only if the stack is running in a VPC.
+                  The instance\'s subnet ID; applicable only if the stack is running in a VPC.
         
                 - **Tenancy** *(string) --* 
         
-                  The instance's tenancy option, such as ``dedicated`` or ``host`` .
+                  The instance\'s tenancy option, such as ``dedicated`` or ``host`` .
         
                 - **VirtualizationType** *(string) --* 
         
-                  The instance's virtualization type: ``paravirtual`` or ``hvm`` .
+                  The instance\'s virtualization type: ``paravirtual`` or ``hvm`` .
         
         """
         pass
@@ -3438,9 +3438,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_layers(
-              StackId='string',
+              StackId=\'string\',
               LayerIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StackId: string
@@ -3463,101 +3463,101 @@ class Client(BaseClient):
           ::
         
             {
-                'Layers': [
+                \'Layers\': [
                     {
-                        'Arn': 'string',
-                        'StackId': 'string',
-                        'LayerId': 'string',
-                        'Type': 'aws-flow-ruby'|'ecs-cluster'|'java-app'|'lb'|'web'|'php-app'|'rails-app'|'nodejs-app'|'memcached'|'db-master'|'monitoring-master'|'custom',
-                        'Name': 'string',
-                        'Shortname': 'string',
-                        'Attributes': {
-                            'string': 'string'
+                        \'Arn\': \'string\',
+                        \'StackId\': \'string\',
+                        \'LayerId\': \'string\',
+                        \'Type\': \'aws-flow-ruby\'|\'ecs-cluster\'|\'java-app\'|\'lb\'|\'web\'|\'php-app\'|\'rails-app\'|\'nodejs-app\'|\'memcached\'|\'db-master\'|\'monitoring-master\'|\'custom\',
+                        \'Name\': \'string\',
+                        \'Shortname\': \'string\',
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         },
-                        'CloudWatchLogsConfiguration': {
-                            'Enabled': True|False,
-                            'LogStreams': [
+                        \'CloudWatchLogsConfiguration\': {
+                            \'Enabled\': True|False,
+                            \'LogStreams\': [
                                 {
-                                    'LogGroupName': 'string',
-                                    'DatetimeFormat': 'string',
-                                    'TimeZone': 'LOCAL'|'UTC',
-                                    'File': 'string',
-                                    'FileFingerprintLines': 'string',
-                                    'MultiLineStartPattern': 'string',
-                                    'InitialPosition': 'start_of_file'|'end_of_file',
-                                    'Encoding': 'ascii'|'big5'|'big5hkscs'|'cp037'|'cp424'|'cp437'|'cp500'|'cp720'|'cp737'|'cp775'|'cp850'|'cp852'|'cp855'|'cp856'|'cp857'|'cp858'|'cp860'|'cp861'|'cp862'|'cp863'|'cp864'|'cp865'|'cp866'|'cp869'|'cp874'|'cp875'|'cp932'|'cp949'|'cp950'|'cp1006'|'cp1026'|'cp1140'|'cp1250'|'cp1251'|'cp1252'|'cp1253'|'cp1254'|'cp1255'|'cp1256'|'cp1257'|'cp1258'|'euc_jp'|'euc_jis_2004'|'euc_jisx0213'|'euc_kr'|'gb2312'|'gbk'|'gb18030'|'hz'|'iso2022_jp'|'iso2022_jp_1'|'iso2022_jp_2'|'iso2022_jp_2004'|'iso2022_jp_3'|'iso2022_jp_ext'|'iso2022_kr'|'latin_1'|'iso8859_2'|'iso8859_3'|'iso8859_4'|'iso8859_5'|'iso8859_6'|'iso8859_7'|'iso8859_8'|'iso8859_9'|'iso8859_10'|'iso8859_13'|'iso8859_14'|'iso8859_15'|'iso8859_16'|'johab'|'koi8_r'|'koi8_u'|'mac_cyrillic'|'mac_greek'|'mac_iceland'|'mac_latin2'|'mac_roman'|'mac_turkish'|'ptcp154'|'shift_jis'|'shift_jis_2004'|'shift_jisx0213'|'utf_32'|'utf_32_be'|'utf_32_le'|'utf_16'|'utf_16_be'|'utf_16_le'|'utf_7'|'utf_8'|'utf_8_sig',
-                                    'BufferDuration': 123,
-                                    'BatchCount': 123,
-                                    'BatchSize': 123
+                                    \'LogGroupName\': \'string\',
+                                    \'DatetimeFormat\': \'string\',
+                                    \'TimeZone\': \'LOCAL\'|\'UTC\',
+                                    \'File\': \'string\',
+                                    \'FileFingerprintLines\': \'string\',
+                                    \'MultiLineStartPattern\': \'string\',
+                                    \'InitialPosition\': \'start_of_file\'|\'end_of_file\',
+                                    \'Encoding\': \'ascii\'|\'big5\'|\'big5hkscs\'|\'cp037\'|\'cp424\'|\'cp437\'|\'cp500\'|\'cp720\'|\'cp737\'|\'cp775\'|\'cp850\'|\'cp852\'|\'cp855\'|\'cp856\'|\'cp857\'|\'cp858\'|\'cp860\'|\'cp861\'|\'cp862\'|\'cp863\'|\'cp864\'|\'cp865\'|\'cp866\'|\'cp869\'|\'cp874\'|\'cp875\'|\'cp932\'|\'cp949\'|\'cp950\'|\'cp1006\'|\'cp1026\'|\'cp1140\'|\'cp1250\'|\'cp1251\'|\'cp1252\'|\'cp1253\'|\'cp1254\'|\'cp1255\'|\'cp1256\'|\'cp1257\'|\'cp1258\'|\'euc_jp\'|\'euc_jis_2004\'|\'euc_jisx0213\'|\'euc_kr\'|\'gb2312\'|\'gbk\'|\'gb18030\'|\'hz\'|\'iso2022_jp\'|\'iso2022_jp_1\'|\'iso2022_jp_2\'|\'iso2022_jp_2004\'|\'iso2022_jp_3\'|\'iso2022_jp_ext\'|\'iso2022_kr\'|\'latin_1\'|\'iso8859_2\'|\'iso8859_3\'|\'iso8859_4\'|\'iso8859_5\'|\'iso8859_6\'|\'iso8859_7\'|\'iso8859_8\'|\'iso8859_9\'|\'iso8859_10\'|\'iso8859_13\'|\'iso8859_14\'|\'iso8859_15\'|\'iso8859_16\'|\'johab\'|\'koi8_r\'|\'koi8_u\'|\'mac_cyrillic\'|\'mac_greek\'|\'mac_iceland\'|\'mac_latin2\'|\'mac_roman\'|\'mac_turkish\'|\'ptcp154\'|\'shift_jis\'|\'shift_jis_2004\'|\'shift_jisx0213\'|\'utf_32\'|\'utf_32_be\'|\'utf_32_le\'|\'utf_16\'|\'utf_16_be\'|\'utf_16_le\'|\'utf_7\'|\'utf_8\'|\'utf_8_sig\',
+                                    \'BufferDuration\': 123,
+                                    \'BatchCount\': 123,
+                                    \'BatchSize\': 123
                                 },
                             ]
                         },
-                        'CustomInstanceProfileArn': 'string',
-                        'CustomJson': 'string',
-                        'CustomSecurityGroupIds': [
-                            'string',
+                        \'CustomInstanceProfileArn\': \'string\',
+                        \'CustomJson\': \'string\',
+                        \'CustomSecurityGroupIds\': [
+                            \'string\',
                         ],
-                        'DefaultSecurityGroupNames': [
-                            'string',
+                        \'DefaultSecurityGroupNames\': [
+                            \'string\',
                         ],
-                        'Packages': [
-                            'string',
+                        \'Packages\': [
+                            \'string\',
                         ],
-                        'VolumeConfigurations': [
+                        \'VolumeConfigurations\': [
                             {
-                                'MountPoint': 'string',
-                                'RaidLevel': 123,
-                                'NumberOfDisks': 123,
-                                'Size': 123,
-                                'VolumeType': 'string',
-                                'Iops': 123,
-                                'Encrypted': True|False
+                                \'MountPoint\': \'string\',
+                                \'RaidLevel\': 123,
+                                \'NumberOfDisks\': 123,
+                                \'Size\': 123,
+                                \'VolumeType\': \'string\',
+                                \'Iops\': 123,
+                                \'Encrypted\': True|False
                             },
                         ],
-                        'EnableAutoHealing': True|False,
-                        'AutoAssignElasticIps': True|False,
-                        'AutoAssignPublicIps': True|False,
-                        'DefaultRecipes': {
-                            'Setup': [
-                                'string',
+                        \'EnableAutoHealing\': True|False,
+                        \'AutoAssignElasticIps\': True|False,
+                        \'AutoAssignPublicIps\': True|False,
+                        \'DefaultRecipes\': {
+                            \'Setup\': [
+                                \'string\',
                             ],
-                            'Configure': [
-                                'string',
+                            \'Configure\': [
+                                \'string\',
                             ],
-                            'Deploy': [
-                                'string',
+                            \'Deploy\': [
+                                \'string\',
                             ],
-                            'Undeploy': [
-                                'string',
+                            \'Undeploy\': [
+                                \'string\',
                             ],
-                            'Shutdown': [
-                                'string',
+                            \'Shutdown\': [
+                                \'string\',
                             ]
                         },
-                        'CustomRecipes': {
-                            'Setup': [
-                                'string',
+                        \'CustomRecipes\': {
+                            \'Setup\': [
+                                \'string\',
                             ],
-                            'Configure': [
-                                'string',
+                            \'Configure\': [
+                                \'string\',
                             ],
-                            'Deploy': [
-                                'string',
+                            \'Deploy\': [
+                                \'string\',
                             ],
-                            'Undeploy': [
-                                'string',
+                            \'Undeploy\': [
+                                \'string\',
                             ],
-                            'Shutdown': [
-                                'string',
+                            \'Shutdown\': [
+                                \'string\',
                             ]
                         },
-                        'CreatedAt': 'string',
-                        'InstallUpdatesOnBoot': True|False,
-                        'UseEbsOptimizedInstances': True|False,
-                        'LifecycleEventConfiguration': {
-                            'Shutdown': {
-                                'ExecutionTimeout': 123,
-                                'DelayUntilElbConnectionsDrained': True|False
+                        \'CreatedAt\': \'string\',
+                        \'InstallUpdatesOnBoot\': True|False,
+                        \'UseEbsOptimizedInstances\': True|False,
+                        \'LifecycleEventConfiguration\': {
+                            \'Shutdown\': {
+                                \'ExecutionTimeout\': 123,
+                                \'DelayUntilElbConnectionsDrained\': True|False
                             }
                         }
                     },
@@ -3607,7 +3607,7 @@ class Client(BaseClient):
         
                   For the ``HaproxyStatsPassword`` , ``MysqlRootPassword`` , and ``GangliaPassword`` attributes, AWS OpsWorks Stacks returns ``*****FILTERED*****`` instead of the actual value
         
-                  For an ECS Cluster layer, AWS OpsWorks Stacks the ``EcsClusterArn`` attribute is set to the cluster's ARN.
+                  For an ECS Cluster layer, AWS OpsWorks Stacks the ``EcsClusterArn`` attribute is set to the cluster\'s ARN.
         
                   - *(string) --* 
                     
@@ -3631,7 +3631,7 @@ class Client(BaseClient):
         
                       - **LogGroupName** *(string) --* 
         
-                        Specifies the destination log group. A log group is created automatically if it doesn't already exist. Log group names can be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
+                        Specifies the destination log group. A log group is created automatically if it doesn\'t already exist. Log group names can be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (hyphen), \'/\' (forward slash), and \'.\' (period).
         
                       - **DatetimeFormat** *(string) --* 
         
@@ -3645,13 +3645,13 @@ class Client(BaseClient):
         
                         Specifies log files that you want to push to CloudWatch Logs.
         
-                         ``File`` can point to a specific file or multiple files (by using wild card characters such as ``/var/log/system.log*`` ). Only the latest file is pushed to CloudWatch Logs, based on file modification time. We recommend that you use wild card characters to specify a series of files of the same type, such as ``access_log.2014-06-01-01`` , ``access_log.2014-06-01-02`` , and so on by using a pattern like ``access_log.*`` . Don't use a wildcard to match multiple file types, such as ``access_log_80`` and ``access_log_443`` . To specify multiple, different file types, add another log stream entry to the configuration file, so that each log file type is stored in a different log group.
+                         ``File`` can point to a specific file or multiple files (by using wild card characters such as ``/var/log/system.log*`` ). Only the latest file is pushed to CloudWatch Logs, based on file modification time. We recommend that you use wild card characters to specify a series of files of the same type, such as ``access_log.2014-06-01-01`` , ``access_log.2014-06-01-02`` , and so on by using a pattern like ``access_log.*`` . Don\'t use a wildcard to match multiple file types, such as ``access_log_80`` and ``access_log_443`` . To specify multiple, different file types, add another log stream entry to the configuration file, so that each log file type is stored in a different log group.
         
                         Zipped files are not supported.
         
                       - **FileFingerprintLines** *(string) --* 
         
-                        Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as '1', '2-5'. The default value is '1', meaning the first line is used to calculate the fingerprint. Fingerprint lines are not sent to CloudWatch Logs unless all specified lines are available.
+                        Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as \'1\', \'2-5\'. The default value is \'1\', meaning the first line is used to calculate the fingerprint. Fingerprint lines are not sent to CloudWatch Logs unless all specified lines are available.
         
                       - **MultiLineStartPattern** *(string) --* 
         
@@ -3679,33 +3679,33 @@ class Client(BaseClient):
         
                 - **CustomInstanceProfileArn** *(string) --* 
         
-                  The ARN of the default IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+                  The ARN of the default IAM profile to be used for the layer\'s EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
                 - **CustomJson** *(string) --* 
         
-                  A JSON formatted string containing the layer's custom stack configuration and deployment attributes.
+                  A JSON formatted string containing the layer\'s custom stack configuration and deployment attributes.
         
                 - **CustomSecurityGroupIds** *(list) --* 
         
-                  An array containing the layer's custom security group IDs.
+                  An array containing the layer\'s custom security group IDs.
         
                   - *(string) --* 
               
                 - **DefaultSecurityGroupNames** *(list) --* 
         
-                  An array containing the layer's security group names.
+                  An array containing the layer\'s security group names.
         
                   - *(string) --* 
               
                 - **Packages** *(list) --* 
         
-                  An array of ``Package`` objects that describe the layer's packages.
+                  An array of ``Package`` objects that describe the layer\'s packages.
         
                   - *(string) --* 
               
                 - **VolumeConfigurations** *(list) --* 
         
-                  A ``VolumeConfigurations`` object that describes the layer's Amazon EBS volumes.
+                  A ``VolumeConfigurations`` object that describes the layer\'s Amazon EBS volumes.
         
                   - *(dict) --* 
         
@@ -3713,7 +3713,7 @@ class Client(BaseClient):
         
                     - **MountPoint** *(string) --* 
         
-                      The volume mount point. For example "/dev/sdh".
+                      The volume mount point. For example \"/dev/sdh\".
         
                     - **RaidLevel** *(integer) --* 
         
@@ -3755,17 +3755,17 @@ class Client(BaseClient):
         
                 - **AutoAssignElasticIps** *(boolean) --* 
         
-                  Whether to automatically assign an `Elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ to the layer's instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
+                  Whether to automatically assign an `Elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ to the layer\'s instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
         
                 - **AutoAssignPublicIps** *(boolean) --* 
         
-                  For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
+                  For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer\'s instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
         
                 - **DefaultRecipes** *(dict) --* 
         
                   AWS OpsWorks Stacks supports five lifecycle events: **setup** , **configuration** , **deploy** , **undeploy** , and **shutdown** . For each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event. In addition, you can provide custom recipes for any or all layers and events. AWS OpsWorks Stacks runs custom event recipes after the standard recipes. ``LayerCustomRecipes`` specifies the custom recipes for a particular layer to be run in response to each of the five events. 
         
-                  To specify a recipe, use the cookbook's directory name in the repository followed by two colons and the recipe name, which is the recipe's file name without the .rb extension. For example: phpapp2::dbsetup specifies the dbsetup.rb recipe in the repository's phpapp2 folder.
+                  To specify a recipe, use the cookbook\'s directory name in the repository followed by two colons and the recipe name, which is the recipe\'s file name without the .rb extension. For example: phpapp2::dbsetup specifies the dbsetup.rb recipe in the repository\'s phpapp2 folder.
         
                   - **Setup** *(list) --* 
         
@@ -3799,7 +3799,7 @@ class Client(BaseClient):
                 
                 - **CustomRecipes** *(dict) --* 
         
-                  A ``LayerCustomRecipes`` object that specifies the layer's custom recipes.
+                  A ``LayerCustomRecipes`` object that specifies the layer\'s custom recipes.
         
                   - **Setup** *(list) --* 
         
@@ -3882,7 +3882,7 @@ class Client(BaseClient):
         
           response = client.describe_load_based_auto_scaling(
               LayerIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type LayerIds: list
@@ -3900,30 +3900,30 @@ class Client(BaseClient):
           ::
         
             {
-                'LoadBasedAutoScalingConfigurations': [
+                \'LoadBasedAutoScalingConfigurations\': [
                     {
-                        'LayerId': 'string',
-                        'Enable': True|False,
-                        'UpScaling': {
-                            'InstanceCount': 123,
-                            'ThresholdsWaitTime': 123,
-                            'IgnoreMetricsTime': 123,
-                            'CpuThreshold': 123.0,
-                            'MemoryThreshold': 123.0,
-                            'LoadThreshold': 123.0,
-                            'Alarms': [
-                                'string',
+                        \'LayerId\': \'string\',
+                        \'Enable\': True|False,
+                        \'UpScaling\': {
+                            \'InstanceCount\': 123,
+                            \'ThresholdsWaitTime\': 123,
+                            \'IgnoreMetricsTime\': 123,
+                            \'CpuThreshold\': 123.0,
+                            \'MemoryThreshold\': 123.0,
+                            \'LoadThreshold\': 123.0,
+                            \'Alarms\': [
+                                \'string\',
                             ]
                         },
-                        'DownScaling': {
-                            'InstanceCount': 123,
-                            'ThresholdsWaitTime': 123,
-                            'IgnoreMetricsTime': 123,
-                            'CpuThreshold': 123.0,
-                            'MemoryThreshold': 123.0,
-                            'LoadThreshold': 123.0,
-                            'Alarms': [
-                                'string',
+                        \'DownScaling\': {
+                            \'InstanceCount\': 123,
+                            \'ThresholdsWaitTime\': 123,
+                            \'IgnoreMetricsTime\': 123,
+                            \'CpuThreshold\': 123.0,
+                            \'MemoryThreshold\': 123.0,
+                            \'LoadThreshold\': 123.0,
+                            \'Alarms\': [
+                                \'string\',
                             ]
                         }
                     },
@@ -3937,11 +3937,11 @@ class Client(BaseClient):
         
             - **LoadBasedAutoScalingConfigurations** *(list) --* 
         
-              An array of ``LoadBasedAutoScalingConfiguration`` objects that describe each layer's configuration.
+              An array of ``LoadBasedAutoScalingConfiguration`` objects that describe each layer\'s configuration.
         
               - *(dict) --* 
         
-                Describes a layer's load-based auto scaling configuration.
+                Describes a layer\'s load-based auto scaling configuration.
         
                 - **LayerId** *(string) --* 
         
@@ -3965,7 +3965,7 @@ class Client(BaseClient):
         
                   - **IgnoreMetricsTime** *(integer) --* 
         
-                    The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. ``IgnoreMetricsTime`` allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
+                    The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won\'t start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. ``IgnoreMetricsTime`` allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
         
                   - **CpuThreshold** *(float) --* 
         
@@ -4003,7 +4003,7 @@ class Client(BaseClient):
         
                   - **IgnoreMetricsTime** *(integer) --* 
         
-                    The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. ``IgnoreMetricsTime`` allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
+                    The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won\'t start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. ``IgnoreMetricsTime`` allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
         
                   - **CpuThreshold** *(float) --* 
         
@@ -4050,11 +4050,11 @@ class Client(BaseClient):
           ::
         
             {
-                'UserProfile': {
-                    'IamUserArn': 'string',
-                    'Name': 'string',
-                    'SshUsername': 'string',
-                    'SshPublicKey': 'string'
+                \'UserProfile\': {
+                    \'IamUserArn\': \'string\',
+                    \'Name\': \'string\',
+                    \'SshUsername\': \'string\',
+                    \'SshPublicKey\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4065,23 +4065,23 @@ class Client(BaseClient):
         
             - **UserProfile** *(dict) --* 
         
-              A ``UserProfile`` object that describes the user's SSH information.
+              A ``UserProfile`` object that describes the user\'s SSH information.
         
               - **IamUserArn** *(string) --* 
         
-                The user's IAM ARN.
+                The user\'s IAM ARN.
         
               - **Name** *(string) --* 
         
-                The user's name.
+                The user\'s name.
         
               - **SshUsername** *(string) --* 
         
-                The user's SSH user name.
+                The user\'s SSH user name.
         
               - **SshPublicKey** *(string) --* 
         
-                The user's SSH public key.
+                The user\'s SSH public key.
         
         """
         pass
@@ -4104,20 +4104,20 @@ class Client(BaseClient):
           ::
         
             {
-                'OperatingSystems': [
+                \'OperatingSystems\': [
                     {
-                        'Name': 'string',
-                        'Id': 'string',
-                        'Type': 'string',
-                        'ConfigurationManagers': [
+                        \'Name\': \'string\',
+                        \'Id\': \'string\',
+                        \'Type\': \'string\',
+                        \'ConfigurationManagers\': [
                             {
-                                'Name': 'string',
-                                'Version': 'string'
+                                \'Name\': \'string\',
+                                \'Version\': \'string\'
                             },
                         ],
-                        'ReportedName': 'string',
-                        'ReportedVersion': 'string',
-                        'Supported': True|False
+                        \'ReportedName\': \'string\',
+                        \'ReportedVersion\': \'string\',
+                        \'Supported\': True|False
                     },
                 ]
             }
@@ -4189,13 +4189,13 @@ class Client(BaseClient):
         ::
         
           response = client.describe_permissions(
-              IamUserArn='string',
-              StackId='string'
+              IamUserArn=\'string\',
+              StackId=\'string\'
           )
         :type IamUserArn: string
         :param IamUserArn: 
         
-          The user's IAM ARN. This can also be a federated user's ARN. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+          The user\'s IAM ARN. This can also be a federated user\'s ARN. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
         :type StackId: string
         :param StackId: 
@@ -4210,13 +4210,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Permissions': [
+                \'Permissions\': [
                     {
-                        'StackId': 'string',
-                        'IamUserArn': 'string',
-                        'AllowSsh': True|False,
-                        'AllowSudo': True|False,
-                        'Level': 'string'
+                        \'StackId\': \'string\',
+                        \'IamUserArn\': \'string\',
+                        \'AllowSsh\': True|False,
+                        \'AllowSudo\': True|False,
+                        \'Level\': \'string\'
                     },
                 ]
             }
@@ -4232,7 +4232,7 @@ class Client(BaseClient):
         
               * If the request object contains only a stack ID, the array contains a ``Permission`` object with permissions for each of the stack IAM ARNs. 
                
-              * If the request object contains only an IAM ARN, the array contains a ``Permission`` object with permissions for each of the user's stack IDs. 
+              * If the request object contains only an IAM ARN, the array contains a ``Permission`` object with permissions for each of the user\'s stack IDs. 
                
               * If the request contains a stack ID and an IAM ARN, the array contains a single ``Permission`` object with permissions for the specified stack and IAM ARN. 
                
@@ -4258,7 +4258,7 @@ class Client(BaseClient):
         
                 - **Level** *(string) --* 
         
-                  The user's permission level, which must be the following:
+                  The user\'s permission level, which must be the following:
         
                   * ``deny``   
                    
@@ -4290,10 +4290,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_raid_arrays(
-              InstanceId='string',
-              StackId='string',
+              InstanceId=\'string\',
+              StackId=\'string\',
               RaidArrayIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type InstanceId: string
@@ -4321,21 +4321,21 @@ class Client(BaseClient):
           ::
         
             {
-                'RaidArrays': [
+                \'RaidArrays\': [
                     {
-                        'RaidArrayId': 'string',
-                        'InstanceId': 'string',
-                        'Name': 'string',
-                        'RaidLevel': 123,
-                        'NumberOfDisks': 123,
-                        'Size': 123,
-                        'Device': 'string',
-                        'MountPoint': 'string',
-                        'AvailabilityZone': 'string',
-                        'CreatedAt': 'string',
-                        'StackId': 'string',
-                        'VolumeType': 'string',
-                        'Iops': 123
+                        \'RaidArrayId\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'Name\': \'string\',
+                        \'RaidLevel\': 123,
+                        \'NumberOfDisks\': 123,
+                        \'Size\': 123,
+                        \'Device\': \'string\',
+                        \'MountPoint\': \'string\',
+                        \'AvailabilityZone\': \'string\',
+                        \'CreatedAt\': \'string\',
+                        \'StackId\': \'string\',
+                        \'VolumeType\': \'string\',
+                        \'Iops\': 123
                     },
                 ]
             }
@@ -4351,7 +4351,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Describes an instance's RAID array.
+                Describes an instance\'s RAID array.
         
                 - **RaidArrayId** *(string) --* 
         
@@ -4375,19 +4375,19 @@ class Client(BaseClient):
         
                 - **Size** *(integer) --* 
         
-                  The array's size.
+                  The array\'s size.
         
                 - **Device** *(string) --* 
         
-                  The array's Linux device. For example /dev/mdadm0.
+                  The array\'s Linux device. For example /dev/mdadm0.
         
                 - **MountPoint** *(string) --* 
         
-                  The array's mount point.
+                  The array\'s mount point.
         
                 - **AvailabilityZone** *(string) --* 
         
-                  The array's Availability Zone. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
+                  The array\'s Availability Zone. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
         
                 - **CreatedAt** *(string) --* 
         
@@ -4421,9 +4421,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_rds_db_instances(
-              StackId='string',
+              StackId=\'string\',
               RdsDbInstanceArns=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StackId: string
@@ -4446,17 +4446,17 @@ class Client(BaseClient):
           ::
         
             {
-                'RdsDbInstances': [
+                \'RdsDbInstances\': [
                     {
-                        'RdsDbInstanceArn': 'string',
-                        'DbInstanceIdentifier': 'string',
-                        'DbUser': 'string',
-                        'DbPassword': 'string',
-                        'Region': 'string',
-                        'Address': 'string',
-                        'Engine': 'string',
-                        'StackId': 'string',
-                        'MissingOnRds': True|False
+                        \'RdsDbInstanceArn\': \'string\',
+                        \'DbInstanceIdentifier\': \'string\',
+                        \'DbUser\': \'string\',
+                        \'DbPassword\': \'string\',
+                        \'Region\': \'string\',
+                        \'Address\': \'string\',
+                        \'Engine\': \'string\',
+                        \'StackId\': \'string\',
+                        \'MissingOnRds\': True|False
                     },
                 ]
             }
@@ -4476,7 +4476,7 @@ class Client(BaseClient):
         
                 - **RdsDbInstanceArn** *(string) --* 
         
-                  The instance's ARN.
+                  The instance\'s ARN.
         
                 - **DbInstanceIdentifier** *(string) --* 
         
@@ -4492,15 +4492,15 @@ class Client(BaseClient):
         
                 - **Region** *(string) --* 
         
-                  The instance's AWS region.
+                  The instance\'s AWS region.
         
                 - **Address** *(string) --* 
         
-                  The instance's address.
+                  The instance\'s address.
         
                 - **Engine** *(string) --* 
         
-                  The instance's database engine.
+                  The instance\'s database engine.
         
                 - **StackId** *(string) --* 
         
@@ -4526,10 +4526,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_service_errors(
-              StackId='string',
-              InstanceId='string',
+              StackId=\'string\',
+              InstanceId=\'string\',
               ServiceErrorIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StackId: string
@@ -4557,14 +4557,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceErrors': [
+                \'ServiceErrors\': [
                     {
-                        'ServiceErrorId': 'string',
-                        'StackId': 'string',
-                        'InstanceId': 'string',
-                        'Type': 'string',
-                        'Message': 'string',
-                        'CreatedAt': 'string'
+                        \'ServiceErrorId\': \'string\',
+                        \'StackId\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'Type\': \'string\',
+                        \'Message\': \'string\',
+                        \'CreatedAt\': \'string\'
                     },
                 ]
             }
@@ -4620,7 +4620,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stack_provisioning_parameters(
-              StackId='string'
+              StackId=\'string\'
           )
         :type StackId: string
         :param StackId: **[REQUIRED]** 
@@ -4635,9 +4635,9 @@ class Client(BaseClient):
           ::
         
             {
-                'AgentInstallerUrl': 'string',
-                'Parameters': {
-                    'string': 'string'
+                \'AgentInstallerUrl\': \'string\',
+                \'Parameters\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4648,7 +4648,7 @@ class Client(BaseClient):
         
             - **AgentInstallerUrl** *(string) --* 
         
-              The AWS OpsWorks Stacks agent installer's URL.
+              The AWS OpsWorks Stacks agent installer\'s URL.
         
             - **Parameters** *(dict) --* 
         
@@ -4672,7 +4672,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stack_summary(
-              StackId='string'
+              StackId=\'string\'
           )
         :type StackId: string
         :param StackId: **[REQUIRED]** 
@@ -4687,33 +4687,33 @@ class Client(BaseClient):
           ::
         
             {
-                'StackSummary': {
-                    'StackId': 'string',
-                    'Name': 'string',
-                    'Arn': 'string',
-                    'LayersCount': 123,
-                    'AppsCount': 123,
-                    'InstancesCount': {
-                        'Assigning': 123,
-                        'Booting': 123,
-                        'ConnectionLost': 123,
-                        'Deregistering': 123,
-                        'Online': 123,
-                        'Pending': 123,
-                        'Rebooting': 123,
-                        'Registered': 123,
-                        'Registering': 123,
-                        'Requested': 123,
-                        'RunningSetup': 123,
-                        'SetupFailed': 123,
-                        'ShuttingDown': 123,
-                        'StartFailed': 123,
-                        'StopFailed': 123,
-                        'Stopped': 123,
-                        'Stopping': 123,
-                        'Terminated': 123,
-                        'Terminating': 123,
-                        'Unassigning': 123
+                \'StackSummary\': {
+                    \'StackId\': \'string\',
+                    \'Name\': \'string\',
+                    \'Arn\': \'string\',
+                    \'LayersCount\': 123,
+                    \'AppsCount\': 123,
+                    \'InstancesCount\': {
+                        \'Assigning\': 123,
+                        \'Booting\': 123,
+                        \'ConnectionLost\': 123,
+                        \'Deregistering\': 123,
+                        \'Online\': 123,
+                        \'Pending\': 123,
+                        \'Rebooting\': 123,
+                        \'Registered\': 123,
+                        \'Registering\': 123,
+                        \'Requested\': 123,
+                        \'RunningSetup\': 123,
+                        \'SetupFailed\': 123,
+                        \'ShuttingDown\': 123,
+                        \'StartFailed\': 123,
+                        \'StopFailed\': 123,
+                        \'Stopped\': 123,
+                        \'Stopping\': 123,
+                        \'Terminated\': 123,
+                        \'Terminating\': 123,
+                        \'Unassigning\': 123
                     }
                 }
             }
@@ -4737,7 +4737,7 @@ class Client(BaseClient):
         
               - **Arn** *(string) --* 
         
-                The stack's ARN.
+                The stack\'s ARN.
         
               - **LayersCount** *(integer) --* 
         
@@ -4846,7 +4846,7 @@ class Client(BaseClient):
         
           response = client.describe_stacks(
               StackIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StackIds: list
@@ -4864,45 +4864,45 @@ class Client(BaseClient):
           ::
         
             {
-                'Stacks': [
+                \'Stacks\': [
                     {
-                        'StackId': 'string',
-                        'Name': 'string',
-                        'Arn': 'string',
-                        'Region': 'string',
-                        'VpcId': 'string',
-                        'Attributes': {
-                            'string': 'string'
+                        \'StackId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Region\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         },
-                        'ServiceRoleArn': 'string',
-                        'DefaultInstanceProfileArn': 'string',
-                        'DefaultOs': 'string',
-                        'HostnameTheme': 'string',
-                        'DefaultAvailabilityZone': 'string',
-                        'DefaultSubnetId': 'string',
-                        'CustomJson': 'string',
-                        'ConfigurationManager': {
-                            'Name': 'string',
-                            'Version': 'string'
+                        \'ServiceRoleArn\': \'string\',
+                        \'DefaultInstanceProfileArn\': \'string\',
+                        \'DefaultOs\': \'string\',
+                        \'HostnameTheme\': \'string\',
+                        \'DefaultAvailabilityZone\': \'string\',
+                        \'DefaultSubnetId\': \'string\',
+                        \'CustomJson\': \'string\',
+                        \'ConfigurationManager\': {
+                            \'Name\': \'string\',
+                            \'Version\': \'string\'
                         },
-                        'ChefConfiguration': {
-                            'ManageBerkshelf': True|False,
-                            'BerkshelfVersion': 'string'
+                        \'ChefConfiguration\': {
+                            \'ManageBerkshelf\': True|False,
+                            \'BerkshelfVersion\': \'string\'
                         },
-                        'UseCustomCookbooks': True|False,
-                        'UseOpsworksSecurityGroups': True|False,
-                        'CustomCookbooksSource': {
-                            'Type': 'git'|'svn'|'archive'|'s3',
-                            'Url': 'string',
-                            'Username': 'string',
-                            'Password': 'string',
-                            'SshKey': 'string',
-                            'Revision': 'string'
+                        \'UseCustomCookbooks\': True|False,
+                        \'UseOpsworksSecurityGroups\': True|False,
+                        \'CustomCookbooksSource\': {
+                            \'Type\': \'git\'|\'svn\'|\'archive\'|\'s3\',
+                            \'Url\': \'string\',
+                            \'Username\': \'string\',
+                            \'Password\': \'string\',
+                            \'SshKey\': \'string\',
+                            \'Revision\': \'string\'
                         },
-                        'DefaultSshKeyName': 'string',
-                        'CreatedAt': 'string',
-                        'DefaultRootDeviceType': 'ebs'|'instance-store',
-                        'AgentVersion': 'string'
+                        \'DefaultSshKeyName\': \'string\',
+                        \'CreatedAt\': \'string\',
+                        \'DefaultRootDeviceType\': \'ebs\'|\'instance-store\',
+                        \'AgentVersion\': \'string\'
                     },
                 ]
             }
@@ -4930,11 +4930,11 @@ class Client(BaseClient):
         
                 - **Arn** *(string) --* 
         
-                  The stack's ARN.
+                  The stack\'s ARN.
         
                 - **Region** *(string) --* 
         
-                  The stack AWS region, such as "ap-northeast-2". For more information about AWS regions, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
+                  The stack AWS region, such as \"ap-northeast-2\". For more information about AWS regions, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
         
                 - **VpcId** *(string) --* 
         
@@ -4942,7 +4942,7 @@ class Client(BaseClient):
         
                 - **Attributes** *(dict) --* 
         
-                  The stack's attributes.
+                  The stack\'s attributes.
         
                   - *(string) --* 
                     
@@ -4954,11 +4954,11 @@ class Client(BaseClient):
         
                 - **DefaultInstanceProfileArn** *(string) --* 
         
-                  The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+                  The ARN of an IAM profile that is the default profile for all of the stack\'s EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
                 - **DefaultOs** *(string) --* 
         
-                  The stack's default operating system.
+                  The stack\'s default operating system.
         
                 - **HostnameTheme** *(string) --* 
         
@@ -4966,7 +4966,7 @@ class Client(BaseClient):
         
                 - **DefaultAvailabilityZone** *(string) --* 
         
-                  The stack's default Availability Zone. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
+                  The stack\'s default Availability Zone. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
         
                 - **DefaultSubnetId** *(string) --* 
         
@@ -4976,7 +4976,7 @@ class Client(BaseClient):
         
                   A JSON object that contains user-defined attributes to be added to the stack configuration and deployment attributes. You can use custom JSON to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:
         
-                   ``"{\"key1\": \"value1\", \"key2\": \"value2\",...}"``  
+                   ``\"{\\"key1\\": \\"value1\\", \\"key2\\": \\"value2\\",...}\"``  
         
                   For more information on custom JSON, see `Use Custom JSON to Modify the Stack Configuration Attributes <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html>`__ .
         
@@ -4986,7 +4986,7 @@ class Client(BaseClient):
         
                   - **Name** *(string) --* 
         
-                    The name. This parameter must be set to "Chef".
+                    The name. This parameter must be set to \"Chef\".
         
                   - **Version** *(string) --* 
         
@@ -5010,7 +5010,7 @@ class Client(BaseClient):
         
                 - **UseOpsworksSecurityGroups** *(boolean) --* 
         
-                  Whether the stack automatically associates the AWS OpsWorks Stacks built-in security groups with the stack's layers.
+                  Whether the stack automatically associates the AWS OpsWorks Stacks built-in security groups with the stack\'s layers.
         
                 - **CustomCookbooksSource** *(dict) --* 
         
@@ -5046,17 +5046,17 @@ class Client(BaseClient):
         
                   - **SshKey** *(string) --* 
         
-                    In requests, the repository's SSH key.
+                    In requests, the repository\'s SSH key.
         
                     In responses, AWS OpsWorks Stacks returns ``*****FILTERED*****`` instead of the actual value.
         
                   - **Revision** *(string) --* 
         
-                    The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+                    The application\'s version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
         
                 - **DefaultSshKeyName** *(string) --* 
         
-                  A default Amazon EC2 key pair for the stack's instances. You can override this value when you create or update an instance.
+                  A default Amazon EC2 key pair for the stack\'s instances. You can override this value when you create or update an instance.
         
                 - **CreatedAt** *(string) --* 
         
@@ -5089,7 +5089,7 @@ class Client(BaseClient):
         
           response = client.describe_time_based_auto_scaling(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type InstanceIds: list
@@ -5107,30 +5107,30 @@ class Client(BaseClient):
           ::
         
             {
-                'TimeBasedAutoScalingConfigurations': [
+                \'TimeBasedAutoScalingConfigurations\': [
                     {
-                        'InstanceId': 'string',
-                        'AutoScalingSchedule': {
-                            'Monday': {
-                                'string': 'string'
+                        \'InstanceId\': \'string\',
+                        \'AutoScalingSchedule\': {
+                            \'Monday\': {
+                                \'string\': \'string\'
                             },
-                            'Tuesday': {
-                                'string': 'string'
+                            \'Tuesday\': {
+                                \'string\': \'string\'
                             },
-                            'Wednesday': {
-                                'string': 'string'
+                            \'Wednesday\': {
+                                \'string\': \'string\'
                             },
-                            'Thursday': {
-                                'string': 'string'
+                            \'Thursday\': {
+                                \'string\': \'string\'
                             },
-                            'Friday': {
-                                'string': 'string'
+                            \'Friday\': {
+                                \'string\': \'string\'
                             },
-                            'Saturday': {
-                                'string': 'string'
+                            \'Saturday\': {
+                                \'string\': \'string\'
                             },
-                            'Sunday': {
-                                'string': 'string'
+                            \'Sunday\': {
+                                \'string\': \'string\'
                             }
                         }
                     },
@@ -5148,7 +5148,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Describes an instance's time-based auto scaling configuration.
+                Describes an instance\'s time-based auto scaling configuration.
         
                 - **InstanceId** *(string) --* 
         
@@ -5229,7 +5229,7 @@ class Client(BaseClient):
         
           response = client.describe_user_profiles(
               IamUserArns=[
-                  'string',
+                  \'string\',
               ]
           )
         :type IamUserArns: list
@@ -5247,13 +5247,13 @@ class Client(BaseClient):
           ::
         
             {
-                'UserProfiles': [
+                \'UserProfiles\': [
                     {
-                        'IamUserArn': 'string',
-                        'Name': 'string',
-                        'SshUsername': 'string',
-                        'SshPublicKey': 'string',
-                        'AllowSelfManagement': True|False
+                        \'IamUserArn\': \'string\',
+                        \'Name\': \'string\',
+                        \'SshUsername\': \'string\',
+                        \'SshPublicKey\': \'string\',
+                        \'AllowSelfManagement\': True|False
                     },
                 ]
             }
@@ -5269,23 +5269,23 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Describes a user's SSH information.
+                Describes a user\'s SSH information.
         
                 - **IamUserArn** *(string) --* 
         
-                  The user's IAM ARN.
+                  The user\'s IAM ARN.
         
                 - **Name** *(string) --* 
         
-                  The user's name.
+                  The user\'s name.
         
                 - **SshUsername** *(string) --* 
         
-                  The user's SSH user name.
+                  The user\'s SSH user name.
         
                 - **SshPublicKey** *(string) --* 
         
-                  The user's SSH public key.
+                  The user\'s SSH public key.
         
                 - **AllowSelfManagement** *(boolean) --* 
         
@@ -5309,11 +5309,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_volumes(
-              InstanceId='string',
-              StackId='string',
-              RaidArrayId='string',
+              InstanceId=\'string\',
+              StackId=\'string\',
+              RaidArrayId=\'string\',
               VolumeIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type InstanceId: string
@@ -5324,7 +5324,7 @@ class Client(BaseClient):
         :type StackId: string
         :param StackId: 
         
-          A stack ID. The action describes the stack's registered Amazon EBS volumes.
+          A stack ID. The action describes the stack\'s registered Amazon EBS volumes.
         
         :type RaidArrayId: string
         :param RaidArrayId: 
@@ -5346,22 +5346,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Volumes': [
+                \'Volumes\': [
                     {
-                        'VolumeId': 'string',
-                        'Ec2VolumeId': 'string',
-                        'Name': 'string',
-                        'RaidArrayId': 'string',
-                        'InstanceId': 'string',
-                        'Status': 'string',
-                        'Size': 123,
-                        'Device': 'string',
-                        'MountPoint': 'string',
-                        'Region': 'string',
-                        'AvailabilityZone': 'string',
-                        'VolumeType': 'string',
-                        'Iops': 123,
-                        'Encrypted': True|False
+                        \'VolumeId\': \'string\',
+                        \'Ec2VolumeId\': \'string\',
+                        \'Name\': \'string\',
+                        \'RaidArrayId\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'Status\': \'string\',
+                        \'Size\': 123,
+                        \'Device\': \'string\',
+                        \'MountPoint\': \'string\',
+                        \'Region\': \'string\',
+                        \'AvailabilityZone\': \'string\',
+                        \'VolumeType\': \'string\',
+                        \'Iops\': 123,
+                        \'Encrypted\': True|False
                     },
                 ]
             }
@@ -5377,7 +5377,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Describes an instance's Amazon EBS volume.
+                Describes an instance\'s Amazon EBS volume.
         
                 - **VolumeId** *(string) --* 
         
@@ -5413,7 +5413,7 @@ class Client(BaseClient):
         
                 - **MountPoint** *(string) --* 
         
-                  The volume mount point. For example, "/mnt/disk1".
+                  The volume mount point. For example, \"/mnt/disk1\".
         
                 - **Region** *(string) --* 
         
@@ -5459,13 +5459,13 @@ class Client(BaseClient):
         ::
         
           response = client.detach_elastic_load_balancer(
-              ElasticLoadBalancerName='string',
-              LayerId='string'
+              ElasticLoadBalancerName=\'string\',
+              LayerId=\'string\'
           )
         :type ElasticLoadBalancerName: string
         :param ElasticLoadBalancerName: **[REQUIRED]** 
         
-          The Elastic Load Balancing instance's name.
+          The Elastic Load Balancing instance\'s name.
         
         :type LayerId: string
         :param LayerId: **[REQUIRED]** 
@@ -5487,7 +5487,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_elastic_ip(
-              ElasticIp='string'
+              ElasticIp=\'string\'
           )
         :type ElasticIp: string
         :param ElasticIp: **[REQUIRED]** 
@@ -5514,7 +5514,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -5531,7 +5531,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_hostname_suggestion(
-              LayerId='string'
+              LayerId=\'string\'
           )
         :type LayerId: string
         :param LayerId: **[REQUIRED]** 
@@ -5546,8 +5546,8 @@ class Client(BaseClient):
           ::
         
             {
-                'LayerId': 'string',
-                'Hostname': 'string'
+                \'LayerId\': \'string\',
+                \'Hostname\': \'string\'
             }
           **Response Structure** 
         
@@ -5572,10 +5572,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -5612,13 +5612,13 @@ class Client(BaseClient):
         ::
         
           response = client.grant_access(
-              InstanceId='string',
+              InstanceId=\'string\',
               ValidForInMinutes=123
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
         
-          The instance's AWS OpsWorks Stacks ID.
+          The instance\'s AWS OpsWorks Stacks ID.
         
         :type ValidForInMinutes: integer
         :param ValidForInMinutes: 
@@ -5633,11 +5633,11 @@ class Client(BaseClient):
           ::
         
             {
-                'TemporaryCredential': {
-                    'Username': 'string',
-                    'Password': 'string',
-                    'ValidForInMinutes': 123,
-                    'InstanceId': 'string'
+                \'TemporaryCredential\': {
+                    \'Username\': \'string\',
+                    \'Password\': \'string\',
+                    \'ValidForInMinutes\': 123,
+                    \'InstanceId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5664,7 +5664,7 @@ class Client(BaseClient):
         
               - **InstanceId** *(string) --* 
         
-                The instance's AWS OpsWorks Stacks ID.
+                The instance\'s AWS OpsWorks Stacks ID.
         
         """
         pass
@@ -5678,14 +5678,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
         
-          The stack or layer's Amazon Resource Number (ARN).
+          The stack or layer\'s Amazon Resource Number (ARN).
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -5705,10 +5705,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': {
-                    'string': 'string'
+                \'Tags\': {
+                    \'string\': \'string\'
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5726,7 +5726,7 @@ class Client(BaseClient):
           
             - **NextToken** *(string) --* 
         
-              If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's ``NextToken`` parameter to get the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to ``null`` . 
+              If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object\'s ``NextToken`` parameter to get the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to ``null`` . 
         
         """
         pass
@@ -5742,7 +5742,7 @@ class Client(BaseClient):
         ::
         
           response = client.reboot_instance(
-              InstanceId='string'
+              InstanceId=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -5764,13 +5764,13 @@ class Client(BaseClient):
         ::
         
           response = client.register_ecs_cluster(
-              EcsClusterArn='string',
-              StackId='string'
+              EcsClusterArn=\'string\',
+              StackId=\'string\'
           )
         :type EcsClusterArn: string
         :param EcsClusterArn: **[REQUIRED]** 
         
-          The cluster's ARN.
+          The cluster\'s ARN.
         
         :type StackId: string
         :param StackId: **[REQUIRED]** 
@@ -5785,7 +5785,7 @@ class Client(BaseClient):
           ::
         
             {
-                'EcsClusterArn': 'string'
+                \'EcsClusterArn\': \'string\'
             }
           **Response Structure** 
         
@@ -5795,7 +5795,7 @@ class Client(BaseClient):
         
             - **EcsClusterArn** *(string) --* 
         
-              The cluster's ARN.
+              The cluster\'s ARN.
         
         """
         pass
@@ -5811,8 +5811,8 @@ class Client(BaseClient):
         ::
         
           response = client.register_elastic_ip(
-              ElasticIp='string',
-              StackId='string'
+              ElasticIp=\'string\',
+              StackId=\'string\'
           )
         :type ElasticIp: string
         :param ElasticIp: **[REQUIRED]** 
@@ -5832,7 +5832,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ElasticIp': 'string'
+                \'ElasticIp\': \'string\'
             }
           **Response Structure** 
         
@@ -5864,15 +5864,15 @@ class Client(BaseClient):
         ::
         
           response = client.register_instance(
-              StackId='string',
-              Hostname='string',
-              PublicIp='string',
-              PrivateIp='string',
-              RsaPublicKey='string',
-              RsaPublicKeyFingerprint='string',
+              StackId=\'string\',
+              Hostname=\'string\',
+              PublicIp=\'string\',
+              PrivateIp=\'string\',
+              RsaPublicKey=\'string\',
+              RsaPublicKeyFingerprint=\'string\',
               InstanceIdentity={
-                  'Document': 'string',
-                  'Signature': 'string'
+                  \'Document\': \'string\',
+                  \'Signature\': \'string\'
               }
           )
         :type StackId: string
@@ -5883,17 +5883,17 @@ class Client(BaseClient):
         :type Hostname: string
         :param Hostname: 
         
-          The instance's hostname.
+          The instance\'s hostname.
         
         :type PublicIp: string
         :param PublicIp: 
         
-          The instance's public IP address.
+          The instance\'s public IP address.
         
         :type PrivateIp: string
         :param PrivateIp: 
         
-          The instance's private IP address.
+          The instance\'s private IP address.
         
         :type RsaPublicKey: string
         :param RsaPublicKey: 
@@ -5908,7 +5908,7 @@ class Client(BaseClient):
         :type InstanceIdentity: dict
         :param InstanceIdentity: 
         
-          An InstanceIdentity object that contains the instance's identity.
+          An InstanceIdentity object that contains the instance\'s identity.
         
           - **Document** *(string) --* 
         
@@ -5916,7 +5916,7 @@ class Client(BaseClient):
         
           - **Signature** *(string) --* 
         
-            A signature that can be used to verify the document's accuracy and authenticity.
+            A signature that can be used to verify the document\'s accuracy and authenticity.
         
         :rtype: dict
         :returns: 
@@ -5926,7 +5926,7 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceId': 'string'
+                \'InstanceId\': \'string\'
             }
           **Response Structure** 
         
@@ -5936,7 +5936,7 @@ class Client(BaseClient):
         
             - **InstanceId** *(string) --* 
         
-              The registered instance's AWS OpsWorks Stacks ID.
+              The registered instance\'s AWS OpsWorks Stacks ID.
         
         """
         pass
@@ -5952,10 +5952,10 @@ class Client(BaseClient):
         ::
         
           response = client.register_rds_db_instance(
-              StackId='string',
-              RdsDbInstanceArn='string',
-              DbUser='string',
-              DbPassword='string'
+              StackId=\'string\',
+              RdsDbInstanceArn=\'string\',
+              DbUser=\'string\',
+              DbPassword=\'string\'
           )
         :type StackId: string
         :param StackId: **[REQUIRED]** 
@@ -5965,12 +5965,12 @@ class Client(BaseClient):
         :type RdsDbInstanceArn: string
         :param RdsDbInstanceArn: **[REQUIRED]** 
         
-          The Amazon RDS instance's ARN.
+          The Amazon RDS instance\'s ARN.
         
         :type DbUser: string
         :param DbUser: **[REQUIRED]** 
         
-          The database's master user name.
+          The database\'s master user name.
         
         :type DbPassword: string
         :param DbPassword: **[REQUIRED]** 
@@ -5992,8 +5992,8 @@ class Client(BaseClient):
         ::
         
           response = client.register_volume(
-              Ec2VolumeId='string',
-              StackId='string'
+              Ec2VolumeId=\'string\',
+              StackId=\'string\'
           )
         :type Ec2VolumeId: string
         :param Ec2VolumeId: 
@@ -6013,7 +6013,7 @@ class Client(BaseClient):
           ::
         
             {
-                'VolumeId': 'string'
+                \'VolumeId\': \'string\'
             }
           **Response Structure** 
         
@@ -6043,28 +6043,28 @@ class Client(BaseClient):
         ::
         
           response = client.set_load_based_auto_scaling(
-              LayerId='string',
+              LayerId=\'string\',
               Enable=True|False,
               UpScaling={
-                  'InstanceCount': 123,
-                  'ThresholdsWaitTime': 123,
-                  'IgnoreMetricsTime': 123,
-                  'CpuThreshold': 123.0,
-                  'MemoryThreshold': 123.0,
-                  'LoadThreshold': 123.0,
-                  'Alarms': [
-                      'string',
+                  \'InstanceCount\': 123,
+                  \'ThresholdsWaitTime\': 123,
+                  \'IgnoreMetricsTime\': 123,
+                  \'CpuThreshold\': 123.0,
+                  \'MemoryThreshold\': 123.0,
+                  \'LoadThreshold\': 123.0,
+                  \'Alarms\': [
+                      \'string\',
                   ]
               },
               DownScaling={
-                  'InstanceCount': 123,
-                  'ThresholdsWaitTime': 123,
-                  'IgnoreMetricsTime': 123,
-                  'CpuThreshold': 123.0,
-                  'MemoryThreshold': 123.0,
-                  'LoadThreshold': 123.0,
-                  'Alarms': [
-                      'string',
+                  \'InstanceCount\': 123,
+                  \'ThresholdsWaitTime\': 123,
+                  \'IgnoreMetricsTime\': 123,
+                  \'CpuThreshold\': 123.0,
+                  \'MemoryThreshold\': 123.0,
+                  \'LoadThreshold\': 123.0,
+                  \'Alarms\': [
+                      \'string\',
                   ]
               }
           )
@@ -6093,7 +6093,7 @@ class Client(BaseClient):
         
           - **IgnoreMetricsTime** *(integer) --* 
         
-            The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. ``IgnoreMetricsTime`` allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
+            The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won\'t start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. ``IgnoreMetricsTime`` allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
         
           - **CpuThreshold** *(float) --* 
         
@@ -6132,7 +6132,7 @@ class Client(BaseClient):
         
           - **IgnoreMetricsTime** *(integer) --* 
         
-            The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. ``IgnoreMetricsTime`` allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
+            The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won\'t start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. ``IgnoreMetricsTime`` allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
         
           - **CpuThreshold** *(float) --* 
         
@@ -6171,11 +6171,11 @@ class Client(BaseClient):
         ::
         
           response = client.set_permission(
-              StackId='string',
-              IamUserArn='string',
+              StackId=\'string\',
+              IamUserArn=\'string\',
               AllowSsh=True|False,
               AllowSudo=True|False,
-              Level='string'
+              Level=\'string\'
           )
         :type StackId: string
         :param StackId: **[REQUIRED]** 
@@ -6185,7 +6185,7 @@ class Client(BaseClient):
         :type IamUserArn: string
         :param IamUserArn: **[REQUIRED]** 
         
-          The user's IAM ARN. This can also be a federated user's ARN.
+          The user\'s IAM ARN. This can also be a federated user\'s ARN.
         
         :type AllowSsh: boolean
         :param AllowSsh: 
@@ -6200,7 +6200,7 @@ class Client(BaseClient):
         :type Level: string
         :param Level: 
         
-          The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.
+          The user\'s permission level, which must be set to one of the following strings. You cannot set your own permissions level.
         
           * ``deny``   
            
@@ -6229,28 +6229,28 @@ class Client(BaseClient):
         ::
         
           response = client.set_time_based_auto_scaling(
-              InstanceId='string',
+              InstanceId=\'string\',
               AutoScalingSchedule={
-                  'Monday': {
-                      'string': 'string'
+                  \'Monday\': {
+                      \'string\': \'string\'
                   },
-                  'Tuesday': {
-                      'string': 'string'
+                  \'Tuesday\': {
+                      \'string\': \'string\'
                   },
-                  'Wednesday': {
-                      'string': 'string'
+                  \'Wednesday\': {
+                      \'string\': \'string\'
                   },
-                  'Thursday': {
-                      'string': 'string'
+                  \'Thursday\': {
+                      \'string\': \'string\'
                   },
-                  'Friday': {
-                      'string': 'string'
+                  \'Friday\': {
+                      \'string\': \'string\'
                   },
-                  'Saturday': {
-                      'string': 'string'
+                  \'Saturday\': {
+                      \'string\': \'string\'
                   },
-                  'Sunday': {
-                      'string': 'string'
+                  \'Sunday\': {
+                      \'string\': \'string\'
                   }
               }
           )
@@ -6335,7 +6335,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_instance(
-              InstanceId='string'
+              InstanceId=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -6357,7 +6357,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_stack(
-              StackId='string'
+              StackId=\'string\'
           )
         :type StackId: string
         :param StackId: **[REQUIRED]** 
@@ -6379,7 +6379,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_instance(
-              InstanceId='string',
+              InstanceId=\'string\',
               Force=True|False
           )
         :type InstanceId: string
@@ -6407,7 +6407,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_stack(
-              StackId='string'
+              StackId=\'string\'
           )
         :type StackId: string
         :param StackId: **[REQUIRED]** 
@@ -6427,15 +6427,15 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               Tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
         
-          The stack or layer's Amazon Resource Number (ARN).
+          The stack or layer\'s Amazon Resource Number (ARN).
         
         :type Tags: dict
         :param Tags: **[REQUIRED]** 
@@ -6471,7 +6471,7 @@ class Client(BaseClient):
         ::
         
           response = client.unassign_instance(
-              InstanceId='string'
+              InstanceId=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -6493,7 +6493,7 @@ class Client(BaseClient):
         ::
         
           response = client.unassign_volume(
-              VolumeId='string'
+              VolumeId=\'string\'
           )
         :type VolumeId: string
         :param VolumeId: **[REQUIRED]** 
@@ -6513,15 +6513,15 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
         
-          The stack or layer's Amazon Resource Number (ARN).
+          The stack or layer\'s Amazon Resource Number (ARN).
         
         :type TagKeys: list
         :param TagKeys: **[REQUIRED]** 
@@ -6545,42 +6545,42 @@ class Client(BaseClient):
         ::
         
           response = client.update_app(
-              AppId='string',
-              Name='string',
-              Description='string',
+              AppId=\'string\',
+              Name=\'string\',
+              Description=\'string\',
               DataSources=[
                   {
-                      'Type': 'string',
-                      'Arn': 'string',
-                      'DatabaseName': 'string'
+                      \'Type\': \'string\',
+                      \'Arn\': \'string\',
+                      \'DatabaseName\': \'string\'
                   },
               ],
-              Type='aws-flow-ruby'|'java'|'rails'|'php'|'nodejs'|'static'|'other',
+              Type=\'aws-flow-ruby\'|\'java\'|\'rails\'|\'php\'|\'nodejs\'|\'static\'|\'other\',
               AppSource={
-                  'Type': 'git'|'svn'|'archive'|'s3',
-                  'Url': 'string',
-                  'Username': 'string',
-                  'Password': 'string',
-                  'SshKey': 'string',
-                  'Revision': 'string'
+                  \'Type\': \'git\'|\'svn\'|\'archive\'|\'s3\',
+                  \'Url\': \'string\',
+                  \'Username\': \'string\',
+                  \'Password\': \'string\',
+                  \'SshKey\': \'string\',
+                  \'Revision\': \'string\'
               },
               Domains=[
-                  'string',
+                  \'string\',
               ],
               EnableSsl=True|False,
               SslConfiguration={
-                  'Certificate': 'string',
-                  'PrivateKey': 'string',
-                  'Chain': 'string'
+                  \'Certificate\': \'string\',
+                  \'PrivateKey\': \'string\',
+                  \'Chain\': \'string\'
               },
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               Environment=[
                   {
-                      'Key': 'string',
-                      'Value': 'string',
-                      'Secure': True|False
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'Secure\': True|False
                   },
               ]
           )
@@ -6602,19 +6602,19 @@ class Client(BaseClient):
         :type DataSources: list
         :param DataSources: 
         
-          The app's data sources.
+          The app\'s data sources.
         
           - *(dict) --* 
         
-            Describes an app's data source.
+            Describes an app\'s data source.
         
             - **Type** *(string) --* 
         
-              The data source's type, ``AutoSelectOpsworksMysqlInstance`` , ``OpsworksMysqlInstance`` , ``RdsDbInstance`` , or ``None`` .
+              The data source\'s type, ``AutoSelectOpsworksMysqlInstance`` , ``OpsworksMysqlInstance`` , ``RdsDbInstance`` , or ``None`` .
         
             - **Arn** *(string) --* 
         
-              The data source's ARN.
+              The data source\'s ARN.
         
             - **DatabaseName** *(string) --* 
         
@@ -6660,18 +6660,18 @@ class Client(BaseClient):
         
           - **SshKey** *(string) --* 
         
-            In requests, the repository's SSH key.
+            In requests, the repository\'s SSH key.
         
             In responses, AWS OpsWorks Stacks returns ``*****FILTERED*****`` instead of the actual value.
         
           - **Revision** *(string) --* 
         
-            The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+            The application\'s version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
         
         :type Domains: list
         :param Domains: 
         
-          The app's virtual host settings, with multiple domains separated by commas. For example: ``'www.example.com, example.com'``  
+          The app\'s virtual host settings, with multiple domains separated by commas. For example: ``\'www.example.com, example.com\'``  
         
           - *(string) --* 
         
@@ -6687,11 +6687,11 @@ class Client(BaseClient):
         
           - **Certificate** *(string) --* **[REQUIRED]** 
         
-            The contents of the certificate's domain.crt file.
+            The contents of the certificate\'s domain.crt file.
         
           - **PrivateKey** *(string) --* **[REQUIRED]** 
         
-            The private key; the contents of the certificate's domain.kex file.
+            The private key; the contents of the certificate\'s domain.kex file.
         
           - **Chain** *(string) --* 
         
@@ -6711,27 +6711,27 @@ class Client(BaseClient):
         
           An array of ``EnvironmentVariable`` objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see `Environment Variables <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment>`__ .
         
-          There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 10KB)."
+          There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables\' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, \"Environment: is too large (maximum is 10KB).\"
         
           .. note::
         
-            This parameter is supported only by Chef 11.10 stacks. If you have specified one or more environment variables, you cannot modify the stack's Chef version.
+            This parameter is supported only by Chef 11.10 stacks. If you have specified one or more environment variables, you cannot modify the stack\'s Chef version.
         
           - *(dict) --* 
         
-            Represents an app's environment variable.
+            Represents an app\'s environment variable.
         
             - **Key** *(string) --* **[REQUIRED]** 
         
-              (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
+              (Required) The environment variable\'s name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
         
             - **Value** *(string) --* **[REQUIRED]** 
         
-              (Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
+              (Optional) The environment variable\'s value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
         
             - **Secure** *(boolean) --* 
         
-              (Optional) Whether the variable's value will be returned by the  DescribeApps action. To conceal an environment variable's value, set ``Secure`` to ``true`` . ``DescribeApps`` then returns ``*****FILTERED*****`` instead of the actual value. The default value for ``Secure`` is ``false`` . 
+              (Optional) Whether the variable\'s value will be returned by the  DescribeApps action. To conceal an environment variable\'s value, set ``Secure`` to ``true`` . ``DescribeApps`` then returns ``*****FILTERED*****`` instead of the actual value. The default value for ``Secure`` is ``false`` . 
         
         :returns: None
         """
@@ -6748,8 +6748,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_elastic_ip(
-              ElasticIp='string',
-              Name='string'
+              ElasticIp=\'string\',
+              Name=\'string\'
           )
         :type ElasticIp: string
         :param ElasticIp: **[REQUIRED]** 
@@ -6776,20 +6776,20 @@ class Client(BaseClient):
         ::
         
           response = client.update_instance(
-              InstanceId='string',
+              InstanceId=\'string\',
               LayerIds=[
-                  'string',
+                  \'string\',
               ],
-              InstanceType='string',
-              AutoScalingType='load'|'timer',
-              Hostname='string',
-              Os='string',
-              AmiId='string',
-              SshKeyName='string',
-              Architecture='x86_64'|'i386',
+              InstanceType=\'string\',
+              AutoScalingType=\'load\'|\'timer\',
+              Hostname=\'string\',
+              Os=\'string\',
+              AmiId=\'string\',
+              SshKeyName=\'string\',
+              Architecture=\'x86_64\'|\'i386\',
               InstallUpdatesOnBoot=True|False,
               EbsOptimized=True|False,
-              AgentVersion='string'
+              AgentVersion=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -6799,7 +6799,7 @@ class Client(BaseClient):
         :type LayerIds: list
         :param LayerIds: 
         
-          The instance's layer IDs.
+          The instance\'s layer IDs.
         
           - *(string) --* 
         
@@ -6821,7 +6821,7 @@ class Client(BaseClient):
         :type Os: string
         :param Os: 
         
-          The instance's operating system, which must be set to one of the following. You cannot update an instance that is using a custom AMI.
+          The instance\'s operating system, which must be set to one of the following. You cannot update an instance that is using a custom AMI.
         
           * A supported Linux operating system: An Amazon Linux version, such as ``Amazon Linux 2017.09`` , ``Amazon Linux 2017.03`` , ``Amazon Linux 2016.09`` , ``Amazon Linux 2016.03`` , ``Amazon Linux 2015.09`` , or ``Amazon Linux 2015.03`` . 
            
@@ -6849,7 +6849,7 @@ class Client(BaseClient):
         :type SshKeyName: string
         :param SshKeyName: 
         
-          The instance's Amazon EC2 key name.
+          The instance\'s Amazon EC2 key name.
         
         :type Architecture: string
         :param Architecture: 
@@ -6875,9 +6875,9 @@ class Client(BaseClient):
         
           The default AWS OpsWorks Stacks agent version. You have the following options:
         
-          * ``INHERIT`` - Use the stack's default agent version setting. 
+          * ``INHERIT`` - Use the stack\'s default agent version setting. 
            
-          * *version_number* - Use the specified agent version. This value overrides the stack's default setting. To update the agent version, you must edit the instance configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the instance. 
+          * *version_number* - Use the specified agent version. This value overrides the stack\'s default setting. To update the agent version, you must edit the instance configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the instance. 
            
           The default setting is ``INHERIT`` . To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call  DescribeAgentVersions .
         
@@ -6898,75 +6898,75 @@ class Client(BaseClient):
         ::
         
           response = client.update_layer(
-              LayerId='string',
-              Name='string',
-              Shortname='string',
+              LayerId=\'string\',
+              Name=\'string\',
+              Shortname=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               CloudWatchLogsConfiguration={
-                  'Enabled': True|False,
-                  'LogStreams': [
+                  \'Enabled\': True|False,
+                  \'LogStreams\': [
                       {
-                          'LogGroupName': 'string',
-                          'DatetimeFormat': 'string',
-                          'TimeZone': 'LOCAL'|'UTC',
-                          'File': 'string',
-                          'FileFingerprintLines': 'string',
-                          'MultiLineStartPattern': 'string',
-                          'InitialPosition': 'start_of_file'|'end_of_file',
-                          'Encoding': 'ascii'|'big5'|'big5hkscs'|'cp037'|'cp424'|'cp437'|'cp500'|'cp720'|'cp737'|'cp775'|'cp850'|'cp852'|'cp855'|'cp856'|'cp857'|'cp858'|'cp860'|'cp861'|'cp862'|'cp863'|'cp864'|'cp865'|'cp866'|'cp869'|'cp874'|'cp875'|'cp932'|'cp949'|'cp950'|'cp1006'|'cp1026'|'cp1140'|'cp1250'|'cp1251'|'cp1252'|'cp1253'|'cp1254'|'cp1255'|'cp1256'|'cp1257'|'cp1258'|'euc_jp'|'euc_jis_2004'|'euc_jisx0213'|'euc_kr'|'gb2312'|'gbk'|'gb18030'|'hz'|'iso2022_jp'|'iso2022_jp_1'|'iso2022_jp_2'|'iso2022_jp_2004'|'iso2022_jp_3'|'iso2022_jp_ext'|'iso2022_kr'|'latin_1'|'iso8859_2'|'iso8859_3'|'iso8859_4'|'iso8859_5'|'iso8859_6'|'iso8859_7'|'iso8859_8'|'iso8859_9'|'iso8859_10'|'iso8859_13'|'iso8859_14'|'iso8859_15'|'iso8859_16'|'johab'|'koi8_r'|'koi8_u'|'mac_cyrillic'|'mac_greek'|'mac_iceland'|'mac_latin2'|'mac_roman'|'mac_turkish'|'ptcp154'|'shift_jis'|'shift_jis_2004'|'shift_jisx0213'|'utf_32'|'utf_32_be'|'utf_32_le'|'utf_16'|'utf_16_be'|'utf_16_le'|'utf_7'|'utf_8'|'utf_8_sig',
-                          'BufferDuration': 123,
-                          'BatchCount': 123,
-                          'BatchSize': 123
+                          \'LogGroupName\': \'string\',
+                          \'DatetimeFormat\': \'string\',
+                          \'TimeZone\': \'LOCAL\'|\'UTC\',
+                          \'File\': \'string\',
+                          \'FileFingerprintLines\': \'string\',
+                          \'MultiLineStartPattern\': \'string\',
+                          \'InitialPosition\': \'start_of_file\'|\'end_of_file\',
+                          \'Encoding\': \'ascii\'|\'big5\'|\'big5hkscs\'|\'cp037\'|\'cp424\'|\'cp437\'|\'cp500\'|\'cp720\'|\'cp737\'|\'cp775\'|\'cp850\'|\'cp852\'|\'cp855\'|\'cp856\'|\'cp857\'|\'cp858\'|\'cp860\'|\'cp861\'|\'cp862\'|\'cp863\'|\'cp864\'|\'cp865\'|\'cp866\'|\'cp869\'|\'cp874\'|\'cp875\'|\'cp932\'|\'cp949\'|\'cp950\'|\'cp1006\'|\'cp1026\'|\'cp1140\'|\'cp1250\'|\'cp1251\'|\'cp1252\'|\'cp1253\'|\'cp1254\'|\'cp1255\'|\'cp1256\'|\'cp1257\'|\'cp1258\'|\'euc_jp\'|\'euc_jis_2004\'|\'euc_jisx0213\'|\'euc_kr\'|\'gb2312\'|\'gbk\'|\'gb18030\'|\'hz\'|\'iso2022_jp\'|\'iso2022_jp_1\'|\'iso2022_jp_2\'|\'iso2022_jp_2004\'|\'iso2022_jp_3\'|\'iso2022_jp_ext\'|\'iso2022_kr\'|\'latin_1\'|\'iso8859_2\'|\'iso8859_3\'|\'iso8859_4\'|\'iso8859_5\'|\'iso8859_6\'|\'iso8859_7\'|\'iso8859_8\'|\'iso8859_9\'|\'iso8859_10\'|\'iso8859_13\'|\'iso8859_14\'|\'iso8859_15\'|\'iso8859_16\'|\'johab\'|\'koi8_r\'|\'koi8_u\'|\'mac_cyrillic\'|\'mac_greek\'|\'mac_iceland\'|\'mac_latin2\'|\'mac_roman\'|\'mac_turkish\'|\'ptcp154\'|\'shift_jis\'|\'shift_jis_2004\'|\'shift_jisx0213\'|\'utf_32\'|\'utf_32_be\'|\'utf_32_le\'|\'utf_16\'|\'utf_16_be\'|\'utf_16_le\'|\'utf_7\'|\'utf_8\'|\'utf_8_sig\',
+                          \'BufferDuration\': 123,
+                          \'BatchCount\': 123,
+                          \'BatchSize\': 123
                       },
                   ]
               },
-              CustomInstanceProfileArn='string',
-              CustomJson='string',
+              CustomInstanceProfileArn=\'string\',
+              CustomJson=\'string\',
               CustomSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               Packages=[
-                  'string',
+                  \'string\',
               ],
               VolumeConfigurations=[
                   {
-                      'MountPoint': 'string',
-                      'RaidLevel': 123,
-                      'NumberOfDisks': 123,
-                      'Size': 123,
-                      'VolumeType': 'string',
-                      'Iops': 123,
-                      'Encrypted': True|False
+                      \'MountPoint\': \'string\',
+                      \'RaidLevel\': 123,
+                      \'NumberOfDisks\': 123,
+                      \'Size\': 123,
+                      \'VolumeType\': \'string\',
+                      \'Iops\': 123,
+                      \'Encrypted\': True|False
                   },
               ],
               EnableAutoHealing=True|False,
               AutoAssignElasticIps=True|False,
               AutoAssignPublicIps=True|False,
               CustomRecipes={
-                  'Setup': [
-                      'string',
+                  \'Setup\': [
+                      \'string\',
                   ],
-                  'Configure': [
-                      'string',
+                  \'Configure\': [
+                      \'string\',
                   ],
-                  'Deploy': [
-                      'string',
+                  \'Deploy\': [
+                      \'string\',
                   ],
-                  'Undeploy': [
-                      'string',
+                  \'Undeploy\': [
+                      \'string\',
                   ],
-                  'Shutdown': [
-                      'string',
+                  \'Shutdown\': [
+                      \'string\',
                   ]
               },
               InstallUpdatesOnBoot=True|False,
               UseEbsOptimizedInstances=True|False,
               LifecycleEventConfiguration={
-                  'Shutdown': {
-                      'ExecutionTimeout': 123,
-                      'DelayUntilElbConnectionsDrained': True|False
+                  \'Shutdown\': {
+                      \'ExecutionTimeout\': 123,
+                      \'DelayUntilElbConnectionsDrained\': True|False
                   }
               }
           )
@@ -6983,9 +6983,9 @@ class Client(BaseClient):
         :type Shortname: string
         :param Shortname: 
         
-          For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/.
+          For custom layers only, use this parameter to specify the layer\'s short name, which is used internally by AWS OpsWorks Stacks and by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/.
         
-          The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the `Layer Reference <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html>`__  
+          The built-in layers\' short names are defined by AWS OpsWorks Stacks. For more information, see the `Layer Reference <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html>`__  
         
         :type Attributes: dict
         :param Attributes: 
@@ -7015,7 +7015,7 @@ class Client(BaseClient):
         
               - **LogGroupName** *(string) --* 
         
-                Specifies the destination log group. A log group is created automatically if it doesn't already exist. Log group names can be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
+                Specifies the destination log group. A log group is created automatically if it doesn\'t already exist. Log group names can be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (hyphen), \'/\' (forward slash), and \'.\' (period).
         
               - **DatetimeFormat** *(string) --* 
         
@@ -7029,13 +7029,13 @@ class Client(BaseClient):
         
                 Specifies log files that you want to push to CloudWatch Logs.
         
-                 ``File`` can point to a specific file or multiple files (by using wild card characters such as ``/var/log/system.log*`` ). Only the latest file is pushed to CloudWatch Logs, based on file modification time. We recommend that you use wild card characters to specify a series of files of the same type, such as ``access_log.2014-06-01-01`` , ``access_log.2014-06-01-02`` , and so on by using a pattern like ``access_log.*`` . Don't use a wildcard to match multiple file types, such as ``access_log_80`` and ``access_log_443`` . To specify multiple, different file types, add another log stream entry to the configuration file, so that each log file type is stored in a different log group.
+                 ``File`` can point to a specific file or multiple files (by using wild card characters such as ``/var/log/system.log*`` ). Only the latest file is pushed to CloudWatch Logs, based on file modification time. We recommend that you use wild card characters to specify a series of files of the same type, such as ``access_log.2014-06-01-01`` , ``access_log.2014-06-01-02`` , and so on by using a pattern like ``access_log.*`` . Don\'t use a wildcard to match multiple file types, such as ``access_log_80`` and ``access_log_443`` . To specify multiple, different file types, add another log stream entry to the configuration file, so that each log file type is stored in a different log group.
         
                 Zipped files are not supported.
         
               - **FileFingerprintLines** *(string) --* 
         
-                Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as '1', '2-5'. The default value is '1', meaning the first line is used to calculate the fingerprint. Fingerprint lines are not sent to CloudWatch Logs unless all specified lines are available.
+                Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as \'1\', \'2-5\'. The default value is \'1\', meaning the first line is used to calculate the fingerprint. Fingerprint lines are not sent to CloudWatch Logs unless all specified lines are available.
         
               - **MultiLineStartPattern** *(string) --* 
         
@@ -7064,31 +7064,31 @@ class Client(BaseClient):
         :type CustomInstanceProfileArn: string
         :param CustomInstanceProfileArn: 
         
-          The ARN of an IAM profile to be used for all of the layer's EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+          The ARN of an IAM profile to be used for all of the layer\'s EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
         :type CustomJson: string
         :param CustomJson: 
         
-          A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see `Using Custom JSON <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html>`__ . 
+          A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer\'s instances. For more information, see `Using Custom JSON <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html>`__ . 
         
         :type CustomSecurityGroupIds: list
         :param CustomSecurityGroupIds: 
         
-          An array containing the layer's custom security group IDs.
+          An array containing the layer\'s custom security group IDs.
         
           - *(string) --* 
         
         :type Packages: list
         :param Packages: 
         
-          An array of ``Package`` objects that describe the layer's packages.
+          An array of ``Package`` objects that describe the layer\'s packages.
         
           - *(string) --* 
         
         :type VolumeConfigurations: list
         :param VolumeConfigurations: 
         
-          A ``VolumeConfigurations`` object that describes the layer's Amazon EBS volumes.
+          A ``VolumeConfigurations`` object that describes the layer\'s Amazon EBS volumes.
         
           - *(dict) --* 
         
@@ -7096,7 +7096,7 @@ class Client(BaseClient):
         
             - **MountPoint** *(string) --* **[REQUIRED]** 
         
-              The volume mount point. For example "/dev/sdh".
+              The volume mount point. For example \"/dev/sdh\".
         
             - **RaidLevel** *(integer) --* 
         
@@ -7140,17 +7140,17 @@ class Client(BaseClient):
         :type AutoAssignElasticIps: boolean
         :param AutoAssignElasticIps: 
         
-          Whether to automatically assign an `Elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ to the layer's instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
+          Whether to automatically assign an `Elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ to the layer\'s instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
         
         :type AutoAssignPublicIps: boolean
         :param AutoAssignPublicIps: 
         
-          For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
+          For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer\'s instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
         
         :type CustomRecipes: dict
         :param CustomRecipes: 
         
-          A ``LayerCustomRecipes`` object that specifies the layer's custom recipes.
+          A ``LayerCustomRecipes`` object that specifies the layer\'s custom recipes.
         
           - **Setup** *(list) --* 
         
@@ -7226,12 +7226,12 @@ class Client(BaseClient):
         ::
         
           response = client.update_my_user_profile(
-              SshPublicKey='string'
+              SshPublicKey=\'string\'
           )
         :type SshPublicKey: string
         :param SshPublicKey: 
         
-          The user's SSH public key.
+          The user\'s SSH public key.
         
         :returns: None
         """
@@ -7248,14 +7248,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_rds_db_instance(
-              RdsDbInstanceArn='string',
-              DbUser='string',
-              DbPassword='string'
+              RdsDbInstanceArn=\'string\',
+              DbUser=\'string\',
+              DbPassword=\'string\'
           )
         :type RdsDbInstanceArn: string
         :param RdsDbInstanceArn: **[REQUIRED]** 
         
-          The Amazon RDS instance's ARN.
+          The Amazon RDS instance\'s ARN.
         
         :type DbUser: string
         :param DbUser: 
@@ -7282,39 +7282,39 @@ class Client(BaseClient):
         ::
         
           response = client.update_stack(
-              StackId='string',
-              Name='string',
+              StackId=\'string\',
+              Name=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ServiceRoleArn='string',
-              DefaultInstanceProfileArn='string',
-              DefaultOs='string',
-              HostnameTheme='string',
-              DefaultAvailabilityZone='string',
-              DefaultSubnetId='string',
-              CustomJson='string',
+              ServiceRoleArn=\'string\',
+              DefaultInstanceProfileArn=\'string\',
+              DefaultOs=\'string\',
+              HostnameTheme=\'string\',
+              DefaultAvailabilityZone=\'string\',
+              DefaultSubnetId=\'string\',
+              CustomJson=\'string\',
               ConfigurationManager={
-                  'Name': 'string',
-                  'Version': 'string'
+                  \'Name\': \'string\',
+                  \'Version\': \'string\'
               },
               ChefConfiguration={
-                  'ManageBerkshelf': True|False,
-                  'BerkshelfVersion': 'string'
+                  \'ManageBerkshelf\': True|False,
+                  \'BerkshelfVersion\': \'string\'
               },
               UseCustomCookbooks=True|False,
               CustomCookbooksSource={
-                  'Type': 'git'|'svn'|'archive'|'s3',
-                  'Url': 'string',
-                  'Username': 'string',
-                  'Password': 'string',
-                  'SshKey': 'string',
-                  'Revision': 'string'
+                  \'Type\': \'git\'|\'svn\'|\'archive\'|\'s3\',
+                  \'Url\': \'string\',
+                  \'Username\': \'string\',
+                  \'Password\': \'string\',
+                  \'SshKey\': \'string\',
+                  \'Revision\': \'string\'
               },
-              DefaultSshKeyName='string',
-              DefaultRootDeviceType='ebs'|'instance-store',
+              DefaultSshKeyName=\'string\',
+              DefaultRootDeviceType=\'ebs\'|\'instance-store\',
               UseOpsworksSecurityGroups=True|False,
-              AgentVersion='string'
+              AgentVersion=\'string\'
           )
         :type StackId: string
         :param StackId: **[REQUIRED]** 
@@ -7324,7 +7324,7 @@ class Client(BaseClient):
         :type Name: string
         :param Name: 
         
-          The stack's new name.
+          The stack\'s new name.
         
         :type Attributes: dict
         :param Attributes: 
@@ -7338,17 +7338,17 @@ class Client(BaseClient):
         :type ServiceRoleArn: string
         :param ServiceRoleArn: 
         
-          Do not use this parameter. You cannot update a stack's service role.
+          Do not use this parameter. You cannot update a stack\'s service role.
         
         :type DefaultInstanceProfileArn: string
         :param DefaultInstanceProfileArn: 
         
-          The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+          The ARN of an IAM profile that is the default profile for all of the stack\'s EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
         :type DefaultOs: string
         :param DefaultOs: 
         
-          The stack's operating system, which must be set to one of the following:
+          The stack\'s operating system, which must be set to one of the following:
         
           * A supported Linux operating system: An Amazon Linux version, such as ``Amazon Linux 2017.09`` , ``Amazon Linux 2017.03`` , ``Amazon Linux 2016.09`` , ``Amazon Linux 2016.03`` , ``Amazon Linux 2015.09`` , or ``Amazon Linux 2015.03`` . 
            
@@ -7362,12 +7362,12 @@ class Client(BaseClient):
            
           * A custom AMI: ``Custom`` . You specify the custom AMI you want to use when you create instances. For more information about how to use custom AMIs with OpsWorks, see `Using Custom AMIs <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html>`__ . 
            
-          The default option is the stack's current operating system. For more information about supported operating systems, see `AWS OpsWorks Stacks Operating Systems <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html>`__ .
+          The default option is the stack\'s current operating system. For more information about supported operating systems, see `AWS OpsWorks Stacks Operating Systems <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html>`__ .
         
         :type HostnameTheme: string
         :param HostnameTheme: 
         
-          The stack's new host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, ``HostnameTheme`` is set to ``Layer_Dependent`` , which creates host names by appending integers to the layer's short name. The other themes are:
+          The stack\'s new host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack\'s instances. By default, ``HostnameTheme`` is set to ``Layer_Dependent`` , which creates host names by appending integers to the layer\'s short name. The other themes are:
         
           * ``Baked_Goods``   
            
@@ -7396,19 +7396,19 @@ class Client(BaseClient):
         :type DefaultAvailabilityZone: string
         :param DefaultAvailabilityZone: 
         
-          The stack's default Availability Zone, which must be in the stack's region. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ . If you also specify a value for ``DefaultSubnetId`` , the subnet must be in the same zone. For more information, see  CreateStack . 
+          The stack\'s default Availability Zone, which must be in the stack\'s region. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ . If you also specify a value for ``DefaultSubnetId`` , the subnet must be in the same zone. For more information, see  CreateStack . 
         
         :type DefaultSubnetId: string
         :param DefaultSubnetId: 
         
-          The stack's default VPC subnet ID. This parameter is required if you specify a value for the ``VpcId`` parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for ``DefaultAvailabilityZone`` , the subnet must be in that zone. For information on default values and when this parameter is required, see the ``VpcId`` parameter description. 
+          The stack\'s default VPC subnet ID. This parameter is required if you specify a value for the ``VpcId`` parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for ``DefaultAvailabilityZone`` , the subnet must be in that zone. For information on default values and when this parameter is required, see the ``VpcId`` parameter description. 
         
         :type CustomJson: string
         :param CustomJson: 
         
           A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration JSON values or to pass data to recipes. The string should be in the following format:
         
-           ``"{\"key1\": \"value1\", \"key2\": \"value2\",...}"``  
+           ``\"{\\"key1\\": \\"value1\\", \\"key2\\": \\"value2\\",...}\"``  
         
           For more information about custom JSON, see `Use Custom JSON to Modify the Stack Configuration Attributes <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html>`__ .
         
@@ -7419,7 +7419,7 @@ class Client(BaseClient):
         
           - **Name** *(string) --* 
         
-            The name. This parameter must be set to "Chef".
+            The name. This parameter must be set to \"Chef\".
         
           - **Version** *(string) --* 
         
@@ -7478,13 +7478,13 @@ class Client(BaseClient):
         
           - **SshKey** *(string) --* 
         
-            In requests, the repository's SSH key.
+            In requests, the repository\'s SSH key.
         
             In responses, AWS OpsWorks Stacks returns ``*****FILTERED*****`` instead of the actual value.
         
           - **Revision** *(string) --* 
         
-            The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+            The application\'s version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
         
         :type DefaultSshKeyName: string
         :param DefaultSshKeyName: 
@@ -7499,7 +7499,7 @@ class Client(BaseClient):
         :type UseOpsworksSecurityGroups: boolean
         :param UseOpsworksSecurityGroups: 
         
-          Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.
+          Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack\'s layers.
         
           AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. ``UseOpsworksSecurityGroups`` allows you to provide your own custom security groups instead of using the built-in groups. ``UseOpsworksSecurityGroups`` has the following settings: 
         
@@ -7514,15 +7514,15 @@ class Client(BaseClient):
         
           The default AWS OpsWorks Stacks agent version. You have the following options:
         
-          * Auto-update - Set this parameter to ``LATEST`` . AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available. 
+          * Auto-update - Set this parameter to ``LATEST`` . AWS OpsWorks Stacks automatically installs new agent versions on the stack\'s instances as soon as they are available. 
            
-          * Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances. 
+          * Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack\'s instances. 
            
           The default setting is ``LATEST`` . To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call  DescribeAgentVersions . AgentVersion cannot be set to Chef 12.2.
         
           .. note::
         
-            You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.
+            You can also specify an agent version when you create or update an instance, which overrides the stack\'s default setting.
         
         :returns: None
         """
@@ -7539,25 +7539,25 @@ class Client(BaseClient):
         ::
         
           response = client.update_user_profile(
-              IamUserArn='string',
-              SshUsername='string',
-              SshPublicKey='string',
+              IamUserArn=\'string\',
+              SshUsername=\'string\',
+              SshPublicKey=\'string\',
               AllowSelfManagement=True|False
           )
         :type IamUserArn: string
         :param IamUserArn: **[REQUIRED]** 
         
-          The user IAM ARN. This can also be a federated user's ARN.
+          The user IAM ARN. This can also be a federated user\'s ARN.
         
         :type SshUsername: string
         :param SshUsername: 
         
-          The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, ``my.name`` will be changed to ``myname`` . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name. 
+          The user\'s SSH user name. The allowable characters are [a-z], [A-Z], [0-9], \'-\', and \'_\'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, ``my.name`` will be changed to ``myname`` . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name. 
         
         :type SshPublicKey: string
         :param SshPublicKey: 
         
-          The user's new SSH public key.
+          The user\'s new SSH public key.
         
         :type AllowSelfManagement: boolean
         :param AllowSelfManagement: 
@@ -7579,9 +7579,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_volume(
-              VolumeId='string',
-              Name='string',
-              MountPoint='string'
+              VolumeId=\'string\',
+              Name=\'string\',
+              MountPoint=\'string\'
           )
         :type VolumeId: string
         :param VolumeId: **[REQUIRED]** 

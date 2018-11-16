@@ -13,9 +13,9 @@ class ListBundles(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,19 +43,19 @@ class ListBundles(Paginator):
           ::
         
             {
-                'bundleList': [
+                \'bundleList\': [
                     {
-                        'bundleId': 'string',
-                        'title': 'string',
-                        'version': 'string',
-                        'description': 'string',
-                        'iconUrl': 'string',
-                        'availablePlatforms': [
-                            'OSX'|'WINDOWS'|'LINUX'|'OBJC'|'SWIFT'|'ANDROID'|'JAVASCRIPT',
+                        \'bundleId\': \'string\',
+                        \'title\': \'string\',
+                        \'version\': \'string\',
+                        \'description\': \'string\',
+                        \'iconUrl\': \'string\',
+                        \'availablePlatforms\': [
+                            \'OSX\'|\'WINDOWS\'|\'LINUX\'|\'OBJC\'|\'SWIFT\'|\'ANDROID\'|\'JAVASCRIPT\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -118,9 +118,9 @@ class ListProjects(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -148,13 +148,13 @@ class ListProjects(Paginator):
           ::
         
             {
-                'projects': [
+                \'projects\': [
                     {
-                        'name': 'string',
-                        'projectId': 'string'
+                        \'name\': \'string\',
+                        \'projectId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

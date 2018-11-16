@@ -13,15 +13,15 @@ class AnyInstanceInService(Waiter):
         ::
         
           waiter.wait(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               Instances=[
                   {
-                      'InstanceId': 'string'
+                      \'InstanceId\': \'string\'
                   },
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type LoadBalancerName: string
@@ -70,15 +70,15 @@ class InstanceDeregistered(Waiter):
         ::
         
           waiter.wait(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               Instances=[
                   {
-                      'InstanceId': 'string'
+                      \'InstanceId\': \'string\'
                   },
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type LoadBalancerName: string
@@ -127,15 +127,15 @@ class InstanceInService(Waiter):
         ::
         
           waiter.wait(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               Instances=[
                   {
-                      'InstanceId': 'string'
+                      \'InstanceId\': \'string\'
                   },
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type LoadBalancerName: string

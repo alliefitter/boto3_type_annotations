@@ -13,14 +13,14 @@ class DescribeListeners(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              LoadBalancerArn='string',
+              LoadBalancerArn=\'string\',
               ListenerArns=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type LoadBalancerArn: string
@@ -60,69 +60,69 @@ class DescribeListeners(Paginator):
           ::
         
             {
-                'Listeners': [
+                \'Listeners\': [
                     {
-                        'ListenerArn': 'string',
-                        'LoadBalancerArn': 'string',
-                        'Port': 123,
-                        'Protocol': 'HTTP'|'HTTPS'|'TCP',
-                        'Certificates': [
+                        \'ListenerArn\': \'string\',
+                        \'LoadBalancerArn\': \'string\',
+                        \'Port\': 123,
+                        \'Protocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'Certificates\': [
                             {
-                                'CertificateArn': 'string',
-                                'IsDefault': True|False
+                                \'CertificateArn\': \'string\',
+                                \'IsDefault\': True|False
                             },
                         ],
-                        'SslPolicy': 'string',
-                        'DefaultActions': [
+                        \'SslPolicy\': \'string\',
+                        \'DefaultActions\': [
                             {
-                                'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                                'TargetGroupArn': 'string',
-                                'AuthenticateOidcConfig': {
-                                    'Issuer': 'string',
-                                    'AuthorizationEndpoint': 'string',
-                                    'TokenEndpoint': 'string',
-                                    'UserInfoEndpoint': 'string',
-                                    'ClientId': 'string',
-                                    'ClientSecret': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                                \'TargetGroupArn\': \'string\',
+                                \'AuthenticateOidcConfig\': {
+                                    \'Issuer\': \'string\',
+                                    \'AuthorizationEndpoint\': \'string\',
+                                    \'TokenEndpoint\': \'string\',
+                                    \'UserInfoEndpoint\': \'string\',
+                                    \'ClientId\': \'string\',
+                                    \'ClientSecret\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'AuthenticateCognitoConfig': {
-                                    'UserPoolArn': 'string',
-                                    'UserPoolClientId': 'string',
-                                    'UserPoolDomain': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'AuthenticateCognitoConfig\': {
+                                    \'UserPoolArn\': \'string\',
+                                    \'UserPoolClientId\': \'string\',
+                                    \'UserPoolDomain\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'Order': 123,
-                                'RedirectConfig': {
-                                    'Protocol': 'string',
-                                    'Port': 'string',
-                                    'Host': 'string',
-                                    'Path': 'string',
-                                    'Query': 'string',
-                                    'StatusCode': 'HTTP_301'|'HTTP_302'
+                                \'Order\': 123,
+                                \'RedirectConfig\': {
+                                    \'Protocol\': \'string\',
+                                    \'Port\': \'string\',
+                                    \'Host\': \'string\',
+                                    \'Path\': \'string\',
+                                    \'Query\': \'string\',
+                                    \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                                 },
-                                'FixedResponseConfig': {
-                                    'MessageBody': 'string',
-                                    'StatusCode': 'string',
-                                    'ContentType': 'string'
+                                \'FixedResponseConfig\': {
+                                    \'MessageBody\': \'string\',
+                                    \'StatusCode\': \'string\',
+                                    \'ContentType\': \'string\'
                                 }
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -318,11 +318,11 @@ class DescribeListeners(Paginator):
         
                       - **Path** *(string) --* 
         
-                        The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                        The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
                       - **Query** *(string) --* 
         
-                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
                       - **StatusCode** *(string) --* 
         
@@ -365,15 +365,15 @@ class DescribeLoadBalancers(Paginator):
         
           response_iterator = paginator.paginate(
               LoadBalancerArns=[
-                  'string',
+                  \'string\',
               ],
               Names=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type LoadBalancerArns: list
@@ -415,39 +415,39 @@ class DescribeLoadBalancers(Paginator):
           ::
         
             {
-                'LoadBalancers': [
+                \'LoadBalancers\': [
                     {
-                        'LoadBalancerArn': 'string',
-                        'DNSName': 'string',
-                        'CanonicalHostedZoneId': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'LoadBalancerName': 'string',
-                        'Scheme': 'internet-facing'|'internal',
-                        'VpcId': 'string',
-                        'State': {
-                            'Code': 'active'|'provisioning'|'active_impaired'|'failed',
-                            'Reason': 'string'
+                        \'LoadBalancerArn\': \'string\',
+                        \'DNSName\': \'string\',
+                        \'CanonicalHostedZoneId\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'LoadBalancerName\': \'string\',
+                        \'Scheme\': \'internet-facing\'|\'internal\',
+                        \'VpcId\': \'string\',
+                        \'State\': {
+                            \'Code\': \'active\'|\'provisioning\'|\'active_impaired\'|\'failed\',
+                            \'Reason\': \'string\'
                         },
-                        'Type': 'application'|'network',
-                        'AvailabilityZones': [
+                        \'Type\': \'application\'|\'network\',
+                        \'AvailabilityZones\': [
                             {
-                                'ZoneName': 'string',
-                                'SubnetId': 'string',
-                                'LoadBalancerAddresses': [
+                                \'ZoneName\': \'string\',
+                                \'SubnetId\': \'string\',
+                                \'LoadBalancerAddresses\': [
                                     {
-                                        'IpAddress': 'string',
-                                        'AllocationId': 'string'
+                                        \'IpAddress\': \'string\',
+                                        \'AllocationId\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'SecurityGroups': [
-                            'string',
+                        \'SecurityGroups\': [
+                            \'string\',
                         ],
-                        'IpAddressType': 'ipv4'|'dualstack'
+                        \'IpAddressType\': \'ipv4\'|\'dualstack\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -567,17 +567,17 @@ class DescribeTargetGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              LoadBalancerArn='string',
+              LoadBalancerArn=\'string\',
               TargetGroupArns=[
-                  'string',
+                  \'string\',
               ],
               Names=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type LoadBalancerArn: string
@@ -624,30 +624,30 @@ class DescribeTargetGroups(Paginator):
           ::
         
             {
-                'TargetGroups': [
+                \'TargetGroups\': [
                     {
-                        'TargetGroupArn': 'string',
-                        'TargetGroupName': 'string',
-                        'Protocol': 'HTTP'|'HTTPS'|'TCP',
-                        'Port': 123,
-                        'VpcId': 'string',
-                        'HealthCheckProtocol': 'HTTP'|'HTTPS'|'TCP',
-                        'HealthCheckPort': 'string',
-                        'HealthCheckIntervalSeconds': 123,
-                        'HealthCheckTimeoutSeconds': 123,
-                        'HealthyThresholdCount': 123,
-                        'UnhealthyThresholdCount': 123,
-                        'HealthCheckPath': 'string',
-                        'Matcher': {
-                            'HttpCode': 'string'
+                        \'TargetGroupArn\': \'string\',
+                        \'TargetGroupName\': \'string\',
+                        \'Protocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'Port\': 123,
+                        \'VpcId\': \'string\',
+                        \'HealthCheckProtocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'HealthCheckPort\': \'string\',
+                        \'HealthCheckIntervalSeconds\': 123,
+                        \'HealthCheckTimeoutSeconds\': 123,
+                        \'HealthyThresholdCount\': 123,
+                        \'UnhealthyThresholdCount\': 123,
+                        \'HealthCheckPath\': \'string\',
+                        \'Matcher\': {
+                            \'HttpCode\': \'string\'
                         },
-                        'LoadBalancerArns': [
-                            'string',
+                        \'LoadBalancerArns\': [
+                            \'string\',
                         ],
-                        'TargetType': 'instance'|'ip'
+                        \'TargetType\': \'instance\'|\'ip\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -717,7 +717,7 @@ class DescribeTargetGroups(Paginator):
         
                     The HTTP codes.
         
-                    For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+                    For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\").
         
                     For Network Load Balancers, this is 200–399.
         

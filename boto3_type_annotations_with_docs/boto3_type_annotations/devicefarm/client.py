@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,14 +33,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_device_pool(
-              projectArn='string',
-              name='string',
-              description='string',
+              projectArn=\'string\',
+              name=\'string\',
+              description=\'string\',
               rules=[
                   {
-                      'attribute': 'ARN'|'PLATFORM'|'FORM_FACTOR'|'MANUFACTURER'|'REMOTE_ACCESS_ENABLED'|'REMOTE_DEBUG_ENABLED'|'APPIUM_VERSION'|'INSTANCE_ARN'|'INSTANCE_LABELS'|'FLEET_TYPE',
-                      'operator': 'EQUALS'|'LESS_THAN'|'GREATER_THAN'|'IN'|'NOT_IN'|'CONTAINS',
-                      'value': 'string'
+                      \'attribute\': \'ARN\'|\'PLATFORM\'|\'FORM_FACTOR\'|\'MANUFACTURER\'|\'REMOTE_ACCESS_ENABLED\'|\'REMOTE_DEBUG_ENABLED\'|\'APPIUM_VERSION\'|\'INSTANCE_ARN\'|\'INSTANCE_LABELS\'|\'FLEET_TYPE\',
+                      \'operator\': \'EQUALS\'|\'LESS_THAN\'|\'GREATER_THAN\'|\'IN\'|\'NOT_IN\'|\'CONTAINS\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -52,17 +52,17 @@ class Client(BaseClient):
         :type name: string
         :param name: **[REQUIRED]** 
         
-          The device pool's name.
+          The device pool\'s name.
         
         :type description: string
         :param description: 
         
-          The device pool's description.
+          The device pool\'s description.
         
         :type rules: list
         :param rules: **[REQUIRED]** 
         
-          The device pool's rules.
+          The device pool\'s rules.
         
           - *(dict) --* 
         
@@ -70,7 +70,7 @@ class Client(BaseClient):
         
             - **attribute** *(string) --* 
         
-              The rule's stringified attribute. For example, specify the value as ``"\"abc\""`` .
+              The rule\'s stringified attribute. For example, specify the value as ``\"\\"abc\\"\"`` .
         
               Allowed values include:
         
@@ -92,7 +92,7 @@ class Client(BaseClient):
                
             - **operator** *(string) --* 
         
-              The rule's operator.
+              The rule\'s operator.
         
               * EQUALS: The equals operator. 
                
@@ -108,7 +108,7 @@ class Client(BaseClient):
                
             - **value** *(string) --* 
         
-              The rule's value.
+              The rule\'s value.
         
         :rtype: dict
         :returns: 
@@ -118,16 +118,16 @@ class Client(BaseClient):
           ::
         
             {
-                'devicePool': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'description': 'string',
-                    'type': 'CURATED'|'PRIVATE',
-                    'rules': [
+                \'devicePool\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'type\': \'CURATED\'|\'PRIVATE\',
+                    \'rules\': [
                         {
-                            'attribute': 'ARN'|'PLATFORM'|'FORM_FACTOR'|'MANUFACTURER'|'REMOTE_ACCESS_ENABLED'|'REMOTE_DEBUG_ENABLED'|'APPIUM_VERSION'|'INSTANCE_ARN'|'INSTANCE_LABELS'|'FLEET_TYPE',
-                            'operator': 'EQUALS'|'LESS_THAN'|'GREATER_THAN'|'IN'|'NOT_IN'|'CONTAINS',
-                            'value': 'string'
+                            \'attribute\': \'ARN\'|\'PLATFORM\'|\'FORM_FACTOR\'|\'MANUFACTURER\'|\'REMOTE_ACCESS_ENABLED\'|\'REMOTE_DEBUG_ENABLED\'|\'APPIUM_VERSION\'|\'INSTANCE_ARN\'|\'INSTANCE_LABELS\'|\'FLEET_TYPE\',
+                            \'operator\': \'EQUALS\'|\'LESS_THAN\'|\'GREATER_THAN\'|\'IN\'|\'NOT_IN\'|\'CONTAINS\',
+                            \'value\': \'string\'
                         },
                     ]
                 }
@@ -144,19 +144,19 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The device pool's ARN.
+                The device pool\'s ARN.
         
               - **name** *(string) --* 
         
-                The device pool's name.
+                The device pool\'s name.
         
               - **description** *(string) --* 
         
-                The device pool's description.
+                The device pool\'s description.
         
               - **type** *(string) --* 
         
-                The device pool's type.
+                The device pool\'s type.
         
                 Allowed values include:
         
@@ -166,7 +166,7 @@ class Client(BaseClient):
                  
               - **rules** *(list) --* 
         
-                Information about the device pool's rules.
+                Information about the device pool\'s rules.
         
                 - *(dict) --* 
         
@@ -174,7 +174,7 @@ class Client(BaseClient):
         
                   - **attribute** *(string) --* 
         
-                    The rule's stringified attribute. For example, specify the value as ``"\"abc\""`` .
+                    The rule\'s stringified attribute. For example, specify the value as ``\"\\"abc\\"\"`` .
         
                     Allowed values include:
         
@@ -196,7 +196,7 @@ class Client(BaseClient):
                      
                   - **operator** *(string) --* 
         
-                    The rule's operator.
+                    The rule\'s operator.
         
                     * EQUALS: The equals operator. 
                      
@@ -212,7 +212,7 @@ class Client(BaseClient):
                      
                   - **value** *(string) --* 
         
-                    The rule's value.
+                    The rule\'s value.
         
         """
         pass
@@ -226,11 +226,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_instance_profile(
-              name='string',
-              description='string',
+              name=\'string\',
+              description=\'string\',
               packageCleanup=True|False,
               excludeAppPackagesFromCleanup=[
-                  'string',
+                  \'string\',
               ],
               rebootAfterUse=True|False
           )
@@ -271,15 +271,15 @@ class Client(BaseClient):
           ::
         
             {
-                'instanceProfile': {
-                    'arn': 'string',
-                    'packageCleanup': True|False,
-                    'excludeAppPackagesFromCleanup': [
-                        'string',
+                \'instanceProfile\': {
+                    \'arn\': \'string\',
+                    \'packageCleanup\': True|False,
+                    \'excludeAppPackagesFromCleanup\': [
+                        \'string\',
                     ],
-                    'rebootAfterUse': True|False,
-                    'name': 'string',
-                    'description': 'string'
+                    \'rebootAfterUse\': True|False,
+                    \'name\': \'string\',
+                    \'description\': \'string\'
                 }
             }
           **Response Structure** 
@@ -330,10 +330,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_network_profile(
-              projectArn='string',
-              name='string',
-              description='string',
-              type='CURATED'|'PRIVATE',
+              projectArn=\'string\',
+              name=\'string\',
+              description=\'string\',
+              type=\'CURATED\'|\'PRIVATE\',
               uplinkBandwidthBits=123,
               downlinkBandwidthBits=123,
               uplinkDelayMs=123,
@@ -411,19 +411,19 @@ class Client(BaseClient):
           ::
         
             {
-                'networkProfile': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'description': 'string',
-                    'type': 'CURATED'|'PRIVATE',
-                    'uplinkBandwidthBits': 123,
-                    'downlinkBandwidthBits': 123,
-                    'uplinkDelayMs': 123,
-                    'downlinkDelayMs': 123,
-                    'uplinkJitterMs': 123,
-                    'downlinkJitterMs': 123,
-                    'uplinkLossPercent': 123,
-                    'downlinkLossPercent': 123
+                \'networkProfile\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'type\': \'CURATED\'|\'PRIVATE\',
+                    \'uplinkBandwidthBits\': 123,
+                    \'downlinkBandwidthBits\': 123,
+                    \'uplinkDelayMs\': 123,
+                    \'downlinkDelayMs\': 123,
+                    \'uplinkJitterMs\': 123,
+                    \'downlinkJitterMs\': 123,
+                    \'uplinkLossPercent\': 123,
+                    \'downlinkLossPercent\': 123
                 }
             }
           **Response Structure** 
@@ -494,13 +494,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_project(
-              name='string',
+              name=\'string\',
               defaultJobTimeoutMinutes=123
           )
         :type name: string
         :param name: **[REQUIRED]** 
         
-          The project's name.
+          The project\'s name.
         
         :type defaultJobTimeoutMinutes: integer
         :param defaultJobTimeoutMinutes: 
@@ -515,11 +515,11 @@ class Client(BaseClient):
           ::
         
             {
-                'project': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'defaultJobTimeoutMinutes': 123,
-                    'created': datetime(2015, 1, 1)
+                \'project\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'defaultJobTimeoutMinutes\': 123,
+                    \'created\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -534,11 +534,11 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The project's ARN.
+                The project\'s ARN.
         
               - **name** *(string) --* 
         
-                The project's name.
+                The project\'s name.
         
               - **defaultJobTimeoutMinutes** *(integer) --* 
         
@@ -560,22 +560,22 @@ class Client(BaseClient):
         ::
         
           response = client.create_remote_access_session(
-              projectArn='string',
-              deviceArn='string',
-              instanceArn='string',
-              sshPublicKey='string',
+              projectArn=\'string\',
+              deviceArn=\'string\',
+              instanceArn=\'string\',
+              sshPublicKey=\'string\',
               remoteDebugEnabled=True|False,
               remoteRecordEnabled=True|False,
-              remoteRecordAppArn='string',
-              name='string',
-              clientId='string',
+              remoteRecordAppArn=\'string\',
+              name=\'string\',
+              clientId=\'string\',
               configuration={
-                  'billingMethod': 'METERED'|'UNMETERED',
-                  'vpceConfigurationArns': [
-                      'string',
+                  \'billingMethod\': \'METERED\'|\'UNMETERED\',
+                  \'vpceConfigurationArns\': [
+                      \'string\',
                   ]
               },
-              interactionMode='INTERACTIVE'|'NO_VIDEO'|'VIDEO_ONLY',
+              interactionMode=\'INTERACTIVE\'|\'NO_VIDEO\'|\'VIDEO_ONLY\',
               skipAppResign=True|False
           )
         :type projectArn: string
@@ -664,80 +664,80 @@ class Client(BaseClient):
           ::
         
             {
-                'remoteAccessSession': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'created': datetime(2015, 1, 1),
-                    'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                    'message': 'string',
-                    'started': datetime(2015, 1, 1),
-                    'stopped': datetime(2015, 1, 1),
-                    'device': {
-                        'arn': 'string',
-                        'name': 'string',
-                        'manufacturer': 'string',
-                        'model': 'string',
-                        'modelId': 'string',
-                        'formFactor': 'PHONE'|'TABLET',
-                        'platform': 'ANDROID'|'IOS',
-                        'os': 'string',
-                        'cpu': {
-                            'frequency': 'string',
-                            'architecture': 'string',
-                            'clock': 123.0
+                \'remoteAccessSession\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                    \'message\': \'string\',
+                    \'started\': datetime(2015, 1, 1),
+                    \'stopped\': datetime(2015, 1, 1),
+                    \'device\': {
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'manufacturer\': \'string\',
+                        \'model\': \'string\',
+                        \'modelId\': \'string\',
+                        \'formFactor\': \'PHONE\'|\'TABLET\',
+                        \'platform\': \'ANDROID\'|\'IOS\',
+                        \'os\': \'string\',
+                        \'cpu\': {
+                            \'frequency\': \'string\',
+                            \'architecture\': \'string\',
+                            \'clock\': 123.0
                         },
-                        'resolution': {
-                            'width': 123,
-                            'height': 123
+                        \'resolution\': {
+                            \'width\': 123,
+                            \'height\': 123
                         },
-                        'heapSize': 123,
-                        'memory': 123,
-                        'image': 'string',
-                        'carrier': 'string',
-                        'radio': 'string',
-                        'remoteAccessEnabled': True|False,
-                        'remoteDebugEnabled': True|False,
-                        'fleetType': 'string',
-                        'fleetName': 'string',
-                        'instances': [
+                        \'heapSize\': 123,
+                        \'memory\': 123,
+                        \'image\': \'string\',
+                        \'carrier\': \'string\',
+                        \'radio\': \'string\',
+                        \'remoteAccessEnabled\': True|False,
+                        \'remoteDebugEnabled\': True|False,
+                        \'fleetType\': \'string\',
+                        \'fleetName\': \'string\',
+                        \'instances\': [
                             {
-                                'arn': 'string',
-                                'deviceArn': 'string',
-                                'labels': [
-                                    'string',
+                                \'arn\': \'string\',
+                                \'deviceArn\': \'string\',
+                                \'labels\': [
+                                    \'string\',
                                 ],
-                                'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                'udid': 'string',
-                                'instanceProfile': {
-                                    'arn': 'string',
-                                    'packageCleanup': True|False,
-                                    'excludeAppPackagesFromCleanup': [
-                                        'string',
+                                \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                \'udid\': \'string\',
+                                \'instanceProfile\': {
+                                    \'arn\': \'string\',
+                                    \'packageCleanup\': True|False,
+                                    \'excludeAppPackagesFromCleanup\': [
+                                        \'string\',
                                     ],
-                                    'rebootAfterUse': True|False,
-                                    'name': 'string',
-                                    'description': 'string'
+                                    \'rebootAfterUse\': True|False,
+                                    \'name\': \'string\',
+                                    \'description\': \'string\'
                                 }
                             },
                         ]
                     },
-                    'instanceArn': 'string',
-                    'remoteDebugEnabled': True|False,
-                    'remoteRecordEnabled': True|False,
-                    'remoteRecordAppArn': 'string',
-                    'hostAddress': 'string',
-                    'clientId': 'string',
-                    'billingMethod': 'METERED'|'UNMETERED',
-                    'deviceMinutes': {
-                        'total': 123.0,
-                        'metered': 123.0,
-                        'unmetered': 123.0
+                    \'instanceArn\': \'string\',
+                    \'remoteDebugEnabled\': True|False,
+                    \'remoteRecordEnabled\': True|False,
+                    \'remoteRecordAppArn\': \'string\',
+                    \'hostAddress\': \'string\',
+                    \'clientId\': \'string\',
+                    \'billingMethod\': \'METERED\'|\'UNMETERED\',
+                    \'deviceMinutes\': {
+                        \'total\': 123.0,
+                        \'metered\': 123.0,
+                        \'unmetered\': 123.0
                     },
-                    'endpoint': 'string',
-                    'deviceUdid': 'string',
-                    'interactionMode': 'INTERACTIVE'|'NO_VIDEO'|'VIDEO_ONLY',
-                    'skipAppResign': True|False
+                    \'endpoint\': \'string\',
+                    \'deviceUdid\': \'string\',
+                    \'interactionMode\': \'INTERACTIVE\'|\'NO_VIDEO\'|\'VIDEO_ONLY\',
+                    \'skipAppResign\': True|False
                 }
             }
           **Response Structure** 
@@ -820,27 +820,27 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The device's ARN.
+                  The device\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The device's display name.
+                  The device\'s display name.
         
                 - **manufacturer** *(string) --* 
         
-                  The device's manufacturer name.
+                  The device\'s manufacturer name.
         
                 - **model** *(string) --* 
         
-                  The device's model name.
+                  The device\'s model name.
         
                 - **modelId** *(string) --* 
         
-                  The device's model ID.
+                  The device\'s model ID.
         
                 - **formFactor** *(string) --* 
         
-                  The device's form factor.
+                  The device\'s form factor.
         
                   Allowed values include:
         
@@ -850,7 +850,7 @@ class Client(BaseClient):
                    
                 - **platform** *(string) --* 
         
-                  The device's platform.
+                  The device\'s platform.
         
                   Allowed values include:
         
@@ -860,23 +860,23 @@ class Client(BaseClient):
                    
                 - **os** *(string) --* 
         
-                  The device's operating system type.
+                  The device\'s operating system type.
         
                 - **cpu** *(dict) --* 
         
-                  Information about the device's CPU.
+                  Information about the device\'s CPU.
         
                   - **frequency** *(string) --* 
         
-                    The CPU's frequency.
+                    The CPU\'s frequency.
         
                   - **architecture** *(string) --* 
         
-                    The CPU's architecture, for example x86 or ARM.
+                    The CPU\'s architecture, for example x86 or ARM.
         
                   - **clock** *(float) --* 
         
-                    The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                    The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                 - **resolution** *(dict) --* 
         
@@ -884,31 +884,31 @@ class Client(BaseClient):
         
                   - **width** *(integer) --* 
         
-                    The screen resolution's width, expressed in pixels.
+                    The screen resolution\'s width, expressed in pixels.
         
                   - **height** *(integer) --* 
         
-                    The screen resolution's height, expressed in pixels.
+                    The screen resolution\'s height, expressed in pixels.
         
                 - **heapSize** *(integer) --* 
         
-                  The device's heap size, expressed in bytes.
+                  The device\'s heap size, expressed in bytes.
         
                 - **memory** *(integer) --* 
         
-                  The device's total memory size, expressed in bytes.
+                  The device\'s total memory size, expressed in bytes.
         
                 - **image** *(string) --* 
         
-                  The device's image name.
+                  The device\'s image name.
         
                 - **carrier** *(string) --* 
         
-                  The device's carrier.
+                  The device\'s carrier.
         
                 - **radio** *(string) --* 
         
-                  The device's radio.
+                  The device\'s radio.
         
                 - **remoteAccessEnabled** *(boolean) --* 
         
@@ -1014,7 +1014,7 @@ class Client(BaseClient):
         
               - **billingMethod** *(string) --* 
         
-                The billing method of the remote access session. Possible values include ``METERED`` or ``UNMETERED`` . For more information about metered devices, see `AWS Device Farm terminology <http://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology>`__ ."
+                The billing method of the remote access session. Possible values include ``METERED`` or ``UNMETERED`` . For more information about metered devices, see `AWS Device Farm terminology <http://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology>`__ .\"
         
               - **deviceMinutes** *(dict) --* 
         
@@ -1068,10 +1068,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_upload(
-              projectArn='string',
-              name='string',
-              type='ANDROID_APP'|'IOS_APP'|'WEB_APP'|'EXTERNAL_DATA'|'APPIUM_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_PYTHON_TEST_PACKAGE'|'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_WEB_PYTHON_TEST_PACKAGE'|'CALABASH_TEST_PACKAGE'|'INSTRUMENTATION_TEST_PACKAGE'|'UIAUTOMATION_TEST_PACKAGE'|'UIAUTOMATOR_TEST_PACKAGE'|'XCTEST_TEST_PACKAGE'|'XCTEST_UI_TEST_PACKAGE'|'APPIUM_JAVA_JUNIT_TEST_SPEC'|'APPIUM_JAVA_TESTNG_TEST_SPEC'|'APPIUM_PYTHON_TEST_SPEC'|'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC'|'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC'|'APPIUM_WEB_PYTHON_TEST_SPEC'|'INSTRUMENTATION_TEST_SPEC'|'XCTEST_UI_TEST_SPEC',
-              contentType='string'
+              projectArn=\'string\',
+              name=\'string\',
+              type=\'ANDROID_APP\'|\'IOS_APP\'|\'WEB_APP\'|\'EXTERNAL_DATA\'|\'APPIUM_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_PYTHON_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_WEB_PYTHON_TEST_PACKAGE\'|\'CALABASH_TEST_PACKAGE\'|\'INSTRUMENTATION_TEST_PACKAGE\'|\'UIAUTOMATION_TEST_PACKAGE\'|\'UIAUTOMATOR_TEST_PACKAGE\'|\'XCTEST_TEST_PACKAGE\'|\'XCTEST_UI_TEST_PACKAGE\'|\'APPIUM_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_PYTHON_TEST_SPEC\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_WEB_PYTHON_TEST_SPEC\'|\'INSTRUMENTATION_TEST_SPEC\'|\'XCTEST_UI_TEST_SPEC\',
+              contentType=\'string\'
           )
         :type projectArn: string
         :param projectArn: **[REQUIRED]** 
@@ -1081,12 +1081,12 @@ class Client(BaseClient):
         :type name: string
         :param name: **[REQUIRED]** 
         
-          The upload's file name. The name should not contain the '/' character. If uploading an iOS app, the file name needs to end with the ``.ipa`` extension. If uploading an Android app, the file name needs to end with the ``.apk`` extension. For all others, the file name must end with the ``.zip`` file extension.
+          The upload\'s file name. The name should not contain the \'/\' character. If uploading an iOS app, the file name needs to end with the ``.ipa`` extension. If uploading an Android app, the file name needs to end with the ``.apk`` extension. For all others, the file name must end with the ``.zip`` file extension.
         
         :type type: string
         :param type: **[REQUIRED]** 
         
-          The upload's upload type.
+          The upload\'s upload type.
         
           Must be one of the following values:
         
@@ -1127,7 +1127,7 @@ class Client(BaseClient):
         :type contentType: string
         :param contentType: 
         
-          The upload's content type (for example, "application/octet-stream").
+          The upload\'s content type (for example, \"application/octet-stream\").
         
         :rtype: dict
         :returns: 
@@ -1137,17 +1137,17 @@ class Client(BaseClient):
           ::
         
             {
-                'upload': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'created': datetime(2015, 1, 1),
-                    'type': 'ANDROID_APP'|'IOS_APP'|'WEB_APP'|'EXTERNAL_DATA'|'APPIUM_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_PYTHON_TEST_PACKAGE'|'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_WEB_PYTHON_TEST_PACKAGE'|'CALABASH_TEST_PACKAGE'|'INSTRUMENTATION_TEST_PACKAGE'|'UIAUTOMATION_TEST_PACKAGE'|'UIAUTOMATOR_TEST_PACKAGE'|'XCTEST_TEST_PACKAGE'|'XCTEST_UI_TEST_PACKAGE'|'APPIUM_JAVA_JUNIT_TEST_SPEC'|'APPIUM_JAVA_TESTNG_TEST_SPEC'|'APPIUM_PYTHON_TEST_SPEC'|'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC'|'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC'|'APPIUM_WEB_PYTHON_TEST_SPEC'|'INSTRUMENTATION_TEST_SPEC'|'XCTEST_UI_TEST_SPEC',
-                    'status': 'INITIALIZED'|'PROCESSING'|'SUCCEEDED'|'FAILED',
-                    'url': 'string',
-                    'metadata': 'string',
-                    'contentType': 'string',
-                    'message': 'string',
-                    'category': 'CURATED'|'PRIVATE'
+                \'upload\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'type\': \'ANDROID_APP\'|\'IOS_APP\'|\'WEB_APP\'|\'EXTERNAL_DATA\'|\'APPIUM_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_PYTHON_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_WEB_PYTHON_TEST_PACKAGE\'|\'CALABASH_TEST_PACKAGE\'|\'INSTRUMENTATION_TEST_PACKAGE\'|\'UIAUTOMATION_TEST_PACKAGE\'|\'UIAUTOMATOR_TEST_PACKAGE\'|\'XCTEST_TEST_PACKAGE\'|\'XCTEST_UI_TEST_PACKAGE\'|\'APPIUM_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_PYTHON_TEST_SPEC\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_WEB_PYTHON_TEST_SPEC\'|\'INSTRUMENTATION_TEST_SPEC\'|\'XCTEST_UI_TEST_SPEC\',
+                    \'status\': \'INITIALIZED\'|\'PROCESSING\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'url\': \'string\',
+                    \'metadata\': \'string\',
+                    \'contentType\': \'string\',
+                    \'message\': \'string\',
+                    \'category\': \'CURATED\'|\'PRIVATE\'
                 }
             }
           **Response Structure** 
@@ -1162,11 +1162,11 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The upload's ARN.
+                The upload\'s ARN.
         
               - **name** *(string) --* 
         
-                The upload's file name.
+                The upload\'s file name.
         
               - **created** *(datetime) --* 
         
@@ -1174,7 +1174,7 @@ class Client(BaseClient):
         
               - **type** *(string) --* 
         
-                The upload's type.
+                The upload\'s type.
         
                 Must be one of the following values:
         
@@ -1212,7 +1212,7 @@ class Client(BaseClient):
                  
               - **status** *(string) --* 
         
-                The upload's status.
+                The upload\'s status.
         
                 Must be one of the following values:
         
@@ -1230,19 +1230,19 @@ class Client(BaseClient):
         
               - **metadata** *(string) --* 
         
-                The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+                The upload\'s metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
         
               - **contentType** *(string) --* 
         
-                The upload's content type (for example, "application/octet-stream").
+                The upload\'s content type (for example, \"application/octet-stream\").
         
               - **message** *(string) --* 
         
-                A message about the upload's result.
+                A message about the upload\'s result.
         
               - **category** *(string) --* 
         
-                The upload's category. Allowed values include:
+                The upload\'s category. Allowed values include:
         
                 * CURATED: An upload managed by AWS Device Farm. 
                  
@@ -1260,10 +1260,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_vpce_configuration(
-              vpceConfigurationName='string',
-              vpceServiceName='string',
-              serviceDnsName='string',
-              vpceConfigurationDescription='string'
+              vpceConfigurationName=\'string\',
+              vpceServiceName=\'string\',
+              serviceDnsName=\'string\',
+              vpceConfigurationDescription=\'string\'
           )
         :type vpceConfigurationName: string
         :param vpceConfigurationName: **[REQUIRED]** 
@@ -1293,12 +1293,12 @@ class Client(BaseClient):
           ::
         
             {
-                'vpceConfiguration': {
-                    'arn': 'string',
-                    'vpceConfigurationName': 'string',
-                    'vpceServiceName': 'string',
-                    'serviceDnsName': 'string',
-                    'vpceConfigurationDescription': 'string'
+                \'vpceConfiguration\': {
+                    \'arn\': \'string\',
+                    \'vpceConfigurationName\': \'string\',
+                    \'vpceServiceName\': \'string\',
+                    \'serviceDnsName\': \'string\',
+                    \'vpceConfigurationDescription\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1341,7 +1341,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_device_pool(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -1374,7 +1374,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_instance_profile(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -1404,7 +1404,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_network_profile(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -1436,7 +1436,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_project(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -1469,7 +1469,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_remote_access_session(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -1504,7 +1504,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_run(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -1537,7 +1537,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_upload(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -1570,7 +1570,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vpce_configuration(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -1607,7 +1607,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1631,24 +1631,24 @@ class Client(BaseClient):
           ::
         
             {
-                'accountSettings': {
-                    'awsAccountNumber': 'string',
-                    'unmeteredDevices': {
-                        'string': 123
+                \'accountSettings\': {
+                    \'awsAccountNumber\': \'string\',
+                    \'unmeteredDevices\': {
+                        \'string\': 123
                     },
-                    'unmeteredRemoteAccessDevices': {
-                        'string': 123
+                    \'unmeteredRemoteAccessDevices\': {
+                        \'string\': 123
                     },
-                    'maxJobTimeoutMinutes': 123,
-                    'trialMinutes': {
-                        'total': 123.0,
-                        'remaining': 123.0
+                    \'maxJobTimeoutMinutes\': 123,
+                    \'trialMinutes\': {
+                        \'total\': 123.0,
+                        \'remaining\': 123.0
                     },
-                    'maxSlots': {
-                        'string': 123
+                    \'maxSlots\': {
+                        \'string\': 123
                     },
-                    'defaultJobTimeoutMinutes': 123,
-                    'skipAppResign': True|False
+                    \'defaultJobTimeoutMinutes\': 123,
+                    \'skipAppResign\': True|False
                 }
             }
           **Response Structure** 
@@ -1687,7 +1687,7 @@ class Client(BaseClient):
         
               - **trialMinutes** *(dict) --* 
         
-                Information about an AWS account's usage of free trial device minutes.
+                Information about an AWS account\'s usage of free trial device minutes.
         
                 - **total** *(float) --* 
         
@@ -1727,12 +1727,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_device(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The device type's ARN.
+          The device type\'s ARN.
         
         :rtype: dict
         :returns: 
@@ -1742,51 +1742,51 @@ class Client(BaseClient):
           ::
         
             {
-                'device': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'manufacturer': 'string',
-                    'model': 'string',
-                    'modelId': 'string',
-                    'formFactor': 'PHONE'|'TABLET',
-                    'platform': 'ANDROID'|'IOS',
-                    'os': 'string',
-                    'cpu': {
-                        'frequency': 'string',
-                        'architecture': 'string',
-                        'clock': 123.0
+                \'device\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'manufacturer\': \'string\',
+                    \'model\': \'string\',
+                    \'modelId\': \'string\',
+                    \'formFactor\': \'PHONE\'|\'TABLET\',
+                    \'platform\': \'ANDROID\'|\'IOS\',
+                    \'os\': \'string\',
+                    \'cpu\': {
+                        \'frequency\': \'string\',
+                        \'architecture\': \'string\',
+                        \'clock\': 123.0
                     },
-                    'resolution': {
-                        'width': 123,
-                        'height': 123
+                    \'resolution\': {
+                        \'width\': 123,
+                        \'height\': 123
                     },
-                    'heapSize': 123,
-                    'memory': 123,
-                    'image': 'string',
-                    'carrier': 'string',
-                    'radio': 'string',
-                    'remoteAccessEnabled': True|False,
-                    'remoteDebugEnabled': True|False,
-                    'fleetType': 'string',
-                    'fleetName': 'string',
-                    'instances': [
+                    \'heapSize\': 123,
+                    \'memory\': 123,
+                    \'image\': \'string\',
+                    \'carrier\': \'string\',
+                    \'radio\': \'string\',
+                    \'remoteAccessEnabled\': True|False,
+                    \'remoteDebugEnabled\': True|False,
+                    \'fleetType\': \'string\',
+                    \'fleetName\': \'string\',
+                    \'instances\': [
                         {
-                            'arn': 'string',
-                            'deviceArn': 'string',
-                            'labels': [
-                                'string',
+                            \'arn\': \'string\',
+                            \'deviceArn\': \'string\',
+                            \'labels\': [
+                                \'string\',
                             ],
-                            'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                            'udid': 'string',
-                            'instanceProfile': {
-                                'arn': 'string',
-                                'packageCleanup': True|False,
-                                'excludeAppPackagesFromCleanup': [
-                                    'string',
+                            \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                            \'udid\': \'string\',
+                            \'instanceProfile\': {
+                                \'arn\': \'string\',
+                                \'packageCleanup\': True|False,
+                                \'excludeAppPackagesFromCleanup\': [
+                                    \'string\',
                                 ],
-                                'rebootAfterUse': True|False,
-                                'name': 'string',
-                                'description': 'string'
+                                \'rebootAfterUse\': True|False,
+                                \'name\': \'string\',
+                                \'description\': \'string\'
                             }
                         },
                     ]
@@ -1804,27 +1804,27 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The device's ARN.
+                The device\'s ARN.
         
               - **name** *(string) --* 
         
-                The device's display name.
+                The device\'s display name.
         
               - **manufacturer** *(string) --* 
         
-                The device's manufacturer name.
+                The device\'s manufacturer name.
         
               - **model** *(string) --* 
         
-                The device's model name.
+                The device\'s model name.
         
               - **modelId** *(string) --* 
         
-                The device's model ID.
+                The device\'s model ID.
         
               - **formFactor** *(string) --* 
         
-                The device's form factor.
+                The device\'s form factor.
         
                 Allowed values include:
         
@@ -1834,7 +1834,7 @@ class Client(BaseClient):
                  
               - **platform** *(string) --* 
         
-                The device's platform.
+                The device\'s platform.
         
                 Allowed values include:
         
@@ -1844,23 +1844,23 @@ class Client(BaseClient):
                  
               - **os** *(string) --* 
         
-                The device's operating system type.
+                The device\'s operating system type.
         
               - **cpu** *(dict) --* 
         
-                Information about the device's CPU.
+                Information about the device\'s CPU.
         
                 - **frequency** *(string) --* 
         
-                  The CPU's frequency.
+                  The CPU\'s frequency.
         
                 - **architecture** *(string) --* 
         
-                  The CPU's architecture, for example x86 or ARM.
+                  The CPU\'s architecture, for example x86 or ARM.
         
                 - **clock** *(float) --* 
         
-                  The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                  The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
               - **resolution** *(dict) --* 
         
@@ -1868,31 +1868,31 @@ class Client(BaseClient):
         
                 - **width** *(integer) --* 
         
-                  The screen resolution's width, expressed in pixels.
+                  The screen resolution\'s width, expressed in pixels.
         
                 - **height** *(integer) --* 
         
-                  The screen resolution's height, expressed in pixels.
+                  The screen resolution\'s height, expressed in pixels.
         
               - **heapSize** *(integer) --* 
         
-                The device's heap size, expressed in bytes.
+                The device\'s heap size, expressed in bytes.
         
               - **memory** *(integer) --* 
         
-                The device's total memory size, expressed in bytes.
+                The device\'s total memory size, expressed in bytes.
         
               - **image** *(string) --* 
         
-                The device's image name.
+                The device\'s image name.
         
               - **carrier** *(string) --* 
         
-                The device's carrier.
+                The device\'s carrier.
         
               - **radio** *(string) --* 
         
-                The device's radio.
+                The device\'s radio.
         
               - **remoteAccessEnabled** *(boolean) --* 
         
@@ -1984,12 +1984,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_device_instance(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The Amazon Resource Name (ARN) of the instance you're requesting information about.
+          The Amazon Resource Name (ARN) of the instance you\'re requesting information about.
         
         :rtype: dict
         :returns: 
@@ -1999,23 +1999,23 @@ class Client(BaseClient):
           ::
         
             {
-                'deviceInstance': {
-                    'arn': 'string',
-                    'deviceArn': 'string',
-                    'labels': [
-                        'string',
+                \'deviceInstance\': {
+                    \'arn\': \'string\',
+                    \'deviceArn\': \'string\',
+                    \'labels\': [
+                        \'string\',
                     ],
-                    'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                    'udid': 'string',
-                    'instanceProfile': {
-                        'arn': 'string',
-                        'packageCleanup': True|False,
-                        'excludeAppPackagesFromCleanup': [
-                            'string',
+                    \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                    \'udid\': \'string\',
+                    \'instanceProfile\': {
+                        \'arn\': \'string\',
+                        \'packageCleanup\': True|False,
+                        \'excludeAppPackagesFromCleanup\': [
+                            \'string\',
                         ],
-                        'rebootAfterUse': True|False,
-                        'name': 'string',
-                        'description': 'string'
+                        \'rebootAfterUse\': True|False,
+                        \'name\': \'string\',
+                        \'description\': \'string\'
                     }
                 }
             }
@@ -2093,12 +2093,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_device_pool(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The device pool's ARN.
+          The device pool\'s ARN.
         
         :rtype: dict
         :returns: 
@@ -2108,16 +2108,16 @@ class Client(BaseClient):
           ::
         
             {
-                'devicePool': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'description': 'string',
-                    'type': 'CURATED'|'PRIVATE',
-                    'rules': [
+                \'devicePool\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'type\': \'CURATED\'|\'PRIVATE\',
+                    \'rules\': [
                         {
-                            'attribute': 'ARN'|'PLATFORM'|'FORM_FACTOR'|'MANUFACTURER'|'REMOTE_ACCESS_ENABLED'|'REMOTE_DEBUG_ENABLED'|'APPIUM_VERSION'|'INSTANCE_ARN'|'INSTANCE_LABELS'|'FLEET_TYPE',
-                            'operator': 'EQUALS'|'LESS_THAN'|'GREATER_THAN'|'IN'|'NOT_IN'|'CONTAINS',
-                            'value': 'string'
+                            \'attribute\': \'ARN\'|\'PLATFORM\'|\'FORM_FACTOR\'|\'MANUFACTURER\'|\'REMOTE_ACCESS_ENABLED\'|\'REMOTE_DEBUG_ENABLED\'|\'APPIUM_VERSION\'|\'INSTANCE_ARN\'|\'INSTANCE_LABELS\'|\'FLEET_TYPE\',
+                            \'operator\': \'EQUALS\'|\'LESS_THAN\'|\'GREATER_THAN\'|\'IN\'|\'NOT_IN\'|\'CONTAINS\',
+                            \'value\': \'string\'
                         },
                     ]
                 }
@@ -2134,19 +2134,19 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The device pool's ARN.
+                The device pool\'s ARN.
         
               - **name** *(string) --* 
         
-                The device pool's name.
+                The device pool\'s name.
         
               - **description** *(string) --* 
         
-                The device pool's description.
+                The device pool\'s description.
         
               - **type** *(string) --* 
         
-                The device pool's type.
+                The device pool\'s type.
         
                 Allowed values include:
         
@@ -2156,7 +2156,7 @@ class Client(BaseClient):
                  
               - **rules** *(list) --* 
         
-                Information about the device pool's rules.
+                Information about the device pool\'s rules.
         
                 - *(dict) --* 
         
@@ -2164,7 +2164,7 @@ class Client(BaseClient):
         
                   - **attribute** *(string) --* 
         
-                    The rule's stringified attribute. For example, specify the value as ``"\"abc\""`` .
+                    The rule\'s stringified attribute. For example, specify the value as ``\"\\"abc\\"\"`` .
         
                     Allowed values include:
         
@@ -2186,7 +2186,7 @@ class Client(BaseClient):
                      
                   - **operator** *(string) --* 
         
-                    The rule's operator.
+                    The rule\'s operator.
         
                     * EQUALS: The equals operator. 
                      
@@ -2202,7 +2202,7 @@ class Client(BaseClient):
                      
                   - **value** *(string) --* 
         
-                    The rule's value.
+                    The rule\'s value.
         
         """
         pass
@@ -2216,56 +2216,56 @@ class Client(BaseClient):
         ::
         
           response = client.get_device_pool_compatibility(
-              devicePoolArn='string',
-              appArn='string',
-              testType='BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
+              devicePoolArn=\'string\',
+              appArn=\'string\',
+              testType=\'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
               test={
-                  'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                  'testPackageArn': 'string',
-                  'testSpecArn': 'string',
-                  'filter': 'string',
-                  'parameters': {
-                      'string': 'string'
+                  \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                  \'testPackageArn\': \'string\',
+                  \'testSpecArn\': \'string\',
+                  \'filter\': \'string\',
+                  \'parameters\': {
+                      \'string\': \'string\'
                   }
               },
               configuration={
-                  'extraDataPackageArn': 'string',
-                  'networkProfileArn': 'string',
-                  'locale': 'string',
-                  'location': {
-                      'latitude': 123.0,
-                      'longitude': 123.0
+                  \'extraDataPackageArn\': \'string\',
+                  \'networkProfileArn\': \'string\',
+                  \'locale\': \'string\',
+                  \'location\': {
+                      \'latitude\': 123.0,
+                      \'longitude\': 123.0
                   },
-                  'vpceConfigurationArns': [
-                      'string',
+                  \'vpceConfigurationArns\': [
+                      \'string\',
                   ],
-                  'customerArtifactPaths': {
-                      'iosPaths': [
-                          'string',
+                  \'customerArtifactPaths\': {
+                      \'iosPaths\': [
+                          \'string\',
                       ],
-                      'androidPaths': [
-                          'string',
+                      \'androidPaths\': [
+                          \'string\',
                       ],
-                      'deviceHostPaths': [
-                          'string',
+                      \'deviceHostPaths\': [
+                          \'string\',
                       ]
                   },
-                  'radios': {
-                      'wifi': True|False,
-                      'bluetooth': True|False,
-                      'nfc': True|False,
-                      'gps': True|False
+                  \'radios\': {
+                      \'wifi\': True|False,
+                      \'bluetooth\': True|False,
+                      \'nfc\': True|False,
+                      \'gps\': True|False
                   },
-                  'auxiliaryApps': [
-                      'string',
+                  \'auxiliaryApps\': [
+                      \'string\',
                   ],
-                  'billingMethod': 'METERED'|'UNMETERED'
+                  \'billingMethod\': \'METERED\'|\'UNMETERED\'
               }
           )
         :type devicePoolArn: string
         :param devicePoolArn: **[REQUIRED]** 
         
-          The device pool's ARN.
+          The device pool\'s ARN.
         
         :type appArn: string
         :param appArn: 
@@ -2314,7 +2314,7 @@ class Client(BaseClient):
         
           - **type** *(string) --* **[REQUIRED]** 
         
-            The test's type.
+            The test\'s type.
         
             Must be one of the following values:
         
@@ -2356,21 +2356,21 @@ class Client(BaseClient):
         
           - **filter** *(string) --* 
         
-            The test's filter.
+            The test\'s filter.
         
           - **parameters** *(dict) --* 
         
-            The test's parameters, such as the following test framework parameters and fixture settings:
+            The test\'s parameters, such as the following test framework parameters and fixture settings:
         
             For Calabash tests:
         
-            * profile: A cucumber profile, for example, "my_profile_name". 
+            * profile: A cucumber profile, for example, \"my_profile_name\". 
              
-            * tags: You can limit execution to features or scenarios that have (or don't have) certain tags, for example, "@smoke" or "@smoke,~@wip". 
+            * tags: You can limit execution to features or scenarios that have (or don\'t have) certain tags, for example, \"@smoke\" or \"@smoke,~@wip\". 
              
             For Appium tests (all types):
         
-            * appium_version: The Appium version. Currently supported values are "1.4.16", "1.6.3", "latest", and "default". 
+            * appium_version: The Appium version. Currently supported values are \"1.4.16\", \"1.6.3\", \"latest\", and \"default\". 
         
               * “latest” will run the latest Appium version supported by Device Farm (1.6.3). 
                
@@ -2396,33 +2396,33 @@ class Client(BaseClient):
         
             * filter: A test filter string. Examples: 
         
-              * Running a single test case: "com.android.abc.Test1" 
+              * Running a single test case: \"com.android.abc.Test1\" 
                
-              * Running a single test: "com.android.abc.Test1#smoke" 
+              * Running a single test: \"com.android.abc.Test1#smoke\" 
                
-              * Running multiple tests: "com.android.abc.Test1,com.android.abc.Test2" 
+              * Running multiple tests: \"com.android.abc.Test1,com.android.abc.Test2\" 
                
             For XCTest and XCTestUI:
         
             * filter: A test filter string. Examples: 
         
-              * Running a single test class: "LoginTests" 
+              * Running a single test class: \"LoginTests\" 
                
-              * Running a multiple test classes: "LoginTests,SmokeTests" 
+              * Running a multiple test classes: \"LoginTests,SmokeTests\" 
                
-              * Running a single test: "LoginTests/testValid" 
+              * Running a single test: \"LoginTests/testValid\" 
                
-              * Running multiple tests: "LoginTests/testValid,LoginTests/testInvalid" 
+              * Running multiple tests: \"LoginTests/testValid,LoginTests/testInvalid\" 
                
             For UIAutomator:
         
             * filter: A test filter string. Examples: 
         
-              * Running a single test case: "com.android.abc.Test1" 
+              * Running a single test case: \"com.android.abc.Test1\" 
                
-              * Running a single test: "com.android.abc.Test1#smoke" 
+              * Running a single test: \"com.android.abc.Test1#smoke\" 
                
-              * Running multiple tests: "com.android.abc.Test1,com.android.abc.Test2" 
+              * Running multiple tests: \"com.android.abc.Test1,com.android.abc.Test2\" 
                
             - *(string) --* 
         
@@ -2435,7 +2435,7 @@ class Client(BaseClient):
         
           - **extraDataPackageArn** *(string) --* 
         
-            The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm will extract to external data for Android or the app's sandbox for iOS.
+            The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm will extract to external data for Android or the app\'s sandbox for iOS.
         
           - **networkProfileArn** *(string) --* 
         
@@ -2469,19 +2469,19 @@ class Client(BaseClient):
         
             - **iosPaths** *(list) --* 
         
-              Comma-separated list of paths on the iOS device where the artifacts generated by the customer's tests will be pulled from.
+              Comma-separated list of paths on the iOS device where the artifacts generated by the customer\'s tests will be pulled from.
         
               - *(string) --* 
         
             - **androidPaths** *(list) --* 
         
-              Comma-separated list of paths on the Android device where the artifacts generated by the customer's tests will be pulled from.
+              Comma-separated list of paths on the Android device where the artifacts generated by the customer\'s tests will be pulled from.
         
               - *(string) --* 
         
             - **deviceHostPaths** *(list) --* 
         
-              Comma-separated list of paths in the test execution environment where the artifacts generated by the customer's tests will be pulled from.
+              Comma-separated list of paths in the test execution environment where the artifacts generated by the customer\'s tests will be pulled from.
         
               - *(string) --* 
         
@@ -2523,122 +2523,122 @@ class Client(BaseClient):
           ::
         
             {
-                'compatibleDevices': [
+                \'compatibleDevices\': [
                     {
-                        'device': {
-                            'arn': 'string',
-                            'name': 'string',
-                            'manufacturer': 'string',
-                            'model': 'string',
-                            'modelId': 'string',
-                            'formFactor': 'PHONE'|'TABLET',
-                            'platform': 'ANDROID'|'IOS',
-                            'os': 'string',
-                            'cpu': {
-                                'frequency': 'string',
-                                'architecture': 'string',
-                                'clock': 123.0
+                        \'device\': {
+                            \'arn\': \'string\',
+                            \'name\': \'string\',
+                            \'manufacturer\': \'string\',
+                            \'model\': \'string\',
+                            \'modelId\': \'string\',
+                            \'formFactor\': \'PHONE\'|\'TABLET\',
+                            \'platform\': \'ANDROID\'|\'IOS\',
+                            \'os\': \'string\',
+                            \'cpu\': {
+                                \'frequency\': \'string\',
+                                \'architecture\': \'string\',
+                                \'clock\': 123.0
                             },
-                            'resolution': {
-                                'width': 123,
-                                'height': 123
+                            \'resolution\': {
+                                \'width\': 123,
+                                \'height\': 123
                             },
-                            'heapSize': 123,
-                            'memory': 123,
-                            'image': 'string',
-                            'carrier': 'string',
-                            'radio': 'string',
-                            'remoteAccessEnabled': True|False,
-                            'remoteDebugEnabled': True|False,
-                            'fleetType': 'string',
-                            'fleetName': 'string',
-                            'instances': [
+                            \'heapSize\': 123,
+                            \'memory\': 123,
+                            \'image\': \'string\',
+                            \'carrier\': \'string\',
+                            \'radio\': \'string\',
+                            \'remoteAccessEnabled\': True|False,
+                            \'remoteDebugEnabled\': True|False,
+                            \'fleetType\': \'string\',
+                            \'fleetName\': \'string\',
+                            \'instances\': [
                                 {
-                                    'arn': 'string',
-                                    'deviceArn': 'string',
-                                    'labels': [
-                                        'string',
+                                    \'arn\': \'string\',
+                                    \'deviceArn\': \'string\',
+                                    \'labels\': [
+                                        \'string\',
                                     ],
-                                    'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                    'udid': 'string',
-                                    'instanceProfile': {
-                                        'arn': 'string',
-                                        'packageCleanup': True|False,
-                                        'excludeAppPackagesFromCleanup': [
-                                            'string',
+                                    \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                    \'udid\': \'string\',
+                                    \'instanceProfile\': {
+                                        \'arn\': \'string\',
+                                        \'packageCleanup\': True|False,
+                                        \'excludeAppPackagesFromCleanup\': [
+                                            \'string\',
                                         ],
-                                        'rebootAfterUse': True|False,
-                                        'name': 'string',
-                                        'description': 'string'
+                                        \'rebootAfterUse\': True|False,
+                                        \'name\': \'string\',
+                                        \'description\': \'string\'
                                     }
                                 },
                             ]
                         },
-                        'compatible': True|False,
-                        'incompatibilityMessages': [
+                        \'compatible\': True|False,
+                        \'incompatibilityMessages\': [
                             {
-                                'message': 'string',
-                                'type': 'ARN'|'PLATFORM'|'FORM_FACTOR'|'MANUFACTURER'|'REMOTE_ACCESS_ENABLED'|'REMOTE_DEBUG_ENABLED'|'APPIUM_VERSION'|'INSTANCE_ARN'|'INSTANCE_LABELS'|'FLEET_TYPE'
+                                \'message\': \'string\',
+                                \'type\': \'ARN\'|\'PLATFORM\'|\'FORM_FACTOR\'|\'MANUFACTURER\'|\'REMOTE_ACCESS_ENABLED\'|\'REMOTE_DEBUG_ENABLED\'|\'APPIUM_VERSION\'|\'INSTANCE_ARN\'|\'INSTANCE_LABELS\'|\'FLEET_TYPE\'
                             },
                         ]
                     },
                 ],
-                'incompatibleDevices': [
+                \'incompatibleDevices\': [
                     {
-                        'device': {
-                            'arn': 'string',
-                            'name': 'string',
-                            'manufacturer': 'string',
-                            'model': 'string',
-                            'modelId': 'string',
-                            'formFactor': 'PHONE'|'TABLET',
-                            'platform': 'ANDROID'|'IOS',
-                            'os': 'string',
-                            'cpu': {
-                                'frequency': 'string',
-                                'architecture': 'string',
-                                'clock': 123.0
+                        \'device\': {
+                            \'arn\': \'string\',
+                            \'name\': \'string\',
+                            \'manufacturer\': \'string\',
+                            \'model\': \'string\',
+                            \'modelId\': \'string\',
+                            \'formFactor\': \'PHONE\'|\'TABLET\',
+                            \'platform\': \'ANDROID\'|\'IOS\',
+                            \'os\': \'string\',
+                            \'cpu\': {
+                                \'frequency\': \'string\',
+                                \'architecture\': \'string\',
+                                \'clock\': 123.0
                             },
-                            'resolution': {
-                                'width': 123,
-                                'height': 123
+                            \'resolution\': {
+                                \'width\': 123,
+                                \'height\': 123
                             },
-                            'heapSize': 123,
-                            'memory': 123,
-                            'image': 'string',
-                            'carrier': 'string',
-                            'radio': 'string',
-                            'remoteAccessEnabled': True|False,
-                            'remoteDebugEnabled': True|False,
-                            'fleetType': 'string',
-                            'fleetName': 'string',
-                            'instances': [
+                            \'heapSize\': 123,
+                            \'memory\': 123,
+                            \'image\': \'string\',
+                            \'carrier\': \'string\',
+                            \'radio\': \'string\',
+                            \'remoteAccessEnabled\': True|False,
+                            \'remoteDebugEnabled\': True|False,
+                            \'fleetType\': \'string\',
+                            \'fleetName\': \'string\',
+                            \'instances\': [
                                 {
-                                    'arn': 'string',
-                                    'deviceArn': 'string',
-                                    'labels': [
-                                        'string',
+                                    \'arn\': \'string\',
+                                    \'deviceArn\': \'string\',
+                                    \'labels\': [
+                                        \'string\',
                                     ],
-                                    'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                    'udid': 'string',
-                                    'instanceProfile': {
-                                        'arn': 'string',
-                                        'packageCleanup': True|False,
-                                        'excludeAppPackagesFromCleanup': [
-                                            'string',
+                                    \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                    \'udid\': \'string\',
+                                    \'instanceProfile\': {
+                                        \'arn\': \'string\',
+                                        \'packageCleanup\': True|False,
+                                        \'excludeAppPackagesFromCleanup\': [
+                                            \'string\',
                                         ],
-                                        'rebootAfterUse': True|False,
-                                        'name': 'string',
-                                        'description': 'string'
+                                        \'rebootAfterUse\': True|False,
+                                        \'name\': \'string\',
+                                        \'description\': \'string\'
                                     }
                                 },
                             ]
                         },
-                        'compatible': True|False,
-                        'incompatibilityMessages': [
+                        \'compatible\': True|False,
+                        \'incompatibilityMessages\': [
                             {
-                                'message': 'string',
-                                'type': 'ARN'|'PLATFORM'|'FORM_FACTOR'|'MANUFACTURER'|'REMOTE_ACCESS_ENABLED'|'REMOTE_DEBUG_ENABLED'|'APPIUM_VERSION'|'INSTANCE_ARN'|'INSTANCE_LABELS'|'FLEET_TYPE'
+                                \'message\': \'string\',
+                                \'type\': \'ARN\'|\'PLATFORM\'|\'FORM_FACTOR\'|\'MANUFACTURER\'|\'REMOTE_ACCESS_ENABLED\'|\'REMOTE_DEBUG_ENABLED\'|\'APPIUM_VERSION\'|\'INSTANCE_ARN\'|\'INSTANCE_LABELS\'|\'FLEET_TYPE\'
                             },
                         ]
                     },
@@ -2664,27 +2664,27 @@ class Client(BaseClient):
         
                   - **arn** *(string) --* 
         
-                    The device's ARN.
+                    The device\'s ARN.
         
                   - **name** *(string) --* 
         
-                    The device's display name.
+                    The device\'s display name.
         
                   - **manufacturer** *(string) --* 
         
-                    The device's manufacturer name.
+                    The device\'s manufacturer name.
         
                   - **model** *(string) --* 
         
-                    The device's model name.
+                    The device\'s model name.
         
                   - **modelId** *(string) --* 
         
-                    The device's model ID.
+                    The device\'s model ID.
         
                   - **formFactor** *(string) --* 
         
-                    The device's form factor.
+                    The device\'s form factor.
         
                     Allowed values include:
         
@@ -2694,7 +2694,7 @@ class Client(BaseClient):
                      
                   - **platform** *(string) --* 
         
-                    The device's platform.
+                    The device\'s platform.
         
                     Allowed values include:
         
@@ -2704,23 +2704,23 @@ class Client(BaseClient):
                      
                   - **os** *(string) --* 
         
-                    The device's operating system type.
+                    The device\'s operating system type.
         
                   - **cpu** *(dict) --* 
         
-                    Information about the device's CPU.
+                    Information about the device\'s CPU.
         
                     - **frequency** *(string) --* 
         
-                      The CPU's frequency.
+                      The CPU\'s frequency.
         
                     - **architecture** *(string) --* 
         
-                      The CPU's architecture, for example x86 or ARM.
+                      The CPU\'s architecture, for example x86 or ARM.
         
                     - **clock** *(float) --* 
         
-                      The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                      The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                   - **resolution** *(dict) --* 
         
@@ -2728,31 +2728,31 @@ class Client(BaseClient):
         
                     - **width** *(integer) --* 
         
-                      The screen resolution's width, expressed in pixels.
+                      The screen resolution\'s width, expressed in pixels.
         
                     - **height** *(integer) --* 
         
-                      The screen resolution's height, expressed in pixels.
+                      The screen resolution\'s height, expressed in pixels.
         
                   - **heapSize** *(integer) --* 
         
-                    The device's heap size, expressed in bytes.
+                    The device\'s heap size, expressed in bytes.
         
                   - **memory** *(integer) --* 
         
-                    The device's total memory size, expressed in bytes.
+                    The device\'s total memory size, expressed in bytes.
         
                   - **image** *(string) --* 
         
-                    The device's image name.
+                    The device\'s image name.
         
                   - **carrier** *(string) --* 
         
-                    The device's carrier.
+                    The device\'s carrier.
         
                   - **radio** *(string) --* 
         
-                    The device's radio.
+                    The device\'s radio.
         
                   - **remoteAccessEnabled** *(boolean) --* 
         
@@ -2880,27 +2880,27 @@ class Client(BaseClient):
         
                   - **arn** *(string) --* 
         
-                    The device's ARN.
+                    The device\'s ARN.
         
                   - **name** *(string) --* 
         
-                    The device's display name.
+                    The device\'s display name.
         
                   - **manufacturer** *(string) --* 
         
-                    The device's manufacturer name.
+                    The device\'s manufacturer name.
         
                   - **model** *(string) --* 
         
-                    The device's model name.
+                    The device\'s model name.
         
                   - **modelId** *(string) --* 
         
-                    The device's model ID.
+                    The device\'s model ID.
         
                   - **formFactor** *(string) --* 
         
-                    The device's form factor.
+                    The device\'s form factor.
         
                     Allowed values include:
         
@@ -2910,7 +2910,7 @@ class Client(BaseClient):
                      
                   - **platform** *(string) --* 
         
-                    The device's platform.
+                    The device\'s platform.
         
                     Allowed values include:
         
@@ -2920,23 +2920,23 @@ class Client(BaseClient):
                      
                   - **os** *(string) --* 
         
-                    The device's operating system type.
+                    The device\'s operating system type.
         
                   - **cpu** *(dict) --* 
         
-                    Information about the device's CPU.
+                    Information about the device\'s CPU.
         
                     - **frequency** *(string) --* 
         
-                      The CPU's frequency.
+                      The CPU\'s frequency.
         
                     - **architecture** *(string) --* 
         
-                      The CPU's architecture, for example x86 or ARM.
+                      The CPU\'s architecture, for example x86 or ARM.
         
                     - **clock** *(float) --* 
         
-                      The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                      The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                   - **resolution** *(dict) --* 
         
@@ -2944,31 +2944,31 @@ class Client(BaseClient):
         
                     - **width** *(integer) --* 
         
-                      The screen resolution's width, expressed in pixels.
+                      The screen resolution\'s width, expressed in pixels.
         
                     - **height** *(integer) --* 
         
-                      The screen resolution's height, expressed in pixels.
+                      The screen resolution\'s height, expressed in pixels.
         
                   - **heapSize** *(integer) --* 
         
-                    The device's heap size, expressed in bytes.
+                    The device\'s heap size, expressed in bytes.
         
                   - **memory** *(integer) --* 
         
-                    The device's total memory size, expressed in bytes.
+                    The device\'s total memory size, expressed in bytes.
         
                   - **image** *(string) --* 
         
-                    The device's image name.
+                    The device\'s image name.
         
                   - **carrier** *(string) --* 
         
-                    The device's carrier.
+                    The device\'s carrier.
         
                   - **radio** *(string) --* 
         
-                    The device's radio.
+                    The device\'s radio.
         
                   - **remoteAccessEnabled** *(boolean) --* 
         
@@ -3094,7 +3094,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_instance_profile(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -3109,15 +3109,15 @@ class Client(BaseClient):
           ::
         
             {
-                'instanceProfile': {
-                    'arn': 'string',
-                    'packageCleanup': True|False,
-                    'excludeAppPackagesFromCleanup': [
-                        'string',
+                \'instanceProfile\': {
+                    \'arn\': \'string\',
+                    \'packageCleanup\': True|False,
+                    \'excludeAppPackagesFromCleanup\': [
+                        \'string\',
                     ],
-                    'rebootAfterUse': True|False,
-                    'name': 'string',
-                    'description': 'string'
+                    \'rebootAfterUse\': True|False,
+                    \'name\': \'string\',
+                    \'description\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3168,12 +3168,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_job(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The job's ARN.
+          The job\'s ARN.
         
         :rtype: dict
         :returns: 
@@ -3183,82 +3183,82 @@ class Client(BaseClient):
           ::
         
             {
-                'job': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                    'created': datetime(2015, 1, 1),
-                    'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                    'started': datetime(2015, 1, 1),
-                    'stopped': datetime(2015, 1, 1),
-                    'counters': {
-                        'total': 123,
-                        'passed': 123,
-                        'failed': 123,
-                        'warned': 123,
-                        'errored': 123,
-                        'stopped': 123,
-                        'skipped': 123
+                \'job\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                    \'started\': datetime(2015, 1, 1),
+                    \'stopped\': datetime(2015, 1, 1),
+                    \'counters\': {
+                        \'total\': 123,
+                        \'passed\': 123,
+                        \'failed\': 123,
+                        \'warned\': 123,
+                        \'errored\': 123,
+                        \'stopped\': 123,
+                        \'skipped\': 123
                     },
-                    'message': 'string',
-                    'device': {
-                        'arn': 'string',
-                        'name': 'string',
-                        'manufacturer': 'string',
-                        'model': 'string',
-                        'modelId': 'string',
-                        'formFactor': 'PHONE'|'TABLET',
-                        'platform': 'ANDROID'|'IOS',
-                        'os': 'string',
-                        'cpu': {
-                            'frequency': 'string',
-                            'architecture': 'string',
-                            'clock': 123.0
+                    \'message\': \'string\',
+                    \'device\': {
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'manufacturer\': \'string\',
+                        \'model\': \'string\',
+                        \'modelId\': \'string\',
+                        \'formFactor\': \'PHONE\'|\'TABLET\',
+                        \'platform\': \'ANDROID\'|\'IOS\',
+                        \'os\': \'string\',
+                        \'cpu\': {
+                            \'frequency\': \'string\',
+                            \'architecture\': \'string\',
+                            \'clock\': 123.0
                         },
-                        'resolution': {
-                            'width': 123,
-                            'height': 123
+                        \'resolution\': {
+                            \'width\': 123,
+                            \'height\': 123
                         },
-                        'heapSize': 123,
-                        'memory': 123,
-                        'image': 'string',
-                        'carrier': 'string',
-                        'radio': 'string',
-                        'remoteAccessEnabled': True|False,
-                        'remoteDebugEnabled': True|False,
-                        'fleetType': 'string',
-                        'fleetName': 'string',
-                        'instances': [
+                        \'heapSize\': 123,
+                        \'memory\': 123,
+                        \'image\': \'string\',
+                        \'carrier\': \'string\',
+                        \'radio\': \'string\',
+                        \'remoteAccessEnabled\': True|False,
+                        \'remoteDebugEnabled\': True|False,
+                        \'fleetType\': \'string\',
+                        \'fleetName\': \'string\',
+                        \'instances\': [
                             {
-                                'arn': 'string',
-                                'deviceArn': 'string',
-                                'labels': [
-                                    'string',
+                                \'arn\': \'string\',
+                                \'deviceArn\': \'string\',
+                                \'labels\': [
+                                    \'string\',
                                 ],
-                                'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                'udid': 'string',
-                                'instanceProfile': {
-                                    'arn': 'string',
-                                    'packageCleanup': True|False,
-                                    'excludeAppPackagesFromCleanup': [
-                                        'string',
+                                \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                \'udid\': \'string\',
+                                \'instanceProfile\': {
+                                    \'arn\': \'string\',
+                                    \'packageCleanup\': True|False,
+                                    \'excludeAppPackagesFromCleanup\': [
+                                        \'string\',
                                     ],
-                                    'rebootAfterUse': True|False,
-                                    'name': 'string',
-                                    'description': 'string'
+                                    \'rebootAfterUse\': True|False,
+                                    \'name\': \'string\',
+                                    \'description\': \'string\'
                                 }
                             },
                         ]
                     },
-                    'instanceArn': 'string',
-                    'deviceMinutes': {
-                        'total': 123.0,
-                        'metered': 123.0,
-                        'unmetered': 123.0
+                    \'instanceArn\': \'string\',
+                    \'deviceMinutes\': {
+                        \'total\': 123.0,
+                        \'metered\': 123.0,
+                        \'unmetered\': 123.0
                     },
-                    'videoEndpoint': 'string',
-                    'videoCapture': True|False
+                    \'videoEndpoint\': \'string\',
+                    \'videoCapture\': True|False
                 }
             }
           **Response Structure** 
@@ -3273,15 +3273,15 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The job's ARN.
+                The job\'s ARN.
         
               - **name** *(string) --* 
         
-                The job's name.
+                The job\'s name.
         
               - **type** *(string) --* 
         
-                The job's type.
+                The job\'s type.
         
                 Allowed values include the following:
         
@@ -3319,7 +3319,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The job's status.
+                The job\'s status.
         
                 Allowed values include:
         
@@ -3343,7 +3343,7 @@ class Client(BaseClient):
                  
               - **result** *(string) --* 
         
-                The job's result.
+                The job\'s result.
         
                 Allowed values include:
         
@@ -3363,15 +3363,15 @@ class Client(BaseClient):
                  
               - **started** *(datetime) --* 
         
-                The job's start time.
+                The job\'s start time.
         
               - **stopped** *(datetime) --* 
         
-                The job's stop time.
+                The job\'s stop time.
         
               - **counters** *(dict) --* 
         
-                The job's result counters.
+                The job\'s result counters.
         
                 - **total** *(integer) --* 
         
@@ -3403,7 +3403,7 @@ class Client(BaseClient):
         
               - **message** *(string) --* 
         
-                A message about the job's result.
+                A message about the job\'s result.
         
               - **device** *(dict) --* 
         
@@ -3411,27 +3411,27 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The device's ARN.
+                  The device\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The device's display name.
+                  The device\'s display name.
         
                 - **manufacturer** *(string) --* 
         
-                  The device's manufacturer name.
+                  The device\'s manufacturer name.
         
                 - **model** *(string) --* 
         
-                  The device's model name.
+                  The device\'s model name.
         
                 - **modelId** *(string) --* 
         
-                  The device's model ID.
+                  The device\'s model ID.
         
                 - **formFactor** *(string) --* 
         
-                  The device's form factor.
+                  The device\'s form factor.
         
                   Allowed values include:
         
@@ -3441,7 +3441,7 @@ class Client(BaseClient):
                    
                 - **platform** *(string) --* 
         
-                  The device's platform.
+                  The device\'s platform.
         
                   Allowed values include:
         
@@ -3451,23 +3451,23 @@ class Client(BaseClient):
                    
                 - **os** *(string) --* 
         
-                  The device's operating system type.
+                  The device\'s operating system type.
         
                 - **cpu** *(dict) --* 
         
-                  Information about the device's CPU.
+                  Information about the device\'s CPU.
         
                   - **frequency** *(string) --* 
         
-                    The CPU's frequency.
+                    The CPU\'s frequency.
         
                   - **architecture** *(string) --* 
         
-                    The CPU's architecture, for example x86 or ARM.
+                    The CPU\'s architecture, for example x86 or ARM.
         
                   - **clock** *(float) --* 
         
-                    The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                    The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                 - **resolution** *(dict) --* 
         
@@ -3475,31 +3475,31 @@ class Client(BaseClient):
         
                   - **width** *(integer) --* 
         
-                    The screen resolution's width, expressed in pixels.
+                    The screen resolution\'s width, expressed in pixels.
         
                   - **height** *(integer) --* 
         
-                    The screen resolution's height, expressed in pixels.
+                    The screen resolution\'s height, expressed in pixels.
         
                 - **heapSize** *(integer) --* 
         
-                  The device's heap size, expressed in bytes.
+                  The device\'s heap size, expressed in bytes.
         
                 - **memory** *(integer) --* 
         
-                  The device's total memory size, expressed in bytes.
+                  The device\'s total memory size, expressed in bytes.
         
                 - **image** *(string) --* 
         
-                  The device's image name.
+                  The device\'s image name.
         
                 - **carrier** *(string) --* 
         
-                  The device's carrier.
+                  The device\'s carrier.
         
                 - **radio** *(string) --* 
         
-                  The device's radio.
+                  The device\'s radio.
         
                 - **remoteAccessEnabled** *(boolean) --* 
         
@@ -3619,7 +3619,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_network_profile(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -3634,19 +3634,19 @@ class Client(BaseClient):
           ::
         
             {
-                'networkProfile': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'description': 'string',
-                    'type': 'CURATED'|'PRIVATE',
-                    'uplinkBandwidthBits': 123,
-                    'downlinkBandwidthBits': 123,
-                    'uplinkDelayMs': 123,
-                    'downlinkDelayMs': 123,
-                    'uplinkJitterMs': 123,
-                    'downlinkJitterMs': 123,
-                    'uplinkLossPercent': 123,
-                    'downlinkLossPercent': 123
+                \'networkProfile\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'type\': \'CURATED\'|\'PRIVATE\',
+                    \'uplinkBandwidthBits\': 123,
+                    \'downlinkBandwidthBits\': 123,
+                    \'uplinkDelayMs\': 123,
+                    \'downlinkDelayMs\': 123,
+                    \'uplinkJitterMs\': 123,
+                    \'downlinkJitterMs\': 123,
+                    \'uplinkLossPercent\': 123,
+                    \'downlinkLossPercent\': 123
                 }
             }
           **Response Structure** 
@@ -3717,7 +3717,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_offering_status(
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -3732,51 +3732,51 @@ class Client(BaseClient):
           ::
         
             {
-                'current': {
-                    'string': {
-                        'type': 'PURCHASE'|'RENEW'|'SYSTEM',
-                        'offering': {
-                            'id': 'string',
-                            'description': 'string',
-                            'type': 'RECURRING',
-                            'platform': 'ANDROID'|'IOS',
-                            'recurringCharges': [
+                \'current\': {
+                    \'string\': {
+                        \'type\': \'PURCHASE\'|\'RENEW\'|\'SYSTEM\',
+                        \'offering\': {
+                            \'id\': \'string\',
+                            \'description\': \'string\',
+                            \'type\': \'RECURRING\',
+                            \'platform\': \'ANDROID\'|\'IOS\',
+                            \'recurringCharges\': [
                                 {
-                                    'cost': {
-                                        'amount': 123.0,
-                                        'currencyCode': 'USD'
+                                    \'cost\': {
+                                        \'amount\': 123.0,
+                                        \'currencyCode\': \'USD\'
                                     },
-                                    'frequency': 'MONTHLY'
+                                    \'frequency\': \'MONTHLY\'
                                 },
                             ]
                         },
-                        'quantity': 123,
-                        'effectiveOn': datetime(2015, 1, 1)
+                        \'quantity\': 123,
+                        \'effectiveOn\': datetime(2015, 1, 1)
                     }
                 },
-                'nextPeriod': {
-                    'string': {
-                        'type': 'PURCHASE'|'RENEW'|'SYSTEM',
-                        'offering': {
-                            'id': 'string',
-                            'description': 'string',
-                            'type': 'RECURRING',
-                            'platform': 'ANDROID'|'IOS',
-                            'recurringCharges': [
+                \'nextPeriod\': {
+                    \'string\': {
+                        \'type\': \'PURCHASE\'|\'RENEW\'|\'SYSTEM\',
+                        \'offering\': {
+                            \'id\': \'string\',
+                            \'description\': \'string\',
+                            \'type\': \'RECURRING\',
+                            \'platform\': \'ANDROID\'|\'IOS\',
+                            \'recurringCharges\': [
                                 {
-                                    'cost': {
-                                        'amount': 123.0,
-                                        'currencyCode': 'USD'
+                                    \'cost\': {
+                                        \'amount\': 123.0,
+                                        \'currencyCode\': \'USD\'
                                     },
-                                    'frequency': 'MONTHLY'
+                                    \'frequency\': \'MONTHLY\'
                                 },
                             ]
                         },
-                        'quantity': 123,
-                        'effectiveOn': datetime(2015, 1, 1)
+                        \'quantity\': 123,
+                        \'effectiveOn\': datetime(2015, 1, 1)
                     }
                 },
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3812,7 +3812,7 @@ class Client(BaseClient):
         
                     - **type** *(string) --* 
         
-                      The type of offering (e.g., "RECURRING") for a device.
+                      The type of offering (e.g., \"RECURRING\") for a device.
         
                     - **platform** *(string) --* 
         
@@ -3836,7 +3836,7 @@ class Client(BaseClient):
         
                           - **currencyCode** *(string) --* 
         
-                            The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                            The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
                         - **frequency** *(string) --* 
         
@@ -3878,7 +3878,7 @@ class Client(BaseClient):
         
                     - **type** *(string) --* 
         
-                      The type of offering (e.g., "RECURRING") for a device.
+                      The type of offering (e.g., \"RECURRING\") for a device.
         
                     - **platform** *(string) --* 
         
@@ -3902,7 +3902,7 @@ class Client(BaseClient):
         
                           - **currencyCode** *(string) --* 
         
-                            The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                            The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
                         - **frequency** *(string) --* 
         
@@ -3929,10 +3929,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3952,12 +3952,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_project(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The project's ARN.
+          The project\'s ARN.
         
         :rtype: dict
         :returns: 
@@ -3967,11 +3967,11 @@ class Client(BaseClient):
           ::
         
             {
-                'project': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'defaultJobTimeoutMinutes': 123,
-                    'created': datetime(2015, 1, 1)
+                \'project\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'defaultJobTimeoutMinutes\': 123,
+                    \'created\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -3986,11 +3986,11 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The project's ARN.
+                The project\'s ARN.
         
               - **name** *(string) --* 
         
-                The project's name.
+                The project\'s name.
         
               - **defaultJobTimeoutMinutes** *(integer) --* 
         
@@ -4012,7 +4012,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_remote_access_session(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -4027,80 +4027,80 @@ class Client(BaseClient):
           ::
         
             {
-                'remoteAccessSession': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'created': datetime(2015, 1, 1),
-                    'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                    'message': 'string',
-                    'started': datetime(2015, 1, 1),
-                    'stopped': datetime(2015, 1, 1),
-                    'device': {
-                        'arn': 'string',
-                        'name': 'string',
-                        'manufacturer': 'string',
-                        'model': 'string',
-                        'modelId': 'string',
-                        'formFactor': 'PHONE'|'TABLET',
-                        'platform': 'ANDROID'|'IOS',
-                        'os': 'string',
-                        'cpu': {
-                            'frequency': 'string',
-                            'architecture': 'string',
-                            'clock': 123.0
+                \'remoteAccessSession\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                    \'message\': \'string\',
+                    \'started\': datetime(2015, 1, 1),
+                    \'stopped\': datetime(2015, 1, 1),
+                    \'device\': {
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'manufacturer\': \'string\',
+                        \'model\': \'string\',
+                        \'modelId\': \'string\',
+                        \'formFactor\': \'PHONE\'|\'TABLET\',
+                        \'platform\': \'ANDROID\'|\'IOS\',
+                        \'os\': \'string\',
+                        \'cpu\': {
+                            \'frequency\': \'string\',
+                            \'architecture\': \'string\',
+                            \'clock\': 123.0
                         },
-                        'resolution': {
-                            'width': 123,
-                            'height': 123
+                        \'resolution\': {
+                            \'width\': 123,
+                            \'height\': 123
                         },
-                        'heapSize': 123,
-                        'memory': 123,
-                        'image': 'string',
-                        'carrier': 'string',
-                        'radio': 'string',
-                        'remoteAccessEnabled': True|False,
-                        'remoteDebugEnabled': True|False,
-                        'fleetType': 'string',
-                        'fleetName': 'string',
-                        'instances': [
+                        \'heapSize\': 123,
+                        \'memory\': 123,
+                        \'image\': \'string\',
+                        \'carrier\': \'string\',
+                        \'radio\': \'string\',
+                        \'remoteAccessEnabled\': True|False,
+                        \'remoteDebugEnabled\': True|False,
+                        \'fleetType\': \'string\',
+                        \'fleetName\': \'string\',
+                        \'instances\': [
                             {
-                                'arn': 'string',
-                                'deviceArn': 'string',
-                                'labels': [
-                                    'string',
+                                \'arn\': \'string\',
+                                \'deviceArn\': \'string\',
+                                \'labels\': [
+                                    \'string\',
                                 ],
-                                'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                'udid': 'string',
-                                'instanceProfile': {
-                                    'arn': 'string',
-                                    'packageCleanup': True|False,
-                                    'excludeAppPackagesFromCleanup': [
-                                        'string',
+                                \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                \'udid\': \'string\',
+                                \'instanceProfile\': {
+                                    \'arn\': \'string\',
+                                    \'packageCleanup\': True|False,
+                                    \'excludeAppPackagesFromCleanup\': [
+                                        \'string\',
                                     ],
-                                    'rebootAfterUse': True|False,
-                                    'name': 'string',
-                                    'description': 'string'
+                                    \'rebootAfterUse\': True|False,
+                                    \'name\': \'string\',
+                                    \'description\': \'string\'
                                 }
                             },
                         ]
                     },
-                    'instanceArn': 'string',
-                    'remoteDebugEnabled': True|False,
-                    'remoteRecordEnabled': True|False,
-                    'remoteRecordAppArn': 'string',
-                    'hostAddress': 'string',
-                    'clientId': 'string',
-                    'billingMethod': 'METERED'|'UNMETERED',
-                    'deviceMinutes': {
-                        'total': 123.0,
-                        'metered': 123.0,
-                        'unmetered': 123.0
+                    \'instanceArn\': \'string\',
+                    \'remoteDebugEnabled\': True|False,
+                    \'remoteRecordEnabled\': True|False,
+                    \'remoteRecordAppArn\': \'string\',
+                    \'hostAddress\': \'string\',
+                    \'clientId\': \'string\',
+                    \'billingMethod\': \'METERED\'|\'UNMETERED\',
+                    \'deviceMinutes\': {
+                        \'total\': 123.0,
+                        \'metered\': 123.0,
+                        \'unmetered\': 123.0
                     },
-                    'endpoint': 'string',
-                    'deviceUdid': 'string',
-                    'interactionMode': 'INTERACTIVE'|'NO_VIDEO'|'VIDEO_ONLY',
-                    'skipAppResign': True|False
+                    \'endpoint\': \'string\',
+                    \'deviceUdid\': \'string\',
+                    \'interactionMode\': \'INTERACTIVE\'|\'NO_VIDEO\'|\'VIDEO_ONLY\',
+                    \'skipAppResign\': True|False
                 }
             }
           **Response Structure** 
@@ -4183,27 +4183,27 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The device's ARN.
+                  The device\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The device's display name.
+                  The device\'s display name.
         
                 - **manufacturer** *(string) --* 
         
-                  The device's manufacturer name.
+                  The device\'s manufacturer name.
         
                 - **model** *(string) --* 
         
-                  The device's model name.
+                  The device\'s model name.
         
                 - **modelId** *(string) --* 
         
-                  The device's model ID.
+                  The device\'s model ID.
         
                 - **formFactor** *(string) --* 
         
-                  The device's form factor.
+                  The device\'s form factor.
         
                   Allowed values include:
         
@@ -4213,7 +4213,7 @@ class Client(BaseClient):
                    
                 - **platform** *(string) --* 
         
-                  The device's platform.
+                  The device\'s platform.
         
                   Allowed values include:
         
@@ -4223,23 +4223,23 @@ class Client(BaseClient):
                    
                 - **os** *(string) --* 
         
-                  The device's operating system type.
+                  The device\'s operating system type.
         
                 - **cpu** *(dict) --* 
         
-                  Information about the device's CPU.
+                  Information about the device\'s CPU.
         
                   - **frequency** *(string) --* 
         
-                    The CPU's frequency.
+                    The CPU\'s frequency.
         
                   - **architecture** *(string) --* 
         
-                    The CPU's architecture, for example x86 or ARM.
+                    The CPU\'s architecture, for example x86 or ARM.
         
                   - **clock** *(float) --* 
         
-                    The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                    The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                 - **resolution** *(dict) --* 
         
@@ -4247,31 +4247,31 @@ class Client(BaseClient):
         
                   - **width** *(integer) --* 
         
-                    The screen resolution's width, expressed in pixels.
+                    The screen resolution\'s width, expressed in pixels.
         
                   - **height** *(integer) --* 
         
-                    The screen resolution's height, expressed in pixels.
+                    The screen resolution\'s height, expressed in pixels.
         
                 - **heapSize** *(integer) --* 
         
-                  The device's heap size, expressed in bytes.
+                  The device\'s heap size, expressed in bytes.
         
                 - **memory** *(integer) --* 
         
-                  The device's total memory size, expressed in bytes.
+                  The device\'s total memory size, expressed in bytes.
         
                 - **image** *(string) --* 
         
-                  The device's image name.
+                  The device\'s image name.
         
                 - **carrier** *(string) --* 
         
-                  The device's carrier.
+                  The device\'s carrier.
         
                 - **radio** *(string) --* 
         
-                  The device's radio.
+                  The device\'s radio.
         
                 - **remoteAccessEnabled** *(boolean) --* 
         
@@ -4377,7 +4377,7 @@ class Client(BaseClient):
         
               - **billingMethod** *(string) --* 
         
-                The billing method of the remote access session. Possible values include ``METERED`` or ``UNMETERED`` . For more information about metered devices, see `AWS Device Farm terminology <http://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology>`__ ."
+                The billing method of the remote access session. Possible values include ``METERED`` or ``UNMETERED`` . For more information about metered devices, see `AWS Device Farm terminology <http://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology>`__ .\"
         
               - **deviceMinutes** *(dict) --* 
         
@@ -4431,12 +4431,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_run(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The run's ARN.
+          The run\'s ARN.
         
         :rtype: dict
         :returns: 
@@ -4446,80 +4446,80 @@ class Client(BaseClient):
           ::
         
             {
-                'run': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                    'platform': 'ANDROID'|'IOS',
-                    'created': datetime(2015, 1, 1),
-                    'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                    'started': datetime(2015, 1, 1),
-                    'stopped': datetime(2015, 1, 1),
-                    'counters': {
-                        'total': 123,
-                        'passed': 123,
-                        'failed': 123,
-                        'warned': 123,
-                        'errored': 123,
-                        'stopped': 123,
-                        'skipped': 123
+                \'run\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                    \'platform\': \'ANDROID\'|\'IOS\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                    \'started\': datetime(2015, 1, 1),
+                    \'stopped\': datetime(2015, 1, 1),
+                    \'counters\': {
+                        \'total\': 123,
+                        \'passed\': 123,
+                        \'failed\': 123,
+                        \'warned\': 123,
+                        \'errored\': 123,
+                        \'stopped\': 123,
+                        \'skipped\': 123
                     },
-                    'message': 'string',
-                    'totalJobs': 123,
-                    'completedJobs': 123,
-                    'billingMethod': 'METERED'|'UNMETERED',
-                    'deviceMinutes': {
-                        'total': 123.0,
-                        'metered': 123.0,
-                        'unmetered': 123.0
+                    \'message\': \'string\',
+                    \'totalJobs\': 123,
+                    \'completedJobs\': 123,
+                    \'billingMethod\': \'METERED\'|\'UNMETERED\',
+                    \'deviceMinutes\': {
+                        \'total\': 123.0,
+                        \'metered\': 123.0,
+                        \'unmetered\': 123.0
                     },
-                    'networkProfile': {
-                        'arn': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'type': 'CURATED'|'PRIVATE',
-                        'uplinkBandwidthBits': 123,
-                        'downlinkBandwidthBits': 123,
-                        'uplinkDelayMs': 123,
-                        'downlinkDelayMs': 123,
-                        'uplinkJitterMs': 123,
-                        'downlinkJitterMs': 123,
-                        'uplinkLossPercent': 123,
-                        'downlinkLossPercent': 123
+                    \'networkProfile\': {
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'type\': \'CURATED\'|\'PRIVATE\',
+                        \'uplinkBandwidthBits\': 123,
+                        \'downlinkBandwidthBits\': 123,
+                        \'uplinkDelayMs\': 123,
+                        \'downlinkDelayMs\': 123,
+                        \'uplinkJitterMs\': 123,
+                        \'downlinkJitterMs\': 123,
+                        \'uplinkLossPercent\': 123,
+                        \'downlinkLossPercent\': 123
                     },
-                    'parsingResultUrl': 'string',
-                    'resultCode': 'PARSING_FAILED'|'VPC_ENDPOINT_SETUP_FAILED',
-                    'seed': 123,
-                    'appUpload': 'string',
-                    'eventCount': 123,
-                    'jobTimeoutMinutes': 123,
-                    'devicePoolArn': 'string',
-                    'locale': 'string',
-                    'radios': {
-                        'wifi': True|False,
-                        'bluetooth': True|False,
-                        'nfc': True|False,
-                        'gps': True|False
+                    \'parsingResultUrl\': \'string\',
+                    \'resultCode\': \'PARSING_FAILED\'|\'VPC_ENDPOINT_SETUP_FAILED\',
+                    \'seed\': 123,
+                    \'appUpload\': \'string\',
+                    \'eventCount\': 123,
+                    \'jobTimeoutMinutes\': 123,
+                    \'devicePoolArn\': \'string\',
+                    \'locale\': \'string\',
+                    \'radios\': {
+                        \'wifi\': True|False,
+                        \'bluetooth\': True|False,
+                        \'nfc\': True|False,
+                        \'gps\': True|False
                     },
-                    'location': {
-                        'latitude': 123.0,
-                        'longitude': 123.0
+                    \'location\': {
+                        \'latitude\': 123.0,
+                        \'longitude\': 123.0
                     },
-                    'customerArtifactPaths': {
-                        'iosPaths': [
-                            'string',
+                    \'customerArtifactPaths\': {
+                        \'iosPaths\': [
+                            \'string\',
                         ],
-                        'androidPaths': [
-                            'string',
+                        \'androidPaths\': [
+                            \'string\',
                         ],
-                        'deviceHostPaths': [
-                            'string',
+                        \'deviceHostPaths\': [
+                            \'string\',
                         ]
                     },
-                    'webUrl': 'string',
-                    'skipAppResign': True|False,
-                    'testSpecArn': 'string'
+                    \'webUrl\': \'string\',
+                    \'skipAppResign\': True|False,
+                    \'testSpecArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4534,15 +4534,15 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The run's ARN.
+                The run\'s ARN.
         
               - **name** *(string) --* 
         
-                The run's name.
+                The run\'s name.
         
               - **type** *(string) --* 
         
-                The run's type.
+                The run\'s type.
         
                 Must be one of the following values:
         
@@ -4576,7 +4576,7 @@ class Client(BaseClient):
                  
               - **platform** *(string) --* 
         
-                The run's platform.
+                The run\'s platform.
         
                 Allowed values include:
         
@@ -4590,7 +4590,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The run's status.
+                The run\'s status.
         
                 Allowed values include:
         
@@ -4614,7 +4614,7 @@ class Client(BaseClient):
                  
               - **result** *(string) --* 
         
-                The run's result.
+                The run\'s result.
         
                 Allowed values include:
         
@@ -4634,15 +4634,15 @@ class Client(BaseClient):
                  
               - **started** *(datetime) --* 
         
-                The run's start time.
+                The run\'s start time.
         
               - **stopped** *(datetime) --* 
         
-                The run's stop time.
+                The run\'s stop time.
         
               - **counters** *(dict) --* 
         
-                The run's result counters.
+                The run\'s result counters.
         
                 - **total** *(integer) --* 
         
@@ -4674,7 +4674,7 @@ class Client(BaseClient):
         
               - **message** *(string) --* 
         
-                A message about the run's result.
+                A message about the run\'s result.
         
               - **totalJobs** *(integer) --* 
         
@@ -4758,7 +4758,7 @@ class Client(BaseClient):
         
               - **parsingResultUrl** *(string) --* 
         
-                Read-only URL for an object in S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
+                Read-only URL for an object in S3 bucket where you can get the parsing results of the test package. If the test package doesn\'t parse, the reason why it doesn\'t parse appears in the file that this URL points to.
         
               - **resultCode** *(string) --* 
         
@@ -4826,19 +4826,19 @@ class Client(BaseClient):
         
                 - **iosPaths** *(list) --* 
         
-                  Comma-separated list of paths on the iOS device where the artifacts generated by the customer's tests will be pulled from.
+                  Comma-separated list of paths on the iOS device where the artifacts generated by the customer\'s tests will be pulled from.
         
                   - *(string) --* 
               
                 - **androidPaths** *(list) --* 
         
-                  Comma-separated list of paths on the Android device where the artifacts generated by the customer's tests will be pulled from.
+                  Comma-separated list of paths on the Android device where the artifacts generated by the customer\'s tests will be pulled from.
         
                   - *(string) --* 
               
                 - **deviceHostPaths** *(list) --* 
         
-                  Comma-separated list of paths in the test execution environment where the artifacts generated by the customer's tests will be pulled from.
+                  Comma-separated list of paths in the test execution environment where the artifacts generated by the customer\'s tests will be pulled from.
         
                   - *(string) --* 
               
@@ -4868,12 +4868,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_suite(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The suite's ARN.
+          The suite\'s ARN.
         
         :rtype: dict
         :returns: 
@@ -4883,29 +4883,29 @@ class Client(BaseClient):
           ::
         
             {
-                'suite': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                    'created': datetime(2015, 1, 1),
-                    'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                    'started': datetime(2015, 1, 1),
-                    'stopped': datetime(2015, 1, 1),
-                    'counters': {
-                        'total': 123,
-                        'passed': 123,
-                        'failed': 123,
-                        'warned': 123,
-                        'errored': 123,
-                        'stopped': 123,
-                        'skipped': 123
+                \'suite\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                    \'started\': datetime(2015, 1, 1),
+                    \'stopped\': datetime(2015, 1, 1),
+                    \'counters\': {
+                        \'total\': 123,
+                        \'passed\': 123,
+                        \'failed\': 123,
+                        \'warned\': 123,
+                        \'errored\': 123,
+                        \'stopped\': 123,
+                        \'skipped\': 123
                     },
-                    'message': 'string',
-                    'deviceMinutes': {
-                        'total': 123.0,
-                        'metered': 123.0,
-                        'unmetered': 123.0
+                    \'message\': \'string\',
+                    \'deviceMinutes\': {
+                        \'total\': 123.0,
+                        \'metered\': 123.0,
+                        \'unmetered\': 123.0
                     }
                 }
             }
@@ -4921,15 +4921,15 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The suite's ARN.
+                The suite\'s ARN.
         
               - **name** *(string) --* 
         
-                The suite's name.
+                The suite\'s name.
         
               - **type** *(string) --* 
         
-                The suite's type.
+                The suite\'s type.
         
                 Must be one of the following values:
         
@@ -4967,7 +4967,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The suite's status.
+                The suite\'s status.
         
                 Allowed values include:
         
@@ -4991,7 +4991,7 @@ class Client(BaseClient):
                  
               - **result** *(string) --* 
         
-                The suite's result.
+                The suite\'s result.
         
                 Allowed values include:
         
@@ -5011,15 +5011,15 @@ class Client(BaseClient):
                  
               - **started** *(datetime) --* 
         
-                The suite's start time.
+                The suite\'s start time.
         
               - **stopped** *(datetime) --* 
         
-                The suite's stop time.
+                The suite\'s stop time.
         
               - **counters** *(dict) --* 
         
-                The suite's result counters.
+                The suite\'s result counters.
         
                 - **total** *(integer) --* 
         
@@ -5051,7 +5051,7 @@ class Client(BaseClient):
         
               - **message** *(string) --* 
         
-                A message about the suite's result.
+                A message about the suite\'s result.
         
               - **deviceMinutes** *(dict) --* 
         
@@ -5081,12 +5081,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_test(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The test's ARN.
+          The test\'s ARN.
         
         :rtype: dict
         :returns: 
@@ -5096,29 +5096,29 @@ class Client(BaseClient):
           ::
         
             {
-                'test': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                    'created': datetime(2015, 1, 1),
-                    'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                    'started': datetime(2015, 1, 1),
-                    'stopped': datetime(2015, 1, 1),
-                    'counters': {
-                        'total': 123,
-                        'passed': 123,
-                        'failed': 123,
-                        'warned': 123,
-                        'errored': 123,
-                        'stopped': 123,
-                        'skipped': 123
+                \'test\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                    \'started\': datetime(2015, 1, 1),
+                    \'stopped\': datetime(2015, 1, 1),
+                    \'counters\': {
+                        \'total\': 123,
+                        \'passed\': 123,
+                        \'failed\': 123,
+                        \'warned\': 123,
+                        \'errored\': 123,
+                        \'stopped\': 123,
+                        \'skipped\': 123
                     },
-                    'message': 'string',
-                    'deviceMinutes': {
-                        'total': 123.0,
-                        'metered': 123.0,
-                        'unmetered': 123.0
+                    \'message\': \'string\',
+                    \'deviceMinutes\': {
+                        \'total\': 123.0,
+                        \'metered\': 123.0,
+                        \'unmetered\': 123.0
                     }
                 }
             }
@@ -5134,15 +5134,15 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The test's ARN.
+                The test\'s ARN.
         
               - **name** *(string) --* 
         
-                The test's name.
+                The test\'s name.
         
               - **type** *(string) --* 
         
-                The test's type.
+                The test\'s type.
         
                 Must be one of the following values:
         
@@ -5180,7 +5180,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The test's status.
+                The test\'s status.
         
                 Allowed values include:
         
@@ -5204,7 +5204,7 @@ class Client(BaseClient):
                  
               - **result** *(string) --* 
         
-                The test's result.
+                The test\'s result.
         
                 Allowed values include:
         
@@ -5224,15 +5224,15 @@ class Client(BaseClient):
                  
               - **started** *(datetime) --* 
         
-                The test's start time.
+                The test\'s start time.
         
               - **stopped** *(datetime) --* 
         
-                The test's stop time.
+                The test\'s stop time.
         
               - **counters** *(dict) --* 
         
-                The test's result counters.
+                The test\'s result counters.
         
                 - **total** *(integer) --* 
         
@@ -5264,7 +5264,7 @@ class Client(BaseClient):
         
               - **message** *(string) --* 
         
-                A message about the test's result.
+                A message about the test\'s result.
         
               - **deviceMinutes** *(dict) --* 
         
@@ -5294,12 +5294,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_upload(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The upload's ARN.
+          The upload\'s ARN.
         
         :rtype: dict
         :returns: 
@@ -5309,17 +5309,17 @@ class Client(BaseClient):
           ::
         
             {
-                'upload': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'created': datetime(2015, 1, 1),
-                    'type': 'ANDROID_APP'|'IOS_APP'|'WEB_APP'|'EXTERNAL_DATA'|'APPIUM_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_PYTHON_TEST_PACKAGE'|'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_WEB_PYTHON_TEST_PACKAGE'|'CALABASH_TEST_PACKAGE'|'INSTRUMENTATION_TEST_PACKAGE'|'UIAUTOMATION_TEST_PACKAGE'|'UIAUTOMATOR_TEST_PACKAGE'|'XCTEST_TEST_PACKAGE'|'XCTEST_UI_TEST_PACKAGE'|'APPIUM_JAVA_JUNIT_TEST_SPEC'|'APPIUM_JAVA_TESTNG_TEST_SPEC'|'APPIUM_PYTHON_TEST_SPEC'|'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC'|'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC'|'APPIUM_WEB_PYTHON_TEST_SPEC'|'INSTRUMENTATION_TEST_SPEC'|'XCTEST_UI_TEST_SPEC',
-                    'status': 'INITIALIZED'|'PROCESSING'|'SUCCEEDED'|'FAILED',
-                    'url': 'string',
-                    'metadata': 'string',
-                    'contentType': 'string',
-                    'message': 'string',
-                    'category': 'CURATED'|'PRIVATE'
+                \'upload\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'type\': \'ANDROID_APP\'|\'IOS_APP\'|\'WEB_APP\'|\'EXTERNAL_DATA\'|\'APPIUM_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_PYTHON_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_WEB_PYTHON_TEST_PACKAGE\'|\'CALABASH_TEST_PACKAGE\'|\'INSTRUMENTATION_TEST_PACKAGE\'|\'UIAUTOMATION_TEST_PACKAGE\'|\'UIAUTOMATOR_TEST_PACKAGE\'|\'XCTEST_TEST_PACKAGE\'|\'XCTEST_UI_TEST_PACKAGE\'|\'APPIUM_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_PYTHON_TEST_SPEC\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_WEB_PYTHON_TEST_SPEC\'|\'INSTRUMENTATION_TEST_SPEC\'|\'XCTEST_UI_TEST_SPEC\',
+                    \'status\': \'INITIALIZED\'|\'PROCESSING\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'url\': \'string\',
+                    \'metadata\': \'string\',
+                    \'contentType\': \'string\',
+                    \'message\': \'string\',
+                    \'category\': \'CURATED\'|\'PRIVATE\'
                 }
             }
           **Response Structure** 
@@ -5334,11 +5334,11 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The upload's ARN.
+                The upload\'s ARN.
         
               - **name** *(string) --* 
         
-                The upload's file name.
+                The upload\'s file name.
         
               - **created** *(datetime) --* 
         
@@ -5346,7 +5346,7 @@ class Client(BaseClient):
         
               - **type** *(string) --* 
         
-                The upload's type.
+                The upload\'s type.
         
                 Must be one of the following values:
         
@@ -5384,7 +5384,7 @@ class Client(BaseClient):
                  
               - **status** *(string) --* 
         
-                The upload's status.
+                The upload\'s status.
         
                 Must be one of the following values:
         
@@ -5402,19 +5402,19 @@ class Client(BaseClient):
         
               - **metadata** *(string) --* 
         
-                The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+                The upload\'s metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
         
               - **contentType** *(string) --* 
         
-                The upload's content type (for example, "application/octet-stream").
+                The upload\'s content type (for example, \"application/octet-stream\").
         
               - **message** *(string) --* 
         
-                A message about the upload's result.
+                A message about the upload\'s result.
         
               - **category** *(string) --* 
         
-                The upload's category. Allowed values include:
+                The upload\'s category. Allowed values include:
         
                 * CURATED: An upload managed by AWS Device Farm. 
                  
@@ -5432,7 +5432,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_vpce_configuration(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -5447,12 +5447,12 @@ class Client(BaseClient):
           ::
         
             {
-                'vpceConfiguration': {
-                    'arn': 'string',
-                    'vpceConfigurationName': 'string',
-                    'vpceServiceName': 'string',
-                    'serviceDnsName': 'string',
-                    'vpceConfigurationDescription': 'string'
+                \'vpceConfiguration\': {
+                    \'arn\': \'string\',
+                    \'vpceConfigurationName\': \'string\',
+                    \'vpceServiceName\': \'string\',
+                    \'serviceDnsName\': \'string\',
+                    \'vpceConfigurationDescription\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5507,8 +5507,8 @@ class Client(BaseClient):
         ::
         
           response = client.install_to_remote_access_session(
-              remoteAccessSessionArn='string',
-              appArn='string'
+              remoteAccessSessionArn=\'string\',
+              appArn=\'string\'
           )
         :type remoteAccessSessionArn: string
         :param remoteAccessSessionArn: **[REQUIRED]** 
@@ -5528,17 +5528,17 @@ class Client(BaseClient):
           ::
         
             {
-                'appUpload': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'created': datetime(2015, 1, 1),
-                    'type': 'ANDROID_APP'|'IOS_APP'|'WEB_APP'|'EXTERNAL_DATA'|'APPIUM_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_PYTHON_TEST_PACKAGE'|'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_WEB_PYTHON_TEST_PACKAGE'|'CALABASH_TEST_PACKAGE'|'INSTRUMENTATION_TEST_PACKAGE'|'UIAUTOMATION_TEST_PACKAGE'|'UIAUTOMATOR_TEST_PACKAGE'|'XCTEST_TEST_PACKAGE'|'XCTEST_UI_TEST_PACKAGE'|'APPIUM_JAVA_JUNIT_TEST_SPEC'|'APPIUM_JAVA_TESTNG_TEST_SPEC'|'APPIUM_PYTHON_TEST_SPEC'|'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC'|'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC'|'APPIUM_WEB_PYTHON_TEST_SPEC'|'INSTRUMENTATION_TEST_SPEC'|'XCTEST_UI_TEST_SPEC',
-                    'status': 'INITIALIZED'|'PROCESSING'|'SUCCEEDED'|'FAILED',
-                    'url': 'string',
-                    'metadata': 'string',
-                    'contentType': 'string',
-                    'message': 'string',
-                    'category': 'CURATED'|'PRIVATE'
+                \'appUpload\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'type\': \'ANDROID_APP\'|\'IOS_APP\'|\'WEB_APP\'|\'EXTERNAL_DATA\'|\'APPIUM_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_PYTHON_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_WEB_PYTHON_TEST_PACKAGE\'|\'CALABASH_TEST_PACKAGE\'|\'INSTRUMENTATION_TEST_PACKAGE\'|\'UIAUTOMATION_TEST_PACKAGE\'|\'UIAUTOMATOR_TEST_PACKAGE\'|\'XCTEST_TEST_PACKAGE\'|\'XCTEST_UI_TEST_PACKAGE\'|\'APPIUM_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_PYTHON_TEST_SPEC\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_WEB_PYTHON_TEST_SPEC\'|\'INSTRUMENTATION_TEST_SPEC\'|\'XCTEST_UI_TEST_SPEC\',
+                    \'status\': \'INITIALIZED\'|\'PROCESSING\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'url\': \'string\',
+                    \'metadata\': \'string\',
+                    \'contentType\': \'string\',
+                    \'message\': \'string\',
+                    \'category\': \'CURATED\'|\'PRIVATE\'
                 }
             }
           **Response Structure** 
@@ -5553,11 +5553,11 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The upload's ARN.
+                The upload\'s ARN.
         
               - **name** *(string) --* 
         
-                The upload's file name.
+                The upload\'s file name.
         
               - **created** *(datetime) --* 
         
@@ -5565,7 +5565,7 @@ class Client(BaseClient):
         
               - **type** *(string) --* 
         
-                The upload's type.
+                The upload\'s type.
         
                 Must be one of the following values:
         
@@ -5603,7 +5603,7 @@ class Client(BaseClient):
                  
               - **status** *(string) --* 
         
-                The upload's status.
+                The upload\'s status.
         
                 Must be one of the following values:
         
@@ -5621,19 +5621,19 @@ class Client(BaseClient):
         
               - **metadata** *(string) --* 
         
-                The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+                The upload\'s metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
         
               - **contentType** *(string) --* 
         
-                The upload's content type (for example, "application/octet-stream").
+                The upload\'s content type (for example, \"application/octet-stream\").
         
               - **message** *(string) --* 
         
-                A message about the upload's result.
+                A message about the upload\'s result.
         
               - **category** *(string) --* 
         
-                The upload's category. Allowed values include:
+                The upload\'s category. Allowed values include:
         
                 * CURATED: An upload managed by AWS Device Farm. 
                  
@@ -5651,9 +5651,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_artifacts(
-              arn='string',
-              type='SCREENSHOT'|'FILE'|'LOG',
-              nextToken='string'
+              arn=\'string\',
+              type=\'SCREENSHOT\'|\'FILE\'|\'LOG\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -5663,7 +5663,7 @@ class Client(BaseClient):
         :type type: string
         :param type: **[REQUIRED]** 
         
-          The artifacts' type.
+          The artifacts\' type.
         
           Allowed values include:
         
@@ -5686,16 +5686,16 @@ class Client(BaseClient):
           ::
         
             {
-                'artifacts': [
+                \'artifacts\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'type': 'UNKNOWN'|'SCREENSHOT'|'DEVICE_LOG'|'MESSAGE_LOG'|'VIDEO_LOG'|'RESULT_LOG'|'SERVICE_LOG'|'WEBKIT_LOG'|'INSTRUMENTATION_OUTPUT'|'EXERCISER_MONKEY_OUTPUT'|'CALABASH_JSON_OUTPUT'|'CALABASH_PRETTY_OUTPUT'|'CALABASH_STANDARD_OUTPUT'|'CALABASH_JAVA_XML_OUTPUT'|'AUTOMATION_OUTPUT'|'APPIUM_SERVER_OUTPUT'|'APPIUM_JAVA_OUTPUT'|'APPIUM_JAVA_XML_OUTPUT'|'APPIUM_PYTHON_OUTPUT'|'APPIUM_PYTHON_XML_OUTPUT'|'EXPLORER_EVENT_LOG'|'EXPLORER_SUMMARY_LOG'|'APPLICATION_CRASH_REPORT'|'XCTEST_LOG'|'VIDEO'|'CUSTOMER_ARTIFACT'|'CUSTOMER_ARTIFACT_LOG'|'TESTSPEC_OUTPUT',
-                        'extension': 'string',
-                        'url': 'string'
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'type\': \'UNKNOWN\'|\'SCREENSHOT\'|\'DEVICE_LOG\'|\'MESSAGE_LOG\'|\'VIDEO_LOG\'|\'RESULT_LOG\'|\'SERVICE_LOG\'|\'WEBKIT_LOG\'|\'INSTRUMENTATION_OUTPUT\'|\'EXERCISER_MONKEY_OUTPUT\'|\'CALABASH_JSON_OUTPUT\'|\'CALABASH_PRETTY_OUTPUT\'|\'CALABASH_STANDARD_OUTPUT\'|\'CALABASH_JAVA_XML_OUTPUT\'|\'AUTOMATION_OUTPUT\'|\'APPIUM_SERVER_OUTPUT\'|\'APPIUM_JAVA_OUTPUT\'|\'APPIUM_JAVA_XML_OUTPUT\'|\'APPIUM_PYTHON_OUTPUT\'|\'APPIUM_PYTHON_XML_OUTPUT\'|\'EXPLORER_EVENT_LOG\'|\'EXPLORER_SUMMARY_LOG\'|\'APPLICATION_CRASH_REPORT\'|\'XCTEST_LOG\'|\'VIDEO\'|\'CUSTOMER_ARTIFACT\'|\'CUSTOMER_ARTIFACT_LOG\'|\'TESTSPEC_OUTPUT\',
+                        \'extension\': \'string\',
+                        \'url\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5713,15 +5713,15 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The artifact's ARN.
+                  The artifact\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The artifact's name.
+                  The artifact\'s name.
         
                 - **type** *(string) --* 
         
-                  The artifact's type.
+                  The artifact\'s type.
         
                   Allowed values include the following:
         
@@ -5773,11 +5773,11 @@ class Client(BaseClient):
                    
                 - **extension** *(string) --* 
         
-                  The artifact's file extension.
+                  The artifact\'s file extension.
         
                 - **url** *(string) --* 
         
-                  The pre-signed Amazon S3 URL that can be used with a corresponding GET request to download the artifact's file.
+                  The pre-signed Amazon S3 URL that can be used with a corresponding GET request to download the artifact\'s file.
         
             - **nextToken** *(string) --* 
         
@@ -5796,7 +5796,7 @@ class Client(BaseClient):
         
           response = client.list_device_instances(
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type maxResults: integer
         :param maxResults: 
@@ -5816,28 +5816,28 @@ class Client(BaseClient):
           ::
         
             {
-                'deviceInstances': [
+                \'deviceInstances\': [
                     {
-                        'arn': 'string',
-                        'deviceArn': 'string',
-                        'labels': [
-                            'string',
+                        \'arn\': \'string\',
+                        \'deviceArn\': \'string\',
+                        \'labels\': [
+                            \'string\',
                         ],
-                        'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                        'udid': 'string',
-                        'instanceProfile': {
-                            'arn': 'string',
-                            'packageCleanup': True|False,
-                            'excludeAppPackagesFromCleanup': [
-                                'string',
+                        \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                        \'udid\': \'string\',
+                        \'instanceProfile\': {
+                            \'arn\': \'string\',
+                            \'packageCleanup\': True|False,
+                            \'excludeAppPackagesFromCleanup\': [
+                                \'string\',
                             ],
-                            'rebootAfterUse': True|False,
-                            'name': 'string',
-                            'description': 'string'
+                            \'rebootAfterUse\': True|False,
+                            \'name\': \'string\',
+                            \'description\': \'string\'
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5921,9 +5921,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_device_pools(
-              arn='string',
-              type='CURATED'|'PRIVATE',
-              nextToken='string'
+              arn=\'string\',
+              type=\'CURATED\'|\'PRIVATE\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -5933,7 +5933,7 @@ class Client(BaseClient):
         :type type: string
         :param type: 
         
-          The device pools' type.
+          The device pools\' type.
         
           Allowed values include:
         
@@ -5954,22 +5954,22 @@ class Client(BaseClient):
           ::
         
             {
-                'devicePools': [
+                \'devicePools\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'type': 'CURATED'|'PRIVATE',
-                        'rules': [
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'type\': \'CURATED\'|\'PRIVATE\',
+                        \'rules\': [
                             {
-                                'attribute': 'ARN'|'PLATFORM'|'FORM_FACTOR'|'MANUFACTURER'|'REMOTE_ACCESS_ENABLED'|'REMOTE_DEBUG_ENABLED'|'APPIUM_VERSION'|'INSTANCE_ARN'|'INSTANCE_LABELS'|'FLEET_TYPE',
-                                'operator': 'EQUALS'|'LESS_THAN'|'GREATER_THAN'|'IN'|'NOT_IN'|'CONTAINS',
-                                'value': 'string'
+                                \'attribute\': \'ARN\'|\'PLATFORM\'|\'FORM_FACTOR\'|\'MANUFACTURER\'|\'REMOTE_ACCESS_ENABLED\'|\'REMOTE_DEBUG_ENABLED\'|\'APPIUM_VERSION\'|\'INSTANCE_ARN\'|\'INSTANCE_LABELS\'|\'FLEET_TYPE\',
+                                \'operator\': \'EQUALS\'|\'LESS_THAN\'|\'GREATER_THAN\'|\'IN\'|\'NOT_IN\'|\'CONTAINS\',
+                                \'value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5987,19 +5987,19 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The device pool's ARN.
+                  The device pool\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The device pool's name.
+                  The device pool\'s name.
         
                 - **description** *(string) --* 
         
-                  The device pool's description.
+                  The device pool\'s description.
         
                 - **type** *(string) --* 
         
-                  The device pool's type.
+                  The device pool\'s type.
         
                   Allowed values include:
         
@@ -6009,7 +6009,7 @@ class Client(BaseClient):
                    
                 - **rules** *(list) --* 
         
-                  Information about the device pool's rules.
+                  Information about the device pool\'s rules.
         
                   - *(dict) --* 
         
@@ -6017,7 +6017,7 @@ class Client(BaseClient):
         
                     - **attribute** *(string) --* 
         
-                      The rule's stringified attribute. For example, specify the value as ``"\"abc\""`` .
+                      The rule\'s stringified attribute. For example, specify the value as ``\"\\"abc\\"\"`` .
         
                       Allowed values include:
         
@@ -6039,7 +6039,7 @@ class Client(BaseClient):
                        
                     - **operator** *(string) --* 
         
-                      The rule's operator.
+                      The rule\'s operator.
         
                       * EQUALS: The equals operator. 
                        
@@ -6055,7 +6055,7 @@ class Client(BaseClient):
                        
                     - **value** *(string) --* 
         
-                      The rule's value.
+                      The rule\'s value.
         
             - **nextToken** *(string) --* 
         
@@ -6073,8 +6073,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_devices(
-              arn='string',
-              nextToken='string'
+              arn=\'string\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: 
@@ -6094,58 +6094,58 @@ class Client(BaseClient):
           ::
         
             {
-                'devices': [
+                \'devices\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'manufacturer': 'string',
-                        'model': 'string',
-                        'modelId': 'string',
-                        'formFactor': 'PHONE'|'TABLET',
-                        'platform': 'ANDROID'|'IOS',
-                        'os': 'string',
-                        'cpu': {
-                            'frequency': 'string',
-                            'architecture': 'string',
-                            'clock': 123.0
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'manufacturer\': \'string\',
+                        \'model\': \'string\',
+                        \'modelId\': \'string\',
+                        \'formFactor\': \'PHONE\'|\'TABLET\',
+                        \'platform\': \'ANDROID\'|\'IOS\',
+                        \'os\': \'string\',
+                        \'cpu\': {
+                            \'frequency\': \'string\',
+                            \'architecture\': \'string\',
+                            \'clock\': 123.0
                         },
-                        'resolution': {
-                            'width': 123,
-                            'height': 123
+                        \'resolution\': {
+                            \'width\': 123,
+                            \'height\': 123
                         },
-                        'heapSize': 123,
-                        'memory': 123,
-                        'image': 'string',
-                        'carrier': 'string',
-                        'radio': 'string',
-                        'remoteAccessEnabled': True|False,
-                        'remoteDebugEnabled': True|False,
-                        'fleetType': 'string',
-                        'fleetName': 'string',
-                        'instances': [
+                        \'heapSize\': 123,
+                        \'memory\': 123,
+                        \'image\': \'string\',
+                        \'carrier\': \'string\',
+                        \'radio\': \'string\',
+                        \'remoteAccessEnabled\': True|False,
+                        \'remoteDebugEnabled\': True|False,
+                        \'fleetType\': \'string\',
+                        \'fleetName\': \'string\',
+                        \'instances\': [
                             {
-                                'arn': 'string',
-                                'deviceArn': 'string',
-                                'labels': [
-                                    'string',
+                                \'arn\': \'string\',
+                                \'deviceArn\': \'string\',
+                                \'labels\': [
+                                    \'string\',
                                 ],
-                                'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                'udid': 'string',
-                                'instanceProfile': {
-                                    'arn': 'string',
-                                    'packageCleanup': True|False,
-                                    'excludeAppPackagesFromCleanup': [
-                                        'string',
+                                \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                \'udid\': \'string\',
+                                \'instanceProfile\': {
+                                    \'arn\': \'string\',
+                                    \'packageCleanup\': True|False,
+                                    \'excludeAppPackagesFromCleanup\': [
+                                        \'string\',
                                     ],
-                                    'rebootAfterUse': True|False,
-                                    'name': 'string',
-                                    'description': 'string'
+                                    \'rebootAfterUse\': True|False,
+                                    \'name\': \'string\',
+                                    \'description\': \'string\'
                                 }
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6163,27 +6163,27 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The device's ARN.
+                  The device\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The device's display name.
+                  The device\'s display name.
         
                 - **manufacturer** *(string) --* 
         
-                  The device's manufacturer name.
+                  The device\'s manufacturer name.
         
                 - **model** *(string) --* 
         
-                  The device's model name.
+                  The device\'s model name.
         
                 - **modelId** *(string) --* 
         
-                  The device's model ID.
+                  The device\'s model ID.
         
                 - **formFactor** *(string) --* 
         
-                  The device's form factor.
+                  The device\'s form factor.
         
                   Allowed values include:
         
@@ -6193,7 +6193,7 @@ class Client(BaseClient):
                    
                 - **platform** *(string) --* 
         
-                  The device's platform.
+                  The device\'s platform.
         
                   Allowed values include:
         
@@ -6203,23 +6203,23 @@ class Client(BaseClient):
                    
                 - **os** *(string) --* 
         
-                  The device's operating system type.
+                  The device\'s operating system type.
         
                 - **cpu** *(dict) --* 
         
-                  Information about the device's CPU.
+                  Information about the device\'s CPU.
         
                   - **frequency** *(string) --* 
         
-                    The CPU's frequency.
+                    The CPU\'s frequency.
         
                   - **architecture** *(string) --* 
         
-                    The CPU's architecture, for example x86 or ARM.
+                    The CPU\'s architecture, for example x86 or ARM.
         
                   - **clock** *(float) --* 
         
-                    The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                    The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                 - **resolution** *(dict) --* 
         
@@ -6227,31 +6227,31 @@ class Client(BaseClient):
         
                   - **width** *(integer) --* 
         
-                    The screen resolution's width, expressed in pixels.
+                    The screen resolution\'s width, expressed in pixels.
         
                   - **height** *(integer) --* 
         
-                    The screen resolution's height, expressed in pixels.
+                    The screen resolution\'s height, expressed in pixels.
         
                 - **heapSize** *(integer) --* 
         
-                  The device's heap size, expressed in bytes.
+                  The device\'s heap size, expressed in bytes.
         
                 - **memory** *(integer) --* 
         
-                  The device's total memory size, expressed in bytes.
+                  The device\'s total memory size, expressed in bytes.
         
                 - **image** *(string) --* 
         
-                  The device's image name.
+                  The device\'s image name.
         
                 - **carrier** *(string) --* 
         
-                  The device's carrier.
+                  The device\'s carrier.
         
                 - **radio** *(string) --* 
         
-                  The device's radio.
+                  The device\'s radio.
         
                 - **remoteAccessEnabled** *(boolean) --* 
         
@@ -6348,7 +6348,7 @@ class Client(BaseClient):
         
           response = client.list_instance_profiles(
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type maxResults: integer
         :param maxResults: 
@@ -6368,19 +6368,19 @@ class Client(BaseClient):
           ::
         
             {
-                'instanceProfiles': [
+                \'instanceProfiles\': [
                     {
-                        'arn': 'string',
-                        'packageCleanup': True|False,
-                        'excludeAppPackagesFromCleanup': [
-                            'string',
+                        \'arn\': \'string\',
+                        \'packageCleanup\': True|False,
+                        \'excludeAppPackagesFromCleanup\': [
+                            \'string\',
                         ],
-                        'rebootAfterUse': True|False,
-                        'name': 'string',
-                        'description': 'string'
+                        \'rebootAfterUse\': True|False,
+                        \'name\': \'string\',
+                        \'description\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6438,13 +6438,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_jobs(
-              arn='string',
-              nextToken='string'
+              arn=\'string\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The run's Amazon Resource Name (ARN).
+          The run\'s Amazon Resource Name (ARN).
         
         :type nextToken: string
         :param nextToken: 
@@ -6459,86 +6459,86 @@ class Client(BaseClient):
           ::
         
             {
-                'jobs': [
+                \'jobs\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                        'created': datetime(2015, 1, 1),
-                        'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                        'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                        'started': datetime(2015, 1, 1),
-                        'stopped': datetime(2015, 1, 1),
-                        'counters': {
-                            'total': 123,
-                            'passed': 123,
-                            'failed': 123,
-                            'warned': 123,
-                            'errored': 123,
-                            'stopped': 123,
-                            'skipped': 123
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                        \'created\': datetime(2015, 1, 1),
+                        \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                        \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                        \'started\': datetime(2015, 1, 1),
+                        \'stopped\': datetime(2015, 1, 1),
+                        \'counters\': {
+                            \'total\': 123,
+                            \'passed\': 123,
+                            \'failed\': 123,
+                            \'warned\': 123,
+                            \'errored\': 123,
+                            \'stopped\': 123,
+                            \'skipped\': 123
                         },
-                        'message': 'string',
-                        'device': {
-                            'arn': 'string',
-                            'name': 'string',
-                            'manufacturer': 'string',
-                            'model': 'string',
-                            'modelId': 'string',
-                            'formFactor': 'PHONE'|'TABLET',
-                            'platform': 'ANDROID'|'IOS',
-                            'os': 'string',
-                            'cpu': {
-                                'frequency': 'string',
-                                'architecture': 'string',
-                                'clock': 123.0
+                        \'message\': \'string\',
+                        \'device\': {
+                            \'arn\': \'string\',
+                            \'name\': \'string\',
+                            \'manufacturer\': \'string\',
+                            \'model\': \'string\',
+                            \'modelId\': \'string\',
+                            \'formFactor\': \'PHONE\'|\'TABLET\',
+                            \'platform\': \'ANDROID\'|\'IOS\',
+                            \'os\': \'string\',
+                            \'cpu\': {
+                                \'frequency\': \'string\',
+                                \'architecture\': \'string\',
+                                \'clock\': 123.0
                             },
-                            'resolution': {
-                                'width': 123,
-                                'height': 123
+                            \'resolution\': {
+                                \'width\': 123,
+                                \'height\': 123
                             },
-                            'heapSize': 123,
-                            'memory': 123,
-                            'image': 'string',
-                            'carrier': 'string',
-                            'radio': 'string',
-                            'remoteAccessEnabled': True|False,
-                            'remoteDebugEnabled': True|False,
-                            'fleetType': 'string',
-                            'fleetName': 'string',
-                            'instances': [
+                            \'heapSize\': 123,
+                            \'memory\': 123,
+                            \'image\': \'string\',
+                            \'carrier\': \'string\',
+                            \'radio\': \'string\',
+                            \'remoteAccessEnabled\': True|False,
+                            \'remoteDebugEnabled\': True|False,
+                            \'fleetType\': \'string\',
+                            \'fleetName\': \'string\',
+                            \'instances\': [
                                 {
-                                    'arn': 'string',
-                                    'deviceArn': 'string',
-                                    'labels': [
-                                        'string',
+                                    \'arn\': \'string\',
+                                    \'deviceArn\': \'string\',
+                                    \'labels\': [
+                                        \'string\',
                                     ],
-                                    'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                    'udid': 'string',
-                                    'instanceProfile': {
-                                        'arn': 'string',
-                                        'packageCleanup': True|False,
-                                        'excludeAppPackagesFromCleanup': [
-                                            'string',
+                                    \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                    \'udid\': \'string\',
+                                    \'instanceProfile\': {
+                                        \'arn\': \'string\',
+                                        \'packageCleanup\': True|False,
+                                        \'excludeAppPackagesFromCleanup\': [
+                                            \'string\',
                                         ],
-                                        'rebootAfterUse': True|False,
-                                        'name': 'string',
-                                        'description': 'string'
+                                        \'rebootAfterUse\': True|False,
+                                        \'name\': \'string\',
+                                        \'description\': \'string\'
                                     }
                                 },
                             ]
                         },
-                        'instanceArn': 'string',
-                        'deviceMinutes': {
-                            'total': 123.0,
-                            'metered': 123.0,
-                            'unmetered': 123.0
+                        \'instanceArn\': \'string\',
+                        \'deviceMinutes\': {
+                            \'total\': 123.0,
+                            \'metered\': 123.0,
+                            \'unmetered\': 123.0
                         },
-                        'videoEndpoint': 'string',
-                        'videoCapture': True|False
+                        \'videoEndpoint\': \'string\',
+                        \'videoCapture\': True|False
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6556,15 +6556,15 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The job's ARN.
+                  The job\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The job's name.
+                  The job\'s name.
         
                 - **type** *(string) --* 
         
-                  The job's type.
+                  The job\'s type.
         
                   Allowed values include the following:
         
@@ -6602,7 +6602,7 @@ class Client(BaseClient):
         
                 - **status** *(string) --* 
         
-                  The job's status.
+                  The job\'s status.
         
                   Allowed values include:
         
@@ -6626,7 +6626,7 @@ class Client(BaseClient):
                    
                 - **result** *(string) --* 
         
-                  The job's result.
+                  The job\'s result.
         
                   Allowed values include:
         
@@ -6646,15 +6646,15 @@ class Client(BaseClient):
                    
                 - **started** *(datetime) --* 
         
-                  The job's start time.
+                  The job\'s start time.
         
                 - **stopped** *(datetime) --* 
         
-                  The job's stop time.
+                  The job\'s stop time.
         
                 - **counters** *(dict) --* 
         
-                  The job's result counters.
+                  The job\'s result counters.
         
                   - **total** *(integer) --* 
         
@@ -6686,7 +6686,7 @@ class Client(BaseClient):
         
                 - **message** *(string) --* 
         
-                  A message about the job's result.
+                  A message about the job\'s result.
         
                 - **device** *(dict) --* 
         
@@ -6694,27 +6694,27 @@ class Client(BaseClient):
         
                   - **arn** *(string) --* 
         
-                    The device's ARN.
+                    The device\'s ARN.
         
                   - **name** *(string) --* 
         
-                    The device's display name.
+                    The device\'s display name.
         
                   - **manufacturer** *(string) --* 
         
-                    The device's manufacturer name.
+                    The device\'s manufacturer name.
         
                   - **model** *(string) --* 
         
-                    The device's model name.
+                    The device\'s model name.
         
                   - **modelId** *(string) --* 
         
-                    The device's model ID.
+                    The device\'s model ID.
         
                   - **formFactor** *(string) --* 
         
-                    The device's form factor.
+                    The device\'s form factor.
         
                     Allowed values include:
         
@@ -6724,7 +6724,7 @@ class Client(BaseClient):
                      
                   - **platform** *(string) --* 
         
-                    The device's platform.
+                    The device\'s platform.
         
                     Allowed values include:
         
@@ -6734,23 +6734,23 @@ class Client(BaseClient):
                      
                   - **os** *(string) --* 
         
-                    The device's operating system type.
+                    The device\'s operating system type.
         
                   - **cpu** *(dict) --* 
         
-                    Information about the device's CPU.
+                    Information about the device\'s CPU.
         
                     - **frequency** *(string) --* 
         
-                      The CPU's frequency.
+                      The CPU\'s frequency.
         
                     - **architecture** *(string) --* 
         
-                      The CPU's architecture, for example x86 or ARM.
+                      The CPU\'s architecture, for example x86 or ARM.
         
                     - **clock** *(float) --* 
         
-                      The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                      The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                   - **resolution** *(dict) --* 
         
@@ -6758,31 +6758,31 @@ class Client(BaseClient):
         
                     - **width** *(integer) --* 
         
-                      The screen resolution's width, expressed in pixels.
+                      The screen resolution\'s width, expressed in pixels.
         
                     - **height** *(integer) --* 
         
-                      The screen resolution's height, expressed in pixels.
+                      The screen resolution\'s height, expressed in pixels.
         
                   - **heapSize** *(integer) --* 
         
-                    The device's heap size, expressed in bytes.
+                    The device\'s heap size, expressed in bytes.
         
                   - **memory** *(integer) --* 
         
-                    The device's total memory size, expressed in bytes.
+                    The device\'s total memory size, expressed in bytes.
         
                   - **image** *(string) --* 
         
-                    The device's image name.
+                    The device\'s image name.
         
                   - **carrier** *(string) --* 
         
-                    The device's carrier.
+                    The device\'s carrier.
         
                   - **radio** *(string) --* 
         
-                    The device's radio.
+                    The device\'s radio.
         
                   - **remoteAccessEnabled** *(boolean) --* 
         
@@ -6906,9 +6906,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_network_profiles(
-              arn='string',
-              type='CURATED'|'PRIVATE',
-              nextToken='string'
+              arn=\'string\',
+              type=\'CURATED\'|\'PRIVATE\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -6933,23 +6933,23 @@ class Client(BaseClient):
           ::
         
             {
-                'networkProfiles': [
+                \'networkProfiles\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'type': 'CURATED'|'PRIVATE',
-                        'uplinkBandwidthBits': 123,
-                        'downlinkBandwidthBits': 123,
-                        'uplinkDelayMs': 123,
-                        'downlinkDelayMs': 123,
-                        'uplinkJitterMs': 123,
-                        'downlinkJitterMs': 123,
-                        'uplinkLossPercent': 123,
-                        'downlinkLossPercent': 123
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'type\': \'CURATED\'|\'PRIVATE\',
+                        \'uplinkBandwidthBits\': 123,
+                        \'downlinkBandwidthBits\': 123,
+                        \'uplinkDelayMs\': 123,
+                        \'downlinkDelayMs\': 123,
+                        \'uplinkJitterMs\': 123,
+                        \'downlinkJitterMs\': 123,
+                        \'uplinkLossPercent\': 123,
+                        \'downlinkLossPercent\': 123
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7027,7 +7027,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_offering_promotions(
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -7042,13 +7042,13 @@ class Client(BaseClient):
           ::
         
             {
-                'offeringPromotions': [
+                \'offeringPromotions\': [
                     {
-                        'id': 'string',
-                        'description': 'string'
+                        \'id\': \'string\',
+                        \'description\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7086,7 +7086,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_offering_transactions(
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -7101,38 +7101,38 @@ class Client(BaseClient):
           ::
         
             {
-                'offeringTransactions': [
+                \'offeringTransactions\': [
                     {
-                        'offeringStatus': {
-                            'type': 'PURCHASE'|'RENEW'|'SYSTEM',
-                            'offering': {
-                                'id': 'string',
-                                'description': 'string',
-                                'type': 'RECURRING',
-                                'platform': 'ANDROID'|'IOS',
-                                'recurringCharges': [
+                        \'offeringStatus\': {
+                            \'type\': \'PURCHASE\'|\'RENEW\'|\'SYSTEM\',
+                            \'offering\': {
+                                \'id\': \'string\',
+                                \'description\': \'string\',
+                                \'type\': \'RECURRING\',
+                                \'platform\': \'ANDROID\'|\'IOS\',
+                                \'recurringCharges\': [
                                     {
-                                        'cost': {
-                                            'amount': 123.0,
-                                            'currencyCode': 'USD'
+                                        \'cost\': {
+                                            \'amount\': 123.0,
+                                            \'currencyCode\': \'USD\'
                                         },
-                                        'frequency': 'MONTHLY'
+                                        \'frequency\': \'MONTHLY\'
                                     },
                                 ]
                             },
-                            'quantity': 123,
-                            'effectiveOn': datetime(2015, 1, 1)
+                            \'quantity\': 123,
+                            \'effectiveOn\': datetime(2015, 1, 1)
                         },
-                        'transactionId': 'string',
-                        'offeringPromotionId': 'string',
-                        'createdOn': datetime(2015, 1, 1),
-                        'cost': {
-                            'amount': 123.0,
-                            'currencyCode': 'USD'
+                        \'transactionId\': \'string\',
+                        \'offeringPromotionId\': \'string\',
+                        \'createdOn\': datetime(2015, 1, 1),
+                        \'cost\': {
+                            \'amount\': 123.0,
+                            \'currencyCode\': \'USD\'
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7170,7 +7170,7 @@ class Client(BaseClient):
         
                     - **type** *(string) --* 
         
-                      The type of offering (e.g., "RECURRING") for a device.
+                      The type of offering (e.g., \"RECURRING\") for a device.
         
                     - **platform** *(string) --* 
         
@@ -7194,7 +7194,7 @@ class Client(BaseClient):
         
                           - **currencyCode** *(string) --* 
         
-                            The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                            The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
                         - **frequency** *(string) --* 
         
@@ -7230,7 +7230,7 @@ class Client(BaseClient):
         
                   - **currencyCode** *(string) --* 
         
-                    The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                    The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
             - **nextToken** *(string) --* 
         
@@ -7248,7 +7248,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_offerings(
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -7263,24 +7263,24 @@ class Client(BaseClient):
           ::
         
             {
-                'offerings': [
+                \'offerings\': [
                     {
-                        'id': 'string',
-                        'description': 'string',
-                        'type': 'RECURRING',
-                        'platform': 'ANDROID'|'IOS',
-                        'recurringCharges': [
+                        \'id\': \'string\',
+                        \'description\': \'string\',
+                        \'type\': \'RECURRING\',
+                        \'platform\': \'ANDROID\'|\'IOS\',
+                        \'recurringCharges\': [
                             {
-                                'cost': {
-                                    'amount': 123.0,
-                                    'currencyCode': 'USD'
+                                \'cost\': {
+                                    \'amount\': 123.0,
+                                    \'currencyCode\': \'USD\'
                                 },
-                                'frequency': 'MONTHLY'
+                                \'frequency\': \'MONTHLY\'
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7306,7 +7306,7 @@ class Client(BaseClient):
         
                 - **type** *(string) --* 
         
-                  The type of offering (e.g., "RECURRING") for a device.
+                  The type of offering (e.g., \"RECURRING\") for a device.
         
                 - **platform** *(string) --* 
         
@@ -7330,7 +7330,7 @@ class Client(BaseClient):
         
                       - **currencyCode** *(string) --* 
         
-                        The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                        The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
                     - **frequency** *(string) --* 
         
@@ -7352,8 +7352,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_projects(
-              arn='string',
-              nextToken='string'
+              arn=\'string\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: 
@@ -7373,15 +7373,15 @@ class Client(BaseClient):
           ::
         
             {
-                'projects': [
+                \'projects\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'defaultJobTimeoutMinutes': 123,
-                        'created': datetime(2015, 1, 1)
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'defaultJobTimeoutMinutes\': 123,
+                        \'created\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7399,11 +7399,11 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The project's ARN.
+                  The project\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The project's name.
+                  The project\'s name.
         
                 - **defaultJobTimeoutMinutes** *(integer) --* 
         
@@ -7429,8 +7429,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_remote_access_sessions(
-              arn='string',
-              nextToken='string'
+              arn=\'string\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -7450,84 +7450,84 @@ class Client(BaseClient):
           ::
         
             {
-                'remoteAccessSessions': [
+                \'remoteAccessSessions\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'created': datetime(2015, 1, 1),
-                        'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                        'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                        'message': 'string',
-                        'started': datetime(2015, 1, 1),
-                        'stopped': datetime(2015, 1, 1),
-                        'device': {
-                            'arn': 'string',
-                            'name': 'string',
-                            'manufacturer': 'string',
-                            'model': 'string',
-                            'modelId': 'string',
-                            'formFactor': 'PHONE'|'TABLET',
-                            'platform': 'ANDROID'|'IOS',
-                            'os': 'string',
-                            'cpu': {
-                                'frequency': 'string',
-                                'architecture': 'string',
-                                'clock': 123.0
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'created\': datetime(2015, 1, 1),
+                        \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                        \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                        \'message\': \'string\',
+                        \'started\': datetime(2015, 1, 1),
+                        \'stopped\': datetime(2015, 1, 1),
+                        \'device\': {
+                            \'arn\': \'string\',
+                            \'name\': \'string\',
+                            \'manufacturer\': \'string\',
+                            \'model\': \'string\',
+                            \'modelId\': \'string\',
+                            \'formFactor\': \'PHONE\'|\'TABLET\',
+                            \'platform\': \'ANDROID\'|\'IOS\',
+                            \'os\': \'string\',
+                            \'cpu\': {
+                                \'frequency\': \'string\',
+                                \'architecture\': \'string\',
+                                \'clock\': 123.0
                             },
-                            'resolution': {
-                                'width': 123,
-                                'height': 123
+                            \'resolution\': {
+                                \'width\': 123,
+                                \'height\': 123
                             },
-                            'heapSize': 123,
-                            'memory': 123,
-                            'image': 'string',
-                            'carrier': 'string',
-                            'radio': 'string',
-                            'remoteAccessEnabled': True|False,
-                            'remoteDebugEnabled': True|False,
-                            'fleetType': 'string',
-                            'fleetName': 'string',
-                            'instances': [
+                            \'heapSize\': 123,
+                            \'memory\': 123,
+                            \'image\': \'string\',
+                            \'carrier\': \'string\',
+                            \'radio\': \'string\',
+                            \'remoteAccessEnabled\': True|False,
+                            \'remoteDebugEnabled\': True|False,
+                            \'fleetType\': \'string\',
+                            \'fleetName\': \'string\',
+                            \'instances\': [
                                 {
-                                    'arn': 'string',
-                                    'deviceArn': 'string',
-                                    'labels': [
-                                        'string',
+                                    \'arn\': \'string\',
+                                    \'deviceArn\': \'string\',
+                                    \'labels\': [
+                                        \'string\',
                                     ],
-                                    'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                    'udid': 'string',
-                                    'instanceProfile': {
-                                        'arn': 'string',
-                                        'packageCleanup': True|False,
-                                        'excludeAppPackagesFromCleanup': [
-                                            'string',
+                                    \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                    \'udid\': \'string\',
+                                    \'instanceProfile\': {
+                                        \'arn\': \'string\',
+                                        \'packageCleanup\': True|False,
+                                        \'excludeAppPackagesFromCleanup\': [
+                                            \'string\',
                                         ],
-                                        'rebootAfterUse': True|False,
-                                        'name': 'string',
-                                        'description': 'string'
+                                        \'rebootAfterUse\': True|False,
+                                        \'name\': \'string\',
+                                        \'description\': \'string\'
                                     }
                                 },
                             ]
                         },
-                        'instanceArn': 'string',
-                        'remoteDebugEnabled': True|False,
-                        'remoteRecordEnabled': True|False,
-                        'remoteRecordAppArn': 'string',
-                        'hostAddress': 'string',
-                        'clientId': 'string',
-                        'billingMethod': 'METERED'|'UNMETERED',
-                        'deviceMinutes': {
-                            'total': 123.0,
-                            'metered': 123.0,
-                            'unmetered': 123.0
+                        \'instanceArn\': \'string\',
+                        \'remoteDebugEnabled\': True|False,
+                        \'remoteRecordEnabled\': True|False,
+                        \'remoteRecordAppArn\': \'string\',
+                        \'hostAddress\': \'string\',
+                        \'clientId\': \'string\',
+                        \'billingMethod\': \'METERED\'|\'UNMETERED\',
+                        \'deviceMinutes\': {
+                            \'total\': 123.0,
+                            \'metered\': 123.0,
+                            \'unmetered\': 123.0
                         },
-                        'endpoint': 'string',
-                        'deviceUdid': 'string',
-                        'interactionMode': 'INTERACTIVE'|'NO_VIDEO'|'VIDEO_ONLY',
-                        'skipAppResign': True|False
+                        \'endpoint\': \'string\',
+                        \'deviceUdid\': \'string\',
+                        \'interactionMode\': \'INTERACTIVE\'|\'NO_VIDEO\'|\'VIDEO_ONLY\',
+                        \'skipAppResign\': True|False
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7613,27 +7613,27 @@ class Client(BaseClient):
         
                   - **arn** *(string) --* 
         
-                    The device's ARN.
+                    The device\'s ARN.
         
                   - **name** *(string) --* 
         
-                    The device's display name.
+                    The device\'s display name.
         
                   - **manufacturer** *(string) --* 
         
-                    The device's manufacturer name.
+                    The device\'s manufacturer name.
         
                   - **model** *(string) --* 
         
-                    The device's model name.
+                    The device\'s model name.
         
                   - **modelId** *(string) --* 
         
-                    The device's model ID.
+                    The device\'s model ID.
         
                   - **formFactor** *(string) --* 
         
-                    The device's form factor.
+                    The device\'s form factor.
         
                     Allowed values include:
         
@@ -7643,7 +7643,7 @@ class Client(BaseClient):
                      
                   - **platform** *(string) --* 
         
-                    The device's platform.
+                    The device\'s platform.
         
                     Allowed values include:
         
@@ -7653,23 +7653,23 @@ class Client(BaseClient):
                      
                   - **os** *(string) --* 
         
-                    The device's operating system type.
+                    The device\'s operating system type.
         
                   - **cpu** *(dict) --* 
         
-                    Information about the device's CPU.
+                    Information about the device\'s CPU.
         
                     - **frequency** *(string) --* 
         
-                      The CPU's frequency.
+                      The CPU\'s frequency.
         
                     - **architecture** *(string) --* 
         
-                      The CPU's architecture, for example x86 or ARM.
+                      The CPU\'s architecture, for example x86 or ARM.
         
                     - **clock** *(float) --* 
         
-                      The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                      The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                   - **resolution** *(dict) --* 
         
@@ -7677,31 +7677,31 @@ class Client(BaseClient):
         
                     - **width** *(integer) --* 
         
-                      The screen resolution's width, expressed in pixels.
+                      The screen resolution\'s width, expressed in pixels.
         
                     - **height** *(integer) --* 
         
-                      The screen resolution's height, expressed in pixels.
+                      The screen resolution\'s height, expressed in pixels.
         
                   - **heapSize** *(integer) --* 
         
-                    The device's heap size, expressed in bytes.
+                    The device\'s heap size, expressed in bytes.
         
                   - **memory** *(integer) --* 
         
-                    The device's total memory size, expressed in bytes.
+                    The device\'s total memory size, expressed in bytes.
         
                   - **image** *(string) --* 
         
-                    The device's image name.
+                    The device\'s image name.
         
                   - **carrier** *(string) --* 
         
-                    The device's carrier.
+                    The device\'s carrier.
         
                   - **radio** *(string) --* 
         
-                    The device's radio.
+                    The device\'s radio.
         
                   - **remoteAccessEnabled** *(boolean) --* 
         
@@ -7807,7 +7807,7 @@ class Client(BaseClient):
         
                 - **billingMethod** *(string) --* 
         
-                  The billing method of the remote access session. Possible values include ``METERED`` or ``UNMETERED`` . For more information about metered devices, see `AWS Device Farm terminology <http://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology>`__ ."
+                  The billing method of the remote access session. Possible values include ``METERED`` or ``UNMETERED`` . For more information about metered devices, see `AWS Device Farm terminology <http://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology>`__ .\"
         
                 - **deviceMinutes** *(dict) --* 
         
@@ -7865,8 +7865,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_runs(
-              arn='string',
-              nextToken='string'
+              arn=\'string\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -7886,84 +7886,84 @@ class Client(BaseClient):
           ::
         
             {
-                'runs': [
+                \'runs\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                        'platform': 'ANDROID'|'IOS',
-                        'created': datetime(2015, 1, 1),
-                        'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                        'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                        'started': datetime(2015, 1, 1),
-                        'stopped': datetime(2015, 1, 1),
-                        'counters': {
-                            'total': 123,
-                            'passed': 123,
-                            'failed': 123,
-                            'warned': 123,
-                            'errored': 123,
-                            'stopped': 123,
-                            'skipped': 123
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                        \'platform\': \'ANDROID\'|\'IOS\',
+                        \'created\': datetime(2015, 1, 1),
+                        \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                        \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                        \'started\': datetime(2015, 1, 1),
+                        \'stopped\': datetime(2015, 1, 1),
+                        \'counters\': {
+                            \'total\': 123,
+                            \'passed\': 123,
+                            \'failed\': 123,
+                            \'warned\': 123,
+                            \'errored\': 123,
+                            \'stopped\': 123,
+                            \'skipped\': 123
                         },
-                        'message': 'string',
-                        'totalJobs': 123,
-                        'completedJobs': 123,
-                        'billingMethod': 'METERED'|'UNMETERED',
-                        'deviceMinutes': {
-                            'total': 123.0,
-                            'metered': 123.0,
-                            'unmetered': 123.0
+                        \'message\': \'string\',
+                        \'totalJobs\': 123,
+                        \'completedJobs\': 123,
+                        \'billingMethod\': \'METERED\'|\'UNMETERED\',
+                        \'deviceMinutes\': {
+                            \'total\': 123.0,
+                            \'metered\': 123.0,
+                            \'unmetered\': 123.0
                         },
-                        'networkProfile': {
-                            'arn': 'string',
-                            'name': 'string',
-                            'description': 'string',
-                            'type': 'CURATED'|'PRIVATE',
-                            'uplinkBandwidthBits': 123,
-                            'downlinkBandwidthBits': 123,
-                            'uplinkDelayMs': 123,
-                            'downlinkDelayMs': 123,
-                            'uplinkJitterMs': 123,
-                            'downlinkJitterMs': 123,
-                            'uplinkLossPercent': 123,
-                            'downlinkLossPercent': 123
+                        \'networkProfile\': {
+                            \'arn\': \'string\',
+                            \'name\': \'string\',
+                            \'description\': \'string\',
+                            \'type\': \'CURATED\'|\'PRIVATE\',
+                            \'uplinkBandwidthBits\': 123,
+                            \'downlinkBandwidthBits\': 123,
+                            \'uplinkDelayMs\': 123,
+                            \'downlinkDelayMs\': 123,
+                            \'uplinkJitterMs\': 123,
+                            \'downlinkJitterMs\': 123,
+                            \'uplinkLossPercent\': 123,
+                            \'downlinkLossPercent\': 123
                         },
-                        'parsingResultUrl': 'string',
-                        'resultCode': 'PARSING_FAILED'|'VPC_ENDPOINT_SETUP_FAILED',
-                        'seed': 123,
-                        'appUpload': 'string',
-                        'eventCount': 123,
-                        'jobTimeoutMinutes': 123,
-                        'devicePoolArn': 'string',
-                        'locale': 'string',
-                        'radios': {
-                            'wifi': True|False,
-                            'bluetooth': True|False,
-                            'nfc': True|False,
-                            'gps': True|False
+                        \'parsingResultUrl\': \'string\',
+                        \'resultCode\': \'PARSING_FAILED\'|\'VPC_ENDPOINT_SETUP_FAILED\',
+                        \'seed\': 123,
+                        \'appUpload\': \'string\',
+                        \'eventCount\': 123,
+                        \'jobTimeoutMinutes\': 123,
+                        \'devicePoolArn\': \'string\',
+                        \'locale\': \'string\',
+                        \'radios\': {
+                            \'wifi\': True|False,
+                            \'bluetooth\': True|False,
+                            \'nfc\': True|False,
+                            \'gps\': True|False
                         },
-                        'location': {
-                            'latitude': 123.0,
-                            'longitude': 123.0
+                        \'location\': {
+                            \'latitude\': 123.0,
+                            \'longitude\': 123.0
                         },
-                        'customerArtifactPaths': {
-                            'iosPaths': [
-                                'string',
+                        \'customerArtifactPaths\': {
+                            \'iosPaths\': [
+                                \'string\',
                             ],
-                            'androidPaths': [
-                                'string',
+                            \'androidPaths\': [
+                                \'string\',
                             ],
-                            'deviceHostPaths': [
-                                'string',
+                            \'deviceHostPaths\': [
+                                \'string\',
                             ]
                         },
-                        'webUrl': 'string',
-                        'skipAppResign': True|False,
-                        'testSpecArn': 'string'
+                        \'webUrl\': \'string\',
+                        \'skipAppResign\': True|False,
+                        \'testSpecArn\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7981,15 +7981,15 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The run's ARN.
+                  The run\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The run's name.
+                  The run\'s name.
         
                 - **type** *(string) --* 
         
-                  The run's type.
+                  The run\'s type.
         
                   Must be one of the following values:
         
@@ -8023,7 +8023,7 @@ class Client(BaseClient):
                    
                 - **platform** *(string) --* 
         
-                  The run's platform.
+                  The run\'s platform.
         
                   Allowed values include:
         
@@ -8037,7 +8037,7 @@ class Client(BaseClient):
         
                 - **status** *(string) --* 
         
-                  The run's status.
+                  The run\'s status.
         
                   Allowed values include:
         
@@ -8061,7 +8061,7 @@ class Client(BaseClient):
                    
                 - **result** *(string) --* 
         
-                  The run's result.
+                  The run\'s result.
         
                   Allowed values include:
         
@@ -8081,15 +8081,15 @@ class Client(BaseClient):
                    
                 - **started** *(datetime) --* 
         
-                  The run's start time.
+                  The run\'s start time.
         
                 - **stopped** *(datetime) --* 
         
-                  The run's stop time.
+                  The run\'s stop time.
         
                 - **counters** *(dict) --* 
         
-                  The run's result counters.
+                  The run\'s result counters.
         
                   - **total** *(integer) --* 
         
@@ -8121,7 +8121,7 @@ class Client(BaseClient):
         
                 - **message** *(string) --* 
         
-                  A message about the run's result.
+                  A message about the run\'s result.
         
                 - **totalJobs** *(integer) --* 
         
@@ -8205,7 +8205,7 @@ class Client(BaseClient):
         
                 - **parsingResultUrl** *(string) --* 
         
-                  Read-only URL for an object in S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
+                  Read-only URL for an object in S3 bucket where you can get the parsing results of the test package. If the test package doesn\'t parse, the reason why it doesn\'t parse appears in the file that this URL points to.
         
                 - **resultCode** *(string) --* 
         
@@ -8273,19 +8273,19 @@ class Client(BaseClient):
         
                   - **iosPaths** *(list) --* 
         
-                    Comma-separated list of paths on the iOS device where the artifacts generated by the customer's tests will be pulled from.
+                    Comma-separated list of paths on the iOS device where the artifacts generated by the customer\'s tests will be pulled from.
         
                     - *(string) --* 
                 
                   - **androidPaths** *(list) --* 
         
-                    Comma-separated list of paths on the Android device where the artifacts generated by the customer's tests will be pulled from.
+                    Comma-separated list of paths on the Android device where the artifacts generated by the customer\'s tests will be pulled from.
         
                     - *(string) --* 
                 
                   - **deviceHostPaths** *(list) --* 
         
-                    Comma-separated list of paths in the test execution environment where the artifacts generated by the customer's tests will be pulled from.
+                    Comma-separated list of paths in the test execution environment where the artifacts generated by the customer\'s tests will be pulled from.
         
                     - *(string) --* 
                 
@@ -8319,8 +8319,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_samples(
-              arn='string',
-              nextToken='string'
+              arn=\'string\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -8340,14 +8340,14 @@ class Client(BaseClient):
           ::
         
             {
-                'samples': [
+                \'samples\': [
                     {
-                        'arn': 'string',
-                        'type': 'CPU'|'MEMORY'|'THREADS'|'RX_RATE'|'TX_RATE'|'RX'|'TX'|'NATIVE_FRAMES'|'NATIVE_FPS'|'NATIVE_MIN_DRAWTIME'|'NATIVE_AVG_DRAWTIME'|'NATIVE_MAX_DRAWTIME'|'OPENGL_FRAMES'|'OPENGL_FPS'|'OPENGL_MIN_DRAWTIME'|'OPENGL_AVG_DRAWTIME'|'OPENGL_MAX_DRAWTIME',
-                        'url': 'string'
+                        \'arn\': \'string\',
+                        \'type\': \'CPU\'|\'MEMORY\'|\'THREADS\'|\'RX_RATE\'|\'TX_RATE\'|\'RX\'|\'TX\'|\'NATIVE_FRAMES\'|\'NATIVE_FPS\'|\'NATIVE_MIN_DRAWTIME\'|\'NATIVE_AVG_DRAWTIME\'|\'NATIVE_MAX_DRAWTIME\'|\'OPENGL_FRAMES\'|\'OPENGL_FPS\'|\'OPENGL_MIN_DRAWTIME\'|\'OPENGL_AVG_DRAWTIME\'|\'OPENGL_MAX_DRAWTIME\',
+                        \'url\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8365,11 +8365,11 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The sample's ARN.
+                  The sample\'s ARN.
         
                 - **type** *(string) --* 
         
-                  The sample's type.
+                  The sample\'s type.
         
                   Must be one of the following values:
         
@@ -8409,7 +8409,7 @@ class Client(BaseClient):
                    
                 - **url** *(string) --* 
         
-                  The pre-signed Amazon S3 URL that can be used with a corresponding GET request to download the sample's file.
+                  The pre-signed Amazon S3 URL that can be used with a corresponding GET request to download the sample\'s file.
         
             - **nextToken** *(string) --* 
         
@@ -8427,13 +8427,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_suites(
-              arn='string',
-              nextToken='string'
+              arn=\'string\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The job's Amazon Resource Name (ARN).
+          The job\'s Amazon Resource Name (ARN).
         
         :type nextToken: string
         :param nextToken: 
@@ -8448,34 +8448,34 @@ class Client(BaseClient):
           ::
         
             {
-                'suites': [
+                \'suites\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                        'created': datetime(2015, 1, 1),
-                        'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                        'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                        'started': datetime(2015, 1, 1),
-                        'stopped': datetime(2015, 1, 1),
-                        'counters': {
-                            'total': 123,
-                            'passed': 123,
-                            'failed': 123,
-                            'warned': 123,
-                            'errored': 123,
-                            'stopped': 123,
-                            'skipped': 123
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                        \'created\': datetime(2015, 1, 1),
+                        \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                        \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                        \'started\': datetime(2015, 1, 1),
+                        \'stopped\': datetime(2015, 1, 1),
+                        \'counters\': {
+                            \'total\': 123,
+                            \'passed\': 123,
+                            \'failed\': 123,
+                            \'warned\': 123,
+                            \'errored\': 123,
+                            \'stopped\': 123,
+                            \'skipped\': 123
                         },
-                        'message': 'string',
-                        'deviceMinutes': {
-                            'total': 123.0,
-                            'metered': 123.0,
-                            'unmetered': 123.0
+                        \'message\': \'string\',
+                        \'deviceMinutes\': {
+                            \'total\': 123.0,
+                            \'metered\': 123.0,
+                            \'unmetered\': 123.0
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8493,15 +8493,15 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The suite's ARN.
+                  The suite\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The suite's name.
+                  The suite\'s name.
         
                 - **type** *(string) --* 
         
-                  The suite's type.
+                  The suite\'s type.
         
                   Must be one of the following values:
         
@@ -8539,7 +8539,7 @@ class Client(BaseClient):
         
                 - **status** *(string) --* 
         
-                  The suite's status.
+                  The suite\'s status.
         
                   Allowed values include:
         
@@ -8563,7 +8563,7 @@ class Client(BaseClient):
                    
                 - **result** *(string) --* 
         
-                  The suite's result.
+                  The suite\'s result.
         
                   Allowed values include:
         
@@ -8583,15 +8583,15 @@ class Client(BaseClient):
                    
                 - **started** *(datetime) --* 
         
-                  The suite's start time.
+                  The suite\'s start time.
         
                 - **stopped** *(datetime) --* 
         
-                  The suite's stop time.
+                  The suite\'s stop time.
         
                 - **counters** *(dict) --* 
         
-                  The suite's result counters.
+                  The suite\'s result counters.
         
                   - **total** *(integer) --* 
         
@@ -8623,7 +8623,7 @@ class Client(BaseClient):
         
                 - **message** *(string) --* 
         
-                  A message about the suite's result.
+                  A message about the suite\'s result.
         
                 - **deviceMinutes** *(dict) --* 
         
@@ -8657,13 +8657,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_tests(
-              arn='string',
-              nextToken='string'
+              arn=\'string\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The test suite's Amazon Resource Name (ARN).
+          The test suite\'s Amazon Resource Name (ARN).
         
         :type nextToken: string
         :param nextToken: 
@@ -8678,34 +8678,34 @@ class Client(BaseClient):
           ::
         
             {
-                'tests': [
+                \'tests\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                        'created': datetime(2015, 1, 1),
-                        'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                        'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                        'started': datetime(2015, 1, 1),
-                        'stopped': datetime(2015, 1, 1),
-                        'counters': {
-                            'total': 123,
-                            'passed': 123,
-                            'failed': 123,
-                            'warned': 123,
-                            'errored': 123,
-                            'stopped': 123,
-                            'skipped': 123
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                        \'created\': datetime(2015, 1, 1),
+                        \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                        \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                        \'started\': datetime(2015, 1, 1),
+                        \'stopped\': datetime(2015, 1, 1),
+                        \'counters\': {
+                            \'total\': 123,
+                            \'passed\': 123,
+                            \'failed\': 123,
+                            \'warned\': 123,
+                            \'errored\': 123,
+                            \'stopped\': 123,
+                            \'skipped\': 123
                         },
-                        'message': 'string',
-                        'deviceMinutes': {
-                            'total': 123.0,
-                            'metered': 123.0,
-                            'unmetered': 123.0
+                        \'message\': \'string\',
+                        \'deviceMinutes\': {
+                            \'total\': 123.0,
+                            \'metered\': 123.0,
+                            \'unmetered\': 123.0
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8723,15 +8723,15 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The test's ARN.
+                  The test\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The test's name.
+                  The test\'s name.
         
                 - **type** *(string) --* 
         
-                  The test's type.
+                  The test\'s type.
         
                   Must be one of the following values:
         
@@ -8769,7 +8769,7 @@ class Client(BaseClient):
         
                 - **status** *(string) --* 
         
-                  The test's status.
+                  The test\'s status.
         
                   Allowed values include:
         
@@ -8793,7 +8793,7 @@ class Client(BaseClient):
                    
                 - **result** *(string) --* 
         
-                  The test's result.
+                  The test\'s result.
         
                   Allowed values include:
         
@@ -8813,15 +8813,15 @@ class Client(BaseClient):
                    
                 - **started** *(datetime) --* 
         
-                  The test's start time.
+                  The test\'s start time.
         
                 - **stopped** *(datetime) --* 
         
-                  The test's stop time.
+                  The test\'s stop time.
         
                 - **counters** *(dict) --* 
         
-                  The test's result counters.
+                  The test\'s result counters.
         
                   - **total** *(integer) --* 
         
@@ -8853,7 +8853,7 @@ class Client(BaseClient):
         
                 - **message** *(string) --* 
         
-                  A message about the test's result.
+                  A message about the test\'s result.
         
                 - **deviceMinutes** *(dict) --* 
         
@@ -8887,13 +8887,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_unique_problems(
-              arn='string',
-              nextToken='string'
+              arn=\'string\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The unique problems' ARNs.
+          The unique problems\' ARNs.
         
         :type nextToken: string
         :param nextToken: 
@@ -8908,85 +8908,85 @@ class Client(BaseClient):
           ::
         
             {
-                'uniqueProblems': {
-                    'string': [
+                \'uniqueProblems\': {
+                    \'string\': [
                         {
-                            'message': 'string',
-                            'problems': [
+                            \'message\': \'string\',
+                            \'problems\': [
                                 {
-                                    'run': {
-                                        'arn': 'string',
-                                        'name': 'string'
+                                    \'run\': {
+                                        \'arn\': \'string\',
+                                        \'name\': \'string\'
                                     },
-                                    'job': {
-                                        'arn': 'string',
-                                        'name': 'string'
+                                    \'job\': {
+                                        \'arn\': \'string\',
+                                        \'name\': \'string\'
                                     },
-                                    'suite': {
-                                        'arn': 'string',
-                                        'name': 'string'
+                                    \'suite\': {
+                                        \'arn\': \'string\',
+                                        \'name\': \'string\'
                                     },
-                                    'test': {
-                                        'arn': 'string',
-                                        'name': 'string'
+                                    \'test\': {
+                                        \'arn\': \'string\',
+                                        \'name\': \'string\'
                                     },
-                                    'device': {
-                                        'arn': 'string',
-                                        'name': 'string',
-                                        'manufacturer': 'string',
-                                        'model': 'string',
-                                        'modelId': 'string',
-                                        'formFactor': 'PHONE'|'TABLET',
-                                        'platform': 'ANDROID'|'IOS',
-                                        'os': 'string',
-                                        'cpu': {
-                                            'frequency': 'string',
-                                            'architecture': 'string',
-                                            'clock': 123.0
+                                    \'device\': {
+                                        \'arn\': \'string\',
+                                        \'name\': \'string\',
+                                        \'manufacturer\': \'string\',
+                                        \'model\': \'string\',
+                                        \'modelId\': \'string\',
+                                        \'formFactor\': \'PHONE\'|\'TABLET\',
+                                        \'platform\': \'ANDROID\'|\'IOS\',
+                                        \'os\': \'string\',
+                                        \'cpu\': {
+                                            \'frequency\': \'string\',
+                                            \'architecture\': \'string\',
+                                            \'clock\': 123.0
                                         },
-                                        'resolution': {
-                                            'width': 123,
-                                            'height': 123
+                                        \'resolution\': {
+                                            \'width\': 123,
+                                            \'height\': 123
                                         },
-                                        'heapSize': 123,
-                                        'memory': 123,
-                                        'image': 'string',
-                                        'carrier': 'string',
-                                        'radio': 'string',
-                                        'remoteAccessEnabled': True|False,
-                                        'remoteDebugEnabled': True|False,
-                                        'fleetType': 'string',
-                                        'fleetName': 'string',
-                                        'instances': [
+                                        \'heapSize\': 123,
+                                        \'memory\': 123,
+                                        \'image\': \'string\',
+                                        \'carrier\': \'string\',
+                                        \'radio\': \'string\',
+                                        \'remoteAccessEnabled\': True|False,
+                                        \'remoteDebugEnabled\': True|False,
+                                        \'fleetType\': \'string\',
+                                        \'fleetName\': \'string\',
+                                        \'instances\': [
                                             {
-                                                'arn': 'string',
-                                                'deviceArn': 'string',
-                                                'labels': [
-                                                    'string',
+                                                \'arn\': \'string\',
+                                                \'deviceArn\': \'string\',
+                                                \'labels\': [
+                                                    \'string\',
                                                 ],
-                                                'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                                'udid': 'string',
-                                                'instanceProfile': {
-                                                    'arn': 'string',
-                                                    'packageCleanup': True|False,
-                                                    'excludeAppPackagesFromCleanup': [
-                                                        'string',
+                                                \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                                \'udid\': \'string\',
+                                                \'instanceProfile\': {
+                                                    \'arn\': \'string\',
+                                                    \'packageCleanup\': True|False,
+                                                    \'excludeAppPackagesFromCleanup\': [
+                                                        \'string\',
                                                     ],
-                                                    'rebootAfterUse': True|False,
-                                                    'name': 'string',
-                                                    'description': 'string'
+                                                    \'rebootAfterUse\': True|False,
+                                                    \'name\': \'string\',
+                                                    \'description\': \'string\'
                                                 }
                                             },
                                         ]
                                     },
-                                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                                    'message': 'string'
+                                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                                    \'message\': \'string\'
                                 },
                             ]
                         },
                     ]
                 },
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9024,7 +9024,7 @@ class Client(BaseClient):
         
                     - **message** *(string) --* 
         
-                      A message about the unique problems' result.
+                      A message about the unique problems\' result.
         
                     - **problems** *(list) --* 
         
@@ -9040,11 +9040,11 @@ class Client(BaseClient):
         
                           - **arn** *(string) --* 
         
-                            The problem detail's ARN.
+                            The problem detail\'s ARN.
         
                           - **name** *(string) --* 
         
-                            The problem detail's name.
+                            The problem detail\'s name.
         
                         - **job** *(dict) --* 
         
@@ -9052,11 +9052,11 @@ class Client(BaseClient):
         
                           - **arn** *(string) --* 
         
-                            The problem detail's ARN.
+                            The problem detail\'s ARN.
         
                           - **name** *(string) --* 
         
-                            The problem detail's name.
+                            The problem detail\'s name.
         
                         - **suite** *(dict) --* 
         
@@ -9064,11 +9064,11 @@ class Client(BaseClient):
         
                           - **arn** *(string) --* 
         
-                            The problem detail's ARN.
+                            The problem detail\'s ARN.
         
                           - **name** *(string) --* 
         
-                            The problem detail's name.
+                            The problem detail\'s name.
         
                         - **test** *(dict) --* 
         
@@ -9076,11 +9076,11 @@ class Client(BaseClient):
         
                           - **arn** *(string) --* 
         
-                            The problem detail's ARN.
+                            The problem detail\'s ARN.
         
                           - **name** *(string) --* 
         
-                            The problem detail's name.
+                            The problem detail\'s name.
         
                         - **device** *(dict) --* 
         
@@ -9088,27 +9088,27 @@ class Client(BaseClient):
         
                           - **arn** *(string) --* 
         
-                            The device's ARN.
+                            The device\'s ARN.
         
                           - **name** *(string) --* 
         
-                            The device's display name.
+                            The device\'s display name.
         
                           - **manufacturer** *(string) --* 
         
-                            The device's manufacturer name.
+                            The device\'s manufacturer name.
         
                           - **model** *(string) --* 
         
-                            The device's model name.
+                            The device\'s model name.
         
                           - **modelId** *(string) --* 
         
-                            The device's model ID.
+                            The device\'s model ID.
         
                           - **formFactor** *(string) --* 
         
-                            The device's form factor.
+                            The device\'s form factor.
         
                             Allowed values include:
         
@@ -9118,7 +9118,7 @@ class Client(BaseClient):
                              
                           - **platform** *(string) --* 
         
-                            The device's platform.
+                            The device\'s platform.
         
                             Allowed values include:
         
@@ -9128,23 +9128,23 @@ class Client(BaseClient):
                              
                           - **os** *(string) --* 
         
-                            The device's operating system type.
+                            The device\'s operating system type.
         
                           - **cpu** *(dict) --* 
         
-                            Information about the device's CPU.
+                            Information about the device\'s CPU.
         
                             - **frequency** *(string) --* 
         
-                              The CPU's frequency.
+                              The CPU\'s frequency.
         
                             - **architecture** *(string) --* 
         
-                              The CPU's architecture, for example x86 or ARM.
+                              The CPU\'s architecture, for example x86 or ARM.
         
                             - **clock** *(float) --* 
         
-                              The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                              The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                           - **resolution** *(dict) --* 
         
@@ -9152,31 +9152,31 @@ class Client(BaseClient):
         
                             - **width** *(integer) --* 
         
-                              The screen resolution's width, expressed in pixels.
+                              The screen resolution\'s width, expressed in pixels.
         
                             - **height** *(integer) --* 
         
-                              The screen resolution's height, expressed in pixels.
+                              The screen resolution\'s height, expressed in pixels.
         
                           - **heapSize** *(integer) --* 
         
-                            The device's heap size, expressed in bytes.
+                            The device\'s heap size, expressed in bytes.
         
                           - **memory** *(integer) --* 
         
-                            The device's total memory size, expressed in bytes.
+                            The device\'s total memory size, expressed in bytes.
         
                           - **image** *(string) --* 
         
-                            The device's image name.
+                            The device\'s image name.
         
                           - **carrier** *(string) --* 
         
-                            The device's carrier.
+                            The device\'s carrier.
         
                           - **radio** *(string) --* 
         
-                            The device's radio.
+                            The device\'s radio.
         
                           - **remoteAccessEnabled** *(boolean) --* 
         
@@ -9258,7 +9258,7 @@ class Client(BaseClient):
         
                         - **result** *(string) --* 
         
-                          The problem's result.
+                          The problem\'s result.
         
                           Allowed values include:
         
@@ -9278,7 +9278,7 @@ class Client(BaseClient):
                            
                         - **message** *(string) --* 
         
-                          A message about the problem's result.
+                          A message about the problem\'s result.
         
             - **nextToken** *(string) --* 
         
@@ -9296,9 +9296,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_uploads(
-              arn='string',
-              type='ANDROID_APP'|'IOS_APP'|'WEB_APP'|'EXTERNAL_DATA'|'APPIUM_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_PYTHON_TEST_PACKAGE'|'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_WEB_PYTHON_TEST_PACKAGE'|'CALABASH_TEST_PACKAGE'|'INSTRUMENTATION_TEST_PACKAGE'|'UIAUTOMATION_TEST_PACKAGE'|'UIAUTOMATOR_TEST_PACKAGE'|'XCTEST_TEST_PACKAGE'|'XCTEST_UI_TEST_PACKAGE'|'APPIUM_JAVA_JUNIT_TEST_SPEC'|'APPIUM_JAVA_TESTNG_TEST_SPEC'|'APPIUM_PYTHON_TEST_SPEC'|'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC'|'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC'|'APPIUM_WEB_PYTHON_TEST_SPEC'|'INSTRUMENTATION_TEST_SPEC'|'XCTEST_UI_TEST_SPEC',
-              nextToken='string'
+              arn=\'string\',
+              type=\'ANDROID_APP\'|\'IOS_APP\'|\'WEB_APP\'|\'EXTERNAL_DATA\'|\'APPIUM_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_PYTHON_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_WEB_PYTHON_TEST_PACKAGE\'|\'CALABASH_TEST_PACKAGE\'|\'INSTRUMENTATION_TEST_PACKAGE\'|\'UIAUTOMATION_TEST_PACKAGE\'|\'UIAUTOMATOR_TEST_PACKAGE\'|\'XCTEST_TEST_PACKAGE\'|\'XCTEST_UI_TEST_PACKAGE\'|\'APPIUM_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_PYTHON_TEST_SPEC\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_WEB_PYTHON_TEST_SPEC\'|\'INSTRUMENTATION_TEST_SPEC\'|\'XCTEST_UI_TEST_SPEC\',
+              nextToken=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -9373,21 +9373,21 @@ class Client(BaseClient):
           ::
         
             {
-                'uploads': [
+                \'uploads\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'created': datetime(2015, 1, 1),
-                        'type': 'ANDROID_APP'|'IOS_APP'|'WEB_APP'|'EXTERNAL_DATA'|'APPIUM_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_PYTHON_TEST_PACKAGE'|'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_WEB_PYTHON_TEST_PACKAGE'|'CALABASH_TEST_PACKAGE'|'INSTRUMENTATION_TEST_PACKAGE'|'UIAUTOMATION_TEST_PACKAGE'|'UIAUTOMATOR_TEST_PACKAGE'|'XCTEST_TEST_PACKAGE'|'XCTEST_UI_TEST_PACKAGE'|'APPIUM_JAVA_JUNIT_TEST_SPEC'|'APPIUM_JAVA_TESTNG_TEST_SPEC'|'APPIUM_PYTHON_TEST_SPEC'|'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC'|'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC'|'APPIUM_WEB_PYTHON_TEST_SPEC'|'INSTRUMENTATION_TEST_SPEC'|'XCTEST_UI_TEST_SPEC',
-                        'status': 'INITIALIZED'|'PROCESSING'|'SUCCEEDED'|'FAILED',
-                        'url': 'string',
-                        'metadata': 'string',
-                        'contentType': 'string',
-                        'message': 'string',
-                        'category': 'CURATED'|'PRIVATE'
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'created\': datetime(2015, 1, 1),
+                        \'type\': \'ANDROID_APP\'|\'IOS_APP\'|\'WEB_APP\'|\'EXTERNAL_DATA\'|\'APPIUM_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_PYTHON_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_WEB_PYTHON_TEST_PACKAGE\'|\'CALABASH_TEST_PACKAGE\'|\'INSTRUMENTATION_TEST_PACKAGE\'|\'UIAUTOMATION_TEST_PACKAGE\'|\'UIAUTOMATOR_TEST_PACKAGE\'|\'XCTEST_TEST_PACKAGE\'|\'XCTEST_UI_TEST_PACKAGE\'|\'APPIUM_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_PYTHON_TEST_SPEC\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_WEB_PYTHON_TEST_SPEC\'|\'INSTRUMENTATION_TEST_SPEC\'|\'XCTEST_UI_TEST_SPEC\',
+                        \'status\': \'INITIALIZED\'|\'PROCESSING\'|\'SUCCEEDED\'|\'FAILED\',
+                        \'url\': \'string\',
+                        \'metadata\': \'string\',
+                        \'contentType\': \'string\',
+                        \'message\': \'string\',
+                        \'category\': \'CURATED\'|\'PRIVATE\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9405,11 +9405,11 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The upload's ARN.
+                  The upload\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The upload's file name.
+                  The upload\'s file name.
         
                 - **created** *(datetime) --* 
         
@@ -9417,7 +9417,7 @@ class Client(BaseClient):
         
                 - **type** *(string) --* 
         
-                  The upload's type.
+                  The upload\'s type.
         
                   Must be one of the following values:
         
@@ -9455,7 +9455,7 @@ class Client(BaseClient):
                    
                 - **status** *(string) --* 
         
-                  The upload's status.
+                  The upload\'s status.
         
                   Must be one of the following values:
         
@@ -9473,19 +9473,19 @@ class Client(BaseClient):
         
                 - **metadata** *(string) --* 
         
-                  The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+                  The upload\'s metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
         
                 - **contentType** *(string) --* 
         
-                  The upload's content type (for example, "application/octet-stream").
+                  The upload\'s content type (for example, \"application/octet-stream\").
         
                 - **message** *(string) --* 
         
-                  A message about the upload's result.
+                  A message about the upload\'s result.
         
                 - **category** *(string) --* 
         
-                  The upload's category. Allowed values include:
+                  The upload\'s category. Allowed values include:
         
                   * CURATED: An upload managed by AWS Device Farm. 
                    
@@ -9508,7 +9508,7 @@ class Client(BaseClient):
         
           response = client.list_vpce_configurations(
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type maxResults: integer
         :param maxResults: 
@@ -9528,16 +9528,16 @@ class Client(BaseClient):
           ::
         
             {
-                'vpceConfigurations': [
+                \'vpceConfigurations\': [
                     {
-                        'arn': 'string',
-                        'vpceConfigurationName': 'string',
-                        'vpceServiceName': 'string',
-                        'serviceDnsName': 'string',
-                        'vpceConfigurationDescription': 'string'
+                        \'arn\': \'string\',
+                        \'vpceConfigurationName\': \'string\',
+                        \'vpceServiceName\': \'string\',
+                        \'serviceDnsName\': \'string\',
+                        \'vpceConfigurationDescription\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9587,9 +9587,9 @@ class Client(BaseClient):
         ::
         
           response = client.purchase_offering(
-              offeringId='string',
+              offeringId=\'string\',
               quantity=123,
-              offeringPromotionId='string'
+              offeringPromotionId=\'string\'
           )
         :type offeringId: string
         :param offeringId: 
@@ -9614,33 +9614,33 @@ class Client(BaseClient):
           ::
         
             {
-                'offeringTransaction': {
-                    'offeringStatus': {
-                        'type': 'PURCHASE'|'RENEW'|'SYSTEM',
-                        'offering': {
-                            'id': 'string',
-                            'description': 'string',
-                            'type': 'RECURRING',
-                            'platform': 'ANDROID'|'IOS',
-                            'recurringCharges': [
+                \'offeringTransaction\': {
+                    \'offeringStatus\': {
+                        \'type\': \'PURCHASE\'|\'RENEW\'|\'SYSTEM\',
+                        \'offering\': {
+                            \'id\': \'string\',
+                            \'description\': \'string\',
+                            \'type\': \'RECURRING\',
+                            \'platform\': \'ANDROID\'|\'IOS\',
+                            \'recurringCharges\': [
                                 {
-                                    'cost': {
-                                        'amount': 123.0,
-                                        'currencyCode': 'USD'
+                                    \'cost\': {
+                                        \'amount\': 123.0,
+                                        \'currencyCode\': \'USD\'
                                     },
-                                    'frequency': 'MONTHLY'
+                                    \'frequency\': \'MONTHLY\'
                                 },
                             ]
                         },
-                        'quantity': 123,
-                        'effectiveOn': datetime(2015, 1, 1)
+                        \'quantity\': 123,
+                        \'effectiveOn\': datetime(2015, 1, 1)
                     },
-                    'transactionId': 'string',
-                    'offeringPromotionId': 'string',
-                    'createdOn': datetime(2015, 1, 1),
-                    'cost': {
-                        'amount': 123.0,
-                        'currencyCode': 'USD'
+                    \'transactionId\': \'string\',
+                    \'offeringPromotionId\': \'string\',
+                    \'createdOn\': datetime(2015, 1, 1),
+                    \'cost\': {
+                        \'amount\': 123.0,
+                        \'currencyCode\': \'USD\'
                     }
                 }
             }
@@ -9676,7 +9676,7 @@ class Client(BaseClient):
         
                   - **type** *(string) --* 
         
-                    The type of offering (e.g., "RECURRING") for a device.
+                    The type of offering (e.g., \"RECURRING\") for a device.
         
                   - **platform** *(string) --* 
         
@@ -9700,7 +9700,7 @@ class Client(BaseClient):
         
                         - **currencyCode** *(string) --* 
         
-                          The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                          The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
                       - **frequency** *(string) --* 
         
@@ -9736,7 +9736,7 @@ class Client(BaseClient):
         
                 - **currencyCode** *(string) --* 
         
-                  The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                  The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
         """
         pass
@@ -9750,7 +9750,7 @@ class Client(BaseClient):
         ::
         
           response = client.renew_offering(
-              offeringId='string',
+              offeringId=\'string\',
               quantity=123
           )
         :type offeringId: string
@@ -9771,33 +9771,33 @@ class Client(BaseClient):
           ::
         
             {
-                'offeringTransaction': {
-                    'offeringStatus': {
-                        'type': 'PURCHASE'|'RENEW'|'SYSTEM',
-                        'offering': {
-                            'id': 'string',
-                            'description': 'string',
-                            'type': 'RECURRING',
-                            'platform': 'ANDROID'|'IOS',
-                            'recurringCharges': [
+                \'offeringTransaction\': {
+                    \'offeringStatus\': {
+                        \'type\': \'PURCHASE\'|\'RENEW\'|\'SYSTEM\',
+                        \'offering\': {
+                            \'id\': \'string\',
+                            \'description\': \'string\',
+                            \'type\': \'RECURRING\',
+                            \'platform\': \'ANDROID\'|\'IOS\',
+                            \'recurringCharges\': [
                                 {
-                                    'cost': {
-                                        'amount': 123.0,
-                                        'currencyCode': 'USD'
+                                    \'cost\': {
+                                        \'amount\': 123.0,
+                                        \'currencyCode\': \'USD\'
                                     },
-                                    'frequency': 'MONTHLY'
+                                    \'frequency\': \'MONTHLY\'
                                 },
                             ]
                         },
-                        'quantity': 123,
-                        'effectiveOn': datetime(2015, 1, 1)
+                        \'quantity\': 123,
+                        \'effectiveOn\': datetime(2015, 1, 1)
                     },
-                    'transactionId': 'string',
-                    'offeringPromotionId': 'string',
-                    'createdOn': datetime(2015, 1, 1),
-                    'cost': {
-                        'amount': 123.0,
-                        'currencyCode': 'USD'
+                    \'transactionId\': \'string\',
+                    \'offeringPromotionId\': \'string\',
+                    \'createdOn\': datetime(2015, 1, 1),
+                    \'cost\': {
+                        \'amount\': 123.0,
+                        \'currencyCode\': \'USD\'
                     }
                 }
             }
@@ -9833,7 +9833,7 @@ class Client(BaseClient):
         
                   - **type** *(string) --* 
         
-                    The type of offering (e.g., "RECURRING") for a device.
+                    The type of offering (e.g., \"RECURRING\") for a device.
         
                   - **platform** *(string) --* 
         
@@ -9857,7 +9857,7 @@ class Client(BaseClient):
         
                         - **currencyCode** *(string) --* 
         
-                          The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                          The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
                       - **frequency** *(string) --* 
         
@@ -9893,7 +9893,7 @@ class Client(BaseClient):
         
                 - **currencyCode** *(string) --* 
         
-                  The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                  The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
         """
         pass
@@ -9907,58 +9907,58 @@ class Client(BaseClient):
         ::
         
           response = client.schedule_run(
-              projectArn='string',
-              appArn='string',
-              devicePoolArn='string',
-              name='string',
+              projectArn=\'string\',
+              appArn=\'string\',
+              devicePoolArn=\'string\',
+              name=\'string\',
               test={
-                  'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                  'testPackageArn': 'string',
-                  'testSpecArn': 'string',
-                  'filter': 'string',
-                  'parameters': {
-                      'string': 'string'
+                  \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                  \'testPackageArn\': \'string\',
+                  \'testSpecArn\': \'string\',
+                  \'filter\': \'string\',
+                  \'parameters\': {
+                      \'string\': \'string\'
                   }
               },
               configuration={
-                  'extraDataPackageArn': 'string',
-                  'networkProfileArn': 'string',
-                  'locale': 'string',
-                  'location': {
-                      'latitude': 123.0,
-                      'longitude': 123.0
+                  \'extraDataPackageArn\': \'string\',
+                  \'networkProfileArn\': \'string\',
+                  \'locale\': \'string\',
+                  \'location\': {
+                      \'latitude\': 123.0,
+                      \'longitude\': 123.0
                   },
-                  'vpceConfigurationArns': [
-                      'string',
+                  \'vpceConfigurationArns\': [
+                      \'string\',
                   ],
-                  'customerArtifactPaths': {
-                      'iosPaths': [
-                          'string',
+                  \'customerArtifactPaths\': {
+                      \'iosPaths\': [
+                          \'string\',
                       ],
-                      'androidPaths': [
-                          'string',
+                      \'androidPaths\': [
+                          \'string\',
                       ],
-                      'deviceHostPaths': [
-                          'string',
+                      \'deviceHostPaths\': [
+                          \'string\',
                       ]
                   },
-                  'radios': {
-                      'wifi': True|False,
-                      'bluetooth': True|False,
-                      'nfc': True|False,
-                      'gps': True|False
+                  \'radios\': {
+                      \'wifi\': True|False,
+                      \'bluetooth\': True|False,
+                      \'nfc\': True|False,
+                      \'gps\': True|False
                   },
-                  'auxiliaryApps': [
-                      'string',
+                  \'auxiliaryApps\': [
+                      \'string\',
                   ],
-                  'billingMethod': 'METERED'|'UNMETERED'
+                  \'billingMethod\': \'METERED\'|\'UNMETERED\'
               },
               executionConfiguration={
-                  'jobTimeoutMinutes': 123,
-                  'accountsCleanup': True|False,
-                  'appPackagesCleanup': True|False,
-                  'videoCapture': True|False,
-                  'skipAppResign': True|False
+                  \'jobTimeoutMinutes\': 123,
+                  \'accountsCleanup\': True|False,
+                  \'appPackagesCleanup\': True|False,
+                  \'videoCapture\': True|False,
+                  \'skipAppResign\': True|False
               }
           )
         :type projectArn: string
@@ -9988,7 +9988,7 @@ class Client(BaseClient):
         
           - **type** *(string) --* **[REQUIRED]** 
         
-            The test's type.
+            The test\'s type.
         
             Must be one of the following values:
         
@@ -10030,21 +10030,21 @@ class Client(BaseClient):
         
           - **filter** *(string) --* 
         
-            The test's filter.
+            The test\'s filter.
         
           - **parameters** *(dict) --* 
         
-            The test's parameters, such as the following test framework parameters and fixture settings:
+            The test\'s parameters, such as the following test framework parameters and fixture settings:
         
             For Calabash tests:
         
-            * profile: A cucumber profile, for example, "my_profile_name". 
+            * profile: A cucumber profile, for example, \"my_profile_name\". 
              
-            * tags: You can limit execution to features or scenarios that have (or don't have) certain tags, for example, "@smoke" or "@smoke,~@wip". 
+            * tags: You can limit execution to features or scenarios that have (or don\'t have) certain tags, for example, \"@smoke\" or \"@smoke,~@wip\". 
              
             For Appium tests (all types):
         
-            * appium_version: The Appium version. Currently supported values are "1.4.16", "1.6.3", "latest", and "default". 
+            * appium_version: The Appium version. Currently supported values are \"1.4.16\", \"1.6.3\", \"latest\", and \"default\". 
         
               * “latest” will run the latest Appium version supported by Device Farm (1.6.3). 
                
@@ -10070,33 +10070,33 @@ class Client(BaseClient):
         
             * filter: A test filter string. Examples: 
         
-              * Running a single test case: "com.android.abc.Test1" 
+              * Running a single test case: \"com.android.abc.Test1\" 
                
-              * Running a single test: "com.android.abc.Test1#smoke" 
+              * Running a single test: \"com.android.abc.Test1#smoke\" 
                
-              * Running multiple tests: "com.android.abc.Test1,com.android.abc.Test2" 
+              * Running multiple tests: \"com.android.abc.Test1,com.android.abc.Test2\" 
                
             For XCTest and XCTestUI:
         
             * filter: A test filter string. Examples: 
         
-              * Running a single test class: "LoginTests" 
+              * Running a single test class: \"LoginTests\" 
                
-              * Running a multiple test classes: "LoginTests,SmokeTests" 
+              * Running a multiple test classes: \"LoginTests,SmokeTests\" 
                
-              * Running a single test: "LoginTests/testValid" 
+              * Running a single test: \"LoginTests/testValid\" 
                
-              * Running multiple tests: "LoginTests/testValid,LoginTests/testInvalid" 
+              * Running multiple tests: \"LoginTests/testValid,LoginTests/testInvalid\" 
                
             For UIAutomator:
         
             * filter: A test filter string. Examples: 
         
-              * Running a single test case: "com.android.abc.Test1" 
+              * Running a single test case: \"com.android.abc.Test1\" 
                
-              * Running a single test: "com.android.abc.Test1#smoke" 
+              * Running a single test: \"com.android.abc.Test1#smoke\" 
                
-              * Running multiple tests: "com.android.abc.Test1,com.android.abc.Test2" 
+              * Running multiple tests: \"com.android.abc.Test1,com.android.abc.Test2\" 
                
             - *(string) --* 
         
@@ -10109,7 +10109,7 @@ class Client(BaseClient):
         
           - **extraDataPackageArn** *(string) --* 
         
-            The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm will extract to external data for Android or the app's sandbox for iOS.
+            The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm will extract to external data for Android or the app\'s sandbox for iOS.
         
           - **networkProfileArn** *(string) --* 
         
@@ -10143,19 +10143,19 @@ class Client(BaseClient):
         
             - **iosPaths** *(list) --* 
         
-              Comma-separated list of paths on the iOS device where the artifacts generated by the customer's tests will be pulled from.
+              Comma-separated list of paths on the iOS device where the artifacts generated by the customer\'s tests will be pulled from.
         
               - *(string) --* 
         
             - **androidPaths** *(list) --* 
         
-              Comma-separated list of paths on the Android device where the artifacts generated by the customer's tests will be pulled from.
+              Comma-separated list of paths on the Android device where the artifacts generated by the customer\'s tests will be pulled from.
         
               - *(string) --* 
         
             - **deviceHostPaths** *(list) --* 
         
-              Comma-separated list of paths in the test execution environment where the artifacts generated by the customer's tests will be pulled from.
+              Comma-separated list of paths in the test execution environment where the artifacts generated by the customer\'s tests will be pulled from.
         
               - *(string) --* 
         
@@ -10224,80 +10224,80 @@ class Client(BaseClient):
           ::
         
             {
-                'run': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                    'platform': 'ANDROID'|'IOS',
-                    'created': datetime(2015, 1, 1),
-                    'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                    'started': datetime(2015, 1, 1),
-                    'stopped': datetime(2015, 1, 1),
-                    'counters': {
-                        'total': 123,
-                        'passed': 123,
-                        'failed': 123,
-                        'warned': 123,
-                        'errored': 123,
-                        'stopped': 123,
-                        'skipped': 123
+                \'run\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                    \'platform\': \'ANDROID\'|\'IOS\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                    \'started\': datetime(2015, 1, 1),
+                    \'stopped\': datetime(2015, 1, 1),
+                    \'counters\': {
+                        \'total\': 123,
+                        \'passed\': 123,
+                        \'failed\': 123,
+                        \'warned\': 123,
+                        \'errored\': 123,
+                        \'stopped\': 123,
+                        \'skipped\': 123
                     },
-                    'message': 'string',
-                    'totalJobs': 123,
-                    'completedJobs': 123,
-                    'billingMethod': 'METERED'|'UNMETERED',
-                    'deviceMinutes': {
-                        'total': 123.0,
-                        'metered': 123.0,
-                        'unmetered': 123.0
+                    \'message\': \'string\',
+                    \'totalJobs\': 123,
+                    \'completedJobs\': 123,
+                    \'billingMethod\': \'METERED\'|\'UNMETERED\',
+                    \'deviceMinutes\': {
+                        \'total\': 123.0,
+                        \'metered\': 123.0,
+                        \'unmetered\': 123.0
                     },
-                    'networkProfile': {
-                        'arn': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'type': 'CURATED'|'PRIVATE',
-                        'uplinkBandwidthBits': 123,
-                        'downlinkBandwidthBits': 123,
-                        'uplinkDelayMs': 123,
-                        'downlinkDelayMs': 123,
-                        'uplinkJitterMs': 123,
-                        'downlinkJitterMs': 123,
-                        'uplinkLossPercent': 123,
-                        'downlinkLossPercent': 123
+                    \'networkProfile\': {
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'type\': \'CURATED\'|\'PRIVATE\',
+                        \'uplinkBandwidthBits\': 123,
+                        \'downlinkBandwidthBits\': 123,
+                        \'uplinkDelayMs\': 123,
+                        \'downlinkDelayMs\': 123,
+                        \'uplinkJitterMs\': 123,
+                        \'downlinkJitterMs\': 123,
+                        \'uplinkLossPercent\': 123,
+                        \'downlinkLossPercent\': 123
                     },
-                    'parsingResultUrl': 'string',
-                    'resultCode': 'PARSING_FAILED'|'VPC_ENDPOINT_SETUP_FAILED',
-                    'seed': 123,
-                    'appUpload': 'string',
-                    'eventCount': 123,
-                    'jobTimeoutMinutes': 123,
-                    'devicePoolArn': 'string',
-                    'locale': 'string',
-                    'radios': {
-                        'wifi': True|False,
-                        'bluetooth': True|False,
-                        'nfc': True|False,
-                        'gps': True|False
+                    \'parsingResultUrl\': \'string\',
+                    \'resultCode\': \'PARSING_FAILED\'|\'VPC_ENDPOINT_SETUP_FAILED\',
+                    \'seed\': 123,
+                    \'appUpload\': \'string\',
+                    \'eventCount\': 123,
+                    \'jobTimeoutMinutes\': 123,
+                    \'devicePoolArn\': \'string\',
+                    \'locale\': \'string\',
+                    \'radios\': {
+                        \'wifi\': True|False,
+                        \'bluetooth\': True|False,
+                        \'nfc\': True|False,
+                        \'gps\': True|False
                     },
-                    'location': {
-                        'latitude': 123.0,
-                        'longitude': 123.0
+                    \'location\': {
+                        \'latitude\': 123.0,
+                        \'longitude\': 123.0
                     },
-                    'customerArtifactPaths': {
-                        'iosPaths': [
-                            'string',
+                    \'customerArtifactPaths\': {
+                        \'iosPaths\': [
+                            \'string\',
                         ],
-                        'androidPaths': [
-                            'string',
+                        \'androidPaths\': [
+                            \'string\',
                         ],
-                        'deviceHostPaths': [
-                            'string',
+                        \'deviceHostPaths\': [
+                            \'string\',
                         ]
                     },
-                    'webUrl': 'string',
-                    'skipAppResign': True|False,
-                    'testSpecArn': 'string'
+                    \'webUrl\': \'string\',
+                    \'skipAppResign\': True|False,
+                    \'testSpecArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10312,15 +10312,15 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The run's ARN.
+                The run\'s ARN.
         
               - **name** *(string) --* 
         
-                The run's name.
+                The run\'s name.
         
               - **type** *(string) --* 
         
-                The run's type.
+                The run\'s type.
         
                 Must be one of the following values:
         
@@ -10354,7 +10354,7 @@ class Client(BaseClient):
                  
               - **platform** *(string) --* 
         
-                The run's platform.
+                The run\'s platform.
         
                 Allowed values include:
         
@@ -10368,7 +10368,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The run's status.
+                The run\'s status.
         
                 Allowed values include:
         
@@ -10392,7 +10392,7 @@ class Client(BaseClient):
                  
               - **result** *(string) --* 
         
-                The run's result.
+                The run\'s result.
         
                 Allowed values include:
         
@@ -10412,15 +10412,15 @@ class Client(BaseClient):
                  
               - **started** *(datetime) --* 
         
-                The run's start time.
+                The run\'s start time.
         
               - **stopped** *(datetime) --* 
         
-                The run's stop time.
+                The run\'s stop time.
         
               - **counters** *(dict) --* 
         
-                The run's result counters.
+                The run\'s result counters.
         
                 - **total** *(integer) --* 
         
@@ -10452,7 +10452,7 @@ class Client(BaseClient):
         
               - **message** *(string) --* 
         
-                A message about the run's result.
+                A message about the run\'s result.
         
               - **totalJobs** *(integer) --* 
         
@@ -10536,7 +10536,7 @@ class Client(BaseClient):
         
               - **parsingResultUrl** *(string) --* 
         
-                Read-only URL for an object in S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
+                Read-only URL for an object in S3 bucket where you can get the parsing results of the test package. If the test package doesn\'t parse, the reason why it doesn\'t parse appears in the file that this URL points to.
         
               - **resultCode** *(string) --* 
         
@@ -10604,19 +10604,19 @@ class Client(BaseClient):
         
                 - **iosPaths** *(list) --* 
         
-                  Comma-separated list of paths on the iOS device where the artifacts generated by the customer's tests will be pulled from.
+                  Comma-separated list of paths on the iOS device where the artifacts generated by the customer\'s tests will be pulled from.
         
                   - *(string) --* 
               
                 - **androidPaths** *(list) --* 
         
-                  Comma-separated list of paths on the Android device where the artifacts generated by the customer's tests will be pulled from.
+                  Comma-separated list of paths on the Android device where the artifacts generated by the customer\'s tests will be pulled from.
         
                   - *(string) --* 
               
                 - **deviceHostPaths** *(list) --* 
         
-                  Comma-separated list of paths in the test execution environment where the artifacts generated by the customer's tests will be pulled from.
+                  Comma-separated list of paths in the test execution environment where the artifacts generated by the customer\'s tests will be pulled from.
         
                   - *(string) --* 
               
@@ -10646,7 +10646,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_job(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -10661,82 +10661,82 @@ class Client(BaseClient):
           ::
         
             {
-                'job': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                    'created': datetime(2015, 1, 1),
-                    'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                    'started': datetime(2015, 1, 1),
-                    'stopped': datetime(2015, 1, 1),
-                    'counters': {
-                        'total': 123,
-                        'passed': 123,
-                        'failed': 123,
-                        'warned': 123,
-                        'errored': 123,
-                        'stopped': 123,
-                        'skipped': 123
+                \'job\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                    \'started\': datetime(2015, 1, 1),
+                    \'stopped\': datetime(2015, 1, 1),
+                    \'counters\': {
+                        \'total\': 123,
+                        \'passed\': 123,
+                        \'failed\': 123,
+                        \'warned\': 123,
+                        \'errored\': 123,
+                        \'stopped\': 123,
+                        \'skipped\': 123
                     },
-                    'message': 'string',
-                    'device': {
-                        'arn': 'string',
-                        'name': 'string',
-                        'manufacturer': 'string',
-                        'model': 'string',
-                        'modelId': 'string',
-                        'formFactor': 'PHONE'|'TABLET',
-                        'platform': 'ANDROID'|'IOS',
-                        'os': 'string',
-                        'cpu': {
-                            'frequency': 'string',
-                            'architecture': 'string',
-                            'clock': 123.0
+                    \'message\': \'string\',
+                    \'device\': {
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'manufacturer\': \'string\',
+                        \'model\': \'string\',
+                        \'modelId\': \'string\',
+                        \'formFactor\': \'PHONE\'|\'TABLET\',
+                        \'platform\': \'ANDROID\'|\'IOS\',
+                        \'os\': \'string\',
+                        \'cpu\': {
+                            \'frequency\': \'string\',
+                            \'architecture\': \'string\',
+                            \'clock\': 123.0
                         },
-                        'resolution': {
-                            'width': 123,
-                            'height': 123
+                        \'resolution\': {
+                            \'width\': 123,
+                            \'height\': 123
                         },
-                        'heapSize': 123,
-                        'memory': 123,
-                        'image': 'string',
-                        'carrier': 'string',
-                        'radio': 'string',
-                        'remoteAccessEnabled': True|False,
-                        'remoteDebugEnabled': True|False,
-                        'fleetType': 'string',
-                        'fleetName': 'string',
-                        'instances': [
+                        \'heapSize\': 123,
+                        \'memory\': 123,
+                        \'image\': \'string\',
+                        \'carrier\': \'string\',
+                        \'radio\': \'string\',
+                        \'remoteAccessEnabled\': True|False,
+                        \'remoteDebugEnabled\': True|False,
+                        \'fleetType\': \'string\',
+                        \'fleetName\': \'string\',
+                        \'instances\': [
                             {
-                                'arn': 'string',
-                                'deviceArn': 'string',
-                                'labels': [
-                                    'string',
+                                \'arn\': \'string\',
+                                \'deviceArn\': \'string\',
+                                \'labels\': [
+                                    \'string\',
                                 ],
-                                'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                'udid': 'string',
-                                'instanceProfile': {
-                                    'arn': 'string',
-                                    'packageCleanup': True|False,
-                                    'excludeAppPackagesFromCleanup': [
-                                        'string',
+                                \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                \'udid\': \'string\',
+                                \'instanceProfile\': {
+                                    \'arn\': \'string\',
+                                    \'packageCleanup\': True|False,
+                                    \'excludeAppPackagesFromCleanup\': [
+                                        \'string\',
                                     ],
-                                    'rebootAfterUse': True|False,
-                                    'name': 'string',
-                                    'description': 'string'
+                                    \'rebootAfterUse\': True|False,
+                                    \'name\': \'string\',
+                                    \'description\': \'string\'
                                 }
                             },
                         ]
                     },
-                    'instanceArn': 'string',
-                    'deviceMinutes': {
-                        'total': 123.0,
-                        'metered': 123.0,
-                        'unmetered': 123.0
+                    \'instanceArn\': \'string\',
+                    \'deviceMinutes\': {
+                        \'total\': 123.0,
+                        \'metered\': 123.0,
+                        \'unmetered\': 123.0
                     },
-                    'videoEndpoint': 'string',
-                    'videoCapture': True|False
+                    \'videoEndpoint\': \'string\',
+                    \'videoCapture\': True|False
                 }
             }
           **Response Structure** 
@@ -10749,15 +10749,15 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The job's ARN.
+                The job\'s ARN.
         
               - **name** *(string) --* 
         
-                The job's name.
+                The job\'s name.
         
               - **type** *(string) --* 
         
-                The job's type.
+                The job\'s type.
         
                 Allowed values include the following:
         
@@ -10795,7 +10795,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The job's status.
+                The job\'s status.
         
                 Allowed values include:
         
@@ -10819,7 +10819,7 @@ class Client(BaseClient):
                  
               - **result** *(string) --* 
         
-                The job's result.
+                The job\'s result.
         
                 Allowed values include:
         
@@ -10839,15 +10839,15 @@ class Client(BaseClient):
                  
               - **started** *(datetime) --* 
         
-                The job's start time.
+                The job\'s start time.
         
               - **stopped** *(datetime) --* 
         
-                The job's stop time.
+                The job\'s stop time.
         
               - **counters** *(dict) --* 
         
-                The job's result counters.
+                The job\'s result counters.
         
                 - **total** *(integer) --* 
         
@@ -10879,7 +10879,7 @@ class Client(BaseClient):
         
               - **message** *(string) --* 
         
-                A message about the job's result.
+                A message about the job\'s result.
         
               - **device** *(dict) --* 
         
@@ -10887,27 +10887,27 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The device's ARN.
+                  The device\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The device's display name.
+                  The device\'s display name.
         
                 - **manufacturer** *(string) --* 
         
-                  The device's manufacturer name.
+                  The device\'s manufacturer name.
         
                 - **model** *(string) --* 
         
-                  The device's model name.
+                  The device\'s model name.
         
                 - **modelId** *(string) --* 
         
-                  The device's model ID.
+                  The device\'s model ID.
         
                 - **formFactor** *(string) --* 
         
-                  The device's form factor.
+                  The device\'s form factor.
         
                   Allowed values include:
         
@@ -10917,7 +10917,7 @@ class Client(BaseClient):
                    
                 - **platform** *(string) --* 
         
-                  The device's platform.
+                  The device\'s platform.
         
                   Allowed values include:
         
@@ -10927,23 +10927,23 @@ class Client(BaseClient):
                    
                 - **os** *(string) --* 
         
-                  The device's operating system type.
+                  The device\'s operating system type.
         
                 - **cpu** *(dict) --* 
         
-                  Information about the device's CPU.
+                  Information about the device\'s CPU.
         
                   - **frequency** *(string) --* 
         
-                    The CPU's frequency.
+                    The CPU\'s frequency.
         
                   - **architecture** *(string) --* 
         
-                    The CPU's architecture, for example x86 or ARM.
+                    The CPU\'s architecture, for example x86 or ARM.
         
                   - **clock** *(float) --* 
         
-                    The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                    The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                 - **resolution** *(dict) --* 
         
@@ -10951,31 +10951,31 @@ class Client(BaseClient):
         
                   - **width** *(integer) --* 
         
-                    The screen resolution's width, expressed in pixels.
+                    The screen resolution\'s width, expressed in pixels.
         
                   - **height** *(integer) --* 
         
-                    The screen resolution's height, expressed in pixels.
+                    The screen resolution\'s height, expressed in pixels.
         
                 - **heapSize** *(integer) --* 
         
-                  The device's heap size, expressed in bytes.
+                  The device\'s heap size, expressed in bytes.
         
                 - **memory** *(integer) --* 
         
-                  The device's total memory size, expressed in bytes.
+                  The device\'s total memory size, expressed in bytes.
         
                 - **image** *(string) --* 
         
-                  The device's image name.
+                  The device\'s image name.
         
                 - **carrier** *(string) --* 
         
-                  The device's carrier.
+                  The device\'s carrier.
         
                 - **radio** *(string) --* 
         
-                  The device's radio.
+                  The device\'s radio.
         
                 - **remoteAccessEnabled** *(boolean) --* 
         
@@ -11095,7 +11095,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_remote_access_session(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -11110,80 +11110,80 @@ class Client(BaseClient):
           ::
         
             {
-                'remoteAccessSession': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'created': datetime(2015, 1, 1),
-                    'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                    'message': 'string',
-                    'started': datetime(2015, 1, 1),
-                    'stopped': datetime(2015, 1, 1),
-                    'device': {
-                        'arn': 'string',
-                        'name': 'string',
-                        'manufacturer': 'string',
-                        'model': 'string',
-                        'modelId': 'string',
-                        'formFactor': 'PHONE'|'TABLET',
-                        'platform': 'ANDROID'|'IOS',
-                        'os': 'string',
-                        'cpu': {
-                            'frequency': 'string',
-                            'architecture': 'string',
-                            'clock': 123.0
+                \'remoteAccessSession\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                    \'message\': \'string\',
+                    \'started\': datetime(2015, 1, 1),
+                    \'stopped\': datetime(2015, 1, 1),
+                    \'device\': {
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'manufacturer\': \'string\',
+                        \'model\': \'string\',
+                        \'modelId\': \'string\',
+                        \'formFactor\': \'PHONE\'|\'TABLET\',
+                        \'platform\': \'ANDROID\'|\'IOS\',
+                        \'os\': \'string\',
+                        \'cpu\': {
+                            \'frequency\': \'string\',
+                            \'architecture\': \'string\',
+                            \'clock\': 123.0
                         },
-                        'resolution': {
-                            'width': 123,
-                            'height': 123
+                        \'resolution\': {
+                            \'width\': 123,
+                            \'height\': 123
                         },
-                        'heapSize': 123,
-                        'memory': 123,
-                        'image': 'string',
-                        'carrier': 'string',
-                        'radio': 'string',
-                        'remoteAccessEnabled': True|False,
-                        'remoteDebugEnabled': True|False,
-                        'fleetType': 'string',
-                        'fleetName': 'string',
-                        'instances': [
+                        \'heapSize\': 123,
+                        \'memory\': 123,
+                        \'image\': \'string\',
+                        \'carrier\': \'string\',
+                        \'radio\': \'string\',
+                        \'remoteAccessEnabled\': True|False,
+                        \'remoteDebugEnabled\': True|False,
+                        \'fleetType\': \'string\',
+                        \'fleetName\': \'string\',
+                        \'instances\': [
                             {
-                                'arn': 'string',
-                                'deviceArn': 'string',
-                                'labels': [
-                                    'string',
+                                \'arn\': \'string\',
+                                \'deviceArn\': \'string\',
+                                \'labels\': [
+                                    \'string\',
                                 ],
-                                'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                'udid': 'string',
-                                'instanceProfile': {
-                                    'arn': 'string',
-                                    'packageCleanup': True|False,
-                                    'excludeAppPackagesFromCleanup': [
-                                        'string',
+                                \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                \'udid\': \'string\',
+                                \'instanceProfile\': {
+                                    \'arn\': \'string\',
+                                    \'packageCleanup\': True|False,
+                                    \'excludeAppPackagesFromCleanup\': [
+                                        \'string\',
                                     ],
-                                    'rebootAfterUse': True|False,
-                                    'name': 'string',
-                                    'description': 'string'
+                                    \'rebootAfterUse\': True|False,
+                                    \'name\': \'string\',
+                                    \'description\': \'string\'
                                 }
                             },
                         ]
                     },
-                    'instanceArn': 'string',
-                    'remoteDebugEnabled': True|False,
-                    'remoteRecordEnabled': True|False,
-                    'remoteRecordAppArn': 'string',
-                    'hostAddress': 'string',
-                    'clientId': 'string',
-                    'billingMethod': 'METERED'|'UNMETERED',
-                    'deviceMinutes': {
-                        'total': 123.0,
-                        'metered': 123.0,
-                        'unmetered': 123.0
+                    \'instanceArn\': \'string\',
+                    \'remoteDebugEnabled\': True|False,
+                    \'remoteRecordEnabled\': True|False,
+                    \'remoteRecordAppArn\': \'string\',
+                    \'hostAddress\': \'string\',
+                    \'clientId\': \'string\',
+                    \'billingMethod\': \'METERED\'|\'UNMETERED\',
+                    \'deviceMinutes\': {
+                        \'total\': 123.0,
+                        \'metered\': 123.0,
+                        \'unmetered\': 123.0
                     },
-                    'endpoint': 'string',
-                    'deviceUdid': 'string',
-                    'interactionMode': 'INTERACTIVE'|'NO_VIDEO'|'VIDEO_ONLY',
-                    'skipAppResign': True|False
+                    \'endpoint\': \'string\',
+                    \'deviceUdid\': \'string\',
+                    \'interactionMode\': \'INTERACTIVE\'|\'NO_VIDEO\'|\'VIDEO_ONLY\',
+                    \'skipAppResign\': True|False
                 }
             }
           **Response Structure** 
@@ -11266,27 +11266,27 @@ class Client(BaseClient):
         
                 - **arn** *(string) --* 
         
-                  The device's ARN.
+                  The device\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The device's display name.
+                  The device\'s display name.
         
                 - **manufacturer** *(string) --* 
         
-                  The device's manufacturer name.
+                  The device\'s manufacturer name.
         
                 - **model** *(string) --* 
         
-                  The device's model name.
+                  The device\'s model name.
         
                 - **modelId** *(string) --* 
         
-                  The device's model ID.
+                  The device\'s model ID.
         
                 - **formFactor** *(string) --* 
         
-                  The device's form factor.
+                  The device\'s form factor.
         
                   Allowed values include:
         
@@ -11296,7 +11296,7 @@ class Client(BaseClient):
                    
                 - **platform** *(string) --* 
         
-                  The device's platform.
+                  The device\'s platform.
         
                   Allowed values include:
         
@@ -11306,23 +11306,23 @@ class Client(BaseClient):
                    
                 - **os** *(string) --* 
         
-                  The device's operating system type.
+                  The device\'s operating system type.
         
                 - **cpu** *(dict) --* 
         
-                  Information about the device's CPU.
+                  Information about the device\'s CPU.
         
                   - **frequency** *(string) --* 
         
-                    The CPU's frequency.
+                    The CPU\'s frequency.
         
                   - **architecture** *(string) --* 
         
-                    The CPU's architecture, for example x86 or ARM.
+                    The CPU\'s architecture, for example x86 or ARM.
         
                   - **clock** *(float) --* 
         
-                    The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                    The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                 - **resolution** *(dict) --* 
         
@@ -11330,31 +11330,31 @@ class Client(BaseClient):
         
                   - **width** *(integer) --* 
         
-                    The screen resolution's width, expressed in pixels.
+                    The screen resolution\'s width, expressed in pixels.
         
                   - **height** *(integer) --* 
         
-                    The screen resolution's height, expressed in pixels.
+                    The screen resolution\'s height, expressed in pixels.
         
                 - **heapSize** *(integer) --* 
         
-                  The device's heap size, expressed in bytes.
+                  The device\'s heap size, expressed in bytes.
         
                 - **memory** *(integer) --* 
         
-                  The device's total memory size, expressed in bytes.
+                  The device\'s total memory size, expressed in bytes.
         
                 - **image** *(string) --* 
         
-                  The device's image name.
+                  The device\'s image name.
         
                 - **carrier** *(string) --* 
         
-                  The device's carrier.
+                  The device\'s carrier.
         
                 - **radio** *(string) --* 
         
-                  The device's radio.
+                  The device\'s radio.
         
                 - **remoteAccessEnabled** *(boolean) --* 
         
@@ -11460,7 +11460,7 @@ class Client(BaseClient):
         
               - **billingMethod** *(string) --* 
         
-                The billing method of the remote access session. Possible values include ``METERED`` or ``UNMETERED`` . For more information about metered devices, see `AWS Device Farm terminology <http://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology>`__ ."
+                The billing method of the remote access session. Possible values include ``METERED`` or ``UNMETERED`` . For more information about metered devices, see `AWS Device Farm terminology <http://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology>`__ .\"
         
               - **deviceMinutes** *(dict) --* 
         
@@ -11514,7 +11514,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_run(
-              arn='string'
+              arn=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -11529,80 +11529,80 @@ class Client(BaseClient):
           ::
         
             {
-                'run': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                    'platform': 'ANDROID'|'IOS',
-                    'created': datetime(2015, 1, 1),
-                    'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                    'started': datetime(2015, 1, 1),
-                    'stopped': datetime(2015, 1, 1),
-                    'counters': {
-                        'total': 123,
-                        'passed': 123,
-                        'failed': 123,
-                        'warned': 123,
-                        'errored': 123,
-                        'stopped': 123,
-                        'skipped': 123
+                \'run\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                    \'platform\': \'ANDROID\'|\'IOS\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                    \'started\': datetime(2015, 1, 1),
+                    \'stopped\': datetime(2015, 1, 1),
+                    \'counters\': {
+                        \'total\': 123,
+                        \'passed\': 123,
+                        \'failed\': 123,
+                        \'warned\': 123,
+                        \'errored\': 123,
+                        \'stopped\': 123,
+                        \'skipped\': 123
                     },
-                    'message': 'string',
-                    'totalJobs': 123,
-                    'completedJobs': 123,
-                    'billingMethod': 'METERED'|'UNMETERED',
-                    'deviceMinutes': {
-                        'total': 123.0,
-                        'metered': 123.0,
-                        'unmetered': 123.0
+                    \'message\': \'string\',
+                    \'totalJobs\': 123,
+                    \'completedJobs\': 123,
+                    \'billingMethod\': \'METERED\'|\'UNMETERED\',
+                    \'deviceMinutes\': {
+                        \'total\': 123.0,
+                        \'metered\': 123.0,
+                        \'unmetered\': 123.0
                     },
-                    'networkProfile': {
-                        'arn': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'type': 'CURATED'|'PRIVATE',
-                        'uplinkBandwidthBits': 123,
-                        'downlinkBandwidthBits': 123,
-                        'uplinkDelayMs': 123,
-                        'downlinkDelayMs': 123,
-                        'uplinkJitterMs': 123,
-                        'downlinkJitterMs': 123,
-                        'uplinkLossPercent': 123,
-                        'downlinkLossPercent': 123
+                    \'networkProfile\': {
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'type\': \'CURATED\'|\'PRIVATE\',
+                        \'uplinkBandwidthBits\': 123,
+                        \'downlinkBandwidthBits\': 123,
+                        \'uplinkDelayMs\': 123,
+                        \'downlinkDelayMs\': 123,
+                        \'uplinkJitterMs\': 123,
+                        \'downlinkJitterMs\': 123,
+                        \'uplinkLossPercent\': 123,
+                        \'downlinkLossPercent\': 123
                     },
-                    'parsingResultUrl': 'string',
-                    'resultCode': 'PARSING_FAILED'|'VPC_ENDPOINT_SETUP_FAILED',
-                    'seed': 123,
-                    'appUpload': 'string',
-                    'eventCount': 123,
-                    'jobTimeoutMinutes': 123,
-                    'devicePoolArn': 'string',
-                    'locale': 'string',
-                    'radios': {
-                        'wifi': True|False,
-                        'bluetooth': True|False,
-                        'nfc': True|False,
-                        'gps': True|False
+                    \'parsingResultUrl\': \'string\',
+                    \'resultCode\': \'PARSING_FAILED\'|\'VPC_ENDPOINT_SETUP_FAILED\',
+                    \'seed\': 123,
+                    \'appUpload\': \'string\',
+                    \'eventCount\': 123,
+                    \'jobTimeoutMinutes\': 123,
+                    \'devicePoolArn\': \'string\',
+                    \'locale\': \'string\',
+                    \'radios\': {
+                        \'wifi\': True|False,
+                        \'bluetooth\': True|False,
+                        \'nfc\': True|False,
+                        \'gps\': True|False
                     },
-                    'location': {
-                        'latitude': 123.0,
-                        'longitude': 123.0
+                    \'location\': {
+                        \'latitude\': 123.0,
+                        \'longitude\': 123.0
                     },
-                    'customerArtifactPaths': {
-                        'iosPaths': [
-                            'string',
+                    \'customerArtifactPaths\': {
+                        \'iosPaths\': [
+                            \'string\',
                         ],
-                        'androidPaths': [
-                            'string',
+                        \'androidPaths\': [
+                            \'string\',
                         ],
-                        'deviceHostPaths': [
-                            'string',
+                        \'deviceHostPaths\': [
+                            \'string\',
                         ]
                     },
-                    'webUrl': 'string',
-                    'skipAppResign': True|False,
-                    'testSpecArn': 'string'
+                    \'webUrl\': \'string\',
+                    \'skipAppResign\': True|False,
+                    \'testSpecArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -11617,15 +11617,15 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The run's ARN.
+                The run\'s ARN.
         
               - **name** *(string) --* 
         
-                The run's name.
+                The run\'s name.
         
               - **type** *(string) --* 
         
-                The run's type.
+                The run\'s type.
         
                 Must be one of the following values:
         
@@ -11659,7 +11659,7 @@ class Client(BaseClient):
                  
               - **platform** *(string) --* 
         
-                The run's platform.
+                The run\'s platform.
         
                 Allowed values include:
         
@@ -11673,7 +11673,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The run's status.
+                The run\'s status.
         
                 Allowed values include:
         
@@ -11697,7 +11697,7 @@ class Client(BaseClient):
                  
               - **result** *(string) --* 
         
-                The run's result.
+                The run\'s result.
         
                 Allowed values include:
         
@@ -11717,15 +11717,15 @@ class Client(BaseClient):
                  
               - **started** *(datetime) --* 
         
-                The run's start time.
+                The run\'s start time.
         
               - **stopped** *(datetime) --* 
         
-                The run's stop time.
+                The run\'s stop time.
         
               - **counters** *(dict) --* 
         
-                The run's result counters.
+                The run\'s result counters.
         
                 - **total** *(integer) --* 
         
@@ -11757,7 +11757,7 @@ class Client(BaseClient):
         
               - **message** *(string) --* 
         
-                A message about the run's result.
+                A message about the run\'s result.
         
               - **totalJobs** *(integer) --* 
         
@@ -11841,7 +11841,7 @@ class Client(BaseClient):
         
               - **parsingResultUrl** *(string) --* 
         
-                Read-only URL for an object in S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
+                Read-only URL for an object in S3 bucket where you can get the parsing results of the test package. If the test package doesn\'t parse, the reason why it doesn\'t parse appears in the file that this URL points to.
         
               - **resultCode** *(string) --* 
         
@@ -11909,19 +11909,19 @@ class Client(BaseClient):
         
                 - **iosPaths** *(list) --* 
         
-                  Comma-separated list of paths on the iOS device where the artifacts generated by the customer's tests will be pulled from.
+                  Comma-separated list of paths on the iOS device where the artifacts generated by the customer\'s tests will be pulled from.
         
                   - *(string) --* 
               
                 - **androidPaths** *(list) --* 
         
-                  Comma-separated list of paths on the Android device where the artifacts generated by the customer's tests will be pulled from.
+                  Comma-separated list of paths on the Android device where the artifacts generated by the customer\'s tests will be pulled from.
         
                   - *(string) --* 
               
                 - **deviceHostPaths** *(list) --* 
         
-                  Comma-separated list of paths in the test execution environment where the artifacts generated by the customer's tests will be pulled from.
+                  Comma-separated list of paths in the test execution environment where the artifacts generated by the customer\'s tests will be pulled from.
         
                   - *(string) --* 
               
@@ -11951,10 +11951,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_device_instance(
-              arn='string',
-              profileArn='string',
+              arn=\'string\',
+              profileArn=\'string\',
               labels=[
-                  'string',
+                  \'string\',
               ]
           )
         :type arn: string
@@ -11982,23 +11982,23 @@ class Client(BaseClient):
           ::
         
             {
-                'deviceInstance': {
-                    'arn': 'string',
-                    'deviceArn': 'string',
-                    'labels': [
-                        'string',
+                \'deviceInstance\': {
+                    \'arn\': \'string\',
+                    \'deviceArn\': \'string\',
+                    \'labels\': [
+                        \'string\',
                     ],
-                    'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                    'udid': 'string',
-                    'instanceProfile': {
-                        'arn': 'string',
-                        'packageCleanup': True|False,
-                        'excludeAppPackagesFromCleanup': [
-                            'string',
+                    \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                    \'udid\': \'string\',
+                    \'instanceProfile\': {
+                        \'arn\': \'string\',
+                        \'packageCleanup\': True|False,
+                        \'excludeAppPackagesFromCleanup\': [
+                            \'string\',
                         ],
-                        'rebootAfterUse': True|False,
-                        'name': 'string',
-                        'description': 'string'
+                        \'rebootAfterUse\': True|False,
+                        \'name\': \'string\',
+                        \'description\': \'string\'
                     }
                 }
             }
@@ -12076,14 +12076,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_device_pool(
-              arn='string',
-              name='string',
-              description='string',
+              arn=\'string\',
+              name=\'string\',
+              description=\'string\',
               rules=[
                   {
-                      'attribute': 'ARN'|'PLATFORM'|'FORM_FACTOR'|'MANUFACTURER'|'REMOTE_ACCESS_ENABLED'|'REMOTE_DEBUG_ENABLED'|'APPIUM_VERSION'|'INSTANCE_ARN'|'INSTANCE_LABELS'|'FLEET_TYPE',
-                      'operator': 'EQUALS'|'LESS_THAN'|'GREATER_THAN'|'IN'|'NOT_IN'|'CONTAINS',
-                      'value': 'string'
+                      \'attribute\': \'ARN\'|\'PLATFORM\'|\'FORM_FACTOR\'|\'MANUFACTURER\'|\'REMOTE_ACCESS_ENABLED\'|\'REMOTE_DEBUG_ENABLED\'|\'APPIUM_VERSION\'|\'INSTANCE_ARN\'|\'INSTANCE_LABELS\'|\'FLEET_TYPE\',
+                      \'operator\': \'EQUALS\'|\'LESS_THAN\'|\'GREATER_THAN\'|\'IN\'|\'NOT_IN\'|\'CONTAINS\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -12113,7 +12113,7 @@ class Client(BaseClient):
         
             - **attribute** *(string) --* 
         
-              The rule's stringified attribute. For example, specify the value as ``"\"abc\""`` .
+              The rule\'s stringified attribute. For example, specify the value as ``\"\\"abc\\"\"`` .
         
               Allowed values include:
         
@@ -12135,7 +12135,7 @@ class Client(BaseClient):
                
             - **operator** *(string) --* 
         
-              The rule's operator.
+              The rule\'s operator.
         
               * EQUALS: The equals operator. 
                
@@ -12151,7 +12151,7 @@ class Client(BaseClient):
                
             - **value** *(string) --* 
         
-              The rule's value.
+              The rule\'s value.
         
         :rtype: dict
         :returns: 
@@ -12161,16 +12161,16 @@ class Client(BaseClient):
           ::
         
             {
-                'devicePool': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'description': 'string',
-                    'type': 'CURATED'|'PRIVATE',
-                    'rules': [
+                \'devicePool\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'type\': \'CURATED\'|\'PRIVATE\',
+                    \'rules\': [
                         {
-                            'attribute': 'ARN'|'PLATFORM'|'FORM_FACTOR'|'MANUFACTURER'|'REMOTE_ACCESS_ENABLED'|'REMOTE_DEBUG_ENABLED'|'APPIUM_VERSION'|'INSTANCE_ARN'|'INSTANCE_LABELS'|'FLEET_TYPE',
-                            'operator': 'EQUALS'|'LESS_THAN'|'GREATER_THAN'|'IN'|'NOT_IN'|'CONTAINS',
-                            'value': 'string'
+                            \'attribute\': \'ARN\'|\'PLATFORM\'|\'FORM_FACTOR\'|\'MANUFACTURER\'|\'REMOTE_ACCESS_ENABLED\'|\'REMOTE_DEBUG_ENABLED\'|\'APPIUM_VERSION\'|\'INSTANCE_ARN\'|\'INSTANCE_LABELS\'|\'FLEET_TYPE\',
+                            \'operator\': \'EQUALS\'|\'LESS_THAN\'|\'GREATER_THAN\'|\'IN\'|\'NOT_IN\'|\'CONTAINS\',
+                            \'value\': \'string\'
                         },
                     ]
                 }
@@ -12187,19 +12187,19 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The device pool's ARN.
+                The device pool\'s ARN.
         
               - **name** *(string) --* 
         
-                The device pool's name.
+                The device pool\'s name.
         
               - **description** *(string) --* 
         
-                The device pool's description.
+                The device pool\'s description.
         
               - **type** *(string) --* 
         
-                The device pool's type.
+                The device pool\'s type.
         
                 Allowed values include:
         
@@ -12209,7 +12209,7 @@ class Client(BaseClient):
                  
               - **rules** *(list) --* 
         
-                Information about the device pool's rules.
+                Information about the device pool\'s rules.
         
                 - *(dict) --* 
         
@@ -12217,7 +12217,7 @@ class Client(BaseClient):
         
                   - **attribute** *(string) --* 
         
-                    The rule's stringified attribute. For example, specify the value as ``"\"abc\""`` .
+                    The rule\'s stringified attribute. For example, specify the value as ``\"\\"abc\\"\"`` .
         
                     Allowed values include:
         
@@ -12239,7 +12239,7 @@ class Client(BaseClient):
                      
                   - **operator** *(string) --* 
         
-                    The rule's operator.
+                    The rule\'s operator.
         
                     * EQUALS: The equals operator. 
                      
@@ -12255,7 +12255,7 @@ class Client(BaseClient):
                      
                   - **value** *(string) --* 
         
-                    The rule's value.
+                    The rule\'s value.
         
         """
         pass
@@ -12269,12 +12269,12 @@ class Client(BaseClient):
         ::
         
           response = client.update_instance_profile(
-              arn='string',
-              name='string',
-              description='string',
+              arn=\'string\',
+              name=\'string\',
+              description=\'string\',
               packageCleanup=True|False,
               excludeAppPackagesFromCleanup=[
-                  'string',
+                  \'string\',
               ],
               rebootAfterUse=True|False
           )
@@ -12320,15 +12320,15 @@ class Client(BaseClient):
           ::
         
             {
-                'instanceProfile': {
-                    'arn': 'string',
-                    'packageCleanup': True|False,
-                    'excludeAppPackagesFromCleanup': [
-                        'string',
+                \'instanceProfile\': {
+                    \'arn\': \'string\',
+                    \'packageCleanup\': True|False,
+                    \'excludeAppPackagesFromCleanup\': [
+                        \'string\',
                     ],
-                    'rebootAfterUse': True|False,
-                    'name': 'string',
-                    'description': 'string'
+                    \'rebootAfterUse\': True|False,
+                    \'name\': \'string\',
+                    \'description\': \'string\'
                 }
             }
           **Response Structure** 
@@ -12379,10 +12379,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_network_profile(
-              arn='string',
-              name='string',
-              description='string',
-              type='CURATED'|'PRIVATE',
+              arn=\'string\',
+              name=\'string\',
+              description=\'string\',
+              type=\'CURATED\'|\'PRIVATE\',
               uplinkBandwidthBits=123,
               downlinkBandwidthBits=123,
               uplinkDelayMs=123,
@@ -12460,19 +12460,19 @@ class Client(BaseClient):
           ::
         
             {
-                'networkProfile': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'description': 'string',
-                    'type': 'CURATED'|'PRIVATE',
-                    'uplinkBandwidthBits': 123,
-                    'downlinkBandwidthBits': 123,
-                    'uplinkDelayMs': 123,
-                    'downlinkDelayMs': 123,
-                    'uplinkJitterMs': 123,
-                    'downlinkJitterMs': 123,
-                    'uplinkLossPercent': 123,
-                    'downlinkLossPercent': 123
+                \'networkProfile\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'type\': \'CURATED\'|\'PRIVATE\',
+                    \'uplinkBandwidthBits\': 123,
+                    \'downlinkBandwidthBits\': 123,
+                    \'uplinkDelayMs\': 123,
+                    \'downlinkDelayMs\': 123,
+                    \'uplinkJitterMs\': 123,
+                    \'downlinkJitterMs\': 123,
+                    \'uplinkLossPercent\': 123,
+                    \'downlinkLossPercent\': 123
                 }
             }
           **Response Structure** 
@@ -12543,8 +12543,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_project(
-              arn='string',
-              name='string',
+              arn=\'string\',
+              name=\'string\',
               defaultJobTimeoutMinutes=123
           )
         :type arn: string
@@ -12570,11 +12570,11 @@ class Client(BaseClient):
           ::
         
             {
-                'project': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'defaultJobTimeoutMinutes': 123,
-                    'created': datetime(2015, 1, 1)
+                \'project\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'defaultJobTimeoutMinutes\': 123,
+                    \'created\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -12589,11 +12589,11 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The project's ARN.
+                The project\'s ARN.
         
               - **name** *(string) --* 
         
-                The project's name.
+                The project\'s name.
         
               - **defaultJobTimeoutMinutes** *(integer) --* 
         
@@ -12615,9 +12615,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_upload(
-              arn='string',
-              name='string',
-              contentType='string',
+              arn=\'string\',
+              name=\'string\',
+              contentType=\'string\',
               editContent=True|False
           )
         :type arn: string
@@ -12628,12 +12628,12 @@ class Client(BaseClient):
         :type name: string
         :param name: 
         
-          The upload's test spec file name. The name should not contain the '/' character. The test spec file name must end with the ``.yaml`` or ``.yml`` file extension.
+          The upload\'s test spec file name. The name should not contain the \'/\' character. The test spec file name must end with the ``.yaml`` or ``.yml`` file extension.
         
         :type contentType: string
         :param contentType: 
         
-          The upload's content type (for example, "application/x-yaml").
+          The upload\'s content type (for example, \"application/x-yaml\").
         
         :type editContent: boolean
         :param editContent: 
@@ -12648,17 +12648,17 @@ class Client(BaseClient):
           ::
         
             {
-                'upload': {
-                    'arn': 'string',
-                    'name': 'string',
-                    'created': datetime(2015, 1, 1),
-                    'type': 'ANDROID_APP'|'IOS_APP'|'WEB_APP'|'EXTERNAL_DATA'|'APPIUM_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_PYTHON_TEST_PACKAGE'|'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_WEB_PYTHON_TEST_PACKAGE'|'CALABASH_TEST_PACKAGE'|'INSTRUMENTATION_TEST_PACKAGE'|'UIAUTOMATION_TEST_PACKAGE'|'UIAUTOMATOR_TEST_PACKAGE'|'XCTEST_TEST_PACKAGE'|'XCTEST_UI_TEST_PACKAGE'|'APPIUM_JAVA_JUNIT_TEST_SPEC'|'APPIUM_JAVA_TESTNG_TEST_SPEC'|'APPIUM_PYTHON_TEST_SPEC'|'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC'|'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC'|'APPIUM_WEB_PYTHON_TEST_SPEC'|'INSTRUMENTATION_TEST_SPEC'|'XCTEST_UI_TEST_SPEC',
-                    'status': 'INITIALIZED'|'PROCESSING'|'SUCCEEDED'|'FAILED',
-                    'url': 'string',
-                    'metadata': 'string',
-                    'contentType': 'string',
-                    'message': 'string',
-                    'category': 'CURATED'|'PRIVATE'
+                \'upload\': {
+                    \'arn\': \'string\',
+                    \'name\': \'string\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'type\': \'ANDROID_APP\'|\'IOS_APP\'|\'WEB_APP\'|\'EXTERNAL_DATA\'|\'APPIUM_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_PYTHON_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_WEB_PYTHON_TEST_PACKAGE\'|\'CALABASH_TEST_PACKAGE\'|\'INSTRUMENTATION_TEST_PACKAGE\'|\'UIAUTOMATION_TEST_PACKAGE\'|\'UIAUTOMATOR_TEST_PACKAGE\'|\'XCTEST_TEST_PACKAGE\'|\'XCTEST_UI_TEST_PACKAGE\'|\'APPIUM_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_PYTHON_TEST_SPEC\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_WEB_PYTHON_TEST_SPEC\'|\'INSTRUMENTATION_TEST_SPEC\'|\'XCTEST_UI_TEST_SPEC\',
+                    \'status\': \'INITIALIZED\'|\'PROCESSING\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'url\': \'string\',
+                    \'metadata\': \'string\',
+                    \'contentType\': \'string\',
+                    \'message\': \'string\',
+                    \'category\': \'CURATED\'|\'PRIVATE\'
                 }
             }
           **Response Structure** 
@@ -12671,11 +12671,11 @@ class Client(BaseClient):
         
               - **arn** *(string) --* 
         
-                The upload's ARN.
+                The upload\'s ARN.
         
               - **name** *(string) --* 
         
-                The upload's file name.
+                The upload\'s file name.
         
               - **created** *(datetime) --* 
         
@@ -12683,7 +12683,7 @@ class Client(BaseClient):
         
               - **type** *(string) --* 
         
-                The upload's type.
+                The upload\'s type.
         
                 Must be one of the following values:
         
@@ -12721,7 +12721,7 @@ class Client(BaseClient):
                  
               - **status** *(string) --* 
         
-                The upload's status.
+                The upload\'s status.
         
                 Must be one of the following values:
         
@@ -12739,19 +12739,19 @@ class Client(BaseClient):
         
               - **metadata** *(string) --* 
         
-                The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+                The upload\'s metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
         
               - **contentType** *(string) --* 
         
-                The upload's content type (for example, "application/octet-stream").
+                The upload\'s content type (for example, \"application/octet-stream\").
         
               - **message** *(string) --* 
         
-                A message about the upload's result.
+                A message about the upload\'s result.
         
               - **category** *(string) --* 
         
-                The upload's category. Allowed values include:
+                The upload\'s category. Allowed values include:
         
                 * CURATED: An upload managed by AWS Device Farm. 
                  
@@ -12769,11 +12769,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_vpce_configuration(
-              arn='string',
-              vpceConfigurationName='string',
-              vpceServiceName='string',
-              serviceDnsName='string',
-              vpceConfigurationDescription='string'
+              arn=\'string\',
+              vpceConfigurationName=\'string\',
+              vpceServiceName=\'string\',
+              serviceDnsName=\'string\',
+              vpceConfigurationDescription=\'string\'
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
@@ -12808,12 +12808,12 @@ class Client(BaseClient):
           ::
         
             {
-                'vpceConfiguration': {
-                    'arn': 'string',
-                    'vpceConfigurationName': 'string',
-                    'vpceServiceName': 'string',
-                    'serviceDnsName': 'string',
-                    'vpceConfigurationDescription': 'string'
+                \'vpceConfiguration\': {
+                    \'arn\': \'string\',
+                    \'vpceConfigurationName\': \'string\',
+                    \'vpceServiceName\': \'string\',
+                    \'serviceDnsName\': \'string\',
+                    \'vpceConfigurationDescription\': \'string\'
                 }
             }
           **Response Structure** 

@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -23,16 +23,16 @@ class Client(BaseClient):
         ::
         
           response = client.batch_delete_attributes(
-              DomainName='string',
+              DomainName=\'string\',
               Items=[
                   {
-                      'Name': 'string',
-                      'Attributes': [
+                      \'Name\': \'string\',
+                      \'Attributes\': [
                           {
-                              'Name': 'string',
-                              'AlternateNameEncoding': 'string',
-                              'Value': 'string',
-                              'AlternateValueEncoding': 'string'
+                              \'Name\': \'string\',
+                              \'AlternateNameEncoding\': \'string\',
+                              \'Value\': \'string\',
+                              \'AlternateValueEncoding\': \'string\'
                           },
                       ]
                   },
@@ -69,9 +69,9 @@ class Client(BaseClient):
         
         The client may specify the item name with the ``Item.X.ItemName`` parameter. The client may specify new attributes using a combination of the ``Item.X.Attribute.Y.Name`` and ``Item.X.Attribute.Y.Value`` parameters. The client may specify the first attribute for the first item using the parameters ``Item.0.Attribute.0.Name`` and ``Item.0.Attribute.0.Value`` , and for the second attribute for the first item by the parameters ``Item.0.Attribute.1.Name`` and ``Item.0.Attribute.1.Value`` , and so on. 
         
-        Attributes are uniquely identified within an item by their name/value combination. For example, a single item can have the attributes ``{ "first_name", "first_value" }`` and ``{ "first_name", "second_value" }`` . However, it cannot have two attribute instances where both the ``Item.X.Attribute.Y.Name`` and ``Item.X.Attribute.Y.Value`` are the same. 
+        Attributes are uniquely identified within an item by their name/value combination. For example, a single item can have the attributes ``{ \"first_name\", \"first_value\" }`` and ``{ \"first_name\", \"second_value\" }`` . However, it cannot have two attribute instances where both the ``Item.X.Attribute.Y.Name`` and ``Item.X.Attribute.Y.Value`` are the same. 
         
-        Optionally, the requester can supply the ``Replace`` parameter for each individual value. Setting this value to ``true`` will cause the new attribute values to replace the existing attribute values. For example, if an item ``I`` has the attributes ``{ 'a', '1' }, { 'b', '2'}`` and ``{ 'b', '3' }`` and the requester does a BatchPutAttributes of ``{'I', 'b', '4' }`` with the Replace parameter set to true, the final attributes of the item will be ``{ 'a', '1' }`` and ``{ 'b', '4' }`` , replacing the previous values of the 'b' attribute with the new value. 
+        Optionally, the requester can supply the ``Replace`` parameter for each individual value. Setting this value to ``true`` will cause the new attribute values to replace the existing attribute values. For example, if an item ``I`` has the attributes ``{ \'a\', \'1\' }, { \'b\', \'2\'}`` and ``{ \'b\', \'3\' }`` and the requester does a BatchPutAttributes of ``{\'I\', \'b\', \'4\' }`` with the Replace parameter set to true, the final attributes of the item will be ``{ \'a\', \'1\' }`` and ``{ \'b\', \'4\' }`` , replacing the previous values of the \'b\' attribute with the new value. 
         
         .. warning::
         
@@ -97,15 +97,15 @@ class Client(BaseClient):
         ::
         
           response = client.batch_put_attributes(
-              DomainName='string',
+              DomainName=\'string\',
               Items=[
                   {
-                      'Name': 'string',
-                      'Attributes': [
+                      \'Name\': \'string\',
+                      \'Attributes\': [
                           {
-                              'Name': 'string',
-                              'Value': 'string',
-                              'Replace': True|False
+                              \'Name\': \'string\',
+                              \'Value\': \'string\',
+                              \'Replace\': True|False
                           },
                       ]
                   },
@@ -141,10 +141,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -164,10 +164,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_domain(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
-        :param DomainName: **[REQUIRED]** The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
+        :param DomainName: **[REQUIRED]** The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, \'_\', \'-\', and \'.\'.
         
         :returns: None
         """
@@ -186,20 +186,20 @@ class Client(BaseClient):
         ::
         
           response = client.delete_attributes(
-              DomainName='string',
-              ItemName='string',
+              DomainName=\'string\',
+              ItemName=\'string\',
               Attributes=[
                   {
-                      'Name': 'string',
-                      'AlternateNameEncoding': 'string',
-                      'Value': 'string',
-                      'AlternateValueEncoding': 'string'
+                      \'Name\': \'string\',
+                      \'AlternateNameEncoding\': \'string\',
+                      \'Value\': \'string\',
+                      \'AlternateValueEncoding\': \'string\'
                   },
               ],
               Expected={
-                  'Name': 'string',
-                  'Value': 'string',
-                  'Exists': True|False
+                  \'Name\': \'string\',
+                  \'Value\': \'string\',
+                  \'Exists\': True|False
               }
           )
         :type DomainName: string
@@ -249,7 +249,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_domain(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** The name of the domain to delete.
@@ -267,7 +267,7 @@ class Client(BaseClient):
         ::
         
           response = client.domain_metadata(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** The name of the domain for which to display the metadata of.
@@ -280,13 +280,13 @@ class Client(BaseClient):
           ::
         
             {
-                'ItemCount': 123,
-                'ItemNamesSizeBytes': 123,
-                'AttributeNameCount': 123,
-                'AttributeNamesSizeBytes': 123,
-                'AttributeValueCount': 123,
-                'AttributeValuesSizeBytes': 123,
-                'Timestamp': 123
+                \'ItemCount\': 123,
+                \'ItemNamesSizeBytes\': 123,
+                \'AttributeNameCount\': 123,
+                \'AttributeNamesSizeBytes\': 123,
+                \'AttributeValueCount\': 123,
+                \'AttributeValuesSizeBytes\': 123,
+                \'Timestamp\': 123
             }
           **Response Structure** 
         
@@ -324,7 +324,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -341,10 +341,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_attributes(
-              DomainName='string',
-              ItemName='string',
+              DomainName=\'string\',
+              ItemName=\'string\',
               AttributeNames=[
-                  'string',
+                  \'string\',
               ],
               ConsistentRead=True|False
           )
@@ -370,12 +370,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Name': 'string',
-                        'AlternateNameEncoding': 'string',
-                        'Value': 'string',
-                        'AlternateValueEncoding': 'string'
+                        \'Name\': \'string\',
+                        \'AlternateNameEncoding\': \'string\',
+                        \'Value\': \'string\',
+                        \'AlternateValueEncoding\': \'string\'
                     },
                 ]
             }
@@ -404,10 +404,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -440,7 +440,7 @@ class Client(BaseClient):
         
           response = client.list_domains(
               MaxNumberOfDomains=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxNumberOfDomains: integer
         :param MaxNumberOfDomains: The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.
@@ -456,10 +456,10 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainNames': [
-                    'string',
+                \'DomainNames\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -476,9 +476,9 @@ class Client(BaseClient):
     def put_attributes(self, DomainName: str, ItemName: str, Attributes: List, Expected: Dict = None):
         """
         
-        Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes ``{ "first_name", "first_value" }`` and ``{ "first_name", second_value" }`` . However, it cannot have two attribute instances where both the ``Attribute.X.Name`` and ``Attribute.X.Value`` are the same. 
+        Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes ``{ \"first_name\", \"first_value\" }`` and ``{ \"first_name\", second_value\" }`` . However, it cannot have two attribute instances where both the ``Attribute.X.Name`` and ``Attribute.X.Value`` are the same. 
         
-        Optionally, the requestor can supply the ``Replace`` parameter for each individual attribute. Setting this value to ``true`` causes the new attribute value to replace the existing attribute value(s). For example, if an item has the attributes ``{ 'a', '1' }`` , ``{ 'b', '2'}`` and ``{ 'b', '3' }`` and the requestor calls ``PutAttributes`` using the attributes ``{ 'b', '4' }`` with the ``Replace`` parameter set to true, the final attributes of the item are changed to ``{ 'a', '1' }`` and ``{ 'b', '4' }`` , which replaces the previous values of the 'b' attribute with the new value. 
+        Optionally, the requestor can supply the ``Replace`` parameter for each individual attribute. Setting this value to ``true`` causes the new attribute value to replace the existing attribute value(s). For example, if an item has the attributes ``{ \'a\', \'1\' }`` , ``{ \'b\', \'2\'}`` and ``{ \'b\', \'3\' }`` and the requestor calls ``PutAttributes`` using the attributes ``{ \'b\', \'4\' }`` with the ``Replace`` parameter set to true, the final attributes of the item are changed to ``{ \'a\', \'1\' }`` and ``{ \'b\', \'4\' }`` , which replaces the previous values of the \'b\' attribute with the new value. 
         
         You cannot specify an empty string as an attribute name. 
         
@@ -498,19 +498,19 @@ class Client(BaseClient):
         ::
         
           response = client.put_attributes(
-              DomainName='string',
-              ItemName='string',
+              DomainName=\'string\',
+              ItemName=\'string\',
               Attributes=[
                   {
-                      'Name': 'string',
-                      'Value': 'string',
-                      'Replace': True|False
+                      \'Name\': \'string\',
+                      \'Value\': \'string\',
+                      \'Replace\': True|False
                   },
               ],
               Expected={
-                  'Name': 'string',
-                  'Value': 'string',
-                  'Exists': True|False
+                  \'Name\': \'string\',
+                  \'Value\': \'string\',
+                  \'Exists\': True|False
               }
           )
         :type DomainName: string
@@ -562,8 +562,8 @@ class Client(BaseClient):
         ::
         
           response = client.select(
-              SelectExpression='string',
-              NextToken='string',
+              SelectExpression=\'string\',
+              NextToken=\'string\',
               ConsistentRead=True|False
           )
         :type SelectExpression: string
@@ -583,21 +583,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Items': [
+                \'Items\': [
                     {
-                        'Name': 'string',
-                        'AlternateNameEncoding': 'string',
-                        'Attributes': [
+                        \'Name\': \'string\',
+                        \'AlternateNameEncoding\': \'string\',
+                        \'Attributes\': [
                             {
-                                'Name': 'string',
-                                'AlternateNameEncoding': 'string',
-                                'Value': 'string',
-                                'AlternateValueEncoding': 'string'
+                                \'Name\': \'string\',
+                                \'AlternateNameEncoding\': \'string\',
+                                \'Value\': \'string\',
+                                \'AlternateValueEncoding\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

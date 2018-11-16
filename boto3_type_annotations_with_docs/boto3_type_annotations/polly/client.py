@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -35,7 +35,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_lexicon(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -73,14 +73,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_voices(
-              LanguageCode='cmn-CN'|'cy-GB'|'da-DK'|'de-DE'|'en-AU'|'en-GB'|'en-GB-WLS'|'en-IN'|'en-US'|'es-ES'|'es-MX'|'es-US'|'fr-CA'|'fr-FR'|'is-IS'|'it-IT'|'ja-JP'|'hi-IN'|'ko-KR'|'nb-NO'|'nl-NL'|'pl-PL'|'pt-BR'|'pt-PT'|'ro-RO'|'ru-RU'|'sv-SE'|'tr-TR',
+              LanguageCode=\'cmn-CN\'|\'cy-GB\'|\'da-DK\'|\'de-DE\'|\'en-AU\'|\'en-GB\'|\'en-GB-WLS\'|\'en-IN\'|\'en-US\'|\'es-ES\'|\'es-MX\'|\'es-US\'|\'fr-CA\'|\'fr-FR\'|\'is-IS\'|\'it-IT\'|\'ja-JP\'|\'hi-IN\'|\'ko-KR\'|\'nb-NO\'|\'nl-NL\'|\'pl-PL\'|\'pt-BR\'|\'pt-PT\'|\'ro-RO\'|\'ru-RU\'|\'sv-SE\'|\'tr-TR\',
               IncludeAdditionalLanguageCodes=True|False,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type LanguageCode: string
         :param LanguageCode: 
         
-          The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned. 
+          The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don\'t specify this optional parameter, all available voices are returned. 
         
         :type IncludeAdditionalLanguageCodes: boolean
         :param IncludeAdditionalLanguageCodes: 
@@ -100,19 +100,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Voices': [
+                \'Voices\': [
                     {
-                        'Gender': 'Female'|'Male',
-                        'Id': 'Geraint'|'Gwyneth'|'Mads'|'Naja'|'Hans'|'Marlene'|'Nicole'|'Russell'|'Amy'|'Brian'|'Emma'|'Raveena'|'Ivy'|'Joanna'|'Joey'|'Justin'|'Kendra'|'Kimberly'|'Matthew'|'Salli'|'Conchita'|'Enrique'|'Miguel'|'Penelope'|'Chantal'|'Celine'|'Lea'|'Mathieu'|'Dora'|'Karl'|'Carla'|'Giorgio'|'Mizuki'|'Liv'|'Lotte'|'Ruben'|'Ewa'|'Jacek'|'Jan'|'Maja'|'Ricardo'|'Vitoria'|'Cristiano'|'Ines'|'Carmen'|'Maxim'|'Tatyana'|'Astrid'|'Filiz'|'Vicki'|'Takumi'|'Seoyeon'|'Aditi'|'Zhiyu'|'Bianca'|'Lucia'|'Mia',
-                        'LanguageCode': 'cmn-CN'|'cy-GB'|'da-DK'|'de-DE'|'en-AU'|'en-GB'|'en-GB-WLS'|'en-IN'|'en-US'|'es-ES'|'es-MX'|'es-US'|'fr-CA'|'fr-FR'|'is-IS'|'it-IT'|'ja-JP'|'hi-IN'|'ko-KR'|'nb-NO'|'nl-NL'|'pl-PL'|'pt-BR'|'pt-PT'|'ro-RO'|'ru-RU'|'sv-SE'|'tr-TR',
-                        'LanguageName': 'string',
-                        'Name': 'string',
-                        'AdditionalLanguageCodes': [
-                            'cmn-CN'|'cy-GB'|'da-DK'|'de-DE'|'en-AU'|'en-GB'|'en-GB-WLS'|'en-IN'|'en-US'|'es-ES'|'es-MX'|'es-US'|'fr-CA'|'fr-FR'|'is-IS'|'it-IT'|'ja-JP'|'hi-IN'|'ko-KR'|'nb-NO'|'nl-NL'|'pl-PL'|'pt-BR'|'pt-PT'|'ro-RO'|'ru-RU'|'sv-SE'|'tr-TR',
+                        \'Gender\': \'Female\'|\'Male\',
+                        \'Id\': \'Geraint\'|\'Gwyneth\'|\'Mads\'|\'Naja\'|\'Hans\'|\'Marlene\'|\'Nicole\'|\'Russell\'|\'Amy\'|\'Brian\'|\'Emma\'|\'Raveena\'|\'Ivy\'|\'Joanna\'|\'Joey\'|\'Justin\'|\'Kendra\'|\'Kimberly\'|\'Matthew\'|\'Salli\'|\'Conchita\'|\'Enrique\'|\'Miguel\'|\'Penelope\'|\'Chantal\'|\'Celine\'|\'Lea\'|\'Mathieu\'|\'Dora\'|\'Karl\'|\'Carla\'|\'Giorgio\'|\'Mizuki\'|\'Liv\'|\'Lotte\'|\'Ruben\'|\'Ewa\'|\'Jacek\'|\'Jan\'|\'Maja\'|\'Ricardo\'|\'Vitoria\'|\'Cristiano\'|\'Ines\'|\'Carmen\'|\'Maxim\'|\'Tatyana\'|\'Astrid\'|\'Filiz\'|\'Vicki\'|\'Takumi\'|\'Seoyeon\'|\'Aditi\'|\'Zhiyu\'|\'Bianca\'|\'Lucia\'|\'Mia\',
+                        \'LanguageCode\': \'cmn-CN\'|\'cy-GB\'|\'da-DK\'|\'de-DE\'|\'en-AU\'|\'en-GB\'|\'en-GB-WLS\'|\'en-IN\'|\'en-US\'|\'es-ES\'|\'es-MX\'|\'es-US\'|\'fr-CA\'|\'fr-FR\'|\'is-IS\'|\'it-IT\'|\'ja-JP\'|\'hi-IN\'|\'ko-KR\'|\'nb-NO\'|\'nl-NL\'|\'pl-PL\'|\'pt-BR\'|\'pt-PT\'|\'ro-RO\'|\'ru-RU\'|\'sv-SE\'|\'tr-TR\',
+                        \'LanguageName\': \'string\',
+                        \'Name\': \'string\',
+                        \'AdditionalLanguageCodes\': [
+                            \'cmn-CN\'|\'cy-GB\'|\'da-DK\'|\'de-DE\'|\'en-AU\'|\'en-GB\'|\'en-GB-WLS\'|\'en-IN\'|\'en-US\'|\'es-ES\'|\'es-MX\'|\'es-US\'|\'fr-CA\'|\'fr-FR\'|\'is-IS\'|\'it-IT\'|\'ja-JP\'|\'hi-IN\'|\'ko-KR\'|\'nb-NO\'|\'nl-NL\'|\'pl-PL\'|\'pt-BR\'|\'pt-PT\'|\'ro-RO\'|\'ru-RU\'|\'sv-SE\'|\'tr-TR\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -177,7 +177,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -192,7 +192,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_lexicon(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -207,17 +207,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Lexicon': {
-                    'Content': 'string',
-                    'Name': 'string'
+                \'Lexicon\': {
+                    \'Content\': \'string\',
+                    \'Name\': \'string\'
                 },
-                'LexiconAttributes': {
-                    'Alphabet': 'string',
-                    'LanguageCode': 'cmn-CN'|'cy-GB'|'da-DK'|'de-DE'|'en-AU'|'en-GB'|'en-GB-WLS'|'en-IN'|'en-US'|'es-ES'|'es-MX'|'es-US'|'fr-CA'|'fr-FR'|'is-IS'|'it-IT'|'ja-JP'|'hi-IN'|'ko-KR'|'nb-NO'|'nl-NL'|'pl-PL'|'pt-BR'|'pt-PT'|'ro-RO'|'ru-RU'|'sv-SE'|'tr-TR',
-                    'LastModified': datetime(2015, 1, 1),
-                    'LexiconArn': 'string',
-                    'LexemesCount': 123,
-                    'Size': 123
+                \'LexiconAttributes\': {
+                    \'Alphabet\': \'string\',
+                    \'LanguageCode\': \'cmn-CN\'|\'cy-GB\'|\'da-DK\'|\'de-DE\'|\'en-AU\'|\'en-GB\'|\'en-GB-WLS\'|\'en-IN\'|\'en-US\'|\'es-ES\'|\'es-MX\'|\'es-US\'|\'fr-CA\'|\'fr-FR\'|\'is-IS\'|\'it-IT\'|\'ja-JP\'|\'hi-IN\'|\'ko-KR\'|\'nb-NO\'|\'nl-NL\'|\'pl-PL\'|\'pt-BR\'|\'pt-PT\'|\'ro-RO\'|\'ru-RU\'|\'sv-SE\'|\'tr-TR\',
+                    \'LastModified\': datetime(2015, 1, 1),
+                    \'LexiconArn\': \'string\',
+                    \'LexemesCount\': 123,
+                    \'Size\': 123
                 }
             }
           **Response Structure** 
@@ -246,7 +246,7 @@ class Client(BaseClient):
         
               - **LanguageCode** *(string) --* 
         
-                Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
+                Language code that the lexicon applies to. A lexicon with a language code such as \"en\" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
         
               - **LastModified** *(datetime) --* 
         
@@ -273,10 +273,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -296,7 +296,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_speech_synthesis_task(
-              TaskId='string'
+              TaskId=\'string\'
           )
         :type TaskId: string
         :param TaskId: **[REQUIRED]** 
@@ -311,25 +311,25 @@ class Client(BaseClient):
           ::
         
             {
-                'SynthesisTask': {
-                    'TaskId': 'string',
-                    'TaskStatus': 'scheduled'|'inProgress'|'completed'|'failed',
-                    'TaskStatusReason': 'string',
-                    'OutputUri': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'RequestCharacters': 123,
-                    'SnsTopicArn': 'string',
-                    'LexiconNames': [
-                        'string',
+                \'SynthesisTask\': {
+                    \'TaskId\': \'string\',
+                    \'TaskStatus\': \'scheduled\'|\'inProgress\'|\'completed\'|\'failed\',
+                    \'TaskStatusReason\': \'string\',
+                    \'OutputUri\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'RequestCharacters\': 123,
+                    \'SnsTopicArn\': \'string\',
+                    \'LexiconNames\': [
+                        \'string\',
                     ],
-                    'OutputFormat': 'json'|'mp3'|'ogg_vorbis'|'pcm',
-                    'SampleRate': 'string',
-                    'SpeechMarkTypes': [
-                        'sentence'|'ssml'|'viseme'|'word',
+                    \'OutputFormat\': \'json\'|\'mp3\'|\'ogg_vorbis\'|\'pcm\',
+                    \'SampleRate\': \'string\',
+                    \'SpeechMarkTypes\': [
+                        \'sentence\'|\'ssml\'|\'viseme\'|\'word\',
                     ],
-                    'TextType': 'ssml'|'text',
-                    'VoiceId': 'Geraint'|'Gwyneth'|'Mads'|'Naja'|'Hans'|'Marlene'|'Nicole'|'Russell'|'Amy'|'Brian'|'Emma'|'Raveena'|'Ivy'|'Joanna'|'Joey'|'Justin'|'Kendra'|'Kimberly'|'Matthew'|'Salli'|'Conchita'|'Enrique'|'Miguel'|'Penelope'|'Chantal'|'Celine'|'Lea'|'Mathieu'|'Dora'|'Karl'|'Carla'|'Giorgio'|'Mizuki'|'Liv'|'Lotte'|'Ruben'|'Ewa'|'Jacek'|'Jan'|'Maja'|'Ricardo'|'Vitoria'|'Cristiano'|'Ines'|'Carmen'|'Maxim'|'Tatyana'|'Astrid'|'Filiz'|'Vicki'|'Takumi'|'Seoyeon'|'Aditi'|'Zhiyu'|'Bianca'|'Lucia'|'Mia',
-                    'LanguageCode': 'cmn-CN'|'cy-GB'|'da-DK'|'de-DE'|'en-AU'|'en-GB'|'en-GB-WLS'|'en-IN'|'en-US'|'es-ES'|'es-MX'|'es-US'|'fr-CA'|'fr-FR'|'is-IS'|'it-IT'|'ja-JP'|'hi-IN'|'ko-KR'|'nb-NO'|'nl-NL'|'pl-PL'|'pt-BR'|'pt-PT'|'ro-RO'|'ru-RU'|'sv-SE'|'tr-TR'
+                    \'TextType\': \'ssml\'|\'text\',
+                    \'VoiceId\': \'Geraint\'|\'Gwyneth\'|\'Mads\'|\'Naja\'|\'Hans\'|\'Marlene\'|\'Nicole\'|\'Russell\'|\'Amy\'|\'Brian\'|\'Emma\'|\'Raveena\'|\'Ivy\'|\'Joanna\'|\'Joey\'|\'Justin\'|\'Kendra\'|\'Kimberly\'|\'Matthew\'|\'Salli\'|\'Conchita\'|\'Enrique\'|\'Miguel\'|\'Penelope\'|\'Chantal\'|\'Celine\'|\'Lea\'|\'Mathieu\'|\'Dora\'|\'Karl\'|\'Carla\'|\'Giorgio\'|\'Mizuki\'|\'Liv\'|\'Lotte\'|\'Ruben\'|\'Ewa\'|\'Jacek\'|\'Jan\'|\'Maja\'|\'Ricardo\'|\'Vitoria\'|\'Cristiano\'|\'Ines\'|\'Carmen\'|\'Maxim\'|\'Tatyana\'|\'Astrid\'|\'Filiz\'|\'Vicki\'|\'Takumi\'|\'Seoyeon\'|\'Aditi\'|\'Zhiyu\'|\'Bianca\'|\'Lucia\'|\'Mia\',
+                    \'LanguageCode\': \'cmn-CN\'|\'cy-GB\'|\'da-DK\'|\'de-DE\'|\'en-AU\'|\'en-GB\'|\'en-GB-WLS\'|\'en-IN\'|\'en-US\'|\'es-ES\'|\'es-MX\'|\'es-US\'|\'fr-CA\'|\'fr-FR\'|\'is-IS\'|\'it-IT\'|\'ja-JP\'|\'hi-IN\'|\'ko-KR\'|\'nb-NO\'|\'nl-NL\'|\'pl-PL\'|\'pt-BR\'|\'pt-PT\'|\'ro-RO\'|\'ru-RU\'|\'sv-SE\'|\'tr-TR\'
                 }
             }
           **Response Structure** 
@@ -382,9 +382,9 @@ class Client(BaseClient):
         
                 The audio frequency specified in Hz.
         
-                The valid values for mp3 and ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".
+                The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".
         
-                Valid values for pcm are "8000" and "16000" The default value is "16000". 
+                Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". 
         
               - **SpeechMarkTypes** *(list) --* 
         
@@ -430,7 +430,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_lexicons(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -445,20 +445,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Lexicons': [
+                \'Lexicons\': [
                     {
-                        'Name': 'string',
-                        'Attributes': {
-                            'Alphabet': 'string',
-                            'LanguageCode': 'cmn-CN'|'cy-GB'|'da-DK'|'de-DE'|'en-AU'|'en-GB'|'en-GB-WLS'|'en-IN'|'en-US'|'es-ES'|'es-MX'|'es-US'|'fr-CA'|'fr-FR'|'is-IS'|'it-IT'|'ja-JP'|'hi-IN'|'ko-KR'|'nb-NO'|'nl-NL'|'pl-PL'|'pt-BR'|'pt-PT'|'ro-RO'|'ru-RU'|'sv-SE'|'tr-TR',
-                            'LastModified': datetime(2015, 1, 1),
-                            'LexiconArn': 'string',
-                            'LexemesCount': 123,
-                            'Size': 123
+                        \'Name\': \'string\',
+                        \'Attributes\': {
+                            \'Alphabet\': \'string\',
+                            \'LanguageCode\': \'cmn-CN\'|\'cy-GB\'|\'da-DK\'|\'de-DE\'|\'en-AU\'|\'en-GB\'|\'en-GB-WLS\'|\'en-IN\'|\'en-US\'|\'es-ES\'|\'es-MX\'|\'es-US\'|\'fr-CA\'|\'fr-FR\'|\'is-IS\'|\'it-IT\'|\'ja-JP\'|\'hi-IN\'|\'ko-KR\'|\'nb-NO\'|\'nl-NL\'|\'pl-PL\'|\'pt-BR\'|\'pt-PT\'|\'ro-RO\'|\'ru-RU\'|\'sv-SE\'|\'tr-TR\',
+                            \'LastModified\': datetime(2015, 1, 1),
+                            \'LexiconArn\': \'string\',
+                            \'LexemesCount\': 123,
+                            \'Size\': 123
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -486,7 +486,7 @@ class Client(BaseClient):
         
                   - **LanguageCode** *(string) --* 
         
-                    Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
+                    Language code that the lexicon applies to. A lexicon with a language code such as \"en\" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
         
                   - **LastModified** *(datetime) --* 
         
@@ -521,8 +521,8 @@ class Client(BaseClient):
         
           response = client.list_speech_synthesis_tasks(
               MaxResults=123,
-              NextToken='string',
-              Status='scheduled'|'inProgress'|'completed'|'failed'
+              NextToken=\'string\',
+              Status=\'scheduled\'|\'inProgress\'|\'completed\'|\'failed\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -547,27 +547,27 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'SynthesisTasks': [
+                \'NextToken\': \'string\',
+                \'SynthesisTasks\': [
                     {
-                        'TaskId': 'string',
-                        'TaskStatus': 'scheduled'|'inProgress'|'completed'|'failed',
-                        'TaskStatusReason': 'string',
-                        'OutputUri': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'RequestCharacters': 123,
-                        'SnsTopicArn': 'string',
-                        'LexiconNames': [
-                            'string',
+                        \'TaskId\': \'string\',
+                        \'TaskStatus\': \'scheduled\'|\'inProgress\'|\'completed\'|\'failed\',
+                        \'TaskStatusReason\': \'string\',
+                        \'OutputUri\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'RequestCharacters\': 123,
+                        \'SnsTopicArn\': \'string\',
+                        \'LexiconNames\': [
+                            \'string\',
                         ],
-                        'OutputFormat': 'json'|'mp3'|'ogg_vorbis'|'pcm',
-                        'SampleRate': 'string',
-                        'SpeechMarkTypes': [
-                            'sentence'|'ssml'|'viseme'|'word',
+                        \'OutputFormat\': \'json\'|\'mp3\'|\'ogg_vorbis\'|\'pcm\',
+                        \'SampleRate\': \'string\',
+                        \'SpeechMarkTypes\': [
+                            \'sentence\'|\'ssml\'|\'viseme\'|\'word\',
                         ],
-                        'TextType': 'ssml'|'text',
-                        'VoiceId': 'Geraint'|'Gwyneth'|'Mads'|'Naja'|'Hans'|'Marlene'|'Nicole'|'Russell'|'Amy'|'Brian'|'Emma'|'Raveena'|'Ivy'|'Joanna'|'Joey'|'Justin'|'Kendra'|'Kimberly'|'Matthew'|'Salli'|'Conchita'|'Enrique'|'Miguel'|'Penelope'|'Chantal'|'Celine'|'Lea'|'Mathieu'|'Dora'|'Karl'|'Carla'|'Giorgio'|'Mizuki'|'Liv'|'Lotte'|'Ruben'|'Ewa'|'Jacek'|'Jan'|'Maja'|'Ricardo'|'Vitoria'|'Cristiano'|'Ines'|'Carmen'|'Maxim'|'Tatyana'|'Astrid'|'Filiz'|'Vicki'|'Takumi'|'Seoyeon'|'Aditi'|'Zhiyu'|'Bianca'|'Lucia'|'Mia',
-                        'LanguageCode': 'cmn-CN'|'cy-GB'|'da-DK'|'de-DE'|'en-AU'|'en-GB'|'en-GB-WLS'|'en-IN'|'en-US'|'es-ES'|'es-MX'|'es-US'|'fr-CA'|'fr-FR'|'is-IS'|'it-IT'|'ja-JP'|'hi-IN'|'ko-KR'|'nb-NO'|'nl-NL'|'pl-PL'|'pt-BR'|'pt-PT'|'ro-RO'|'ru-RU'|'sv-SE'|'tr-TR'
+                        \'TextType\': \'ssml\'|\'text\',
+                        \'VoiceId\': \'Geraint\'|\'Gwyneth\'|\'Mads\'|\'Naja\'|\'Hans\'|\'Marlene\'|\'Nicole\'|\'Russell\'|\'Amy\'|\'Brian\'|\'Emma\'|\'Raveena\'|\'Ivy\'|\'Joanna\'|\'Joey\'|\'Justin\'|\'Kendra\'|\'Kimberly\'|\'Matthew\'|\'Salli\'|\'Conchita\'|\'Enrique\'|\'Miguel\'|\'Penelope\'|\'Chantal\'|\'Celine\'|\'Lea\'|\'Mathieu\'|\'Dora\'|\'Karl\'|\'Carla\'|\'Giorgio\'|\'Mizuki\'|\'Liv\'|\'Lotte\'|\'Ruben\'|\'Ewa\'|\'Jacek\'|\'Jan\'|\'Maja\'|\'Ricardo\'|\'Vitoria\'|\'Cristiano\'|\'Ines\'|\'Carmen\'|\'Maxim\'|\'Tatyana\'|\'Astrid\'|\'Filiz\'|\'Vicki\'|\'Takumi\'|\'Seoyeon\'|\'Aditi\'|\'Zhiyu\'|\'Bianca\'|\'Lucia\'|\'Mia\',
+                        \'LanguageCode\': \'cmn-CN\'|\'cy-GB\'|\'da-DK\'|\'de-DE\'|\'en-AU\'|\'en-GB\'|\'en-GB-WLS\'|\'en-IN\'|\'en-US\'|\'es-ES\'|\'es-MX\'|\'es-US\'|\'fr-CA\'|\'fr-FR\'|\'is-IS\'|\'it-IT\'|\'ja-JP\'|\'hi-IN\'|\'ko-KR\'|\'nb-NO\'|\'nl-NL\'|\'pl-PL\'|\'pt-BR\'|\'pt-PT\'|\'ro-RO\'|\'ru-RU\'|\'sv-SE\'|\'tr-TR\'
                     },
                 ]
             }
@@ -629,9 +629,9 @@ class Client(BaseClient):
         
                   The audio frequency specified in Hz.
         
-                  The valid values for mp3 and ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".
+                  The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".
         
-                  Valid values for pcm are "8000" and "16000" The default value is "16000". 
+                  Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". 
         
                 - **SpeechMarkTypes** *(list) --* 
         
@@ -667,8 +667,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_lexicon(
-              Name='string',
-              Content='string'
+              Name=\'string\',
+              Content=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -704,20 +704,20 @@ class Client(BaseClient):
         
           response = client.start_speech_synthesis_task(
               LexiconNames=[
-                  'string',
+                  \'string\',
               ],
-              OutputFormat='json'|'mp3'|'ogg_vorbis'|'pcm',
-              OutputS3BucketName='string',
-              OutputS3KeyPrefix='string',
-              SampleRate='string',
-              SnsTopicArn='string',
+              OutputFormat=\'json\'|\'mp3\'|\'ogg_vorbis\'|\'pcm\',
+              OutputS3BucketName=\'string\',
+              OutputS3KeyPrefix=\'string\',
+              SampleRate=\'string\',
+              SnsTopicArn=\'string\',
               SpeechMarkTypes=[
-                  'sentence'|'ssml'|'viseme'|'word',
+                  \'sentence\'|\'ssml\'|\'viseme\'|\'word\',
               ],
-              Text='string',
-              TextType='ssml'|'text',
-              VoiceId='Geraint'|'Gwyneth'|'Mads'|'Naja'|'Hans'|'Marlene'|'Nicole'|'Russell'|'Amy'|'Brian'|'Emma'|'Raveena'|'Ivy'|'Joanna'|'Joey'|'Justin'|'Kendra'|'Kimberly'|'Matthew'|'Salli'|'Conchita'|'Enrique'|'Miguel'|'Penelope'|'Chantal'|'Celine'|'Lea'|'Mathieu'|'Dora'|'Karl'|'Carla'|'Giorgio'|'Mizuki'|'Liv'|'Lotte'|'Ruben'|'Ewa'|'Jacek'|'Jan'|'Maja'|'Ricardo'|'Vitoria'|'Cristiano'|'Ines'|'Carmen'|'Maxim'|'Tatyana'|'Astrid'|'Filiz'|'Vicki'|'Takumi'|'Seoyeon'|'Aditi'|'Zhiyu'|'Bianca'|'Lucia'|'Mia',
-              LanguageCode='cmn-CN'|'cy-GB'|'da-DK'|'de-DE'|'en-AU'|'en-GB'|'en-GB-WLS'|'en-IN'|'en-US'|'es-ES'|'es-MX'|'es-US'|'fr-CA'|'fr-FR'|'is-IS'|'it-IT'|'ja-JP'|'hi-IN'|'ko-KR'|'nb-NO'|'nl-NL'|'pl-PL'|'pt-BR'|'pt-PT'|'ro-RO'|'ru-RU'|'sv-SE'|'tr-TR'
+              Text=\'string\',
+              TextType=\'ssml\'|\'text\',
+              VoiceId=\'Geraint\'|\'Gwyneth\'|\'Mads\'|\'Naja\'|\'Hans\'|\'Marlene\'|\'Nicole\'|\'Russell\'|\'Amy\'|\'Brian\'|\'Emma\'|\'Raveena\'|\'Ivy\'|\'Joanna\'|\'Joey\'|\'Justin\'|\'Kendra\'|\'Kimberly\'|\'Matthew\'|\'Salli\'|\'Conchita\'|\'Enrique\'|\'Miguel\'|\'Penelope\'|\'Chantal\'|\'Celine\'|\'Lea\'|\'Mathieu\'|\'Dora\'|\'Karl\'|\'Carla\'|\'Giorgio\'|\'Mizuki\'|\'Liv\'|\'Lotte\'|\'Ruben\'|\'Ewa\'|\'Jacek\'|\'Jan\'|\'Maja\'|\'Ricardo\'|\'Vitoria\'|\'Cristiano\'|\'Ines\'|\'Carmen\'|\'Maxim\'|\'Tatyana\'|\'Astrid\'|\'Filiz\'|\'Vicki\'|\'Takumi\'|\'Seoyeon\'|\'Aditi\'|\'Zhiyu\'|\'Bianca\'|\'Lucia\'|\'Mia\',
+              LanguageCode=\'cmn-CN\'|\'cy-GB\'|\'da-DK\'|\'de-DE\'|\'en-AU\'|\'en-GB\'|\'en-GB-WLS\'|\'en-IN\'|\'en-US\'|\'es-ES\'|\'es-MX\'|\'es-US\'|\'fr-CA\'|\'fr-FR\'|\'is-IS\'|\'it-IT\'|\'ja-JP\'|\'hi-IN\'|\'ko-KR\'|\'nb-NO\'|\'nl-NL\'|\'pl-PL\'|\'pt-BR\'|\'pt-PT\'|\'ro-RO\'|\'ru-RU\'|\'sv-SE\'|\'tr-TR\'
           )
         :type LexiconNames: list
         :param LexiconNames: 
@@ -746,9 +746,9 @@ class Client(BaseClient):
         
           The audio frequency specified in Hz.
         
-          The valid values for mp3 and ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".
+          The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".
         
-          Valid values for pcm are "8000" and "16000" The default value is "16000". 
+          Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". 
         
         :type SnsTopicArn: string
         :param SnsTopicArn: 
@@ -792,25 +792,25 @@ class Client(BaseClient):
           ::
         
             {
-                'SynthesisTask': {
-                    'TaskId': 'string',
-                    'TaskStatus': 'scheduled'|'inProgress'|'completed'|'failed',
-                    'TaskStatusReason': 'string',
-                    'OutputUri': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'RequestCharacters': 123,
-                    'SnsTopicArn': 'string',
-                    'LexiconNames': [
-                        'string',
+                \'SynthesisTask\': {
+                    \'TaskId\': \'string\',
+                    \'TaskStatus\': \'scheduled\'|\'inProgress\'|\'completed\'|\'failed\',
+                    \'TaskStatusReason\': \'string\',
+                    \'OutputUri\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'RequestCharacters\': 123,
+                    \'SnsTopicArn\': \'string\',
+                    \'LexiconNames\': [
+                        \'string\',
                     ],
-                    'OutputFormat': 'json'|'mp3'|'ogg_vorbis'|'pcm',
-                    'SampleRate': 'string',
-                    'SpeechMarkTypes': [
-                        'sentence'|'ssml'|'viseme'|'word',
+                    \'OutputFormat\': \'json\'|\'mp3\'|\'ogg_vorbis\'|\'pcm\',
+                    \'SampleRate\': \'string\',
+                    \'SpeechMarkTypes\': [
+                        \'sentence\'|\'ssml\'|\'viseme\'|\'word\',
                     ],
-                    'TextType': 'ssml'|'text',
-                    'VoiceId': 'Geraint'|'Gwyneth'|'Mads'|'Naja'|'Hans'|'Marlene'|'Nicole'|'Russell'|'Amy'|'Brian'|'Emma'|'Raveena'|'Ivy'|'Joanna'|'Joey'|'Justin'|'Kendra'|'Kimberly'|'Matthew'|'Salli'|'Conchita'|'Enrique'|'Miguel'|'Penelope'|'Chantal'|'Celine'|'Lea'|'Mathieu'|'Dora'|'Karl'|'Carla'|'Giorgio'|'Mizuki'|'Liv'|'Lotte'|'Ruben'|'Ewa'|'Jacek'|'Jan'|'Maja'|'Ricardo'|'Vitoria'|'Cristiano'|'Ines'|'Carmen'|'Maxim'|'Tatyana'|'Astrid'|'Filiz'|'Vicki'|'Takumi'|'Seoyeon'|'Aditi'|'Zhiyu'|'Bianca'|'Lucia'|'Mia',
-                    'LanguageCode': 'cmn-CN'|'cy-GB'|'da-DK'|'de-DE'|'en-AU'|'en-GB'|'en-GB-WLS'|'en-IN'|'en-US'|'es-ES'|'es-MX'|'es-US'|'fr-CA'|'fr-FR'|'is-IS'|'it-IT'|'ja-JP'|'hi-IN'|'ko-KR'|'nb-NO'|'nl-NL'|'pl-PL'|'pt-BR'|'pt-PT'|'ro-RO'|'ru-RU'|'sv-SE'|'tr-TR'
+                    \'TextType\': \'ssml\'|\'text\',
+                    \'VoiceId\': \'Geraint\'|\'Gwyneth\'|\'Mads\'|\'Naja\'|\'Hans\'|\'Marlene\'|\'Nicole\'|\'Russell\'|\'Amy\'|\'Brian\'|\'Emma\'|\'Raveena\'|\'Ivy\'|\'Joanna\'|\'Joey\'|\'Justin\'|\'Kendra\'|\'Kimberly\'|\'Matthew\'|\'Salli\'|\'Conchita\'|\'Enrique\'|\'Miguel\'|\'Penelope\'|\'Chantal\'|\'Celine\'|\'Lea\'|\'Mathieu\'|\'Dora\'|\'Karl\'|\'Carla\'|\'Giorgio\'|\'Mizuki\'|\'Liv\'|\'Lotte\'|\'Ruben\'|\'Ewa\'|\'Jacek\'|\'Jan\'|\'Maja\'|\'Ricardo\'|\'Vitoria\'|\'Cristiano\'|\'Ines\'|\'Carmen\'|\'Maxim\'|\'Tatyana\'|\'Astrid\'|\'Filiz\'|\'Vicki\'|\'Takumi\'|\'Seoyeon\'|\'Aditi\'|\'Zhiyu\'|\'Bianca\'|\'Lucia\'|\'Mia\',
+                    \'LanguageCode\': \'cmn-CN\'|\'cy-GB\'|\'da-DK\'|\'de-DE\'|\'en-AU\'|\'en-GB\'|\'en-GB-WLS\'|\'en-IN\'|\'en-US\'|\'es-ES\'|\'es-MX\'|\'es-US\'|\'fr-CA\'|\'fr-FR\'|\'is-IS\'|\'it-IT\'|\'ja-JP\'|\'hi-IN\'|\'ko-KR\'|\'nb-NO\'|\'nl-NL\'|\'pl-PL\'|\'pt-BR\'|\'pt-PT\'|\'ro-RO\'|\'ru-RU\'|\'sv-SE\'|\'tr-TR\'
                 }
             }
           **Response Structure** 
@@ -863,9 +863,9 @@ class Client(BaseClient):
         
                 The audio frequency specified in Hz.
         
-                The valid values for mp3 and ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".
+                The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".
         
-                Valid values for pcm are "8000" and "16000" The default value is "16000". 
+                Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". 
         
               - **SpeechMarkTypes** *(list) --* 
         
@@ -900,17 +900,17 @@ class Client(BaseClient):
         
           response = client.synthesize_speech(
               LexiconNames=[
-                  'string',
+                  \'string\',
               ],
-              OutputFormat='json'|'mp3'|'ogg_vorbis'|'pcm',
-              SampleRate='string',
+              OutputFormat=\'json\'|\'mp3\'|\'ogg_vorbis\'|\'pcm\',
+              SampleRate=\'string\',
               SpeechMarkTypes=[
-                  'sentence'|'ssml'|'viseme'|'word',
+                  \'sentence\'|\'ssml\'|\'viseme\'|\'word\',
               ],
-              Text='string',
-              TextType='ssml'|'text',
-              VoiceId='Geraint'|'Gwyneth'|'Mads'|'Naja'|'Hans'|'Marlene'|'Nicole'|'Russell'|'Amy'|'Brian'|'Emma'|'Raveena'|'Ivy'|'Joanna'|'Joey'|'Justin'|'Kendra'|'Kimberly'|'Matthew'|'Salli'|'Conchita'|'Enrique'|'Miguel'|'Penelope'|'Chantal'|'Celine'|'Lea'|'Mathieu'|'Dora'|'Karl'|'Carla'|'Giorgio'|'Mizuki'|'Liv'|'Lotte'|'Ruben'|'Ewa'|'Jacek'|'Jan'|'Maja'|'Ricardo'|'Vitoria'|'Cristiano'|'Ines'|'Carmen'|'Maxim'|'Tatyana'|'Astrid'|'Filiz'|'Vicki'|'Takumi'|'Seoyeon'|'Aditi'|'Zhiyu'|'Bianca'|'Lucia'|'Mia',
-              LanguageCode='cmn-CN'|'cy-GB'|'da-DK'|'de-DE'|'en-AU'|'en-GB'|'en-GB-WLS'|'en-IN'|'en-US'|'es-ES'|'es-MX'|'es-US'|'fr-CA'|'fr-FR'|'is-IS'|'it-IT'|'ja-JP'|'hi-IN'|'ko-KR'|'nb-NO'|'nl-NL'|'pl-PL'|'pt-BR'|'pt-PT'|'ro-RO'|'ru-RU'|'sv-SE'|'tr-TR'
+              Text=\'string\',
+              TextType=\'ssml\'|\'text\',
+              VoiceId=\'Geraint\'|\'Gwyneth\'|\'Mads\'|\'Naja\'|\'Hans\'|\'Marlene\'|\'Nicole\'|\'Russell\'|\'Amy\'|\'Brian\'|\'Emma\'|\'Raveena\'|\'Ivy\'|\'Joanna\'|\'Joey\'|\'Justin\'|\'Kendra\'|\'Kimberly\'|\'Matthew\'|\'Salli\'|\'Conchita\'|\'Enrique\'|\'Miguel\'|\'Penelope\'|\'Chantal\'|\'Celine\'|\'Lea\'|\'Mathieu\'|\'Dora\'|\'Karl\'|\'Carla\'|\'Giorgio\'|\'Mizuki\'|\'Liv\'|\'Lotte\'|\'Ruben\'|\'Ewa\'|\'Jacek\'|\'Jan\'|\'Maja\'|\'Ricardo\'|\'Vitoria\'|\'Cristiano\'|\'Ines\'|\'Carmen\'|\'Maxim\'|\'Tatyana\'|\'Astrid\'|\'Filiz\'|\'Vicki\'|\'Takumi\'|\'Seoyeon\'|\'Aditi\'|\'Zhiyu\'|\'Bianca\'|\'Lucia\'|\'Mia\',
+              LanguageCode=\'cmn-CN\'|\'cy-GB\'|\'da-DK\'|\'de-DE\'|\'en-AU\'|\'en-GB\'|\'en-GB-WLS\'|\'en-IN\'|\'en-US\'|\'es-ES\'|\'es-MX\'|\'es-US\'|\'fr-CA\'|\'fr-FR\'|\'is-IS\'|\'it-IT\'|\'ja-JP\'|\'hi-IN\'|\'ko-KR\'|\'nb-NO\'|\'nl-NL\'|\'pl-PL\'|\'pt-BR\'|\'pt-PT\'|\'ro-RO\'|\'ru-RU\'|\'sv-SE\'|\'tr-TR\'
           )
         :type LexiconNames: list
         :param LexiconNames: 
@@ -931,9 +931,9 @@ class Client(BaseClient):
         
           The audio frequency specified in Hz. 
         
-          The valid values for ``mp3`` and ``ogg_vorbis`` are "8000", "16000", and "22050". The default value is "22050". 
+          The valid values for ``mp3`` and ``ogg_vorbis`` are \"8000\", \"16000\", and \"22050\". The default value is \"22050\". 
         
-          Valid values for ``pcm`` are "8000" and "16000" The default value is "16000". 
+          Valid values for ``pcm`` are \"8000\" and \"16000\" The default value is \"16000\". 
         
         :type SpeechMarkTypes: list
         :param SpeechMarkTypes: 
@@ -972,9 +972,9 @@ class Client(BaseClient):
           ::
         
             {
-                'AudioStream': StreamingBody(),
-                'ContentType': 'string',
-                'RequestCharacters': 123
+                \'AudioStream\': StreamingBody(),
+                \'ContentType\': \'string\',
+                \'RequestCharacters\': 123
             }
           **Response Structure** 
         

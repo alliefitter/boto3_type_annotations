@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -38,7 +38,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_cluster(
-              clusterName='string'
+              clusterName=\'string\'
           )
         :type clusterName: string
         :param clusterName: 
@@ -53,18 +53,18 @@ class Client(BaseClient):
           ::
         
             {
-                'cluster': {
-                    'clusterArn': 'string',
-                    'clusterName': 'string',
-                    'status': 'string',
-                    'registeredContainerInstancesCount': 123,
-                    'runningTasksCount': 123,
-                    'pendingTasksCount': 123,
-                    'activeServicesCount': 123,
-                    'statistics': [
+                \'cluster\': {
+                    \'clusterArn\': \'string\',
+                    \'clusterName\': \'string\',
+                    \'status\': \'string\',
+                    \'registeredContainerInstancesCount\': 123,
+                    \'runningTasksCount\': 123,
+                    \'pendingTasksCount\': 123,
+                    \'activeServicesCount\': 123,
+                    \'statistics\': [
                         {
-                            'name': 'string',
-                            'value': 'string'
+                            \'name\': \'string\',
+                            \'value\': \'string\'
                         },
                     ]
                 }
@@ -147,13 +147,13 @@ class Client(BaseClient):
         
         You can optionally specify a deployment configuration for your service. During a deployment, the service scheduler uses the ``minimumHealthyPercent`` and ``maximumPercent`` parameters to determine the deployment strategy. The deployment is triggered by changing the task definition or the desired count of a service with an  UpdateService operation.
         
-        The ``minimumHealthyPercent`` represents a lower limit on the number of your service's tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the scheduler can stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that *do not* use a load balancer are considered healthy if they are in the ``RUNNING`` state. Tasks for services that *do* use a load balancer are considered healthy if they are in the ``RUNNING`` state and the container instance they are hosted on is reported as healthy by the load balancer. The default value for a replica service for ``minimumHealthyPercent`` is 50% in the console and 100% for the AWS CLI, the AWS SDKs, and the APIs. The default value for a daemon service for ``minimumHealthyPercent`` is 0% for the AWS CLI, the AWS SDKs, and the APIs and 50% for the console.
+        The ``minimumHealthyPercent`` represents a lower limit on the number of your service\'s tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the scheduler can stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that *do not* use a load balancer are considered healthy if they are in the ``RUNNING`` state. Tasks for services that *do* use a load balancer are considered healthy if they are in the ``RUNNING`` state and the container instance they are hosted on is reported as healthy by the load balancer. The default value for a replica service for ``minimumHealthyPercent`` is 50% in the console and 100% for the AWS CLI, the AWS SDKs, and the APIs. The default value for a daemon service for ``minimumHealthyPercent`` is 0% for the AWS CLI, the AWS SDKs, and the APIs and 50% for the console.
         
-        The ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your replica service has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler can start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value for a replica service for ``maximumPercent`` is 200%. If you are using a daemon service type, the ``maximumPercent`` should remain at 100%, which is the default value.
+        The ``maximumPercent`` parameter represents an upper limit on the number of your service\'s tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your replica service has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler can start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value for a replica service for ``maximumPercent`` is 200%. If you are using a daemon service type, the ``maximumPercent`` should remain at 100%, which is the default value.
         
         When the service scheduler launches new tasks, it determines task placement in your cluster using the following logic:
         
-        * Determine which of the container instances in your cluster can support your service's task definition (for example, they have the required CPU, memory, ports, and container instance attributes). 
+        * Determine which of the container instances in your cluster can support your service\'s task definition (for example, they have the required CPU, memory, ports, and container instance attributes). 
          
         * By default, the service scheduler attempts to balance tasks across Availability Zones in this manner (although you can choose a different placement strategy) with the ``placementStrategy`` parameter): 
         
@@ -167,59 +167,59 @@ class Client(BaseClient):
         ::
         
           response = client.create_service(
-              cluster='string',
-              serviceName='string',
-              taskDefinition='string',
+              cluster=\'string\',
+              serviceName=\'string\',
+              taskDefinition=\'string\',
               loadBalancers=[
                   {
-                      'targetGroupArn': 'string',
-                      'loadBalancerName': 'string',
-                      'containerName': 'string',
-                      'containerPort': 123
+                      \'targetGroupArn\': \'string\',
+                      \'loadBalancerName\': \'string\',
+                      \'containerName\': \'string\',
+                      \'containerPort\': 123
                   },
               ],
               serviceRegistries=[
                   {
-                      'registryArn': 'string',
-                      'port': 123,
-                      'containerName': 'string',
-                      'containerPort': 123
+                      \'registryArn\': \'string\',
+                      \'port\': 123,
+                      \'containerName\': \'string\',
+                      \'containerPort\': 123
                   },
               ],
               desiredCount=123,
-              clientToken='string',
-              launchType='EC2'|'FARGATE',
-              platformVersion='string',
-              role='string',
+              clientToken=\'string\',
+              launchType=\'EC2\'|\'FARGATE\',
+              platformVersion=\'string\',
+              role=\'string\',
               deploymentConfiguration={
-                  'maximumPercent': 123,
-                  'minimumHealthyPercent': 123
+                  \'maximumPercent\': 123,
+                  \'minimumHealthyPercent\': 123
               },
               placementConstraints=[
                   {
-                      'type': 'distinctInstance'|'memberOf',
-                      'expression': 'string'
+                      \'type\': \'distinctInstance\'|\'memberOf\',
+                      \'expression\': \'string\'
                   },
               ],
               placementStrategy=[
                   {
-                      'type': 'random'|'spread'|'binpack',
-                      'field': 'string'
+                      \'type\': \'random\'|\'spread\'|\'binpack\',
+                      \'field\': \'string\'
                   },
               ],
               networkConfiguration={
-                  'awsvpcConfiguration': {
-                      'subnets': [
-                          'string',
+                  \'awsvpcConfiguration\': {
+                      \'subnets\': [
+                          \'string\',
                       ],
-                      'securityGroups': [
-                          'string',
+                      \'securityGroups\': [
+                          \'string\',
                       ],
-                      'assignPublicIp': 'ENABLED'|'DISABLED'
+                      \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                   }
               },
               healthCheckGracePeriodSeconds=123,
-              schedulingStrategy='REPLICA'|'DAEMON'
+              schedulingStrategy=\'REPLICA\'|\'DAEMON\'
           )
         :type cluster: string
         :param cluster: 
@@ -259,7 +259,7 @@ class Client(BaseClient):
         
               .. warning::
         
-                If your service's task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                If your service\'s task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
         
             - **loadBalancerName** *(string) --* 
         
@@ -271,7 +271,7 @@ class Client(BaseClient):
         
             - **containerPort** *(integer) --* 
         
-              The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+              The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service\'s task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
         
         :type serviceRegistries: list
         :param serviceRegistries: 
@@ -340,11 +340,11 @@ class Client(BaseClient):
         
           - **maximumPercent** *(integer) --* 
         
-            The upper limit (as a percentage of the service's ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
+            The upper limit (as a percentage of the service\'s ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
         
           - **minimumHealthyPercent** *(integer) --* 
         
-            The lower limit (as a percentage of the service's ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
+            The lower limit (as a percentage of the service\'s ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
         
         :type placementConstraints: list
         :param placementConstraints: 
@@ -415,12 +415,12 @@ class Client(BaseClient):
         
             - **assignPublicIp** *(string) --* 
         
-              Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+              Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
         :type healthCheckGracePeriodSeconds: integer
         :param healthCheckGracePeriodSeconds: 
         
-          The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 7,200 seconds during which the ECS service scheduler ignores health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+          The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service\'s tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 7,200 seconds during which the ECS service scheduler ignores health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
         
         :type schedulingStrategy: string
         :param schedulingStrategy: 
@@ -445,96 +445,96 @@ class Client(BaseClient):
           ::
         
             {
-                'service': {
-                    'serviceArn': 'string',
-                    'serviceName': 'string',
-                    'clusterArn': 'string',
-                    'loadBalancers': [
+                \'service\': {
+                    \'serviceArn\': \'string\',
+                    \'serviceName\': \'string\',
+                    \'clusterArn\': \'string\',
+                    \'loadBalancers\': [
                         {
-                            'targetGroupArn': 'string',
-                            'loadBalancerName': 'string',
-                            'containerName': 'string',
-                            'containerPort': 123
+                            \'targetGroupArn\': \'string\',
+                            \'loadBalancerName\': \'string\',
+                            \'containerName\': \'string\',
+                            \'containerPort\': 123
                         },
                     ],
-                    'serviceRegistries': [
+                    \'serviceRegistries\': [
                         {
-                            'registryArn': 'string',
-                            'port': 123,
-                            'containerName': 'string',
-                            'containerPort': 123
+                            \'registryArn\': \'string\',
+                            \'port\': 123,
+                            \'containerName\': \'string\',
+                            \'containerPort\': 123
                         },
                     ],
-                    'status': 'string',
-                    'desiredCount': 123,
-                    'runningCount': 123,
-                    'pendingCount': 123,
-                    'launchType': 'EC2'|'FARGATE',
-                    'platformVersion': 'string',
-                    'taskDefinition': 'string',
-                    'deploymentConfiguration': {
-                        'maximumPercent': 123,
-                        'minimumHealthyPercent': 123
+                    \'status\': \'string\',
+                    \'desiredCount\': 123,
+                    \'runningCount\': 123,
+                    \'pendingCount\': 123,
+                    \'launchType\': \'EC2\'|\'FARGATE\',
+                    \'platformVersion\': \'string\',
+                    \'taskDefinition\': \'string\',
+                    \'deploymentConfiguration\': {
+                        \'maximumPercent\': 123,
+                        \'minimumHealthyPercent\': 123
                     },
-                    'deployments': [
+                    \'deployments\': [
                         {
-                            'id': 'string',
-                            'status': 'string',
-                            'taskDefinition': 'string',
-                            'desiredCount': 123,
-                            'pendingCount': 123,
-                            'runningCount': 123,
-                            'createdAt': datetime(2015, 1, 1),
-                            'updatedAt': datetime(2015, 1, 1),
-                            'launchType': 'EC2'|'FARGATE',
-                            'platformVersion': 'string',
-                            'networkConfiguration': {
-                                'awsvpcConfiguration': {
-                                    'subnets': [
-                                        'string',
+                            \'id\': \'string\',
+                            \'status\': \'string\',
+                            \'taskDefinition\': \'string\',
+                            \'desiredCount\': 123,
+                            \'pendingCount\': 123,
+                            \'runningCount\': 123,
+                            \'createdAt\': datetime(2015, 1, 1),
+                            \'updatedAt\': datetime(2015, 1, 1),
+                            \'launchType\': \'EC2\'|\'FARGATE\',
+                            \'platformVersion\': \'string\',
+                            \'networkConfiguration\': {
+                                \'awsvpcConfiguration\': {
+                                    \'subnets\': [
+                                        \'string\',
                                     ],
-                                    'securityGroups': [
-                                        'string',
+                                    \'securityGroups\': [
+                                        \'string\',
                                     ],
-                                    'assignPublicIp': 'ENABLED'|'DISABLED'
+                                    \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                                 }
                             }
                         },
                     ],
-                    'roleArn': 'string',
-                    'events': [
+                    \'roleArn\': \'string\',
+                    \'events\': [
                         {
-                            'id': 'string',
-                            'createdAt': datetime(2015, 1, 1),
-                            'message': 'string'
+                            \'id\': \'string\',
+                            \'createdAt\': datetime(2015, 1, 1),
+                            \'message\': \'string\'
                         },
                     ],
-                    'createdAt': datetime(2015, 1, 1),
-                    'placementConstraints': [
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'placementConstraints\': [
                         {
-                            'type': 'distinctInstance'|'memberOf',
-                            'expression': 'string'
+                            \'type\': \'distinctInstance\'|\'memberOf\',
+                            \'expression\': \'string\'
                         },
                     ],
-                    'placementStrategy': [
+                    \'placementStrategy\': [
                         {
-                            'type': 'random'|'spread'|'binpack',
-                            'field': 'string'
+                            \'type\': \'random\'|\'spread\'|\'binpack\',
+                            \'field\': \'string\'
                         },
                     ],
-                    'networkConfiguration': {
-                        'awsvpcConfiguration': {
-                            'subnets': [
-                                'string',
+                    \'networkConfiguration\': {
+                        \'awsvpcConfiguration\': {
+                            \'subnets\': [
+                                \'string\',
                             ],
-                            'securityGroups': [
-                                'string',
+                            \'securityGroups\': [
+                                \'string\',
                             ],
-                            'assignPublicIp': 'ENABLED'|'DISABLED'
+                            \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                         }
                     },
-                    'healthCheckGracePeriodSeconds': 123,
-                    'schedulingStrategy': 'REPLICA'|'DAEMON'
+                    \'healthCheckGracePeriodSeconds\': 123,
+                    \'schedulingStrategy\': \'REPLICA\'|\'DAEMON\'
                 }
             }
           **Response Structure** 
@@ -575,7 +575,7 @@ class Client(BaseClient):
         
                     .. warning::
         
-                      If your service's task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                      If your service\'s task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
         
                   - **loadBalancerName** *(string) --* 
         
@@ -587,7 +587,7 @@ class Client(BaseClient):
         
                   - **containerPort** *(integer) --* 
         
-                    The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+                    The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service\'s task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
         
               - **serviceRegistries** *(list) --* 
         
@@ -645,11 +645,11 @@ class Client(BaseClient):
         
                 - **maximumPercent** *(integer) --* 
         
-                  The upper limit (as a percentage of the service's ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
+                  The upper limit (as a percentage of the service\'s ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
         
                 - **minimumHealthyPercent** *(integer) --* 
         
-                  The lower limit (as a percentage of the service's ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
+                  The lower limit (as a percentage of the service\'s ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
         
               - **deployments** *(list) --* 
         
@@ -733,7 +733,7 @@ class Client(BaseClient):
                     
                       - **assignPublicIp** *(string) --* 
         
-                        Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+                        Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
               - **roleArn** *(string) --* 
         
@@ -829,7 +829,7 @@ class Client(BaseClient):
                 
                   - **assignPublicIp** *(string) --* 
         
-                    Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+                    Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
               - **healthCheckGracePeriodSeconds** *(integer) --* 
         
@@ -861,13 +861,13 @@ class Client(BaseClient):
         ::
         
           response = client.delete_attributes(
-              cluster='string',
+              cluster=\'string\',
               attributes=[
                   {
-                      'name': 'string',
-                      'value': 'string',
-                      'targetType': 'container-instance',
-                      'targetId': 'string'
+                      \'name\': \'string\',
+                      \'value\': \'string\',
+                      \'targetType\': \'container-instance\',
+                      \'targetId\': \'string\'
                   },
               ]
           )
@@ -909,12 +909,12 @@ class Client(BaseClient):
           ::
         
             {
-                'attributes': [
+                \'attributes\': [
                     {
-                        'name': 'string',
-                        'value': 'string',
-                        'targetType': 'container-instance',
-                        'targetId': 'string'
+                        \'name\': \'string\',
+                        \'value\': \'string\',
+                        \'targetType\': \'container-instance\',
+                        \'targetId\': \'string\'
                     },
                 ]
             }
@@ -958,7 +958,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cluster(
-              cluster='string'
+              cluster=\'string\'
           )
         :type cluster: string
         :param cluster: **[REQUIRED]** 
@@ -973,18 +973,18 @@ class Client(BaseClient):
           ::
         
             {
-                'cluster': {
-                    'clusterArn': 'string',
-                    'clusterName': 'string',
-                    'status': 'string',
-                    'registeredContainerInstancesCount': 123,
-                    'runningTasksCount': 123,
-                    'pendingTasksCount': 123,
-                    'activeServicesCount': 123,
-                    'statistics': [
+                \'cluster\': {
+                    \'clusterArn\': \'string\',
+                    \'clusterName\': \'string\',
+                    \'status\': \'string\',
+                    \'registeredContainerInstancesCount\': 123,
+                    \'runningTasksCount\': 123,
+                    \'pendingTasksCount\': 123,
+                    \'activeServicesCount\': 123,
+                    \'statistics\': [
                         {
-                            'name': 'string',
-                            'value': 'string'
+                            \'name\': \'string\',
+                            \'value\': \'string\'
                         },
                     ]
                 }
@@ -1077,8 +1077,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_service(
-              cluster='string',
-              service='string',
+              cluster=\'string\',
+              service=\'string\',
               force=True|False
           )
         :type cluster: string
@@ -1104,96 +1104,96 @@ class Client(BaseClient):
           ::
         
             {
-                'service': {
-                    'serviceArn': 'string',
-                    'serviceName': 'string',
-                    'clusterArn': 'string',
-                    'loadBalancers': [
+                \'service\': {
+                    \'serviceArn\': \'string\',
+                    \'serviceName\': \'string\',
+                    \'clusterArn\': \'string\',
+                    \'loadBalancers\': [
                         {
-                            'targetGroupArn': 'string',
-                            'loadBalancerName': 'string',
-                            'containerName': 'string',
-                            'containerPort': 123
+                            \'targetGroupArn\': \'string\',
+                            \'loadBalancerName\': \'string\',
+                            \'containerName\': \'string\',
+                            \'containerPort\': 123
                         },
                     ],
-                    'serviceRegistries': [
+                    \'serviceRegistries\': [
                         {
-                            'registryArn': 'string',
-                            'port': 123,
-                            'containerName': 'string',
-                            'containerPort': 123
+                            \'registryArn\': \'string\',
+                            \'port\': 123,
+                            \'containerName\': \'string\',
+                            \'containerPort\': 123
                         },
                     ],
-                    'status': 'string',
-                    'desiredCount': 123,
-                    'runningCount': 123,
-                    'pendingCount': 123,
-                    'launchType': 'EC2'|'FARGATE',
-                    'platformVersion': 'string',
-                    'taskDefinition': 'string',
-                    'deploymentConfiguration': {
-                        'maximumPercent': 123,
-                        'minimumHealthyPercent': 123
+                    \'status\': \'string\',
+                    \'desiredCount\': 123,
+                    \'runningCount\': 123,
+                    \'pendingCount\': 123,
+                    \'launchType\': \'EC2\'|\'FARGATE\',
+                    \'platformVersion\': \'string\',
+                    \'taskDefinition\': \'string\',
+                    \'deploymentConfiguration\': {
+                        \'maximumPercent\': 123,
+                        \'minimumHealthyPercent\': 123
                     },
-                    'deployments': [
+                    \'deployments\': [
                         {
-                            'id': 'string',
-                            'status': 'string',
-                            'taskDefinition': 'string',
-                            'desiredCount': 123,
-                            'pendingCount': 123,
-                            'runningCount': 123,
-                            'createdAt': datetime(2015, 1, 1),
-                            'updatedAt': datetime(2015, 1, 1),
-                            'launchType': 'EC2'|'FARGATE',
-                            'platformVersion': 'string',
-                            'networkConfiguration': {
-                                'awsvpcConfiguration': {
-                                    'subnets': [
-                                        'string',
+                            \'id\': \'string\',
+                            \'status\': \'string\',
+                            \'taskDefinition\': \'string\',
+                            \'desiredCount\': 123,
+                            \'pendingCount\': 123,
+                            \'runningCount\': 123,
+                            \'createdAt\': datetime(2015, 1, 1),
+                            \'updatedAt\': datetime(2015, 1, 1),
+                            \'launchType\': \'EC2\'|\'FARGATE\',
+                            \'platformVersion\': \'string\',
+                            \'networkConfiguration\': {
+                                \'awsvpcConfiguration\': {
+                                    \'subnets\': [
+                                        \'string\',
                                     ],
-                                    'securityGroups': [
-                                        'string',
+                                    \'securityGroups\': [
+                                        \'string\',
                                     ],
-                                    'assignPublicIp': 'ENABLED'|'DISABLED'
+                                    \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                                 }
                             }
                         },
                     ],
-                    'roleArn': 'string',
-                    'events': [
+                    \'roleArn\': \'string\',
+                    \'events\': [
                         {
-                            'id': 'string',
-                            'createdAt': datetime(2015, 1, 1),
-                            'message': 'string'
+                            \'id\': \'string\',
+                            \'createdAt\': datetime(2015, 1, 1),
+                            \'message\': \'string\'
                         },
                     ],
-                    'createdAt': datetime(2015, 1, 1),
-                    'placementConstraints': [
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'placementConstraints\': [
                         {
-                            'type': 'distinctInstance'|'memberOf',
-                            'expression': 'string'
+                            \'type\': \'distinctInstance\'|\'memberOf\',
+                            \'expression\': \'string\'
                         },
                     ],
-                    'placementStrategy': [
+                    \'placementStrategy\': [
                         {
-                            'type': 'random'|'spread'|'binpack',
-                            'field': 'string'
+                            \'type\': \'random\'|\'spread\'|\'binpack\',
+                            \'field\': \'string\'
                         },
                     ],
-                    'networkConfiguration': {
-                        'awsvpcConfiguration': {
-                            'subnets': [
-                                'string',
+                    \'networkConfiguration\': {
+                        \'awsvpcConfiguration\': {
+                            \'subnets\': [
+                                \'string\',
                             ],
-                            'securityGroups': [
-                                'string',
+                            \'securityGroups\': [
+                                \'string\',
                             ],
-                            'assignPublicIp': 'ENABLED'|'DISABLED'
+                            \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                         }
                     },
-                    'healthCheckGracePeriodSeconds': 123,
-                    'schedulingStrategy': 'REPLICA'|'DAEMON'
+                    \'healthCheckGracePeriodSeconds\': 123,
+                    \'schedulingStrategy\': \'REPLICA\'|\'DAEMON\'
                 }
             }
           **Response Structure** 
@@ -1234,7 +1234,7 @@ class Client(BaseClient):
         
                     .. warning::
         
-                      If your service's task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                      If your service\'s task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
         
                   - **loadBalancerName** *(string) --* 
         
@@ -1246,7 +1246,7 @@ class Client(BaseClient):
         
                   - **containerPort** *(integer) --* 
         
-                    The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+                    The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service\'s task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
         
               - **serviceRegistries** *(list) --* 
         
@@ -1304,11 +1304,11 @@ class Client(BaseClient):
         
                 - **maximumPercent** *(integer) --* 
         
-                  The upper limit (as a percentage of the service's ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
+                  The upper limit (as a percentage of the service\'s ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
         
                 - **minimumHealthyPercent** *(integer) --* 
         
-                  The lower limit (as a percentage of the service's ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
+                  The lower limit (as a percentage of the service\'s ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
         
               - **deployments** *(list) --* 
         
@@ -1392,7 +1392,7 @@ class Client(BaseClient):
                     
                       - **assignPublicIp** *(string) --* 
         
-                        Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+                        Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
               - **roleArn** *(string) --* 
         
@@ -1488,7 +1488,7 @@ class Client(BaseClient):
                 
                   - **assignPublicIp** *(string) --* 
         
-                    Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+                    Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
               - **healthCheckGracePeriodSeconds** *(integer) --* 
         
@@ -1528,8 +1528,8 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_container_instance(
-              cluster='string',
-              containerInstance='string',
+              cluster=\'string\',
+              containerInstance=\'string\',
               force=True|False
           )
         :type cluster: string
@@ -1557,62 +1557,62 @@ class Client(BaseClient):
           ::
         
             {
-                'containerInstance': {
-                    'containerInstanceArn': 'string',
-                    'ec2InstanceId': 'string',
-                    'version': 123,
-                    'versionInfo': {
-                        'agentVersion': 'string',
-                        'agentHash': 'string',
-                        'dockerVersion': 'string'
+                \'containerInstance\': {
+                    \'containerInstanceArn\': \'string\',
+                    \'ec2InstanceId\': \'string\',
+                    \'version\': 123,
+                    \'versionInfo\': {
+                        \'agentVersion\': \'string\',
+                        \'agentHash\': \'string\',
+                        \'dockerVersion\': \'string\'
                     },
-                    'remainingResources': [
+                    \'remainingResources\': [
                         {
-                            'name': 'string',
-                            'type': 'string',
-                            'doubleValue': 123.0,
-                            'longValue': 123,
-                            'integerValue': 123,
-                            'stringSetValue': [
-                                'string',
+                            \'name\': \'string\',
+                            \'type\': \'string\',
+                            \'doubleValue\': 123.0,
+                            \'longValue\': 123,
+                            \'integerValue\': 123,
+                            \'stringSetValue\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'registeredResources': [
+                    \'registeredResources\': [
                         {
-                            'name': 'string',
-                            'type': 'string',
-                            'doubleValue': 123.0,
-                            'longValue': 123,
-                            'integerValue': 123,
-                            'stringSetValue': [
-                                'string',
+                            \'name\': \'string\',
+                            \'type\': \'string\',
+                            \'doubleValue\': 123.0,
+                            \'longValue\': 123,
+                            \'integerValue\': 123,
+                            \'stringSetValue\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'status': 'string',
-                    'agentConnected': True|False,
-                    'runningTasksCount': 123,
-                    'pendingTasksCount': 123,
-                    'agentUpdateStatus': 'PENDING'|'STAGING'|'STAGED'|'UPDATING'|'UPDATED'|'FAILED',
-                    'attributes': [
+                    \'status\': \'string\',
+                    \'agentConnected\': True|False,
+                    \'runningTasksCount\': 123,
+                    \'pendingTasksCount\': 123,
+                    \'agentUpdateStatus\': \'PENDING\'|\'STAGING\'|\'STAGED\'|\'UPDATING\'|\'UPDATED\'|\'FAILED\',
+                    \'attributes\': [
                         {
-                            'name': 'string',
-                            'value': 'string',
-                            'targetType': 'container-instance',
-                            'targetId': 'string'
+                            \'name\': \'string\',
+                            \'value\': \'string\',
+                            \'targetType\': \'container-instance\',
+                            \'targetId\': \'string\'
                         },
                     ],
-                    'registeredAt': datetime(2015, 1, 1),
-                    'attachments': [
+                    \'registeredAt\': datetime(2015, 1, 1),
+                    \'attachments\': [
                         {
-                            'id': 'string',
-                            'type': 'string',
-                            'status': 'string',
-                            'details': [
+                            \'id\': \'string\',
+                            \'type\': \'string\',
+                            \'status\': \'string\',
+                            \'details\': [
                                 {
-                                    'name': 'string',
-                                    'value': 'string'
+                                    \'name\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ]
                         },
@@ -1814,7 +1814,7 @@ class Client(BaseClient):
         """
         .. _https://docs.docker.com/engine/reference/commandline/volume_create/: https://docs.docker.com/engine/reference/commandline/volume_create/
         
-        Deregisters the specified task definition by family and revision. Upon deregistration, the task definition is marked as ``INACTIVE`` . Existing tasks and services that reference an ``INACTIVE`` task definition continue to run without disruption. Existing services that reference an ``INACTIVE`` task definition can still scale up or down by modifying the service's desired count.
+        Deregisters the specified task definition by family and revision. Upon deregistration, the task definition is marked as ``INACTIVE`` . Existing tasks and services that reference an ``INACTIVE`` task definition continue to run without disruption. Existing services that reference an ``INACTIVE`` task definition can still scale up or down by modifying the service\'s desired count.
         
         You cannot use an ``INACTIVE`` task definition to run new tasks or create new services, and you cannot update an existing service to reference an ``INACTIVE`` task definition (although there may be up to a 10-minute window following deregistration where these restrictions have not yet taken effect).
         
@@ -1828,7 +1828,7 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_task_definition(
-              taskDefinition='string'
+              taskDefinition=\'string\'
           )
         :type taskDefinition: string
         :param taskDefinition: **[REQUIRED]** 
@@ -1843,187 +1843,187 @@ class Client(BaseClient):
           ::
         
             {
-                'taskDefinition': {
-                    'taskDefinitionArn': 'string',
-                    'containerDefinitions': [
+                \'taskDefinition\': {
+                    \'taskDefinitionArn\': \'string\',
+                    \'containerDefinitions\': [
                         {
-                            'name': 'string',
-                            'image': 'string',
-                            'repositoryCredentials': {
-                                'credentialsParameter': 'string'
+                            \'name\': \'string\',
+                            \'image\': \'string\',
+                            \'repositoryCredentials\': {
+                                \'credentialsParameter\': \'string\'
                             },
-                            'cpu': 123,
-                            'memory': 123,
-                            'memoryReservation': 123,
-                            'links': [
-                                'string',
+                            \'cpu\': 123,
+                            \'memory\': 123,
+                            \'memoryReservation\': 123,
+                            \'links\': [
+                                \'string\',
                             ],
-                            'portMappings': [
+                            \'portMappings\': [
                                 {
-                                    'containerPort': 123,
-                                    'hostPort': 123,
-                                    'protocol': 'tcp'|'udp'
+                                    \'containerPort\': 123,
+                                    \'hostPort\': 123,
+                                    \'protocol\': \'tcp\'|\'udp\'
                                 },
                             ],
-                            'essential': True|False,
-                            'entryPoint': [
-                                'string',
+                            \'essential\': True|False,
+                            \'entryPoint\': [
+                                \'string\',
                             ],
-                            'command': [
-                                'string',
+                            \'command\': [
+                                \'string\',
                             ],
-                            'environment': [
+                            \'environment\': [
                                 {
-                                    'name': 'string',
-                                    'value': 'string'
+                                    \'name\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ],
-                            'mountPoints': [
+                            \'mountPoints\': [
                                 {
-                                    'sourceVolume': 'string',
-                                    'containerPath': 'string',
-                                    'readOnly': True|False
+                                    \'sourceVolume\': \'string\',
+                                    \'containerPath\': \'string\',
+                                    \'readOnly\': True|False
                                 },
                             ],
-                            'volumesFrom': [
+                            \'volumesFrom\': [
                                 {
-                                    'sourceContainer': 'string',
-                                    'readOnly': True|False
+                                    \'sourceContainer\': \'string\',
+                                    \'readOnly\': True|False
                                 },
                             ],
-                            'linuxParameters': {
-                                'capabilities': {
-                                    'add': [
-                                        'string',
+                            \'linuxParameters\': {
+                                \'capabilities\': {
+                                    \'add\': [
+                                        \'string\',
                                     ],
-                                    'drop': [
-                                        'string',
+                                    \'drop\': [
+                                        \'string\',
                                     ]
                                 },
-                                'devices': [
+                                \'devices\': [
                                     {
-                                        'hostPath': 'string',
-                                        'containerPath': 'string',
-                                        'permissions': [
-                                            'read'|'write'|'mknod',
+                                        \'hostPath\': \'string\',
+                                        \'containerPath\': \'string\',
+                                        \'permissions\': [
+                                            \'read\'|\'write\'|\'mknod\',
                                         ]
                                     },
                                 ],
-                                'initProcessEnabled': True|False,
-                                'sharedMemorySize': 123,
-                                'tmpfs': [
+                                \'initProcessEnabled\': True|False,
+                                \'sharedMemorySize\': 123,
+                                \'tmpfs\': [
                                     {
-                                        'containerPath': 'string',
-                                        'size': 123,
-                                        'mountOptions': [
-                                            'string',
+                                        \'containerPath\': \'string\',
+                                        \'size\': 123,
+                                        \'mountOptions\': [
+                                            \'string\',
                                         ]
                                     },
                                 ]
                             },
-                            'hostname': 'string',
-                            'user': 'string',
-                            'workingDirectory': 'string',
-                            'disableNetworking': True|False,
-                            'privileged': True|False,
-                            'readonlyRootFilesystem': True|False,
-                            'dnsServers': [
-                                'string',
+                            \'hostname\': \'string\',
+                            \'user\': \'string\',
+                            \'workingDirectory\': \'string\',
+                            \'disableNetworking\': True|False,
+                            \'privileged\': True|False,
+                            \'readonlyRootFilesystem\': True|False,
+                            \'dnsServers\': [
+                                \'string\',
                             ],
-                            'dnsSearchDomains': [
-                                'string',
+                            \'dnsSearchDomains\': [
+                                \'string\',
                             ],
-                            'extraHosts': [
+                            \'extraHosts\': [
                                 {
-                                    'hostname': 'string',
-                                    'ipAddress': 'string'
+                                    \'hostname\': \'string\',
+                                    \'ipAddress\': \'string\'
                                 },
                             ],
-                            'dockerSecurityOptions': [
-                                'string',
+                            \'dockerSecurityOptions\': [
+                                \'string\',
                             ],
-                            'interactive': True|False,
-                            'pseudoTerminal': True|False,
-                            'dockerLabels': {
-                                'string': 'string'
+                            \'interactive\': True|False,
+                            \'pseudoTerminal\': True|False,
+                            \'dockerLabels\': {
+                                \'string\': \'string\'
                             },
-                            'ulimits': [
+                            \'ulimits\': [
                                 {
-                                    'name': 'core'|'cpu'|'data'|'fsize'|'locks'|'memlock'|'msgqueue'|'nice'|'nofile'|'nproc'|'rss'|'rtprio'|'rttime'|'sigpending'|'stack',
-                                    'softLimit': 123,
-                                    'hardLimit': 123
+                                    \'name\': \'core\'|\'cpu\'|\'data\'|\'fsize\'|\'locks\'|\'memlock\'|\'msgqueue\'|\'nice\'|\'nofile\'|\'nproc\'|\'rss\'|\'rtprio\'|\'rttime\'|\'sigpending\'|\'stack\',
+                                    \'softLimit\': 123,
+                                    \'hardLimit\': 123
                                 },
                             ],
-                            'logConfiguration': {
-                                'logDriver': 'json-file'|'syslog'|'journald'|'gelf'|'fluentd'|'awslogs'|'splunk',
-                                'options': {
-                                    'string': 'string'
+                            \'logConfiguration\': {
+                                \'logDriver\': \'json-file\'|\'syslog\'|\'journald\'|\'gelf\'|\'fluentd\'|\'awslogs\'|\'splunk\',
+                                \'options\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'healthCheck': {
-                                'command': [
-                                    'string',
+                            \'healthCheck\': {
+                                \'command\': [
+                                    \'string\',
                                 ],
-                                'interval': 123,
-                                'timeout': 123,
-                                'retries': 123,
-                                'startPeriod': 123
+                                \'interval\': 123,
+                                \'timeout\': 123,
+                                \'retries\': 123,
+                                \'startPeriod\': 123
                             },
-                            'systemControls': [
+                            \'systemControls\': [
                                 {
-                                    'namespace': 'string',
-                                    'value': 'string'
+                                    \'namespace\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'family': 'string',
-                    'taskRoleArn': 'string',
-                    'executionRoleArn': 'string',
-                    'networkMode': 'bridge'|'host'|'awsvpc'|'none',
-                    'revision': 123,
-                    'volumes': [
+                    \'family\': \'string\',
+                    \'taskRoleArn\': \'string\',
+                    \'executionRoleArn\': \'string\',
+                    \'networkMode\': \'bridge\'|\'host\'|\'awsvpc\'|\'none\',
+                    \'revision\': 123,
+                    \'volumes\': [
                         {
-                            'name': 'string',
-                            'host': {
-                                'sourcePath': 'string'
+                            \'name\': \'string\',
+                            \'host\': {
+                                \'sourcePath\': \'string\'
                             },
-                            'dockerVolumeConfiguration': {
-                                'scope': 'task'|'shared',
-                                'autoprovision': True|False,
-                                'driver': 'string',
-                                'driverOpts': {
-                                    'string': 'string'
+                            \'dockerVolumeConfiguration\': {
+                                \'scope\': \'task\'|\'shared\',
+                                \'autoprovision\': True|False,
+                                \'driver\': \'string\',
+                                \'driverOpts\': {
+                                    \'string\': \'string\'
                                 },
-                                'labels': {
-                                    'string': 'string'
+                                \'labels\': {
+                                    \'string\': \'string\'
                                 }
                             }
                         },
                     ],
-                    'status': 'ACTIVE'|'INACTIVE',
-                    'requiresAttributes': [
+                    \'status\': \'ACTIVE\'|\'INACTIVE\',
+                    \'requiresAttributes\': [
                         {
-                            'name': 'string',
-                            'value': 'string',
-                            'targetType': 'container-instance',
-                            'targetId': 'string'
+                            \'name\': \'string\',
+                            \'value\': \'string\',
+                            \'targetType\': \'container-instance\',
+                            \'targetId\': \'string\'
                         },
                     ],
-                    'placementConstraints': [
+                    \'placementConstraints\': [
                         {
-                            'type': 'memberOf',
-                            'expression': 'string'
+                            \'type\': \'memberOf\',
+                            \'expression\': \'string\'
                         },
                     ],
-                    'compatibilities': [
-                        'EC2'|'FARGATE',
+                    \'compatibilities\': [
+                        \'EC2\'|\'FARGATE\',
                     ],
-                    'requiresCompatibilities': [
-                        'EC2'|'FARGATE',
+                    \'requiresCompatibilities\': [
+                        \'EC2\'|\'FARGATE\',
                     ],
-                    'cpu': 'string',
-                    'memory': 'string'
+                    \'cpu\': \'string\',
+                    \'memory\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2134,9 +2134,9 @@ class Client(BaseClient):
         
                     For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort`` . The ``hostPort`` can be left blank or it must be the same value as the ``containerPort`` .
         
-                    Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost`` . There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself. 
+                    Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost`` . There is no loopback for port mappings on Windows, so you cannot access a container\'s mapped port from the host itself. 
         
-                    This parameter maps to ``PortBindings`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--publish`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . If the network mode of a task definition is set to ``none`` , then you can't specify port mappings. If the network mode of a task definition is set to ``host`` , then host ports must either be undefined or they must match the container port in the port mapping.
+                    This parameter maps to ``PortBindings`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--publish`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . If the network mode of a task definition is set to ``none`` , then you can\'t specify port mappings. If the network mode of a task definition is set to ``host`` , then host ports must either be undefined or they must match the container port in the port mapping.
         
                     .. note::
         
@@ -2284,7 +2284,7 @@ class Client(BaseClient):
         
                           If you are using tasks that use the Fargate launch type, the ``add`` parameter is not supported.
         
-                        Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``  
+                        Valid values: ``\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"``  
         
                         - *(string) --* 
                     
@@ -2292,7 +2292,7 @@ class Client(BaseClient):
         
                         The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--cap-drop`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
         
-                        Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``  
+                        Valid values: ``\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"``  
         
                         - *(string) --* 
                     
@@ -2324,7 +2324,7 @@ class Client(BaseClient):
                       
                     - **initProcessEnabled** *(boolean) --* 
         
-                      Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                      Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     - **sharedMemorySize** *(integer) --* 
         
@@ -2358,7 +2358,7 @@ class Client(BaseClient):
         
                           The list of tmpfs volume mount options.
         
-                          Valid values: ``"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"``  
+                          Valid values: ``\"defaults\" | \"ro\" | \"rw\" | \"suid\" | \"nosuid\" | \"dev\" | \"nodev\" | \"exec\" | \"noexec\" | \"sync\" | \"async\" | \"dirsync\" | \"remount\" | \"mand\" | \"nomand\" | \"atime\" | \"noatime\" | \"diratime\" | \"nodiratime\" | \"bind\" | \"rbind\" | \"unbindable\" | \"runbindable\" | \"private\" | \"rprivate\" | \"shared\" | \"rshared\" | \"slave\" | \"rslave\" | \"relatime\" | \"norelatime\" | \"strictatime\" | \"nostrictatime\" | \"mode\" | \"uid\" | \"gid\" | \"nr_inodes\" | \"nr_blocks\" | \"mpol\"``  
         
                           - *(string) --* 
                       
@@ -2470,7 +2470,7 @@ class Client(BaseClient):
         
                   - **dockerLabels** *(dict) --* 
         
-                    A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--label`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                    A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--label`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     - *(string) --* 
                       
@@ -2478,7 +2478,7 @@ class Client(BaseClient):
                 
                   - **ulimits** *(list) --* 
         
-                    A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Valid naming values are displayed in the  Ulimit data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                    A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Valid naming values are displayed in the  Ulimit data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     .. note::
         
@@ -2512,7 +2512,7 @@ class Client(BaseClient):
         
                       Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the  LogConfiguration data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
         
-                    This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                    This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     .. note::
         
@@ -2526,11 +2526,11 @@ class Client(BaseClient):
         
                         If you have a custom driver that is not listed above that you would like to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that is `available on GitHub <https://github.com/aws/amazon-ecs-agent>`__ and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, Amazon Web Services does not currently support running modified copies of this software.
         
-                      This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                      This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     - **options** *(dict) --* 
         
-                      The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                      The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                       - *(string) --* 
                         
@@ -2542,9 +2542,9 @@ class Client(BaseClient):
         
                     - **command** *(list) --* 
         
-                      A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to execute the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. For example:
+                      A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to execute the command arguments directly, or ``CMD-SHELL`` to run the command with the container\'s default shell. For example:
         
-                       ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]``  
+                       ``[ \"CMD-SHELL\", \"curl -f http://localhost/ || exit 1\" ]``  
         
                       An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ .
         
@@ -2610,7 +2610,7 @@ class Client(BaseClient):
         
               - **networkMode** *(string) --* 
         
-                The Docker networking mode to use for the containers in the task. The valid values are ``none`` , ``bridge`` , ``awsvpc`` , and ``host`` . The default Docker network mode is ``bridge`` . If using the Fargate launch type, the ``awsvpc`` network mode is required. If using the EC2 launch type, any network mode can be used. If the network mode is set to ``none`` , you can't specify port mappings in your container definitions, and the task's containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
+                The Docker networking mode to use for the containers in the task. The valid values are ``none`` , ``bridge`` , ``awsvpc`` , and ``host`` . The default Docker network mode is ``bridge`` . If using the Fargate launch type, the ``awsvpc`` network mode is required. If using the EC2 launch type, any network mode can be used. If the network mode is set to ``none`` , you can\'t specify port mappings in your container definitions, and the task\'s containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
         
                 With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elastic network interface port (for the ``awsvpc`` network mode), so you cannot take advantage of dynamic host port mappings. 
         
@@ -2620,7 +2620,7 @@ class Client(BaseClient):
         
                   Currently, only the Amazon ECS-optimized AMI, other Amazon Linux variants with the ``ecs-init`` package, or AWS Fargate infrastructure support the ``awsvpc`` network mode. 
         
-                If the network mode is ``host`` , you can't run multiple instantiations of the same task on a single container instance when port mappings are used.
+                If the network mode is ``host`` , you can\'t run multiple instantiations of the same task on a single container instance when port mappings are used.
         
                 Docker for Windows uses different network modes than Docker for Linux. When you register a task definition with Windows containers, you must not specify a network mode. If you use the console to register a task definition with Windows containers, you must choose the ``<default>`` network mode object. 
         
@@ -2664,7 +2664,7 @@ class Client(BaseClient):
         
                     - **scope** *(string) --* 
         
-                      The scope for the Docker volume which determines it's lifecycle. Docker volumes that are scoped to a ``task`` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as ``shared`` persist after the task stops.
+                      The scope for the Docker volume which determines it\'s lifecycle. Docker volumes that are scoped to a ``task`` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as ``shared`` persist after the task stops.
         
                     - **autoprovision** *(boolean) --* 
         
@@ -2795,10 +2795,10 @@ class Client(BaseClient):
         
           response = client.describe_clusters(
               clusters=[
-                  'string',
+                  \'string\',
               ],
               include=[
-                  'STATISTICS',
+                  \'STATISTICS\',
               ]
           )
         :type clusters: list
@@ -2839,27 +2839,27 @@ class Client(BaseClient):
           ::
         
             {
-                'clusters': [
+                \'clusters\': [
                     {
-                        'clusterArn': 'string',
-                        'clusterName': 'string',
-                        'status': 'string',
-                        'registeredContainerInstancesCount': 123,
-                        'runningTasksCount': 123,
-                        'pendingTasksCount': 123,
-                        'activeServicesCount': 123,
-                        'statistics': [
+                        \'clusterArn\': \'string\',
+                        \'clusterName\': \'string\',
+                        \'status\': \'string\',
+                        \'registeredContainerInstancesCount\': 123,
+                        \'runningTasksCount\': 123,
+                        \'pendingTasksCount\': 123,
+                        \'activeServicesCount\': 123,
+                        \'statistics\': [
                             {
-                                'name': 'string',
-                                'value': 'string'
+                                \'name\': \'string\',
+                                \'value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'failures': [
+                \'failures\': [
                     {
-                        'arn': 'string',
-                        'reason': 'string'
+                        \'arn\': \'string\',
+                        \'reason\': \'string\'
                     },
                 ]
             }
@@ -2963,9 +2963,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_container_instances(
-              cluster='string',
+              cluster=\'string\',
               containerInstances=[
-                  'string',
+                  \'string\',
               ]
           )
         :type cluster: string
@@ -2988,73 +2988,73 @@ class Client(BaseClient):
           ::
         
             {
-                'containerInstances': [
+                \'containerInstances\': [
                     {
-                        'containerInstanceArn': 'string',
-                        'ec2InstanceId': 'string',
-                        'version': 123,
-                        'versionInfo': {
-                            'agentVersion': 'string',
-                            'agentHash': 'string',
-                            'dockerVersion': 'string'
+                        \'containerInstanceArn\': \'string\',
+                        \'ec2InstanceId\': \'string\',
+                        \'version\': 123,
+                        \'versionInfo\': {
+                            \'agentVersion\': \'string\',
+                            \'agentHash\': \'string\',
+                            \'dockerVersion\': \'string\'
                         },
-                        'remainingResources': [
+                        \'remainingResources\': [
                             {
-                                'name': 'string',
-                                'type': 'string',
-                                'doubleValue': 123.0,
-                                'longValue': 123,
-                                'integerValue': 123,
-                                'stringSetValue': [
-                                    'string',
+                                \'name\': \'string\',
+                                \'type\': \'string\',
+                                \'doubleValue\': 123.0,
+                                \'longValue\': 123,
+                                \'integerValue\': 123,
+                                \'stringSetValue\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'registeredResources': [
+                        \'registeredResources\': [
                             {
-                                'name': 'string',
-                                'type': 'string',
-                                'doubleValue': 123.0,
-                                'longValue': 123,
-                                'integerValue': 123,
-                                'stringSetValue': [
-                                    'string',
+                                \'name\': \'string\',
+                                \'type\': \'string\',
+                                \'doubleValue\': 123.0,
+                                \'longValue\': 123,
+                                \'integerValue\': 123,
+                                \'stringSetValue\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'status': 'string',
-                        'agentConnected': True|False,
-                        'runningTasksCount': 123,
-                        'pendingTasksCount': 123,
-                        'agentUpdateStatus': 'PENDING'|'STAGING'|'STAGED'|'UPDATING'|'UPDATED'|'FAILED',
-                        'attributes': [
+                        \'status\': \'string\',
+                        \'agentConnected\': True|False,
+                        \'runningTasksCount\': 123,
+                        \'pendingTasksCount\': 123,
+                        \'agentUpdateStatus\': \'PENDING\'|\'STAGING\'|\'STAGED\'|\'UPDATING\'|\'UPDATED\'|\'FAILED\',
+                        \'attributes\': [
                             {
-                                'name': 'string',
-                                'value': 'string',
-                                'targetType': 'container-instance',
-                                'targetId': 'string'
+                                \'name\': \'string\',
+                                \'value\': \'string\',
+                                \'targetType\': \'container-instance\',
+                                \'targetId\': \'string\'
                             },
                         ],
-                        'registeredAt': datetime(2015, 1, 1),
-                        'attachments': [
+                        \'registeredAt\': datetime(2015, 1, 1),
+                        \'attachments\': [
                             {
-                                'id': 'string',
-                                'type': 'string',
-                                'status': 'string',
-                                'details': [
+                                \'id\': \'string\',
+                                \'type\': \'string\',
+                                \'status\': \'string\',
+                                \'details\': [
                                     {
-                                        'name': 'string',
-                                        'value': 'string'
+                                        \'name\': \'string\',
+                                        \'value\': \'string\'
                                     },
                                 ]
                             },
                         ]
                     },
                 ],
-                'failures': [
+                \'failures\': [
                     {
-                        'arn': 'string',
-                        'reason': 'string'
+                        \'arn\': \'string\',
+                        \'reason\': \'string\'
                     },
                 ]
             }
@@ -3278,9 +3278,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_services(
-              cluster='string',
+              cluster=\'string\',
               services=[
-                  'string',
+                  \'string\',
               ]
           )
         :type cluster: string
@@ -3303,103 +3303,103 @@ class Client(BaseClient):
           ::
         
             {
-                'services': [
+                \'services\': [
                     {
-                        'serviceArn': 'string',
-                        'serviceName': 'string',
-                        'clusterArn': 'string',
-                        'loadBalancers': [
+                        \'serviceArn\': \'string\',
+                        \'serviceName\': \'string\',
+                        \'clusterArn\': \'string\',
+                        \'loadBalancers\': [
                             {
-                                'targetGroupArn': 'string',
-                                'loadBalancerName': 'string',
-                                'containerName': 'string',
-                                'containerPort': 123
+                                \'targetGroupArn\': \'string\',
+                                \'loadBalancerName\': \'string\',
+                                \'containerName\': \'string\',
+                                \'containerPort\': 123
                             },
                         ],
-                        'serviceRegistries': [
+                        \'serviceRegistries\': [
                             {
-                                'registryArn': 'string',
-                                'port': 123,
-                                'containerName': 'string',
-                                'containerPort': 123
+                                \'registryArn\': \'string\',
+                                \'port\': 123,
+                                \'containerName\': \'string\',
+                                \'containerPort\': 123
                             },
                         ],
-                        'status': 'string',
-                        'desiredCount': 123,
-                        'runningCount': 123,
-                        'pendingCount': 123,
-                        'launchType': 'EC2'|'FARGATE',
-                        'platformVersion': 'string',
-                        'taskDefinition': 'string',
-                        'deploymentConfiguration': {
-                            'maximumPercent': 123,
-                            'minimumHealthyPercent': 123
+                        \'status\': \'string\',
+                        \'desiredCount\': 123,
+                        \'runningCount\': 123,
+                        \'pendingCount\': 123,
+                        \'launchType\': \'EC2\'|\'FARGATE\',
+                        \'platformVersion\': \'string\',
+                        \'taskDefinition\': \'string\',
+                        \'deploymentConfiguration\': {
+                            \'maximumPercent\': 123,
+                            \'minimumHealthyPercent\': 123
                         },
-                        'deployments': [
+                        \'deployments\': [
                             {
-                                'id': 'string',
-                                'status': 'string',
-                                'taskDefinition': 'string',
-                                'desiredCount': 123,
-                                'pendingCount': 123,
-                                'runningCount': 123,
-                                'createdAt': datetime(2015, 1, 1),
-                                'updatedAt': datetime(2015, 1, 1),
-                                'launchType': 'EC2'|'FARGATE',
-                                'platformVersion': 'string',
-                                'networkConfiguration': {
-                                    'awsvpcConfiguration': {
-                                        'subnets': [
-                                            'string',
+                                \'id\': \'string\',
+                                \'status\': \'string\',
+                                \'taskDefinition\': \'string\',
+                                \'desiredCount\': 123,
+                                \'pendingCount\': 123,
+                                \'runningCount\': 123,
+                                \'createdAt\': datetime(2015, 1, 1),
+                                \'updatedAt\': datetime(2015, 1, 1),
+                                \'launchType\': \'EC2\'|\'FARGATE\',
+                                \'platformVersion\': \'string\',
+                                \'networkConfiguration\': {
+                                    \'awsvpcConfiguration\': {
+                                        \'subnets\': [
+                                            \'string\',
                                         ],
-                                        'securityGroups': [
-                                            'string',
+                                        \'securityGroups\': [
+                                            \'string\',
                                         ],
-                                        'assignPublicIp': 'ENABLED'|'DISABLED'
+                                        \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                                     }
                                 }
                             },
                         ],
-                        'roleArn': 'string',
-                        'events': [
+                        \'roleArn\': \'string\',
+                        \'events\': [
                             {
-                                'id': 'string',
-                                'createdAt': datetime(2015, 1, 1),
-                                'message': 'string'
+                                \'id\': \'string\',
+                                \'createdAt\': datetime(2015, 1, 1),
+                                \'message\': \'string\'
                             },
                         ],
-                        'createdAt': datetime(2015, 1, 1),
-                        'placementConstraints': [
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'placementConstraints\': [
                             {
-                                'type': 'distinctInstance'|'memberOf',
-                                'expression': 'string'
+                                \'type\': \'distinctInstance\'|\'memberOf\',
+                                \'expression\': \'string\'
                             },
                         ],
-                        'placementStrategy': [
+                        \'placementStrategy\': [
                             {
-                                'type': 'random'|'spread'|'binpack',
-                                'field': 'string'
+                                \'type\': \'random\'|\'spread\'|\'binpack\',
+                                \'field\': \'string\'
                             },
                         ],
-                        'networkConfiguration': {
-                            'awsvpcConfiguration': {
-                                'subnets': [
-                                    'string',
+                        \'networkConfiguration\': {
+                            \'awsvpcConfiguration\': {
+                                \'subnets\': [
+                                    \'string\',
                                 ],
-                                'securityGroups': [
-                                    'string',
+                                \'securityGroups\': [
+                                    \'string\',
                                 ],
-                                'assignPublicIp': 'ENABLED'|'DISABLED'
+                                \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                             }
                         },
-                        'healthCheckGracePeriodSeconds': 123,
-                        'schedulingStrategy': 'REPLICA'|'DAEMON'
+                        \'healthCheckGracePeriodSeconds\': 123,
+                        \'schedulingStrategy\': \'REPLICA\'|\'DAEMON\'
                     },
                 ],
-                'failures': [
+                \'failures\': [
                     {
-                        'arn': 'string',
-                        'reason': 'string'
+                        \'arn\': \'string\',
+                        \'reason\': \'string\'
                     },
                 ]
             }
@@ -3445,7 +3445,7 @@ class Client(BaseClient):
         
                       .. warning::
         
-                        If your service's task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                        If your service\'s task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
         
                     - **loadBalancerName** *(string) --* 
         
@@ -3457,7 +3457,7 @@ class Client(BaseClient):
         
                     - **containerPort** *(integer) --* 
         
-                      The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+                      The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service\'s task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
         
                 - **serviceRegistries** *(list) --* 
         
@@ -3515,11 +3515,11 @@ class Client(BaseClient):
         
                   - **maximumPercent** *(integer) --* 
         
-                    The upper limit (as a percentage of the service's ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
+                    The upper limit (as a percentage of the service\'s ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
         
                   - **minimumHealthyPercent** *(integer) --* 
         
-                    The lower limit (as a percentage of the service's ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
+                    The lower limit (as a percentage of the service\'s ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
         
                 - **deployments** *(list) --* 
         
@@ -3603,7 +3603,7 @@ class Client(BaseClient):
                       
                         - **assignPublicIp** *(string) --* 
         
-                          Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+                          Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
                 - **roleArn** *(string) --* 
         
@@ -3699,7 +3699,7 @@ class Client(BaseClient):
                   
                     - **assignPublicIp** *(string) --* 
         
-                      Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+                      Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
                 - **healthCheckGracePeriodSeconds** *(integer) --* 
         
@@ -3754,7 +3754,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_task_definition(
-              taskDefinition='string'
+              taskDefinition=\'string\'
           )
         :type taskDefinition: string
         :param taskDefinition: **[REQUIRED]** 
@@ -3769,187 +3769,187 @@ class Client(BaseClient):
           ::
         
             {
-                'taskDefinition': {
-                    'taskDefinitionArn': 'string',
-                    'containerDefinitions': [
+                \'taskDefinition\': {
+                    \'taskDefinitionArn\': \'string\',
+                    \'containerDefinitions\': [
                         {
-                            'name': 'string',
-                            'image': 'string',
-                            'repositoryCredentials': {
-                                'credentialsParameter': 'string'
+                            \'name\': \'string\',
+                            \'image\': \'string\',
+                            \'repositoryCredentials\': {
+                                \'credentialsParameter\': \'string\'
                             },
-                            'cpu': 123,
-                            'memory': 123,
-                            'memoryReservation': 123,
-                            'links': [
-                                'string',
+                            \'cpu\': 123,
+                            \'memory\': 123,
+                            \'memoryReservation\': 123,
+                            \'links\': [
+                                \'string\',
                             ],
-                            'portMappings': [
+                            \'portMappings\': [
                                 {
-                                    'containerPort': 123,
-                                    'hostPort': 123,
-                                    'protocol': 'tcp'|'udp'
+                                    \'containerPort\': 123,
+                                    \'hostPort\': 123,
+                                    \'protocol\': \'tcp\'|\'udp\'
                                 },
                             ],
-                            'essential': True|False,
-                            'entryPoint': [
-                                'string',
+                            \'essential\': True|False,
+                            \'entryPoint\': [
+                                \'string\',
                             ],
-                            'command': [
-                                'string',
+                            \'command\': [
+                                \'string\',
                             ],
-                            'environment': [
+                            \'environment\': [
                                 {
-                                    'name': 'string',
-                                    'value': 'string'
+                                    \'name\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ],
-                            'mountPoints': [
+                            \'mountPoints\': [
                                 {
-                                    'sourceVolume': 'string',
-                                    'containerPath': 'string',
-                                    'readOnly': True|False
+                                    \'sourceVolume\': \'string\',
+                                    \'containerPath\': \'string\',
+                                    \'readOnly\': True|False
                                 },
                             ],
-                            'volumesFrom': [
+                            \'volumesFrom\': [
                                 {
-                                    'sourceContainer': 'string',
-                                    'readOnly': True|False
+                                    \'sourceContainer\': \'string\',
+                                    \'readOnly\': True|False
                                 },
                             ],
-                            'linuxParameters': {
-                                'capabilities': {
-                                    'add': [
-                                        'string',
+                            \'linuxParameters\': {
+                                \'capabilities\': {
+                                    \'add\': [
+                                        \'string\',
                                     ],
-                                    'drop': [
-                                        'string',
+                                    \'drop\': [
+                                        \'string\',
                                     ]
                                 },
-                                'devices': [
+                                \'devices\': [
                                     {
-                                        'hostPath': 'string',
-                                        'containerPath': 'string',
-                                        'permissions': [
-                                            'read'|'write'|'mknod',
+                                        \'hostPath\': \'string\',
+                                        \'containerPath\': \'string\',
+                                        \'permissions\': [
+                                            \'read\'|\'write\'|\'mknod\',
                                         ]
                                     },
                                 ],
-                                'initProcessEnabled': True|False,
-                                'sharedMemorySize': 123,
-                                'tmpfs': [
+                                \'initProcessEnabled\': True|False,
+                                \'sharedMemorySize\': 123,
+                                \'tmpfs\': [
                                     {
-                                        'containerPath': 'string',
-                                        'size': 123,
-                                        'mountOptions': [
-                                            'string',
+                                        \'containerPath\': \'string\',
+                                        \'size\': 123,
+                                        \'mountOptions\': [
+                                            \'string\',
                                         ]
                                     },
                                 ]
                             },
-                            'hostname': 'string',
-                            'user': 'string',
-                            'workingDirectory': 'string',
-                            'disableNetworking': True|False,
-                            'privileged': True|False,
-                            'readonlyRootFilesystem': True|False,
-                            'dnsServers': [
-                                'string',
+                            \'hostname\': \'string\',
+                            \'user\': \'string\',
+                            \'workingDirectory\': \'string\',
+                            \'disableNetworking\': True|False,
+                            \'privileged\': True|False,
+                            \'readonlyRootFilesystem\': True|False,
+                            \'dnsServers\': [
+                                \'string\',
                             ],
-                            'dnsSearchDomains': [
-                                'string',
+                            \'dnsSearchDomains\': [
+                                \'string\',
                             ],
-                            'extraHosts': [
+                            \'extraHosts\': [
                                 {
-                                    'hostname': 'string',
-                                    'ipAddress': 'string'
+                                    \'hostname\': \'string\',
+                                    \'ipAddress\': \'string\'
                                 },
                             ],
-                            'dockerSecurityOptions': [
-                                'string',
+                            \'dockerSecurityOptions\': [
+                                \'string\',
                             ],
-                            'interactive': True|False,
-                            'pseudoTerminal': True|False,
-                            'dockerLabels': {
-                                'string': 'string'
+                            \'interactive\': True|False,
+                            \'pseudoTerminal\': True|False,
+                            \'dockerLabels\': {
+                                \'string\': \'string\'
                             },
-                            'ulimits': [
+                            \'ulimits\': [
                                 {
-                                    'name': 'core'|'cpu'|'data'|'fsize'|'locks'|'memlock'|'msgqueue'|'nice'|'nofile'|'nproc'|'rss'|'rtprio'|'rttime'|'sigpending'|'stack',
-                                    'softLimit': 123,
-                                    'hardLimit': 123
+                                    \'name\': \'core\'|\'cpu\'|\'data\'|\'fsize\'|\'locks\'|\'memlock\'|\'msgqueue\'|\'nice\'|\'nofile\'|\'nproc\'|\'rss\'|\'rtprio\'|\'rttime\'|\'sigpending\'|\'stack\',
+                                    \'softLimit\': 123,
+                                    \'hardLimit\': 123
                                 },
                             ],
-                            'logConfiguration': {
-                                'logDriver': 'json-file'|'syslog'|'journald'|'gelf'|'fluentd'|'awslogs'|'splunk',
-                                'options': {
-                                    'string': 'string'
+                            \'logConfiguration\': {
+                                \'logDriver\': \'json-file\'|\'syslog\'|\'journald\'|\'gelf\'|\'fluentd\'|\'awslogs\'|\'splunk\',
+                                \'options\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'healthCheck': {
-                                'command': [
-                                    'string',
+                            \'healthCheck\': {
+                                \'command\': [
+                                    \'string\',
                                 ],
-                                'interval': 123,
-                                'timeout': 123,
-                                'retries': 123,
-                                'startPeriod': 123
+                                \'interval\': 123,
+                                \'timeout\': 123,
+                                \'retries\': 123,
+                                \'startPeriod\': 123
                             },
-                            'systemControls': [
+                            \'systemControls\': [
                                 {
-                                    'namespace': 'string',
-                                    'value': 'string'
+                                    \'namespace\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'family': 'string',
-                    'taskRoleArn': 'string',
-                    'executionRoleArn': 'string',
-                    'networkMode': 'bridge'|'host'|'awsvpc'|'none',
-                    'revision': 123,
-                    'volumes': [
+                    \'family\': \'string\',
+                    \'taskRoleArn\': \'string\',
+                    \'executionRoleArn\': \'string\',
+                    \'networkMode\': \'bridge\'|\'host\'|\'awsvpc\'|\'none\',
+                    \'revision\': 123,
+                    \'volumes\': [
                         {
-                            'name': 'string',
-                            'host': {
-                                'sourcePath': 'string'
+                            \'name\': \'string\',
+                            \'host\': {
+                                \'sourcePath\': \'string\'
                             },
-                            'dockerVolumeConfiguration': {
-                                'scope': 'task'|'shared',
-                                'autoprovision': True|False,
-                                'driver': 'string',
-                                'driverOpts': {
-                                    'string': 'string'
+                            \'dockerVolumeConfiguration\': {
+                                \'scope\': \'task\'|\'shared\',
+                                \'autoprovision\': True|False,
+                                \'driver\': \'string\',
+                                \'driverOpts\': {
+                                    \'string\': \'string\'
                                 },
-                                'labels': {
-                                    'string': 'string'
+                                \'labels\': {
+                                    \'string\': \'string\'
                                 }
                             }
                         },
                     ],
-                    'status': 'ACTIVE'|'INACTIVE',
-                    'requiresAttributes': [
+                    \'status\': \'ACTIVE\'|\'INACTIVE\',
+                    \'requiresAttributes\': [
                         {
-                            'name': 'string',
-                            'value': 'string',
-                            'targetType': 'container-instance',
-                            'targetId': 'string'
+                            \'name\': \'string\',
+                            \'value\': \'string\',
+                            \'targetType\': \'container-instance\',
+                            \'targetId\': \'string\'
                         },
                     ],
-                    'placementConstraints': [
+                    \'placementConstraints\': [
                         {
-                            'type': 'memberOf',
-                            'expression': 'string'
+                            \'type\': \'memberOf\',
+                            \'expression\': \'string\'
                         },
                     ],
-                    'compatibilities': [
-                        'EC2'|'FARGATE',
+                    \'compatibilities\': [
+                        \'EC2\'|\'FARGATE\',
                     ],
-                    'requiresCompatibilities': [
-                        'EC2'|'FARGATE',
+                    \'requiresCompatibilities\': [
+                        \'EC2\'|\'FARGATE\',
                     ],
-                    'cpu': 'string',
-                    'memory': 'string'
+                    \'cpu\': \'string\',
+                    \'memory\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4060,9 +4060,9 @@ class Client(BaseClient):
         
                     For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort`` . The ``hostPort`` can be left blank or it must be the same value as the ``containerPort`` .
         
-                    Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost`` . There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself. 
+                    Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost`` . There is no loopback for port mappings on Windows, so you cannot access a container\'s mapped port from the host itself. 
         
-                    This parameter maps to ``PortBindings`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--publish`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . If the network mode of a task definition is set to ``none`` , then you can't specify port mappings. If the network mode of a task definition is set to ``host`` , then host ports must either be undefined or they must match the container port in the port mapping.
+                    This parameter maps to ``PortBindings`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--publish`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . If the network mode of a task definition is set to ``none`` , then you can\'t specify port mappings. If the network mode of a task definition is set to ``host`` , then host ports must either be undefined or they must match the container port in the port mapping.
         
                     .. note::
         
@@ -4210,7 +4210,7 @@ class Client(BaseClient):
         
                           If you are using tasks that use the Fargate launch type, the ``add`` parameter is not supported.
         
-                        Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``  
+                        Valid values: ``\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"``  
         
                         - *(string) --* 
                     
@@ -4218,7 +4218,7 @@ class Client(BaseClient):
         
                         The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--cap-drop`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
         
-                        Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``  
+                        Valid values: ``\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"``  
         
                         - *(string) --* 
                     
@@ -4250,7 +4250,7 @@ class Client(BaseClient):
                       
                     - **initProcessEnabled** *(boolean) --* 
         
-                      Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                      Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     - **sharedMemorySize** *(integer) --* 
         
@@ -4284,7 +4284,7 @@ class Client(BaseClient):
         
                           The list of tmpfs volume mount options.
         
-                          Valid values: ``"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"``  
+                          Valid values: ``\"defaults\" | \"ro\" | \"rw\" | \"suid\" | \"nosuid\" | \"dev\" | \"nodev\" | \"exec\" | \"noexec\" | \"sync\" | \"async\" | \"dirsync\" | \"remount\" | \"mand\" | \"nomand\" | \"atime\" | \"noatime\" | \"diratime\" | \"nodiratime\" | \"bind\" | \"rbind\" | \"unbindable\" | \"runbindable\" | \"private\" | \"rprivate\" | \"shared\" | \"rshared\" | \"slave\" | \"rslave\" | \"relatime\" | \"norelatime\" | \"strictatime\" | \"nostrictatime\" | \"mode\" | \"uid\" | \"gid\" | \"nr_inodes\" | \"nr_blocks\" | \"mpol\"``  
         
                           - *(string) --* 
                       
@@ -4396,7 +4396,7 @@ class Client(BaseClient):
         
                   - **dockerLabels** *(dict) --* 
         
-                    A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--label`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                    A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--label`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     - *(string) --* 
                       
@@ -4404,7 +4404,7 @@ class Client(BaseClient):
                 
                   - **ulimits** *(list) --* 
         
-                    A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Valid naming values are displayed in the  Ulimit data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                    A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Valid naming values are displayed in the  Ulimit data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     .. note::
         
@@ -4438,7 +4438,7 @@ class Client(BaseClient):
         
                       Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the  LogConfiguration data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
         
-                    This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                    This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     .. note::
         
@@ -4452,11 +4452,11 @@ class Client(BaseClient):
         
                         If you have a custom driver that is not listed above that you would like to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that is `available on GitHub <https://github.com/aws/amazon-ecs-agent>`__ and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, Amazon Web Services does not currently support running modified copies of this software.
         
-                      This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                      This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     - **options** *(dict) --* 
         
-                      The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                      The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                       - *(string) --* 
                         
@@ -4468,9 +4468,9 @@ class Client(BaseClient):
         
                     - **command** *(list) --* 
         
-                      A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to execute the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. For example:
+                      A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to execute the command arguments directly, or ``CMD-SHELL`` to run the command with the container\'s default shell. For example:
         
-                       ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]``  
+                       ``[ \"CMD-SHELL\", \"curl -f http://localhost/ || exit 1\" ]``  
         
                       An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ .
         
@@ -4536,7 +4536,7 @@ class Client(BaseClient):
         
               - **networkMode** *(string) --* 
         
-                The Docker networking mode to use for the containers in the task. The valid values are ``none`` , ``bridge`` , ``awsvpc`` , and ``host`` . The default Docker network mode is ``bridge`` . If using the Fargate launch type, the ``awsvpc`` network mode is required. If using the EC2 launch type, any network mode can be used. If the network mode is set to ``none`` , you can't specify port mappings in your container definitions, and the task's containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
+                The Docker networking mode to use for the containers in the task. The valid values are ``none`` , ``bridge`` , ``awsvpc`` , and ``host`` . The default Docker network mode is ``bridge`` . If using the Fargate launch type, the ``awsvpc`` network mode is required. If using the EC2 launch type, any network mode can be used. If the network mode is set to ``none`` , you can\'t specify port mappings in your container definitions, and the task\'s containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
         
                 With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elastic network interface port (for the ``awsvpc`` network mode), so you cannot take advantage of dynamic host port mappings. 
         
@@ -4546,7 +4546,7 @@ class Client(BaseClient):
         
                   Currently, only the Amazon ECS-optimized AMI, other Amazon Linux variants with the ``ecs-init`` package, or AWS Fargate infrastructure support the ``awsvpc`` network mode. 
         
-                If the network mode is ``host`` , you can't run multiple instantiations of the same task on a single container instance when port mappings are used.
+                If the network mode is ``host`` , you can\'t run multiple instantiations of the same task on a single container instance when port mappings are used.
         
                 Docker for Windows uses different network modes than Docker for Linux. When you register a task definition with Windows containers, you must not specify a network mode. If you use the console to register a task definition with Windows containers, you must choose the ``<default>`` network mode object. 
         
@@ -4590,7 +4590,7 @@ class Client(BaseClient):
         
                     - **scope** *(string) --* 
         
-                      The scope for the Docker volume which determines it's lifecycle. Docker volumes that are scoped to a ``task`` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as ``shared`` persist after the task stops.
+                      The scope for the Docker volume which determines it\'s lifecycle. Docker volumes that are scoped to a ``task`` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as ``shared`` persist after the task stops.
         
                     - **autoprovision** *(boolean) --* 
         
@@ -4720,9 +4720,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_tasks(
-              cluster='string',
+              cluster=\'string\',
               tasks=[
-                  'string',
+                  \'string\',
               ]
           )
         :type cluster: string
@@ -4745,98 +4745,98 @@ class Client(BaseClient):
           ::
         
             {
-                'tasks': [
+                \'tasks\': [
                     {
-                        'taskArn': 'string',
-                        'clusterArn': 'string',
-                        'taskDefinitionArn': 'string',
-                        'containerInstanceArn': 'string',
-                        'overrides': {
-                            'containerOverrides': [
+                        \'taskArn\': \'string\',
+                        \'clusterArn\': \'string\',
+                        \'taskDefinitionArn\': \'string\',
+                        \'containerInstanceArn\': \'string\',
+                        \'overrides\': {
+                            \'containerOverrides\': [
                                 {
-                                    'name': 'string',
-                                    'command': [
-                                        'string',
+                                    \'name\': \'string\',
+                                    \'command\': [
+                                        \'string\',
                                     ],
-                                    'environment': [
+                                    \'environment\': [
                                         {
-                                            'name': 'string',
-                                            'value': 'string'
+                                            \'name\': \'string\',
+                                            \'value\': \'string\'
                                         },
                                     ],
-                                    'cpu': 123,
-                                    'memory': 123,
-                                    'memoryReservation': 123
+                                    \'cpu\': 123,
+                                    \'memory\': 123,
+                                    \'memoryReservation\': 123
                                 },
                             ],
-                            'taskRoleArn': 'string',
-                            'executionRoleArn': 'string'
+                            \'taskRoleArn\': \'string\',
+                            \'executionRoleArn\': \'string\'
                         },
-                        'lastStatus': 'string',
-                        'desiredStatus': 'string',
-                        'cpu': 'string',
-                        'memory': 'string',
-                        'containers': [
+                        \'lastStatus\': \'string\',
+                        \'desiredStatus\': \'string\',
+                        \'cpu\': \'string\',
+                        \'memory\': \'string\',
+                        \'containers\': [
                             {
-                                'containerArn': 'string',
-                                'taskArn': 'string',
-                                'name': 'string',
-                                'lastStatus': 'string',
-                                'exitCode': 123,
-                                'reason': 'string',
-                                'networkBindings': [
+                                \'containerArn\': \'string\',
+                                \'taskArn\': \'string\',
+                                \'name\': \'string\',
+                                \'lastStatus\': \'string\',
+                                \'exitCode\': 123,
+                                \'reason\': \'string\',
+                                \'networkBindings\': [
                                     {
-                                        'bindIP': 'string',
-                                        'containerPort': 123,
-                                        'hostPort': 123,
-                                        'protocol': 'tcp'|'udp'
+                                        \'bindIP\': \'string\',
+                                        \'containerPort\': 123,
+                                        \'hostPort\': 123,
+                                        \'protocol\': \'tcp\'|\'udp\'
                                     },
                                 ],
-                                'networkInterfaces': [
+                                \'networkInterfaces\': [
                                     {
-                                        'attachmentId': 'string',
-                                        'privateIpv4Address': 'string',
-                                        'ipv6Address': 'string'
+                                        \'attachmentId\': \'string\',
+                                        \'privateIpv4Address\': \'string\',
+                                        \'ipv6Address\': \'string\'
                                     },
                                 ],
-                                'healthStatus': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN'
+                                \'healthStatus\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\'
                             },
                         ],
-                        'startedBy': 'string',
-                        'version': 123,
-                        'stoppedReason': 'string',
-                        'connectivity': 'CONNECTED'|'DISCONNECTED',
-                        'connectivityAt': datetime(2015, 1, 1),
-                        'pullStartedAt': datetime(2015, 1, 1),
-                        'pullStoppedAt': datetime(2015, 1, 1),
-                        'executionStoppedAt': datetime(2015, 1, 1),
-                        'createdAt': datetime(2015, 1, 1),
-                        'startedAt': datetime(2015, 1, 1),
-                        'stoppingAt': datetime(2015, 1, 1),
-                        'stoppedAt': datetime(2015, 1, 1),
-                        'group': 'string',
-                        'launchType': 'EC2'|'FARGATE',
-                        'platformVersion': 'string',
-                        'attachments': [
+                        \'startedBy\': \'string\',
+                        \'version\': 123,
+                        \'stoppedReason\': \'string\',
+                        \'connectivity\': \'CONNECTED\'|\'DISCONNECTED\',
+                        \'connectivityAt\': datetime(2015, 1, 1),
+                        \'pullStartedAt\': datetime(2015, 1, 1),
+                        \'pullStoppedAt\': datetime(2015, 1, 1),
+                        \'executionStoppedAt\': datetime(2015, 1, 1),
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'startedAt\': datetime(2015, 1, 1),
+                        \'stoppingAt\': datetime(2015, 1, 1),
+                        \'stoppedAt\': datetime(2015, 1, 1),
+                        \'group\': \'string\',
+                        \'launchType\': \'EC2\'|\'FARGATE\',
+                        \'platformVersion\': \'string\',
+                        \'attachments\': [
                             {
-                                'id': 'string',
-                                'type': 'string',
-                                'status': 'string',
-                                'details': [
+                                \'id\': \'string\',
+                                \'type\': \'string\',
+                                \'status\': \'string\',
+                                \'details\': [
                                     {
-                                        'name': 'string',
-                                        'value': 'string'
+                                        \'name\': \'string\',
+                                        \'value\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'healthStatus': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN'
+                        \'healthStatus\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\'
                     },
                 ],
-                'failures': [
+                \'failures\': [
                     {
-                        'arn': 'string',
-                        'reason': 'string'
+                        \'arn\': \'string\',
+                        \'reason\': \'string\'
                     },
                 ]
             }
@@ -5152,7 +5152,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    The Amazon ECS container agent does not monitor or report on Docker health checks that are embedded in a container image (such as those specified in a parent image or from the image's Dockerfile) and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+                    The Amazon ECS container agent does not monitor or report on Docker health checks that are embedded in a container image (such as those specified in a parent image or from the image\'s Dockerfile) and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
         
             - **failures** *(list) --* 
         
@@ -5187,8 +5187,8 @@ class Client(BaseClient):
         ::
         
           response = client.discover_poll_endpoint(
-              containerInstance='string',
-              cluster='string'
+              containerInstance=\'string\',
+              cluster=\'string\'
           )
         :type containerInstance: string
         :param containerInstance: 
@@ -5208,8 +5208,8 @@ class Client(BaseClient):
           ::
         
             {
-                'endpoint': 'string',
-                'telemetryEndpoint': 'string'
+                \'endpoint\': \'string\',
+                \'telemetryEndpoint\': \'string\'
             }
           **Response Structure** 
         
@@ -5242,7 +5242,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -5254,10 +5254,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -5289,11 +5289,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_attributes(
-              cluster='string',
-              targetType='container-instance',
-              attributeName='string',
-              attributeValue='string',
-              nextToken='string',
+              cluster=\'string\',
+              targetType=\'container-instance\',
+              attributeName=\'string\',
+              attributeValue=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type cluster: string
@@ -5338,15 +5338,15 @@ class Client(BaseClient):
           ::
         
             {
-                'attributes': [
+                \'attributes\': [
                     {
-                        'name': 'string',
-                        'value': 'string',
-                        'targetType': 'container-instance',
-                        'targetId': 'string'
+                        \'name\': \'string\',
+                        \'value\': \'string\',
+                        \'targetType\': \'container-instance\',
+                        \'targetId\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5392,7 +5392,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_clusters(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -5417,10 +5417,10 @@ class Client(BaseClient):
           ::
         
             {
-                'clusterArns': [
-                    'string',
+                \'clusterArns\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5448,11 +5448,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_container_instances(
-              cluster='string',
-              filter='string',
-              nextToken='string',
+              cluster=\'string\',
+              filter=\'string\',
+              nextToken=\'string\',
               maxResults=123,
-              status='ACTIVE'|'DRAINING'
+              status=\'ACTIVE\'|\'DRAINING\'
           )
         :type cluster: string
         :param cluster: 
@@ -5491,10 +5491,10 @@ class Client(BaseClient):
           ::
         
             {
-                'containerInstanceArns': [
-                    'string',
+                \'containerInstanceArns\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5522,11 +5522,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_services(
-              cluster='string',
-              nextToken='string',
+              cluster=\'string\',
+              nextToken=\'string\',
               maxResults=123,
-              launchType='EC2'|'FARGATE',
-              schedulingStrategy='REPLICA'|'DAEMON'
+              launchType=\'EC2\'|\'FARGATE\',
+              schedulingStrategy=\'REPLICA\'|\'DAEMON\'
           )
         :type cluster: string
         :param cluster: 
@@ -5565,10 +5565,10 @@ class Client(BaseClient):
           ::
         
             {
-                'serviceArns': [
-                    'string',
+                \'serviceArns\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5598,9 +5598,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_task_definition_families(
-              familyPrefix='string',
-              status='ACTIVE'|'INACTIVE'|'ALL',
-              nextToken='string',
+              familyPrefix=\'string\',
+              status=\'ACTIVE\'|\'INACTIVE\'|\'ALL\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type familyPrefix: string
@@ -5635,10 +5635,10 @@ class Client(BaseClient):
           ::
         
             {
-                'families': [
-                    'string',
+                \'families\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5666,10 +5666,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_task_definitions(
-              familyPrefix='string',
-              status='ACTIVE'|'INACTIVE',
-              sort='ASC'|'DESC',
-              nextToken='string',
+              familyPrefix=\'string\',
+              status=\'ACTIVE\'|\'INACTIVE\',
+              sort=\'ASC\'|\'DESC\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type familyPrefix: string
@@ -5709,10 +5709,10 @@ class Client(BaseClient):
           ::
         
             {
-                'taskDefinitionArns': [
-                    'string',
+                \'taskDefinitionArns\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5742,15 +5742,15 @@ class Client(BaseClient):
         ::
         
           response = client.list_tasks(
-              cluster='string',
-              containerInstance='string',
-              family='string',
-              nextToken='string',
+              cluster=\'string\',
+              containerInstance=\'string\',
+              family=\'string\',
+              nextToken=\'string\',
               maxResults=123,
-              startedBy='string',
-              serviceName='string',
-              desiredStatus='RUNNING'|'PENDING'|'STOPPED',
-              launchType='EC2'|'FARGATE'
+              startedBy=\'string\',
+              serviceName=\'string\',
+              desiredStatus=\'RUNNING\'|\'PENDING\'|\'STOPPED\',
+              launchType=\'EC2\'|\'FARGATE\'
           )
         :type cluster: string
         :param cluster: 
@@ -5798,7 +5798,7 @@ class Client(BaseClient):
         
           .. note::
         
-            Although you can filter results based on a desired status of ``PENDING`` , this does not return any results because Amazon ECS never sets the desired status of a task to that value (only a task's ``lastStatus`` may have a value of ``PENDING`` ).
+            Although you can filter results based on a desired status of ``PENDING`` , this does not return any results because Amazon ECS never sets the desired status of a task to that value (only a task\'s ``lastStatus`` may have a value of ``PENDING`` ).
         
         :type launchType: string
         :param launchType: 
@@ -5813,10 +5813,10 @@ class Client(BaseClient):
           ::
         
             {
-                'taskArns': [
-                    'string',
+                \'taskArns\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5844,13 +5844,13 @@ class Client(BaseClient):
         ::
         
           response = client.put_attributes(
-              cluster='string',
+              cluster=\'string\',
               attributes=[
                   {
-                      'name': 'string',
-                      'value': 'string',
-                      'targetType': 'container-instance',
-                      'targetId': 'string'
+                      \'name\': \'string\',
+                      \'value\': \'string\',
+                      \'targetType\': \'container-instance\',
+                      \'targetId\': \'string\'
                   },
               ]
           )
@@ -5892,12 +5892,12 @@ class Client(BaseClient):
           ::
         
             {
-                'attributes': [
+                \'attributes\': [
                     {
-                        'name': 'string',
-                        'value': 'string',
-                        'targetType': 'container-instance',
-                        'targetId': 'string'
+                        \'name\': \'string\',
+                        \'value\': \'string\',
+                        \'targetType\': \'container-instance\',
+                        \'targetId\': \'string\'
                     },
                 ]
             }
@@ -5946,33 +5946,33 @@ class Client(BaseClient):
         ::
         
           response = client.register_container_instance(
-              cluster='string',
-              instanceIdentityDocument='string',
-              instanceIdentityDocumentSignature='string',
+              cluster=\'string\',
+              instanceIdentityDocument=\'string\',
+              instanceIdentityDocumentSignature=\'string\',
               totalResources=[
                   {
-                      'name': 'string',
-                      'type': 'string',
-                      'doubleValue': 123.0,
-                      'longValue': 123,
-                      'integerValue': 123,
-                      'stringSetValue': [
-                          'string',
+                      \'name\': \'string\',
+                      \'type\': \'string\',
+                      \'doubleValue\': 123.0,
+                      \'longValue\': 123,
+                      \'integerValue\': 123,
+                      \'stringSetValue\': [
+                          \'string\',
                       ]
                   },
               ],
               versionInfo={
-                  'agentVersion': 'string',
-                  'agentHash': 'string',
-                  'dockerVersion': 'string'
+                  \'agentVersion\': \'string\',
+                  \'agentHash\': \'string\',
+                  \'dockerVersion\': \'string\'
               },
-              containerInstanceArn='string',
+              containerInstanceArn=\'string\',
               attributes=[
                   {
-                      'name': 'string',
-                      'value': 'string',
-                      'targetType': 'container-instance',
-                      'targetId': 'string'
+                      \'name\': \'string\',
+                      \'value\': \'string\',
+                      \'targetType\': \'container-instance\',
+                      \'targetId\': \'string\'
                   },
               ]
           )
@@ -6081,62 +6081,62 @@ class Client(BaseClient):
           ::
         
             {
-                'containerInstance': {
-                    'containerInstanceArn': 'string',
-                    'ec2InstanceId': 'string',
-                    'version': 123,
-                    'versionInfo': {
-                        'agentVersion': 'string',
-                        'agentHash': 'string',
-                        'dockerVersion': 'string'
+                \'containerInstance\': {
+                    \'containerInstanceArn\': \'string\',
+                    \'ec2InstanceId\': \'string\',
+                    \'version\': 123,
+                    \'versionInfo\': {
+                        \'agentVersion\': \'string\',
+                        \'agentHash\': \'string\',
+                        \'dockerVersion\': \'string\'
                     },
-                    'remainingResources': [
+                    \'remainingResources\': [
                         {
-                            'name': 'string',
-                            'type': 'string',
-                            'doubleValue': 123.0,
-                            'longValue': 123,
-                            'integerValue': 123,
-                            'stringSetValue': [
-                                'string',
+                            \'name\': \'string\',
+                            \'type\': \'string\',
+                            \'doubleValue\': 123.0,
+                            \'longValue\': 123,
+                            \'integerValue\': 123,
+                            \'stringSetValue\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'registeredResources': [
+                    \'registeredResources\': [
                         {
-                            'name': 'string',
-                            'type': 'string',
-                            'doubleValue': 123.0,
-                            'longValue': 123,
-                            'integerValue': 123,
-                            'stringSetValue': [
-                                'string',
+                            \'name\': \'string\',
+                            \'type\': \'string\',
+                            \'doubleValue\': 123.0,
+                            \'longValue\': 123,
+                            \'integerValue\': 123,
+                            \'stringSetValue\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'status': 'string',
-                    'agentConnected': True|False,
-                    'runningTasksCount': 123,
-                    'pendingTasksCount': 123,
-                    'agentUpdateStatus': 'PENDING'|'STAGING'|'STAGED'|'UPDATING'|'UPDATED'|'FAILED',
-                    'attributes': [
+                    \'status\': \'string\',
+                    \'agentConnected\': True|False,
+                    \'runningTasksCount\': 123,
+                    \'pendingTasksCount\': 123,
+                    \'agentUpdateStatus\': \'PENDING\'|\'STAGING\'|\'STAGED\'|\'UPDATING\'|\'UPDATED\'|\'FAILED\',
+                    \'attributes\': [
                         {
-                            'name': 'string',
-                            'value': 'string',
-                            'targetType': 'container-instance',
-                            'targetId': 'string'
+                            \'name\': \'string\',
+                            \'value\': \'string\',
+                            \'targetType\': \'container-instance\',
+                            \'targetId\': \'string\'
                         },
                     ],
-                    'registeredAt': datetime(2015, 1, 1),
-                    'attachments': [
+                    \'registeredAt\': datetime(2015, 1, 1),
+                    \'attachments\': [
                         {
-                            'id': 'string',
-                            'type': 'string',
-                            'status': 'string',
-                            'details': [
+                            \'id\': \'string\',
+                            \'type\': \'string\',
+                            \'status\': \'string\',
+                            \'details\': [
                                 {
-                                    'name': 'string',
-                                    'value': 'string'
+                                    \'name\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ]
                         },
@@ -6350,172 +6350,172 @@ class Client(BaseClient):
         ::
         
           response = client.register_task_definition(
-              family='string',
-              taskRoleArn='string',
-              executionRoleArn='string',
-              networkMode='bridge'|'host'|'awsvpc'|'none',
+              family=\'string\',
+              taskRoleArn=\'string\',
+              executionRoleArn=\'string\',
+              networkMode=\'bridge\'|\'host\'|\'awsvpc\'|\'none\',
               containerDefinitions=[
                   {
-                      'name': 'string',
-                      'image': 'string',
-                      'repositoryCredentials': {
-                          'credentialsParameter': 'string'
+                      \'name\': \'string\',
+                      \'image\': \'string\',
+                      \'repositoryCredentials\': {
+                          \'credentialsParameter\': \'string\'
                       },
-                      'cpu': 123,
-                      'memory': 123,
-                      'memoryReservation': 123,
-                      'links': [
-                          'string',
+                      \'cpu\': 123,
+                      \'memory\': 123,
+                      \'memoryReservation\': 123,
+                      \'links\': [
+                          \'string\',
                       ],
-                      'portMappings': [
+                      \'portMappings\': [
                           {
-                              'containerPort': 123,
-                              'hostPort': 123,
-                              'protocol': 'tcp'|'udp'
+                              \'containerPort\': 123,
+                              \'hostPort\': 123,
+                              \'protocol\': \'tcp\'|\'udp\'
                           },
                       ],
-                      'essential': True|False,
-                      'entryPoint': [
-                          'string',
+                      \'essential\': True|False,
+                      \'entryPoint\': [
+                          \'string\',
                       ],
-                      'command': [
-                          'string',
+                      \'command\': [
+                          \'string\',
                       ],
-                      'environment': [
+                      \'environment\': [
                           {
-                              'name': 'string',
-                              'value': 'string'
+                              \'name\': \'string\',
+                              \'value\': \'string\'
                           },
                       ],
-                      'mountPoints': [
+                      \'mountPoints\': [
                           {
-                              'sourceVolume': 'string',
-                              'containerPath': 'string',
-                              'readOnly': True|False
+                              \'sourceVolume\': \'string\',
+                              \'containerPath\': \'string\',
+                              \'readOnly\': True|False
                           },
                       ],
-                      'volumesFrom': [
+                      \'volumesFrom\': [
                           {
-                              'sourceContainer': 'string',
-                              'readOnly': True|False
+                              \'sourceContainer\': \'string\',
+                              \'readOnly\': True|False
                           },
                       ],
-                      'linuxParameters': {
-                          'capabilities': {
-                              'add': [
-                                  'string',
+                      \'linuxParameters\': {
+                          \'capabilities\': {
+                              \'add\': [
+                                  \'string\',
                               ],
-                              'drop': [
-                                  'string',
+                              \'drop\': [
+                                  \'string\',
                               ]
                           },
-                          'devices': [
+                          \'devices\': [
                               {
-                                  'hostPath': 'string',
-                                  'containerPath': 'string',
-                                  'permissions': [
-                                      'read'|'write'|'mknod',
+                                  \'hostPath\': \'string\',
+                                  \'containerPath\': \'string\',
+                                  \'permissions\': [
+                                      \'read\'|\'write\'|\'mknod\',
                                   ]
                               },
                           ],
-                          'initProcessEnabled': True|False,
-                          'sharedMemorySize': 123,
-                          'tmpfs': [
+                          \'initProcessEnabled\': True|False,
+                          \'sharedMemorySize\': 123,
+                          \'tmpfs\': [
                               {
-                                  'containerPath': 'string',
-                                  'size': 123,
-                                  'mountOptions': [
-                                      'string',
+                                  \'containerPath\': \'string\',
+                                  \'size\': 123,
+                                  \'mountOptions\': [
+                                      \'string\',
                                   ]
                               },
                           ]
                       },
-                      'hostname': 'string',
-                      'user': 'string',
-                      'workingDirectory': 'string',
-                      'disableNetworking': True|False,
-                      'privileged': True|False,
-                      'readonlyRootFilesystem': True|False,
-                      'dnsServers': [
-                          'string',
+                      \'hostname\': \'string\',
+                      \'user\': \'string\',
+                      \'workingDirectory\': \'string\',
+                      \'disableNetworking\': True|False,
+                      \'privileged\': True|False,
+                      \'readonlyRootFilesystem\': True|False,
+                      \'dnsServers\': [
+                          \'string\',
                       ],
-                      'dnsSearchDomains': [
-                          'string',
+                      \'dnsSearchDomains\': [
+                          \'string\',
                       ],
-                      'extraHosts': [
+                      \'extraHosts\': [
                           {
-                              'hostname': 'string',
-                              'ipAddress': 'string'
+                              \'hostname\': \'string\',
+                              \'ipAddress\': \'string\'
                           },
                       ],
-                      'dockerSecurityOptions': [
-                          'string',
+                      \'dockerSecurityOptions\': [
+                          \'string\',
                       ],
-                      'interactive': True|False,
-                      'pseudoTerminal': True|False,
-                      'dockerLabels': {
-                          'string': 'string'
+                      \'interactive\': True|False,
+                      \'pseudoTerminal\': True|False,
+                      \'dockerLabels\': {
+                          \'string\': \'string\'
                       },
-                      'ulimits': [
+                      \'ulimits\': [
                           {
-                              'name': 'core'|'cpu'|'data'|'fsize'|'locks'|'memlock'|'msgqueue'|'nice'|'nofile'|'nproc'|'rss'|'rtprio'|'rttime'|'sigpending'|'stack',
-                              'softLimit': 123,
-                              'hardLimit': 123
+                              \'name\': \'core\'|\'cpu\'|\'data\'|\'fsize\'|\'locks\'|\'memlock\'|\'msgqueue\'|\'nice\'|\'nofile\'|\'nproc\'|\'rss\'|\'rtprio\'|\'rttime\'|\'sigpending\'|\'stack\',
+                              \'softLimit\': 123,
+                              \'hardLimit\': 123
                           },
                       ],
-                      'logConfiguration': {
-                          'logDriver': 'json-file'|'syslog'|'journald'|'gelf'|'fluentd'|'awslogs'|'splunk',
-                          'options': {
-                              'string': 'string'
+                      \'logConfiguration\': {
+                          \'logDriver\': \'json-file\'|\'syslog\'|\'journald\'|\'gelf\'|\'fluentd\'|\'awslogs\'|\'splunk\',
+                          \'options\': {
+                              \'string\': \'string\'
                           }
                       },
-                      'healthCheck': {
-                          'command': [
-                              'string',
+                      \'healthCheck\': {
+                          \'command\': [
+                              \'string\',
                           ],
-                          'interval': 123,
-                          'timeout': 123,
-                          'retries': 123,
-                          'startPeriod': 123
+                          \'interval\': 123,
+                          \'timeout\': 123,
+                          \'retries\': 123,
+                          \'startPeriod\': 123
                       },
-                      'systemControls': [
+                      \'systemControls\': [
                           {
-                              'namespace': 'string',
-                              'value': 'string'
+                              \'namespace\': \'string\',
+                              \'value\': \'string\'
                           },
                       ]
                   },
               ],
               volumes=[
                   {
-                      'name': 'string',
-                      'host': {
-                          'sourcePath': 'string'
+                      \'name\': \'string\',
+                      \'host\': {
+                          \'sourcePath\': \'string\'
                       },
-                      'dockerVolumeConfiguration': {
-                          'scope': 'task'|'shared',
-                          'autoprovision': True|False,
-                          'driver': 'string',
-                          'driverOpts': {
-                              'string': 'string'
+                      \'dockerVolumeConfiguration\': {
+                          \'scope\': \'task\'|\'shared\',
+                          \'autoprovision\': True|False,
+                          \'driver\': \'string\',
+                          \'driverOpts\': {
+                              \'string\': \'string\'
                           },
-                          'labels': {
-                              'string': 'string'
+                          \'labels\': {
+                              \'string\': \'string\'
                           }
                       }
                   },
               ],
               placementConstraints=[
                   {
-                      'type': 'memberOf',
-                      'expression': 'string'
+                      \'type\': \'memberOf\',
+                      \'expression\': \'string\'
                   },
               ],
               requiresCompatibilities=[
-                  'EC2'|'FARGATE',
+                  \'EC2\'|\'FARGATE\',
               ],
-              cpu='string',
-              memory='string'
+              cpu=\'string\',
+              memory=\'string\'
           )
         :type family: string
         :param family: **[REQUIRED]** 
@@ -6535,13 +6535,13 @@ class Client(BaseClient):
         :type networkMode: string
         :param networkMode: 
         
-          The Docker networking mode to use for the containers in the task. The valid values are ``none`` , ``bridge`` , ``awsvpc`` , and ``host`` . The default Docker network mode is ``bridge`` . If using the Fargate launch type, the ``awsvpc`` network mode is required. If using the EC2 launch type, any network mode can be used. If the network mode is set to ``none`` , you can't specify port mappings in your container definitions, and the task's containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
+          The Docker networking mode to use for the containers in the task. The valid values are ``none`` , ``bridge`` , ``awsvpc`` , and ``host`` . The default Docker network mode is ``bridge`` . If using the Fargate launch type, the ``awsvpc`` network mode is required. If using the EC2 launch type, any network mode can be used. If the network mode is set to ``none`` , you can\'t specify port mappings in your container definitions, and the task\'s containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
         
           With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elastic network interface port (for the ``awsvpc`` network mode), so you cannot take advantage of dynamic host port mappings. 
         
           If the network mode is ``awsvpc`` , the task is allocated an Elastic Network Interface, and you must specify a  NetworkConfiguration when you create a service or run a task with the task definition. For more information, see `Task Networking <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
         
-          If the network mode is ``host`` , you can't run multiple instantiations of the same task on a single container instance when port mappings are used.
+          If the network mode is ``host`` , you can\'t run multiple instantiations of the same task on a single container instance when port mappings are used.
         
           Docker for Windows uses different network modes than Docker for Linux. When you register a task definition with Windows containers, you must not specify a network mode.
         
@@ -6644,9 +6644,9 @@ class Client(BaseClient):
         
               For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort`` . The ``hostPort`` can be left blank or it must be the same value as the ``containerPort`` .
         
-              Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost`` . There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself. 
+              Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost`` . There is no loopback for port mappings on Windows, so you cannot access a container\'s mapped port from the host itself. 
         
-              This parameter maps to ``PortBindings`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--publish`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . If the network mode of a task definition is set to ``none`` , then you can't specify port mappings. If the network mode of a task definition is set to ``host`` , then host ports must either be undefined or they must match the container port in the port mapping.
+              This parameter maps to ``PortBindings`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--publish`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . If the network mode of a task definition is set to ``none`` , then you can\'t specify port mappings. If the network mode of a task definition is set to ``host`` , then host ports must either be undefined or they must match the container port in the port mapping.
         
               .. note::
         
@@ -6794,7 +6794,7 @@ class Client(BaseClient):
         
                     If you are using tasks that use the Fargate launch type, the ``add`` parameter is not supported.
         
-                  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``  
+                  Valid values: ``\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"``  
         
                   - *(string) --* 
         
@@ -6802,7 +6802,7 @@ class Client(BaseClient):
         
                   The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--cap-drop`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
         
-                  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``  
+                  Valid values: ``\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"``  
         
                   - *(string) --* 
         
@@ -6834,7 +6834,7 @@ class Client(BaseClient):
         
               - **initProcessEnabled** *(boolean) --* 
         
-                Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
               - **sharedMemorySize** *(integer) --* 
         
@@ -6868,7 +6868,7 @@ class Client(BaseClient):
         
                     The list of tmpfs volume mount options.
         
-                    Valid values: ``"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"``  
+                    Valid values: ``\"defaults\" | \"ro\" | \"rw\" | \"suid\" | \"nosuid\" | \"dev\" | \"nodev\" | \"exec\" | \"noexec\" | \"sync\" | \"async\" | \"dirsync\" | \"remount\" | \"mand\" | \"nomand\" | \"atime\" | \"noatime\" | \"diratime\" | \"nodiratime\" | \"bind\" | \"rbind\" | \"unbindable\" | \"runbindable\" | \"private\" | \"rprivate\" | \"shared\" | \"rshared\" | \"slave\" | \"rslave\" | \"relatime\" | \"norelatime\" | \"strictatime\" | \"nostrictatime\" | \"mode\" | \"uid\" | \"gid\" | \"nr_inodes\" | \"nr_blocks\" | \"mpol\"``  
         
                     - *(string) --* 
         
@@ -6980,7 +6980,7 @@ class Client(BaseClient):
         
             - **dockerLabels** *(dict) --* 
         
-              A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--label`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+              A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--label`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
               - *(string) --* 
         
@@ -6988,7 +6988,7 @@ class Client(BaseClient):
         
             - **ulimits** *(list) --* 
         
-              A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Valid naming values are displayed in the  Ulimit data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+              A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Valid naming values are displayed in the  Ulimit data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
               .. note::
         
@@ -7022,7 +7022,7 @@ class Client(BaseClient):
         
                 Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the  LogConfiguration data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
         
-              This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+              This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
               .. note::
         
@@ -7036,11 +7036,11 @@ class Client(BaseClient):
         
                   If you have a custom driver that is not listed above that you would like to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that is `available on GitHub <https://github.com/aws/amazon-ecs-agent>`__ and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, Amazon Web Services does not currently support running modified copies of this software.
         
-                This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
               - **options** *(dict) --* 
         
-                The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                 - *(string) --* 
         
@@ -7052,9 +7052,9 @@ class Client(BaseClient):
         
               - **command** *(list) --* **[REQUIRED]** 
         
-                A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to execute the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. For example:
+                A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to execute the command arguments directly, or ``CMD-SHELL`` to run the command with the container\'s default shell. For example:
         
-                 ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]``  
+                 ``[ \"CMD-SHELL\", \"curl -f http://localhost/ || exit 1\" ]``  
         
                 An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ .
         
@@ -7135,7 +7135,7 @@ class Client(BaseClient):
         
               - **scope** *(string) --* 
         
-                The scope for the Docker volume which determines it's lifecycle. Docker volumes that are scoped to a ``task`` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as ``shared`` persist after the task stops.
+                The scope for the Docker volume which determines it\'s lifecycle. Docker volumes that are scoped to a ``task`` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as ``shared`` persist after the task stops.
         
               - **autoprovision** *(boolean) --* 
         
@@ -7247,187 +7247,187 @@ class Client(BaseClient):
           ::
         
             {
-                'taskDefinition': {
-                    'taskDefinitionArn': 'string',
-                    'containerDefinitions': [
+                \'taskDefinition\': {
+                    \'taskDefinitionArn\': \'string\',
+                    \'containerDefinitions\': [
                         {
-                            'name': 'string',
-                            'image': 'string',
-                            'repositoryCredentials': {
-                                'credentialsParameter': 'string'
+                            \'name\': \'string\',
+                            \'image\': \'string\',
+                            \'repositoryCredentials\': {
+                                \'credentialsParameter\': \'string\'
                             },
-                            'cpu': 123,
-                            'memory': 123,
-                            'memoryReservation': 123,
-                            'links': [
-                                'string',
+                            \'cpu\': 123,
+                            \'memory\': 123,
+                            \'memoryReservation\': 123,
+                            \'links\': [
+                                \'string\',
                             ],
-                            'portMappings': [
+                            \'portMappings\': [
                                 {
-                                    'containerPort': 123,
-                                    'hostPort': 123,
-                                    'protocol': 'tcp'|'udp'
+                                    \'containerPort\': 123,
+                                    \'hostPort\': 123,
+                                    \'protocol\': \'tcp\'|\'udp\'
                                 },
                             ],
-                            'essential': True|False,
-                            'entryPoint': [
-                                'string',
+                            \'essential\': True|False,
+                            \'entryPoint\': [
+                                \'string\',
                             ],
-                            'command': [
-                                'string',
+                            \'command\': [
+                                \'string\',
                             ],
-                            'environment': [
+                            \'environment\': [
                                 {
-                                    'name': 'string',
-                                    'value': 'string'
+                                    \'name\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ],
-                            'mountPoints': [
+                            \'mountPoints\': [
                                 {
-                                    'sourceVolume': 'string',
-                                    'containerPath': 'string',
-                                    'readOnly': True|False
+                                    \'sourceVolume\': \'string\',
+                                    \'containerPath\': \'string\',
+                                    \'readOnly\': True|False
                                 },
                             ],
-                            'volumesFrom': [
+                            \'volumesFrom\': [
                                 {
-                                    'sourceContainer': 'string',
-                                    'readOnly': True|False
+                                    \'sourceContainer\': \'string\',
+                                    \'readOnly\': True|False
                                 },
                             ],
-                            'linuxParameters': {
-                                'capabilities': {
-                                    'add': [
-                                        'string',
+                            \'linuxParameters\': {
+                                \'capabilities\': {
+                                    \'add\': [
+                                        \'string\',
                                     ],
-                                    'drop': [
-                                        'string',
+                                    \'drop\': [
+                                        \'string\',
                                     ]
                                 },
-                                'devices': [
+                                \'devices\': [
                                     {
-                                        'hostPath': 'string',
-                                        'containerPath': 'string',
-                                        'permissions': [
-                                            'read'|'write'|'mknod',
+                                        \'hostPath\': \'string\',
+                                        \'containerPath\': \'string\',
+                                        \'permissions\': [
+                                            \'read\'|\'write\'|\'mknod\',
                                         ]
                                     },
                                 ],
-                                'initProcessEnabled': True|False,
-                                'sharedMemorySize': 123,
-                                'tmpfs': [
+                                \'initProcessEnabled\': True|False,
+                                \'sharedMemorySize\': 123,
+                                \'tmpfs\': [
                                     {
-                                        'containerPath': 'string',
-                                        'size': 123,
-                                        'mountOptions': [
-                                            'string',
+                                        \'containerPath\': \'string\',
+                                        \'size\': 123,
+                                        \'mountOptions\': [
+                                            \'string\',
                                         ]
                                     },
                                 ]
                             },
-                            'hostname': 'string',
-                            'user': 'string',
-                            'workingDirectory': 'string',
-                            'disableNetworking': True|False,
-                            'privileged': True|False,
-                            'readonlyRootFilesystem': True|False,
-                            'dnsServers': [
-                                'string',
+                            \'hostname\': \'string\',
+                            \'user\': \'string\',
+                            \'workingDirectory\': \'string\',
+                            \'disableNetworking\': True|False,
+                            \'privileged\': True|False,
+                            \'readonlyRootFilesystem\': True|False,
+                            \'dnsServers\': [
+                                \'string\',
                             ],
-                            'dnsSearchDomains': [
-                                'string',
+                            \'dnsSearchDomains\': [
+                                \'string\',
                             ],
-                            'extraHosts': [
+                            \'extraHosts\': [
                                 {
-                                    'hostname': 'string',
-                                    'ipAddress': 'string'
+                                    \'hostname\': \'string\',
+                                    \'ipAddress\': \'string\'
                                 },
                             ],
-                            'dockerSecurityOptions': [
-                                'string',
+                            \'dockerSecurityOptions\': [
+                                \'string\',
                             ],
-                            'interactive': True|False,
-                            'pseudoTerminal': True|False,
-                            'dockerLabels': {
-                                'string': 'string'
+                            \'interactive\': True|False,
+                            \'pseudoTerminal\': True|False,
+                            \'dockerLabels\': {
+                                \'string\': \'string\'
                             },
-                            'ulimits': [
+                            \'ulimits\': [
                                 {
-                                    'name': 'core'|'cpu'|'data'|'fsize'|'locks'|'memlock'|'msgqueue'|'nice'|'nofile'|'nproc'|'rss'|'rtprio'|'rttime'|'sigpending'|'stack',
-                                    'softLimit': 123,
-                                    'hardLimit': 123
+                                    \'name\': \'core\'|\'cpu\'|\'data\'|\'fsize\'|\'locks\'|\'memlock\'|\'msgqueue\'|\'nice\'|\'nofile\'|\'nproc\'|\'rss\'|\'rtprio\'|\'rttime\'|\'sigpending\'|\'stack\',
+                                    \'softLimit\': 123,
+                                    \'hardLimit\': 123
                                 },
                             ],
-                            'logConfiguration': {
-                                'logDriver': 'json-file'|'syslog'|'journald'|'gelf'|'fluentd'|'awslogs'|'splunk',
-                                'options': {
-                                    'string': 'string'
+                            \'logConfiguration\': {
+                                \'logDriver\': \'json-file\'|\'syslog\'|\'journald\'|\'gelf\'|\'fluentd\'|\'awslogs\'|\'splunk\',
+                                \'options\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'healthCheck': {
-                                'command': [
-                                    'string',
+                            \'healthCheck\': {
+                                \'command\': [
+                                    \'string\',
                                 ],
-                                'interval': 123,
-                                'timeout': 123,
-                                'retries': 123,
-                                'startPeriod': 123
+                                \'interval\': 123,
+                                \'timeout\': 123,
+                                \'retries\': 123,
+                                \'startPeriod\': 123
                             },
-                            'systemControls': [
+                            \'systemControls\': [
                                 {
-                                    'namespace': 'string',
-                                    'value': 'string'
+                                    \'namespace\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'family': 'string',
-                    'taskRoleArn': 'string',
-                    'executionRoleArn': 'string',
-                    'networkMode': 'bridge'|'host'|'awsvpc'|'none',
-                    'revision': 123,
-                    'volumes': [
+                    \'family\': \'string\',
+                    \'taskRoleArn\': \'string\',
+                    \'executionRoleArn\': \'string\',
+                    \'networkMode\': \'bridge\'|\'host\'|\'awsvpc\'|\'none\',
+                    \'revision\': 123,
+                    \'volumes\': [
                         {
-                            'name': 'string',
-                            'host': {
-                                'sourcePath': 'string'
+                            \'name\': \'string\',
+                            \'host\': {
+                                \'sourcePath\': \'string\'
                             },
-                            'dockerVolumeConfiguration': {
-                                'scope': 'task'|'shared',
-                                'autoprovision': True|False,
-                                'driver': 'string',
-                                'driverOpts': {
-                                    'string': 'string'
+                            \'dockerVolumeConfiguration\': {
+                                \'scope\': \'task\'|\'shared\',
+                                \'autoprovision\': True|False,
+                                \'driver\': \'string\',
+                                \'driverOpts\': {
+                                    \'string\': \'string\'
                                 },
-                                'labels': {
-                                    'string': 'string'
+                                \'labels\': {
+                                    \'string\': \'string\'
                                 }
                             }
                         },
                     ],
-                    'status': 'ACTIVE'|'INACTIVE',
-                    'requiresAttributes': [
+                    \'status\': \'ACTIVE\'|\'INACTIVE\',
+                    \'requiresAttributes\': [
                         {
-                            'name': 'string',
-                            'value': 'string',
-                            'targetType': 'container-instance',
-                            'targetId': 'string'
+                            \'name\': \'string\',
+                            \'value\': \'string\',
+                            \'targetType\': \'container-instance\',
+                            \'targetId\': \'string\'
                         },
                     ],
-                    'placementConstraints': [
+                    \'placementConstraints\': [
                         {
-                            'type': 'memberOf',
-                            'expression': 'string'
+                            \'type\': \'memberOf\',
+                            \'expression\': \'string\'
                         },
                     ],
-                    'compatibilities': [
-                        'EC2'|'FARGATE',
+                    \'compatibilities\': [
+                        \'EC2\'|\'FARGATE\',
                     ],
-                    'requiresCompatibilities': [
-                        'EC2'|'FARGATE',
+                    \'requiresCompatibilities\': [
+                        \'EC2\'|\'FARGATE\',
                     ],
-                    'cpu': 'string',
-                    'memory': 'string'
+                    \'cpu\': \'string\',
+                    \'memory\': \'string\'
                 }
             }
           **Response Structure** 
@@ -7538,9 +7538,9 @@ class Client(BaseClient):
         
                     For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort`` . The ``hostPort`` can be left blank or it must be the same value as the ``containerPort`` .
         
-                    Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost`` . There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself. 
+                    Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost`` . There is no loopback for port mappings on Windows, so you cannot access a container\'s mapped port from the host itself. 
         
-                    This parameter maps to ``PortBindings`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--publish`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . If the network mode of a task definition is set to ``none`` , then you can't specify port mappings. If the network mode of a task definition is set to ``host`` , then host ports must either be undefined or they must match the container port in the port mapping.
+                    This parameter maps to ``PortBindings`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--publish`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . If the network mode of a task definition is set to ``none`` , then you can\'t specify port mappings. If the network mode of a task definition is set to ``host`` , then host ports must either be undefined or they must match the container port in the port mapping.
         
                     .. note::
         
@@ -7688,7 +7688,7 @@ class Client(BaseClient):
         
                           If you are using tasks that use the Fargate launch type, the ``add`` parameter is not supported.
         
-                        Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``  
+                        Valid values: ``\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"``  
         
                         - *(string) --* 
                     
@@ -7696,7 +7696,7 @@ class Client(BaseClient):
         
                         The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--cap-drop`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
         
-                        Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``  
+                        Valid values: ``\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"``  
         
                         - *(string) --* 
                     
@@ -7728,7 +7728,7 @@ class Client(BaseClient):
                       
                     - **initProcessEnabled** *(boolean) --* 
         
-                      Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                      Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     - **sharedMemorySize** *(integer) --* 
         
@@ -7762,7 +7762,7 @@ class Client(BaseClient):
         
                           The list of tmpfs volume mount options.
         
-                          Valid values: ``"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"``  
+                          Valid values: ``\"defaults\" | \"ro\" | \"rw\" | \"suid\" | \"nosuid\" | \"dev\" | \"nodev\" | \"exec\" | \"noexec\" | \"sync\" | \"async\" | \"dirsync\" | \"remount\" | \"mand\" | \"nomand\" | \"atime\" | \"noatime\" | \"diratime\" | \"nodiratime\" | \"bind\" | \"rbind\" | \"unbindable\" | \"runbindable\" | \"private\" | \"rprivate\" | \"shared\" | \"rshared\" | \"slave\" | \"rslave\" | \"relatime\" | \"norelatime\" | \"strictatime\" | \"nostrictatime\" | \"mode\" | \"uid\" | \"gid\" | \"nr_inodes\" | \"nr_blocks\" | \"mpol\"``  
         
                           - *(string) --* 
                       
@@ -7874,7 +7874,7 @@ class Client(BaseClient):
         
                   - **dockerLabels** *(dict) --* 
         
-                    A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--label`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                    A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--label`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     - *(string) --* 
                       
@@ -7882,7 +7882,7 @@ class Client(BaseClient):
                 
                   - **ulimits** *(list) --* 
         
-                    A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Valid naming values are displayed in the  Ulimit data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                    A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Valid naming values are displayed in the  Ulimit data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     .. note::
         
@@ -7916,7 +7916,7 @@ class Client(BaseClient):
         
                       Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the  LogConfiguration data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
         
-                    This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                    This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     .. note::
         
@@ -7930,11 +7930,11 @@ class Client(BaseClient):
         
                         If you have a custom driver that is not listed above that you would like to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that is `available on GitHub <https://github.com/aws/amazon-ecs-agent>`__ and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, Amazon Web Services does not currently support running modified copies of this software.
         
-                      This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                      This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                     - **options** *(dict) --* 
         
-                      The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep "Server API version"``  
+                      The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version | grep \"Server API version\"``  
         
                       - *(string) --* 
                         
@@ -7946,9 +7946,9 @@ class Client(BaseClient):
         
                     - **command** *(list) --* 
         
-                      A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to execute the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. For example:
+                      A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to execute the command arguments directly, or ``CMD-SHELL`` to run the command with the container\'s default shell. For example:
         
-                       ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]``  
+                       ``[ \"CMD-SHELL\", \"curl -f http://localhost/ || exit 1\" ]``  
         
                       An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ .
         
@@ -8014,7 +8014,7 @@ class Client(BaseClient):
         
               - **networkMode** *(string) --* 
         
-                The Docker networking mode to use for the containers in the task. The valid values are ``none`` , ``bridge`` , ``awsvpc`` , and ``host`` . The default Docker network mode is ``bridge`` . If using the Fargate launch type, the ``awsvpc`` network mode is required. If using the EC2 launch type, any network mode can be used. If the network mode is set to ``none`` , you can't specify port mappings in your container definitions, and the task's containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
+                The Docker networking mode to use for the containers in the task. The valid values are ``none`` , ``bridge`` , ``awsvpc`` , and ``host`` . The default Docker network mode is ``bridge`` . If using the Fargate launch type, the ``awsvpc`` network mode is required. If using the EC2 launch type, any network mode can be used. If the network mode is set to ``none`` , you can\'t specify port mappings in your container definitions, and the task\'s containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
         
                 With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elastic network interface port (for the ``awsvpc`` network mode), so you cannot take advantage of dynamic host port mappings. 
         
@@ -8024,7 +8024,7 @@ class Client(BaseClient):
         
                   Currently, only the Amazon ECS-optimized AMI, other Amazon Linux variants with the ``ecs-init`` package, or AWS Fargate infrastructure support the ``awsvpc`` network mode. 
         
-                If the network mode is ``host`` , you can't run multiple instantiations of the same task on a single container instance when port mappings are used.
+                If the network mode is ``host`` , you can\'t run multiple instantiations of the same task on a single container instance when port mappings are used.
         
                 Docker for Windows uses different network modes than Docker for Linux. When you register a task definition with Windows containers, you must not specify a network mode. If you use the console to register a task definition with Windows containers, you must choose the ``<default>`` network mode object. 
         
@@ -8068,7 +8068,7 @@ class Client(BaseClient):
         
                     - **scope** *(string) --* 
         
-                      The scope for the Docker volume which determines it's lifecycle. Docker volumes that are scoped to a ``task`` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as ``shared`` persist after the task stops.
+                      The scope for the Docker volume which determines it\'s lifecycle. Docker volumes that are scoped to a ``task`` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as ``shared`` persist after the task stops.
         
                     - **autoprovision** *(boolean) --* 
         
@@ -8210,55 +8210,55 @@ class Client(BaseClient):
         ::
         
           response = client.run_task(
-              cluster='string',
-              taskDefinition='string',
+              cluster=\'string\',
+              taskDefinition=\'string\',
               overrides={
-                  'containerOverrides': [
+                  \'containerOverrides\': [
                       {
-                          'name': 'string',
-                          'command': [
-                              'string',
+                          \'name\': \'string\',
+                          \'command\': [
+                              \'string\',
                           ],
-                          'environment': [
+                          \'environment\': [
                               {
-                                  'name': 'string',
-                                  'value': 'string'
+                                  \'name\': \'string\',
+                                  \'value\': \'string\'
                               },
                           ],
-                          'cpu': 123,
-                          'memory': 123,
-                          'memoryReservation': 123
+                          \'cpu\': 123,
+                          \'memory\': 123,
+                          \'memoryReservation\': 123
                       },
                   ],
-                  'taskRoleArn': 'string',
-                  'executionRoleArn': 'string'
+                  \'taskRoleArn\': \'string\',
+                  \'executionRoleArn\': \'string\'
               },
               count=123,
-              startedBy='string',
-              group='string',
+              startedBy=\'string\',
+              group=\'string\',
               placementConstraints=[
                   {
-                      'type': 'distinctInstance'|'memberOf',
-                      'expression': 'string'
+                      \'type\': \'distinctInstance\'|\'memberOf\',
+                      \'expression\': \'string\'
                   },
               ],
               placementStrategy=[
                   {
-                      'type': 'random'|'spread'|'binpack',
-                      'field': 'string'
+                      \'type\': \'random\'|\'spread\'|\'binpack\',
+                      \'field\': \'string\'
                   },
               ],
-              launchType='EC2'|'FARGATE',
-              platformVersion='string',
+              launchType=\'EC2\'|\'FARGATE\',
+              platformVersion=\'string\',
               networkConfiguration={
-                  'awsvpcConfiguration': {
-                      'subnets': [
-                          'string',
+                  \'awsvpcConfiguration\': {
+                      \'subnets\': [
+                          \'string\',
                       ],
-                      'securityGroups': [
-                          'string',
+                      \'securityGroups\': [
+                          \'string\',
                       ],
-                      'assignPublicIp': 'ENABLED'|'DISABLED'
+                      \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                   }
               }
           )
@@ -8431,7 +8431,7 @@ class Client(BaseClient):
         
             - **assignPublicIp** *(string) --* 
         
-              Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+              Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
         :rtype: dict
         :returns: 
@@ -8441,98 +8441,98 @@ class Client(BaseClient):
           ::
         
             {
-                'tasks': [
+                \'tasks\': [
                     {
-                        'taskArn': 'string',
-                        'clusterArn': 'string',
-                        'taskDefinitionArn': 'string',
-                        'containerInstanceArn': 'string',
-                        'overrides': {
-                            'containerOverrides': [
+                        \'taskArn\': \'string\',
+                        \'clusterArn\': \'string\',
+                        \'taskDefinitionArn\': \'string\',
+                        \'containerInstanceArn\': \'string\',
+                        \'overrides\': {
+                            \'containerOverrides\': [
                                 {
-                                    'name': 'string',
-                                    'command': [
-                                        'string',
+                                    \'name\': \'string\',
+                                    \'command\': [
+                                        \'string\',
                                     ],
-                                    'environment': [
+                                    \'environment\': [
                                         {
-                                            'name': 'string',
-                                            'value': 'string'
+                                            \'name\': \'string\',
+                                            \'value\': \'string\'
                                         },
                                     ],
-                                    'cpu': 123,
-                                    'memory': 123,
-                                    'memoryReservation': 123
+                                    \'cpu\': 123,
+                                    \'memory\': 123,
+                                    \'memoryReservation\': 123
                                 },
                             ],
-                            'taskRoleArn': 'string',
-                            'executionRoleArn': 'string'
+                            \'taskRoleArn\': \'string\',
+                            \'executionRoleArn\': \'string\'
                         },
-                        'lastStatus': 'string',
-                        'desiredStatus': 'string',
-                        'cpu': 'string',
-                        'memory': 'string',
-                        'containers': [
+                        \'lastStatus\': \'string\',
+                        \'desiredStatus\': \'string\',
+                        \'cpu\': \'string\',
+                        \'memory\': \'string\',
+                        \'containers\': [
                             {
-                                'containerArn': 'string',
-                                'taskArn': 'string',
-                                'name': 'string',
-                                'lastStatus': 'string',
-                                'exitCode': 123,
-                                'reason': 'string',
-                                'networkBindings': [
+                                \'containerArn\': \'string\',
+                                \'taskArn\': \'string\',
+                                \'name\': \'string\',
+                                \'lastStatus\': \'string\',
+                                \'exitCode\': 123,
+                                \'reason\': \'string\',
+                                \'networkBindings\': [
                                     {
-                                        'bindIP': 'string',
-                                        'containerPort': 123,
-                                        'hostPort': 123,
-                                        'protocol': 'tcp'|'udp'
+                                        \'bindIP\': \'string\',
+                                        \'containerPort\': 123,
+                                        \'hostPort\': 123,
+                                        \'protocol\': \'tcp\'|\'udp\'
                                     },
                                 ],
-                                'networkInterfaces': [
+                                \'networkInterfaces\': [
                                     {
-                                        'attachmentId': 'string',
-                                        'privateIpv4Address': 'string',
-                                        'ipv6Address': 'string'
+                                        \'attachmentId\': \'string\',
+                                        \'privateIpv4Address\': \'string\',
+                                        \'ipv6Address\': \'string\'
                                     },
                                 ],
-                                'healthStatus': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN'
+                                \'healthStatus\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\'
                             },
                         ],
-                        'startedBy': 'string',
-                        'version': 123,
-                        'stoppedReason': 'string',
-                        'connectivity': 'CONNECTED'|'DISCONNECTED',
-                        'connectivityAt': datetime(2015, 1, 1),
-                        'pullStartedAt': datetime(2015, 1, 1),
-                        'pullStoppedAt': datetime(2015, 1, 1),
-                        'executionStoppedAt': datetime(2015, 1, 1),
-                        'createdAt': datetime(2015, 1, 1),
-                        'startedAt': datetime(2015, 1, 1),
-                        'stoppingAt': datetime(2015, 1, 1),
-                        'stoppedAt': datetime(2015, 1, 1),
-                        'group': 'string',
-                        'launchType': 'EC2'|'FARGATE',
-                        'platformVersion': 'string',
-                        'attachments': [
+                        \'startedBy\': \'string\',
+                        \'version\': 123,
+                        \'stoppedReason\': \'string\',
+                        \'connectivity\': \'CONNECTED\'|\'DISCONNECTED\',
+                        \'connectivityAt\': datetime(2015, 1, 1),
+                        \'pullStartedAt\': datetime(2015, 1, 1),
+                        \'pullStoppedAt\': datetime(2015, 1, 1),
+                        \'executionStoppedAt\': datetime(2015, 1, 1),
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'startedAt\': datetime(2015, 1, 1),
+                        \'stoppingAt\': datetime(2015, 1, 1),
+                        \'stoppedAt\': datetime(2015, 1, 1),
+                        \'group\': \'string\',
+                        \'launchType\': \'EC2\'|\'FARGATE\',
+                        \'platformVersion\': \'string\',
+                        \'attachments\': [
                             {
-                                'id': 'string',
-                                'type': 'string',
-                                'status': 'string',
-                                'details': [
+                                \'id\': \'string\',
+                                \'type\': \'string\',
+                                \'status\': \'string\',
+                                \'details\': [
                                     {
-                                        'name': 'string',
-                                        'value': 'string'
+                                        \'name\': \'string\',
+                                        \'value\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'healthStatus': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN'
+                        \'healthStatus\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\'
                     },
                 ],
-                'failures': [
+                \'failures\': [
                     {
-                        'arn': 'string',
-                        'reason': 'string'
+                        \'arn\': \'string\',
+                        \'reason\': \'string\'
                     },
                 ]
             }
@@ -8848,7 +8848,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    The Amazon ECS container agent does not monitor or report on Docker health checks that are embedded in a container image (such as those specified in a parent image or from the image's Dockerfile) and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+                    The Amazon ECS container agent does not monitor or report on Docker health checks that are embedded in a container image (such as those specified in a parent image or from the image\'s Dockerfile) and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
         
             - **failures** *(list) --* 
         
@@ -8880,43 +8880,43 @@ class Client(BaseClient):
         ::
         
           response = client.start_task(
-              cluster='string',
-              taskDefinition='string',
+              cluster=\'string\',
+              taskDefinition=\'string\',
               overrides={
-                  'containerOverrides': [
+                  \'containerOverrides\': [
                       {
-                          'name': 'string',
-                          'command': [
-                              'string',
+                          \'name\': \'string\',
+                          \'command\': [
+                              \'string\',
                           ],
-                          'environment': [
+                          \'environment\': [
                               {
-                                  'name': 'string',
-                                  'value': 'string'
+                                  \'name\': \'string\',
+                                  \'value\': \'string\'
                               },
                           ],
-                          'cpu': 123,
-                          'memory': 123,
-                          'memoryReservation': 123
+                          \'cpu\': 123,
+                          \'memory\': 123,
+                          \'memoryReservation\': 123
                       },
                   ],
-                  'taskRoleArn': 'string',
-                  'executionRoleArn': 'string'
+                  \'taskRoleArn\': \'string\',
+                  \'executionRoleArn\': \'string\'
               },
               containerInstances=[
-                  'string',
+                  \'string\',
               ],
-              startedBy='string',
-              group='string',
+              startedBy=\'string\',
+              group=\'string\',
               networkConfiguration={
-                  'awsvpcConfiguration': {
-                      'subnets': [
-                          'string',
+                  \'awsvpcConfiguration\': {
+                      \'subnets\': [
+                          \'string\',
                       ],
-                      'securityGroups': [
-                          'string',
+                      \'securityGroups\': [
+                          \'string\',
                       ],
-                      'assignPublicIp': 'ENABLED'|'DISABLED'
+                      \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                   }
               }
           )
@@ -9047,7 +9047,7 @@ class Client(BaseClient):
         
             - **assignPublicIp** *(string) --* 
         
-              Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+              Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
         :rtype: dict
         :returns: 
@@ -9057,98 +9057,98 @@ class Client(BaseClient):
           ::
         
             {
-                'tasks': [
+                \'tasks\': [
                     {
-                        'taskArn': 'string',
-                        'clusterArn': 'string',
-                        'taskDefinitionArn': 'string',
-                        'containerInstanceArn': 'string',
-                        'overrides': {
-                            'containerOverrides': [
+                        \'taskArn\': \'string\',
+                        \'clusterArn\': \'string\',
+                        \'taskDefinitionArn\': \'string\',
+                        \'containerInstanceArn\': \'string\',
+                        \'overrides\': {
+                            \'containerOverrides\': [
                                 {
-                                    'name': 'string',
-                                    'command': [
-                                        'string',
+                                    \'name\': \'string\',
+                                    \'command\': [
+                                        \'string\',
                                     ],
-                                    'environment': [
+                                    \'environment\': [
                                         {
-                                            'name': 'string',
-                                            'value': 'string'
+                                            \'name\': \'string\',
+                                            \'value\': \'string\'
                                         },
                                     ],
-                                    'cpu': 123,
-                                    'memory': 123,
-                                    'memoryReservation': 123
+                                    \'cpu\': 123,
+                                    \'memory\': 123,
+                                    \'memoryReservation\': 123
                                 },
                             ],
-                            'taskRoleArn': 'string',
-                            'executionRoleArn': 'string'
+                            \'taskRoleArn\': \'string\',
+                            \'executionRoleArn\': \'string\'
                         },
-                        'lastStatus': 'string',
-                        'desiredStatus': 'string',
-                        'cpu': 'string',
-                        'memory': 'string',
-                        'containers': [
+                        \'lastStatus\': \'string\',
+                        \'desiredStatus\': \'string\',
+                        \'cpu\': \'string\',
+                        \'memory\': \'string\',
+                        \'containers\': [
                             {
-                                'containerArn': 'string',
-                                'taskArn': 'string',
-                                'name': 'string',
-                                'lastStatus': 'string',
-                                'exitCode': 123,
-                                'reason': 'string',
-                                'networkBindings': [
+                                \'containerArn\': \'string\',
+                                \'taskArn\': \'string\',
+                                \'name\': \'string\',
+                                \'lastStatus\': \'string\',
+                                \'exitCode\': 123,
+                                \'reason\': \'string\',
+                                \'networkBindings\': [
                                     {
-                                        'bindIP': 'string',
-                                        'containerPort': 123,
-                                        'hostPort': 123,
-                                        'protocol': 'tcp'|'udp'
+                                        \'bindIP\': \'string\',
+                                        \'containerPort\': 123,
+                                        \'hostPort\': 123,
+                                        \'protocol\': \'tcp\'|\'udp\'
                                     },
                                 ],
-                                'networkInterfaces': [
+                                \'networkInterfaces\': [
                                     {
-                                        'attachmentId': 'string',
-                                        'privateIpv4Address': 'string',
-                                        'ipv6Address': 'string'
+                                        \'attachmentId\': \'string\',
+                                        \'privateIpv4Address\': \'string\',
+                                        \'ipv6Address\': \'string\'
                                     },
                                 ],
-                                'healthStatus': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN'
+                                \'healthStatus\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\'
                             },
                         ],
-                        'startedBy': 'string',
-                        'version': 123,
-                        'stoppedReason': 'string',
-                        'connectivity': 'CONNECTED'|'DISCONNECTED',
-                        'connectivityAt': datetime(2015, 1, 1),
-                        'pullStartedAt': datetime(2015, 1, 1),
-                        'pullStoppedAt': datetime(2015, 1, 1),
-                        'executionStoppedAt': datetime(2015, 1, 1),
-                        'createdAt': datetime(2015, 1, 1),
-                        'startedAt': datetime(2015, 1, 1),
-                        'stoppingAt': datetime(2015, 1, 1),
-                        'stoppedAt': datetime(2015, 1, 1),
-                        'group': 'string',
-                        'launchType': 'EC2'|'FARGATE',
-                        'platformVersion': 'string',
-                        'attachments': [
+                        \'startedBy\': \'string\',
+                        \'version\': 123,
+                        \'stoppedReason\': \'string\',
+                        \'connectivity\': \'CONNECTED\'|\'DISCONNECTED\',
+                        \'connectivityAt\': datetime(2015, 1, 1),
+                        \'pullStartedAt\': datetime(2015, 1, 1),
+                        \'pullStoppedAt\': datetime(2015, 1, 1),
+                        \'executionStoppedAt\': datetime(2015, 1, 1),
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'startedAt\': datetime(2015, 1, 1),
+                        \'stoppingAt\': datetime(2015, 1, 1),
+                        \'stoppedAt\': datetime(2015, 1, 1),
+                        \'group\': \'string\',
+                        \'launchType\': \'EC2\'|\'FARGATE\',
+                        \'platformVersion\': \'string\',
+                        \'attachments\': [
                             {
-                                'id': 'string',
-                                'type': 'string',
-                                'status': 'string',
-                                'details': [
+                                \'id\': \'string\',
+                                \'type\': \'string\',
+                                \'status\': \'string\',
+                                \'details\': [
                                     {
-                                        'name': 'string',
-                                        'value': 'string'
+                                        \'name\': \'string\',
+                                        \'value\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'healthStatus': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN'
+                        \'healthStatus\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\'
                     },
                 ],
-                'failures': [
+                \'failures\': [
                     {
-                        'arn': 'string',
-                        'reason': 'string'
+                        \'arn\': \'string\',
+                        \'reason\': \'string\'
                     },
                 ]
             }
@@ -9464,7 +9464,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    The Amazon ECS container agent does not monitor or report on Docker health checks that are embedded in a container image (such as those specified in a parent image or from the image's Dockerfile) and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+                    The Amazon ECS container agent does not monitor or report on Docker health checks that are embedded in a container image (such as those specified in a parent image or from the image\'s Dockerfile) and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
         
             - **failures** *(list) --* 
         
@@ -9500,9 +9500,9 @@ class Client(BaseClient):
         ::
         
           response = client.stop_task(
-              cluster='string',
-              task='string',
-              reason='string'
+              cluster=\'string\',
+              task=\'string\',
+              reason=\'string\'
           )
         :type cluster: string
         :param cluster: 
@@ -9527,91 +9527,91 @@ class Client(BaseClient):
           ::
         
             {
-                'task': {
-                    'taskArn': 'string',
-                    'clusterArn': 'string',
-                    'taskDefinitionArn': 'string',
-                    'containerInstanceArn': 'string',
-                    'overrides': {
-                        'containerOverrides': [
+                \'task\': {
+                    \'taskArn\': \'string\',
+                    \'clusterArn\': \'string\',
+                    \'taskDefinitionArn\': \'string\',
+                    \'containerInstanceArn\': \'string\',
+                    \'overrides\': {
+                        \'containerOverrides\': [
                             {
-                                'name': 'string',
-                                'command': [
-                                    'string',
+                                \'name\': \'string\',
+                                \'command\': [
+                                    \'string\',
                                 ],
-                                'environment': [
+                                \'environment\': [
                                     {
-                                        'name': 'string',
-                                        'value': 'string'
+                                        \'name\': \'string\',
+                                        \'value\': \'string\'
                                     },
                                 ],
-                                'cpu': 123,
-                                'memory': 123,
-                                'memoryReservation': 123
+                                \'cpu\': 123,
+                                \'memory\': 123,
+                                \'memoryReservation\': 123
                             },
                         ],
-                        'taskRoleArn': 'string',
-                        'executionRoleArn': 'string'
+                        \'taskRoleArn\': \'string\',
+                        \'executionRoleArn\': \'string\'
                     },
-                    'lastStatus': 'string',
-                    'desiredStatus': 'string',
-                    'cpu': 'string',
-                    'memory': 'string',
-                    'containers': [
+                    \'lastStatus\': \'string\',
+                    \'desiredStatus\': \'string\',
+                    \'cpu\': \'string\',
+                    \'memory\': \'string\',
+                    \'containers\': [
                         {
-                            'containerArn': 'string',
-                            'taskArn': 'string',
-                            'name': 'string',
-                            'lastStatus': 'string',
-                            'exitCode': 123,
-                            'reason': 'string',
-                            'networkBindings': [
+                            \'containerArn\': \'string\',
+                            \'taskArn\': \'string\',
+                            \'name\': \'string\',
+                            \'lastStatus\': \'string\',
+                            \'exitCode\': 123,
+                            \'reason\': \'string\',
+                            \'networkBindings\': [
                                 {
-                                    'bindIP': 'string',
-                                    'containerPort': 123,
-                                    'hostPort': 123,
-                                    'protocol': 'tcp'|'udp'
+                                    \'bindIP\': \'string\',
+                                    \'containerPort\': 123,
+                                    \'hostPort\': 123,
+                                    \'protocol\': \'tcp\'|\'udp\'
                                 },
                             ],
-                            'networkInterfaces': [
+                            \'networkInterfaces\': [
                                 {
-                                    'attachmentId': 'string',
-                                    'privateIpv4Address': 'string',
-                                    'ipv6Address': 'string'
+                                    \'attachmentId\': \'string\',
+                                    \'privateIpv4Address\': \'string\',
+                                    \'ipv6Address\': \'string\'
                                 },
                             ],
-                            'healthStatus': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN'
+                            \'healthStatus\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\'
                         },
                     ],
-                    'startedBy': 'string',
-                    'version': 123,
-                    'stoppedReason': 'string',
-                    'connectivity': 'CONNECTED'|'DISCONNECTED',
-                    'connectivityAt': datetime(2015, 1, 1),
-                    'pullStartedAt': datetime(2015, 1, 1),
-                    'pullStoppedAt': datetime(2015, 1, 1),
-                    'executionStoppedAt': datetime(2015, 1, 1),
-                    'createdAt': datetime(2015, 1, 1),
-                    'startedAt': datetime(2015, 1, 1),
-                    'stoppingAt': datetime(2015, 1, 1),
-                    'stoppedAt': datetime(2015, 1, 1),
-                    'group': 'string',
-                    'launchType': 'EC2'|'FARGATE',
-                    'platformVersion': 'string',
-                    'attachments': [
+                    \'startedBy\': \'string\',
+                    \'version\': 123,
+                    \'stoppedReason\': \'string\',
+                    \'connectivity\': \'CONNECTED\'|\'DISCONNECTED\',
+                    \'connectivityAt\': datetime(2015, 1, 1),
+                    \'pullStartedAt\': datetime(2015, 1, 1),
+                    \'pullStoppedAt\': datetime(2015, 1, 1),
+                    \'executionStoppedAt\': datetime(2015, 1, 1),
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'startedAt\': datetime(2015, 1, 1),
+                    \'stoppingAt\': datetime(2015, 1, 1),
+                    \'stoppedAt\': datetime(2015, 1, 1),
+                    \'group\': \'string\',
+                    \'launchType\': \'EC2\'|\'FARGATE\',
+                    \'platformVersion\': \'string\',
+                    \'attachments\': [
                         {
-                            'id': 'string',
-                            'type': 'string',
-                            'status': 'string',
-                            'details': [
+                            \'id\': \'string\',
+                            \'type\': \'string\',
+                            \'status\': \'string\',
+                            \'details\': [
                                 {
-                                    'name': 'string',
-                                    'value': 'string'
+                                    \'name\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'healthStatus': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN'
+                    \'healthStatus\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\'
                 }
             }
           **Response Structure** 
@@ -9922,7 +9922,7 @@ class Client(BaseClient):
         
                 .. note::
         
-                  The Amazon ECS container agent does not monitor or report on Docker health checks that are embedded in a container image (such as those specified in a parent image or from the image's Dockerfile) and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+                  The Amazon ECS container agent does not monitor or report on Docker health checks that are embedded in a container image (such as those specified in a parent image or from the image\'s Dockerfile) and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
         
         """
         pass
@@ -9941,18 +9941,18 @@ class Client(BaseClient):
         ::
         
           response = client.submit_container_state_change(
-              cluster='string',
-              task='string',
-              containerName='string',
-              status='string',
+              cluster=\'string\',
+              task=\'string\',
+              containerName=\'string\',
+              status=\'string\',
               exitCode=123,
-              reason='string',
+              reason=\'string\',
               networkBindings=[
                   {
-                      'bindIP': 'string',
-                      'containerPort': 123,
-                      'hostPort': 123,
-                      'protocol': 'tcp'|'udp'
+                      \'bindIP\': \'string\',
+                      \'containerPort\': 123,
+                      \'hostPort\': 123,
+                      \'protocol\': \'tcp\'|\'udp\'
                   },
               ]
           )
@@ -10019,7 +10019,7 @@ class Client(BaseClient):
           ::
         
             {
-                'acknowledgment': 'string'
+                \'acknowledgment\': \'string\'
             }
           **Response Structure** 
         
@@ -10046,30 +10046,30 @@ class Client(BaseClient):
         ::
         
           response = client.submit_task_state_change(
-              cluster='string',
-              task='string',
-              status='string',
-              reason='string',
+              cluster=\'string\',
+              task=\'string\',
+              status=\'string\',
+              reason=\'string\',
               containers=[
                   {
-                      'containerName': 'string',
-                      'exitCode': 123,
-                      'networkBindings': [
+                      \'containerName\': \'string\',
+                      \'exitCode\': 123,
+                      \'networkBindings\': [
                           {
-                              'bindIP': 'string',
-                              'containerPort': 123,
-                              'hostPort': 123,
-                              'protocol': 'tcp'|'udp'
+                              \'bindIP\': \'string\',
+                              \'containerPort\': 123,
+                              \'hostPort\': 123,
+                              \'protocol\': \'tcp\'|\'udp\'
                           },
                       ],
-                      'reason': 'string',
-                      'status': 'string'
+                      \'reason\': \'string\',
+                      \'status\': \'string\'
                   },
               ],
               attachments=[
                   {
-                      'attachmentArn': 'string',
-                      'status': 'string'
+                      \'attachmentArn\': \'string\',
+                      \'status\': \'string\'
                   },
               ],
               pullStartedAt=datetime(2015, 1, 1),
@@ -10185,7 +10185,7 @@ class Client(BaseClient):
           ::
         
             {
-                'acknowledgment': 'string'
+                \'acknowledgment\': \'string\'
             }
           **Response Structure** 
         
@@ -10209,8 +10209,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_container_agent(
-              cluster='string',
-              containerInstance='string'
+              cluster=\'string\',
+              containerInstance=\'string\'
           )
         :type cluster: string
         :param cluster: 
@@ -10230,62 +10230,62 @@ class Client(BaseClient):
           ::
         
             {
-                'containerInstance': {
-                    'containerInstanceArn': 'string',
-                    'ec2InstanceId': 'string',
-                    'version': 123,
-                    'versionInfo': {
-                        'agentVersion': 'string',
-                        'agentHash': 'string',
-                        'dockerVersion': 'string'
+                \'containerInstance\': {
+                    \'containerInstanceArn\': \'string\',
+                    \'ec2InstanceId\': \'string\',
+                    \'version\': 123,
+                    \'versionInfo\': {
+                        \'agentVersion\': \'string\',
+                        \'agentHash\': \'string\',
+                        \'dockerVersion\': \'string\'
                     },
-                    'remainingResources': [
+                    \'remainingResources\': [
                         {
-                            'name': 'string',
-                            'type': 'string',
-                            'doubleValue': 123.0,
-                            'longValue': 123,
-                            'integerValue': 123,
-                            'stringSetValue': [
-                                'string',
+                            \'name\': \'string\',
+                            \'type\': \'string\',
+                            \'doubleValue\': 123.0,
+                            \'longValue\': 123,
+                            \'integerValue\': 123,
+                            \'stringSetValue\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'registeredResources': [
+                    \'registeredResources\': [
                         {
-                            'name': 'string',
-                            'type': 'string',
-                            'doubleValue': 123.0,
-                            'longValue': 123,
-                            'integerValue': 123,
-                            'stringSetValue': [
-                                'string',
+                            \'name\': \'string\',
+                            \'type\': \'string\',
+                            \'doubleValue\': 123.0,
+                            \'longValue\': 123,
+                            \'integerValue\': 123,
+                            \'stringSetValue\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'status': 'string',
-                    'agentConnected': True|False,
-                    'runningTasksCount': 123,
-                    'pendingTasksCount': 123,
-                    'agentUpdateStatus': 'PENDING'|'STAGING'|'STAGED'|'UPDATING'|'UPDATED'|'FAILED',
-                    'attributes': [
+                    \'status\': \'string\',
+                    \'agentConnected\': True|False,
+                    \'runningTasksCount\': 123,
+                    \'pendingTasksCount\': 123,
+                    \'agentUpdateStatus\': \'PENDING\'|\'STAGING\'|\'STAGED\'|\'UPDATING\'|\'UPDATED\'|\'FAILED\',
+                    \'attributes\': [
                         {
-                            'name': 'string',
-                            'value': 'string',
-                            'targetType': 'container-instance',
-                            'targetId': 'string'
+                            \'name\': \'string\',
+                            \'value\': \'string\',
+                            \'targetType\': \'container-instance\',
+                            \'targetId\': \'string\'
                         },
                     ],
-                    'registeredAt': datetime(2015, 1, 1),
-                    'attachments': [
+                    \'registeredAt\': datetime(2015, 1, 1),
+                    \'attachments\': [
                         {
-                            'id': 'string',
-                            'type': 'string',
-                            'status': 'string',
-                            'details': [
+                            \'id\': \'string\',
+                            \'type\': \'string\',
+                            \'status\': \'string\',
+                            \'details\': [
                                 {
-                                    'name': 'string',
-                                    'value': 'string'
+                                    \'name\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ]
                         },
@@ -10490,11 +10490,11 @@ class Client(BaseClient):
         
         When you set a container instance to ``DRAINING`` , Amazon ECS prevents new tasks from being scheduled for placement on the container instance and replacement service tasks are started on other container instances in the cluster if the resources are available. Service tasks on the container instance that are in the ``PENDING`` state are stopped immediately.
         
-        Service tasks on the container instance that are in the ``RUNNING`` state are stopped and replaced according to the service's deployment configuration parameters, ``minimumHealthyPercent`` and ``maximumPercent`` . You can change the deployment configuration of your service using  UpdateService .
+        Service tasks on the container instance that are in the ``RUNNING`` state are stopped and replaced according to the service\'s deployment configuration parameters, ``minimumHealthyPercent`` and ``maximumPercent`` . You can change the deployment configuration of your service using  UpdateService .
         
-        * If ``minimumHealthyPercent`` is below 100%, the scheduler can ignore ``desiredCount`` temporarily during task replacement. For example, ``desiredCount`` is four tasks, a minimum of 50% allows the scheduler to stop two existing tasks before starting two new tasks. If the minimum is 100%, the service scheduler can't remove existing tasks until the replacement tasks are considered healthy. Tasks for services that do not use a load balancer are considered healthy if they are in the ``RUNNING`` state. Tasks for services that use a load balancer are considered healthy if they are in the ``RUNNING`` state and the container instance they are hosted on is reported as healthy by the load balancer. 
+        * If ``minimumHealthyPercent`` is below 100%, the scheduler can ignore ``desiredCount`` temporarily during task replacement. For example, ``desiredCount`` is four tasks, a minimum of 50% allows the scheduler to stop two existing tasks before starting two new tasks. If the minimum is 100%, the service scheduler can\'t remove existing tasks until the replacement tasks are considered healthy. Tasks for services that do not use a load balancer are considered healthy if they are in the ``RUNNING`` state. Tasks for services that use a load balancer are considered healthy if they are in the ``RUNNING`` state and the container instance they are hosted on is reported as healthy by the load balancer. 
          
-        * The ``maximumPercent`` parameter represents an upper limit on the number of running tasks during task replacement, which enables you to define the replacement batch size. For example, if ``desiredCount`` of four tasks, a maximum of 200% starts four new tasks before stopping the four tasks to be drained (provided that the cluster resources required to do this are available). If the maximum is 100%, then replacement tasks can't start until the draining tasks have stopped. 
+        * The ``maximumPercent`` parameter represents an upper limit on the number of running tasks during task replacement, which enables you to define the replacement batch size. For example, if ``desiredCount`` of four tasks, a maximum of 200% starts four new tasks before stopping the four tasks to be drained (provided that the cluster resources required to do this are available). If the maximum is 100%, then replacement tasks can\'t start until the draining tasks have stopped. 
          
         Any ``PENDING`` or ``RUNNING`` tasks that do not belong to a service are not affected; you must wait for them to finish or stop them manually.
         
@@ -10508,11 +10508,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_container_instances_state(
-              cluster='string',
+              cluster=\'string\',
               containerInstances=[
-                  'string',
+                  \'string\',
               ],
-              status='ACTIVE'|'DRAINING'
+              status=\'ACTIVE\'|\'DRAINING\'
           )
         :type cluster: string
         :param cluster: 
@@ -10539,73 +10539,73 @@ class Client(BaseClient):
           ::
         
             {
-                'containerInstances': [
+                \'containerInstances\': [
                     {
-                        'containerInstanceArn': 'string',
-                        'ec2InstanceId': 'string',
-                        'version': 123,
-                        'versionInfo': {
-                            'agentVersion': 'string',
-                            'agentHash': 'string',
-                            'dockerVersion': 'string'
+                        \'containerInstanceArn\': \'string\',
+                        \'ec2InstanceId\': \'string\',
+                        \'version\': 123,
+                        \'versionInfo\': {
+                            \'agentVersion\': \'string\',
+                            \'agentHash\': \'string\',
+                            \'dockerVersion\': \'string\'
                         },
-                        'remainingResources': [
+                        \'remainingResources\': [
                             {
-                                'name': 'string',
-                                'type': 'string',
-                                'doubleValue': 123.0,
-                                'longValue': 123,
-                                'integerValue': 123,
-                                'stringSetValue': [
-                                    'string',
+                                \'name\': \'string\',
+                                \'type\': \'string\',
+                                \'doubleValue\': 123.0,
+                                \'longValue\': 123,
+                                \'integerValue\': 123,
+                                \'stringSetValue\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'registeredResources': [
+                        \'registeredResources\': [
                             {
-                                'name': 'string',
-                                'type': 'string',
-                                'doubleValue': 123.0,
-                                'longValue': 123,
-                                'integerValue': 123,
-                                'stringSetValue': [
-                                    'string',
+                                \'name\': \'string\',
+                                \'type\': \'string\',
+                                \'doubleValue\': 123.0,
+                                \'longValue\': 123,
+                                \'integerValue\': 123,
+                                \'stringSetValue\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'status': 'string',
-                        'agentConnected': True|False,
-                        'runningTasksCount': 123,
-                        'pendingTasksCount': 123,
-                        'agentUpdateStatus': 'PENDING'|'STAGING'|'STAGED'|'UPDATING'|'UPDATED'|'FAILED',
-                        'attributes': [
+                        \'status\': \'string\',
+                        \'agentConnected\': True|False,
+                        \'runningTasksCount\': 123,
+                        \'pendingTasksCount\': 123,
+                        \'agentUpdateStatus\': \'PENDING\'|\'STAGING\'|\'STAGED\'|\'UPDATING\'|\'UPDATED\'|\'FAILED\',
+                        \'attributes\': [
                             {
-                                'name': 'string',
-                                'value': 'string',
-                                'targetType': 'container-instance',
-                                'targetId': 'string'
+                                \'name\': \'string\',
+                                \'value\': \'string\',
+                                \'targetType\': \'container-instance\',
+                                \'targetId\': \'string\'
                             },
                         ],
-                        'registeredAt': datetime(2015, 1, 1),
-                        'attachments': [
+                        \'registeredAt\': datetime(2015, 1, 1),
+                        \'attachments\': [
                             {
-                                'id': 'string',
-                                'type': 'string',
-                                'status': 'string',
-                                'details': [
+                                \'id\': \'string\',
+                                \'type\': \'string\',
+                                \'status\': \'string\',
+                                \'details\': [
                                     {
-                                        'name': 'string',
-                                        'value': 'string'
+                                        \'name\': \'string\',
+                                        \'value\': \'string\'
                                     },
                                 ]
                             },
                         ]
                     },
                 ],
-                'failures': [
+                \'failures\': [
                     {
-                        'arn': 'string',
-                        'reason': 'string'
+                        \'arn\': \'string\',
+                        \'reason\': \'string\'
                     },
                 ]
             }
@@ -10825,7 +10825,7 @@ class Client(BaseClient):
         
         You can add to or subtract from the number of instantiations of a task definition in a service by specifying the cluster that the service is running in and a new ``desiredCount`` parameter.
         
-        If you have updated the Docker image of your application, you can create a new task definition with that image and deploy it to your service. The service scheduler uses the minimum healthy percent and maximum percent parameters (in the service's deployment configuration) to determine the deployment strategy.
+        If you have updated the Docker image of your application, you can create a new task definition with that image and deploy it to your service. The service scheduler uses the minimum healthy percent and maximum percent parameters (in the service\'s deployment configuration) to determine the deployment strategy.
         
         .. note::
         
@@ -10841,7 +10841,7 @@ class Client(BaseClient):
         
         When the service scheduler launches new tasks, it determines task placement in your cluster with the following logic:
         
-        * Determine which of the container instances in your cluster can support your service's task definition (for example, they have the required CPU, memory, ports, and container instance attributes). 
+        * Determine which of the container instances in your cluster can support your service\'s task definition (for example, they have the required CPU, memory, ports, and container instance attributes). 
          
         * By default, the service scheduler attempts to balance tasks across Availability Zones in this manner (although you can choose a different placement strategy): 
         
@@ -10861,26 +10861,26 @@ class Client(BaseClient):
         ::
         
           response = client.update_service(
-              cluster='string',
-              service='string',
+              cluster=\'string\',
+              service=\'string\',
               desiredCount=123,
-              taskDefinition='string',
+              taskDefinition=\'string\',
               deploymentConfiguration={
-                  'maximumPercent': 123,
-                  'minimumHealthyPercent': 123
+                  \'maximumPercent\': 123,
+                  \'minimumHealthyPercent\': 123
               },
               networkConfiguration={
-                  'awsvpcConfiguration': {
-                      'subnets': [
-                          'string',
+                  \'awsvpcConfiguration\': {
+                      \'subnets\': [
+                          \'string\',
                       ],
-                      'securityGroups': [
-                          'string',
+                      \'securityGroups\': [
+                          \'string\',
                       ],
-                      'assignPublicIp': 'ENABLED'|'DISABLED'
+                      \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                   }
               },
-              platformVersion='string',
+              platformVersion=\'string\',
               forceNewDeployment=True|False,
               healthCheckGracePeriodSeconds=123
           )
@@ -10911,11 +10911,11 @@ class Client(BaseClient):
         
           - **maximumPercent** *(integer) --* 
         
-            The upper limit (as a percentage of the service's ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
+            The upper limit (as a percentage of the service\'s ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
         
           - **minimumHealthyPercent** *(integer) --* 
         
-            The lower limit (as a percentage of the service's ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
+            The lower limit (as a percentage of the service\'s ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
         
         :type networkConfiguration: dict
         :param networkConfiguration: 
@@ -10956,7 +10956,7 @@ class Client(BaseClient):
         
             - **assignPublicIp** *(string) --* 
         
-              Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+              Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
         :type platformVersion: string
         :param platformVersion: 
@@ -10966,12 +10966,12 @@ class Client(BaseClient):
         :type forceNewDeployment: boolean
         :param forceNewDeployment: 
         
-          Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest`` ) or to roll Fargate tasks onto a newer platform version.
+          Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service\'s tasks to use a newer Docker image with the same image/tag combination (``my_image:latest`` ) or to roll Fargate tasks onto a newer platform version.
         
         :type healthCheckGracePeriodSeconds: integer
         :param healthCheckGracePeriodSeconds: 
         
-          The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 1,800 seconds during which the ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+          The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service\'s tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 1,800 seconds during which the ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
         
         :rtype: dict
         :returns: 
@@ -10981,96 +10981,96 @@ class Client(BaseClient):
           ::
         
             {
-                'service': {
-                    'serviceArn': 'string',
-                    'serviceName': 'string',
-                    'clusterArn': 'string',
-                    'loadBalancers': [
+                \'service\': {
+                    \'serviceArn\': \'string\',
+                    \'serviceName\': \'string\',
+                    \'clusterArn\': \'string\',
+                    \'loadBalancers\': [
                         {
-                            'targetGroupArn': 'string',
-                            'loadBalancerName': 'string',
-                            'containerName': 'string',
-                            'containerPort': 123
+                            \'targetGroupArn\': \'string\',
+                            \'loadBalancerName\': \'string\',
+                            \'containerName\': \'string\',
+                            \'containerPort\': 123
                         },
                     ],
-                    'serviceRegistries': [
+                    \'serviceRegistries\': [
                         {
-                            'registryArn': 'string',
-                            'port': 123,
-                            'containerName': 'string',
-                            'containerPort': 123
+                            \'registryArn\': \'string\',
+                            \'port\': 123,
+                            \'containerName\': \'string\',
+                            \'containerPort\': 123
                         },
                     ],
-                    'status': 'string',
-                    'desiredCount': 123,
-                    'runningCount': 123,
-                    'pendingCount': 123,
-                    'launchType': 'EC2'|'FARGATE',
-                    'platformVersion': 'string',
-                    'taskDefinition': 'string',
-                    'deploymentConfiguration': {
-                        'maximumPercent': 123,
-                        'minimumHealthyPercent': 123
+                    \'status\': \'string\',
+                    \'desiredCount\': 123,
+                    \'runningCount\': 123,
+                    \'pendingCount\': 123,
+                    \'launchType\': \'EC2\'|\'FARGATE\',
+                    \'platformVersion\': \'string\',
+                    \'taskDefinition\': \'string\',
+                    \'deploymentConfiguration\': {
+                        \'maximumPercent\': 123,
+                        \'minimumHealthyPercent\': 123
                     },
-                    'deployments': [
+                    \'deployments\': [
                         {
-                            'id': 'string',
-                            'status': 'string',
-                            'taskDefinition': 'string',
-                            'desiredCount': 123,
-                            'pendingCount': 123,
-                            'runningCount': 123,
-                            'createdAt': datetime(2015, 1, 1),
-                            'updatedAt': datetime(2015, 1, 1),
-                            'launchType': 'EC2'|'FARGATE',
-                            'platformVersion': 'string',
-                            'networkConfiguration': {
-                                'awsvpcConfiguration': {
-                                    'subnets': [
-                                        'string',
+                            \'id\': \'string\',
+                            \'status\': \'string\',
+                            \'taskDefinition\': \'string\',
+                            \'desiredCount\': 123,
+                            \'pendingCount\': 123,
+                            \'runningCount\': 123,
+                            \'createdAt\': datetime(2015, 1, 1),
+                            \'updatedAt\': datetime(2015, 1, 1),
+                            \'launchType\': \'EC2\'|\'FARGATE\',
+                            \'platformVersion\': \'string\',
+                            \'networkConfiguration\': {
+                                \'awsvpcConfiguration\': {
+                                    \'subnets\': [
+                                        \'string\',
                                     ],
-                                    'securityGroups': [
-                                        'string',
+                                    \'securityGroups\': [
+                                        \'string\',
                                     ],
-                                    'assignPublicIp': 'ENABLED'|'DISABLED'
+                                    \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                                 }
                             }
                         },
                     ],
-                    'roleArn': 'string',
-                    'events': [
+                    \'roleArn\': \'string\',
+                    \'events\': [
                         {
-                            'id': 'string',
-                            'createdAt': datetime(2015, 1, 1),
-                            'message': 'string'
+                            \'id\': \'string\',
+                            \'createdAt\': datetime(2015, 1, 1),
+                            \'message\': \'string\'
                         },
                     ],
-                    'createdAt': datetime(2015, 1, 1),
-                    'placementConstraints': [
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'placementConstraints\': [
                         {
-                            'type': 'distinctInstance'|'memberOf',
-                            'expression': 'string'
+                            \'type\': \'distinctInstance\'|\'memberOf\',
+                            \'expression\': \'string\'
                         },
                     ],
-                    'placementStrategy': [
+                    \'placementStrategy\': [
                         {
-                            'type': 'random'|'spread'|'binpack',
-                            'field': 'string'
+                            \'type\': \'random\'|\'spread\'|\'binpack\',
+                            \'field\': \'string\'
                         },
                     ],
-                    'networkConfiguration': {
-                        'awsvpcConfiguration': {
-                            'subnets': [
-                                'string',
+                    \'networkConfiguration\': {
+                        \'awsvpcConfiguration\': {
+                            \'subnets\': [
+                                \'string\',
                             ],
-                            'securityGroups': [
-                                'string',
+                            \'securityGroups\': [
+                                \'string\',
                             ],
-                            'assignPublicIp': 'ENABLED'|'DISABLED'
+                            \'assignPublicIp\': \'ENABLED\'|\'DISABLED\'
                         }
                     },
-                    'healthCheckGracePeriodSeconds': 123,
-                    'schedulingStrategy': 'REPLICA'|'DAEMON'
+                    \'healthCheckGracePeriodSeconds\': 123,
+                    \'schedulingStrategy\': \'REPLICA\'|\'DAEMON\'
                 }
             }
           **Response Structure** 
@@ -11111,7 +11111,7 @@ class Client(BaseClient):
         
                     .. warning::
         
-                      If your service's task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                      If your service\'s task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
         
                   - **loadBalancerName** *(string) --* 
         
@@ -11123,7 +11123,7 @@ class Client(BaseClient):
         
                   - **containerPort** *(integer) --* 
         
-                    The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+                    The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service\'s task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
         
               - **serviceRegistries** *(list) --* 
         
@@ -11181,11 +11181,11 @@ class Client(BaseClient):
         
                 - **maximumPercent** *(integer) --* 
         
-                  The upper limit (as a percentage of the service's ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
+                  The upper limit (as a percentage of the service\'s ``desiredCount`` ) of the number of tasks that are allowed in the ``RUNNING`` or ``PENDING`` state in a service during a deployment. The maximum number of tasks during a deployment is the ``desiredCount`` multiplied by ``maximumPercent`` /100, rounded down to the nearest integer value.
         
                 - **minimumHealthyPercent** *(integer) --* 
         
-                  The lower limit (as a percentage of the service's ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
+                  The lower limit (as a percentage of the service\'s ``desiredCount`` ) of the number of running tasks that must remain in the ``RUNNING`` state in a service during a deployment. The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by ``minimumHealthyPercent`` /100, rounded up to the nearest integer value.
         
               - **deployments** *(list) --* 
         
@@ -11269,7 +11269,7 @@ class Client(BaseClient):
                     
                       - **assignPublicIp** *(string) --* 
         
-                        Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+                        Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
               - **roleArn** *(string) --* 
         
@@ -11365,7 +11365,7 @@ class Client(BaseClient):
                 
                   - **assignPublicIp** *(string) --* 
         
-                    Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+                    Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         
               - **healthCheckGracePeriodSeconds** *(integer) --* 
         

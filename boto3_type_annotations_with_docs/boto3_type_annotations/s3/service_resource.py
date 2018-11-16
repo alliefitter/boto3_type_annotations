@@ -1,12 +1,12 @@
-from typing import Union
-from boto3.s3.transfer import TransferConfig
-from typing import Optional
-from botocore.client import BaseClient
 from boto3.resources.collection import ResourceCollection
-from typing import Callable
 from typing import List
-from datetime import datetime
 from typing import IO
+from typing import Optional
+from typing import Union
+from botocore.client import BaseClient
+from typing import Callable
+from boto3.s3.transfer import TransferConfig
+from datetime import datetime
 from typing import Dict
 from boto3.resources import base
 
@@ -18,10 +18,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Bucket resource.::
         
-          bucket = s3.Bucket('name')
+          bucket = s3.Bucket(\'name\')
         
         :type name: string
-        :param name: The Bucket's name identifier. This **must** be set.
+        :param name: The Bucket\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.Bucket`
         :returns: A Bucket resource
@@ -32,10 +32,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a BucketAcl resource.::
         
-          bucket_acl = s3.BucketAcl('bucket_name')
+          bucket_acl = s3.BucketAcl(\'bucket_name\')
         
         :type bucket_name: string
-        :param bucket_name: The BucketAcl's bucket_name identifier. This **must** be set.
+        :param bucket_name: The BucketAcl\'s bucket_name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.BucketAcl`
         :returns: A BucketAcl resource
@@ -46,10 +46,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a BucketCors resource.::
         
-          bucket_cors = s3.BucketCors('bucket_name')
+          bucket_cors = s3.BucketCors(\'bucket_name\')
         
         :type bucket_name: string
-        :param bucket_name: The BucketCors's bucket_name identifier. This **must** be set.
+        :param bucket_name: The BucketCors\'s bucket_name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.BucketCors`
         :returns: A BucketCors resource
@@ -60,10 +60,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a BucketLifecycle resource.::
         
-          bucket_lifecycle = s3.BucketLifecycle('bucket_name')
+          bucket_lifecycle = s3.BucketLifecycle(\'bucket_name\')
         
         :type bucket_name: string
-        :param bucket_name: The BucketLifecycle's bucket_name identifier. This **must** be set.
+        :param bucket_name: The BucketLifecycle\'s bucket_name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.BucketLifecycle`
         :returns: A BucketLifecycle resource
@@ -74,10 +74,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a BucketLifecycleConfiguration resource.::
         
-          bucket_lifecycle_configuration = s3.BucketLifecycleConfiguration('bucket_name')
+          bucket_lifecycle_configuration = s3.BucketLifecycleConfiguration(\'bucket_name\')
         
         :type bucket_name: string
-        :param bucket_name: The BucketLifecycleConfiguration's bucket_name identifier. This **must** be set.
+        :param bucket_name: The BucketLifecycleConfiguration\'s bucket_name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.BucketLifecycleConfiguration`
         :returns: A BucketLifecycleConfiguration resource
@@ -88,10 +88,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a BucketLogging resource.::
         
-          bucket_logging = s3.BucketLogging('bucket_name')
+          bucket_logging = s3.BucketLogging(\'bucket_name\')
         
         :type bucket_name: string
-        :param bucket_name: The BucketLogging's bucket_name identifier. This **must** be set.
+        :param bucket_name: The BucketLogging\'s bucket_name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.BucketLogging`
         :returns: A BucketLogging resource
@@ -102,10 +102,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a BucketNotification resource.::
         
-          bucket_notification = s3.BucketNotification('bucket_name')
+          bucket_notification = s3.BucketNotification(\'bucket_name\')
         
         :type bucket_name: string
-        :param bucket_name: The BucketNotification's bucket_name identifier. This **must** be set.
+        :param bucket_name: The BucketNotification\'s bucket_name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.BucketNotification`
         :returns: A BucketNotification resource
@@ -116,10 +116,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a BucketPolicy resource.::
         
-          bucket_policy = s3.BucketPolicy('bucket_name')
+          bucket_policy = s3.BucketPolicy(\'bucket_name\')
         
         :type bucket_name: string
-        :param bucket_name: The BucketPolicy's bucket_name identifier. This **must** be set.
+        :param bucket_name: The BucketPolicy\'s bucket_name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.BucketPolicy`
         :returns: A BucketPolicy resource
@@ -130,10 +130,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a BucketRequestPayment resource.::
         
-          bucket_request_payment = s3.BucketRequestPayment('bucket_name')
+          bucket_request_payment = s3.BucketRequestPayment(\'bucket_name\')
         
         :type bucket_name: string
-        :param bucket_name: The BucketRequestPayment's bucket_name identifier. This **must** be set.
+        :param bucket_name: The BucketRequestPayment\'s bucket_name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.BucketRequestPayment`
         :returns: A BucketRequestPayment resource
@@ -144,10 +144,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a BucketTagging resource.::
         
-          bucket_tagging = s3.BucketTagging('bucket_name')
+          bucket_tagging = s3.BucketTagging(\'bucket_name\')
         
         :type bucket_name: string
-        :param bucket_name: The BucketTagging's bucket_name identifier. This **must** be set.
+        :param bucket_name: The BucketTagging\'s bucket_name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.BucketTagging`
         :returns: A BucketTagging resource
@@ -158,10 +158,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a BucketVersioning resource.::
         
-          bucket_versioning = s3.BucketVersioning('bucket_name')
+          bucket_versioning = s3.BucketVersioning(\'bucket_name\')
         
         :type bucket_name: string
-        :param bucket_name: The BucketVersioning's bucket_name identifier. This **must** be set.
+        :param bucket_name: The BucketVersioning\'s bucket_name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.BucketVersioning`
         :returns: A BucketVersioning resource
@@ -172,10 +172,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a BucketWebsite resource.::
         
-          bucket_website = s3.BucketWebsite('bucket_name')
+          bucket_website = s3.BucketWebsite(\'bucket_name\')
         
         :type bucket_name: string
-        :param bucket_name: The BucketWebsite's bucket_name identifier. This **must** be set.
+        :param bucket_name: The BucketWebsite\'s bucket_name identifier. This **must** be set.
         
         :rtype: :py:class:`S3.BucketWebsite`
         :returns: A BucketWebsite resource
@@ -186,14 +186,14 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a MultipartUpload resource.::
         
-          multipart_upload = s3.MultipartUpload('bucket_name','object_key','id')
+          multipart_upload = s3.MultipartUpload(\'bucket_name\',\'object_key\',\'id\')
         
         :type bucket_name: string
-        :param bucket_name: The MultipartUpload's bucket_name identifier. This **must** be set.
+        :param bucket_name: The MultipartUpload\'s bucket_name identifier. This **must** be set.
         :type object_key: string
-        :param object_key: The MultipartUpload's object_key identifier. This **must** be set.
+        :param object_key: The MultipartUpload\'s object_key identifier. This **must** be set.
         :type id: string
-        :param id: The MultipartUpload's id identifier. This **must** be set.
+        :param id: The MultipartUpload\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`S3.MultipartUpload`
         :returns: A MultipartUpload resource
@@ -204,16 +204,16 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a MultipartUploadPart resource.::
         
-          multipart_upload_part = s3.MultipartUploadPart('bucket_name','object_key','multipart_upload_id','part_number')
+          multipart_upload_part = s3.MultipartUploadPart(\'bucket_name\',\'object_key\',\'multipart_upload_id\',\'part_number\')
         
         :type bucket_name: string
-        :param bucket_name: The MultipartUploadPart's bucket_name identifier. This **must** be set.
+        :param bucket_name: The MultipartUploadPart\'s bucket_name identifier. This **must** be set.
         :type object_key: string
-        :param object_key: The MultipartUploadPart's object_key identifier. This **must** be set.
+        :param object_key: The MultipartUploadPart\'s object_key identifier. This **must** be set.
         :type multipart_upload_id: string
-        :param multipart_upload_id: The MultipartUploadPart's multipart_upload_id identifier. This **must** be set.
+        :param multipart_upload_id: The MultipartUploadPart\'s multipart_upload_id identifier. This **must** be set.
         :type part_number: string
-        :param part_number: The MultipartUploadPart's part_number identifier. This **must** be set.
+        :param part_number: The MultipartUploadPart\'s part_number identifier. This **must** be set.
         
         :rtype: :py:class:`S3.MultipartUploadPart`
         :returns: A MultipartUploadPart resource
@@ -224,12 +224,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Object resource.::
         
-          object = s3.Object('bucket_name','key')
+          object = s3.Object(\'bucket_name\',\'key\')
         
         :type bucket_name: string
-        :param bucket_name: The Object's bucket_name identifier. This **must** be set.
+        :param bucket_name: The Object\'s bucket_name identifier. This **must** be set.
         :type key: string
-        :param key: The Object's key identifier. This **must** be set.
+        :param key: The Object\'s key identifier. This **must** be set.
         
         :rtype: :py:class:`S3.Object`
         :returns: A Object resource
@@ -240,12 +240,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a ObjectAcl resource.::
         
-          object_acl = s3.ObjectAcl('bucket_name','object_key')
+          object_acl = s3.ObjectAcl(\'bucket_name\',\'object_key\')
         
         :type bucket_name: string
-        :param bucket_name: The ObjectAcl's bucket_name identifier. This **must** be set.
+        :param bucket_name: The ObjectAcl\'s bucket_name identifier. This **must** be set.
         :type object_key: string
-        :param object_key: The ObjectAcl's object_key identifier. This **must** be set.
+        :param object_key: The ObjectAcl\'s object_key identifier. This **must** be set.
         
         :rtype: :py:class:`S3.ObjectAcl`
         :returns: A ObjectAcl resource
@@ -256,12 +256,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a ObjectSummary resource.::
         
-          object_summary = s3.ObjectSummary('bucket_name','key')
+          object_summary = s3.ObjectSummary(\'bucket_name\',\'key\')
         
         :type bucket_name: string
-        :param bucket_name: The ObjectSummary's bucket_name identifier. This **must** be set.
+        :param bucket_name: The ObjectSummary\'s bucket_name identifier. This **must** be set.
         :type key: string
-        :param key: The ObjectSummary's key identifier. This **must** be set.
+        :param key: The ObjectSummary\'s key identifier. This **must** be set.
         
         :rtype: :py:class:`S3.ObjectSummary`
         :returns: A ObjectSummary resource
@@ -272,14 +272,14 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a ObjectVersion resource.::
         
-          object_version = s3.ObjectVersion('bucket_name','object_key','id')
+          object_version = s3.ObjectVersion(\'bucket_name\',\'object_key\',\'id\')
         
         :type bucket_name: string
-        :param bucket_name: The ObjectVersion's bucket_name identifier. This **must** be set.
+        :param bucket_name: The ObjectVersion\'s bucket_name identifier. This **must** be set.
         :type object_key: string
-        :param object_key: The ObjectVersion's object_key identifier. This **must** be set.
+        :param object_key: The ObjectVersion\'s object_key identifier. This **must** be set.
         :type id: string
-        :param id: The ObjectVersion's id identifier. This **must** be set.
+        :param id: The ObjectVersion\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`S3.ObjectVersion`
         :returns: A ObjectVersion resource
@@ -295,16 +295,16 @@ class ServiceResource(base.ServiceResource):
         ::
         
           bucket = s3.create_bucket(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read',
-              Bucket='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\',
+              Bucket=\'string\',
               CreateBucketConfiguration={
-                  'LocationConstraint': 'EU'|'eu-west-1'|'us-west-1'|'us-west-2'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1'|'cn-north-1'|'eu-central-1'
+                  \'LocationConstraint\': \'EU\'|\'eu-west-1\'|\'us-west-1\'|\'us-west-2\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\'|\'cn-north-1\'|\'eu-central-1\'
               },
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWrite='string',
-              GrantWriteACP='string'
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWrite=\'string\',
+              GrantWriteACP=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -319,7 +319,7 @@ class ServiceResource(base.ServiceResource):
         
           - **LocationConstraint** *(string) --* 
         
-            Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
+            Specifies the region where the bucket will be created. If you don\'t specify a region, the bucket will be created in US Standard.
         
         :type GrantFullControl: string
         :param GrantFullControl: 
@@ -378,19 +378,19 @@ class Bucket(base.ServiceResource):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
+            s3 = boto3.resource(\'s3\')
             copy_source = {
-                'Bucket': 'mybucket',
-                'Key': 'mykey'
+                \'Bucket\': \'mybucket\',
+                \'Key\': \'mykey\'
             }
-            bucket = s3.Bucket('otherbucket')
-            bucket.copy(copy_source, 'otherkey')
+            bucket = s3.Bucket(\'otherbucket\')
+            bucket.copy(copy_source, \'otherkey\')
         
         :type CopySource: dict
         :param CopySource: The name of the source bucket, key name of the
             source object, and optional version ID of the source object. The
             dictionary format is:
-            ``{'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}``. Note
+            ``{\'Bucket\': \'bucket\', \'Key\': \'key\', \'VersionId\': \'id\'}``. Note
             that the ``VersionId`` key is optional and may be omitted.
         
         :type Key: str
@@ -426,15 +426,15 @@ class Bucket(base.ServiceResource):
         ::
         
           response = bucket.create(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\',
               CreateBucketConfiguration={
-                  'LocationConstraint': 'EU'|'eu-west-1'|'us-west-1'|'us-west-2'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1'|'cn-north-1'|'eu-central-1'
+                  \'LocationConstraint\': \'EU\'|\'eu-west-1\'|\'us-west-1\'|\'us-west-2\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\'|\'cn-north-1\'|\'eu-central-1\'
               },
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWrite='string',
-              GrantWriteACP='string'
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWrite=\'string\',
+              GrantWriteACP=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -446,7 +446,7 @@ class Bucket(base.ServiceResource):
         
           - **LocationConstraint** *(string) --* 
         
-            Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
+            Specifies the region where the bucket will be created. If you don\'t specify a region, the bucket will be created in US Standard.
         
         :type GrantFullControl: string
         :param GrantFullControl: 
@@ -481,7 +481,7 @@ class Bucket(base.ServiceResource):
           ::
         
             {
-                'Location': 'string'
+                \'Location\': \'string\'
             }
           **Response Structure** 
         
@@ -515,16 +515,16 @@ class Bucket(base.ServiceResource):
         
           response = bucket.delete_objects(
               Delete={
-                  'Objects': [
+                  \'Objects\': [
                       {
-                          'Key': 'string',
-                          'VersionId': 'string'
+                          \'Key\': \'string\',
+                          \'VersionId\': \'string\'
                       },
                   ],
-                  'Quiet': True|False
+                  \'Quiet\': True|False
               },
-              MFA='string',
-              RequestPayer='requester'
+              MFA=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Delete: dict
         :param Delete: **[REQUIRED]** 
@@ -548,7 +548,7 @@ class Bucket(base.ServiceResource):
         :type MFA: string
         :param MFA: 
         
-          The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+          The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
         
         :type RequestPayer: string
         :param RequestPayer: 
@@ -563,21 +563,21 @@ class Bucket(base.ServiceResource):
           ::
         
             {
-                'Deleted': [
+                \'Deleted\': [
                     {
-                        'Key': 'string',
-                        'VersionId': 'string',
-                        'DeleteMarker': True|False,
-                        'DeleteMarkerVersionId': 'string'
+                        \'Key\': \'string\',
+                        \'VersionId\': \'string\',
+                        \'DeleteMarker\': True|False,
+                        \'DeleteMarkerVersionId\': \'string\'
                     },
                 ],
-                'RequestCharged': 'requester',
-                'Errors': [
+                \'RequestCharged\': \'requester\',
+                \'Errors\': [
                     {
-                        'Key': 'string',
-                        'VersionId': 'string',
-                        'Code': 'string',
-                        'Message': 'string'
+                        \'Key\': \'string\',
+                        \'VersionId\': \'string\',
+                        \'Code\': \'string\',
+                        \'Message\': \'string\'
                     },
                 ]
             }
@@ -622,12 +622,12 @@ class Bucket(base.ServiceResource):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
-            s3.Bucket('mybucket').download_file('hello.txt', '/tmp/hello.txt')
+            s3 = boto3.resource(\'s3\')
+            s3.Bucket(\'mybucket\').download_file(\'hello.txt\', \'/tmp/hello.txt\')
         
-        Similar behavior as S3Transfer's download_file() method,
+        Similar behavior as S3Transfer\'s download_file() method,
         except that parameters are capitalized. Detailed examples can be found at
-        :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+        :ref:`S3Transfer\'s Usage <ref_s3transfer_usage>`.
         
         :type Filename: str
         :param Filename: The path to the file to download to.
@@ -660,11 +660,11 @@ class Bucket(base.ServiceResource):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
-            bucket = s3.Bucket('mybucket')
+            s3 = boto3.resource(\'s3\')
+            bucket = s3.Bucket(\'mybucket\')
         
-            with open('filename', 'wb') as data:
-                bucket.download_fileobj('mykey', data)
+            with open(\'filename\', \'wb\') as data:
+                bucket.download_fileobj(\'mykey\', data)
         
         :type Fileobj: a file-like object
         :param Fileobj: A file-like object to download into. At a minimum, it must
@@ -712,32 +712,32 @@ class Bucket(base.ServiceResource):
         ::
         
           object = bucket.put_object(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-              Body=b'bytes'|file,
-              CacheControl='string',
-              ContentDisposition='string',
-              ContentEncoding='string',
-              ContentLanguage='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+              Body=b\'bytes\'|file,
+              CacheControl=\'string\',
+              ContentDisposition=\'string\',
+              ContentEncoding=\'string\',
+              ContentLanguage=\'string\',
               ContentLength=123,
-              ContentMD5='string',
-              ContentType='string',
+              ContentMD5=\'string\',
+              ContentType=\'string\',
               Expires=datetime(2015, 1, 1),
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWriteACP='string',
-              Key='string',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWriteACP=\'string\',
+              Key=\'string\',
               Metadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-              WebsiteRedirectLocation='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              SSEKMSKeyId='string',
-              RequestPayer='requester',
-              Tagging='string'
+              ServerSideEncryption=\'AES256\'|\'aws:kms\',
+              StorageClass=\'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+              WebsiteRedirectLocation=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              SSEKMSKeyId=\'string\',
+              RequestPayer=\'requester\',
+              Tagging=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -831,7 +831,7 @@ class Bucket(base.ServiceResource):
         :type StorageClass: string
         :param StorageClass: 
         
-          The type of storage to use for the object. Defaults to 'STANDARD'.
+          The type of storage to use for the object. Defaults to \'STANDARD\'.
         
         :type WebsiteRedirectLocation: string
         :param WebsiteRedirectLocation: 
@@ -881,12 +881,12 @@ class Bucket(base.ServiceResource):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
-            s3.Bucket('mybucket').upload_file('/tmp/hello.txt', 'hello.txt')
+            s3 = boto3.resource(\'s3\')
+            s3.Bucket(\'mybucket\').upload_file(\'/tmp/hello.txt\', \'hello.txt\')
         
-        Similar behavior as S3Transfer's upload_file() method,
+        Similar behavior as S3Transfer\'s upload_file() method,
         except that parameters are capitalized. Detailed examples can be found at
-        :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+        :ref:`S3Transfer\'s Usage <ref_s3transfer_usage>`.
         
         :type Filename: str
         :param Filename: The path to the file to upload.
@@ -919,11 +919,11 @@ class Bucket(base.ServiceResource):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
-            bucket = s3.Bucket('mybucket')
+            s3 = boto3.resource(\'s3\')
+            bucket = s3.Bucket(\'mybucket\')
         
-            with open('filename', 'rb') as data:
-                bucket.upload_fileobj(data, 'mykey')
+            with open(\'filename\', \'rb\') as data:
+                bucket.upload_fileobj(data, \'mykey\')
         
         :type Fileobj: a file-like object
         :param Fileobj: A file-like object to upload. At a minimum, it must
@@ -1013,30 +1013,30 @@ class BucketAcl(base.ServiceResource):
         ::
         
           response = bucket_acl.put(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\',
               AccessControlPolicy={
-                  'Grants': [
+                  \'Grants\': [
                       {
-                          'Grantee': {
-                              'DisplayName': 'string',
-                              'EmailAddress': 'string',
-                              'ID': 'string',
-                              'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                              'URI': 'string'
+                          \'Grantee\': {
+                              \'DisplayName\': \'string\',
+                              \'EmailAddress\': \'string\',
+                              \'ID\': \'string\',
+                              \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                              \'URI\': \'string\'
                           },
-                          'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                          \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                       },
                   ],
-                  'Owner': {
-                      'DisplayName': 'string',
-                      'ID': 'string'
+                  \'Owner\': {
+                      \'DisplayName\': \'string\',
+                      \'ID\': \'string\'
                   }
               },
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWrite='string',
-              GrantWriteACP='string'
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWrite=\'string\',
+              GrantWriteACP=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -1180,21 +1180,21 @@ class BucketCors(base.ServiceResource):
         
           response = bucket_cors.put(
               CORSConfiguration={
-                  'CORSRules': [
+                  \'CORSRules\': [
                       {
-                          'AllowedHeaders': [
-                              'string',
+                          \'AllowedHeaders\': [
+                              \'string\',
                           ],
-                          'AllowedMethods': [
-                              'string',
+                          \'AllowedMethods\': [
+                              \'string\',
                           ],
-                          'AllowedOrigins': [
-                              'string',
+                          \'AllowedOrigins\': [
+                              \'string\',
                           ],
-                          'ExposeHeaders': [
-                              'string',
+                          \'ExposeHeaders\': [
+                              \'string\',
                           ],
-                          'MaxAgeSeconds': 123
+                          \'MaxAgeSeconds\': 123
                       },
                   ]
               },
@@ -1310,30 +1310,30 @@ class BucketLifecycle(base.ServiceResource):
         
           response = bucket_lifecycle.put(
               LifecycleConfiguration={
-                  'Rules': [
+                  \'Rules\': [
                       {
-                          'Expiration': {
-                              'Date': datetime(2015, 1, 1),
-                              'Days': 123,
-                              'ExpiredObjectDeleteMarker': True|False
+                          \'Expiration\': {
+                              \'Date\': datetime(2015, 1, 1),
+                              \'Days\': 123,
+                              \'ExpiredObjectDeleteMarker\': True|False
                           },
-                          'ID': 'string',
-                          'Prefix': 'string',
-                          'Status': 'Enabled'|'Disabled',
-                          'Transition': {
-                              'Date': datetime(2015, 1, 1),
-                              'Days': 123,
-                              'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                          \'ID\': \'string\',
+                          \'Prefix\': \'string\',
+                          \'Status\': \'Enabled\'|\'Disabled\',
+                          \'Transition\': {
+                              \'Date\': datetime(2015, 1, 1),
+                              \'Days\': 123,
+                              \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                           },
-                          'NoncurrentVersionTransition': {
-                              'NoncurrentDays': 123,
-                              'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                          \'NoncurrentVersionTransition\': {
+                              \'NoncurrentDays\': 123,
+                              \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                           },
-                          'NoncurrentVersionExpiration': {
-                              'NoncurrentDays': 123
+                          \'NoncurrentVersionExpiration\': {
+                              \'NoncurrentDays\': 123
                           },
-                          'AbortIncompleteMultipartUpload': {
-                              'DaysAfterInitiation': 123
+                          \'AbortIncompleteMultipartUpload\': {
+                              \'DaysAfterInitiation\': 123
                           }
                       },
                   ]
@@ -1370,7 +1370,7 @@ class BucketLifecycle(base.ServiceResource):
         
               - **Status** *(string) --* **[REQUIRED]** 
         
-                If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
+                If \'Enabled\', the rule is currently being applied. If \'Disabled\', the rule is not currently being applied.
         
               - **Transition** *(dict) --* 
         
@@ -1388,7 +1388,7 @@ class BucketLifecycle(base.ServiceResource):
         
               - **NoncurrentVersionTransition** *(dict) --* 
         
-                Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object's lifetime.
+                Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object\'s lifetime.
         
                 - **NoncurrentDays** *(integer) --* 
         
@@ -1400,7 +1400,7 @@ class BucketLifecycle(base.ServiceResource):
         
               - **NoncurrentVersionExpiration** *(dict) --* 
         
-                Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+                Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object\'s lifetime.
         
                 - **NoncurrentDays** *(integer) --* 
         
@@ -1485,50 +1485,50 @@ class BucketLifecycleConfiguration(base.ServiceResource):
         
           response = bucket_lifecycle_configuration.put(
               LifecycleConfiguration={
-                  'Rules': [
+                  \'Rules\': [
                       {
-                          'Expiration': {
-                              'Date': datetime(2015, 1, 1),
-                              'Days': 123,
-                              'ExpiredObjectDeleteMarker': True|False
+                          \'Expiration\': {
+                              \'Date\': datetime(2015, 1, 1),
+                              \'Days\': 123,
+                              \'ExpiredObjectDeleteMarker\': True|False
                           },
-                          'ID': 'string',
-                          'Prefix': 'string',
-                          'Filter': {
-                              'Prefix': 'string',
-                              'Tag': {
-                                  'Key': 'string',
-                                  'Value': 'string'
+                          \'ID\': \'string\',
+                          \'Prefix\': \'string\',
+                          \'Filter\': {
+                              \'Prefix\': \'string\',
+                              \'Tag\': {
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\'
                               },
-                              'And': {
-                                  'Prefix': 'string',
-                                  'Tags': [
+                              \'And\': {
+                                  \'Prefix\': \'string\',
+                                  \'Tags\': [
                                       {
-                                          'Key': 'string',
-                                          'Value': 'string'
+                                          \'Key\': \'string\',
+                                          \'Value\': \'string\'
                                       },
                                   ]
                               }
                           },
-                          'Status': 'Enabled'|'Disabled',
-                          'Transitions': [
+                          \'Status\': \'Enabled\'|\'Disabled\',
+                          \'Transitions\': [
                               {
-                                  'Date': datetime(2015, 1, 1),
-                                  'Days': 123,
-                                  'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                                  \'Date\': datetime(2015, 1, 1),
+                                  \'Days\': 123,
+                                  \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                               },
                           ],
-                          'NoncurrentVersionTransitions': [
+                          \'NoncurrentVersionTransitions\': [
                               {
-                                  'NoncurrentDays': 123,
-                                  'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                                  \'NoncurrentDays\': 123,
+                                  \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                               },
                           ],
-                          'NoncurrentVersionExpiration': {
-                              'NoncurrentDays': 123
+                          \'NoncurrentVersionExpiration\': {
+                              \'NoncurrentDays\': 123
                           },
-                          'AbortIncompleteMultipartUpload': {
-                              'DaysAfterInitiation': 123
+                          \'AbortIncompleteMultipartUpload\': {
+                              \'DaysAfterInitiation\': 123
                           }
                       },
                   ]
@@ -1573,7 +1573,7 @@ class BucketLifecycleConfiguration(base.ServiceResource):
         
                 - **Tag** *(dict) --* 
         
-                  This tag must exist in the object's tag set in order for the rule to apply.
+                  This tag must exist in the object\'s tag set in order for the rule to apply.
         
                   - **Key** *(string) --* **[REQUIRED]** 
         
@@ -1591,7 +1591,7 @@ class BucketLifecycleConfiguration(base.ServiceResource):
         
                   - **Tags** *(list) --* 
         
-                    All of these tags must exist in the object's tag set in order for the rule to apply.
+                    All of these tags must exist in the object\'s tag set in order for the rule to apply.
         
                     - *(dict) --* 
         
@@ -1605,7 +1605,7 @@ class BucketLifecycleConfiguration(base.ServiceResource):
         
               - **Status** *(string) --* **[REQUIRED]** 
         
-                If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
+                If \'Enabled\', the rule is currently being applied. If \'Disabled\', the rule is not currently being applied.
         
               - **Transitions** *(list) --* 
         
@@ -1627,7 +1627,7 @@ class BucketLifecycleConfiguration(base.ServiceResource):
         
                 - *(dict) --* 
         
-                  Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object's lifetime.
+                  Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object\'s lifetime.
         
                   - **NoncurrentDays** *(integer) --* 
         
@@ -1639,7 +1639,7 @@ class BucketLifecycleConfiguration(base.ServiceResource):
         
               - **NoncurrentVersionExpiration** *(dict) --* 
         
-                Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+                Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object\'s lifetime.
         
                 - **NoncurrentDays** *(integer) --* 
         
@@ -1710,21 +1710,21 @@ class BucketLogging(base.ServiceResource):
         
           response = bucket_logging.put(
               BucketLoggingStatus={
-                  'LoggingEnabled': {
-                      'TargetBucket': 'string',
-                      'TargetGrants': [
+                  \'LoggingEnabled\': {
+                      \'TargetBucket\': \'string\',
+                      \'TargetGrants\': [
                           {
-                              'Grantee': {
-                                  'DisplayName': 'string',
-                                  'EmailAddress': 'string',
-                                  'ID': 'string',
-                                  'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                                  'URI': 'string'
+                              \'Grantee\': {
+                                  \'DisplayName\': \'string\',
+                                  \'EmailAddress\': \'string\',
+                                  \'ID\': \'string\',
+                                  \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                                  \'URI\': \'string\'
                               },
-                              'Permission': 'FULL_CONTROL'|'READ'|'WRITE'
+                              \'Permission\': \'FULL_CONTROL\'|\'READ\'|\'WRITE\'
                           },
                       ],
-                      'TargetPrefix': 'string'
+                      \'TargetPrefix\': \'string\'
                   }
               },
               
@@ -1833,57 +1833,57 @@ class BucketNotification(base.ServiceResource):
         
           response = bucket_notification.put(
               NotificationConfiguration={
-                  'TopicConfigurations': [
+                  \'TopicConfigurations\': [
                       {
-                          'Id': 'string',
-                          'TopicArn': 'string',
-                          'Events': [
-                              's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                          \'Id\': \'string\',
+                          \'TopicArn\': \'string\',
+                          \'Events\': [
+                              \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                           ],
-                          'Filter': {
-                              'Key': {
-                                  'FilterRules': [
+                          \'Filter\': {
+                              \'Key\': {
+                                  \'FilterRules\': [
                                       {
-                                          'Name': 'prefix'|'suffix',
-                                          'Value': 'string'
+                                          \'Name\': \'prefix\'|\'suffix\',
+                                          \'Value\': \'string\'
                                       },
                                   ]
                               }
                           }
                       },
                   ],
-                  'QueueConfigurations': [
+                  \'QueueConfigurations\': [
                       {
-                          'Id': 'string',
-                          'QueueArn': 'string',
-                          'Events': [
-                              's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                          \'Id\': \'string\',
+                          \'QueueArn\': \'string\',
+                          \'Events\': [
+                              \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                           ],
-                          'Filter': {
-                              'Key': {
-                                  'FilterRules': [
+                          \'Filter\': {
+                              \'Key\': {
+                                  \'FilterRules\': [
                                       {
-                                          'Name': 'prefix'|'suffix',
-                                          'Value': 'string'
+                                          \'Name\': \'prefix\'|\'suffix\',
+                                          \'Value\': \'string\'
                                       },
                                   ]
                               }
                           }
                       },
                   ],
-                  'LambdaFunctionConfigurations': [
+                  \'LambdaFunctionConfigurations\': [
                       {
-                          'Id': 'string',
-                          'LambdaFunctionArn': 'string',
-                          'Events': [
-                              's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                          \'Id\': \'string\',
+                          \'LambdaFunctionArn\': \'string\',
+                          \'Events\': [
+                              \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                           ],
-                          'Filter': {
-                              'Key': {
-                                  'FilterRules': [
+                          \'Filter\': {
+                              \'Key\': {
+                                  \'FilterRules\': [
                                       {
-                                          'Name': 'prefix'|'suffix',
-                                          'Value': 'string'
+                                          \'Name\': \'prefix\'|\'suffix\',
+                                          \'Value\': \'string\'
                                       },
                                   ]
                               }
@@ -1905,7 +1905,7 @@ class BucketNotification(base.ServiceResource):
         
               - **Id** *(string) --* 
         
-                Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
               - **TopicArn** *(string) --* **[REQUIRED]** 
         
@@ -1947,7 +1947,7 @@ class BucketNotification(base.ServiceResource):
         
               - **Id** *(string) --* 
         
-                Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
               - **QueueArn** *(string) --* **[REQUIRED]** 
         
@@ -1989,7 +1989,7 @@ class BucketNotification(base.ServiceResource):
         
               - **Id** *(string) --* 
         
-                Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
               - **LambdaFunctionArn** *(string) --* **[REQUIRED]** 
         
@@ -2094,7 +2094,7 @@ class BucketPolicy(base.ServiceResource):
         
           response = bucket_policy.put(
               ConfirmRemoveSelfBucketAccess=True|False,
-              Policy='string'
+              Policy=\'string\'
           )
         :type ConfirmRemoveSelfBucketAccess: boolean
         :param ConfirmRemoveSelfBucketAccess: 
@@ -2163,7 +2163,7 @@ class BucketRequestPayment(base.ServiceResource):
         
           response = bucket_request_payment.put(
               RequestPaymentConfiguration={
-                  'Payer': 'Requester'|'BucketOwner'
+                  \'Payer\': \'Requester\'|\'BucketOwner\'
               }
           )
         :type RequestPaymentConfiguration: dict
@@ -2244,10 +2244,10 @@ class BucketTagging(base.ServiceResource):
         
           response = bucket_tagging.put(
               Tagging={
-                  'TagSet': [
+                  \'TagSet\': [
                       {
-                          'Key': 'string',
-                          'Value': 'string'
+                          \'Key\': \'string\',
+                          \'Value\': \'string\'
                       },
                   ]
               }
@@ -2300,13 +2300,13 @@ class BucketVersioning(base.ServiceResource):
         ::
         
           response = bucket_versioning.enable(
-              MFA='string',
+              MFA=\'string\',
               
           )
         :type MFA: string
         :param MFA: 
         
-          The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+          The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
         
         :returns: None
         """
@@ -2345,16 +2345,16 @@ class BucketVersioning(base.ServiceResource):
         ::
         
           response = bucket_versioning.put(
-              MFA='string',
+              MFA=\'string\',
               VersioningConfiguration={
-                  'MFADelete': 'Enabled'|'Disabled',
-                  'Status': 'Enabled'|'Suspended'
+                  \'MFADelete\': \'Enabled\'|\'Disabled\',
+                  \'Status\': \'Enabled\'|\'Suspended\'
               }
           )
         :type MFA: string
         :param MFA: 
         
-          The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+          The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
         
         :type VersioningConfiguration: dict
         :param VersioningConfiguration: **[REQUIRED]** 
@@ -2394,13 +2394,13 @@ class BucketVersioning(base.ServiceResource):
         ::
         
           response = bucket_versioning.suspend(
-              MFA='string',
+              MFA=\'string\',
               
           )
         :type MFA: string
         :param MFA: 
         
-          The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+          The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
         
         :returns: None
         """
@@ -2462,28 +2462,28 @@ class BucketWebsite(base.ServiceResource):
         
           response = bucket_website.put(
               WebsiteConfiguration={
-                  'ErrorDocument': {
-                      'Key': 'string'
+                  \'ErrorDocument\': {
+                      \'Key\': \'string\'
                   },
-                  'IndexDocument': {
-                      'Suffix': 'string'
+                  \'IndexDocument\': {
+                      \'Suffix\': \'string\'
                   },
-                  'RedirectAllRequestsTo': {
-                      'HostName': 'string',
-                      'Protocol': 'http'|'https'
+                  \'RedirectAllRequestsTo\': {
+                      \'HostName\': \'string\',
+                      \'Protocol\': \'http\'|\'https\'
                   },
-                  'RoutingRules': [
+                  \'RoutingRules\': [
                       {
-                          'Condition': {
-                              'HttpErrorCodeReturnedEquals': 'string',
-                              'KeyPrefixEquals': 'string'
+                          \'Condition\': {
+                              \'HttpErrorCodeReturnedEquals\': \'string\',
+                              \'KeyPrefixEquals\': \'string\'
                           },
-                          'Redirect': {
-                              'HostName': 'string',
-                              'HttpRedirectCode': 'string',
-                              'Protocol': 'http'|'https',
-                              'ReplaceKeyPrefixWith': 'string',
-                              'ReplaceKeyWith': 'string'
+                          \'Redirect\': {
+                              \'HostName\': \'string\',
+                              \'HttpRedirectCode\': \'string\',
+                              \'Protocol\': \'http\'|\'https\',
+                              \'ReplaceKeyPrefixWith\': \'string\',
+                              \'ReplaceKeyWith\': \'string\'
                           }
                       },
                   ]
@@ -2588,7 +2588,7 @@ class MultipartUpload(base.ServiceResource):
     def abort(self, RequestPayer: str = None) -> Dict:
         """
         
-        To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.
+        To verify that all parts have been removed, so you don\'t get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload>`_
         
@@ -2596,7 +2596,7 @@ class MultipartUpload(base.ServiceResource):
         ::
         
           response = multipart_upload.abort(
-              RequestPayer='requester'
+              RequestPayer=\'requester\'
           )
         :type RequestPayer: string
         :param RequestPayer: 
@@ -2611,7 +2611,7 @@ class MultipartUpload(base.ServiceResource):
           ::
         
             {
-                'RequestCharged': 'requester'
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -2634,14 +2634,14 @@ class MultipartUpload(base.ServiceResource):
         
           object = multipart_upload.complete(
               MultipartUpload={
-                  'Parts': [
+                  \'Parts\': [
                       {
-                          'ETag': 'string',
-                          'PartNumber': 123
+                          \'ETag\': \'string\',
+                          \'PartNumber\': 123
                       },
                   ]
               },
-              RequestPayer='requester'
+              RequestPayer=\'requester\'
           )
         :type MultipartUpload: dict
         :param MultipartUpload: 
@@ -2697,20 +2697,20 @@ class MultipartUploadPart(base.ServiceResource):
         ::
         
           response = multipart_upload_part.copy_from(
-              CopySource='string' or {'Bucket': 'string', 'Key': 'string', 'VersionId': 'string'},
-              CopySourceIfMatch='string',
+              CopySource=\'string\' or {\'Bucket\': \'string\', \'Key\': \'string\', \'VersionId\': \'string\'},
+              CopySourceIfMatch=\'string\',
               CopySourceIfModifiedSince=datetime(2015, 1, 1),
-              CopySourceIfNoneMatch='string',
+              CopySourceIfNoneMatch=\'string\',
               CopySourceIfUnmodifiedSince=datetime(2015, 1, 1),
-              CopySourceRange='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              CopySourceSSECustomerAlgorithm='string',
-              CopySourceSSECustomerKey='string',
-              RequestPayer='requester'
+              CopySourceRange=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              CopySourceSSECustomerAlgorithm=\'string\',
+              CopySourceSSECustomerKey=\'string\',
+              RequestPayer=\'requester\'
           )
         :type CopySource: str or dict
-        :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object, and optional version ID of the source object.  You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key}?versionId={versionId} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}.  Note that the VersionId key is optional and may be omitted.
+        :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object, and optional version ID of the source object.  You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key}?versionId={versionId} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {\'Bucket\': \'bucket\', \'Key\': \'key\', \'VersionId\': \'id\'}.  Note that the VersionId key is optional and may be omitted.
         
         :type CopySourceIfMatch: string
         :param CopySourceIfMatch: 
@@ -2730,7 +2730,7 @@ class MultipartUploadPart(base.ServiceResource):
         :type CopySourceIfUnmodifiedSince: datetime
         :param CopySourceIfUnmodifiedSince: 
         
-          Copies the object if it hasn't been modified since the specified time.
+          Copies the object if it hasn\'t been modified since the specified time.
         
         :type CopySourceRange: string
         :param CopySourceRange: 
@@ -2784,16 +2784,16 @@ class MultipartUploadPart(base.ServiceResource):
           ::
         
             {
-                'CopySourceVersionId': 'string',
-                'CopyPartResult': {
-                    'ETag': 'string',
-                    'LastModified': datetime(2015, 1, 1)
+                \'CopySourceVersionId\': \'string\',
+                \'CopyPartResult\': {
+                    \'ETag\': \'string\',
+                    \'LastModified\': datetime(2015, 1, 1)
                 },
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -2857,12 +2857,12 @@ class MultipartUploadPart(base.ServiceResource):
         ::
         
           response = multipart_upload_part.upload(
-              Body=b'bytes'|file,
+              Body=b\'bytes\'|file,
               ContentLength=123,
-              ContentMD5='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester'
+              ContentMD5=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Body: bytes or seekable file-like object
         :param Body: 
@@ -2909,12 +2909,12 @@ class MultipartUploadPart(base.ServiceResource):
           ::
         
             {
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'ETag': 'string',
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'ETag\': \'string\',
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -2986,20 +2986,20 @@ class Object(base.ServiceResource):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
+            s3 = boto3.resource(\'s3\')
             copy_source = {
-                'Bucket': 'mybucket',
-                'Key': 'mykey'
+                \'Bucket\': \'mybucket\',
+                \'Key\': \'mykey\'
             }
-            bucket = s3.Bucket('otherbucket')
-            obj = bucket.Object('otherkey')
+            bucket = s3.Bucket(\'otherbucket\')
+            obj = bucket.Object(\'otherkey\')
             obj.copy(copy_source)
         
         :type CopySource: dict
         :param CopySource: The name of the source bucket, key name of the
             source object, and optional version ID of the source object. The
             dictionary format is:
-            ``{'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}``. Note
+            ``{\'Bucket\': \'bucket\', \'Key\': \'key\', \'VersionId\': \'id\'}``. Note
             that the ``VersionId`` key is optional and may be omitted.
         
         :type ExtraArgs: dict
@@ -3032,37 +3032,37 @@ class Object(base.ServiceResource):
         ::
         
           response = object.copy_from(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-              CacheControl='string',
-              ContentDisposition='string',
-              ContentEncoding='string',
-              ContentLanguage='string',
-              ContentType='string',
-              CopySource='string' or {'Bucket': 'string', 'Key': 'string', 'VersionId': 'string'},
-              CopySourceIfMatch='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+              CacheControl=\'string\',
+              ContentDisposition=\'string\',
+              ContentEncoding=\'string\',
+              ContentLanguage=\'string\',
+              ContentType=\'string\',
+              CopySource=\'string\' or {\'Bucket\': \'string\', \'Key\': \'string\', \'VersionId\': \'string\'},
+              CopySourceIfMatch=\'string\',
               CopySourceIfModifiedSince=datetime(2015, 1, 1),
-              CopySourceIfNoneMatch='string',
+              CopySourceIfNoneMatch=\'string\',
               CopySourceIfUnmodifiedSince=datetime(2015, 1, 1),
               Expires=datetime(2015, 1, 1),
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWriteACP='string',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWriteACP=\'string\',
               Metadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              MetadataDirective='COPY'|'REPLACE',
-              TaggingDirective='COPY'|'REPLACE',
-              ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-              WebsiteRedirectLocation='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              SSEKMSKeyId='string',
-              CopySourceSSECustomerAlgorithm='string',
-              CopySourceSSECustomerKey='string',
-              RequestPayer='requester',
-              Tagging='string'
+              MetadataDirective=\'COPY\'|\'REPLACE\',
+              TaggingDirective=\'COPY\'|\'REPLACE\',
+              ServerSideEncryption=\'AES256\'|\'aws:kms\',
+              StorageClass=\'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+              WebsiteRedirectLocation=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              SSEKMSKeyId=\'string\',
+              CopySourceSSECustomerAlgorithm=\'string\',
+              CopySourceSSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
+              Tagging=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -3095,7 +3095,7 @@ class Object(base.ServiceResource):
           A standard MIME type describing the format of the object data.
         
         :type CopySource: str or dict
-        :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object, and optional version ID of the source object.  You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key}?versionId={versionId} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}.  Note that the VersionId key is optional and may be omitted.
+        :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object, and optional version ID of the source object.  You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key}?versionId={versionId} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {\'Bucket\': \'bucket\', \'Key\': \'key\', \'VersionId\': \'id\'}.  Note that the VersionId key is optional and may be omitted.
         
         :type CopySourceIfMatch: string
         :param CopySourceIfMatch: 
@@ -3115,7 +3115,7 @@ class Object(base.ServiceResource):
         :type CopySourceIfUnmodifiedSince: datetime
         :param CopySourceIfUnmodifiedSince: 
         
-          Copies the object if it hasn't been modified since the specified time.
+          Copies the object if it hasn\'t been modified since the specified time.
         
         :type Expires: datetime
         :param Expires: 
@@ -3169,7 +3169,7 @@ class Object(base.ServiceResource):
         :type StorageClass: string
         :param StorageClass: 
         
-          The type of storage to use for the object. Defaults to 'STANDARD'.
+          The type of storage to use for the object. Defaults to \'STANDARD\'.
         
         :type WebsiteRedirectLocation: string
         :param WebsiteRedirectLocation: 
@@ -3233,18 +3233,18 @@ class Object(base.ServiceResource):
           ::
         
             {
-                'CopyObjectResult': {
-                    'ETag': 'string',
-                    'LastModified': datetime(2015, 1, 1)
+                \'CopyObjectResult\': {
+                    \'ETag\': \'string\',
+                    \'LastModified\': datetime(2015, 1, 1)
                 },
-                'Expiration': 'string',
-                'CopySourceVersionId': 'string',
-                'VersionId': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'Expiration\': \'string\',
+                \'CopySourceVersionId\': \'string\',
+                \'VersionId\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -3298,14 +3298,14 @@ class Object(base.ServiceResource):
         ::
         
           response = object.delete(
-              MFA='string',
-              VersionId='string',
-              RequestPayer='requester'
+              MFA=\'string\',
+              VersionId=\'string\',
+              RequestPayer=\'requester\'
           )
         :type MFA: string
         :param MFA: 
         
-          The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+          The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
         
         :type VersionId: string
         :param VersionId: 
@@ -3325,9 +3325,9 @@ class Object(base.ServiceResource):
           ::
         
             {
-                'DeleteMarker': True|False,
-                'VersionId': 'string',
-                'RequestCharged': 'requester'
+                \'DeleteMarker\': True|False,
+                \'VersionId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -3354,12 +3354,12 @@ class Object(base.ServiceResource):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
-            s3.Object('mybucket', 'hello.txt').download_file('/tmp/hello.txt')
+            s3 = boto3.resource(\'s3\')
+            s3.Object(\'mybucket\', \'hello.txt\').download_file(\'/tmp/hello.txt\')
         
-        Similar behavior as S3Transfer's download_file() method,
+        Similar behavior as S3Transfer\'s download_file() method,
         except that parameters are capitalized. Detailed examples can be found at
-        :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+        :ref:`S3Transfer\'s Usage <ref_s3transfer_usage>`.
         
         :type Filename: str
         :param Filename: The path to the file to download to.
@@ -3389,11 +3389,11 @@ class Object(base.ServiceResource):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
-            bucket = s3.Bucket('mybucket')
-            obj = bucket.Object('mykey')
+            s3 = boto3.resource(\'s3\')
+            bucket = s3.Bucket(\'mybucket\')
+            obj = bucket.Object(\'mykey\')
         
-            with open('filename', 'wb') as data:
+            with open(\'filename\', \'wb\') as data:
                 obj.download_fileobj(data)
         
         :type Fileobj: a file-like object
@@ -3423,21 +3423,21 @@ class Object(base.ServiceResource):
         ::
         
           response = object.get(
-              IfMatch='string',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Range='string',
-              ResponseCacheControl='string',
-              ResponseContentDisposition='string',
-              ResponseContentEncoding='string',
-              ResponseContentLanguage='string',
-              ResponseContentType='string',
+              Range=\'string\',
+              ResponseCacheControl=\'string\',
+              ResponseContentDisposition=\'string\',
+              ResponseContentEncoding=\'string\',
+              ResponseContentLanguage=\'string\',
+              ResponseContentType=\'string\',
               ResponseExpires=datetime(2015, 1, 1),
-              VersionId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              VersionId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123
           )
         :type IfMatch: string
@@ -3525,7 +3525,7 @@ class Object(base.ServiceResource):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' GET request for the part specified. Useful for downloading just a part of an object.
         
         :rtype: dict
         :returns: 
@@ -3535,36 +3535,36 @@ class Object(base.ServiceResource):
           ::
         
             {
-                'Body': StreamingBody(),
-                'DeleteMarker': True|False,
-                'AcceptRanges': 'string',
-                'Expiration': 'string',
-                'Restore': 'string',
-                'LastModified': datetime(2015, 1, 1),
-                'ContentLength': 123,
-                'ETag': 'string',
-                'MissingMeta': 123,
-                'VersionId': 'string',
-                'CacheControl': 'string',
-                'ContentDisposition': 'string',
-                'ContentEncoding': 'string',
-                'ContentLanguage': 'string',
-                'ContentRange': 'string',
-                'ContentType': 'string',
-                'Expires': datetime(2015, 1, 1),
-                'WebsiteRedirectLocation': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'Metadata': {
-                    'string': 'string'
+                \'Body\': StreamingBody(),
+                \'DeleteMarker\': True|False,
+                \'AcceptRanges\': \'string\',
+                \'Expiration\': \'string\',
+                \'Restore\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1),
+                \'ContentLength\': 123,
+                \'ETag\': \'string\',
+                \'MissingMeta\': 123,
+                \'VersionId\': \'string\',
+                \'CacheControl\': \'string\',
+                \'ContentDisposition\': \'string\',
+                \'ContentEncoding\': \'string\',
+                \'ContentLanguage\': \'string\',
+                \'ContentRange\': \'string\',
+                \'ContentType\': \'string\',
+                \'Expires\': datetime(2015, 1, 1),
+                \'WebsiteRedirectLocation\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'Metadata\': {
+                    \'string\': \'string\'
                 },
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                'RequestCharged': 'requester',
-                'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
-                'PartsCount': 123,
-                'TagCount': 123
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                \'RequestCharged\': \'requester\',
+                \'ReplicationStatus\': \'COMPLETE\'|\'PENDING\'|\'FAILED\'|\'REPLICA\',
+                \'PartsCount\': 123,
+                \'TagCount\': 123
             }
           **Response Structure** 
         
@@ -3704,28 +3704,28 @@ class Object(base.ServiceResource):
         ::
         
           multipart_upload = object.initiate_multipart_upload(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-              CacheControl='string',
-              ContentDisposition='string',
-              ContentEncoding='string',
-              ContentLanguage='string',
-              ContentType='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+              CacheControl=\'string\',
+              ContentDisposition=\'string\',
+              ContentEncoding=\'string\',
+              ContentLanguage=\'string\',
+              ContentType=\'string\',
               Expires=datetime(2015, 1, 1),
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWriteACP='string',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWriteACP=\'string\',
               Metadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-              WebsiteRedirectLocation='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              SSEKMSKeyId='string',
-              RequestPayer='requester',
-              Tagging='string'
+              ServerSideEncryption=\'AES256\'|\'aws:kms\',
+              StorageClass=\'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+              WebsiteRedirectLocation=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              SSEKMSKeyId=\'string\',
+              RequestPayer=\'requester\',
+              Tagging=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -3799,7 +3799,7 @@ class Object(base.ServiceResource):
         :type StorageClass: string
         :param StorageClass: 
         
-          The type of storage to use for the object. Defaults to 'STANDARD'.
+          The type of storage to use for the object. Defaults to \'STANDARD\'.
         
         :type WebsiteRedirectLocation: string
         :param WebsiteRedirectLocation: 
@@ -3866,31 +3866,31 @@ class Object(base.ServiceResource):
         ::
         
           response = object.put(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-              Body=b'bytes'|file,
-              CacheControl='string',
-              ContentDisposition='string',
-              ContentEncoding='string',
-              ContentLanguage='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+              Body=b\'bytes\'|file,
+              CacheControl=\'string\',
+              ContentDisposition=\'string\',
+              ContentEncoding=\'string\',
+              ContentLanguage=\'string\',
               ContentLength=123,
-              ContentMD5='string',
-              ContentType='string',
+              ContentMD5=\'string\',
+              ContentType=\'string\',
               Expires=datetime(2015, 1, 1),
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWriteACP='string',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWriteACP=\'string\',
               Metadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-              WebsiteRedirectLocation='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              SSEKMSKeyId='string',
-              RequestPayer='requester',
-              Tagging='string'
+              ServerSideEncryption=\'AES256\'|\'aws:kms\',
+              StorageClass=\'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+              WebsiteRedirectLocation=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              SSEKMSKeyId=\'string\',
+              RequestPayer=\'requester\',
+              Tagging=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -3979,7 +3979,7 @@ class Object(base.ServiceResource):
         :type StorageClass: string
         :param StorageClass: 
         
-          The type of storage to use for the object. Defaults to 'STANDARD'.
+          The type of storage to use for the object. Defaults to \'STANDARD\'.
         
         :type WebsiteRedirectLocation: string
         :param WebsiteRedirectLocation: 
@@ -4026,14 +4026,14 @@ class Object(base.ServiceResource):
           ::
         
             {
-                'Expiration': 'string',
-                'ETag': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'VersionId': 'string',
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'Expiration\': \'string\',
+                \'ETag\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'VersionId\': \'string\',
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -4097,89 +4097,89 @@ class Object(base.ServiceResource):
         ::
         
           response = object.restore_object(
-              VersionId='string',
+              VersionId=\'string\',
               RestoreRequest={
-                  'Days': 123,
-                  'GlacierJobParameters': {
-                      'Tier': 'Standard'|'Bulk'|'Expedited'
+                  \'Days\': 123,
+                  \'GlacierJobParameters\': {
+                      \'Tier\': \'Standard\'|\'Bulk\'|\'Expedited\'
                   },
-                  'Type': 'SELECT',
-                  'Tier': 'Standard'|'Bulk'|'Expedited',
-                  'Description': 'string',
-                  'SelectParameters': {
-                      'InputSerialization': {
-                          'CSV': {
-                              'FileHeaderInfo': 'USE'|'IGNORE'|'NONE',
-                              'Comments': 'string',
-                              'QuoteEscapeCharacter': 'string',
-                              'RecordDelimiter': 'string',
-                              'FieldDelimiter': 'string',
-                              'QuoteCharacter': 'string',
-                              'AllowQuotedRecordDelimiter': True|False
+                  \'Type\': \'SELECT\',
+                  \'Tier\': \'Standard\'|\'Bulk\'|\'Expedited\',
+                  \'Description\': \'string\',
+                  \'SelectParameters\': {
+                      \'InputSerialization\': {
+                          \'CSV\': {
+                              \'FileHeaderInfo\': \'USE\'|\'IGNORE\'|\'NONE\',
+                              \'Comments\': \'string\',
+                              \'QuoteEscapeCharacter\': \'string\',
+                              \'RecordDelimiter\': \'string\',
+                              \'FieldDelimiter\': \'string\',
+                              \'QuoteCharacter\': \'string\',
+                              \'AllowQuotedRecordDelimiter\': True|False
                           },
-                          'CompressionType': 'NONE'|'GZIP'|'BZIP2',
-                          'JSON': {
-                              'Type': 'DOCUMENT'|'LINES'
+                          \'CompressionType\': \'NONE\'|\'GZIP\'|\'BZIP2\',
+                          \'JSON\': {
+                              \'Type\': \'DOCUMENT\'|\'LINES\'
                           },
-                          'Parquet': {}
+                          \'Parquet\': {}
                           
                       },
-                      'ExpressionType': 'SQL',
-                      'Expression': 'string',
-                      'OutputSerialization': {
-                          'CSV': {
-                              'QuoteFields': 'ALWAYS'|'ASNEEDED',
-                              'QuoteEscapeCharacter': 'string',
-                              'RecordDelimiter': 'string',
-                              'FieldDelimiter': 'string',
-                              'QuoteCharacter': 'string'
+                      \'ExpressionType\': \'SQL\',
+                      \'Expression\': \'string\',
+                      \'OutputSerialization\': {
+                          \'CSV\': {
+                              \'QuoteFields\': \'ALWAYS\'|\'ASNEEDED\',
+                              \'QuoteEscapeCharacter\': \'string\',
+                              \'RecordDelimiter\': \'string\',
+                              \'FieldDelimiter\': \'string\',
+                              \'QuoteCharacter\': \'string\'
                           },
-                          'JSON': {
-                              'RecordDelimiter': 'string'
+                          \'JSON\': {
+                              \'RecordDelimiter\': \'string\'
                           }
                       }
                   },
-                  'OutputLocation': {
-                      'S3': {
-                          'BucketName': 'string',
-                          'Prefix': 'string',
-                          'Encryption': {
-                              'EncryptionType': 'AES256'|'aws:kms',
-                              'KMSKeyId': 'string',
-                              'KMSContext': 'string'
+                  \'OutputLocation\': {
+                      \'S3\': {
+                          \'BucketName\': \'string\',
+                          \'Prefix\': \'string\',
+                          \'Encryption\': {
+                              \'EncryptionType\': \'AES256\'|\'aws:kms\',
+                              \'KMSKeyId\': \'string\',
+                              \'KMSContext\': \'string\'
                           },
-                          'CannedACL': 'private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-                          'AccessControlList': [
+                          \'CannedACL\': \'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+                          \'AccessControlList\': [
                               {
-                                  'Grantee': {
-                                      'DisplayName': 'string',
-                                      'EmailAddress': 'string',
-                                      'ID': 'string',
-                                      'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                                      'URI': 'string'
+                                  \'Grantee\': {
+                                      \'DisplayName\': \'string\',
+                                      \'EmailAddress\': \'string\',
+                                      \'ID\': \'string\',
+                                      \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                                      \'URI\': \'string\'
                                   },
-                                  'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                                  \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                               },
                           ],
-                          'Tagging': {
-                              'TagSet': [
+                          \'Tagging\': {
+                              \'TagSet\': [
                                   {
-                                      'Key': 'string',
-                                      'Value': 'string'
+                                      \'Key\': \'string\',
+                                      \'Value\': \'string\'
                                   },
                               ]
                           },
-                          'UserMetadata': [
+                          \'UserMetadata\': [
                               {
-                                  'Name': 'string',
-                                  'Value': 'string'
+                                  \'Name\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ],
-                          'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'
+                          \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                       }
                   }
               },
-              RequestPayer='requester'
+              RequestPayer=\'requester\'
           )
         :type VersionId: string
         :param VersionId: 
@@ -4255,11 +4255,11 @@ class Object(base.ServiceResource):
         
               - **CompressionType** *(string) --* 
         
-                Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
+                Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
         
               - **JSON** *(dict) --* 
         
-                Specifies JSON as object's input serialization format.
+                Specifies JSON as object\'s input serialization format.
         
                 - **Type** *(string) --* 
         
@@ -4267,7 +4267,7 @@ class Object(base.ServiceResource):
         
               - **Parquet** *(dict) --* 
         
-                Specifies Parquet as object's input serialization format.
+                Specifies Parquet as object\'s input serialization format.
         
             - **ExpressionType** *(string) --* **[REQUIRED]** 
         
@@ -4307,7 +4307,7 @@ class Object(base.ServiceResource):
         
               - **JSON** *(dict) --* 
         
-                Specifies JSON as request's output serialization format.
+                Specifies JSON as request\'s output serialization format.
         
                 - **RecordDelimiter** *(string) --* 
         
@@ -4315,7 +4315,7 @@ class Object(base.ServiceResource):
         
           - **OutputLocation** *(dict) --* 
         
-            Describes the location where the restore job's output is stored.
+            Describes the location where the restore job\'s output is stored.
         
             - **S3** *(dict) --* 
         
@@ -4426,8 +4426,8 @@ class Object(base.ServiceResource):
           ::
         
             {
-                'RequestCharged': 'requester',
-                'RestoreOutputPath': 'string'
+                \'RequestCharged\': \'requester\',
+                \'RestoreOutputPath\': \'string\'
             }
           **Response Structure** 
         
@@ -4450,12 +4450,12 @@ class Object(base.ServiceResource):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
-            s3.Object('mybucket', 'hello.txt').upload_file('/tmp/hello.txt')
+            s3 = boto3.resource(\'s3\')
+            s3.Object(\'mybucket\', \'hello.txt\').upload_file(\'/tmp/hello.txt\')
         
-        Similar behavior as S3Transfer's upload_file() method,
+        Similar behavior as S3Transfer\'s upload_file() method,
         except that parameters are capitalized. Detailed examples can be found at
-        :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+        :ref:`S3Transfer\'s Usage <ref_s3transfer_usage>`.
         
         :type Filename: str
         :param Filename: The path to the file to upload.
@@ -4485,11 +4485,11 @@ class Object(base.ServiceResource):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
-            bucket = s3.Bucket('mybucket')
-            obj = bucket.Object('mykey')
+            s3 = boto3.resource(\'s3\')
+            bucket = s3.Bucket(\'mybucket\')
+            obj = bucket.Object(\'mykey\')
         
-            with open('filename', 'rb') as data:
+            with open(\'filename\', \'rb\') as data:
                 obj.upload_fileobj(data)
         
         :type Fileobj: a file-like object
@@ -4519,15 +4519,15 @@ class Object(base.ServiceResource):
         ::
         
           object.wait_until_exists(
-              IfMatch='string',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Range='string',
-              VersionId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              Range=\'string\',
+              VersionId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123
           )
         :type IfMatch: string
@@ -4585,7 +4585,7 @@ class Object(base.ServiceResource):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
         
         :returns: None
         """
@@ -4600,15 +4600,15 @@ class Object(base.ServiceResource):
         ::
         
           object.wait_until_not_exists(
-              IfMatch='string',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Range='string',
-              VersionId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              Range=\'string\',
+              VersionId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123
           )
         :type IfMatch: string
@@ -4666,7 +4666,7 @@ class Object(base.ServiceResource):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
         
         :returns: None
         """
@@ -4713,32 +4713,32 @@ class ObjectAcl(base.ServiceResource):
         ::
         
           response = object_acl.put(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
               AccessControlPolicy={
-                  'Grants': [
+                  \'Grants\': [
                       {
-                          'Grantee': {
-                              'DisplayName': 'string',
-                              'EmailAddress': 'string',
-                              'ID': 'string',
-                              'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                              'URI': 'string'
+                          \'Grantee\': {
+                              \'DisplayName\': \'string\',
+                              \'EmailAddress\': \'string\',
+                              \'ID\': \'string\',
+                              \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                              \'URI\': \'string\'
                           },
-                          'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                          \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                       },
                   ],
-                  'Owner': {
-                      'DisplayName': 'string',
-                      'ID': 'string'
+                  \'Owner\': {
+                      \'DisplayName\': \'string\',
+                      \'ID\': \'string\'
                   }
               },
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWrite='string',
-              GrantWriteACP='string',
-              RequestPayer='requester',
-              VersionId='string'
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWrite=\'string\',
+              GrantWriteACP=\'string\',
+              RequestPayer=\'requester\',
+              VersionId=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -4829,7 +4829,7 @@ class ObjectAcl(base.ServiceResource):
           ::
         
             {
-                'RequestCharged': 'requester'
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -4875,37 +4875,37 @@ class ObjectSummary(base.ServiceResource):
         ::
         
           response = object_summary.copy_from(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-              CacheControl='string',
-              ContentDisposition='string',
-              ContentEncoding='string',
-              ContentLanguage='string',
-              ContentType='string',
-              CopySource='string' or {'Bucket': 'string', 'Key': 'string', 'VersionId': 'string'},
-              CopySourceIfMatch='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+              CacheControl=\'string\',
+              ContentDisposition=\'string\',
+              ContentEncoding=\'string\',
+              ContentLanguage=\'string\',
+              ContentType=\'string\',
+              CopySource=\'string\' or {\'Bucket\': \'string\', \'Key\': \'string\', \'VersionId\': \'string\'},
+              CopySourceIfMatch=\'string\',
               CopySourceIfModifiedSince=datetime(2015, 1, 1),
-              CopySourceIfNoneMatch='string',
+              CopySourceIfNoneMatch=\'string\',
               CopySourceIfUnmodifiedSince=datetime(2015, 1, 1),
               Expires=datetime(2015, 1, 1),
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWriteACP='string',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWriteACP=\'string\',
               Metadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              MetadataDirective='COPY'|'REPLACE',
-              TaggingDirective='COPY'|'REPLACE',
-              ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-              WebsiteRedirectLocation='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              SSEKMSKeyId='string',
-              CopySourceSSECustomerAlgorithm='string',
-              CopySourceSSECustomerKey='string',
-              RequestPayer='requester',
-              Tagging='string'
+              MetadataDirective=\'COPY\'|\'REPLACE\',
+              TaggingDirective=\'COPY\'|\'REPLACE\',
+              ServerSideEncryption=\'AES256\'|\'aws:kms\',
+              StorageClass=\'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+              WebsiteRedirectLocation=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              SSEKMSKeyId=\'string\',
+              CopySourceSSECustomerAlgorithm=\'string\',
+              CopySourceSSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
+              Tagging=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -4938,7 +4938,7 @@ class ObjectSummary(base.ServiceResource):
           A standard MIME type describing the format of the object data.
         
         :type CopySource: str or dict
-        :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object, and optional version ID of the source object.  You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key}?versionId={versionId} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}.  Note that the VersionId key is optional and may be omitted.
+        :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object, and optional version ID of the source object.  You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key}?versionId={versionId} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {\'Bucket\': \'bucket\', \'Key\': \'key\', \'VersionId\': \'id\'}.  Note that the VersionId key is optional and may be omitted.
         
         :type CopySourceIfMatch: string
         :param CopySourceIfMatch: 
@@ -4958,7 +4958,7 @@ class ObjectSummary(base.ServiceResource):
         :type CopySourceIfUnmodifiedSince: datetime
         :param CopySourceIfUnmodifiedSince: 
         
-          Copies the object if it hasn't been modified since the specified time.
+          Copies the object if it hasn\'t been modified since the specified time.
         
         :type Expires: datetime
         :param Expires: 
@@ -5012,7 +5012,7 @@ class ObjectSummary(base.ServiceResource):
         :type StorageClass: string
         :param StorageClass: 
         
-          The type of storage to use for the object. Defaults to 'STANDARD'.
+          The type of storage to use for the object. Defaults to \'STANDARD\'.
         
         :type WebsiteRedirectLocation: string
         :param WebsiteRedirectLocation: 
@@ -5076,18 +5076,18 @@ class ObjectSummary(base.ServiceResource):
           ::
         
             {
-                'CopyObjectResult': {
-                    'ETag': 'string',
-                    'LastModified': datetime(2015, 1, 1)
+                \'CopyObjectResult\': {
+                    \'ETag\': \'string\',
+                    \'LastModified\': datetime(2015, 1, 1)
                 },
-                'Expiration': 'string',
-                'CopySourceVersionId': 'string',
-                'VersionId': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'Expiration\': \'string\',
+                \'CopySourceVersionId\': \'string\',
+                \'VersionId\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -5141,14 +5141,14 @@ class ObjectSummary(base.ServiceResource):
         ::
         
           response = object_summary.delete(
-              MFA='string',
-              VersionId='string',
-              RequestPayer='requester'
+              MFA=\'string\',
+              VersionId=\'string\',
+              RequestPayer=\'requester\'
           )
         :type MFA: string
         :param MFA: 
         
-          The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+          The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
         
         :type VersionId: string
         :param VersionId: 
@@ -5168,9 +5168,9 @@ class ObjectSummary(base.ServiceResource):
           ::
         
             {
-                'DeleteMarker': True|False,
-                'VersionId': 'string',
-                'RequestCharged': 'requester'
+                \'DeleteMarker\': True|False,
+                \'VersionId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -5200,21 +5200,21 @@ class ObjectSummary(base.ServiceResource):
         ::
         
           response = object_summary.get(
-              IfMatch='string',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Range='string',
-              ResponseCacheControl='string',
-              ResponseContentDisposition='string',
-              ResponseContentEncoding='string',
-              ResponseContentLanguage='string',
-              ResponseContentType='string',
+              Range=\'string\',
+              ResponseCacheControl=\'string\',
+              ResponseContentDisposition=\'string\',
+              ResponseContentEncoding=\'string\',
+              ResponseContentLanguage=\'string\',
+              ResponseContentType=\'string\',
               ResponseExpires=datetime(2015, 1, 1),
-              VersionId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              VersionId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123
           )
         :type IfMatch: string
@@ -5302,7 +5302,7 @@ class ObjectSummary(base.ServiceResource):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' GET request for the part specified. Useful for downloading just a part of an object.
         
         :rtype: dict
         :returns: 
@@ -5312,36 +5312,36 @@ class ObjectSummary(base.ServiceResource):
           ::
         
             {
-                'Body': StreamingBody(),
-                'DeleteMarker': True|False,
-                'AcceptRanges': 'string',
-                'Expiration': 'string',
-                'Restore': 'string',
-                'LastModified': datetime(2015, 1, 1),
-                'ContentLength': 123,
-                'ETag': 'string',
-                'MissingMeta': 123,
-                'VersionId': 'string',
-                'CacheControl': 'string',
-                'ContentDisposition': 'string',
-                'ContentEncoding': 'string',
-                'ContentLanguage': 'string',
-                'ContentRange': 'string',
-                'ContentType': 'string',
-                'Expires': datetime(2015, 1, 1),
-                'WebsiteRedirectLocation': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'Metadata': {
-                    'string': 'string'
+                \'Body\': StreamingBody(),
+                \'DeleteMarker\': True|False,
+                \'AcceptRanges\': \'string\',
+                \'Expiration\': \'string\',
+                \'Restore\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1),
+                \'ContentLength\': 123,
+                \'ETag\': \'string\',
+                \'MissingMeta\': 123,
+                \'VersionId\': \'string\',
+                \'CacheControl\': \'string\',
+                \'ContentDisposition\': \'string\',
+                \'ContentEncoding\': \'string\',
+                \'ContentLanguage\': \'string\',
+                \'ContentRange\': \'string\',
+                \'ContentType\': \'string\',
+                \'Expires\': datetime(2015, 1, 1),
+                \'WebsiteRedirectLocation\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'Metadata\': {
+                    \'string\': \'string\'
                 },
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                'RequestCharged': 'requester',
-                'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
-                'PartsCount': 123,
-                'TagCount': 123
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                \'RequestCharged\': \'requester\',
+                \'ReplicationStatus\': \'COMPLETE\'|\'PENDING\'|\'FAILED\'|\'REPLICA\',
+                \'PartsCount\': 123,
+                \'TagCount\': 123
             }
           **Response Structure** 
         
@@ -5481,28 +5481,28 @@ class ObjectSummary(base.ServiceResource):
         ::
         
           multipart_upload = object_summary.initiate_multipart_upload(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-              CacheControl='string',
-              ContentDisposition='string',
-              ContentEncoding='string',
-              ContentLanguage='string',
-              ContentType='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+              CacheControl=\'string\',
+              ContentDisposition=\'string\',
+              ContentEncoding=\'string\',
+              ContentLanguage=\'string\',
+              ContentType=\'string\',
               Expires=datetime(2015, 1, 1),
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWriteACP='string',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWriteACP=\'string\',
               Metadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-              WebsiteRedirectLocation='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              SSEKMSKeyId='string',
-              RequestPayer='requester',
-              Tagging='string'
+              ServerSideEncryption=\'AES256\'|\'aws:kms\',
+              StorageClass=\'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+              WebsiteRedirectLocation=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              SSEKMSKeyId=\'string\',
+              RequestPayer=\'requester\',
+              Tagging=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -5576,7 +5576,7 @@ class ObjectSummary(base.ServiceResource):
         :type StorageClass: string
         :param StorageClass: 
         
-          The type of storage to use for the object. Defaults to 'STANDARD'.
+          The type of storage to use for the object. Defaults to \'STANDARD\'.
         
         :type WebsiteRedirectLocation: string
         :param WebsiteRedirectLocation: 
@@ -5635,31 +5635,31 @@ class ObjectSummary(base.ServiceResource):
         ::
         
           response = object_summary.put(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-              Body=b'bytes'|file,
-              CacheControl='string',
-              ContentDisposition='string',
-              ContentEncoding='string',
-              ContentLanguage='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+              Body=b\'bytes\'|file,
+              CacheControl=\'string\',
+              ContentDisposition=\'string\',
+              ContentEncoding=\'string\',
+              ContentLanguage=\'string\',
               ContentLength=123,
-              ContentMD5='string',
-              ContentType='string',
+              ContentMD5=\'string\',
+              ContentType=\'string\',
               Expires=datetime(2015, 1, 1),
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWriteACP='string',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWriteACP=\'string\',
               Metadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-              WebsiteRedirectLocation='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              SSEKMSKeyId='string',
-              RequestPayer='requester',
-              Tagging='string'
+              ServerSideEncryption=\'AES256\'|\'aws:kms\',
+              StorageClass=\'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+              WebsiteRedirectLocation=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              SSEKMSKeyId=\'string\',
+              RequestPayer=\'requester\',
+              Tagging=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -5748,7 +5748,7 @@ class ObjectSummary(base.ServiceResource):
         :type StorageClass: string
         :param StorageClass: 
         
-          The type of storage to use for the object. Defaults to 'STANDARD'.
+          The type of storage to use for the object. Defaults to \'STANDARD\'.
         
         :type WebsiteRedirectLocation: string
         :param WebsiteRedirectLocation: 
@@ -5795,14 +5795,14 @@ class ObjectSummary(base.ServiceResource):
           ::
         
             {
-                'Expiration': 'string',
-                'ETag': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'VersionId': 'string',
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'Expiration\': \'string\',
+                \'ETag\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'VersionId\': \'string\',
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -5852,89 +5852,89 @@ class ObjectSummary(base.ServiceResource):
         ::
         
           response = object_summary.restore_object(
-              VersionId='string',
+              VersionId=\'string\',
               RestoreRequest={
-                  'Days': 123,
-                  'GlacierJobParameters': {
-                      'Tier': 'Standard'|'Bulk'|'Expedited'
+                  \'Days\': 123,
+                  \'GlacierJobParameters\': {
+                      \'Tier\': \'Standard\'|\'Bulk\'|\'Expedited\'
                   },
-                  'Type': 'SELECT',
-                  'Tier': 'Standard'|'Bulk'|'Expedited',
-                  'Description': 'string',
-                  'SelectParameters': {
-                      'InputSerialization': {
-                          'CSV': {
-                              'FileHeaderInfo': 'USE'|'IGNORE'|'NONE',
-                              'Comments': 'string',
-                              'QuoteEscapeCharacter': 'string',
-                              'RecordDelimiter': 'string',
-                              'FieldDelimiter': 'string',
-                              'QuoteCharacter': 'string',
-                              'AllowQuotedRecordDelimiter': True|False
+                  \'Type\': \'SELECT\',
+                  \'Tier\': \'Standard\'|\'Bulk\'|\'Expedited\',
+                  \'Description\': \'string\',
+                  \'SelectParameters\': {
+                      \'InputSerialization\': {
+                          \'CSV\': {
+                              \'FileHeaderInfo\': \'USE\'|\'IGNORE\'|\'NONE\',
+                              \'Comments\': \'string\',
+                              \'QuoteEscapeCharacter\': \'string\',
+                              \'RecordDelimiter\': \'string\',
+                              \'FieldDelimiter\': \'string\',
+                              \'QuoteCharacter\': \'string\',
+                              \'AllowQuotedRecordDelimiter\': True|False
                           },
-                          'CompressionType': 'NONE'|'GZIP'|'BZIP2',
-                          'JSON': {
-                              'Type': 'DOCUMENT'|'LINES'
+                          \'CompressionType\': \'NONE\'|\'GZIP\'|\'BZIP2\',
+                          \'JSON\': {
+                              \'Type\': \'DOCUMENT\'|\'LINES\'
                           },
-                          'Parquet': {}
+                          \'Parquet\': {}
                           
                       },
-                      'ExpressionType': 'SQL',
-                      'Expression': 'string',
-                      'OutputSerialization': {
-                          'CSV': {
-                              'QuoteFields': 'ALWAYS'|'ASNEEDED',
-                              'QuoteEscapeCharacter': 'string',
-                              'RecordDelimiter': 'string',
-                              'FieldDelimiter': 'string',
-                              'QuoteCharacter': 'string'
+                      \'ExpressionType\': \'SQL\',
+                      \'Expression\': \'string\',
+                      \'OutputSerialization\': {
+                          \'CSV\': {
+                              \'QuoteFields\': \'ALWAYS\'|\'ASNEEDED\',
+                              \'QuoteEscapeCharacter\': \'string\',
+                              \'RecordDelimiter\': \'string\',
+                              \'FieldDelimiter\': \'string\',
+                              \'QuoteCharacter\': \'string\'
                           },
-                          'JSON': {
-                              'RecordDelimiter': 'string'
+                          \'JSON\': {
+                              \'RecordDelimiter\': \'string\'
                           }
                       }
                   },
-                  'OutputLocation': {
-                      'S3': {
-                          'BucketName': 'string',
-                          'Prefix': 'string',
-                          'Encryption': {
-                              'EncryptionType': 'AES256'|'aws:kms',
-                              'KMSKeyId': 'string',
-                              'KMSContext': 'string'
+                  \'OutputLocation\': {
+                      \'S3\': {
+                          \'BucketName\': \'string\',
+                          \'Prefix\': \'string\',
+                          \'Encryption\': {
+                              \'EncryptionType\': \'AES256\'|\'aws:kms\',
+                              \'KMSKeyId\': \'string\',
+                              \'KMSContext\': \'string\'
                           },
-                          'CannedACL': 'private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-                          'AccessControlList': [
+                          \'CannedACL\': \'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+                          \'AccessControlList\': [
                               {
-                                  'Grantee': {
-                                      'DisplayName': 'string',
-                                      'EmailAddress': 'string',
-                                      'ID': 'string',
-                                      'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                                      'URI': 'string'
+                                  \'Grantee\': {
+                                      \'DisplayName\': \'string\',
+                                      \'EmailAddress\': \'string\',
+                                      \'ID\': \'string\',
+                                      \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                                      \'URI\': \'string\'
                                   },
-                                  'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                                  \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                               },
                           ],
-                          'Tagging': {
-                              'TagSet': [
+                          \'Tagging\': {
+                              \'TagSet\': [
                                   {
-                                      'Key': 'string',
-                                      'Value': 'string'
+                                      \'Key\': \'string\',
+                                      \'Value\': \'string\'
                                   },
                               ]
                           },
-                          'UserMetadata': [
+                          \'UserMetadata\': [
                               {
-                                  'Name': 'string',
-                                  'Value': 'string'
+                                  \'Name\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ],
-                          'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'
+                          \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                       }
                   }
               },
-              RequestPayer='requester'
+              RequestPayer=\'requester\'
           )
         :type VersionId: string
         :param VersionId: 
@@ -6010,11 +6010,11 @@ class ObjectSummary(base.ServiceResource):
         
               - **CompressionType** *(string) --* 
         
-                Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
+                Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
         
               - **JSON** *(dict) --* 
         
-                Specifies JSON as object's input serialization format.
+                Specifies JSON as object\'s input serialization format.
         
                 - **Type** *(string) --* 
         
@@ -6022,7 +6022,7 @@ class ObjectSummary(base.ServiceResource):
         
               - **Parquet** *(dict) --* 
         
-                Specifies Parquet as object's input serialization format.
+                Specifies Parquet as object\'s input serialization format.
         
             - **ExpressionType** *(string) --* **[REQUIRED]** 
         
@@ -6062,7 +6062,7 @@ class ObjectSummary(base.ServiceResource):
         
               - **JSON** *(dict) --* 
         
-                Specifies JSON as request's output serialization format.
+                Specifies JSON as request\'s output serialization format.
         
                 - **RecordDelimiter** *(string) --* 
         
@@ -6070,7 +6070,7 @@ class ObjectSummary(base.ServiceResource):
         
           - **OutputLocation** *(dict) --* 
         
-            Describes the location where the restore job's output is stored.
+            Describes the location where the restore job\'s output is stored.
         
             - **S3** *(dict) --* 
         
@@ -6181,8 +6181,8 @@ class ObjectSummary(base.ServiceResource):
           ::
         
             {
-                'RequestCharged': 'requester',
-                'RestoreOutputPath': 'string'
+                \'RequestCharged\': \'requester\',
+                \'RestoreOutputPath\': \'string\'
             }
           **Response Structure** 
         
@@ -6208,15 +6208,15 @@ class ObjectSummary(base.ServiceResource):
         ::
         
           object_summary.wait_until_exists(
-              IfMatch='string',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Range='string',
-              VersionId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              Range=\'string\',
+              VersionId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123
           )
         :type IfMatch: string
@@ -6274,7 +6274,7 @@ class ObjectSummary(base.ServiceResource):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
         
         :returns: None
         """
@@ -6289,15 +6289,15 @@ class ObjectSummary(base.ServiceResource):
         ::
         
           object_summary.wait_until_not_exists(
-              IfMatch='string',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Range='string',
-              VersionId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              Range=\'string\',
+              VersionId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123
           )
         :type IfMatch: string
@@ -6355,7 +6355,7 @@ class ObjectSummary(base.ServiceResource):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
         
         :returns: None
         """
@@ -6384,13 +6384,13 @@ class ObjectVersion(base.ServiceResource):
         ::
         
           response = object_version.delete(
-              MFA='string',
-              RequestPayer='requester'
+              MFA=\'string\',
+              RequestPayer=\'requester\'
           )
         :type MFA: string
         :param MFA: 
         
-          The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+          The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
         
         :type RequestPayer: string
         :param RequestPayer: 
@@ -6405,9 +6405,9 @@ class ObjectVersion(base.ServiceResource):
           ::
         
             {
-                'DeleteMarker': True|False,
-                'VersionId': 'string',
-                'RequestCharged': 'requester'
+                \'DeleteMarker\': True|False,
+                \'VersionId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -6437,20 +6437,20 @@ class ObjectVersion(base.ServiceResource):
         ::
         
           response = object_version.get(
-              IfMatch='string',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Range='string',
-              ResponseCacheControl='string',
-              ResponseContentDisposition='string',
-              ResponseContentEncoding='string',
-              ResponseContentLanguage='string',
-              ResponseContentType='string',
+              Range=\'string\',
+              ResponseCacheControl=\'string\',
+              ResponseContentDisposition=\'string\',
+              ResponseContentEncoding=\'string\',
+              ResponseContentLanguage=\'string\',
+              ResponseContentType=\'string\',
               ResponseExpires=datetime(2015, 1, 1),
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123
           )
         :type IfMatch: string
@@ -6533,7 +6533,7 @@ class ObjectVersion(base.ServiceResource):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' GET request for the part specified. Useful for downloading just a part of an object.
         
         :rtype: dict
         :returns: 
@@ -6543,36 +6543,36 @@ class ObjectVersion(base.ServiceResource):
           ::
         
             {
-                'Body': StreamingBody(),
-                'DeleteMarker': True|False,
-                'AcceptRanges': 'string',
-                'Expiration': 'string',
-                'Restore': 'string',
-                'LastModified': datetime(2015, 1, 1),
-                'ContentLength': 123,
-                'ETag': 'string',
-                'MissingMeta': 123,
-                'VersionId': 'string',
-                'CacheControl': 'string',
-                'ContentDisposition': 'string',
-                'ContentEncoding': 'string',
-                'ContentLanguage': 'string',
-                'ContentRange': 'string',
-                'ContentType': 'string',
-                'Expires': datetime(2015, 1, 1),
-                'WebsiteRedirectLocation': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'Metadata': {
-                    'string': 'string'
+                \'Body\': StreamingBody(),
+                \'DeleteMarker\': True|False,
+                \'AcceptRanges\': \'string\',
+                \'Expiration\': \'string\',
+                \'Restore\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1),
+                \'ContentLength\': 123,
+                \'ETag\': \'string\',
+                \'MissingMeta\': 123,
+                \'VersionId\': \'string\',
+                \'CacheControl\': \'string\',
+                \'ContentDisposition\': \'string\',
+                \'ContentEncoding\': \'string\',
+                \'ContentLanguage\': \'string\',
+                \'ContentRange\': \'string\',
+                \'ContentType\': \'string\',
+                \'Expires\': datetime(2015, 1, 1),
+                \'WebsiteRedirectLocation\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'Metadata\': {
+                    \'string\': \'string\'
                 },
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                'RequestCharged': 'requester',
-                'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
-                'PartsCount': 123,
-                'TagCount': 123
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                \'RequestCharged\': \'requester\',
+                \'ReplicationStatus\': \'COMPLETE\'|\'PENDING\'|\'FAILED\'|\'REPLICA\',
+                \'PartsCount\': 123,
+                \'TagCount\': 123
             }
           **Response Structure** 
         
@@ -6710,14 +6710,14 @@ class ObjectVersion(base.ServiceResource):
         ::
         
           response = object_version.head(
-              IfMatch='string',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Range='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              Range=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123
           )
         :type IfMatch: string
@@ -6770,7 +6770,7 @@ class ObjectVersion(base.ServiceResource):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
         
         :rtype: dict
         :returns: 
@@ -6780,33 +6780,33 @@ class ObjectVersion(base.ServiceResource):
           ::
         
             {
-                'DeleteMarker': True|False,
-                'AcceptRanges': 'string',
-                'Expiration': 'string',
-                'Restore': 'string',
-                'LastModified': datetime(2015, 1, 1),
-                'ContentLength': 123,
-                'ETag': 'string',
-                'MissingMeta': 123,
-                'VersionId': 'string',
-                'CacheControl': 'string',
-                'ContentDisposition': 'string',
-                'ContentEncoding': 'string',
-                'ContentLanguage': 'string',
-                'ContentType': 'string',
-                'Expires': datetime(2015, 1, 1),
-                'WebsiteRedirectLocation': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'Metadata': {
-                    'string': 'string'
+                \'DeleteMarker\': True|False,
+                \'AcceptRanges\': \'string\',
+                \'Expiration\': \'string\',
+                \'Restore\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1),
+                \'ContentLength\': 123,
+                \'ETag\': \'string\',
+                \'MissingMeta\': 123,
+                \'VersionId\': \'string\',
+                \'CacheControl\': \'string\',
+                \'ContentDisposition\': \'string\',
+                \'ContentEncoding\': \'string\',
+                \'ContentLanguage\': \'string\',
+                \'ContentType\': \'string\',
+                \'Expires\': datetime(2015, 1, 1),
+                \'WebsiteRedirectLocation\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'Metadata\': {
+                    \'string\': \'string\'
                 },
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                'RequestCharged': 'requester',
-                'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
-                'PartsCount': 123
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                \'RequestCharged\': \'requester\',
+                \'ReplicationStatus\': \'COMPLETE\'|\'PENDING\'|\'FAILED\'|\'REPLICA\',
+                \'PartsCount\': 123
             }
           **Response Structure** 
         
@@ -7004,13 +7004,13 @@ class buckets(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances

@@ -14,12 +14,12 @@ class DescribeLoadBalancers(Paginator):
         
           response_iterator = paginator.paginate(
               LoadBalancerNames=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type LoadBalancerNames: list
@@ -54,82 +54,82 @@ class DescribeLoadBalancers(Paginator):
           ::
         
             {
-                'LoadBalancerDescriptions': [
+                \'LoadBalancerDescriptions\': [
                     {
-                        'LoadBalancerName': 'string',
-                        'DNSName': 'string',
-                        'CanonicalHostedZoneName': 'string',
-                        'CanonicalHostedZoneNameID': 'string',
-                        'ListenerDescriptions': [
+                        \'LoadBalancerName\': \'string\',
+                        \'DNSName\': \'string\',
+                        \'CanonicalHostedZoneName\': \'string\',
+                        \'CanonicalHostedZoneNameID\': \'string\',
+                        \'ListenerDescriptions\': [
                             {
-                                'Listener': {
-                                    'Protocol': 'string',
-                                    'LoadBalancerPort': 123,
-                                    'InstanceProtocol': 'string',
-                                    'InstancePort': 123,
-                                    'SSLCertificateId': 'string'
+                                \'Listener\': {
+                                    \'Protocol\': \'string\',
+                                    \'LoadBalancerPort\': 123,
+                                    \'InstanceProtocol\': \'string\',
+                                    \'InstancePort\': 123,
+                                    \'SSLCertificateId\': \'string\'
                                 },
-                                'PolicyNames': [
-                                    'string',
+                                \'PolicyNames\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'Policies': {
-                            'AppCookieStickinessPolicies': [
+                        \'Policies\': {
+                            \'AppCookieStickinessPolicies\': [
                                 {
-                                    'PolicyName': 'string',
-                                    'CookieName': 'string'
+                                    \'PolicyName\': \'string\',
+                                    \'CookieName\': \'string\'
                                 },
                             ],
-                            'LBCookieStickinessPolicies': [
+                            \'LBCookieStickinessPolicies\': [
                                 {
-                                    'PolicyName': 'string',
-                                    'CookieExpirationPeriod': 123
+                                    \'PolicyName\': \'string\',
+                                    \'CookieExpirationPeriod\': 123
                                 },
                             ],
-                            'OtherPolicies': [
-                                'string',
+                            \'OtherPolicies\': [
+                                \'string\',
                             ]
                         },
-                        'BackendServerDescriptions': [
+                        \'BackendServerDescriptions\': [
                             {
-                                'InstancePort': 123,
-                                'PolicyNames': [
-                                    'string',
+                                \'InstancePort\': 123,
+                                \'PolicyNames\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'AvailabilityZones': [
-                            'string',
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'Subnets': [
-                            'string',
+                        \'Subnets\': [
+                            \'string\',
                         ],
-                        'VPCId': 'string',
-                        'Instances': [
+                        \'VPCId\': \'string\',
+                        \'Instances\': [
                             {
-                                'InstanceId': 'string'
+                                \'InstanceId\': \'string\'
                             },
                         ],
-                        'HealthCheck': {
-                            'Target': 'string',
-                            'Interval': 123,
-                            'Timeout': 123,
-                            'UnhealthyThreshold': 123,
-                            'HealthyThreshold': 123
+                        \'HealthCheck\': {
+                            \'Target\': \'string\',
+                            \'Interval\': 123,
+                            \'Timeout\': 123,
+                            \'UnhealthyThreshold\': 123,
+                            \'HealthyThreshold\': 123
                         },
-                        'SourceSecurityGroup': {
-                            'OwnerAlias': 'string',
-                            'GroupName': 'string'
+                        \'SourceSecurityGroup\': {
+                            \'OwnerAlias\': \'string\',
+                            \'GroupName\': \'string\'
                         },
-                        'SecurityGroups': [
-                            'string',
+                        \'SecurityGroups\': [
+                            \'string\',
                         ],
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'Scheme': 'string'
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'Scheme\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -189,9 +189,9 @@ class DescribeLoadBalancers(Paginator):
         
                         If the front-end protocol is HTTP, HTTPS, TCP, or SSL, ``InstanceProtocol`` must be at the same protocol.
         
-                        If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is secure, (HTTPS or SSL), the listener's ``InstanceProtocol`` must also be secure.
+                        If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is secure, (HTTPS or SSL), the listener\'s ``InstanceProtocol`` must also be secure.
         
-                        If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is HTTP or TCP, the listener's ``InstanceProtocol`` must be HTTP or TCP.
+                        If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is HTTP or TCP, the listener\'s ``InstanceProtocol`` must be HTTP or TCP.
         
                       - **InstancePort** *(integer) --* 
         
@@ -303,11 +303,11 @@ class DescribeLoadBalancers(Paginator):
         
                     The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
         
-                    TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
+                    TCP is the default, specified as a TCP: port pair, for example \"TCP:5000\". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
         
                     SSL is also specified as SSL: port pair, for example, SSL:5000.
         
-                    For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
+                    For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example \"HTTP:80/weather/us/wa/seattle\". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than \"200 OK\" within the timeout period is considered unhealthy.
         
                     The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
         

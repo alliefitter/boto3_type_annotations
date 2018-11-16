@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,62 +33,62 @@ class Client(BaseClient):
         ::
         
           response = client.create_budget(
-              AccountId='string',
+              AccountId=\'string\',
               Budget={
-                  'BudgetName': 'string',
-                  'BudgetLimit': {
-                      'Amount': 'string',
-                      'Unit': 'string'
+                  \'BudgetName\': \'string\',
+                  \'BudgetLimit\': {
+                      \'Amount\': \'string\',
+                      \'Unit\': \'string\'
                   },
-                  'CostFilters': {
-                      'string': [
-                          'string',
+                  \'CostFilters\': {
+                      \'string\': [
+                          \'string\',
                       ]
                   },
-                  'CostTypes': {
-                      'IncludeTax': True|False,
-                      'IncludeSubscription': True|False,
-                      'UseBlended': True|False,
-                      'IncludeRefund': True|False,
-                      'IncludeCredit': True|False,
-                      'IncludeUpfront': True|False,
-                      'IncludeRecurring': True|False,
-                      'IncludeOtherSubscription': True|False,
-                      'IncludeSupport': True|False,
-                      'IncludeDiscount': True|False,
-                      'UseAmortized': True|False
+                  \'CostTypes\': {
+                      \'IncludeTax\': True|False,
+                      \'IncludeSubscription\': True|False,
+                      \'UseBlended\': True|False,
+                      \'IncludeRefund\': True|False,
+                      \'IncludeCredit\': True|False,
+                      \'IncludeUpfront\': True|False,
+                      \'IncludeRecurring\': True|False,
+                      \'IncludeOtherSubscription\': True|False,
+                      \'IncludeSupport\': True|False,
+                      \'IncludeDiscount\': True|False,
+                      \'UseAmortized\': True|False
                   },
-                  'TimeUnit': 'DAILY'|'MONTHLY'|'QUARTERLY'|'ANNUALLY',
-                  'TimePeriod': {
-                      'Start': datetime(2015, 1, 1),
-                      'End': datetime(2015, 1, 1)
+                  \'TimeUnit\': \'DAILY\'|\'MONTHLY\'|\'QUARTERLY\'|\'ANNUALLY\',
+                  \'TimePeriod\': {
+                      \'Start\': datetime(2015, 1, 1),
+                      \'End\': datetime(2015, 1, 1)
                   },
-                  'CalculatedSpend': {
-                      'ActualSpend': {
-                          'Amount': 'string',
-                          'Unit': 'string'
+                  \'CalculatedSpend\': {
+                      \'ActualSpend\': {
+                          \'Amount\': \'string\',
+                          \'Unit\': \'string\'
                       },
-                      'ForecastedSpend': {
-                          'Amount': 'string',
-                          'Unit': 'string'
+                      \'ForecastedSpend\': {
+                          \'Amount\': \'string\',
+                          \'Unit\': \'string\'
                       }
                   },
-                  'BudgetType': 'USAGE'|'COST'|'RI_UTILIZATION'|'RI_COVERAGE',
-                  'LastUpdatedTime': datetime(2015, 1, 1)
+                  \'BudgetType\': \'USAGE\'|\'COST\'|\'RI_UTILIZATION\'|\'RI_COVERAGE\',
+                  \'LastUpdatedTime\': datetime(2015, 1, 1)
               },
               NotificationsWithSubscribers=[
                   {
-                      'Notification': {
-                          'NotificationType': 'ACTUAL'|'FORECASTED',
-                          'ComparisonOperator': 'GREATER_THAN'|'LESS_THAN'|'EQUAL_TO',
-                          'Threshold': 123.0,
-                          'ThresholdType': 'PERCENTAGE'|'ABSOLUTE_VALUE',
-                          'NotificationState': 'OK'|'ALARM'
+                      \'Notification\': {
+                          \'NotificationType\': \'ACTUAL\'|\'FORECASTED\',
+                          \'ComparisonOperator\': \'GREATER_THAN\'|\'LESS_THAN\'|\'EQUAL_TO\',
+                          \'Threshold\': 123.0,
+                          \'ThresholdType\': \'PERCENTAGE\'|\'ABSOLUTE_VALUE\',
+                          \'NotificationState\': \'OK\'|\'ALARM\'
                       },
-                      'Subscribers': [
+                      \'Subscribers\': [
                           {
-                              'SubscriptionType': 'SNS'|'EMAIL',
-                              'Address': 'string'
+                              \'SubscriptionType\': \'SNS\'|\'EMAIL\',
+                              \'Address\': \'string\'
                           },
                       ]
                   },
@@ -106,7 +106,7 @@ class Client(BaseClient):
         
           - **BudgetName** *(string) --* **[REQUIRED]** 
         
-            The name of a budget. The name must be unique within accounts. The ``:`` and ``\`` characters aren't allowed in ``BudgetName`` .
+            The name of a budget. The name must be unique within accounts. The ``:`` and ``\`` characters aren\'t allowed in ``BudgetName`` .
         
           - **BudgetLimit** *(dict) --* 
         
@@ -216,7 +216,7 @@ class Client(BaseClient):
         
             The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. The end date must come before ``06/15/87 00:00 UTC`` . 
         
-            If you create your budget and don't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn't set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . If you didn't specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API. 
+            If you create your budget and don\'t specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn\'t set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . If you didn\'t specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API. 
         
             You can change either date with the ``UpdateBudget`` operation.
         
@@ -224,13 +224,13 @@ class Client(BaseClient):
         
             - **Start** *(datetime) --* 
         
-              The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn't set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+              The start date for a budget. If you created your budget and didn\'t specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn\'t set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
               You can change your start date with the ``UpdateBudget`` operation.
         
             - **End** *(datetime) --* 
         
-              The end date for a budget. If you didn't specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+              The end date for a budget. If you didn\'t specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
               After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the ``UpdateBudget`` operation.
         
@@ -285,7 +285,7 @@ class Client(BaseClient):
         
               - **NotificationType** *(string) --* **[REQUIRED]** 
         
-                Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you're forecasted to spend (``FORECASTED`` ).
+                Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you\'re forecasted to spend (``FORECASTED`` ).
         
               - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -351,19 +351,19 @@ class Client(BaseClient):
         ::
         
           response = client.create_notification(
-              AccountId='string',
-              BudgetName='string',
+              AccountId=\'string\',
+              BudgetName=\'string\',
               Notification={
-                  'NotificationType': 'ACTUAL'|'FORECASTED',
-                  'ComparisonOperator': 'GREATER_THAN'|'LESS_THAN'|'EQUAL_TO',
-                  'Threshold': 123.0,
-                  'ThresholdType': 'PERCENTAGE'|'ABSOLUTE_VALUE',
-                  'NotificationState': 'OK'|'ALARM'
+                  \'NotificationType\': \'ACTUAL\'|\'FORECASTED\',
+                  \'ComparisonOperator\': \'GREATER_THAN\'|\'LESS_THAN\'|\'EQUAL_TO\',
+                  \'Threshold\': 123.0,
+                  \'ThresholdType\': \'PERCENTAGE\'|\'ABSOLUTE_VALUE\',
+                  \'NotificationState\': \'OK\'|\'ALARM\'
               },
               Subscribers=[
                   {
-                      'SubscriptionType': 'SNS'|'EMAIL',
-                      'Address': 'string'
+                      \'SubscriptionType\': \'SNS\'|\'EMAIL\',
+                      \'Address\': \'string\'
                   },
               ]
           )
@@ -384,7 +384,7 @@ class Client(BaseClient):
         
           - **NotificationType** *(string) --* **[REQUIRED]** 
         
-            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you're forecasted to spend (``FORECASTED`` ).
+            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you\'re forecasted to spend (``FORECASTED`` ).
         
           - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -451,18 +451,18 @@ class Client(BaseClient):
         ::
         
           response = client.create_subscriber(
-              AccountId='string',
-              BudgetName='string',
+              AccountId=\'string\',
+              BudgetName=\'string\',
               Notification={
-                  'NotificationType': 'ACTUAL'|'FORECASTED',
-                  'ComparisonOperator': 'GREATER_THAN'|'LESS_THAN'|'EQUAL_TO',
-                  'Threshold': 123.0,
-                  'ThresholdType': 'PERCENTAGE'|'ABSOLUTE_VALUE',
-                  'NotificationState': 'OK'|'ALARM'
+                  \'NotificationType\': \'ACTUAL\'|\'FORECASTED\',
+                  \'ComparisonOperator\': \'GREATER_THAN\'|\'LESS_THAN\'|\'EQUAL_TO\',
+                  \'Threshold\': 123.0,
+                  \'ThresholdType\': \'PERCENTAGE\'|\'ABSOLUTE_VALUE\',
+                  \'NotificationState\': \'OK\'|\'ALARM\'
               },
               Subscriber={
-                  'SubscriptionType': 'SNS'|'EMAIL',
-                  'Address': 'string'
+                  \'SubscriptionType\': \'SNS\'|\'EMAIL\',
+                  \'Address\': \'string\'
               }
           )
         :type AccountId: string
@@ -482,7 +482,7 @@ class Client(BaseClient):
         
           - **NotificationType** *(string) --* **[REQUIRED]** 
         
-            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you're forecasted to spend (``FORECASTED`` ).
+            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you\'re forecasted to spend (``FORECASTED`` ).
         
           - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -543,8 +543,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_budget(
-              AccountId='string',
-              BudgetName='string'
+              AccountId=\'string\',
+              BudgetName=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -586,14 +586,14 @@ class Client(BaseClient):
         ::
         
           response = client.delete_notification(
-              AccountId='string',
-              BudgetName='string',
+              AccountId=\'string\',
+              BudgetName=\'string\',
               Notification={
-                  'NotificationType': 'ACTUAL'|'FORECASTED',
-                  'ComparisonOperator': 'GREATER_THAN'|'LESS_THAN'|'EQUAL_TO',
-                  'Threshold': 123.0,
-                  'ThresholdType': 'PERCENTAGE'|'ABSOLUTE_VALUE',
-                  'NotificationState': 'OK'|'ALARM'
+                  \'NotificationType\': \'ACTUAL\'|\'FORECASTED\',
+                  \'ComparisonOperator\': \'GREATER_THAN\'|\'LESS_THAN\'|\'EQUAL_TO\',
+                  \'Threshold\': 123.0,
+                  \'ThresholdType\': \'PERCENTAGE\'|\'ABSOLUTE_VALUE\',
+                  \'NotificationState\': \'OK\'|\'ALARM\'
               }
           )
         :type AccountId: string
@@ -613,7 +613,7 @@ class Client(BaseClient):
         
           - **NotificationType** *(string) --* **[REQUIRED]** 
         
-            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you're forecasted to spend (``FORECASTED`` ).
+            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you\'re forecasted to spend (``FORECASTED`` ).
         
           - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -661,18 +661,18 @@ class Client(BaseClient):
         ::
         
           response = client.delete_subscriber(
-              AccountId='string',
-              BudgetName='string',
+              AccountId=\'string\',
+              BudgetName=\'string\',
               Notification={
-                  'NotificationType': 'ACTUAL'|'FORECASTED',
-                  'ComparisonOperator': 'GREATER_THAN'|'LESS_THAN'|'EQUAL_TO',
-                  'Threshold': 123.0,
-                  'ThresholdType': 'PERCENTAGE'|'ABSOLUTE_VALUE',
-                  'NotificationState': 'OK'|'ALARM'
+                  \'NotificationType\': \'ACTUAL\'|\'FORECASTED\',
+                  \'ComparisonOperator\': \'GREATER_THAN\'|\'LESS_THAN\'|\'EQUAL_TO\',
+                  \'Threshold\': 123.0,
+                  \'ThresholdType\': \'PERCENTAGE\'|\'ABSOLUTE_VALUE\',
+                  \'NotificationState\': \'OK\'|\'ALARM\'
               },
               Subscriber={
-                  'SubscriptionType': 'SNS'|'EMAIL',
-                  'Address': 'string'
+                  \'SubscriptionType\': \'SNS\'|\'EMAIL\',
+                  \'Address\': \'string\'
               }
           )
         :type AccountId: string
@@ -692,7 +692,7 @@ class Client(BaseClient):
         
           - **NotificationType** *(string) --* **[REQUIRED]** 
         
-            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you're forecasted to spend (``FORECASTED`` ).
+            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you\'re forecasted to spend (``FORECASTED`` ).
         
           - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -749,8 +749,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_budget(
-              AccountId='string',
-              BudgetName='string'
+              AccountId=\'string\',
+              BudgetName=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -770,47 +770,47 @@ class Client(BaseClient):
           ::
         
             {
-                'Budget': {
-                    'BudgetName': 'string',
-                    'BudgetLimit': {
-                        'Amount': 'string',
-                        'Unit': 'string'
+                \'Budget\': {
+                    \'BudgetName\': \'string\',
+                    \'BudgetLimit\': {
+                        \'Amount\': \'string\',
+                        \'Unit\': \'string\'
                     },
-                    'CostFilters': {
-                        'string': [
-                            'string',
+                    \'CostFilters\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'CostTypes': {
-                        'IncludeTax': True|False,
-                        'IncludeSubscription': True|False,
-                        'UseBlended': True|False,
-                        'IncludeRefund': True|False,
-                        'IncludeCredit': True|False,
-                        'IncludeUpfront': True|False,
-                        'IncludeRecurring': True|False,
-                        'IncludeOtherSubscription': True|False,
-                        'IncludeSupport': True|False,
-                        'IncludeDiscount': True|False,
-                        'UseAmortized': True|False
+                    \'CostTypes\': {
+                        \'IncludeTax\': True|False,
+                        \'IncludeSubscription\': True|False,
+                        \'UseBlended\': True|False,
+                        \'IncludeRefund\': True|False,
+                        \'IncludeCredit\': True|False,
+                        \'IncludeUpfront\': True|False,
+                        \'IncludeRecurring\': True|False,
+                        \'IncludeOtherSubscription\': True|False,
+                        \'IncludeSupport\': True|False,
+                        \'IncludeDiscount\': True|False,
+                        \'UseAmortized\': True|False
                     },
-                    'TimeUnit': 'DAILY'|'MONTHLY'|'QUARTERLY'|'ANNUALLY',
-                    'TimePeriod': {
-                        'Start': datetime(2015, 1, 1),
-                        'End': datetime(2015, 1, 1)
+                    \'TimeUnit\': \'DAILY\'|\'MONTHLY\'|\'QUARTERLY\'|\'ANNUALLY\',
+                    \'TimePeriod\': {
+                        \'Start\': datetime(2015, 1, 1),
+                        \'End\': datetime(2015, 1, 1)
                     },
-                    'CalculatedSpend': {
-                        'ActualSpend': {
-                            'Amount': 'string',
-                            'Unit': 'string'
+                    \'CalculatedSpend\': {
+                        \'ActualSpend\': {
+                            \'Amount\': \'string\',
+                            \'Unit\': \'string\'
                         },
-                        'ForecastedSpend': {
-                            'Amount': 'string',
-                            'Unit': 'string'
+                        \'ForecastedSpend\': {
+                            \'Amount\': \'string\',
+                            \'Unit\': \'string\'
                         }
                     },
-                    'BudgetType': 'USAGE'|'COST'|'RI_UTILIZATION'|'RI_COVERAGE',
-                    'LastUpdatedTime': datetime(2015, 1, 1)
+                    \'BudgetType\': \'USAGE\'|\'COST\'|\'RI_UTILIZATION\'|\'RI_COVERAGE\',
+                    \'LastUpdatedTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -825,7 +825,7 @@ class Client(BaseClient):
         
               - **BudgetName** *(string) --* 
         
-                The name of a budget. The name must be unique within accounts. The ``:`` and ``\`` characters aren't allowed in ``BudgetName`` .
+                The name of a budget. The name must be unique within accounts. The ``:`` and ``\`` characters aren\'t allowed in ``BudgetName`` .
         
               - **BudgetLimit** *(dict) --* 
         
@@ -935,7 +935,7 @@ class Client(BaseClient):
         
                 The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. The end date must come before ``06/15/87 00:00 UTC`` . 
         
-                If you create your budget and don't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn't set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . If you didn't specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API. 
+                If you create your budget and don\'t specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn\'t set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . If you didn\'t specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API. 
         
                 You can change either date with the ``UpdateBudget`` operation.
         
@@ -943,13 +943,13 @@ class Client(BaseClient):
         
                 - **Start** *(datetime) --* 
         
-                  The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn't set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+                  The start date for a budget. If you created your budget and didn\'t specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn\'t set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
                   You can change your start date with the ``UpdateBudget`` operation.
         
                 - **End** *(datetime) --* 
         
-                  The end date for a budget. If you didn't specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+                  The end date for a budget. If you didn\'t specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
                   After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the ``UpdateBudget`` operation.
         
@@ -1001,14 +1001,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_budget_performance_history(
-              AccountId='string',
-              BudgetName='string',
+              AccountId=\'string\',
+              BudgetName=\'string\',
               TimePeriod={
-                  'Start': datetime(2015, 1, 1),
-                  'End': datetime(2015, 1, 1)
+                  \'Start\': datetime(2015, 1, 1),
+                  \'End\': datetime(2015, 1, 1)
               },
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -1018,7 +1018,7 @@ class Client(BaseClient):
         :type BudgetName: string
         :param BudgetName: **[REQUIRED]** 
         
-          A string that represents the budget name. The ":" and "\" characters aren't allowed.
+          A string that represents the budget name. The \":\" and \"\\" characters aren\'t allowed.
         
         :type TimePeriod: dict
         :param TimePeriod: 
@@ -1027,13 +1027,13 @@ class Client(BaseClient):
         
           - **Start** *(datetime) --* 
         
-            The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn't set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+            The start date for a budget. If you created your budget and didn\'t specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn\'t set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
             You can change your start date with the ``UpdateBudget`` operation.
         
           - **End** *(datetime) --* 
         
-            The end date for a budget. If you didn't specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+            The end date for a budget. If you didn\'t specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
             After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the ``UpdateBudget`` operation.
         
@@ -1055,46 +1055,46 @@ class Client(BaseClient):
           ::
         
             {
-                'BudgetPerformanceHistory': {
-                    'BudgetName': 'string',
-                    'BudgetType': 'USAGE'|'COST'|'RI_UTILIZATION'|'RI_COVERAGE',
-                    'CostFilters': {
-                        'string': [
-                            'string',
+                \'BudgetPerformanceHistory\': {
+                    \'BudgetName\': \'string\',
+                    \'BudgetType\': \'USAGE\'|\'COST\'|\'RI_UTILIZATION\'|\'RI_COVERAGE\',
+                    \'CostFilters\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'CostTypes': {
-                        'IncludeTax': True|False,
-                        'IncludeSubscription': True|False,
-                        'UseBlended': True|False,
-                        'IncludeRefund': True|False,
-                        'IncludeCredit': True|False,
-                        'IncludeUpfront': True|False,
-                        'IncludeRecurring': True|False,
-                        'IncludeOtherSubscription': True|False,
-                        'IncludeSupport': True|False,
-                        'IncludeDiscount': True|False,
-                        'UseAmortized': True|False
+                    \'CostTypes\': {
+                        \'IncludeTax\': True|False,
+                        \'IncludeSubscription\': True|False,
+                        \'UseBlended\': True|False,
+                        \'IncludeRefund\': True|False,
+                        \'IncludeCredit\': True|False,
+                        \'IncludeUpfront\': True|False,
+                        \'IncludeRecurring\': True|False,
+                        \'IncludeOtherSubscription\': True|False,
+                        \'IncludeSupport\': True|False,
+                        \'IncludeDiscount\': True|False,
+                        \'UseAmortized\': True|False
                     },
-                    'TimeUnit': 'DAILY'|'MONTHLY'|'QUARTERLY'|'ANNUALLY',
-                    'BudgetedAndActualAmountsList': [
+                    \'TimeUnit\': \'DAILY\'|\'MONTHLY\'|\'QUARTERLY\'|\'ANNUALLY\',
+                    \'BudgetedAndActualAmountsList\': [
                         {
-                            'BudgetedAmount': {
-                                'Amount': 'string',
-                                'Unit': 'string'
+                            \'BudgetedAmount\': {
+                                \'Amount\': \'string\',
+                                \'Unit\': \'string\'
                             },
-                            'ActualAmount': {
-                                'Amount': 'string',
-                                'Unit': 'string'
+                            \'ActualAmount\': {
+                                \'Amount\': \'string\',
+                                \'Unit\': \'string\'
                             },
-                            'TimePeriod': {
-                                'Start': datetime(2015, 1, 1),
-                                'End': datetime(2015, 1, 1)
+                            \'TimePeriod\': {
+                                \'Start\': datetime(2015, 1, 1),
+                                \'End\': datetime(2015, 1, 1)
                             }
                         },
                     ]
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1108,7 +1108,7 @@ class Client(BaseClient):
         
               - **BudgetName** *(string) --* 
         
-                A string that represents the budget name. The ":" and "\" characters aren't allowed.
+                A string that represents the budget name. The \":\" and \"\\" characters aren\'t allowed.
         
               - **BudgetType** *(string) --* 
         
@@ -1242,13 +1242,13 @@ class Client(BaseClient):
         
                     - **Start** *(datetime) --* 
         
-                      The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn't set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+                      The start date for a budget. If you created your budget and didn\'t specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn\'t set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
                       You can change your start date with the ``UpdateBudget`` operation.
         
                     - **End** *(datetime) --* 
         
-                      The end date for a budget. If you didn't specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+                      The end date for a budget. If you didn\'t specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
                       After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the ``UpdateBudget`` operation.
         
@@ -1268,9 +1268,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_budgets(
-              AccountId='string',
+              AccountId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -1295,51 +1295,51 @@ class Client(BaseClient):
           ::
         
             {
-                'Budgets': [
+                \'Budgets\': [
                     {
-                        'BudgetName': 'string',
-                        'BudgetLimit': {
-                            'Amount': 'string',
-                            'Unit': 'string'
+                        \'BudgetName\': \'string\',
+                        \'BudgetLimit\': {
+                            \'Amount\': \'string\',
+                            \'Unit\': \'string\'
                         },
-                        'CostFilters': {
-                            'string': [
-                                'string',
+                        \'CostFilters\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'CostTypes': {
-                            'IncludeTax': True|False,
-                            'IncludeSubscription': True|False,
-                            'UseBlended': True|False,
-                            'IncludeRefund': True|False,
-                            'IncludeCredit': True|False,
-                            'IncludeUpfront': True|False,
-                            'IncludeRecurring': True|False,
-                            'IncludeOtherSubscription': True|False,
-                            'IncludeSupport': True|False,
-                            'IncludeDiscount': True|False,
-                            'UseAmortized': True|False
+                        \'CostTypes\': {
+                            \'IncludeTax\': True|False,
+                            \'IncludeSubscription\': True|False,
+                            \'UseBlended\': True|False,
+                            \'IncludeRefund\': True|False,
+                            \'IncludeCredit\': True|False,
+                            \'IncludeUpfront\': True|False,
+                            \'IncludeRecurring\': True|False,
+                            \'IncludeOtherSubscription\': True|False,
+                            \'IncludeSupport\': True|False,
+                            \'IncludeDiscount\': True|False,
+                            \'UseAmortized\': True|False
                         },
-                        'TimeUnit': 'DAILY'|'MONTHLY'|'QUARTERLY'|'ANNUALLY',
-                        'TimePeriod': {
-                            'Start': datetime(2015, 1, 1),
-                            'End': datetime(2015, 1, 1)
+                        \'TimeUnit\': \'DAILY\'|\'MONTHLY\'|\'QUARTERLY\'|\'ANNUALLY\',
+                        \'TimePeriod\': {
+                            \'Start\': datetime(2015, 1, 1),
+                            \'End\': datetime(2015, 1, 1)
                         },
-                        'CalculatedSpend': {
-                            'ActualSpend': {
-                                'Amount': 'string',
-                                'Unit': 'string'
+                        \'CalculatedSpend\': {
+                            \'ActualSpend\': {
+                                \'Amount\': \'string\',
+                                \'Unit\': \'string\'
                             },
-                            'ForecastedSpend': {
-                                'Amount': 'string',
-                                'Unit': 'string'
+                            \'ForecastedSpend\': {
+                                \'Amount\': \'string\',
+                                \'Unit\': \'string\'
                             }
                         },
-                        'BudgetType': 'USAGE'|'COST'|'RI_UTILIZATION'|'RI_COVERAGE',
-                        'LastUpdatedTime': datetime(2015, 1, 1)
+                        \'BudgetType\': \'USAGE\'|\'COST\'|\'RI_UTILIZATION\'|\'RI_COVERAGE\',
+                        \'LastUpdatedTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1361,7 +1361,7 @@ class Client(BaseClient):
         
                 - **BudgetName** *(string) --* 
         
-                  The name of a budget. The name must be unique within accounts. The ``:`` and ``\`` characters aren't allowed in ``BudgetName`` .
+                  The name of a budget. The name must be unique within accounts. The ``:`` and ``\`` characters aren\'t allowed in ``BudgetName`` .
         
                 - **BudgetLimit** *(dict) --* 
         
@@ -1471,7 +1471,7 @@ class Client(BaseClient):
         
                   The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. The end date must come before ``06/15/87 00:00 UTC`` . 
         
-                  If you create your budget and don't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn't set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . If you didn't specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API. 
+                  If you create your budget and don\'t specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn\'t set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . If you didn\'t specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API. 
         
                   You can change either date with the ``UpdateBudget`` operation.
         
@@ -1479,13 +1479,13 @@ class Client(BaseClient):
         
                   - **Start** *(datetime) --* 
         
-                    The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn't set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+                    The start date for a budget. If you created your budget and didn\'t specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn\'t set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
                     You can change your start date with the ``UpdateBudget`` operation.
         
                   - **End** *(datetime) --* 
         
-                    The end date for a budget. If you didn't specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+                    The end date for a budget. If you didn\'t specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
                     After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the ``UpdateBudget`` operation.
         
@@ -1541,10 +1541,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_notifications_for_budget(
-              AccountId='string',
-              BudgetName='string',
+              AccountId=\'string\',
+              BudgetName=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -1574,16 +1574,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Notifications': [
+                \'Notifications\': [
                     {
-                        'NotificationType': 'ACTUAL'|'FORECASTED',
-                        'ComparisonOperator': 'GREATER_THAN'|'LESS_THAN'|'EQUAL_TO',
-                        'Threshold': 123.0,
-                        'ThresholdType': 'PERCENTAGE'|'ABSOLUTE_VALUE',
-                        'NotificationState': 'OK'|'ALARM'
+                        \'NotificationType\': \'ACTUAL\'|\'FORECASTED\',
+                        \'ComparisonOperator\': \'GREATER_THAN\'|\'LESS_THAN\'|\'EQUAL_TO\',
+                        \'Threshold\': 123.0,
+                        \'ThresholdType\': \'PERCENTAGE\'|\'ABSOLUTE_VALUE\',
+                        \'NotificationState\': \'OK\'|\'ALARM\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1613,7 +1613,7 @@ class Client(BaseClient):
                  
                 - **NotificationType** *(string) --* 
         
-                  Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you're forecasted to spend (``FORECASTED`` ).
+                  Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you\'re forecasted to spend (``FORECASTED`` ).
         
                 - **ComparisonOperator** *(string) --* 
         
@@ -1647,17 +1647,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_subscribers_for_notification(
-              AccountId='string',
-              BudgetName='string',
+              AccountId=\'string\',
+              BudgetName=\'string\',
               Notification={
-                  'NotificationType': 'ACTUAL'|'FORECASTED',
-                  'ComparisonOperator': 'GREATER_THAN'|'LESS_THAN'|'EQUAL_TO',
-                  'Threshold': 123.0,
-                  'ThresholdType': 'PERCENTAGE'|'ABSOLUTE_VALUE',
-                  'NotificationState': 'OK'|'ALARM'
+                  \'NotificationType\': \'ACTUAL\'|\'FORECASTED\',
+                  \'ComparisonOperator\': \'GREATER_THAN\'|\'LESS_THAN\'|\'EQUAL_TO\',
+                  \'Threshold\': 123.0,
+                  \'ThresholdType\': \'PERCENTAGE\'|\'ABSOLUTE_VALUE\',
+                  \'NotificationState\': \'OK\'|\'ALARM\'
               },
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -1676,7 +1676,7 @@ class Client(BaseClient):
         
           - **NotificationType** *(string) --* **[REQUIRED]** 
         
-            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you're forecasted to spend (``FORECASTED`` ).
+            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you\'re forecasted to spend (``FORECASTED`` ).
         
           - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -1712,13 +1712,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Subscribers': [
+                \'Subscribers\': [
                     {
-                        'SubscriptionType': 'SNS'|'EMAIL',
-                        'Address': 'string'
+                        \'SubscriptionType\': \'SNS\'|\'EMAIL\',
+                        \'Address\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1771,7 +1771,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1783,10 +1783,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1818,48 +1818,48 @@ class Client(BaseClient):
         ::
         
           response = client.update_budget(
-              AccountId='string',
+              AccountId=\'string\',
               NewBudget={
-                  'BudgetName': 'string',
-                  'BudgetLimit': {
-                      'Amount': 'string',
-                      'Unit': 'string'
+                  \'BudgetName\': \'string\',
+                  \'BudgetLimit\': {
+                      \'Amount\': \'string\',
+                      \'Unit\': \'string\'
                   },
-                  'CostFilters': {
-                      'string': [
-                          'string',
+                  \'CostFilters\': {
+                      \'string\': [
+                          \'string\',
                       ]
                   },
-                  'CostTypes': {
-                      'IncludeTax': True|False,
-                      'IncludeSubscription': True|False,
-                      'UseBlended': True|False,
-                      'IncludeRefund': True|False,
-                      'IncludeCredit': True|False,
-                      'IncludeUpfront': True|False,
-                      'IncludeRecurring': True|False,
-                      'IncludeOtherSubscription': True|False,
-                      'IncludeSupport': True|False,
-                      'IncludeDiscount': True|False,
-                      'UseAmortized': True|False
+                  \'CostTypes\': {
+                      \'IncludeTax\': True|False,
+                      \'IncludeSubscription\': True|False,
+                      \'UseBlended\': True|False,
+                      \'IncludeRefund\': True|False,
+                      \'IncludeCredit\': True|False,
+                      \'IncludeUpfront\': True|False,
+                      \'IncludeRecurring\': True|False,
+                      \'IncludeOtherSubscription\': True|False,
+                      \'IncludeSupport\': True|False,
+                      \'IncludeDiscount\': True|False,
+                      \'UseAmortized\': True|False
                   },
-                  'TimeUnit': 'DAILY'|'MONTHLY'|'QUARTERLY'|'ANNUALLY',
-                  'TimePeriod': {
-                      'Start': datetime(2015, 1, 1),
-                      'End': datetime(2015, 1, 1)
+                  \'TimeUnit\': \'DAILY\'|\'MONTHLY\'|\'QUARTERLY\'|\'ANNUALLY\',
+                  \'TimePeriod\': {
+                      \'Start\': datetime(2015, 1, 1),
+                      \'End\': datetime(2015, 1, 1)
                   },
-                  'CalculatedSpend': {
-                      'ActualSpend': {
-                          'Amount': 'string',
-                          'Unit': 'string'
+                  \'CalculatedSpend\': {
+                      \'ActualSpend\': {
+                          \'Amount\': \'string\',
+                          \'Unit\': \'string\'
                       },
-                      'ForecastedSpend': {
-                          'Amount': 'string',
-                          'Unit': 'string'
+                      \'ForecastedSpend\': {
+                          \'Amount\': \'string\',
+                          \'Unit\': \'string\'
                       }
                   },
-                  'BudgetType': 'USAGE'|'COST'|'RI_UTILIZATION'|'RI_COVERAGE',
-                  'LastUpdatedTime': datetime(2015, 1, 1)
+                  \'BudgetType\': \'USAGE\'|\'COST\'|\'RI_UTILIZATION\'|\'RI_COVERAGE\',
+                  \'LastUpdatedTime\': datetime(2015, 1, 1)
               }
           )
         :type AccountId: string
@@ -1874,7 +1874,7 @@ class Client(BaseClient):
         
           - **BudgetName** *(string) --* **[REQUIRED]** 
         
-            The name of a budget. The name must be unique within accounts. The ``:`` and ``\`` characters aren't allowed in ``BudgetName`` .
+            The name of a budget. The name must be unique within accounts. The ``:`` and ``\`` characters aren\'t allowed in ``BudgetName`` .
         
           - **BudgetLimit** *(dict) --* 
         
@@ -1984,7 +1984,7 @@ class Client(BaseClient):
         
             The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. The end date must come before ``06/15/87 00:00 UTC`` . 
         
-            If you create your budget and don't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn't set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . If you didn't specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API. 
+            If you create your budget and don\'t specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn\'t set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . If you didn\'t specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API. 
         
             You can change either date with the ``UpdateBudget`` operation.
         
@@ -1992,13 +1992,13 @@ class Client(BaseClient):
         
             - **Start** *(datetime) --* 
         
-              The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn't set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+              The start date for a budget. If you created your budget and didn\'t specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose ``DAILY`` , and didn\'t set a start date, AWS set your start date to ``01/24/18 00:00 UTC`` . If you chose ``MONTHLY`` , AWS set your start date to ``01/01/18 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
               You can change your start date with the ``UpdateBudget`` operation.
         
             - **End** *(datetime) --* 
         
-              The end date for a budget. If you didn't specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
+              The end date for a budget. If you didn\'t specify an end date, AWS set your end date to ``06/15/87 00:00 UTC`` . The defaults are the same for the AWS Billing and Cost Management console and the API.
         
               After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the ``UpdateBudget`` operation.
         
@@ -2064,21 +2064,21 @@ class Client(BaseClient):
         ::
         
           response = client.update_notification(
-              AccountId='string',
-              BudgetName='string',
+              AccountId=\'string\',
+              BudgetName=\'string\',
               OldNotification={
-                  'NotificationType': 'ACTUAL'|'FORECASTED',
-                  'ComparisonOperator': 'GREATER_THAN'|'LESS_THAN'|'EQUAL_TO',
-                  'Threshold': 123.0,
-                  'ThresholdType': 'PERCENTAGE'|'ABSOLUTE_VALUE',
-                  'NotificationState': 'OK'|'ALARM'
+                  \'NotificationType\': \'ACTUAL\'|\'FORECASTED\',
+                  \'ComparisonOperator\': \'GREATER_THAN\'|\'LESS_THAN\'|\'EQUAL_TO\',
+                  \'Threshold\': 123.0,
+                  \'ThresholdType\': \'PERCENTAGE\'|\'ABSOLUTE_VALUE\',
+                  \'NotificationState\': \'OK\'|\'ALARM\'
               },
               NewNotification={
-                  'NotificationType': 'ACTUAL'|'FORECASTED',
-                  'ComparisonOperator': 'GREATER_THAN'|'LESS_THAN'|'EQUAL_TO',
-                  'Threshold': 123.0,
-                  'ThresholdType': 'PERCENTAGE'|'ABSOLUTE_VALUE',
-                  'NotificationState': 'OK'|'ALARM'
+                  \'NotificationType\': \'ACTUAL\'|\'FORECASTED\',
+                  \'ComparisonOperator\': \'GREATER_THAN\'|\'LESS_THAN\'|\'EQUAL_TO\',
+                  \'Threshold\': 123.0,
+                  \'ThresholdType\': \'PERCENTAGE\'|\'ABSOLUTE_VALUE\',
+                  \'NotificationState\': \'OK\'|\'ALARM\'
               }
           )
         :type AccountId: string
@@ -2098,7 +2098,7 @@ class Client(BaseClient):
         
           - **NotificationType** *(string) --* **[REQUIRED]** 
         
-            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you're forecasted to spend (``FORECASTED`` ).
+            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you\'re forecasted to spend (``FORECASTED`` ).
         
           - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -2123,7 +2123,7 @@ class Client(BaseClient):
         
           - **NotificationType** *(string) --* **[REQUIRED]** 
         
-            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you're forecasted to spend (``FORECASTED`` ).
+            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you\'re forecasted to spend (``FORECASTED`` ).
         
           - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -2167,22 +2167,22 @@ class Client(BaseClient):
         ::
         
           response = client.update_subscriber(
-              AccountId='string',
-              BudgetName='string',
+              AccountId=\'string\',
+              BudgetName=\'string\',
               Notification={
-                  'NotificationType': 'ACTUAL'|'FORECASTED',
-                  'ComparisonOperator': 'GREATER_THAN'|'LESS_THAN'|'EQUAL_TO',
-                  'Threshold': 123.0,
-                  'ThresholdType': 'PERCENTAGE'|'ABSOLUTE_VALUE',
-                  'NotificationState': 'OK'|'ALARM'
+                  \'NotificationType\': \'ACTUAL\'|\'FORECASTED\',
+                  \'ComparisonOperator\': \'GREATER_THAN\'|\'LESS_THAN\'|\'EQUAL_TO\',
+                  \'Threshold\': 123.0,
+                  \'ThresholdType\': \'PERCENTAGE\'|\'ABSOLUTE_VALUE\',
+                  \'NotificationState\': \'OK\'|\'ALARM\'
               },
               OldSubscriber={
-                  'SubscriptionType': 'SNS'|'EMAIL',
-                  'Address': 'string'
+                  \'SubscriptionType\': \'SNS\'|\'EMAIL\',
+                  \'Address\': \'string\'
               },
               NewSubscriber={
-                  'SubscriptionType': 'SNS'|'EMAIL',
-                  'Address': 'string'
+                  \'SubscriptionType\': \'SNS\'|\'EMAIL\',
+                  \'Address\': \'string\'
               }
           )
         :type AccountId: string
@@ -2202,7 +2202,7 @@ class Client(BaseClient):
         
           - **NotificationType** *(string) --* **[REQUIRED]** 
         
-            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you're forecasted to spend (``FORECASTED`` ).
+            Whether the notification is for how much you have spent (``ACTUAL`` ) or for how much you\'re forecasted to spend (``FORECASTED`` ).
         
           - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         

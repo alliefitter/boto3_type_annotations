@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
+from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,9 +33,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_services(
-              ServiceCode='string',
-              FormatVersion='string',
-              NextToken='string',
+              ServiceCode=\'string\',
+              FormatVersion=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ServiceCode: string
@@ -68,16 +68,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Services': [
+                \'Services\': [
                     {
-                        'ServiceCode': 'string',
-                        'AttributeNames': [
-                            'string',
+                        \'ServiceCode\': \'string\',
+                        \'AttributeNames\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'FormatVersion': 'string',
-                'NextToken': 'string'
+                \'FormatVersion\': \'string\',
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -128,7 +128,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -143,9 +143,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_attribute_values(
-              ServiceCode='string',
-              AttributeName='string',
-              NextToken='string',
+              ServiceCode=\'string\',
+              AttributeName=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ServiceCode: string
@@ -176,12 +176,12 @@ class Client(BaseClient):
           ::
         
             {
-                'AttributeValues': [
+                \'AttributeValues\': [
                     {
-                        'Value': 'string'
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -212,10 +212,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -235,16 +235,16 @@ class Client(BaseClient):
         ::
         
           response = client.get_products(
-              ServiceCode='string',
+              ServiceCode=\'string\',
               Filters=[
                   {
-                      'Type': 'TERM_MATCH',
-                      'Field': 'string',
-                      'Value': 'string'
+                      \'Type\': \'TERM_MATCH\',
+                      \'Field\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              FormatVersion='string',
-              NextToken='string',
+              FormatVersion=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ServiceCode: string
@@ -304,11 +304,11 @@ class Client(BaseClient):
           ::
         
             {
-                'FormatVersion': 'string',
-                'PriceList': [
-                    'string',
+                \'FormatVersion\': \'string\',
+                \'PriceList\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

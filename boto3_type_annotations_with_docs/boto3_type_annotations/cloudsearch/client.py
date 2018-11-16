@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -17,7 +17,7 @@ class Client(BaseClient):
         ::
         
           response = client.build_suggesters(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -32,8 +32,8 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldNames': [
-                    'string',
+                \'FieldNames\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -48,11 +48,11 @@ class Client(BaseClient):
         
               - *(string) --* 
         
-                A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                 Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
         """
         pass
@@ -63,10 +63,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -82,7 +82,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_domain(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -97,26 +97,26 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainStatus': {
-                    'DomainId': 'string',
-                    'DomainName': 'string',
-                    'ARN': 'string',
-                    'Created': True|False,
-                    'Deleted': True|False,
-                    'DocService': {
-                        'Endpoint': 'string'
+                \'DomainStatus\': {
+                    \'DomainId\': \'string\',
+                    \'DomainName\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Created\': True|False,
+                    \'Deleted\': True|False,
+                    \'DocService\': {
+                        \'Endpoint\': \'string\'
                     },
-                    'SearchService': {
-                        'Endpoint': 'string'
+                    \'SearchService\': {
+                        \'Endpoint\': \'string\'
                     },
-                    'RequiresIndexDocuments': True|False,
-                    'Processing': True|False,
-                    'SearchInstanceType': 'string',
-                    'SearchPartitionCount': 123,
-                    'SearchInstanceCount': 123,
-                    'Limits': {
-                        'MaximumReplicationCount': 123,
-                        'MaximumPartitionCount': 123
+                    \'RequiresIndexDocuments\': True|False,
+                    \'Processing\': True|False,
+                    \'SearchInstanceType\': \'string\',
+                    \'SearchPartitionCount\': 123,
+                    \'SearchInstanceCount\': 123,
+                    \'Limits\': {
+                        \'MaximumReplicationCount\': 123,
+                        \'MaximumPartitionCount\': 123
                     }
                 }
             }
@@ -204,16 +204,16 @@ class Client(BaseClient):
         ::
         
           response = client.define_analysis_scheme(
-              DomainName='string',
+              DomainName=\'string\',
               AnalysisScheme={
-                  'AnalysisSchemeName': 'string',
-                  'AnalysisSchemeLanguage': 'ar'|'bg'|'ca'|'cs'|'da'|'de'|'el'|'en'|'es'|'eu'|'fa'|'fi'|'fr'|'ga'|'gl'|'he'|'hi'|'hu'|'hy'|'id'|'it'|'ja'|'ko'|'lv'|'mul'|'nl'|'no'|'pt'|'ro'|'ru'|'sv'|'th'|'tr'|'zh-Hans'|'zh-Hant',
-                  'AnalysisOptions': {
-                      'Synonyms': 'string',
-                      'Stopwords': 'string',
-                      'StemmingDictionary': 'string',
-                      'JapaneseTokenizationDictionary': 'string',
-                      'AlgorithmicStemming': 'none'|'minimal'|'light'|'full'
+                  \'AnalysisSchemeName\': \'string\',
+                  \'AnalysisSchemeLanguage\': \'ar\'|\'bg\'|\'ca\'|\'cs\'|\'da\'|\'de\'|\'el\'|\'en\'|\'es\'|\'eu\'|\'fa\'|\'fi\'|\'fr\'|\'ga\'|\'gl\'|\'he\'|\'hi\'|\'hu\'|\'hy\'|\'id\'|\'it\'|\'ja\'|\'ko\'|\'lv\'|\'mul\'|\'nl\'|\'no\'|\'pt\'|\'ro\'|\'ru\'|\'sv\'|\'th\'|\'tr\'|\'zh-Hans\'|\'zh-Hant\',
+                  \'AnalysisOptions\': {
+                      \'Synonyms\': \'string\',
+                      \'Stopwords\': \'string\',
+                      \'StemmingDictionary\': \'string\',
+                      \'JapaneseTokenizationDictionary\': \'string\',
+                      \'AlgorithmicStemming\': \'none\'|\'minimal\'|\'light\'|\'full\'
                   }
               }
           )
@@ -245,11 +245,11 @@ class Client(BaseClient):
         
             - **Stopwords** *(string) --* 
         
-              A JSON array of terms to ignore during indexing and searching. For example, ``["a", "an", "the", "of"]`` . The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported. 
+              A JSON array of terms to ignore during indexing and searching. For example, ``[\"a\", \"an\", \"the\", \"of\"]`` . The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported. 
         
             - **StemmingDictionary** *(string) --* 
         
-              A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, ``{"term1": "stem1", "term2": "stem2", "term3": "stem3"}`` . The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
+              A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, ``{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}`` . The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
         
             - **JapaneseTokenizationDictionary** *(string) --* 
         
@@ -267,24 +267,24 @@ class Client(BaseClient):
           ::
         
             {
-                'AnalysisScheme': {
-                    'Options': {
-                        'AnalysisSchemeName': 'string',
-                        'AnalysisSchemeLanguage': 'ar'|'bg'|'ca'|'cs'|'da'|'de'|'el'|'en'|'es'|'eu'|'fa'|'fi'|'fr'|'ga'|'gl'|'he'|'hi'|'hu'|'hy'|'id'|'it'|'ja'|'ko'|'lv'|'mul'|'nl'|'no'|'pt'|'ro'|'ru'|'sv'|'th'|'tr'|'zh-Hans'|'zh-Hant',
-                        'AnalysisOptions': {
-                            'Synonyms': 'string',
-                            'Stopwords': 'string',
-                            'StemmingDictionary': 'string',
-                            'JapaneseTokenizationDictionary': 'string',
-                            'AlgorithmicStemming': 'none'|'minimal'|'light'|'full'
+                \'AnalysisScheme\': {
+                    \'Options\': {
+                        \'AnalysisSchemeName\': \'string\',
+                        \'AnalysisSchemeLanguage\': \'ar\'|\'bg\'|\'ca\'|\'cs\'|\'da\'|\'de\'|\'el\'|\'en\'|\'es\'|\'eu\'|\'fa\'|\'fi\'|\'fr\'|\'ga\'|\'gl\'|\'he\'|\'hi\'|\'hu\'|\'hy\'|\'id\'|\'it\'|\'ja\'|\'ko\'|\'lv\'|\'mul\'|\'nl\'|\'no\'|\'pt\'|\'ro\'|\'ru\'|\'sv\'|\'th\'|\'tr\'|\'zh-Hans\'|\'zh-Hant\',
+                        \'AnalysisOptions\': {
+                            \'Synonyms\': \'string\',
+                            \'Stopwords\': \'string\',
+                            \'StemmingDictionary\': \'string\',
+                            \'JapaneseTokenizationDictionary\': \'string\',
+                            \'AlgorithmicStemming\': \'none\'|\'minimal\'|\'light\'|\'full\'
                         }
                     },
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -320,11 +320,11 @@ class Client(BaseClient):
         
                   - **Stopwords** *(string) --* 
         
-                    A JSON array of terms to ignore during indexing and searching. For example, ``["a", "an", "the", "of"]`` . The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported. 
+                    A JSON array of terms to ignore during indexing and searching. For example, ``[\"a\", \"an\", \"the\", \"of\"]`` . The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported. 
         
                   - **StemmingDictionary** *(string) --* 
         
-                    A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, ``{"term1": "stem1", "term2": "stem2", "term3": "stem3"}`` . The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
+                    A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, ``{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}`` . The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
         
                   - **JapaneseTokenizationDictionary** *(string) --* 
         
@@ -354,13 +354,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -378,10 +378,10 @@ class Client(BaseClient):
         ::
         
           response = client.define_expression(
-              DomainName='string',
+              DomainName=\'string\',
               Expression={
-                  'ExpressionName': 'string',
-                  'ExpressionValue': 'string'
+                  \'ExpressionName\': \'string\',
+                  \'ExpressionValue\': \'string\'
               }
           )
         :type DomainName: string
@@ -410,17 +410,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Expression': {
-                    'Options': {
-                        'ExpressionName': 'string',
-                        'ExpressionValue': 'string'
+                \'Expression\': {
+                    \'Options\': {
+                        \'ExpressionName\': \'string\',
+                        \'ExpressionValue\': \'string\'
                     },
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -466,13 +466,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -490,92 +490,92 @@ class Client(BaseClient):
         ::
         
           response = client.define_index_field(
-              DomainName='string',
+              DomainName=\'string\',
               IndexField={
-                  'IndexFieldName': 'string',
-                  'IndexFieldType': 'int'|'double'|'literal'|'text'|'date'|'latlon'|'int-array'|'double-array'|'literal-array'|'text-array'|'date-array',
-                  'IntOptions': {
-                      'DefaultValue': 123,
-                      'SourceField': 'string',
-                      'FacetEnabled': True|False,
-                      'SearchEnabled': True|False,
-                      'ReturnEnabled': True|False,
-                      'SortEnabled': True|False
+                  \'IndexFieldName\': \'string\',
+                  \'IndexFieldType\': \'int\'|\'double\'|\'literal\'|\'text\'|\'date\'|\'latlon\'|\'int-array\'|\'double-array\'|\'literal-array\'|\'text-array\'|\'date-array\',
+                  \'IntOptions\': {
+                      \'DefaultValue\': 123,
+                      \'SourceField\': \'string\',
+                      \'FacetEnabled\': True|False,
+                      \'SearchEnabled\': True|False,
+                      \'ReturnEnabled\': True|False,
+                      \'SortEnabled\': True|False
                   },
-                  'DoubleOptions': {
-                      'DefaultValue': 123.0,
-                      'SourceField': 'string',
-                      'FacetEnabled': True|False,
-                      'SearchEnabled': True|False,
-                      'ReturnEnabled': True|False,
-                      'SortEnabled': True|False
+                  \'DoubleOptions\': {
+                      \'DefaultValue\': 123.0,
+                      \'SourceField\': \'string\',
+                      \'FacetEnabled\': True|False,
+                      \'SearchEnabled\': True|False,
+                      \'ReturnEnabled\': True|False,
+                      \'SortEnabled\': True|False
                   },
-                  'LiteralOptions': {
-                      'DefaultValue': 'string',
-                      'SourceField': 'string',
-                      'FacetEnabled': True|False,
-                      'SearchEnabled': True|False,
-                      'ReturnEnabled': True|False,
-                      'SortEnabled': True|False
+                  \'LiteralOptions\': {
+                      \'DefaultValue\': \'string\',
+                      \'SourceField\': \'string\',
+                      \'FacetEnabled\': True|False,
+                      \'SearchEnabled\': True|False,
+                      \'ReturnEnabled\': True|False,
+                      \'SortEnabled\': True|False
                   },
-                  'TextOptions': {
-                      'DefaultValue': 'string',
-                      'SourceField': 'string',
-                      'ReturnEnabled': True|False,
-                      'SortEnabled': True|False,
-                      'HighlightEnabled': True|False,
-                      'AnalysisScheme': 'string'
+                  \'TextOptions\': {
+                      \'DefaultValue\': \'string\',
+                      \'SourceField\': \'string\',
+                      \'ReturnEnabled\': True|False,
+                      \'SortEnabled\': True|False,
+                      \'HighlightEnabled\': True|False,
+                      \'AnalysisScheme\': \'string\'
                   },
-                  'DateOptions': {
-                      'DefaultValue': 'string',
-                      'SourceField': 'string',
-                      'FacetEnabled': True|False,
-                      'SearchEnabled': True|False,
-                      'ReturnEnabled': True|False,
-                      'SortEnabled': True|False
+                  \'DateOptions\': {
+                      \'DefaultValue\': \'string\',
+                      \'SourceField\': \'string\',
+                      \'FacetEnabled\': True|False,
+                      \'SearchEnabled\': True|False,
+                      \'ReturnEnabled\': True|False,
+                      \'SortEnabled\': True|False
                   },
-                  'LatLonOptions': {
-                      'DefaultValue': 'string',
-                      'SourceField': 'string',
-                      'FacetEnabled': True|False,
-                      'SearchEnabled': True|False,
-                      'ReturnEnabled': True|False,
-                      'SortEnabled': True|False
+                  \'LatLonOptions\': {
+                      \'DefaultValue\': \'string\',
+                      \'SourceField\': \'string\',
+                      \'FacetEnabled\': True|False,
+                      \'SearchEnabled\': True|False,
+                      \'ReturnEnabled\': True|False,
+                      \'SortEnabled\': True|False
                   },
-                  'IntArrayOptions': {
-                      'DefaultValue': 123,
-                      'SourceFields': 'string',
-                      'FacetEnabled': True|False,
-                      'SearchEnabled': True|False,
-                      'ReturnEnabled': True|False
+                  \'IntArrayOptions\': {
+                      \'DefaultValue\': 123,
+                      \'SourceFields\': \'string\',
+                      \'FacetEnabled\': True|False,
+                      \'SearchEnabled\': True|False,
+                      \'ReturnEnabled\': True|False
                   },
-                  'DoubleArrayOptions': {
-                      'DefaultValue': 123.0,
-                      'SourceFields': 'string',
-                      'FacetEnabled': True|False,
-                      'SearchEnabled': True|False,
-                      'ReturnEnabled': True|False
+                  \'DoubleArrayOptions\': {
+                      \'DefaultValue\': 123.0,
+                      \'SourceFields\': \'string\',
+                      \'FacetEnabled\': True|False,
+                      \'SearchEnabled\': True|False,
+                      \'ReturnEnabled\': True|False
                   },
-                  'LiteralArrayOptions': {
-                      'DefaultValue': 'string',
-                      'SourceFields': 'string',
-                      'FacetEnabled': True|False,
-                      'SearchEnabled': True|False,
-                      'ReturnEnabled': True|False
+                  \'LiteralArrayOptions\': {
+                      \'DefaultValue\': \'string\',
+                      \'SourceFields\': \'string\',
+                      \'FacetEnabled\': True|False,
+                      \'SearchEnabled\': True|False,
+                      \'ReturnEnabled\': True|False
                   },
-                  'TextArrayOptions': {
-                      'DefaultValue': 'string',
-                      'SourceFields': 'string',
-                      'ReturnEnabled': True|False,
-                      'HighlightEnabled': True|False,
-                      'AnalysisScheme': 'string'
+                  \'TextArrayOptions\': {
+                      \'DefaultValue\': \'string\',
+                      \'SourceFields\': \'string\',
+                      \'ReturnEnabled\': True|False,
+                      \'HighlightEnabled\': True|False,
+                      \'AnalysisScheme\': \'string\'
                   },
-                  'DateArrayOptions': {
-                      'DefaultValue': 'string',
-                      'SourceFields': 'string',
-                      'FacetEnabled': True|False,
-                      'SearchEnabled': True|False,
-                      'ReturnEnabled': True|False
+                  \'DateArrayOptions\': {
+                      \'DefaultValue\': \'string\',
+                      \'SourceFields\': \'string\',
+                      \'FacetEnabled\': True|False,
+                      \'SearchEnabled\': True|False,
+                      \'ReturnEnabled\': True|False
                   }
               }
           )
@@ -591,11 +591,11 @@ class Client(BaseClient):
         
           - **IndexFieldName** *(string) --* **[REQUIRED]** 
         
-            A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+            A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
             Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-            The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+            The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
           - **IndexFieldType** *(string) --* **[REQUIRED]** 
         
@@ -605,7 +605,7 @@ class Client(BaseClient):
         
             Options for a 64-bit signed integer field. Present if ``IndexFieldType`` specifies the field is of type ``int`` . All options are enabled by default.
         
-            - **DefaultValue** *(integer) --* A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+            - **DefaultValue** *(integer) --* A value to use for the field if the field isn\'t specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
         
             - **SourceField** *(string) --* 
         
@@ -633,7 +633,7 @@ class Client(BaseClient):
         
             - **DefaultValue** *(float) --* 
         
-              A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+              A value to use for the field if the field isn\'t specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
         
             - **SourceField** *(string) --* 
         
@@ -659,15 +659,15 @@ class Client(BaseClient):
         
             Options for literal field. Present if ``IndexFieldType`` specifies the field is of type ``literal`` . All options are enabled by default.
         
-            - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+            - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
         
             - **SourceField** *(string) --* 
         
-              A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+              A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
               Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-              The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+              The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
             - **FacetEnabled** *(boolean) --* 
         
@@ -689,15 +689,15 @@ class Client(BaseClient):
         
             Options for text field. Present if ``IndexFieldType`` specifies the field is of type ``text`` . A ``text`` field is always searchable. All options are enabled by default.
         
-            - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+            - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
         
             - **SourceField** *(string) --* 
         
-              A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+              A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
               Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-              The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+              The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
             - **ReturnEnabled** *(boolean) --* 
         
@@ -719,15 +719,15 @@ class Client(BaseClient):
         
             Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present if ``IndexFieldType`` specifies the field is of type ``date`` . All options are enabled by default.
         
-            - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+            - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
         
             - **SourceField** *(string) --* 
         
-              A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+              A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
               Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-              The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+              The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
             - **FacetEnabled** *(boolean) --* 
         
@@ -749,15 +749,15 @@ class Client(BaseClient):
         
             Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if ``IndexFieldType`` specifies the field is of type ``latlon`` . All options are enabled by default.
         
-            - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+            - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
         
             - **SourceField** *(string) --* 
         
-              A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+              A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
               Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-              The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+              The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
             - **FacetEnabled** *(boolean) --* 
         
@@ -779,7 +779,7 @@ class Client(BaseClient):
         
             Options for a field that contains an array of 64-bit signed integers. Present if ``IndexFieldType`` specifies the field is of type ``int-array`` . All options are enabled by default.
         
-            - **DefaultValue** *(integer) --* A value to use for the field if the field isn't specified for a document.
+            - **DefaultValue** *(integer) --* A value to use for the field if the field isn\'t specified for a document.
         
             - **SourceFields** *(string) --* 
         
@@ -801,7 +801,7 @@ class Client(BaseClient):
         
             Options for a field that contains an array of double-precision 64-bit floating point values. Present if ``IndexFieldType`` specifies the field is of type ``double-array`` . All options are enabled by default.
         
-            - **DefaultValue** *(float) --* A value to use for the field if the field isn't specified for a document.
+            - **DefaultValue** *(float) --* A value to use for the field if the field isn\'t specified for a document.
         
             - **SourceFields** *(string) --* 
         
@@ -823,7 +823,7 @@ class Client(BaseClient):
         
             Options for a field that contains an array of literal strings. Present if ``IndexFieldType`` specifies the field is of type ``literal-array`` . All options are enabled by default.
         
-            - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+            - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
         
             - **SourceFields** *(string) --* 
         
@@ -845,7 +845,7 @@ class Client(BaseClient):
         
             Options for a field that contains an array of text strings. Present if ``IndexFieldType`` specifies the field is of type ``text-array`` . A ``text-array`` field is always searchable. All options are enabled by default.
         
-            - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+            - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
         
             - **SourceFields** *(string) --* 
         
@@ -867,7 +867,7 @@ class Client(BaseClient):
         
             Options for a field that contains an array of dates. Present if ``IndexFieldType`` specifies the field is of type ``date-array`` . All options are enabled by default.
         
-            - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+            - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
         
             - **SourceFields** *(string) --* 
         
@@ -893,100 +893,100 @@ class Client(BaseClient):
           ::
         
             {
-                'IndexField': {
-                    'Options': {
-                        'IndexFieldName': 'string',
-                        'IndexFieldType': 'int'|'double'|'literal'|'text'|'date'|'latlon'|'int-array'|'double-array'|'literal-array'|'text-array'|'date-array',
-                        'IntOptions': {
-                            'DefaultValue': 123,
-                            'SourceField': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False
+                \'IndexField\': {
+                    \'Options\': {
+                        \'IndexFieldName\': \'string\',
+                        \'IndexFieldType\': \'int\'|\'double\'|\'literal\'|\'text\'|\'date\'|\'latlon\'|\'int-array\'|\'double-array\'|\'literal-array\'|\'text-array\'|\'date-array\',
+                        \'IntOptions\': {
+                            \'DefaultValue\': 123,
+                            \'SourceField\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False
                         },
-                        'DoubleOptions': {
-                            'DefaultValue': 123.0,
-                            'SourceField': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False
+                        \'DoubleOptions\': {
+                            \'DefaultValue\': 123.0,
+                            \'SourceField\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False
                         },
-                        'LiteralOptions': {
-                            'DefaultValue': 'string',
-                            'SourceField': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False
+                        \'LiteralOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceField\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False
                         },
-                        'TextOptions': {
-                            'DefaultValue': 'string',
-                            'SourceField': 'string',
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False,
-                            'HighlightEnabled': True|False,
-                            'AnalysisScheme': 'string'
+                        \'TextOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceField\': \'string\',
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False,
+                            \'HighlightEnabled\': True|False,
+                            \'AnalysisScheme\': \'string\'
                         },
-                        'DateOptions': {
-                            'DefaultValue': 'string',
-                            'SourceField': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False
+                        \'DateOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceField\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False
                         },
-                        'LatLonOptions': {
-                            'DefaultValue': 'string',
-                            'SourceField': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False
+                        \'LatLonOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceField\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False
                         },
-                        'IntArrayOptions': {
-                            'DefaultValue': 123,
-                            'SourceFields': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False
+                        \'IntArrayOptions\': {
+                            \'DefaultValue\': 123,
+                            \'SourceFields\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False
                         },
-                        'DoubleArrayOptions': {
-                            'DefaultValue': 123.0,
-                            'SourceFields': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False
+                        \'DoubleArrayOptions\': {
+                            \'DefaultValue\': 123.0,
+                            \'SourceFields\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False
                         },
-                        'LiteralArrayOptions': {
-                            'DefaultValue': 'string',
-                            'SourceFields': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False
+                        \'LiteralArrayOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceFields\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False
                         },
-                        'TextArrayOptions': {
-                            'DefaultValue': 'string',
-                            'SourceFields': 'string',
-                            'ReturnEnabled': True|False,
-                            'HighlightEnabled': True|False,
-                            'AnalysisScheme': 'string'
+                        \'TextArrayOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceFields\': \'string\',
+                            \'ReturnEnabled\': True|False,
+                            \'HighlightEnabled\': True|False,
+                            \'AnalysisScheme\': \'string\'
                         },
-                        'DateArrayOptions': {
-                            'DefaultValue': 'string',
-                            'SourceFields': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False
+                        \'DateArrayOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceFields\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False
                         }
                     },
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -1006,11 +1006,11 @@ class Client(BaseClient):
         
                 - **IndexFieldName** *(string) --* 
         
-                  A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                  A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                   Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                  The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                  The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                 - **IndexFieldType** *(string) --* 
         
@@ -1020,7 +1020,7 @@ class Client(BaseClient):
         
                   Options for a 64-bit signed integer field. Present if ``IndexFieldType`` specifies the field is of type ``int`` . All options are enabled by default.
         
-                  - **DefaultValue** *(integer) --* A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+                  - **DefaultValue** *(integer) --* A value to use for the field if the field isn\'t specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
                   
                   - **SourceField** *(string) --* 
         
@@ -1048,7 +1048,7 @@ class Client(BaseClient):
         
                   - **DefaultValue** *(float) --* 
         
-                    A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+                    A value to use for the field if the field isn\'t specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
         
                   - **SourceField** *(string) --* 
         
@@ -1074,15 +1074,15 @@ class Client(BaseClient):
         
                   Options for literal field. Present if ``IndexFieldType`` specifies the field is of type ``literal`` . All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceField** *(string) --* 
         
-                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                     Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                    The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                    The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                   - **FacetEnabled** *(boolean) --* 
         
@@ -1104,15 +1104,15 @@ class Client(BaseClient):
         
                   Options for text field. Present if ``IndexFieldType`` specifies the field is of type ``text`` . A ``text`` field is always searchable. All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceField** *(string) --* 
         
-                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                     Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                    The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                    The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                   - **ReturnEnabled** *(boolean) --* 
         
@@ -1134,15 +1134,15 @@ class Client(BaseClient):
         
                   Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present if ``IndexFieldType`` specifies the field is of type ``date`` . All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceField** *(string) --* 
         
-                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                     Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                    The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                    The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                   - **FacetEnabled** *(boolean) --* 
         
@@ -1164,15 +1164,15 @@ class Client(BaseClient):
         
                   Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if ``IndexFieldType`` specifies the field is of type ``latlon`` . All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceField** *(string) --* 
         
-                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                     Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                    The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                    The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                   - **FacetEnabled** *(boolean) --* 
         
@@ -1194,7 +1194,7 @@ class Client(BaseClient):
         
                   Options for a field that contains an array of 64-bit signed integers. Present if ``IndexFieldType`` specifies the field is of type ``int-array`` . All options are enabled by default.
         
-                  - **DefaultValue** *(integer) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(integer) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceFields** *(string) --* 
         
@@ -1216,7 +1216,7 @@ class Client(BaseClient):
         
                   Options for a field that contains an array of double-precision 64-bit floating point values. Present if ``IndexFieldType`` specifies the field is of type ``double-array`` . All options are enabled by default.
         
-                  - **DefaultValue** *(float) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(float) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceFields** *(string) --* 
         
@@ -1238,7 +1238,7 @@ class Client(BaseClient):
         
                   Options for a field that contains an array of literal strings. Present if ``IndexFieldType`` specifies the field is of type ``literal-array`` . All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceFields** *(string) --* 
         
@@ -1260,7 +1260,7 @@ class Client(BaseClient):
         
                   Options for a field that contains an array of text strings. Present if ``IndexFieldType`` specifies the field is of type ``text-array`` . A ``text-array`` field is always searchable. All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceFields** *(string) --* 
         
@@ -1282,7 +1282,7 @@ class Client(BaseClient):
         
                   Options for a field that contains an array of dates. Present if ``IndexFieldType`` specifies the field is of type ``date-array`` . All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceFields** *(string) --* 
         
@@ -1320,13 +1320,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -1344,13 +1344,13 @@ class Client(BaseClient):
         ::
         
           response = client.define_suggester(
-              DomainName='string',
+              DomainName=\'string\',
               Suggester={
-                  'SuggesterName': 'string',
-                  'DocumentSuggesterOptions': {
-                      'SourceField': 'string',
-                      'FuzzyMatching': 'none'|'low'|'high',
-                      'SortExpression': 'string'
+                  \'SuggesterName\': \'string\',
+                  \'DocumentSuggesterOptions\': {
+                      \'SourceField\': \'string\',
+                      \'FuzzyMatching\': \'none\'|\'low\'|\'high\',
+                      \'SortExpression\': \'string\'
                   }
               }
           )
@@ -1382,7 +1382,7 @@ class Client(BaseClient):
         
             - **SortExpression** *(string) --* 
         
-              An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document's relevance score is not computed for suggestions, so sort expressions cannot reference the ``_score`` value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
+              An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not computed for suggestions, so sort expressions cannot reference the ``_score`` value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
         
         :rtype: dict
         :returns: 
@@ -1392,21 +1392,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Suggester': {
-                    'Options': {
-                        'SuggesterName': 'string',
-                        'DocumentSuggesterOptions': {
-                            'SourceField': 'string',
-                            'FuzzyMatching': 'none'|'low'|'high',
-                            'SortExpression': 'string'
+                \'Suggester\': {
+                    \'Options\': {
+                        \'SuggesterName\': \'string\',
+                        \'DocumentSuggesterOptions\': {
+                            \'SourceField\': \'string\',
+                            \'FuzzyMatching\': \'none\'|\'low\'|\'high\',
+                            \'SortExpression\': \'string\'
                         }
                     },
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -1442,7 +1442,7 @@ class Client(BaseClient):
         
                   - **SortExpression** *(string) --* 
         
-                    An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document's relevance score is not computed for suggestions, so sort expressions cannot reference the ``_score`` value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
+                    An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not computed for suggestions, so sort expressions cannot reference the ``_score`` value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
         
               - **Status** *(dict) --* 
         
@@ -1464,13 +1464,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -1488,8 +1488,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_analysis_scheme(
-              DomainName='string',
-              AnalysisSchemeName='string'
+              DomainName=\'string\',
+              AnalysisSchemeName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -1509,24 +1509,24 @@ class Client(BaseClient):
           ::
         
             {
-                'AnalysisScheme': {
-                    'Options': {
-                        'AnalysisSchemeName': 'string',
-                        'AnalysisSchemeLanguage': 'ar'|'bg'|'ca'|'cs'|'da'|'de'|'el'|'en'|'es'|'eu'|'fa'|'fi'|'fr'|'ga'|'gl'|'he'|'hi'|'hu'|'hy'|'id'|'it'|'ja'|'ko'|'lv'|'mul'|'nl'|'no'|'pt'|'ro'|'ru'|'sv'|'th'|'tr'|'zh-Hans'|'zh-Hant',
-                        'AnalysisOptions': {
-                            'Synonyms': 'string',
-                            'Stopwords': 'string',
-                            'StemmingDictionary': 'string',
-                            'JapaneseTokenizationDictionary': 'string',
-                            'AlgorithmicStemming': 'none'|'minimal'|'light'|'full'
+                \'AnalysisScheme\': {
+                    \'Options\': {
+                        \'AnalysisSchemeName\': \'string\',
+                        \'AnalysisSchemeLanguage\': \'ar\'|\'bg\'|\'ca\'|\'cs\'|\'da\'|\'de\'|\'el\'|\'en\'|\'es\'|\'eu\'|\'fa\'|\'fi\'|\'fr\'|\'ga\'|\'gl\'|\'he\'|\'hi\'|\'hu\'|\'hy\'|\'id\'|\'it\'|\'ja\'|\'ko\'|\'lv\'|\'mul\'|\'nl\'|\'no\'|\'pt\'|\'ro\'|\'ru\'|\'sv\'|\'th\'|\'tr\'|\'zh-Hans\'|\'zh-Hant\',
+                        \'AnalysisOptions\': {
+                            \'Synonyms\': \'string\',
+                            \'Stopwords\': \'string\',
+                            \'StemmingDictionary\': \'string\',
+                            \'JapaneseTokenizationDictionary\': \'string\',
+                            \'AlgorithmicStemming\': \'none\'|\'minimal\'|\'light\'|\'full\'
                         }
                     },
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -1562,11 +1562,11 @@ class Client(BaseClient):
         
                   - **Stopwords** *(string) --* 
         
-                    A JSON array of terms to ignore during indexing and searching. For example, ``["a", "an", "the", "of"]`` . The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported. 
+                    A JSON array of terms to ignore during indexing and searching. For example, ``[\"a\", \"an\", \"the\", \"of\"]`` . The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported. 
         
                   - **StemmingDictionary** *(string) --* 
         
-                    A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, ``{"term1": "stem1", "term2": "stem2", "term3": "stem3"}`` . The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
+                    A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, ``{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}`` . The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
         
                   - **JapaneseTokenizationDictionary** *(string) --* 
         
@@ -1596,13 +1596,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -1620,7 +1620,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_domain(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -1635,26 +1635,26 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainStatus': {
-                    'DomainId': 'string',
-                    'DomainName': 'string',
-                    'ARN': 'string',
-                    'Created': True|False,
-                    'Deleted': True|False,
-                    'DocService': {
-                        'Endpoint': 'string'
+                \'DomainStatus\': {
+                    \'DomainId\': \'string\',
+                    \'DomainName\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Created\': True|False,
+                    \'Deleted\': True|False,
+                    \'DocService\': {
+                        \'Endpoint\': \'string\'
                     },
-                    'SearchService': {
-                        'Endpoint': 'string'
+                    \'SearchService\': {
+                        \'Endpoint\': \'string\'
                     },
-                    'RequiresIndexDocuments': True|False,
-                    'Processing': True|False,
-                    'SearchInstanceType': 'string',
-                    'SearchPartitionCount': 123,
-                    'SearchInstanceCount': 123,
-                    'Limits': {
-                        'MaximumReplicationCount': 123,
-                        'MaximumPartitionCount': 123
+                    \'RequiresIndexDocuments\': True|False,
+                    \'Processing\': True|False,
+                    \'SearchInstanceType\': \'string\',
+                    \'SearchPartitionCount\': 123,
+                    \'SearchInstanceCount\': 123,
+                    \'Limits\': {
+                        \'MaximumReplicationCount\': 123,
+                        \'MaximumPartitionCount\': 123
                     }
                 }
             }
@@ -1742,8 +1742,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_expression(
-              DomainName='string',
-              ExpressionName='string'
+              DomainName=\'string\',
+              ExpressionName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -1763,17 +1763,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Expression': {
-                    'Options': {
-                        'ExpressionName': 'string',
-                        'ExpressionValue': 'string'
+                \'Expression\': {
+                    \'Options\': {
+                        \'ExpressionName\': \'string\',
+                        \'ExpressionValue\': \'string\'
                     },
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -1819,13 +1819,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -1843,8 +1843,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_index_field(
-              DomainName='string',
-              IndexFieldName='string'
+              DomainName=\'string\',
+              IndexFieldName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -1854,7 +1854,7 @@ class Client(BaseClient):
         :type IndexFieldName: string
         :param IndexFieldName: **[REQUIRED]** 
         
-          The name of the index field your want to remove from the domain's indexing options.
+          The name of the index field your want to remove from the domain\'s indexing options.
         
         :rtype: dict
         :returns: 
@@ -1864,100 +1864,100 @@ class Client(BaseClient):
           ::
         
             {
-                'IndexField': {
-                    'Options': {
-                        'IndexFieldName': 'string',
-                        'IndexFieldType': 'int'|'double'|'literal'|'text'|'date'|'latlon'|'int-array'|'double-array'|'literal-array'|'text-array'|'date-array',
-                        'IntOptions': {
-                            'DefaultValue': 123,
-                            'SourceField': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False
+                \'IndexField\': {
+                    \'Options\': {
+                        \'IndexFieldName\': \'string\',
+                        \'IndexFieldType\': \'int\'|\'double\'|\'literal\'|\'text\'|\'date\'|\'latlon\'|\'int-array\'|\'double-array\'|\'literal-array\'|\'text-array\'|\'date-array\',
+                        \'IntOptions\': {
+                            \'DefaultValue\': 123,
+                            \'SourceField\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False
                         },
-                        'DoubleOptions': {
-                            'DefaultValue': 123.0,
-                            'SourceField': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False
+                        \'DoubleOptions\': {
+                            \'DefaultValue\': 123.0,
+                            \'SourceField\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False
                         },
-                        'LiteralOptions': {
-                            'DefaultValue': 'string',
-                            'SourceField': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False
+                        \'LiteralOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceField\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False
                         },
-                        'TextOptions': {
-                            'DefaultValue': 'string',
-                            'SourceField': 'string',
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False,
-                            'HighlightEnabled': True|False,
-                            'AnalysisScheme': 'string'
+                        \'TextOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceField\': \'string\',
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False,
+                            \'HighlightEnabled\': True|False,
+                            \'AnalysisScheme\': \'string\'
                         },
-                        'DateOptions': {
-                            'DefaultValue': 'string',
-                            'SourceField': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False
+                        \'DateOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceField\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False
                         },
-                        'LatLonOptions': {
-                            'DefaultValue': 'string',
-                            'SourceField': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False,
-                            'SortEnabled': True|False
+                        \'LatLonOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceField\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False,
+                            \'SortEnabled\': True|False
                         },
-                        'IntArrayOptions': {
-                            'DefaultValue': 123,
-                            'SourceFields': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False
+                        \'IntArrayOptions\': {
+                            \'DefaultValue\': 123,
+                            \'SourceFields\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False
                         },
-                        'DoubleArrayOptions': {
-                            'DefaultValue': 123.0,
-                            'SourceFields': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False
+                        \'DoubleArrayOptions\': {
+                            \'DefaultValue\': 123.0,
+                            \'SourceFields\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False
                         },
-                        'LiteralArrayOptions': {
-                            'DefaultValue': 'string',
-                            'SourceFields': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False
+                        \'LiteralArrayOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceFields\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False
                         },
-                        'TextArrayOptions': {
-                            'DefaultValue': 'string',
-                            'SourceFields': 'string',
-                            'ReturnEnabled': True|False,
-                            'HighlightEnabled': True|False,
-                            'AnalysisScheme': 'string'
+                        \'TextArrayOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceFields\': \'string\',
+                            \'ReturnEnabled\': True|False,
+                            \'HighlightEnabled\': True|False,
+                            \'AnalysisScheme\': \'string\'
                         },
-                        'DateArrayOptions': {
-                            'DefaultValue': 'string',
-                            'SourceFields': 'string',
-                            'FacetEnabled': True|False,
-                            'SearchEnabled': True|False,
-                            'ReturnEnabled': True|False
+                        \'DateArrayOptions\': {
+                            \'DefaultValue\': \'string\',
+                            \'SourceFields\': \'string\',
+                            \'FacetEnabled\': True|False,
+                            \'SearchEnabled\': True|False,
+                            \'ReturnEnabled\': True|False
                         }
                     },
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -1977,11 +1977,11 @@ class Client(BaseClient):
         
                 - **IndexFieldName** *(string) --* 
         
-                  A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                  A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                   Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                  The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                  The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                 - **IndexFieldType** *(string) --* 
         
@@ -1991,7 +1991,7 @@ class Client(BaseClient):
         
                   Options for a 64-bit signed integer field. Present if ``IndexFieldType`` specifies the field is of type ``int`` . All options are enabled by default.
         
-                  - **DefaultValue** *(integer) --* A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+                  - **DefaultValue** *(integer) --* A value to use for the field if the field isn\'t specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
                   
                   - **SourceField** *(string) --* 
         
@@ -2019,7 +2019,7 @@ class Client(BaseClient):
         
                   - **DefaultValue** *(float) --* 
         
-                    A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+                    A value to use for the field if the field isn\'t specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
         
                   - **SourceField** *(string) --* 
         
@@ -2045,15 +2045,15 @@ class Client(BaseClient):
         
                   Options for literal field. Present if ``IndexFieldType`` specifies the field is of type ``literal`` . All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceField** *(string) --* 
         
-                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                     Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                    The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                    The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                   - **FacetEnabled** *(boolean) --* 
         
@@ -2075,15 +2075,15 @@ class Client(BaseClient):
         
                   Options for text field. Present if ``IndexFieldType`` specifies the field is of type ``text`` . A ``text`` field is always searchable. All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceField** *(string) --* 
         
-                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                     Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                    The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                    The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                   - **ReturnEnabled** *(boolean) --* 
         
@@ -2105,15 +2105,15 @@ class Client(BaseClient):
         
                   Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present if ``IndexFieldType`` specifies the field is of type ``date`` . All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceField** *(string) --* 
         
-                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                     Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                    The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                    The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                   - **FacetEnabled** *(boolean) --* 
         
@@ -2135,15 +2135,15 @@ class Client(BaseClient):
         
                   Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if ``IndexFieldType`` specifies the field is of type ``latlon`` . All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceField** *(string) --* 
         
-                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                     Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                    The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                    The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                   - **FacetEnabled** *(boolean) --* 
         
@@ -2165,7 +2165,7 @@ class Client(BaseClient):
         
                   Options for a field that contains an array of 64-bit signed integers. Present if ``IndexFieldType`` specifies the field is of type ``int-array`` . All options are enabled by default.
         
-                  - **DefaultValue** *(integer) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(integer) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceFields** *(string) --* 
         
@@ -2187,7 +2187,7 @@ class Client(BaseClient):
         
                   Options for a field that contains an array of double-precision 64-bit floating point values. Present if ``IndexFieldType`` specifies the field is of type ``double-array`` . All options are enabled by default.
         
-                  - **DefaultValue** *(float) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(float) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceFields** *(string) --* 
         
@@ -2209,7 +2209,7 @@ class Client(BaseClient):
         
                   Options for a field that contains an array of literal strings. Present if ``IndexFieldType`` specifies the field is of type ``literal-array`` . All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceFields** *(string) --* 
         
@@ -2231,7 +2231,7 @@ class Client(BaseClient):
         
                   Options for a field that contains an array of text strings. Present if ``IndexFieldType`` specifies the field is of type ``text-array`` . A ``text-array`` field is always searchable. All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceFields** *(string) --* 
         
@@ -2253,7 +2253,7 @@ class Client(BaseClient):
         
                   Options for a field that contains an array of dates. Present if ``IndexFieldType`` specifies the field is of type ``date-array`` . All options are enabled by default.
         
-                  - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                  - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                   
                   - **SourceFields** *(string) --* 
         
@@ -2291,13 +2291,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -2315,8 +2315,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_suggester(
-              DomainName='string',
-              SuggesterName='string'
+              DomainName=\'string\',
+              SuggesterName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -2336,21 +2336,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Suggester': {
-                    'Options': {
-                        'SuggesterName': 'string',
-                        'DocumentSuggesterOptions': {
-                            'SourceField': 'string',
-                            'FuzzyMatching': 'none'|'low'|'high',
-                            'SortExpression': 'string'
+                \'Suggester\': {
+                    \'Options\': {
+                        \'SuggesterName\': \'string\',
+                        \'DocumentSuggesterOptions\': {
+                            \'SourceField\': \'string\',
+                            \'FuzzyMatching\': \'none\'|\'low\'|\'high\',
+                            \'SortExpression\': \'string\'
                         }
                     },
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -2386,7 +2386,7 @@ class Client(BaseClient):
         
                   - **SortExpression** *(string) --* 
         
-                    An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document's relevance score is not computed for suggestions, so sort expressions cannot reference the ``_score`` value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
+                    An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not computed for suggestions, so sort expressions cannot reference the ``_score`` value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
         
               - **Status** *(dict) --* 
         
@@ -2408,13 +2408,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -2432,9 +2432,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_analysis_schemes(
-              DomainName='string',
+              DomainName=\'string\',
               AnalysisSchemeNames=[
-                  'string',
+                  \'string\',
               ],
               Deployed=True|False
           )
@@ -2465,25 +2465,25 @@ class Client(BaseClient):
           ::
         
             {
-                'AnalysisSchemes': [
+                \'AnalysisSchemes\': [
                     {
-                        'Options': {
-                            'AnalysisSchemeName': 'string',
-                            'AnalysisSchemeLanguage': 'ar'|'bg'|'ca'|'cs'|'da'|'de'|'el'|'en'|'es'|'eu'|'fa'|'fi'|'fr'|'ga'|'gl'|'he'|'hi'|'hu'|'hy'|'id'|'it'|'ja'|'ko'|'lv'|'mul'|'nl'|'no'|'pt'|'ro'|'ru'|'sv'|'th'|'tr'|'zh-Hans'|'zh-Hant',
-                            'AnalysisOptions': {
-                                'Synonyms': 'string',
-                                'Stopwords': 'string',
-                                'StemmingDictionary': 'string',
-                                'JapaneseTokenizationDictionary': 'string',
-                                'AlgorithmicStemming': 'none'|'minimal'|'light'|'full'
+                        \'Options\': {
+                            \'AnalysisSchemeName\': \'string\',
+                            \'AnalysisSchemeLanguage\': \'ar\'|\'bg\'|\'ca\'|\'cs\'|\'da\'|\'de\'|\'el\'|\'en\'|\'es\'|\'eu\'|\'fa\'|\'fi\'|\'fr\'|\'ga\'|\'gl\'|\'he\'|\'hi\'|\'hu\'|\'hy\'|\'id\'|\'it\'|\'ja\'|\'ko\'|\'lv\'|\'mul\'|\'nl\'|\'no\'|\'pt\'|\'ro\'|\'ru\'|\'sv\'|\'th\'|\'tr\'|\'zh-Hans\'|\'zh-Hant\',
+                            \'AnalysisOptions\': {
+                                \'Synonyms\': \'string\',
+                                \'Stopwords\': \'string\',
+                                \'StemmingDictionary\': \'string\',
+                                \'JapaneseTokenizationDictionary\': \'string\',
+                                \'AlgorithmicStemming\': \'none\'|\'minimal\'|\'light\'|\'full\'
                             }
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                            \'PendingDeletion\': True|False
                         }
                     },
                 ]
@@ -2524,11 +2524,11 @@ class Client(BaseClient):
         
                     - **Stopwords** *(string) --* 
         
-                      A JSON array of terms to ignore during indexing and searching. For example, ``["a", "an", "the", "of"]`` . The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported. 
+                      A JSON array of terms to ignore during indexing and searching. For example, ``[\"a\", \"an\", \"the\", \"of\"]`` . The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported. 
         
                     - **StemmingDictionary** *(string) --* 
         
-                      A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, ``{"term1": "stem1", "term2": "stem2", "term3": "stem3"}`` . The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
+                      A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, ``{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}`` . The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
         
                     - **JapaneseTokenizationDictionary** *(string) --* 
         
@@ -2558,13 +2558,13 @@ class Client(BaseClient):
         
                     The state of processing a change to an option. Possible values:
         
-                    * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                    * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                      
-                    * ``Processing`` : the option's latest value is in the process of being activated. 
+                    * ``Processing`` : the option\'s latest value is in the process of being activated. 
                      
-                    * ``Active`` : the option's latest value is completely deployed.
+                    * ``Active`` : the option\'s latest value is completely deployed.
                      
-                    * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                    * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                      
                   - **PendingDeletion** *(boolean) --* 
         
@@ -2582,7 +2582,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_availability_options(
-              DomainName='string',
+              DomainName=\'string\',
               Deployed=True|False
           )
         :type DomainName: string
@@ -2603,14 +2603,14 @@ class Client(BaseClient):
           ::
         
             {
-                'AvailabilityOptions': {
-                    'Options': True|False,
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                \'AvailabilityOptions\': {
+                    \'Options\': True|False,
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -2648,13 +2648,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -2673,7 +2673,7 @@ class Client(BaseClient):
         
           response = client.describe_domains(
               DomainNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DomainNames: list
@@ -2693,27 +2693,27 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainStatusList': [
+                \'DomainStatusList\': [
                     {
-                        'DomainId': 'string',
-                        'DomainName': 'string',
-                        'ARN': 'string',
-                        'Created': True|False,
-                        'Deleted': True|False,
-                        'DocService': {
-                            'Endpoint': 'string'
+                        \'DomainId\': \'string\',
+                        \'DomainName\': \'string\',
+                        \'ARN\': \'string\',
+                        \'Created\': True|False,
+                        \'Deleted\': True|False,
+                        \'DocService\': {
+                            \'Endpoint\': \'string\'
                         },
-                        'SearchService': {
-                            'Endpoint': 'string'
+                        \'SearchService\': {
+                            \'Endpoint\': \'string\'
                         },
-                        'RequiresIndexDocuments': True|False,
-                        'Processing': True|False,
-                        'SearchInstanceType': 'string',
-                        'SearchPartitionCount': 123,
-                        'SearchInstanceCount': 123,
-                        'Limits': {
-                            'MaximumReplicationCount': 123,
-                            'MaximumPartitionCount': 123
+                        \'RequiresIndexDocuments\': True|False,
+                        \'Processing\': True|False,
+                        \'SearchInstanceType\': \'string\',
+                        \'SearchPartitionCount\': 123,
+                        \'SearchInstanceCount\': 123,
+                        \'Limits\': {
+                            \'MaximumReplicationCount\': 123,
+                            \'MaximumPartitionCount\': 123
                         }
                     },
                 ]
@@ -2806,9 +2806,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_expressions(
-              DomainName='string',
+              DomainName=\'string\',
               ExpressionNames=[
-                  'string',
+                  \'string\',
               ],
               Deployed=True|False
           )
@@ -2839,18 +2839,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Expressions': [
+                \'Expressions\': [
                     {
-                        'Options': {
-                            'ExpressionName': 'string',
-                            'ExpressionValue': 'string'
+                        \'Options\': {
+                            \'ExpressionName\': \'string\',
+                            \'ExpressionValue\': \'string\'
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                            \'PendingDeletion\': True|False
                         }
                     },
                 ]
@@ -2901,13 +2901,13 @@ class Client(BaseClient):
         
                     The state of processing a change to an option. Possible values:
         
-                    * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                    * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                      
-                    * ``Processing`` : the option's latest value is in the process of being activated. 
+                    * ``Processing`` : the option\'s latest value is in the process of being activated. 
                      
-                    * ``Active`` : the option's latest value is completely deployed.
+                    * ``Active`` : the option\'s latest value is completely deployed.
                      
-                    * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                    * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                      
                   - **PendingDeletion** *(boolean) --* 
         
@@ -2925,9 +2925,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_index_fields(
-              DomainName='string',
+              DomainName=\'string\',
               FieldNames=[
-                  'string',
+                  \'string\',
               ],
               Deployed=True|False
           )
@@ -2956,101 +2956,101 @@ class Client(BaseClient):
           ::
         
             {
-                'IndexFields': [
+                \'IndexFields\': [
                     {
-                        'Options': {
-                            'IndexFieldName': 'string',
-                            'IndexFieldType': 'int'|'double'|'literal'|'text'|'date'|'latlon'|'int-array'|'double-array'|'literal-array'|'text-array'|'date-array',
-                            'IntOptions': {
-                                'DefaultValue': 123,
-                                'SourceField': 'string',
-                                'FacetEnabled': True|False,
-                                'SearchEnabled': True|False,
-                                'ReturnEnabled': True|False,
-                                'SortEnabled': True|False
+                        \'Options\': {
+                            \'IndexFieldName\': \'string\',
+                            \'IndexFieldType\': \'int\'|\'double\'|\'literal\'|\'text\'|\'date\'|\'latlon\'|\'int-array\'|\'double-array\'|\'literal-array\'|\'text-array\'|\'date-array\',
+                            \'IntOptions\': {
+                                \'DefaultValue\': 123,
+                                \'SourceField\': \'string\',
+                                \'FacetEnabled\': True|False,
+                                \'SearchEnabled\': True|False,
+                                \'ReturnEnabled\': True|False,
+                                \'SortEnabled\': True|False
                             },
-                            'DoubleOptions': {
-                                'DefaultValue': 123.0,
-                                'SourceField': 'string',
-                                'FacetEnabled': True|False,
-                                'SearchEnabled': True|False,
-                                'ReturnEnabled': True|False,
-                                'SortEnabled': True|False
+                            \'DoubleOptions\': {
+                                \'DefaultValue\': 123.0,
+                                \'SourceField\': \'string\',
+                                \'FacetEnabled\': True|False,
+                                \'SearchEnabled\': True|False,
+                                \'ReturnEnabled\': True|False,
+                                \'SortEnabled\': True|False
                             },
-                            'LiteralOptions': {
-                                'DefaultValue': 'string',
-                                'SourceField': 'string',
-                                'FacetEnabled': True|False,
-                                'SearchEnabled': True|False,
-                                'ReturnEnabled': True|False,
-                                'SortEnabled': True|False
+                            \'LiteralOptions\': {
+                                \'DefaultValue\': \'string\',
+                                \'SourceField\': \'string\',
+                                \'FacetEnabled\': True|False,
+                                \'SearchEnabled\': True|False,
+                                \'ReturnEnabled\': True|False,
+                                \'SortEnabled\': True|False
                             },
-                            'TextOptions': {
-                                'DefaultValue': 'string',
-                                'SourceField': 'string',
-                                'ReturnEnabled': True|False,
-                                'SortEnabled': True|False,
-                                'HighlightEnabled': True|False,
-                                'AnalysisScheme': 'string'
+                            \'TextOptions\': {
+                                \'DefaultValue\': \'string\',
+                                \'SourceField\': \'string\',
+                                \'ReturnEnabled\': True|False,
+                                \'SortEnabled\': True|False,
+                                \'HighlightEnabled\': True|False,
+                                \'AnalysisScheme\': \'string\'
                             },
-                            'DateOptions': {
-                                'DefaultValue': 'string',
-                                'SourceField': 'string',
-                                'FacetEnabled': True|False,
-                                'SearchEnabled': True|False,
-                                'ReturnEnabled': True|False,
-                                'SortEnabled': True|False
+                            \'DateOptions\': {
+                                \'DefaultValue\': \'string\',
+                                \'SourceField\': \'string\',
+                                \'FacetEnabled\': True|False,
+                                \'SearchEnabled\': True|False,
+                                \'ReturnEnabled\': True|False,
+                                \'SortEnabled\': True|False
                             },
-                            'LatLonOptions': {
-                                'DefaultValue': 'string',
-                                'SourceField': 'string',
-                                'FacetEnabled': True|False,
-                                'SearchEnabled': True|False,
-                                'ReturnEnabled': True|False,
-                                'SortEnabled': True|False
+                            \'LatLonOptions\': {
+                                \'DefaultValue\': \'string\',
+                                \'SourceField\': \'string\',
+                                \'FacetEnabled\': True|False,
+                                \'SearchEnabled\': True|False,
+                                \'ReturnEnabled\': True|False,
+                                \'SortEnabled\': True|False
                             },
-                            'IntArrayOptions': {
-                                'DefaultValue': 123,
-                                'SourceFields': 'string',
-                                'FacetEnabled': True|False,
-                                'SearchEnabled': True|False,
-                                'ReturnEnabled': True|False
+                            \'IntArrayOptions\': {
+                                \'DefaultValue\': 123,
+                                \'SourceFields\': \'string\',
+                                \'FacetEnabled\': True|False,
+                                \'SearchEnabled\': True|False,
+                                \'ReturnEnabled\': True|False
                             },
-                            'DoubleArrayOptions': {
-                                'DefaultValue': 123.0,
-                                'SourceFields': 'string',
-                                'FacetEnabled': True|False,
-                                'SearchEnabled': True|False,
-                                'ReturnEnabled': True|False
+                            \'DoubleArrayOptions\': {
+                                \'DefaultValue\': 123.0,
+                                \'SourceFields\': \'string\',
+                                \'FacetEnabled\': True|False,
+                                \'SearchEnabled\': True|False,
+                                \'ReturnEnabled\': True|False
                             },
-                            'LiteralArrayOptions': {
-                                'DefaultValue': 'string',
-                                'SourceFields': 'string',
-                                'FacetEnabled': True|False,
-                                'SearchEnabled': True|False,
-                                'ReturnEnabled': True|False
+                            \'LiteralArrayOptions\': {
+                                \'DefaultValue\': \'string\',
+                                \'SourceFields\': \'string\',
+                                \'FacetEnabled\': True|False,
+                                \'SearchEnabled\': True|False,
+                                \'ReturnEnabled\': True|False
                             },
-                            'TextArrayOptions': {
-                                'DefaultValue': 'string',
-                                'SourceFields': 'string',
-                                'ReturnEnabled': True|False,
-                                'HighlightEnabled': True|False,
-                                'AnalysisScheme': 'string'
+                            \'TextArrayOptions\': {
+                                \'DefaultValue\': \'string\',
+                                \'SourceFields\': \'string\',
+                                \'ReturnEnabled\': True|False,
+                                \'HighlightEnabled\': True|False,
+                                \'AnalysisScheme\': \'string\'
                             },
-                            'DateArrayOptions': {
-                                'DefaultValue': 'string',
-                                'SourceFields': 'string',
-                                'FacetEnabled': True|False,
-                                'SearchEnabled': True|False,
-                                'ReturnEnabled': True|False
+                            \'DateArrayOptions\': {
+                                \'DefaultValue\': \'string\',
+                                \'SourceFields\': \'string\',
+                                \'FacetEnabled\': True|False,
+                                \'SearchEnabled\': True|False,
+                                \'ReturnEnabled\': True|False
                             }
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                            \'PendingDeletion\': True|False
                         }
                     },
                 ]
@@ -3075,11 +3075,11 @@ class Client(BaseClient):
         
                   - **IndexFieldName** *(string) --* 
         
-                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                    A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                     Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                    The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                    The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                   - **IndexFieldType** *(string) --* 
         
@@ -3089,7 +3089,7 @@ class Client(BaseClient):
         
                     Options for a 64-bit signed integer field. Present if ``IndexFieldType`` specifies the field is of type ``int`` . All options are enabled by default.
         
-                    - **DefaultValue** *(integer) --* A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+                    - **DefaultValue** *(integer) --* A value to use for the field if the field isn\'t specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
                     
                     - **SourceField** *(string) --* 
         
@@ -3117,7 +3117,7 @@ class Client(BaseClient):
         
                     - **DefaultValue** *(float) --* 
         
-                      A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+                      A value to use for the field if the field isn\'t specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
         
                     - **SourceField** *(string) --* 
         
@@ -3143,15 +3143,15 @@ class Client(BaseClient):
         
                     Options for literal field. Present if ``IndexFieldType`` specifies the field is of type ``literal`` . All options are enabled by default.
         
-                    - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                    - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                     
                     - **SourceField** *(string) --* 
         
-                      A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                      A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                       Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                      The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                      The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                     - **FacetEnabled** *(boolean) --* 
         
@@ -3173,15 +3173,15 @@ class Client(BaseClient):
         
                     Options for text field. Present if ``IndexFieldType`` specifies the field is of type ``text`` . A ``text`` field is always searchable. All options are enabled by default.
         
-                    - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                    - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                     
                     - **SourceField** *(string) --* 
         
-                      A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                      A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                       Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                      The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                      The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                     - **ReturnEnabled** *(boolean) --* 
         
@@ -3203,15 +3203,15 @@ class Client(BaseClient):
         
                     Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present if ``IndexFieldType`` specifies the field is of type ``date`` . All options are enabled by default.
         
-                    - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                    - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                     
                     - **SourceField** *(string) --* 
         
-                      A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                      A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                       Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                      The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                      The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                     - **FacetEnabled** *(boolean) --* 
         
@@ -3233,15 +3233,15 @@ class Client(BaseClient):
         
                     Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if ``IndexFieldType`` specifies the field is of type ``latlon`` . All options are enabled by default.
         
-                    - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                    - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                     
                     - **SourceField** *(string) --* 
         
-                      A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                      A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                       Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                      The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                      The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
                     - **FacetEnabled** *(boolean) --* 
         
@@ -3263,7 +3263,7 @@ class Client(BaseClient):
         
                     Options for a field that contains an array of 64-bit signed integers. Present if ``IndexFieldType`` specifies the field is of type ``int-array`` . All options are enabled by default.
         
-                    - **DefaultValue** *(integer) --* A value to use for the field if the field isn't specified for a document.
+                    - **DefaultValue** *(integer) --* A value to use for the field if the field isn\'t specified for a document.
                     
                     - **SourceFields** *(string) --* 
         
@@ -3285,7 +3285,7 @@ class Client(BaseClient):
         
                     Options for a field that contains an array of double-precision 64-bit floating point values. Present if ``IndexFieldType`` specifies the field is of type ``double-array`` . All options are enabled by default.
         
-                    - **DefaultValue** *(float) --* A value to use for the field if the field isn't specified for a document.
+                    - **DefaultValue** *(float) --* A value to use for the field if the field isn\'t specified for a document.
                     
                     - **SourceFields** *(string) --* 
         
@@ -3307,7 +3307,7 @@ class Client(BaseClient):
         
                     Options for a field that contains an array of literal strings. Present if ``IndexFieldType`` specifies the field is of type ``literal-array`` . All options are enabled by default.
         
-                    - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                    - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                     
                     - **SourceFields** *(string) --* 
         
@@ -3329,7 +3329,7 @@ class Client(BaseClient):
         
                     Options for a field that contains an array of text strings. Present if ``IndexFieldType`` specifies the field is of type ``text-array`` . A ``text-array`` field is always searchable. All options are enabled by default.
         
-                    - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                    - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                     
                     - **SourceFields** *(string) --* 
         
@@ -3351,7 +3351,7 @@ class Client(BaseClient):
         
                     Options for a field that contains an array of dates. Present if ``IndexFieldType`` specifies the field is of type ``date-array`` . All options are enabled by default.
         
-                    - **DefaultValue** *(string) --* A value to use for the field if the field isn't specified for a document.
+                    - **DefaultValue** *(string) --* A value to use for the field if the field isn\'t specified for a document.
                     
                     - **SourceFields** *(string) --* 
         
@@ -3389,13 +3389,13 @@ class Client(BaseClient):
         
                     The state of processing a change to an option. Possible values:
         
-                    * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                    * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                      
-                    * ``Processing`` : the option's latest value is in the process of being activated. 
+                    * ``Processing`` : the option\'s latest value is in the process of being activated. 
                      
-                    * ``Active`` : the option's latest value is completely deployed.
+                    * ``Active`` : the option\'s latest value is completely deployed.
                      
-                    * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                    * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                      
                   - **PendingDeletion** *(boolean) --* 
         
@@ -3413,7 +3413,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_scaling_parameters(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -3428,18 +3428,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ScalingParameters': {
-                    'Options': {
-                        'DesiredInstanceType': 'search.m1.small'|'search.m1.large'|'search.m2.xlarge'|'search.m2.2xlarge'|'search.m3.medium'|'search.m3.large'|'search.m3.xlarge'|'search.m3.2xlarge',
-                        'DesiredReplicationCount': 123,
-                        'DesiredPartitionCount': 123
+                \'ScalingParameters\': {
+                    \'Options\': {
+                        \'DesiredInstanceType\': \'search.m1.small\'|\'search.m1.large\'|\'search.m2.xlarge\'|\'search.m2.2xlarge\'|\'search.m3.medium\'|\'search.m3.large\'|\'search.m3.xlarge\'|\'search.m3.2xlarge\',
+                        \'DesiredReplicationCount\': 123,
+                        \'DesiredPartitionCount\': 123
                     },
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -3451,7 +3451,7 @@ class Client(BaseClient):
         
             - **ScalingParameters** *(dict) --* 
         
-              The status and configuration of a search domain's scaling parameters. 
+              The status and configuration of a search domain\'s scaling parameters. 
         
               - **Options** *(dict) --* 
         
@@ -3489,13 +3489,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -3513,7 +3513,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_service_access_policies(
-              DomainName='string',
+              DomainName=\'string\',
               Deployed=True|False
           )
         :type DomainName: string
@@ -3534,14 +3534,14 @@ class Client(BaseClient):
           ::
         
             {
-                'AccessPolicies': {
-                    'Options': 'string',
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                \'AccessPolicies\': {
+                    \'Options\': \'string\',
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -3557,7 +3557,7 @@ class Client(BaseClient):
         
               - **Options** *(string) --* 
         
-                Access rules for a domain's document or search service endpoints. For more information, see `Configuring Access for a Search Domain <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html>`__ in the *Amazon CloudSearch Developer Guide* . The maximum size of a policy document is 100 KB.
+                Access rules for a domain\'s document or search service endpoints. For more information, see `Configuring Access for a Search Domain <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html>`__ in the *Amazon CloudSearch Developer Guide* . The maximum size of a policy document is 100 KB.
         
               - **Status** *(dict) --* 
         
@@ -3579,13 +3579,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -3603,9 +3603,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_suggesters(
-              DomainName='string',
+              DomainName=\'string\',
               SuggesterNames=[
-                  'string',
+                  \'string\',
               ],
               Deployed=True|False
           )
@@ -3636,22 +3636,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Suggesters': [
+                \'Suggesters\': [
                     {
-                        'Options': {
-                            'SuggesterName': 'string',
-                            'DocumentSuggesterOptions': {
-                                'SourceField': 'string',
-                                'FuzzyMatching': 'none'|'low'|'high',
-                                'SortExpression': 'string'
+                        \'Options\': {
+                            \'SuggesterName\': \'string\',
+                            \'DocumentSuggesterOptions\': {
+                                \'SourceField\': \'string\',
+                                \'FuzzyMatching\': \'none\'|\'low\'|\'high\',
+                                \'SortExpression\': \'string\'
                             }
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                            \'PendingDeletion\': True|False
                         }
                     },
                 ]
@@ -3692,7 +3692,7 @@ class Client(BaseClient):
         
                     - **SortExpression** *(string) --* 
         
-                      An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document's relevance score is not computed for suggestions, so sort expressions cannot reference the ``_score`` value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
+                      An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not computed for suggestions, so sort expressions cannot reference the ``_score`` value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
         
                 - **Status** *(dict) --* 
         
@@ -3714,13 +3714,13 @@ class Client(BaseClient):
         
                     The state of processing a change to an option. Possible values:
         
-                    * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                    * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                      
-                    * ``Processing`` : the option's latest value is in the process of being activated. 
+                    * ``Processing`` : the option\'s latest value is in the process of being activated. 
                      
-                    * ``Active`` : the option's latest value is completely deployed.
+                    * ``Active`` : the option\'s latest value is completely deployed.
                      
-                    * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                    * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                      
                   - **PendingDeletion** *(boolean) --* 
         
@@ -3745,7 +3745,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3757,10 +3757,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3792,7 +3792,7 @@ class Client(BaseClient):
         ::
         
           response = client.index_documents(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -3807,8 +3807,8 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldNames': [
-                    'string',
+                \'FieldNames\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -3823,11 +3823,11 @@ class Client(BaseClient):
         
               - *(string) --* 
         
-                A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. 
+                A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options. 
         
                 Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. 
         
-                The name ``score`` is reserved and cannot be used as a field name. To reference a document's ID, you can use the name ``_id`` . 
+                The name ``score`` is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name ``_id`` . 
         
         """
         pass
@@ -3850,8 +3850,8 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainNames': {
-                    'string': 'string'
+                \'DomainNames\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3884,7 +3884,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_availability_options(
-              DomainName='string',
+              DomainName=\'string\',
               MultiAZ=True|False
           )
         :type DomainName: string
@@ -3905,14 +3905,14 @@ class Client(BaseClient):
           ::
         
             {
-                'AvailabilityOptions': {
-                    'Options': True|False,
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                \'AvailabilityOptions\': {
+                    \'Options\': True|False,
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -3920,7 +3920,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            The result of a ``UpdateAvailabilityOptions`` request. Contains the status of the domain's availability options. 
+            The result of a ``UpdateAvailabilityOptions`` request. Contains the status of the domain\'s availability options. 
         
             - **AvailabilityOptions** *(dict) --* 
         
@@ -3950,13 +3950,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -3974,11 +3974,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_scaling_parameters(
-              DomainName='string',
+              DomainName=\'string\',
               ScalingParameters={
-                  'DesiredInstanceType': 'search.m1.small'|'search.m1.large'|'search.m2.xlarge'|'search.m2.2xlarge'|'search.m3.medium'|'search.m3.large'|'search.m3.xlarge'|'search.m3.2xlarge',
-                  'DesiredReplicationCount': 123,
-                  'DesiredPartitionCount': 123
+                  \'DesiredInstanceType\': \'search.m1.small\'|\'search.m1.large\'|\'search.m2.xlarge\'|\'search.m2.2xlarge\'|\'search.m3.medium\'|\'search.m3.large\'|\'search.m3.xlarge\'|\'search.m3.2xlarge\',
+                  \'DesiredReplicationCount\': 123,
+                  \'DesiredPartitionCount\': 123
               }
           )
         :type DomainName: string
@@ -4011,18 +4011,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ScalingParameters': {
-                    'Options': {
-                        'DesiredInstanceType': 'search.m1.small'|'search.m1.large'|'search.m2.xlarge'|'search.m2.2xlarge'|'search.m3.medium'|'search.m3.large'|'search.m3.xlarge'|'search.m3.2xlarge',
-                        'DesiredReplicationCount': 123,
-                        'DesiredPartitionCount': 123
+                \'ScalingParameters\': {
+                    \'Options\': {
+                        \'DesiredInstanceType\': \'search.m1.small\'|\'search.m1.large\'|\'search.m2.xlarge\'|\'search.m2.2xlarge\'|\'search.m3.medium\'|\'search.m3.large\'|\'search.m3.xlarge\'|\'search.m3.2xlarge\',
+                        \'DesiredReplicationCount\': 123,
+                        \'DesiredPartitionCount\': 123
                     },
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -4034,7 +4034,7 @@ class Client(BaseClient):
         
             - **ScalingParameters** *(dict) --* 
         
-              The status and configuration of a search domain's scaling parameters. 
+              The status and configuration of a search domain\'s scaling parameters. 
         
               - **Options** *(dict) --* 
         
@@ -4072,13 +4072,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         
@@ -4096,8 +4096,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_service_access_policies(
-              DomainName='string',
-              AccessPolicies='string'
+              DomainName=\'string\',
+              AccessPolicies=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -4117,14 +4117,14 @@ class Client(BaseClient):
           ::
         
             {
-                'AccessPolicies': {
-                    'Options': 'string',
-                    'Status': {
-                        'CreationDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'UpdateVersion': 123,
-                        'State': 'RequiresIndexDocuments'|'Processing'|'Active'|'FailedToValidate',
-                        'PendingDeletion': True|False
+                \'AccessPolicies\': {
+                    \'Options\': \'string\',
+                    \'Status\': {
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'UpdateVersion\': 123,
+                        \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\'|\'FailedToValidate\',
+                        \'PendingDeletion\': True|False
                     }
                 }
             }
@@ -4140,7 +4140,7 @@ class Client(BaseClient):
         
               - **Options** *(string) --* 
         
-                Access rules for a domain's document or search service endpoints. For more information, see `Configuring Access for a Search Domain <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html>`__ in the *Amazon CloudSearch Developer Guide* . The maximum size of a policy document is 100 KB.
+                Access rules for a domain\'s document or search service endpoints. For more information, see `Configuring Access for a Search Domain <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html>`__ in the *Amazon CloudSearch Developer Guide* . The maximum size of a policy document is 100 KB.
         
               - **Status** *(dict) --* 
         
@@ -4162,13 +4162,13 @@ class Client(BaseClient):
         
                   The state of processing a change to an option. Possible values:
         
-                  * ``RequiresIndexDocuments`` : the option's latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
+                  * ``RequiresIndexDocuments`` : the option\'s latest value will not be deployed until  IndexDocuments has been called and indexing is complete.
                    
-                  * ``Processing`` : the option's latest value is in the process of being activated. 
+                  * ``Processing`` : the option\'s latest value is in the process of being activated. 
                    
-                  * ``Active`` : the option's latest value is completely deployed.
+                  * ``Active`` : the option\'s latest value is completely deployed.
                    
-                  * ``FailedToValidate`` : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+                  * ``FailedToValidate`` : the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
                    
                 - **PendingDeletion** *(boolean) --* 
         

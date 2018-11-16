@@ -1,12 +1,12 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from typing import IO
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
+from typing import IO
 
 
 class Client(BaseClient):

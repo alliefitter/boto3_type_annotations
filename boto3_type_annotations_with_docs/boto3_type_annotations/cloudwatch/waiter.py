@@ -14,16 +14,16 @@ class AlarmExists(Waiter):
         
           waiter.wait(
               AlarmNames=[
-                  'string',
+                  \'string\',
               ],
-              AlarmNamePrefix='string',
-              StateValue='OK'|'ALARM'|'INSUFFICIENT_DATA',
-              ActionPrefix='string',
+              AlarmNamePrefix=\'string\',
+              StateValue=\'OK\'|\'ALARM\'|\'INSUFFICIENT_DATA\',
+              ActionPrefix=\'string\',
               MaxRecords=123,
-              NextToken='string',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type AlarmNames: list

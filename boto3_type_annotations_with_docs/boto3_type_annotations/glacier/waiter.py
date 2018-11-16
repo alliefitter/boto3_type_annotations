@@ -12,18 +12,18 @@ class VaultExists(Waiter):
         ::
         
           waiter.wait(
-              vaultName='string',
+              vaultName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -58,18 +58,18 @@ class VaultNotExists(Waiter):
         ::
         
           waiter.wait(
-              vaultName='string',
+              vaultName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 

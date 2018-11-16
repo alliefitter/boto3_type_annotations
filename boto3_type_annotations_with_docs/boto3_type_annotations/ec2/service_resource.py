@@ -1,7 +1,7 @@
-from typing import Union
-from typing import Optional
-from boto3.resources.collection import ResourceCollection
 from typing import List
+from boto3.resources.collection import ResourceCollection
+from typing import Optional
+from typing import Union
 from datetime import datetime
 from typing import Dict
 from boto3.resources import base
@@ -30,10 +30,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a ClassicAddress resource.::
         
-          classic_address = ec2.ClassicAddress('public_ip')
+          classic_address = ec2.ClassicAddress(\'public_ip\')
         
         :type public_ip: string
-        :param public_ip: The ClassicAddress's public_ip identifier. This **must** be set.
+        :param public_ip: The ClassicAddress\'s public_ip identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.ClassicAddress`
         :returns: A ClassicAddress resource
@@ -44,10 +44,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a DhcpOptions resource.::
         
-          dhcp_options = ec2.DhcpOptions('id')
+          dhcp_options = ec2.DhcpOptions(\'id\')
         
         :type id: string
-        :param id: The DhcpOptions's id identifier. This **must** be set.
+        :param id: The DhcpOptions\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.DhcpOptions`
         :returns: A DhcpOptions resource
@@ -58,10 +58,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Image resource.::
         
-          image = ec2.Image('id')
+          image = ec2.Image(\'id\')
         
         :type id: string
-        :param id: The Image's id identifier. This **must** be set.
+        :param id: The Image\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.Image`
         :returns: A Image resource
@@ -72,10 +72,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Instance resource.::
         
-          instance = ec2.Instance('id')
+          instance = ec2.Instance(\'id\')
         
         :type id: string
-        :param id: The Instance's id identifier. This **must** be set.
+        :param id: The Instance\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.Instance`
         :returns: A Instance resource
@@ -86,10 +86,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a InternetGateway resource.::
         
-          internet_gateway = ec2.InternetGateway('id')
+          internet_gateway = ec2.InternetGateway(\'id\')
         
         :type id: string
-        :param id: The InternetGateway's id identifier. This **must** be set.
+        :param id: The InternetGateway\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.InternetGateway`
         :returns: A InternetGateway resource
@@ -100,10 +100,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a KeyPairInfo resource.::
         
-          key_pair_info = ec2.KeyPair('name')
+          key_pair_info = ec2.KeyPair(\'name\')
         
         :type name: string
-        :param name: The KeyPair's name identifier. This **must** be set.
+        :param name: The KeyPair\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.KeyPairInfo`
         :returns: A KeyPairInfo resource
@@ -114,10 +114,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a NetworkAcl resource.::
         
-          network_acl = ec2.NetworkAcl('id')
+          network_acl = ec2.NetworkAcl(\'id\')
         
         :type id: string
-        :param id: The NetworkAcl's id identifier. This **must** be set.
+        :param id: The NetworkAcl\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.NetworkAcl`
         :returns: A NetworkAcl resource
@@ -128,10 +128,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a NetworkInterface resource.::
         
-          network_interface = ec2.NetworkInterface('id')
+          network_interface = ec2.NetworkInterface(\'id\')
         
         :type id: string
-        :param id: The NetworkInterface's id identifier. This **must** be set.
+        :param id: The NetworkInterface\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.NetworkInterface`
         :returns: A NetworkInterface resource
@@ -142,10 +142,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a NetworkInterfaceAssociation resource.::
         
-          network_interface_association = ec2.NetworkInterfaceAssociation('id')
+          network_interface_association = ec2.NetworkInterfaceAssociation(\'id\')
         
         :type id: string
-        :param id: The NetworkInterfaceAssociation's id identifier. This **must** be set.
+        :param id: The NetworkInterfaceAssociation\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.NetworkInterfaceAssociation`
         :returns: A NetworkInterfaceAssociation resource
@@ -156,10 +156,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a PlacementGroup resource.::
         
-          placement_group = ec2.PlacementGroup('name')
+          placement_group = ec2.PlacementGroup(\'name\')
         
         :type name: string
-        :param name: The PlacementGroup's name identifier. This **must** be set.
+        :param name: The PlacementGroup\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.PlacementGroup`
         :returns: A PlacementGroup resource
@@ -170,12 +170,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Route resource.::
         
-          route = ec2.Route('route_table_id','destination_cidr_block')
+          route = ec2.Route(\'route_table_id\',\'destination_cidr_block\')
         
         :type route_table_id: string
-        :param route_table_id: The Route's route_table_id identifier. This **must** be set.
+        :param route_table_id: The Route\'s route_table_id identifier. This **must** be set.
         :type destination_cidr_block: string
-        :param destination_cidr_block: The Route's destination_cidr_block identifier. This **must** be set.
+        :param destination_cidr_block: The Route\'s destination_cidr_block identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.Route`
         :returns: A Route resource
@@ -186,10 +186,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a RouteTable resource.::
         
-          route_table = ec2.RouteTable('id')
+          route_table = ec2.RouteTable(\'id\')
         
         :type id: string
-        :param id: The RouteTable's id identifier. This **must** be set.
+        :param id: The RouteTable\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.RouteTable`
         :returns: A RouteTable resource
@@ -200,10 +200,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a RouteTableAssociation resource.::
         
-          route_table_association = ec2.RouteTableAssociation('id')
+          route_table_association = ec2.RouteTableAssociation(\'id\')
         
         :type id: string
-        :param id: The RouteTableAssociation's id identifier. This **must** be set.
+        :param id: The RouteTableAssociation\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.RouteTableAssociation`
         :returns: A RouteTableAssociation resource
@@ -214,10 +214,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a SecurityGroup resource.::
         
-          security_group = ec2.SecurityGroup('id')
+          security_group = ec2.SecurityGroup(\'id\')
         
         :type id: string
-        :param id: The SecurityGroup's id identifier. This **must** be set.
+        :param id: The SecurityGroup\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.SecurityGroup`
         :returns: A SecurityGroup resource
@@ -228,10 +228,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Snapshot resource.::
         
-          snapshot = ec2.Snapshot('id')
+          snapshot = ec2.Snapshot(\'id\')
         
         :type id: string
-        :param id: The Snapshot's id identifier. This **must** be set.
+        :param id: The Snapshot\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.Snapshot`
         :returns: A Snapshot resource
@@ -242,10 +242,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Subnet resource.::
         
-          subnet = ec2.Subnet('id')
+          subnet = ec2.Subnet(\'id\')
         
         :type id: string
-        :param id: The Subnet's id identifier. This **must** be set.
+        :param id: The Subnet\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.Subnet`
         :returns: A Subnet resource
@@ -256,14 +256,14 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Tag resource.::
         
-          tag = ec2.Tag('resource_id','key','value')
+          tag = ec2.Tag(\'resource_id\',\'key\',\'value\')
         
         :type resource_id: string
-        :param resource_id: The Tag's resource_id identifier. This **must** be set.
+        :param resource_id: The Tag\'s resource_id identifier. This **must** be set.
         :type key: string
-        :param key: The Tag's key identifier. This **must** be set.
+        :param key: The Tag\'s key identifier. This **must** be set.
         :type value: string
-        :param value: The Tag's value identifier. This **must** be set.
+        :param value: The Tag\'s value identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.Tag`
         :returns: A Tag resource
@@ -274,10 +274,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Volume resource.::
         
-          volume = ec2.Volume('id')
+          volume = ec2.Volume(\'id\')
         
         :type id: string
-        :param id: The Volume's id identifier. This **must** be set.
+        :param id: The Volume\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.Volume`
         :returns: A Volume resource
@@ -288,10 +288,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Vpc resource.::
         
-          vpc = ec2.Vpc('id')
+          vpc = ec2.Vpc(\'id\')
         
         :type id: string
-        :param id: The Vpc's id identifier. This **must** be set.
+        :param id: The Vpc\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.Vpc`
         :returns: A Vpc resource
@@ -302,10 +302,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a VpcAddress resource.::
         
-          vpc_address = ec2.VpcAddress('allocation_id')
+          vpc_address = ec2.VpcAddress(\'allocation_id\')
         
         :type allocation_id: string
-        :param allocation_id: The VpcAddress's allocation_id identifier. This **must** be set.
+        :param allocation_id: The VpcAddress\'s allocation_id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.VpcAddress`
         :returns: A VpcAddress resource
@@ -316,10 +316,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a VpcPeeringConnection resource.::
         
-          vpc_peering_connection = ec2.VpcPeeringConnection('id')
+          vpc_peering_connection = ec2.VpcPeeringConnection(\'id\')
         
         :type id: string
-        :param id: The VpcPeeringConnection's id identifier. This **must** be set.
+        :param id: The VpcPeeringConnection\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`EC2.VpcPeeringConnection`
         :returns: A VpcPeeringConnection resource
@@ -331,7 +331,7 @@ class ServiceResource(base.ServiceResource):
         
         * ``domain-name-servers`` - The IP addresses of up to four domain name servers, or AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS. If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas. ITo have your instance to receive a custom DNS hostname as specified in ``domain-name`` , you must set ``domain-name-servers`` to a custom DNS server. 
          
-        * ``domain-name`` - If you're using AmazonProvidedDNS in ``us-east-1`` , specify ``ec2.internal`` . If you're using AmazonProvidedDNS in another region, specify ``region.compute.internal`` (for example, ``ap-northeast-1.compute.internal`` ). Otherwise, specify a domain name (for example, ``MyCompany.com`` ). This value is used to complete unqualified DNS hostnames. **Important** : Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP options set is associated with a VPC that has instances with multiple operating systems, specify only one domain name. 
+        * ``domain-name`` - If you\'re using AmazonProvidedDNS in ``us-east-1`` , specify ``ec2.internal`` . If you\'re using AmazonProvidedDNS in another region, specify ``region.compute.internal`` (for example, ``ap-northeast-1.compute.internal`` ). Otherwise, specify a domain name (for example, ``MyCompany.com`` ). This value is used to complete unqualified DNS hostnames. **Important** : Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP options set is associated with a VPC that has instances with multiple operating systems, specify only one domain name. 
          
         * ``ntp-servers`` - The IP addresses of up to four Network Time Protocol (NTP) servers. 
          
@@ -349,9 +349,9 @@ class ServiceResource(base.ServiceResource):
           dhcp_options = ec2.create_dhcp_options(
               DhcpConfigurations=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -385,17 +385,17 @@ class ServiceResource(base.ServiceResource):
         
         You can specify a number of options, or leave the default options. The following rules apply:
         
-        * [EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request. 
+        * [EC2-VPC] If you don\'t specify a subnet ID, we choose a default subnet from your default VPC for you. If you don\'t have a default VPC, you must specify a subnet ID in the request. 
          
-        * [EC2-Classic] If don't specify an Availability Zone, we choose one for you. 
+        * [EC2-Classic] If don\'t specify an Availability Zone, we choose one for you. 
          
         * Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see `Instance Types Available Only in a VPC <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types>`__ . 
          
-        * [EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet. 
+        * [EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don\'t specify this address, we choose one from the IPv4 range of your subnet. 
          
         * Not all instance types support IPv6 addresses. For more information, see `Instance Types <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ . 
          
-        * If you don't specify a security group ID, we use the default security group. For more information, see `Security Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ . 
+        * If you don\'t specify a security group ID, we use the default security group. For more information, see `Security Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ . 
          
         * If any of the AMIs have a product code attached for which the user has not subscribed, the request fails. 
          
@@ -403,7 +403,7 @@ class ServiceResource(base.ServiceResource):
         
         To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.
         
-        An instance is ready for you to use when it's in the ``running`` state. You can check the state of your instance using  DescribeInstances . You can tag instances and EBS volumes during launch, after launch, or both. For more information, see  CreateTags and `Tagging Your Amazon EC2 Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ .
+        An instance is ready for you to use when it\'s in the ``running`` state. You can check the state of your instance using  DescribeInstances . You can tag instances and EBS volumes during launch, after launch, or both. For more information, see  CreateTags and `Tagging Your Amazon EC2 Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ .
         
         Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see `Key Pairs <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
@@ -417,139 +417,139 @@ class ServiceResource(base.ServiceResource):
           instance = ec2.create_instances(
               BlockDeviceMappings=[
                   {
-                      'DeviceName': 'string',
-                      'VirtualName': 'string',
-                      'Ebs': {
-                          'DeleteOnTermination': True|False,
-                          'Iops': 123,
-                          'SnapshotId': 'string',
-                          'VolumeSize': 123,
-                          'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                          'Encrypted': True|False,
-                          'KmsKeyId': 'string'
+                      \'DeviceName\': \'string\',
+                      \'VirtualName\': \'string\',
+                      \'Ebs\': {
+                          \'DeleteOnTermination\': True|False,
+                          \'Iops\': 123,
+                          \'SnapshotId\': \'string\',
+                          \'VolumeSize\': 123,
+                          \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                          \'Encrypted\': True|False,
+                          \'KmsKeyId\': \'string\'
                       },
-                      'NoDevice': 'string'
+                      \'NoDevice\': \'string\'
                   },
               ],
-              ImageId='string',
-              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
+              ImageId=\'string\',
+              InstanceType=\'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
               Ipv6AddressCount=123,
               Ipv6Addresses=[
                   {
-                      'Ipv6Address': 'string'
+                      \'Ipv6Address\': \'string\'
                   },
               ],
-              KernelId='string',
-              KeyName='string',
+              KernelId=\'string\',
+              KeyName=\'string\',
               MaxCount=123,
               MinCount=123,
               Monitoring={
-                  'Enabled': True|False
+                  \'Enabled\': True|False
               },
               Placement={
-                  'AvailabilityZone': 'string',
-                  'Affinity': 'string',
-                  'GroupName': 'string',
-                  'HostId': 'string',
-                  'Tenancy': 'default'|'dedicated'|'host',
-                  'SpreadDomain': 'string'
+                  \'AvailabilityZone\': \'string\',
+                  \'Affinity\': \'string\',
+                  \'GroupName\': \'string\',
+                  \'HostId\': \'string\',
+                  \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                  \'SpreadDomain\': \'string\'
               },
-              RamdiskId='string',
+              RamdiskId=\'string\',
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               SecurityGroups=[
-                  'string',
+                  \'string\',
               ],
-              SubnetId='string',
-              UserData='string',
-              AdditionalInfo='string',
-              ClientToken='string',
+              SubnetId=\'string\',
+              UserData=\'string\',
+              AdditionalInfo=\'string\',
+              ClientToken=\'string\',
               DisableApiTermination=True|False,
               DryRun=True|False,
               EbsOptimized=True|False,
               IamInstanceProfile={
-                  'Arn': 'string',
-                  'Name': 'string'
+                  \'Arn\': \'string\',
+                  \'Name\': \'string\'
               },
-              InstanceInitiatedShutdownBehavior='stop'|'terminate',
+              InstanceInitiatedShutdownBehavior=\'stop\'|\'terminate\',
               NetworkInterfaces=[
                   {
-                      'AssociatePublicIpAddress': True|False,
-                      'DeleteOnTermination': True|False,
-                      'Description': 'string',
-                      'DeviceIndex': 123,
-                      'Groups': [
-                          'string',
+                      \'AssociatePublicIpAddress\': True|False,
+                      \'DeleteOnTermination\': True|False,
+                      \'Description\': \'string\',
+                      \'DeviceIndex\': 123,
+                      \'Groups\': [
+                          \'string\',
                       ],
-                      'Ipv6AddressCount': 123,
-                      'Ipv6Addresses': [
+                      \'Ipv6AddressCount\': 123,
+                      \'Ipv6Addresses\': [
                           {
-                              'Ipv6Address': 'string'
+                              \'Ipv6Address\': \'string\'
                           },
                       ],
-                      'NetworkInterfaceId': 'string',
-                      'PrivateIpAddress': 'string',
-                      'PrivateIpAddresses': [
+                      \'NetworkInterfaceId\': \'string\',
+                      \'PrivateIpAddress\': \'string\',
+                      \'PrivateIpAddresses\': [
                           {
-                              'Primary': True|False,
-                              'PrivateIpAddress': 'string'
+                              \'Primary\': True|False,
+                              \'PrivateIpAddress\': \'string\'
                           },
                       ],
-                      'SecondaryPrivateIpAddressCount': 123,
-                      'SubnetId': 'string'
+                      \'SecondaryPrivateIpAddressCount\': 123,
+                      \'SubnetId\': \'string\'
                   },
               ],
-              PrivateIpAddress='string',
+              PrivateIpAddress=\'string\',
               ElasticGpuSpecification=[
                   {
-                      'Type': 'string'
+                      \'Type\': \'string\'
                   },
               ],
               TagSpecifications=[
                   {
-                      'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                      'Tags': [
+                      \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
               ],
               LaunchTemplate={
-                  'LaunchTemplateId': 'string',
-                  'LaunchTemplateName': 'string',
-                  'Version': 'string'
+                  \'LaunchTemplateId\': \'string\',
+                  \'LaunchTemplateName\': \'string\',
+                  \'Version\': \'string\'
               },
               InstanceMarketOptions={
-                  'MarketType': 'spot',
-                  'SpotOptions': {
-                      'MaxPrice': 'string',
-                      'SpotInstanceType': 'one-time'|'persistent',
-                      'BlockDurationMinutes': 123,
-                      'ValidUntil': datetime(2015, 1, 1),
-                      'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate'
+                  \'MarketType\': \'spot\',
+                  \'SpotOptions\': {
+                      \'MaxPrice\': \'string\',
+                      \'SpotInstanceType\': \'one-time\'|\'persistent\',
+                      \'BlockDurationMinutes\': 123,
+                      \'ValidUntil\': datetime(2015, 1, 1),
+                      \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\'
                   }
               },
               CreditSpecification={
-                  'CpuCredits': 'string'
+                  \'CpuCredits\': \'string\'
               },
               CpuOptions={
-                  'CoreCount': 123,
-                  'ThreadsPerCore': 123
+                  \'CoreCount\': 123,
+                  \'ThreadsPerCore\': 123
               },
               CapacityReservationSpecification={
-                  'CapacityReservationPreference': 'open'|'none',
-                  'CapacityReservationTarget': {
-                      'CapacityReservationId': 'string'
+                  \'CapacityReservationPreference\': \'open\'|\'none\',
+                  \'CapacityReservationTarget\': {
+                      \'CapacityReservationId\': \'string\'
                   }
               }
           )
         :type BlockDeviceMappings: list
         :param BlockDeviceMappings: 
         
-          One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+          One or more block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
         
           - *(dict) --* 
         
@@ -593,7 +593,7 @@ class ServiceResource(base.ServiceResource):
         
                 Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
               - **VolumeType** *(string) --* 
         
@@ -632,12 +632,12 @@ class ServiceResource(base.ServiceResource):
         :type Ipv6AddressCount: integer
         :param Ipv6AddressCount: 
         
-          [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+          [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
         :type Ipv6Addresses: list
         :param Ipv6Addresses: 
         
-          [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+          [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
           - *(dict) --* 
         
@@ -663,21 +663,21 @@ class ServiceResource(base.ServiceResource):
         
           .. warning::
         
-            If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
+            If you do not specify a key pair, you can\'t connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
         
         :type MaxCount: integer
         :param MaxCount: **[REQUIRED]** 
         
           The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above ``MinCount`` .
         
-          Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 FAQ.
+          Constraints: Between 1 and the maximum number you\'re allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 FAQ.
         
         :type MinCount: integer
         :param MinCount: **[REQUIRED]** 
         
           The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances.
         
-          Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 General FAQ.
+          Constraints: Between 1 and the maximum number you\'re allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 General FAQ.
         
         :type Monitoring: dict
         :param Monitoring: 
@@ -771,7 +771,7 @@ class ServiceResource(base.ServiceResource):
         :type DisableApiTermination: boolean
         :param DisableApiTermination: 
         
-          If you set this parameter to ``true`` , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute . Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate`` , you can terminate the instance by running the shutdown command from the instance.
+          If you set this parameter to ``true`` , you can\'t terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute . Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate`` , you can terminate the instance by running the shutdown command from the instance.
         
           Default: ``false``  
         
@@ -783,7 +783,7 @@ class ServiceResource(base.ServiceResource):
         :type EbsOptimized: boolean
         :param EbsOptimized: 
         
-          Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
+          Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
         
           Default: ``false``  
         
@@ -840,11 +840,11 @@ class ServiceResource(base.ServiceResource):
         
             - **Ipv6AddressCount** *(integer) --* 
         
-              A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+              A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
             - **Ipv6Addresses** *(list) --* 
         
-              One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+              One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
               - *(dict) --* 
         
@@ -860,11 +860,11 @@ class ServiceResource(base.ServiceResource):
         
             - **PrivateIpAddress** *(string) --* 
         
-              The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+              The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
             - **PrivateIpAddresses** *(list) --* 
         
-              One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+              One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
               - *(dict) --* 
         
@@ -880,7 +880,7 @@ class ServiceResource(base.ServiceResource):
         
             - **SecondaryPrivateIpAddressCount** *(integer) --* 
         
-              The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+              The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
             - **SubnetId** *(string) --* 
         
@@ -891,7 +891,7 @@ class ServiceResource(base.ServiceResource):
         
           [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
         
-          Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
+          Only one private IP address can be designated as primary. You can\'t specify this option if you\'ve specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you\'re launching more than one instance in the request.
         
         :type ElasticGpuSpecification: list
         :param ElasticGpuSpecification: 
@@ -975,7 +975,7 @@ class ServiceResource(base.ServiceResource):
         
             - **MaxPrice** *(string) --* 
         
-              The maximum hourly price you're willing to pay for the Spot Instances. The default is the On-Demand price.
+              The maximum hourly price you\'re willing to pay for the Spot Instances. The default is the On-Demand price.
         
             - **SpotInstanceType** *(string) --* 
         
@@ -1024,7 +1024,7 @@ class ServiceResource(base.ServiceResource):
         
           - **CapacityReservationPreference** *(string) --* 
         
-            Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+            Indicates the instance\'s Capacity Reservation preferences. Possible preferences include:
         
             * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
              
@@ -1081,7 +1081,7 @@ class ServiceResource(base.ServiceResource):
         ::
         
           key_pair = ec2.create_key_pair(
-              KeyName='string',
+              KeyName=\'string\',
               DryRun=True|False
           )
         :type KeyName: string
@@ -1113,7 +1113,7 @@ class ServiceResource(base.ServiceResource):
         
           network_acl = ec2.create_network_acl(
               DryRun=True|False,
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -1141,26 +1141,26 @@ class ServiceResource(base.ServiceResource):
         ::
         
           network_interface = ec2.create_network_interface(
-              Description='string',
+              Description=\'string\',
               DryRun=True|False,
               Groups=[
-                  'string',
+                  \'string\',
               ],
               Ipv6AddressCount=123,
               Ipv6Addresses=[
                   {
-                      'Ipv6Address': 'string'
+                      \'Ipv6Address\': \'string\'
                   },
               ],
-              PrivateIpAddress='string',
+              PrivateIpAddress=\'string\',
               PrivateIpAddresses=[
                   {
-                      'Primary': True|False,
-                      'PrivateIpAddress': 'string'
+                      \'Primary\': True|False,
+                      \'PrivateIpAddress\': \'string\'
                   },
               ],
               SecondaryPrivateIpAddressCount=123,
-              SubnetId='string'
+              SubnetId=\'string\'
           )
         :type Description: string
         :param Description: 
@@ -1182,12 +1182,12 @@ class ServiceResource(base.ServiceResource):
         :type Ipv6AddressCount: integer
         :param Ipv6AddressCount: 
         
-          The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the ``AssignIpv6AddressOnCreation`` attribute set to ``true`` , you can specify ``0`` to override this setting.
+          The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can\'t use this option if specifying specific IPv6 addresses. If your subnet has the ``AssignIpv6AddressOnCreation`` attribute set to ``true`` , you can specify ``0`` to override this setting.
         
         :type Ipv6Addresses: list
         :param Ipv6Addresses: 
         
-          One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+          One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can\'t use this option if you\'re specifying a number of IPv6 addresses.
         
           - *(dict) --* 
         
@@ -1200,7 +1200,7 @@ class ServiceResource(base.ServiceResource):
         :type PrivateIpAddress: string
         :param PrivateIpAddress: 
         
-          The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in ``privateIpAddresses`` as primary (only one IP address can be designated as primary).
+          The primary private IPv4 address of the network interface. If you don\'t specify an IPv4 address, Amazon EC2 selects one for you from the subnet\'s IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in ``privateIpAddresses`` as primary (only one IP address can be designated as primary).
         
         :type PrivateIpAddresses: list
         :param PrivateIpAddresses: 
@@ -1222,7 +1222,7 @@ class ServiceResource(base.ServiceResource):
         :type SecondaryPrivateIpAddressCount: integer
         :param SecondaryPrivateIpAddressCount: 
         
-          The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using ``privateIpAddresses`` .
+          The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet\'s IPv4 CIDR range. You can\'t specify this option and specify more than one private IP address using ``privateIpAddresses`` .
         
           The number of IP addresses you can assign to a network interface varies by instance type. For more information, see `IP Addresses Per ENI Per Instance Type <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -1250,8 +1250,8 @@ class ServiceResource(base.ServiceResource):
         
           placement_group = ec2.create_placement_group(
               DryRun=True|False,
-              GroupName='string',
-              Strategy='cluster'|'spread'
+              GroupName=\'string\',
+              Strategy=\'cluster\'|\'spread\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -1287,7 +1287,7 @@ class ServiceResource(base.ServiceResource):
         
           route_table = ec2.create_route_table(
               DryRun=True|False,
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -1315,9 +1315,9 @@ class ServiceResource(base.ServiceResource):
         
           EC2-VPC: You can create up to 500 security groups per VPC.
         
-        When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.
+        When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can\'t have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.
         
-        You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.
+        You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don\'t specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.
         
         You can add or remove rules from your security groups using  AuthorizeSecurityGroupIngress ,  AuthorizeSecurityGroupEgress ,  RevokeSecurityGroupIngress , and  RevokeSecurityGroupEgress .
         
@@ -1327,9 +1327,9 @@ class ServiceResource(base.ServiceResource):
         ::
         
           security_group = ec2.create_security_group(
-              Description='string',
-              GroupName='string',
-              VpcId='string',
+              Description=\'string\',
+              GroupName=\'string\',
+              VpcId=\'string\',
               DryRun=True|False
           )
         :type Description: string
@@ -1390,15 +1390,15 @@ class ServiceResource(base.ServiceResource):
         ::
         
           snapshot = ec2.create_snapshot(
-              Description='string',
-              VolumeId='string',
+              Description=\'string\',
+              VolumeId=\'string\',
               TagSpecifications=[
                   {
-                      'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                      'Tags': [
+                      \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
@@ -1461,17 +1461,17 @@ class ServiceResource(base.ServiceResource):
     def create_subnet(self, CidrBlock: str, VpcId: str, AvailabilityZone: str = None, Ipv6CidrBlock: str = None, DryRun: bool = None) -> 'Subnet':
         """
         
-        When you create each subnet, you provide the VPC ID and IPv4 CIDR block for the subnet. After you create a subnet, you can't change its CIDR block. The size of the subnet's IPv4 CIDR block can be the same as a VPC's IPv4 CIDR block, or a subset of a VPC's IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).
+        When you create each subnet, you provide the VPC ID and IPv4 CIDR block for the subnet. After you create a subnet, you can\'t change its CIDR block. The size of the subnet\'s IPv4 CIDR block can be the same as a VPC\'s IPv4 CIDR block, or a subset of a VPC\'s IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets\' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).
         
-        If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. 
+        If you\'ve associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. 
         
         .. warning::
         
-          AWS reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for use.
+          AWS reserves both the first four and the last IPv4 address in each subnet\'s CIDR block. They\'re not available for use.
         
-        If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.
+        If you add more than one subnet to a VPC, they\'re set up in a star topology with a logical router in the middle.
         
-        If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address doesn't change if you stop and restart the instance (unlike a similar instance launched outside a VPC, which gets a new IP address when restarted). It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.
+        If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address doesn\'t change if you stop and restart the instance (unlike a similar instance launched outside a VPC, which gets a new IP address when restarted). It\'s therefore possible to have a subnet with no running instances (they\'re all stopped), but no remaining IP addresses available.
         
         For more information about subnets, see `Your VPC and Subnets <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -1481,10 +1481,10 @@ class ServiceResource(base.ServiceResource):
         ::
         
           subnet = ec2.create_subnet(
-              AvailabilityZone='string',
-              CidrBlock='string',
-              Ipv6CidrBlock='string',
-              VpcId='string',
+              AvailabilityZone=\'string\',
+              CidrBlock=\'string\',
+              Ipv6CidrBlock=\'string\',
+              VpcId=\'string\',
               DryRun=True|False
           )
         :type AvailabilityZone: string
@@ -1542,21 +1542,21 @@ class ServiceResource(base.ServiceResource):
         ::
         
           volume = ec2.create_volume(
-              AvailabilityZone='string',
+              AvailabilityZone=\'string\',
               Encrypted=True|False,
               Iops=123,
-              KmsKeyId='string',
+              KmsKeyId=\'string\',
               Size=123,
-              SnapshotId='string',
-              VolumeType='standard'|'io1'|'gp2'|'sc1'|'st1',
+              SnapshotId=\'string\',
+              VolumeType=\'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
               DryRun=True|False,
               TagSpecifications=[
                   {
-                      'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                      'Tags': [
+                      \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
@@ -1603,7 +1603,7 @@ class ServiceResource(base.ServiceResource):
         
           Constraints: 1-16384 for ``gp2`` , 4-16384 for ``io1`` , 500-16384 for ``st1`` , 500-16384 for ``sc1`` , and 1-1024 for ``standard`` . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-          Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+          Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
         :type SnapshotId: string
         :param SnapshotId: 
@@ -1663,11 +1663,11 @@ class ServiceResource(base.ServiceResource):
     def create_vpc(self, CidrBlock: str, AmazonProvidedIpv6CidrBlock: bool = None, DryRun: bool = None, InstanceTenancy: str = None) -> 'Vpc':
         """
         
-        You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6 CIDR block uses a /56 prefix length, and is allocated from Amazon's pool of IPv6 addresses. You cannot choose the IPv6 range for your VPC.
+        You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6 CIDR block uses a /56 prefix length, and is allocated from Amazon\'s pool of IPv6 addresses. You cannot choose the IPv6 range for your VPC.
         
         By default, each instance you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see `DHCP Options Sets <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
-        You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see `Dedicated Instances <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        You can specify the instance tenancy value for the VPC when you create it. You can\'t change this value for the VPC after you create it. For more information, see `Dedicated Instances <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpc>`_
         
@@ -1675,10 +1675,10 @@ class ServiceResource(base.ServiceResource):
         ::
         
           vpc = ec2.create_vpc(
-              CidrBlock='string',
+              CidrBlock=\'string\',
               AmazonProvidedIpv6CidrBlock=True|False,
               DryRun=True|False,
-              InstanceTenancy='default'|'dedicated'|'host'
+              InstanceTenancy=\'default\'|\'dedicated\'|\'host\'
           )
         :type CidrBlock: string
         :param CidrBlock: **[REQUIRED]** 
@@ -1727,10 +1727,10 @@ class ServiceResource(base.ServiceResource):
         
           vpc_peering_connection = ec2.create_vpc_peering_connection(
               DryRun=True|False,
-              PeerOwnerId='string',
-              PeerVpcId='string',
-              VpcId='string',
-              PeerRegion='string'
+              PeerOwnerId=\'string\',
+              PeerVpcId=\'string\',
+              VpcId=\'string\',
+              PeerRegion=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -1769,7 +1769,7 @@ class ServiceResource(base.ServiceResource):
     def disassociate_route_table(self, AssociationId: str, DryRun: bool = None):
         """
         
-        After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see `Route Tables <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
+        After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC\'s main route table. For more information about route tables, see `Route Tables <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateRouteTable>`_
         
@@ -1777,7 +1777,7 @@ class ServiceResource(base.ServiceResource):
         ::
         
           response = ec2.disassociate_route_table(
-              AssociationId='string',
+              AssociationId=\'string\',
               DryRun=True|False
           )
         :type AssociationId: string
@@ -1816,8 +1816,8 @@ class ServiceResource(base.ServiceResource):
         
           key_pair_info = ec2.import_key_pair(
               DryRun=True|False,
-              KeyName='string',
-              PublicKeyMaterial=b'bytes'
+              KeyName=\'string\',
+              PublicKeyMaterial=b\'bytes\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -1844,11 +1844,11 @@ class ServiceResource(base.ServiceResource):
         
         .. note::
         
-          For Amazon EBS-backed instances,  CreateImage creates and registers the AMI in a single request, so you don't have to register the AMI yourself.
+          For Amazon EBS-backed instances,  CreateImage creates and registers the AMI in a single request, so you don\'t have to register the AMI yourself.
         
         You can also use ``RegisterImage`` to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using the block device mapping. For more information, see `Launching a Linux Instance from a Backup <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
-        You can't register an image where a secondary (non-root) snapshot has AWS Marketplace product codes.
+        You can\'t register an image where a secondary (non-root) snapshot has AWS Marketplace product codes.
         
         Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the EC2 billing product code associated with an AMI to verify the subscription status for package updates. Creating an AMI from an EBS snapshot does not maintain this billing code, and instances launched from such an AMI are not able to connect to package update infrastructure. If you purchase a Reserved Instance offering for one of these Linux distributions and launch instances using an AMI that does not contain the required billing code, your Reserved Instance is not applied to these instances.
         
@@ -1862,36 +1862,36 @@ class ServiceResource(base.ServiceResource):
         ::
         
           image = ec2.register_image(
-              ImageLocation='string',
-              Architecture='i386'|'x86_64',
+              ImageLocation=\'string\',
+              Architecture=\'i386\'|\'x86_64\',
               BlockDeviceMappings=[
                   {
-                      'DeviceName': 'string',
-                      'VirtualName': 'string',
-                      'Ebs': {
-                          'DeleteOnTermination': True|False,
-                          'Iops': 123,
-                          'SnapshotId': 'string',
-                          'VolumeSize': 123,
-                          'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                          'Encrypted': True|False,
-                          'KmsKeyId': 'string'
+                      \'DeviceName\': \'string\',
+                      \'VirtualName\': \'string\',
+                      \'Ebs\': {
+                          \'DeleteOnTermination\': True|False,
+                          \'Iops\': 123,
+                          \'SnapshotId\': \'string\',
+                          \'VolumeSize\': 123,
+                          \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                          \'Encrypted\': True|False,
+                          \'KmsKeyId\': \'string\'
                       },
-                      'NoDevice': 'string'
+                      \'NoDevice\': \'string\'
                   },
               ],
-              Description='string',
+              Description=\'string\',
               DryRun=True|False,
               EnaSupport=True|False,
-              KernelId='string',
-              Name='string',
+              KernelId=\'string\',
+              Name=\'string\',
               BillingProducts=[
-                  'string',
+                  \'string\',
               ],
-              RamdiskId='string',
-              RootDeviceName='string',
-              SriovNetSupport='string',
-              VirtualizationType='string'
+              RamdiskId=\'string\',
+              RootDeviceName=\'string\',
+              SriovNetSupport=\'string\',
+              VirtualizationType=\'string\'
           )
         :type ImageLocation: string
         :param ImageLocation: 
@@ -1952,7 +1952,7 @@ class ServiceResource(base.ServiceResource):
         
                 Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
               - **VolumeType** *(string) --* 
         
@@ -2003,7 +2003,7 @@ class ServiceResource(base.ServiceResource):
         
           A name for your AMI.
         
-          Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
+          Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes (\'), at-signs (@), or underscores(_)
         
         :type BillingProducts: list
         :param BillingProducts: 
@@ -2063,11 +2063,11 @@ class ClassicAddress(base.ServiceResource):
         
         [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance. If you associate an Elastic IP address with an instance that has an existing Elastic IP address, the existing address is disassociated from the instance, but remains allocated to your account.
         
-        [VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.
+        [VPC in an EC2-Classic account] If you don\'t specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.
         
         .. warning::
         
-          This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the *Elastic IP Addresses* section of `Amazon EC2 Pricing <http://aws.amazon.com/ec2/pricing/>`__ .
+          This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the *Elastic IP Addresses* section of `Amazon EC2 Pricing <http://aws.amazon.com/ec2/pricing/>`__ .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateAddress>`_
         
@@ -2075,12 +2075,12 @@ class ClassicAddress(base.ServiceResource):
         ::
         
           response = classic_address.associate(
-              AllocationId='string',
-              InstanceId='string',
+              AllocationId=\'string\',
+              InstanceId=\'string\',
               AllowReassociation=True|False,
               DryRun=True|False,
-              NetworkInterfaceId='string',
-              PrivateIpAddress='string'
+              NetworkInterfaceId=\'string\',
+              PrivateIpAddress=\'string\'
           )
         :type AllocationId: string
         :param AllocationId: 
@@ -2120,7 +2120,7 @@ class ClassicAddress(base.ServiceResource):
           ::
         
             {
-                'AssociationId': 'string'
+                \'AssociationId\': \'string\'
             }
           **Response Structure** 
         
@@ -2138,7 +2138,7 @@ class ClassicAddress(base.ServiceResource):
         
         An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
-        This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
+        This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateAddress>`_
         
@@ -2146,7 +2146,7 @@ class ClassicAddress(base.ServiceResource):
         ::
         
           response = classic_address.disassociate(
-              AssociationId='string',
+              AssociationId=\'string\',
               DryRun=True|False
           )
         :type AssociationId: string
@@ -2190,11 +2190,11 @@ class ClassicAddress(base.ServiceResource):
     def release(self, AllocationId: str = None, DryRun: bool = None):
         """
         
-        [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. To disassociate an Elastic IP address without releasing it, use  DisassociateAddress .
+        [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it\'s associated with. To disassociate an Elastic IP address without releasing it, use  DisassociateAddress .
         
         [Nondefault VPC] You must use  DisassociateAddress to disassociate the Elastic IP address before you can release it. Otherwise, Amazon EC2 returns an error (``InvalidIPAddress.InUse`` ).
         
-        After releasing an Elastic IP address, it is released to the IP address pool. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you'll get an ``AuthFailure`` error if the address is already allocated to another AWS account.
+        After releasing an Elastic IP address, it is released to the IP address pool. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you\'ll get an ``AuthFailure`` error if the address is already allocated to another AWS account.
         
         [EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it. For more information, see  AllocateAddress .
         
@@ -2204,7 +2204,7 @@ class ClassicAddress(base.ServiceResource):
         ::
         
           response = classic_address.release(
-              AllocationId='string',
+              AllocationId=\'string\',
               DryRun=True|False
           )
         :type AllocationId: string
@@ -2245,7 +2245,7 @@ class DhcpOptions(base.ServiceResource):
     def associate_with_vpc(self, VpcId: str, DryRun: bool = None):
         """
         
-        After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
+        After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don\'t need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
         
         For more information, see `DHCP Options Sets <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -2255,7 +2255,7 @@ class DhcpOptions(base.ServiceResource):
         ::
         
           response = dhcp_options.associate_with_vpc(
-              VpcId='string',
+              VpcId=\'string\',
               DryRun=True|False
           )
         :type VpcId: string
@@ -2275,7 +2275,7 @@ class DhcpOptions(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -2286,8 +2286,8 @@ class DhcpOptions(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2299,7 +2299,7 @@ class DhcpOptions(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -2411,7 +2411,7 @@ class Image(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -2422,8 +2422,8 @@ class Image(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2435,7 +2435,7 @@ class Image(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -2461,7 +2461,7 @@ class Image(base.ServiceResource):
     def deregister(self, DryRun: bool = None):
         """
         
-        When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.
+        When you deregister an Amazon EBS-backed AMI, it doesn\'t affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn\'t affect the files that you uploaded to Amazon S3 when you created the AMI.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeregisterImage>`_
         
@@ -2489,7 +2489,7 @@ class Image(base.ServiceResource):
         ::
         
           response = image.describe_attribute(
-              Attribute='description'|'kernel'|'ramdisk'|'launchPermission'|'productCodes'|'blockDeviceMapping'|'sriovNetSupport',
+              Attribute=\'description\'|\'kernel\'|\'ramdisk\'|\'launchPermission\'|\'productCodes\'|\'blockDeviceMapping\'|\'sriovNetSupport\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -2512,46 +2512,46 @@ class Image(base.ServiceResource):
           ::
         
             {
-                'BlockDeviceMappings': [
+                \'BlockDeviceMappings\': [
                     {
-                        'DeviceName': 'string',
-                        'VirtualName': 'string',
-                        'Ebs': {
-                            'DeleteOnTermination': True|False,
-                            'Iops': 123,
-                            'SnapshotId': 'string',
-                            'VolumeSize': 123,
-                            'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                            'Encrypted': True|False,
-                            'KmsKeyId': 'string'
+                        \'DeviceName\': \'string\',
+                        \'VirtualName\': \'string\',
+                        \'Ebs\': {
+                            \'DeleteOnTermination\': True|False,
+                            \'Iops\': 123,
+                            \'SnapshotId\': \'string\',
+                            \'VolumeSize\': 123,
+                            \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                            \'Encrypted\': True|False,
+                            \'KmsKeyId\': \'string\'
                         },
-                        'NoDevice': 'string'
+                        \'NoDevice\': \'string\'
                     },
                 ],
-                'ImageId': 'string',
-                'LaunchPermissions': [
+                \'ImageId\': \'string\',
+                \'LaunchPermissions\': [
                     {
-                        'Group': 'all',
-                        'UserId': 'string'
+                        \'Group\': \'all\',
+                        \'UserId\': \'string\'
                     },
                 ],
-                'ProductCodes': [
+                \'ProductCodes\': [
                     {
-                        'ProductCodeId': 'string',
-                        'ProductCodeType': 'devpay'|'marketplace'
+                        \'ProductCodeId\': \'string\',
+                        \'ProductCodeType\': \'devpay\'|\'marketplace\'
                     },
                 ],
-                'Description': {
-                    'Value': 'string'
+                \'Description\': {
+                    \'Value\': \'string\'
                 },
-                'KernelId': {
-                    'Value': 'string'
+                \'KernelId\': {
+                    \'Value\': \'string\'
                 },
-                'RamdiskId': {
-                    'Value': 'string'
+                \'RamdiskId\': {
+                    \'Value\': \'string\'
                 },
-                'SriovNetSupport': {
-                    'Value': 'string'
+                \'SriovNetSupport\': {
+                    \'Value\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2606,7 +2606,7 @@ class Image(base.ServiceResource):
         
                     Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                    Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                    Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                   - **VolumeType** *(string) --* 
         
@@ -2738,35 +2738,35 @@ class Image(base.ServiceResource):
         ::
         
           response = image.modify_attribute(
-              Attribute='string',
+              Attribute=\'string\',
               Description={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               LaunchPermission={
-                  'Add': [
+                  \'Add\': [
                       {
-                          'Group': 'all',
-                          'UserId': 'string'
+                          \'Group\': \'all\',
+                          \'UserId\': \'string\'
                       },
                   ],
-                  'Remove': [
+                  \'Remove\': [
                       {
-                          'Group': 'all',
-                          'UserId': 'string'
+                          \'Group\': \'all\',
+                          \'UserId\': \'string\'
                       },
                   ]
               },
-              OperationType='add'|'remove',
+              OperationType=\'add\'|\'remove\',
               ProductCodes=[
-                  'string',
+                  \'string\',
               ],
               UserGroups=[
-                  'string',
+                  \'string\',
               ],
               UserIds=[
-                  'string',
+                  \'string\',
               ],
-              Value='string',
+              Value=\'string\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -2828,7 +2828,7 @@ class Image(base.ServiceResource):
         :type ProductCodes: list
         :param ProductCodes: 
         
-          One or more DevPay product codes. After you add a product code to an AMI, it can't be removed.
+          One or more DevPay product codes. After you add a product code to an AMI, it can\'t be removed.
         
           - *(string) --* 
         
@@ -2879,7 +2879,7 @@ class Image(base.ServiceResource):
         
         .. note::
         
-          The productCodes attribute can't be reset.
+          The productCodes attribute can\'t be reset.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetImageAttribute>`_
         
@@ -2887,7 +2887,7 @@ class Image(base.ServiceResource):
         ::
         
           response = image.reset_attribute(
-              Attribute='launchPermission',
+              Attribute=\'launchPermission\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -2914,18 +2914,18 @@ class Image(base.ServiceResource):
         
           image.wait_until_exists(
               ExecutableUsers=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               Owners=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -3102,7 +3102,7 @@ class Instance(base.ServiceResource):
     def attach_classic_link_vpc(self, Groups: List, VpcId: str, DryRun: bool = None) -> Dict:
         """
         
-        After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
+        After you\'ve linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
         
         Linking your instance to a VPC is sometimes referred to as *attaching* your instance.
         
@@ -3114,9 +3114,9 @@ class Instance(base.ServiceResource):
           response = instance.attach_classic_link_vpc(
               DryRun=True|False,
               Groups=[
-                  'string',
+                  \'string\',
               ],
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -3126,7 +3126,7 @@ class Instance(base.ServiceResource):
         :type Groups: list
         :param Groups: **[REQUIRED]** 
         
-          The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
+          The ID of one or more of the VPC\'s security groups. You cannot specify security groups from a different VPC.
         
           - *(string) --* 
         
@@ -3143,7 +3143,7 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -3161,7 +3161,7 @@ class Instance(base.ServiceResource):
         
         Encrypted EBS volumes may only be attached to instances that support Amazon EBS encryption. For more information, see `Amazon EBS Encryption <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
-        For a list of supported device names, see `Attaching an EBS Volume to an Instance <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html>`__ . Any device names that aren't reserved for instance store volumes can be used for EBS volumes. For more information, see `Amazon EC2 Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For a list of supported device names, see `Attaching an EBS Volume to an Instance <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html>`__ . Any device names that aren\'t reserved for instance store volumes can be used for EBS volumes. For more information, see `Amazon EC2 Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         If a volume has an AWS Marketplace product code:
         
@@ -3171,7 +3171,7 @@ class Instance(base.ServiceResource):
          
         * You must be subscribed to the product. 
          
-        * The instance type and operating system of the instance must support the product. For example, you can't detach a volume from a Windows instance and attach it to a Linux instance. 
+        * The instance type and operating system of the instance must support the product. For example, you can\'t detach a volume from a Windows instance and attach it to a Linux instance. 
          
         For more information about EBS volumes, see `Attaching Amazon EBS Volumes <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
@@ -3181,8 +3181,8 @@ class Instance(base.ServiceResource):
         ::
         
           response = instance.attach_volume(
-              Device='string',
-              VolumeId='string',
+              Device=\'string\',
+              VolumeId=\'string\',
               DryRun=True|False
           )
         :type Device: string
@@ -3208,12 +3208,12 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'AttachTime': datetime(2015, 1, 1),
-                'Device': 'string',
-                'InstanceId': 'string',
-                'State': 'attaching'|'attached'|'detaching'|'detached'|'busy',
-                'VolumeId': 'string',
-                'DeleteOnTermination': True|False
+                \'AttachTime\': datetime(2015, 1, 1),
+                \'Device\': \'string\',
+                \'InstanceId\': \'string\',
+                \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'|\'busy\',
+                \'VolumeId\': \'string\',
+                \'DeleteOnTermination\': True|False
             }
           **Response Structure** 
         
@@ -3286,9 +3286,9 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'InstanceId': 'string',
-                'Output': 'string',
-                'Timestamp': datetime(2015, 1, 1)
+                \'InstanceId\': \'string\',
+                \'Output\': \'string\',
+                \'Timestamp\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -3326,23 +3326,23 @@ class Instance(base.ServiceResource):
           image = instance.create_image(
               BlockDeviceMappings=[
                   {
-                      'DeviceName': 'string',
-                      'VirtualName': 'string',
-                      'Ebs': {
-                          'DeleteOnTermination': True|False,
-                          'Iops': 123,
-                          'SnapshotId': 'string',
-                          'VolumeSize': 123,
-                          'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                          'Encrypted': True|False,
-                          'KmsKeyId': 'string'
+                      \'DeviceName\': \'string\',
+                      \'VirtualName\': \'string\',
+                      \'Ebs\': {
+                          \'DeleteOnTermination\': True|False,
+                          \'Iops\': 123,
+                          \'SnapshotId\': \'string\',
+                          \'VolumeSize\': 123,
+                          \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                          \'Encrypted\': True|False,
+                          \'KmsKeyId\': \'string\'
                       },
-                      'NoDevice': 'string'
+                      \'NoDevice\': \'string\'
                   },
               ],
-              Description='string',
+              Description=\'string\',
               DryRun=True|False,
-              Name='string',
+              Name=\'string\',
               NoReboot=True|False
           )
         :type BlockDeviceMappings: list
@@ -3392,7 +3392,7 @@ class Instance(base.ServiceResource):
         
                 Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
               - **VolumeType** *(string) --* 
         
@@ -3431,12 +3431,12 @@ class Instance(base.ServiceResource):
         
           A name for the new image.
         
-          Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
+          Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes (\'), at-signs (@), or underscores(_)
         
         :type NoReboot: boolean
         :param NoReboot: 
         
-          By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.
+          By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the \'No Reboot\' option is set, Amazon EC2 doesn\'t shut down the instance before creating the image. When this option is used, file system integrity on the created image can\'t be guaranteed.
         
         :rtype: :py:class:`ec2.Image`
         :returns: Image resource
@@ -3446,7 +3446,7 @@ class Instance(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -3457,8 +3457,8 @@ class Instance(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -3470,7 +3470,7 @@ class Instance(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -3507,8 +3507,8 @@ class Instance(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -3553,7 +3553,7 @@ class Instance(base.ServiceResource):
         ::
         
           response = instance.describe_attribute(
-              Attribute='instanceType'|'kernel'|'ramdisk'|'userData'|'disableApiTermination'|'instanceInitiatedShutdownBehavior'|'rootDeviceName'|'blockDeviceMapping'|'productCodes'|'sourceDestCheck'|'groupSet'|'ebsOptimized'|'sriovNetSupport'|'enaSupport',
+              Attribute=\'instanceType\'|\'kernel\'|\'ramdisk\'|\'userData\'|\'disableApiTermination\'|\'instanceInitiatedShutdownBehavior\'|\'rootDeviceName\'|\'blockDeviceMapping\'|\'productCodes\'|\'sourceDestCheck\'|\'groupSet\'|\'ebsOptimized\'|\'sriovNetSupport\'|\'enaSupport\',
               DryRun=True|False,
               
           )
@@ -3577,62 +3577,62 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'GroupName': 'string',
-                        'GroupId': 'string'
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\'
                     },
                 ],
-                'BlockDeviceMappings': [
+                \'BlockDeviceMappings\': [
                     {
-                        'DeviceName': 'string',
-                        'Ebs': {
-                            'AttachTime': datetime(2015, 1, 1),
-                            'DeleteOnTermination': True|False,
-                            'Status': 'attaching'|'attached'|'detaching'|'detached',
-                            'VolumeId': 'string'
+                        \'DeviceName\': \'string\',
+                        \'Ebs\': {
+                            \'AttachTime\': datetime(2015, 1, 1),
+                            \'DeleteOnTermination\': True|False,
+                            \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                            \'VolumeId\': \'string\'
                         }
                     },
                 ],
-                'DisableApiTermination': {
-                    'Value': True|False
+                \'DisableApiTermination\': {
+                    \'Value\': True|False
                 },
-                'EnaSupport': {
-                    'Value': True|False
+                \'EnaSupport\': {
+                    \'Value\': True|False
                 },
-                'EbsOptimized': {
-                    'Value': True|False
+                \'EbsOptimized\': {
+                    \'Value\': True|False
                 },
-                'InstanceId': 'string',
-                'InstanceInitiatedShutdownBehavior': {
-                    'Value': 'string'
+                \'InstanceId\': \'string\',
+                \'InstanceInitiatedShutdownBehavior\': {
+                    \'Value\': \'string\'
                 },
-                'InstanceType': {
-                    'Value': 'string'
+                \'InstanceType\': {
+                    \'Value\': \'string\'
                 },
-                'KernelId': {
-                    'Value': 'string'
+                \'KernelId\': {
+                    \'Value\': \'string\'
                 },
-                'ProductCodes': [
+                \'ProductCodes\': [
                     {
-                        'ProductCodeId': 'string',
-                        'ProductCodeType': 'devpay'|'marketplace'
+                        \'ProductCodeId\': \'string\',
+                        \'ProductCodeType\': \'devpay\'|\'marketplace\'
                     },
                 ],
-                'RamdiskId': {
-                    'Value': 'string'
+                \'RamdiskId\': {
+                    \'Value\': \'string\'
                 },
-                'RootDeviceName': {
-                    'Value': 'string'
+                \'RootDeviceName\': {
+                    \'Value\': \'string\'
                 },
-                'SourceDestCheck': {
-                    'Value': True|False
+                \'SourceDestCheck\': {
+                    \'Value\': True|False
                 },
-                'SriovNetSupport': {
-                    'Value': 'string'
+                \'SriovNetSupport\': {
+                    \'Value\': \'string\'
                 },
-                'UserData': {
-                    'Value': 'string'
+                \'UserData\': {
+                    \'Value\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3691,7 +3691,7 @@ class Instance(base.ServiceResource):
         
             - **DisableApiTermination** *(dict) --* 
         
-              If the value is ``true`` , you can't terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
+              If the value is ``true`` , you can\'t terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
         
               - **Value** *(boolean) --* 
         
@@ -3810,7 +3810,7 @@ class Instance(base.ServiceResource):
         
           response = instance.detach_classic_link_vpc(
               DryRun=True|False,
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -3830,7 +3830,7 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -3856,9 +3856,9 @@ class Instance(base.ServiceResource):
         ::
         
           response = instance.detach_volume(
-              Device='string',
+              Device=\'string\',
               Force=True|False,
-              VolumeId='string',
+              VolumeId=\'string\',
               DryRun=True|False
           )
         :type Device: string
@@ -3869,7 +3869,7 @@ class Instance(base.ServiceResource):
         :type Force: boolean
         :param Force: 
         
-          Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
+          Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won\'t have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
         
         :type VolumeId: string
         :param VolumeId: **[REQUIRED]** 
@@ -3889,12 +3889,12 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'AttachTime': datetime(2015, 1, 1),
-                'Device': 'string',
-                'InstanceId': 'string',
-                'State': 'attaching'|'attached'|'detaching'|'detached'|'busy',
-                'VolumeId': 'string',
-                'DeleteOnTermination': True|False
+                \'AttachTime\': datetime(2015, 1, 1),
+                \'Device\': \'string\',
+                \'InstanceId\': \'string\',
+                \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'|\'busy\',
+                \'VolumeId\': \'string\',
+                \'DeleteOnTermination\': True|False
             }
           **Response Structure** 
         
@@ -3967,52 +3967,52 @@ class Instance(base.ServiceResource):
         
           response = instance.modify_attribute(
               SourceDestCheck={
-                  'Value': True|False
+                  \'Value\': True|False
               },
-              Attribute='instanceType'|'kernel'|'ramdisk'|'userData'|'disableApiTermination'|'instanceInitiatedShutdownBehavior'|'rootDeviceName'|'blockDeviceMapping'|'productCodes'|'sourceDestCheck'|'groupSet'|'ebsOptimized'|'sriovNetSupport'|'enaSupport',
+              Attribute=\'instanceType\'|\'kernel\'|\'ramdisk\'|\'userData\'|\'disableApiTermination\'|\'instanceInitiatedShutdownBehavior\'|\'rootDeviceName\'|\'blockDeviceMapping\'|\'productCodes\'|\'sourceDestCheck\'|\'groupSet\'|\'ebsOptimized\'|\'sriovNetSupport\'|\'enaSupport\',
               BlockDeviceMappings=[
                   {
-                      'DeviceName': 'string',
-                      'Ebs': {
-                          'DeleteOnTermination': True|False,
-                          'VolumeId': 'string'
+                      \'DeviceName\': \'string\',
+                      \'Ebs\': {
+                          \'DeleteOnTermination\': True|False,
+                          \'VolumeId\': \'string\'
                       },
-                      'NoDevice': 'string',
-                      'VirtualName': 'string'
+                      \'NoDevice\': \'string\',
+                      \'VirtualName\': \'string\'
                   },
               ],
               DisableApiTermination={
-                  'Value': True|False
+                  \'Value\': True|False
               },
               DryRun=True|False,
               EbsOptimized={
-                  'Value': True|False
+                  \'Value\': True|False
               },
               EnaSupport={
-                  'Value': True|False
+                  \'Value\': True|False
               },
               Groups=[
-                  'string',
+                  \'string\',
               ],
               InstanceInitiatedShutdownBehavior={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               InstanceType={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               Kernel={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               Ramdisk={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               SriovNetSupport={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               UserData={
-                  'Value': b'bytes'
+                  \'Value\': b\'bytes\'
               },
-              Value='string'
+              Value=\'string\'
           )
         :type SourceDestCheck: dict
         :param SourceDestCheck: 
@@ -4066,7 +4066,7 @@ class Instance(base.ServiceResource):
         :type DisableApiTermination: dict
         :param DisableApiTermination: 
         
-          If the value is ``true`` , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
+          If the value is ``true`` , you can\'t terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
         
           - **Value** *(boolean) --* 
         
@@ -4080,7 +4080,7 @@ class Instance(base.ServiceResource):
         :type EbsOptimized: dict
         :param EbsOptimized: 
         
-          Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+          Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
         
           - **Value** *(boolean) --* 
         
@@ -4100,7 +4100,7 @@ class Instance(base.ServiceResource):
         :type Groups: list
         :param Groups: 
         
-          [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
+          [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it\'s just the default security group for the VPC. You must specify the security group ID, not the security group name.
         
           - *(string) --* 
         
@@ -4125,7 +4125,7 @@ class Instance(base.ServiceResource):
         :type Kernel: dict
         :param Kernel: 
         
-          Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `PV-GRUB <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html>`__ .
+          Changes the instance\'s kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `PV-GRUB <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html>`__ .
         
           - **Value** *(string) --* 
         
@@ -4134,7 +4134,7 @@ class Instance(base.ServiceResource):
         :type Ramdisk: dict
         :param Ramdisk: 
         
-          Changes the instance's RAM disk to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `PV-GRUB <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html>`__ .
+          Changes the instance\'s RAM disk to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `PV-GRUB <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html>`__ .
         
           - **Value** *(string) --* 
         
@@ -4156,7 +4156,7 @@ class Instance(base.ServiceResource):
         :type UserData: dict
         :param UserData: 
         
-          Changes the instance's user data to the specified value. If you are using an AWS SDK or command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
+          Changes the instance\'s user data to the specified value. If you are using an AWS SDK or command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
         
           - **Value** *(bytes) --* 
         
@@ -4195,11 +4195,11 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'InstanceMonitorings': [
+                \'InstanceMonitorings\': [
                     {
-                        'InstanceId': 'string',
-                        'Monitoring': {
-                            'State': 'disabled'|'disabling'|'enabled'|'pending'
+                        \'InstanceId\': \'string\',
+                        \'Monitoring\': {
+                            \'State\': \'disabled\'|\'disabling\'|\'enabled\'|\'pending\'
                         }
                     },
                 ]
@@ -4242,7 +4242,7 @@ class Instance(base.ServiceResource):
         
         The password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.
         
-        When you launch an instance, password generation and encryption may take a few minutes. If you try to retrieve the password before it's available, the output returns an empty string. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.
+        When you launch an instance, password generation and encryption may take a few minutes. If you try to retrieve the password before it\'s available, the output returns an empty string. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetPasswordData>`_
         
@@ -4265,9 +4265,9 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'InstanceId': 'string',
-                'PasswordData': 'string',
-                'Timestamp': datetime(2015, 1, 1)
+                \'InstanceId\': \'string\',
+                \'PasswordData\': \'string\',
+                \'Timestamp\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -4339,14 +4339,14 @@ class Instance(base.ServiceResource):
         ::
         
           response = instance.report_status(
-              Description='string',
+              Description=\'string\',
               DryRun=True|False,
               EndTime=datetime(2015, 1, 1),
               ReasonCodes=[
-                  'instance-stuck-in-state'|'unresponsive'|'not-accepting-credentials'|'password-not-available'|'performance-network'|'performance-instance-store'|'performance-ebs-volume'|'performance-other'|'other',
+                  \'instance-stuck-in-state\'|\'unresponsive\'|\'not-accepting-credentials\'|\'password-not-available\'|\'performance-network\'|\'performance-instance-store\'|\'performance-ebs-volume\'|\'performance-other\'|\'other\',
               ],
               StartTime=datetime(2015, 1, 1),
-              Status='ok'|'impaired'
+              Status=\'ok\'|\'impaired\'
           )
         :type Description: string
         :param Description: 
@@ -4413,7 +4413,7 @@ class Instance(base.ServiceResource):
         ::
         
           response = instance.reset_attribute(
-              Attribute='instanceType'|'kernel'|'ramdisk'|'userData'|'disableApiTermination'|'instanceInitiatedShutdownBehavior'|'rootDeviceName'|'blockDeviceMapping'|'productCodes'|'sourceDestCheck'|'groupSet'|'ebsOptimized'|'sriovNetSupport'|'enaSupport',
+              Attribute=\'instanceType\'|\'kernel\'|\'ramdisk\'|\'userData\'|\'disableApiTermination\'|\'instanceInitiatedShutdownBehavior\'|\'rootDeviceName\'|\'blockDeviceMapping\'|\'productCodes\'|\'sourceDestCheck\'|\'groupSet\'|\'ebsOptimized\'|\'sriovNetSupport\'|\'enaSupport\',
               DryRun=True|False,
               
           )
@@ -4521,7 +4521,7 @@ class Instance(base.ServiceResource):
         ::
         
           response = instance.start(
-              AdditionalInfo='string',
+              AdditionalInfo=\'string\',
               DryRun=True|False
           )
         :type AdditionalInfo: string
@@ -4542,16 +4542,16 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'StartingInstances': [
+                \'StartingInstances\': [
                     {
-                        'CurrentState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'CurrentState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'InstanceId': 'string',
-                        'PreviousState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'InstanceId\': \'string\',
+                        \'PreviousState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         }
                     },
                 ]
@@ -4628,9 +4628,9 @@ class Instance(base.ServiceResource):
     def stop(self, DryRun: bool = None, Force: bool = None) -> Dict:
         """
         
-        We don't charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.
+        We don\'t charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.
         
-        You can't start or stop Spot Instances, and you can't stop instance store-backed instances.
+        You can\'t start or stop Spot Instances, and you can\'t stop instance store-backed instances.
         
         When you stop an instance, we shut it down. You can restart your instance at any time. Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.
         
@@ -4667,16 +4667,16 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'StoppingInstances': [
+                \'StoppingInstances\': [
                     {
-                        'CurrentState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'CurrentState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'InstanceId': 'string',
-                        'PreviousState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'InstanceId\': \'string\',
+                        \'PreviousState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         }
                     },
                 ]
@@ -4784,16 +4784,16 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'TerminatingInstances': [
+                \'TerminatingInstances\': [
                     {
-                        'CurrentState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'CurrentState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'InstanceId': 'string',
-                        'PreviousState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'InstanceId\': \'string\',
+                        \'PreviousState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         }
                     },
                 ]
@@ -4891,11 +4891,11 @@ class Instance(base.ServiceResource):
           ::
         
             {
-                'InstanceMonitorings': [
+                \'InstanceMonitorings\': [
                     {
-                        'InstanceId': 'string',
-                        'Monitoring': {
-                            'State': 'disabled'|'disabling'|'enabled'|'pending'
+                        \'InstanceId\': \'string\',
+                        \'Monitoring\': {
+                            \'State\': \'disabled\'|\'disabling\'|\'enabled\'|\'pending\'
                         }
                     },
                 ]
@@ -4940,15 +4940,15 @@ class Instance(base.ServiceResource):
           instance.wait_until_exists(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -5089,11 +5089,11 @@ class Instance(base.ServiceResource):
            
           * ``ramdisk-id`` - The RAM disk ID. 
            
-          * ``reason`` - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter. 
+          * ``reason`` - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter. 
            
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on). 
            
-          * ``reservation-id`` - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
+          * ``reservation-id`` - The ID of the instance\'s reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
            
           * ``root-device-name`` - The device name of the root device volume (for example, ``/dev/sda1`` ). 
            
@@ -5183,15 +5183,15 @@ class Instance(base.ServiceResource):
           instance.wait_until_running(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -5332,11 +5332,11 @@ class Instance(base.ServiceResource):
            
           * ``ramdisk-id`` - The RAM disk ID. 
            
-          * ``reason`` - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter. 
+          * ``reason`` - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter. 
            
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on). 
            
-          * ``reservation-id`` - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
+          * ``reservation-id`` - The ID of the instance\'s reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
            
           * ``root-device-name`` - The device name of the root device volume (for example, ``/dev/sda1`` ). 
            
@@ -5426,15 +5426,15 @@ class Instance(base.ServiceResource):
           instance.wait_until_stopped(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -5575,11 +5575,11 @@ class Instance(base.ServiceResource):
            
           * ``ramdisk-id`` - The RAM disk ID. 
            
-          * ``reason`` - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter. 
+          * ``reason`` - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter. 
            
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on). 
            
-          * ``reservation-id`` - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
+          * ``reservation-id`` - The ID of the instance\'s reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
            
           * ``root-device-name`` - The device name of the root device volume (for example, ``/dev/sda1`` ). 
            
@@ -5669,15 +5669,15 @@ class Instance(base.ServiceResource):
           instance.wait_until_terminated(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -5818,11 +5818,11 @@ class Instance(base.ServiceResource):
            
           * ``ramdisk-id`` - The RAM disk ID. 
            
-          * ``reason`` - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter. 
+          * ``reason`` - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter. 
            
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on). 
            
-          * ``reservation-id`` - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
+          * ``reservation-id`` - The ID of the instance\'s reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
            
           * ``root-device-name`` - The device name of the root device volume (for example, ``/dev/sda1`` ). 
            
@@ -5918,7 +5918,7 @@ class InternetGateway(base.ServiceResource):
         
           response = internet_gateway.attach_to_vpc(
               DryRun=True|False,
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -5937,7 +5937,7 @@ class InternetGateway(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -5948,8 +5948,8 @@ class InternetGateway(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -5961,7 +5961,7 @@ class InternetGateway(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -6015,7 +6015,7 @@ class InternetGateway(base.ServiceResource):
         
           response = internet_gateway.detach_from_vpc(
               DryRun=True|False,
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -6185,7 +6185,7 @@ class NetworkAcl(base.ServiceResource):
         
         We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.
         
-        After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.
+        After you add an entry, you can\'t modify it; you must either replace it, or create an entry and delete the old one.
         
         For more information about network ACLs, see `Network ACLs <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -6195,20 +6195,20 @@ class NetworkAcl(base.ServiceResource):
         ::
         
           response = network_acl.create_entry(
-              CidrBlock='string',
+              CidrBlock=\'string\',
               DryRun=True|False,
               Egress=True|False,
               IcmpTypeCode={
-                  'Code': 123,
-                  'Type': 123
+                  \'Code\': 123,
+                  \'Type\': 123
               },
-              Ipv6CidrBlock='string',
+              Ipv6CidrBlock=\'string\',
               PortRange={
-                  'From': 123,
-                  'To': 123
+                  \'From\': 123,
+                  \'To\': 123
               },
-              Protocol='string',
-              RuleAction='allow'|'deny',
+              Protocol=\'string\',
+              RuleAction=\'allow\'|\'deny\',
               RuleNumber=123
           )
         :type CidrBlock: string
@@ -6260,7 +6260,7 @@ class NetworkAcl(base.ServiceResource):
         :type Protocol: string
         :param Protocol: **[REQUIRED]** 
         
-          The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+          The protocol number. A value of \"-1\" means all protocols. If you specify \"-1\" or a protocol number other than \"6\" (TCP), \"17\" (UDP), or \"1\" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol \"58\" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol \"58\" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
         
         :type RuleAction: string
         :param RuleAction: **[REQUIRED]** 
@@ -6281,7 +6281,7 @@ class NetworkAcl(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -6292,8 +6292,8 @@ class NetworkAcl(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -6305,7 +6305,7 @@ class NetworkAcl(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -6430,7 +6430,7 @@ class NetworkAcl(base.ServiceResource):
         ::
         
           response = network_acl.replace_association(
-              AssociationId='string',
+              AssociationId=\'string\',
               DryRun=True|False,
               
           )
@@ -6452,7 +6452,7 @@ class NetworkAcl(base.ServiceResource):
           ::
         
             {
-                'NewAssociationId': 'string'
+                \'NewAssociationId\': \'string\'
             }
           **Response Structure** 
         
@@ -6474,20 +6474,20 @@ class NetworkAcl(base.ServiceResource):
         ::
         
           response = network_acl.replace_entry(
-              CidrBlock='string',
+              CidrBlock=\'string\',
               DryRun=True|False,
               Egress=True|False,
               IcmpTypeCode={
-                  'Code': 123,
-                  'Type': 123
+                  \'Code\': 123,
+                  \'Type\': 123
               },
-              Ipv6CidrBlock='string',
+              Ipv6CidrBlock=\'string\',
               PortRange={
-                  'From': 123,
-                  'To': 123
+                  \'From\': 123,
+                  \'To\': 123
               },
-              Protocol='string',
-              RuleAction='allow'|'deny',
+              Protocol=\'string\',
+              RuleAction=\'allow\'|\'deny\',
               RuleNumber=123
           )
         :type CidrBlock: string
@@ -6541,7 +6541,7 @@ class NetworkAcl(base.ServiceResource):
         :type Protocol: string
         :param Protocol: **[REQUIRED]** 
         
-          The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+          The protocol number. A value of \"-1\" means all protocols. If you specify \"-1\" or a protocol number other than \"6\" (TCP), \"17\" (UDP), or \"1\" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol \"58\" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol \"58\" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
         
         :type RuleAction: string
         :param RuleAction: **[REQUIRED]** 
@@ -6584,7 +6584,7 @@ class NetworkInterface(base.ServiceResource):
     def assign_private_ip_addresses(self, AllowReassignment: bool = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None):
         """
         
-        You can specify one or more specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned within the subnet's CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For information about instance types, see `Instance Types <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about Elastic IP addresses, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        You can specify one or more specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned within the subnet\'s CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For information about instance types, see `Instance Types <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about Elastic IP addresses, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         When you move a secondary private IP address to another network interface, any Elastic IP address that is associated with the IP address is also moved.
         
@@ -6598,7 +6598,7 @@ class NetworkInterface(base.ServiceResource):
           response = network_interface.assign_private_ip_addresses(
               AllowReassignment=True|False,
               PrivateIpAddresses=[
-                  'string',
+                  \'string\',
               ],
               SecondaryPrivateIpAddressCount=123
           )
@@ -6610,16 +6610,16 @@ class NetworkInterface(base.ServiceResource):
         :type PrivateIpAddresses: list
         :param PrivateIpAddresses: 
         
-          One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.
+          One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can\'t specify this parameter when also specifying a number of secondary IP addresses.
         
-          If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.
+          If you don\'t specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.
         
           - *(string) --* 
         
         :type SecondaryPrivateIpAddressCount: integer
         :param SecondaryPrivateIpAddressCount: 
         
-          The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.
+          The number of secondary IP addresses to assign to the network interface. You can\'t specify this parameter when also specifying private IP addresses.
         
         :returns: None
         """
@@ -6636,7 +6636,7 @@ class NetworkInterface(base.ServiceResource):
           response = network_interface.attach(
               DeviceIndex=123,
               DryRun=True|False,
-              InstanceId='string',
+              InstanceId=\'string\',
               
           )
         :type DeviceIndex: integer
@@ -6662,7 +6662,7 @@ class NetworkInterface(base.ServiceResource):
           ::
         
             {
-                'AttachmentId': 'string'
+                \'AttachmentId\': \'string\'
             }
           **Response Structure** 
         
@@ -6680,7 +6680,7 @@ class NetworkInterface(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -6691,8 +6691,8 @@ class NetworkInterface(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -6704,7 +6704,7 @@ class NetworkInterface(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -6757,7 +6757,7 @@ class NetworkInterface(base.ServiceResource):
         ::
         
           response = network_interface.describe_attribute(
-              Attribute='description'|'groupSet'|'sourceDestCheck'|'attachment',
+              Attribute=\'description\'|\'groupSet\'|\'sourceDestCheck\'|\'attachment\',
               DryRun=True|False,
               
           )
@@ -6779,27 +6779,27 @@ class NetworkInterface(base.ServiceResource):
           ::
         
             {
-                'Attachment': {
-                    'AttachTime': datetime(2015, 1, 1),
-                    'AttachmentId': 'string',
-                    'DeleteOnTermination': True|False,
-                    'DeviceIndex': 123,
-                    'InstanceId': 'string',
-                    'InstanceOwnerId': 'string',
-                    'Status': 'attaching'|'attached'|'detaching'|'detached'
+                \'Attachment\': {
+                    \'AttachTime\': datetime(2015, 1, 1),
+                    \'AttachmentId\': \'string\',
+                    \'DeleteOnTermination\': True|False,
+                    \'DeviceIndex\': 123,
+                    \'InstanceId\': \'string\',
+                    \'InstanceOwnerId\': \'string\',
+                    \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'
                 },
-                'Description': {
-                    'Value': 'string'
+                \'Description\': {
+                    \'Value\': \'string\'
                 },
-                'Groups': [
+                \'Groups\': [
                     {
-                        'GroupName': 'string',
-                        'GroupId': 'string'
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\'
                     },
                 ],
-                'NetworkInterfaceId': 'string',
-                'SourceDestCheck': {
-                    'Value': True|False
+                \'NetworkInterfaceId\': \'string\',
+                \'SourceDestCheck\': {
+                    \'Value\': True|False
                 }
             }
           **Response Structure** 
@@ -6939,24 +6939,24 @@ class NetworkInterface(base.ServiceResource):
         
           response = network_interface.modify_attribute(
               Attachment={
-                  'AttachmentId': 'string',
-                  'DeleteOnTermination': True|False
+                  \'AttachmentId\': \'string\',
+                  \'DeleteOnTermination\': True|False
               },
               Description={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               DryRun=True|False,
               Groups=[
-                  'string',
+                  \'string\',
               ],
               SourceDestCheck={
-                  'Value': True|False
+                  \'Value\': True|False
               }
           )
         :type Attachment: dict
         :param Attachment: 
         
-          Information about the interface attachment. If modifying the 'delete on termination' attribute, you must specify the ID of the interface attachment.
+          Information about the interface attachment. If modifying the \'delete on termination\' attribute, you must specify the ID of the interface attachment.
         
           - **AttachmentId** *(string) --* 
         
@@ -6983,7 +6983,7 @@ class NetworkInterface(base.ServiceResource):
         :type Groups: list
         :param Groups: 
         
-          Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.
+          Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it\'s just the default security group in the VPC. You must specify the ID of the security group, not the name.
         
           - *(string) --* 
         
@@ -7024,7 +7024,7 @@ class NetworkInterface(base.ServiceResource):
         
           response = network_interface.reset_attribute(
               DryRun=True|False,
-              SourceDestCheck='string'
+              SourceDestCheck=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -7050,7 +7050,7 @@ class NetworkInterface(base.ServiceResource):
         
           response = network_interface.unassign_private_ip_addresses(
               PrivateIpAddresses=[
-                  'string',
+                  \'string\',
               ]
           )
         :type PrivateIpAddresses: list
@@ -7076,7 +7076,7 @@ class NetworkInterfaceAssociation(base.ServiceResource):
         
         An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
-        This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
+        This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateAddress>`_
         
@@ -7084,7 +7084,7 @@ class NetworkInterfaceAssociation(base.ServiceResource):
         ::
         
           response = network_interface_association.delete(
-              PublicIp='string',
+              PublicIp=\'string\',
               DryRun=True|False
           )
         :type PublicIp: string
@@ -7231,7 +7231,7 @@ class Route(base.ServiceResource):
         ::
         
           response = route.delete(
-              DestinationIpv6CidrBlock='string',
+              DestinationIpv6CidrBlock=\'string\',
               DryRun=True|False,
               
           )
@@ -7270,14 +7270,14 @@ class Route(base.ServiceResource):
         ::
         
           response = route.replace(
-              DestinationIpv6CidrBlock='string',
+              DestinationIpv6CidrBlock=\'string\',
               DryRun=True|False,
-              EgressOnlyInternetGatewayId='string',
-              GatewayId='string',
-              InstanceId='string',
-              NatGatewayId='string',
-              NetworkInterfaceId='string',
-              VpcPeeringConnectionId='string'
+              EgressOnlyInternetGatewayId=\'string\',
+              GatewayId=\'string\',
+              InstanceId=\'string\',
+              NatGatewayId=\'string\',
+              NetworkInterfaceId=\'string\',
+              VpcPeeringConnectionId=\'string\'
           )
         :type DestinationIpv6CidrBlock: string
         :param DestinationIpv6CidrBlock: 
@@ -7345,7 +7345,7 @@ class RouteTable(base.ServiceResource):
         
           route_table_association = route_table.associate_with_subnet(
               DryRun=True|False,
-              SubnetId='string'
+              SubnetId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -7383,15 +7383,15 @@ class RouteTable(base.ServiceResource):
         ::
         
           route = route_table.create_route(
-              DestinationCidrBlock='string',
-              DestinationIpv6CidrBlock='string',
+              DestinationCidrBlock=\'string\',
+              DestinationIpv6CidrBlock=\'string\',
               DryRun=True|False,
-              EgressOnlyInternetGatewayId='string',
-              GatewayId='string',
-              InstanceId='string',
-              NatGatewayId='string',
-              NetworkInterfaceId='string',
-              VpcPeeringConnectionId='string'
+              EgressOnlyInternetGatewayId=\'string\',
+              GatewayId=\'string\',
+              InstanceId=\'string\',
+              NatGatewayId=\'string\',
+              NetworkInterfaceId=\'string\',
+              VpcPeeringConnectionId=\'string\'
           )
         :type DestinationCidrBlock: string
         :param DestinationCidrBlock: 
@@ -7446,7 +7446,7 @@ class RouteTable(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -7457,8 +7457,8 @@ class RouteTable(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -7470,7 +7470,7 @@ class RouteTable(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -7563,7 +7563,7 @@ class RouteTableAssociation(base.ServiceResource):
     def delete(self, DryRun: bool = None):
         """
         
-        After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see `Route Tables <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
+        After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC\'s main route table. For more information about route tables, see `Route Tables <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateRouteTable>`_
         
@@ -7595,7 +7595,7 @@ class RouteTableAssociation(base.ServiceResource):
     def replace_subnet(self, RouteTableId: str, DryRun: bool = None) -> 'RouteTableAssociation':
         """
         
-        You can also use ReplaceRouteTableAssociation to change which table is the main route table in the VPC. You just specify the main route table's association ID and the route table to be the new main route table.
+        You can also use ReplaceRouteTableAssociation to change which table is the main route table in the VPC. You just specify the main route table\'s association ID and the route table to be the new main route table.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceRouteTableAssociation>`_
         
@@ -7604,7 +7604,7 @@ class RouteTableAssociation(base.ServiceResource):
         
           route_table_association = route_table_association.replace_subnet(
               DryRun=True|False,
-              RouteTableId='string'
+              RouteTableId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -7649,46 +7649,46 @@ class SecurityGroup(base.ServiceResource):
               DryRun=True|False,
               IpPermissions=[
                   {
-                      'FromPort': 123,
-                      'IpProtocol': 'string',
-                      'IpRanges': [
+                      \'FromPort\': 123,
+                      \'IpProtocol\': \'string\',
+                      \'IpRanges\': [
                           {
-                              'CidrIp': 'string',
-                              'Description': 'string'
+                              \'CidrIp\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'Ipv6Ranges': [
+                      \'Ipv6Ranges\': [
                           {
-                              'CidrIpv6': 'string',
-                              'Description': 'string'
+                              \'CidrIpv6\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'PrefixListIds': [
+                      \'PrefixListIds\': [
                           {
-                              'Description': 'string',
-                              'PrefixListId': 'string'
+                              \'Description\': \'string\',
+                              \'PrefixListId\': \'string\'
                           },
                       ],
-                      'ToPort': 123,
-                      'UserIdGroupPairs': [
+                      \'ToPort\': 123,
+                      \'UserIdGroupPairs\': [
                           {
-                              'Description': 'string',
-                              'GroupId': 'string',
-                              'GroupName': 'string',
-                              'PeeringStatus': 'string',
-                              'UserId': 'string',
-                              'VpcId': 'string',
-                              'VpcPeeringConnectionId': 'string'
+                              \'Description\': \'string\',
+                              \'GroupId\': \'string\',
+                              \'GroupName\': \'string\',
+                              \'PeeringStatus\': \'string\',
+                              \'UserId\': \'string\',
+                              \'VpcId\': \'string\',
+                              \'VpcPeeringConnectionId\': \'string\'
                           },
                       ]
                   },
               ],
-              CidrIp='string',
+              CidrIp=\'string\',
               FromPort=123,
-              IpProtocol='string',
+              IpProtocol=\'string\',
               ToPort=123,
-              SourceSecurityGroupName='string',
-              SourceSecurityGroupOwnerId='string'
+              SourceSecurityGroupName=\'string\',
+              SourceSecurityGroupOwnerId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -7698,7 +7698,7 @@ class SecurityGroup(base.ServiceResource):
         :type IpPermissions: list
         :param IpPermissions: 
         
-          One or more sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
+          One or more sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
         
           - *(dict) --* 
         
@@ -7712,7 +7712,7 @@ class SecurityGroup(base.ServiceResource):
         
               The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
             - **IpRanges** *(list) --* 
         
@@ -7867,55 +7867,55 @@ class SecurityGroup(base.ServiceResource):
         ::
         
           response = security_group.authorize_ingress(
-              CidrIp='string',
+              CidrIp=\'string\',
               FromPort=123,
-              GroupName='string',
+              GroupName=\'string\',
               IpPermissions=[
                   {
-                      'FromPort': 123,
-                      'IpProtocol': 'string',
-                      'IpRanges': [
+                      \'FromPort\': 123,
+                      \'IpProtocol\': \'string\',
+                      \'IpRanges\': [
                           {
-                              'CidrIp': 'string',
-                              'Description': 'string'
+                              \'CidrIp\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'Ipv6Ranges': [
+                      \'Ipv6Ranges\': [
                           {
-                              'CidrIpv6': 'string',
-                              'Description': 'string'
+                              \'CidrIpv6\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'PrefixListIds': [
+                      \'PrefixListIds\': [
                           {
-                              'Description': 'string',
-                              'PrefixListId': 'string'
+                              \'Description\': \'string\',
+                              \'PrefixListId\': \'string\'
                           },
                       ],
-                      'ToPort': 123,
-                      'UserIdGroupPairs': [
+                      \'ToPort\': 123,
+                      \'UserIdGroupPairs\': [
                           {
-                              'Description': 'string',
-                              'GroupId': 'string',
-                              'GroupName': 'string',
-                              'PeeringStatus': 'string',
-                              'UserId': 'string',
-                              'VpcId': 'string',
-                              'VpcPeeringConnectionId': 'string'
+                              \'Description\': \'string\',
+                              \'GroupId\': \'string\',
+                              \'GroupName\': \'string\',
+                              \'PeeringStatus\': \'string\',
+                              \'UserId\': \'string\',
+                              \'VpcId\': \'string\',
+                              \'VpcPeeringConnectionId\': \'string\'
                           },
                       ]
                   },
               ],
-              IpProtocol='string',
-              SourceSecurityGroupName='string',
-              SourceSecurityGroupOwnerId='string',
+              IpProtocol=\'string\',
+              SourceSecurityGroupName=\'string\',
+              SourceSecurityGroupOwnerId=\'string\',
               ToPort=123,
               DryRun=True|False
           )
         :type CidrIp: string
         :param CidrIp: 
         
-          The CIDR IPv4 address range. You can't specify this parameter when specifying a source security group.
+          The CIDR IPv4 address range. You can\'t specify this parameter when specifying a source security group.
         
         :type FromPort: integer
         :param FromPort: 
@@ -7944,7 +7944,7 @@ class SecurityGroup(base.ServiceResource):
         
               The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
             - **IpRanges** *(list) --* 
         
@@ -8051,17 +8051,17 @@ class SecurityGroup(base.ServiceResource):
         :type IpProtocol: string
         :param IpProtocol: 
         
-          The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). (VPC only) Use ``-1`` to specify all protocols. If you specify ``-1`` , or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6), traffic on all ports is allowed, regardless of any ports you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For protocol ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed.
+          The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). (VPC only) Use ``-1`` to specify all protocols. If you specify ``-1`` , or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6), traffic on all ports is allowed, regardless of any ports you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For protocol ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed.
         
         :type SourceSecurityGroupName: string
         :param SourceSecurityGroupName: 
         
-          [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
+          [EC2-Classic, default VPC] The name of the source security group. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
         
         :type SourceSecurityGroupOwnerId: string
         :param SourceSecurityGroupOwnerId: 
         
-          [EC2-Classic] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
+          [EC2-Classic] The AWS account ID for the source security group, if the source security group is in a different account. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
         
         :type ToPort: integer
         :param ToPort: 
@@ -8080,7 +8080,7 @@ class SecurityGroup(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -8091,8 +8091,8 @@ class SecurityGroup(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -8104,7 +8104,7 @@ class SecurityGroup(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -8138,7 +8138,7 @@ class SecurityGroup(base.ServiceResource):
         ::
         
           response = security_group.delete(
-              GroupName='string',
+              GroupName=\'string\',
               DryRun=True|False
           )
         :type GroupName: string
@@ -8209,46 +8209,46 @@ class SecurityGroup(base.ServiceResource):
               DryRun=True|False,
               IpPermissions=[
                   {
-                      'FromPort': 123,
-                      'IpProtocol': 'string',
-                      'IpRanges': [
+                      \'FromPort\': 123,
+                      \'IpProtocol\': \'string\',
+                      \'IpRanges\': [
                           {
-                              'CidrIp': 'string',
-                              'Description': 'string'
+                              \'CidrIp\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'Ipv6Ranges': [
+                      \'Ipv6Ranges\': [
                           {
-                              'CidrIpv6': 'string',
-                              'Description': 'string'
+                              \'CidrIpv6\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'PrefixListIds': [
+                      \'PrefixListIds\': [
                           {
-                              'Description': 'string',
-                              'PrefixListId': 'string'
+                              \'Description\': \'string\',
+                              \'PrefixListId\': \'string\'
                           },
                       ],
-                      'ToPort': 123,
-                      'UserIdGroupPairs': [
+                      \'ToPort\': 123,
+                      \'UserIdGroupPairs\': [
                           {
-                              'Description': 'string',
-                              'GroupId': 'string',
-                              'GroupName': 'string',
-                              'PeeringStatus': 'string',
-                              'UserId': 'string',
-                              'VpcId': 'string',
-                              'VpcPeeringConnectionId': 'string'
+                              \'Description\': \'string\',
+                              \'GroupId\': \'string\',
+                              \'GroupName\': \'string\',
+                              \'PeeringStatus\': \'string\',
+                              \'UserId\': \'string\',
+                              \'VpcId\': \'string\',
+                              \'VpcPeeringConnectionId\': \'string\'
                           },
                       ]
                   },
               ],
-              CidrIp='string',
+              CidrIp=\'string\',
               FromPort=123,
-              IpProtocol='string',
+              IpProtocol=\'string\',
               ToPort=123,
-              SourceSecurityGroupName='string',
-              SourceSecurityGroupOwnerId='string'
+              SourceSecurityGroupName=\'string\',
+              SourceSecurityGroupOwnerId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -8258,7 +8258,7 @@ class SecurityGroup(base.ServiceResource):
         :type IpPermissions: list
         :param IpPermissions: 
         
-          One or more sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
+          One or more sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
         
           - *(dict) --* 
         
@@ -8272,7 +8272,7 @@ class SecurityGroup(base.ServiceResource):
         
               The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
             - **IpRanges** *(list) --* 
         
@@ -8415,7 +8415,7 @@ class SecurityGroup(base.ServiceResource):
         
         .. note::
         
-          [EC2-Classic security groups only] If the values you specify do not match the existing rule's values, no error is returned. Use  DescribeSecurityGroups to verify that the rule has been removed.
+          [EC2-Classic security groups only] If the values you specify do not match the existing rule\'s values, no error is returned. Use  DescribeSecurityGroups to verify that the rule has been removed.
         
         Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.
         
@@ -8427,55 +8427,55 @@ class SecurityGroup(base.ServiceResource):
         ::
         
           response = security_group.revoke_ingress(
-              CidrIp='string',
+              CidrIp=\'string\',
               FromPort=123,
-              GroupName='string',
+              GroupName=\'string\',
               IpPermissions=[
                   {
-                      'FromPort': 123,
-                      'IpProtocol': 'string',
-                      'IpRanges': [
+                      \'FromPort\': 123,
+                      \'IpProtocol\': \'string\',
+                      \'IpRanges\': [
                           {
-                              'CidrIp': 'string',
-                              'Description': 'string'
+                              \'CidrIp\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'Ipv6Ranges': [
+                      \'Ipv6Ranges\': [
                           {
-                              'CidrIpv6': 'string',
-                              'Description': 'string'
+                              \'CidrIpv6\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'PrefixListIds': [
+                      \'PrefixListIds\': [
                           {
-                              'Description': 'string',
-                              'PrefixListId': 'string'
+                              \'Description\': \'string\',
+                              \'PrefixListId\': \'string\'
                           },
                       ],
-                      'ToPort': 123,
-                      'UserIdGroupPairs': [
+                      \'ToPort\': 123,
+                      \'UserIdGroupPairs\': [
                           {
-                              'Description': 'string',
-                              'GroupId': 'string',
-                              'GroupName': 'string',
-                              'PeeringStatus': 'string',
-                              'UserId': 'string',
-                              'VpcId': 'string',
-                              'VpcPeeringConnectionId': 'string'
+                              \'Description\': \'string\',
+                              \'GroupId\': \'string\',
+                              \'GroupName\': \'string\',
+                              \'PeeringStatus\': \'string\',
+                              \'UserId\': \'string\',
+                              \'VpcId\': \'string\',
+                              \'VpcPeeringConnectionId\': \'string\'
                           },
                       ]
                   },
               ],
-              IpProtocol='string',
-              SourceSecurityGroupName='string',
-              SourceSecurityGroupOwnerId='string',
+              IpProtocol=\'string\',
+              SourceSecurityGroupName=\'string\',
+              SourceSecurityGroupOwnerId=\'string\',
               ToPort=123,
               DryRun=True|False
           )
         :type CidrIp: string
         :param CidrIp: 
         
-          The CIDR IP address range. You can't specify this parameter when specifying a source security group.
+          The CIDR IP address range. You can\'t specify this parameter when specifying a source security group.
         
         :type FromPort: integer
         :param FromPort: 
@@ -8490,7 +8490,7 @@ class SecurityGroup(base.ServiceResource):
         :type IpPermissions: list
         :param IpPermissions: 
         
-          One or more sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.
+          One or more sets of IP permissions. You can\'t specify a source security group and a CIDR IP address range in the same set of permissions.
         
           - *(dict) --* 
         
@@ -8504,7 +8504,7 @@ class SecurityGroup(base.ServiceResource):
         
               The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
             - **IpRanges** *(list) --* 
         
@@ -8616,12 +8616,12 @@ class SecurityGroup(base.ServiceResource):
         :type SourceSecurityGroupName: string
         :param SourceSecurityGroupName: 
         
-          [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
+          [EC2-Classic, default VPC] The name of the source security group. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
         
         :type SourceSecurityGroupOwnerId: string
         :param SourceSecurityGroupOwnerId: 
         
-          [EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
+          [EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
         
         :type ToPort: integer
         :param ToPort: 
@@ -8672,10 +8672,10 @@ class Snapshot(base.ServiceResource):
         ::
         
           response = snapshot.copy(
-              Description='string',
+              Description=\'string\',
               Encrypted=True|False,
-              KmsKeyId='string',
-              SourceRegion='string',
+              KmsKeyId=\'string\',
+              SourceRegion=\'string\',
               DryRun=True|False
           )
         :type Description: string
@@ -8741,7 +8741,7 @@ class Snapshot(base.ServiceResource):
           ::
         
             {
-                'SnapshotId': 'string'
+                \'SnapshotId\': \'string\'
             }
           **Response Structure** 
         
@@ -8759,7 +8759,7 @@ class Snapshot(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -8770,8 +8770,8 @@ class Snapshot(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -8783,7 +8783,7 @@ class Snapshot(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -8843,7 +8843,7 @@ class Snapshot(base.ServiceResource):
         ::
         
           response = snapshot.describe_attribute(
-              Attribute='productCodes'|'createVolumePermission',
+              Attribute=\'productCodes\'|\'createVolumePermission\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -8864,19 +8864,19 @@ class Snapshot(base.ServiceResource):
           ::
         
             {
-                'CreateVolumePermissions': [
+                \'CreateVolumePermissions\': [
                     {
-                        'Group': 'all',
-                        'UserId': 'string'
+                        \'Group\': \'all\',
+                        \'UserId\': \'string\'
                     },
                 ],
-                'ProductCodes': [
+                \'ProductCodes\': [
                     {
-                        'ProductCodeId': 'string',
-                        'ProductCodeType': 'devpay'|'marketplace'
+                        \'ProductCodeId\': \'string\',
+                        \'ProductCodeType\': \'devpay\'|\'marketplace\'
                     },
                 ],
-                'SnapshotId': 'string'
+                \'SnapshotId\': \'string\'
             }
           **Response Structure** 
         
@@ -8894,11 +8894,11 @@ class Snapshot(base.ServiceResource):
         
                 - **Group** *(string) --* 
         
-                  The specific group that is to be added or removed from a volume's list of create volume permissions.
+                  The specific group that is to be added or removed from a volume\'s list of create volume permissions.
         
                 - **UserId** *(string) --* 
         
-                  The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.
+                  The specific AWS account ID that is to be added or removed from a volume\'s list of create volume permissions.
         
             - **ProductCodes** *(list) --* 
         
@@ -8960,27 +8960,27 @@ class Snapshot(base.ServiceResource):
         ::
         
           response = snapshot.modify_attribute(
-              Attribute='productCodes'|'createVolumePermission',
+              Attribute=\'productCodes\'|\'createVolumePermission\',
               CreateVolumePermission={
-                  'Add': [
+                  \'Add\': [
                       {
-                          'Group': 'all',
-                          'UserId': 'string'
+                          \'Group\': \'all\',
+                          \'UserId\': \'string\'
                       },
                   ],
-                  'Remove': [
+                  \'Remove\': [
                       {
-                          'Group': 'all',
-                          'UserId': 'string'
+                          \'Group\': \'all\',
+                          \'UserId\': \'string\'
                       },
                   ]
               },
               GroupNames=[
-                  'string',
+                  \'string\',
               ],
-              OperationType='add'|'remove',
+              OperationType=\'add\'|\'remove\',
               UserIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -8996,7 +8996,7 @@ class Snapshot(base.ServiceResource):
         
           - **Add** *(list) --* 
         
-            Adds a specific AWS account ID or group to a volume's list of create volume permissions.
+            Adds a specific AWS account ID or group to a volume\'s list of create volume permissions.
         
             - *(dict) --* 
         
@@ -9004,15 +9004,15 @@ class Snapshot(base.ServiceResource):
         
               - **Group** *(string) --* 
         
-                The specific group that is to be added or removed from a volume's list of create volume permissions.
+                The specific group that is to be added or removed from a volume\'s list of create volume permissions.
         
               - **UserId** *(string) --* 
         
-                The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.
+                The specific AWS account ID that is to be added or removed from a volume\'s list of create volume permissions.
         
           - **Remove** *(list) --* 
         
-            Removes a specific AWS account ID or group from a volume's list of create volume permissions.
+            Removes a specific AWS account ID or group from a volume\'s list of create volume permissions.
         
             - *(dict) --* 
         
@@ -9020,11 +9020,11 @@ class Snapshot(base.ServiceResource):
         
               - **Group** *(string) --* 
         
-                The specific group that is to be added or removed from a volume's list of create volume permissions.
+                The specific group that is to be added or removed from a volume\'s list of create volume permissions.
         
               - **UserId** *(string) --* 
         
-                The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.
+                The specific AWS account ID that is to be added or removed from a volume\'s list of create volume permissions.
         
         :type GroupNames: list
         :param GroupNames: 
@@ -9079,7 +9079,7 @@ class Snapshot(base.ServiceResource):
         ::
         
           response = snapshot.reset_attribute(
-              Attribute='productCodes'|'createVolumePermission',
+              Attribute=\'productCodes\'|\'createVolumePermission\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -9107,19 +9107,19 @@ class Snapshot(base.ServiceResource):
           snapshot.wait_until_completed(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               OwnerIds=[
-                  'string',
+                  \'string\',
               ],
               RestorableByUserIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -9239,17 +9239,17 @@ class Subnet(base.ServiceResource):
         
         You can specify a number of options, or leave the default options. The following rules apply:
         
-        * [EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request. 
+        * [EC2-VPC] If you don\'t specify a subnet ID, we choose a default subnet from your default VPC for you. If you don\'t have a default VPC, you must specify a subnet ID in the request. 
          
-        * [EC2-Classic] If don't specify an Availability Zone, we choose one for you. 
+        * [EC2-Classic] If don\'t specify an Availability Zone, we choose one for you. 
          
         * Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see `Instance Types Available Only in a VPC <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types>`__ . 
          
-        * [EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet. 
+        * [EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don\'t specify this address, we choose one from the IPv4 range of your subnet. 
          
         * Not all instance types support IPv6 addresses. For more information, see `Instance Types <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ . 
          
-        * If you don't specify a security group ID, we use the default security group. For more information, see `Security Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ . 
+        * If you don\'t specify a security group ID, we use the default security group. For more information, see `Security Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ . 
          
         * If any of the AMIs have a product code attached for which the user has not subscribed, the request fails. 
          
@@ -9257,7 +9257,7 @@ class Subnet(base.ServiceResource):
         
         To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.
         
-        An instance is ready for you to use when it's in the ``running`` state. You can check the state of your instance using  DescribeInstances . You can tag instances and EBS volumes during launch, after launch, or both. For more information, see  CreateTags and `Tagging Your Amazon EC2 Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ .
+        An instance is ready for you to use when it\'s in the ``running`` state. You can check the state of your instance using  DescribeInstances . You can tag instances and EBS volumes during launch, after launch, or both. For more information, see  CreateTags and `Tagging Your Amazon EC2 Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ .
         
         Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see `Key Pairs <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
@@ -9271,138 +9271,138 @@ class Subnet(base.ServiceResource):
           instance = subnet.create_instances(
               BlockDeviceMappings=[
                   {
-                      'DeviceName': 'string',
-                      'VirtualName': 'string',
-                      'Ebs': {
-                          'DeleteOnTermination': True|False,
-                          'Iops': 123,
-                          'SnapshotId': 'string',
-                          'VolumeSize': 123,
-                          'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                          'Encrypted': True|False,
-                          'KmsKeyId': 'string'
+                      \'DeviceName\': \'string\',
+                      \'VirtualName\': \'string\',
+                      \'Ebs\': {
+                          \'DeleteOnTermination\': True|False,
+                          \'Iops\': 123,
+                          \'SnapshotId\': \'string\',
+                          \'VolumeSize\': 123,
+                          \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                          \'Encrypted\': True|False,
+                          \'KmsKeyId\': \'string\'
                       },
-                      'NoDevice': 'string'
+                      \'NoDevice\': \'string\'
                   },
               ],
-              ImageId='string',
-              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
+              ImageId=\'string\',
+              InstanceType=\'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
               Ipv6AddressCount=123,
               Ipv6Addresses=[
                   {
-                      'Ipv6Address': 'string'
+                      \'Ipv6Address\': \'string\'
                   },
               ],
-              KernelId='string',
-              KeyName='string',
+              KernelId=\'string\',
+              KeyName=\'string\',
               MaxCount=123,
               MinCount=123,
               Monitoring={
-                  'Enabled': True|False
+                  \'Enabled\': True|False
               },
               Placement={
-                  'AvailabilityZone': 'string',
-                  'Affinity': 'string',
-                  'GroupName': 'string',
-                  'HostId': 'string',
-                  'Tenancy': 'default'|'dedicated'|'host',
-                  'SpreadDomain': 'string'
+                  \'AvailabilityZone\': \'string\',
+                  \'Affinity\': \'string\',
+                  \'GroupName\': \'string\',
+                  \'HostId\': \'string\',
+                  \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                  \'SpreadDomain\': \'string\'
               },
-              RamdiskId='string',
+              RamdiskId=\'string\',
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               SecurityGroups=[
-                  'string',
+                  \'string\',
               ],
-              UserData='string',
-              AdditionalInfo='string',
-              ClientToken='string',
+              UserData=\'string\',
+              AdditionalInfo=\'string\',
+              ClientToken=\'string\',
               DisableApiTermination=True|False,
               DryRun=True|False,
               EbsOptimized=True|False,
               IamInstanceProfile={
-                  'Arn': 'string',
-                  'Name': 'string'
+                  \'Arn\': \'string\',
+                  \'Name\': \'string\'
               },
-              InstanceInitiatedShutdownBehavior='stop'|'terminate',
+              InstanceInitiatedShutdownBehavior=\'stop\'|\'terminate\',
               NetworkInterfaces=[
                   {
-                      'AssociatePublicIpAddress': True|False,
-                      'DeleteOnTermination': True|False,
-                      'Description': 'string',
-                      'DeviceIndex': 123,
-                      'Groups': [
-                          'string',
+                      \'AssociatePublicIpAddress\': True|False,
+                      \'DeleteOnTermination\': True|False,
+                      \'Description\': \'string\',
+                      \'DeviceIndex\': 123,
+                      \'Groups\': [
+                          \'string\',
                       ],
-                      'Ipv6AddressCount': 123,
-                      'Ipv6Addresses': [
+                      \'Ipv6AddressCount\': 123,
+                      \'Ipv6Addresses\': [
                           {
-                              'Ipv6Address': 'string'
+                              \'Ipv6Address\': \'string\'
                           },
                       ],
-                      'NetworkInterfaceId': 'string',
-                      'PrivateIpAddress': 'string',
-                      'PrivateIpAddresses': [
+                      \'NetworkInterfaceId\': \'string\',
+                      \'PrivateIpAddress\': \'string\',
+                      \'PrivateIpAddresses\': [
                           {
-                              'Primary': True|False,
-                              'PrivateIpAddress': 'string'
+                              \'Primary\': True|False,
+                              \'PrivateIpAddress\': \'string\'
                           },
                       ],
-                      'SecondaryPrivateIpAddressCount': 123,
-                      'SubnetId': 'string'
+                      \'SecondaryPrivateIpAddressCount\': 123,
+                      \'SubnetId\': \'string\'
                   },
               ],
-              PrivateIpAddress='string',
+              PrivateIpAddress=\'string\',
               ElasticGpuSpecification=[
                   {
-                      'Type': 'string'
+                      \'Type\': \'string\'
                   },
               ],
               TagSpecifications=[
                   {
-                      'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                      'Tags': [
+                      \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
               ],
               LaunchTemplate={
-                  'LaunchTemplateId': 'string',
-                  'LaunchTemplateName': 'string',
-                  'Version': 'string'
+                  \'LaunchTemplateId\': \'string\',
+                  \'LaunchTemplateName\': \'string\',
+                  \'Version\': \'string\'
               },
               InstanceMarketOptions={
-                  'MarketType': 'spot',
-                  'SpotOptions': {
-                      'MaxPrice': 'string',
-                      'SpotInstanceType': 'one-time'|'persistent',
-                      'BlockDurationMinutes': 123,
-                      'ValidUntil': datetime(2015, 1, 1),
-                      'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate'
+                  \'MarketType\': \'spot\',
+                  \'SpotOptions\': {
+                      \'MaxPrice\': \'string\',
+                      \'SpotInstanceType\': \'one-time\'|\'persistent\',
+                      \'BlockDurationMinutes\': 123,
+                      \'ValidUntil\': datetime(2015, 1, 1),
+                      \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\'
                   }
               },
               CreditSpecification={
-                  'CpuCredits': 'string'
+                  \'CpuCredits\': \'string\'
               },
               CpuOptions={
-                  'CoreCount': 123,
-                  'ThreadsPerCore': 123
+                  \'CoreCount\': 123,
+                  \'ThreadsPerCore\': 123
               },
               CapacityReservationSpecification={
-                  'CapacityReservationPreference': 'open'|'none',
-                  'CapacityReservationTarget': {
-                      'CapacityReservationId': 'string'
+                  \'CapacityReservationPreference\': \'open\'|\'none\',
+                  \'CapacityReservationTarget\': {
+                      \'CapacityReservationId\': \'string\'
                   }
               }
           )
         :type BlockDeviceMappings: list
         :param BlockDeviceMappings: 
         
-          One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+          One or more block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
         
           - *(dict) --* 
         
@@ -9446,7 +9446,7 @@ class Subnet(base.ServiceResource):
         
                 Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
               - **VolumeType** *(string) --* 
         
@@ -9485,12 +9485,12 @@ class Subnet(base.ServiceResource):
         :type Ipv6AddressCount: integer
         :param Ipv6AddressCount: 
         
-          [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+          [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
         :type Ipv6Addresses: list
         :param Ipv6Addresses: 
         
-          [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+          [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
           - *(dict) --* 
         
@@ -9516,21 +9516,21 @@ class Subnet(base.ServiceResource):
         
           .. warning::
         
-            If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
+            If you do not specify a key pair, you can\'t connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
         
         :type MaxCount: integer
         :param MaxCount: **[REQUIRED]** 
         
           The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above ``MinCount`` .
         
-          Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 FAQ.
+          Constraints: Between 1 and the maximum number you\'re allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 FAQ.
         
         :type MinCount: integer
         :param MinCount: **[REQUIRED]** 
         
           The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances.
         
-          Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 General FAQ.
+          Constraints: Between 1 and the maximum number you\'re allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 General FAQ.
         
         :type Monitoring: dict
         :param Monitoring: 
@@ -9619,7 +9619,7 @@ class Subnet(base.ServiceResource):
         :type DisableApiTermination: boolean
         :param DisableApiTermination: 
         
-          If you set this parameter to ``true`` , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute . Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate`` , you can terminate the instance by running the shutdown command from the instance.
+          If you set this parameter to ``true`` , you can\'t terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute . Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate`` , you can terminate the instance by running the shutdown command from the instance.
         
           Default: ``false``  
         
@@ -9631,7 +9631,7 @@ class Subnet(base.ServiceResource):
         :type EbsOptimized: boolean
         :param EbsOptimized: 
         
-          Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
+          Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
         
           Default: ``false``  
         
@@ -9688,11 +9688,11 @@ class Subnet(base.ServiceResource):
         
             - **Ipv6AddressCount** *(integer) --* 
         
-              A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+              A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
             - **Ipv6Addresses** *(list) --* 
         
-              One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+              One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
               - *(dict) --* 
         
@@ -9708,11 +9708,11 @@ class Subnet(base.ServiceResource):
         
             - **PrivateIpAddress** *(string) --* 
         
-              The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+              The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
             - **PrivateIpAddresses** *(list) --* 
         
-              One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+              One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
               - *(dict) --* 
         
@@ -9728,7 +9728,7 @@ class Subnet(base.ServiceResource):
         
             - **SecondaryPrivateIpAddressCount** *(integer) --* 
         
-              The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+              The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
             - **SubnetId** *(string) --* 
         
@@ -9739,7 +9739,7 @@ class Subnet(base.ServiceResource):
         
           [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
         
-          Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
+          Only one private IP address can be designated as primary. You can\'t specify this option if you\'ve specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you\'re launching more than one instance in the request.
         
         :type ElasticGpuSpecification: list
         :param ElasticGpuSpecification: 
@@ -9823,7 +9823,7 @@ class Subnet(base.ServiceResource):
         
             - **MaxPrice** *(string) --* 
         
-              The maximum hourly price you're willing to pay for the Spot Instances. The default is the On-Demand price.
+              The maximum hourly price you\'re willing to pay for the Spot Instances. The default is the On-Demand price.
         
             - **SpotInstanceType** *(string) --* 
         
@@ -9872,7 +9872,7 @@ class Subnet(base.ServiceResource):
         
           - **CapacityReservationPreference** *(string) --* 
         
-            Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+            Indicates the instance\'s Capacity Reservation preferences. Possible preferences include:
         
             * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
              
@@ -9902,22 +9902,22 @@ class Subnet(base.ServiceResource):
         ::
         
           network_interface = subnet.create_network_interface(
-              Description='string',
+              Description=\'string\',
               DryRun=True|False,
               Groups=[
-                  'string',
+                  \'string\',
               ],
               Ipv6AddressCount=123,
               Ipv6Addresses=[
                   {
-                      'Ipv6Address': 'string'
+                      \'Ipv6Address\': \'string\'
                   },
               ],
-              PrivateIpAddress='string',
+              PrivateIpAddress=\'string\',
               PrivateIpAddresses=[
                   {
-                      'Primary': True|False,
-                      'PrivateIpAddress': 'string'
+                      \'Primary\': True|False,
+                      \'PrivateIpAddress\': \'string\'
                   },
               ],
               SecondaryPrivateIpAddressCount=123,
@@ -9943,12 +9943,12 @@ class Subnet(base.ServiceResource):
         :type Ipv6AddressCount: integer
         :param Ipv6AddressCount: 
         
-          The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the ``AssignIpv6AddressOnCreation`` attribute set to ``true`` , you can specify ``0`` to override this setting.
+          The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can\'t use this option if specifying specific IPv6 addresses. If your subnet has the ``AssignIpv6AddressOnCreation`` attribute set to ``true`` , you can specify ``0`` to override this setting.
         
         :type Ipv6Addresses: list
         :param Ipv6Addresses: 
         
-          One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+          One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can\'t use this option if you\'re specifying a number of IPv6 addresses.
         
           - *(dict) --* 
         
@@ -9961,7 +9961,7 @@ class Subnet(base.ServiceResource):
         :type PrivateIpAddress: string
         :param PrivateIpAddress: 
         
-          The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in ``privateIpAddresses`` as primary (only one IP address can be designated as primary).
+          The primary private IPv4 address of the network interface. If you don\'t specify an IPv4 address, Amazon EC2 selects one for you from the subnet\'s IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in ``privateIpAddresses`` as primary (only one IP address can be designated as primary).
         
         :type PrivateIpAddresses: list
         :param PrivateIpAddresses: 
@@ -9983,7 +9983,7 @@ class Subnet(base.ServiceResource):
         :type SecondaryPrivateIpAddressCount: integer
         :param SecondaryPrivateIpAddressCount: 
         
-          The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using ``privateIpAddresses`` .
+          The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet\'s IPv4 CIDR range. You can\'t specify this option and specify more than one private IP address using ``privateIpAddresses`` .
         
           The number of IP addresses you can assign to a network interface varies by instance type. For more information, see `IP Addresses Per ENI Per Instance Type <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -9995,7 +9995,7 @@ class Subnet(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -10006,8 +10006,8 @@ class Subnet(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -10019,7 +10019,7 @@ class Subnet(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -10190,7 +10190,7 @@ class Volume(base.ServiceResource):
         
         Encrypted EBS volumes may only be attached to instances that support Amazon EBS encryption. For more information, see `Amazon EBS Encryption <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
-        For a list of supported device names, see `Attaching an EBS Volume to an Instance <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html>`__ . Any device names that aren't reserved for instance store volumes can be used for EBS volumes. For more information, see `Amazon EC2 Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For a list of supported device names, see `Attaching an EBS Volume to an Instance <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html>`__ . Any device names that aren\'t reserved for instance store volumes can be used for EBS volumes. For more information, see `Amazon EC2 Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         If a volume has an AWS Marketplace product code:
         
@@ -10200,7 +10200,7 @@ class Volume(base.ServiceResource):
          
         * You must be subscribed to the product. 
          
-        * The instance type and operating system of the instance must support the product. For example, you can't detach a volume from a Windows instance and attach it to a Linux instance. 
+        * The instance type and operating system of the instance must support the product. For example, you can\'t detach a volume from a Windows instance and attach it to a Linux instance. 
          
         For more information about EBS volumes, see `Attaching Amazon EBS Volumes <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
@@ -10210,8 +10210,8 @@ class Volume(base.ServiceResource):
         ::
         
           response = volume.attach_to_instance(
-              Device='string',
-              InstanceId='string',
+              Device=\'string\',
+              InstanceId=\'string\',
               DryRun=True|False
           )
         :type Device: string
@@ -10237,12 +10237,12 @@ class Volume(base.ServiceResource):
           ::
         
             {
-                'AttachTime': datetime(2015, 1, 1),
-                'Device': 'string',
-                'InstanceId': 'string',
-                'State': 'attaching'|'attached'|'detaching'|'detached'|'busy',
-                'VolumeId': 'string',
-                'DeleteOnTermination': True|False
+                \'AttachTime\': datetime(2015, 1, 1),
+                \'Device\': \'string\',
+                \'InstanceId\': \'string\',
+                \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'|\'busy\',
+                \'VolumeId\': \'string\',
+                \'DeleteOnTermination\': True|False
             }
           **Response Structure** 
         
@@ -10298,14 +10298,14 @@ class Volume(base.ServiceResource):
         ::
         
           snapshot = volume.create_snapshot(
-              Description='string',
+              Description=\'string\',
               TagSpecifications=[
                   {
-                      'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                      'Tags': [
+                      \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
@@ -10363,7 +10363,7 @@ class Volume(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -10374,8 +10374,8 @@ class Volume(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -10387,7 +10387,7 @@ class Volume(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -10445,7 +10445,7 @@ class Volume(base.ServiceResource):
         ::
         
           response = volume.describe_attribute(
-              Attribute='autoEnableIO'|'productCodes',
+              Attribute=\'autoEnableIO\'|\'productCodes\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -10466,16 +10466,16 @@ class Volume(base.ServiceResource):
           ::
         
             {
-                'AutoEnableIO': {
-                    'Value': True|False
+                \'AutoEnableIO\': {
+                    \'Value\': True|False
                 },
-                'ProductCodes': [
+                \'ProductCodes\': [
                     {
-                        'ProductCodeId': 'string',
-                        'ProductCodeType': 'devpay'|'marketplace'
+                        \'ProductCodeId\': \'string\',
+                        \'ProductCodeType\': \'devpay\'|\'marketplace\'
                     },
                 ],
-                'VolumeId': 'string'
+                \'VolumeId\': \'string\'
             }
           **Response Structure** 
         
@@ -10535,14 +10535,14 @@ class Volume(base.ServiceResource):
           response = volume.describe_status(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               DryRun=True|False
           )
         :type Filters: list
@@ -10631,36 +10631,36 @@ class Volume(base.ServiceResource):
           ::
         
             {
-                'NextToken': 'string',
-                'VolumeStatuses': [
+                \'NextToken\': \'string\',
+                \'VolumeStatuses\': [
                     {
-                        'Actions': [
+                        \'Actions\': [
                             {
-                                'Code': 'string',
-                                'Description': 'string',
-                                'EventId': 'string',
-                                'EventType': 'string'
+                                \'Code\': \'string\',
+                                \'Description\': \'string\',
+                                \'EventId\': \'string\',
+                                \'EventType\': \'string\'
                             },
                         ],
-                        'AvailabilityZone': 'string',
-                        'Events': [
+                        \'AvailabilityZone\': \'string\',
+                        \'Events\': [
                             {
-                                'Description': 'string',
-                                'EventId': 'string',
-                                'EventType': 'string',
-                                'NotAfter': datetime(2015, 1, 1),
-                                'NotBefore': datetime(2015, 1, 1)
+                                \'Description\': \'string\',
+                                \'EventId\': \'string\',
+                                \'EventType\': \'string\',
+                                \'NotAfter\': datetime(2015, 1, 1),
+                                \'NotBefore\': datetime(2015, 1, 1)
                             },
                         ],
-                        'VolumeId': 'string',
-                        'VolumeStatus': {
-                            'Details': [
+                        \'VolumeId\': \'string\',
+                        \'VolumeStatus\': {
+                            \'Details\': [
                                 {
-                                    'Name': 'io-enabled'|'io-performance',
-                                    'Status': 'string'
+                                    \'Name\': \'io-enabled\'|\'io-performance\',
+                                    \'Status\': \'string\'
                                 },
                             ],
-                            'Status': 'ok'|'impaired'|'insufficient-data'
+                            \'Status\': \'ok\'|\'impaired\'|\'insufficient-data\'
                         }
                     },
                 ]
@@ -10783,9 +10783,9 @@ class Volume(base.ServiceResource):
         ::
         
           response = volume.detach_from_instance(
-              Device='string',
+              Device=\'string\',
               Force=True|False,
-              InstanceId='string',
+              InstanceId=\'string\',
               DryRun=True|False
           )
         :type Device: string
@@ -10796,7 +10796,7 @@ class Volume(base.ServiceResource):
         :type Force: boolean
         :param Force: 
         
-          Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
+          Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won\'t have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
         
         :type InstanceId: string
         :param InstanceId: 
@@ -10816,12 +10816,12 @@ class Volume(base.ServiceResource):
           ::
         
             {
-                'AttachTime': datetime(2015, 1, 1),
-                'Device': 'string',
-                'InstanceId': 'string',
-                'State': 'attaching'|'attached'|'detaching'|'detached'|'busy',
-                'VolumeId': 'string',
-                'DeleteOnTermination': True|False
+                \'AttachTime\': datetime(2015, 1, 1),
+                \'Device\': \'string\',
+                \'InstanceId\': \'string\',
+                \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'|\'busy\',
+                \'VolumeId\': \'string\',
+                \'DeleteOnTermination\': True|False
             }
           **Response Structure** 
         
@@ -10915,7 +10915,7 @@ class Volume(base.ServiceResource):
         
           response = volume.modify_attribute(
               AutoEnableIO={
-                  'Value': True|False
+                  \'Value\': True|False
               },
               DryRun=True|False
           )
@@ -10976,7 +10976,7 @@ class Vpc(base.ServiceResource):
     def associate_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None):
         """
         
-        After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
+        After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don\'t need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
         
         For more information, see `DHCP Options Sets <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -10986,7 +10986,7 @@ class Vpc(base.ServiceResource):
         ::
         
           response = vpc.associate_dhcp_options(
-              DhcpOptionsId='string',
+              DhcpOptionsId=\'string\',
               DryRun=True|False
           )
         :type DhcpOptionsId: string
@@ -11006,7 +11006,7 @@ class Vpc(base.ServiceResource):
     def attach_classic_link_instance(self, Groups: List, InstanceId: str, DryRun: bool = None) -> Dict:
         """
         
-        After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
+        After you\'ve linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
         
         Linking your instance to a VPC is sometimes referred to as *attaching* your instance.
         
@@ -11018,9 +11018,9 @@ class Vpc(base.ServiceResource):
           response = vpc.attach_classic_link_instance(
               DryRun=True|False,
               Groups=[
-                  'string',
+                  \'string\',
               ],
-              InstanceId='string',
+              InstanceId=\'string\',
               
           )
         :type DryRun: boolean
@@ -11031,7 +11031,7 @@ class Vpc(base.ServiceResource):
         :type Groups: list
         :param Groups: **[REQUIRED]** 
         
-          The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
+          The ID of one or more of the VPC\'s security groups. You cannot specify security groups from a different VPC.
         
           - *(string) --* 
         
@@ -11048,7 +11048,7 @@ class Vpc(base.ServiceResource):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -11071,7 +11071,7 @@ class Vpc(base.ServiceResource):
         
           response = vpc.attach_internet_gateway(
               DryRun=True|False,
-              InternetGatewayId='string',
+              InternetGatewayId=\'string\',
               
           )
         :type DryRun: boolean
@@ -11147,9 +11147,9 @@ class Vpc(base.ServiceResource):
         
           EC2-VPC: You can create up to 500 security groups per VPC.
         
-        When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.
+        When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can\'t have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.
         
-        You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.
+        You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don\'t specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.
         
         You can add or remove rules from your security groups using  AuthorizeSecurityGroupIngress ,  AuthorizeSecurityGroupEgress ,  RevokeSecurityGroupIngress , and  RevokeSecurityGroupEgress .
         
@@ -11159,8 +11159,8 @@ class Vpc(base.ServiceResource):
         ::
         
           security_group = vpc.create_security_group(
-              Description='string',
-              GroupName='string',
+              Description=\'string\',
+              GroupName=\'string\',
               DryRun=True|False
           )
         :type Description: string
@@ -11198,17 +11198,17 @@ class Vpc(base.ServiceResource):
     def create_subnet(self, CidrBlock: str, AvailabilityZone: str = None, Ipv6CidrBlock: str = None, DryRun: bool = None) -> 'Subnet':
         """
         
-        When you create each subnet, you provide the VPC ID and IPv4 CIDR block for the subnet. After you create a subnet, you can't change its CIDR block. The size of the subnet's IPv4 CIDR block can be the same as a VPC's IPv4 CIDR block, or a subset of a VPC's IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).
+        When you create each subnet, you provide the VPC ID and IPv4 CIDR block for the subnet. After you create a subnet, you can\'t change its CIDR block. The size of the subnet\'s IPv4 CIDR block can be the same as a VPC\'s IPv4 CIDR block, or a subset of a VPC\'s IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets\' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).
         
-        If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. 
+        If you\'ve associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. 
         
         .. warning::
         
-          AWS reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for use.
+          AWS reserves both the first four and the last IPv4 address in each subnet\'s CIDR block. They\'re not available for use.
         
-        If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.
+        If you add more than one subnet to a VPC, they\'re set up in a star topology with a logical router in the middle.
         
-        If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address doesn't change if you stop and restart the instance (unlike a similar instance launched outside a VPC, which gets a new IP address when restarted). It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.
+        If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address doesn\'t change if you stop and restart the instance (unlike a similar instance launched outside a VPC, which gets a new IP address when restarted). It\'s therefore possible to have a subnet with no running instances (they\'re all stopped), but no remaining IP addresses available.
         
         For more information about subnets, see `Your VPC and Subnets <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -11218,9 +11218,9 @@ class Vpc(base.ServiceResource):
         ::
         
           subnet = vpc.create_subnet(
-              AvailabilityZone='string',
-              CidrBlock='string',
-              Ipv6CidrBlock='string',
+              AvailabilityZone=\'string\',
+              CidrBlock=\'string\',
+              Ipv6CidrBlock=\'string\',
               DryRun=True|False
           )
         :type AvailabilityZone: string
@@ -11253,7 +11253,7 @@ class Vpc(base.ServiceResource):
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -11264,8 +11264,8 @@ class Vpc(base.ServiceResource):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -11277,7 +11277,7 @@ class Vpc(base.ServiceResource):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -11329,7 +11329,7 @@ class Vpc(base.ServiceResource):
         ::
         
           response = vpc.describe_attribute(
-              Attribute='enableDnsSupport'|'enableDnsHostnames',
+              Attribute=\'enableDnsSupport\'|\'enableDnsHostnames\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -11350,12 +11350,12 @@ class Vpc(base.ServiceResource):
           ::
         
             {
-                'VpcId': 'string',
-                'EnableDnsHostnames': {
-                    'Value': True|False
+                \'VpcId\': \'string\',
+                \'EnableDnsHostnames\': {
+                    \'Value\': True|False
                 },
-                'EnableDnsSupport': {
-                    'Value': True|False
+                \'EnableDnsSupport\': {
+                    \'Value\': True|False
                 }
             }
           **Response Structure** 
@@ -11395,7 +11395,7 @@ class Vpc(base.ServiceResource):
         
           response = vpc.detach_classic_link_instance(
               DryRun=True|False,
-              InstanceId='string',
+              InstanceId=\'string\',
               
           )
         :type DryRun: boolean
@@ -11416,7 +11416,7 @@ class Vpc(base.ServiceResource):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -11439,7 +11439,7 @@ class Vpc(base.ServiceResource):
         
           response = vpc.detach_internet_gateway(
               DryRun=True|False,
-              InternetGatewayId='string',
+              InternetGatewayId=\'string\',
               
           )
         :type DryRun: boolean
@@ -11481,7 +11481,7 @@ class Vpc(base.ServiceResource):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -11519,7 +11519,7 @@ class Vpc(base.ServiceResource):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -11566,10 +11566,10 @@ class Vpc(base.ServiceResource):
         
           response = vpc.modify_attribute(
               EnableDnsHostnames={
-                  'Value': True|False
+                  \'Value\': True|False
               },
               EnableDnsSupport={
-                  'Value': True|False
+                  \'Value\': True|False
               },
               
           )
@@ -11578,7 +11578,7 @@ class Vpc(base.ServiceResource):
         
           Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not.
         
-          You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you've enabled DNS support.
+          You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you\'ve enabled DNS support.
         
           - **Value** *(boolean) --* 
         
@@ -11587,7 +11587,7 @@ class Vpc(base.ServiceResource):
         :type EnableDnsSupport: dict
         :param EnableDnsSupport: 
         
-          Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled.
+          Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range \"plus two\" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled.
         
           You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute.
         
@@ -11631,9 +11631,9 @@ class Vpc(base.ServiceResource):
         
           vpc_peering_connection = vpc.request_vpc_peering_connection(
               DryRun=True|False,
-              PeerOwnerId='string',
-              PeerVpcId='string',
-              PeerRegion='string'
+              PeerOwnerId=\'string\',
+              PeerVpcId=\'string\',
+              PeerRegion=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -11675,9 +11675,9 @@ class Vpc(base.ServiceResource):
           vpc.wait_until_available(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -11688,7 +11688,7 @@ class Vpc(base.ServiceResource):
         
           One or more filters.
         
-          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
+          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC\'s CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
            
           * ``cidr-block-association.cidr-block`` - An IPv4 CIDR block associated with the VPC. 
            
@@ -11768,9 +11768,9 @@ class Vpc(base.ServiceResource):
           vpc.wait_until_exists(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -11781,7 +11781,7 @@ class Vpc(base.ServiceResource):
         
           One or more filters.
         
-          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
+          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC\'s CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
            
           * ``cidr-block-association.cidr-block`` - An IPv4 CIDR block associated with the VPC. 
            
@@ -11887,61 +11887,61 @@ class VpcPeeringConnection(base.ServiceResource):
           ::
         
             {
-                'VpcPeeringConnection': {
-                    'AccepterVpcInfo': {
-                        'CidrBlock': 'string',
-                        'Ipv6CidrBlockSet': [
+                \'VpcPeeringConnection\': {
+                    \'AccepterVpcInfo\': {
+                        \'CidrBlock\': \'string\',
+                        \'Ipv6CidrBlockSet\': [
                             {
-                                'Ipv6CidrBlock': 'string'
+                                \'Ipv6CidrBlock\': \'string\'
                             },
                         ],
-                        'CidrBlockSet': [
+                        \'CidrBlockSet\': [
                             {
-                                'CidrBlock': 'string'
+                                \'CidrBlock\': \'string\'
                             },
                         ],
-                        'OwnerId': 'string',
-                        'PeeringOptions': {
-                            'AllowDnsResolutionFromRemoteVpc': True|False,
-                            'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                            'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                        \'OwnerId\': \'string\',
+                        \'PeeringOptions\': {
+                            \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
                         },
-                        'VpcId': 'string',
-                        'Region': 'string'
+                        \'VpcId\': \'string\',
+                        \'Region\': \'string\'
                     },
-                    'ExpirationTime': datetime(2015, 1, 1),
-                    'RequesterVpcInfo': {
-                        'CidrBlock': 'string',
-                        'Ipv6CidrBlockSet': [
+                    \'ExpirationTime\': datetime(2015, 1, 1),
+                    \'RequesterVpcInfo\': {
+                        \'CidrBlock\': \'string\',
+                        \'Ipv6CidrBlockSet\': [
                             {
-                                'Ipv6CidrBlock': 'string'
+                                \'Ipv6CidrBlock\': \'string\'
                             },
                         ],
-                        'CidrBlockSet': [
+                        \'CidrBlockSet\': [
                             {
-                                'CidrBlock': 'string'
+                                \'CidrBlock\': \'string\'
                             },
                         ],
-                        'OwnerId': 'string',
-                        'PeeringOptions': {
-                            'AllowDnsResolutionFromRemoteVpc': True|False,
-                            'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                            'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                        \'OwnerId\': \'string\',
+                        \'PeeringOptions\': {
+                            \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
                         },
-                        'VpcId': 'string',
-                        'Region': 'string'
+                        \'VpcId\': \'string\',
+                        \'Region\': \'string\'
                     },
-                    'Status': {
-                        'Code': 'initiating-request'|'pending-acceptance'|'active'|'deleted'|'rejected'|'failed'|'expired'|'provisioning'|'deleting',
-                        'Message': 'string'
+                    \'Status\': {
+                        \'Code\': \'initiating-request\'|\'pending-acceptance\'|\'active\'|\'deleted\'|\'rejected\'|\'failed\'|\'expired\'|\'provisioning\'|\'deleting\',
+                        \'Message\': \'string\'
                     },
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'VpcPeeringConnectionId': 'string'
+                    \'VpcPeeringConnectionId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -12140,7 +12140,7 @@ class VpcPeeringConnection(base.ServiceResource):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -12202,7 +12202,7 @@ class VpcPeeringConnection(base.ServiceResource):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -12240,9 +12240,9 @@ class VpcPeeringConnection(base.ServiceResource):
           vpc_peering_connection.wait_until_exists(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -12262,7 +12262,7 @@ class VpcPeeringConnection(base.ServiceResource):
            
           * ``expiration-time`` - The expiration date and time for the VPC peering connection. 
            
-          * ``requester-vpc-info.cidr-block`` - The IPv4 CIDR block of the requester's VPC. 
+          * ``requester-vpc-info.cidr-block`` - The IPv4 CIDR block of the requester\'s VPC. 
            
           * ``requester-vpc-info.owner-id`` - The AWS account ID of the owner of the requester VPC. 
            
@@ -12341,11 +12341,11 @@ class VpcAddress(base.ServiceResource):
         
         [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance. If you associate an Elastic IP address with an instance that has an existing Elastic IP address, the existing address is disassociated from the instance, but remains allocated to your account.
         
-        [VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.
+        [VPC in an EC2-Classic account] If you don\'t specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.
         
         .. warning::
         
-          This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the *Elastic IP Addresses* section of `Amazon EC2 Pricing <http://aws.amazon.com/ec2/pricing/>`__ .
+          This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the *Elastic IP Addresses* section of `Amazon EC2 Pricing <http://aws.amazon.com/ec2/pricing/>`__ .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateAddress>`_
         
@@ -12353,12 +12353,12 @@ class VpcAddress(base.ServiceResource):
         ::
         
           response = vpc_address.associate(
-              InstanceId='string',
-              PublicIp='string',
+              InstanceId=\'string\',
+              PublicIp=\'string\',
               AllowReassociation=True|False,
               DryRun=True|False,
-              NetworkInterfaceId='string',
-              PrivateIpAddress='string'
+              NetworkInterfaceId=\'string\',
+              PrivateIpAddress=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: 
@@ -12398,7 +12398,7 @@ class VpcAddress(base.ServiceResource):
           ::
         
             {
-                'AssociationId': 'string'
+                \'AssociationId\': \'string\'
             }
           **Response Structure** 
         
@@ -12438,11 +12438,11 @@ class VpcAddress(base.ServiceResource):
     def release(self, PublicIp: str = None, DryRun: bool = None):
         """
         
-        [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. To disassociate an Elastic IP address without releasing it, use  DisassociateAddress .
+        [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it\'s associated with. To disassociate an Elastic IP address without releasing it, use  DisassociateAddress .
         
         [Nondefault VPC] You must use  DisassociateAddress to disassociate the Elastic IP address before you can release it. Otherwise, Amazon EC2 returns an error (``InvalidIPAddress.InUse`` ).
         
-        After releasing an Elastic IP address, it is released to the IP address pool. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you'll get an ``AuthFailure`` error if the address is already allocated to another AWS account.
+        After releasing an Elastic IP address, it is released to the IP address pool. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you\'ll get an ``AuthFailure`` error if the address is already allocated to another AWS account.
         
         [EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it. For more information, see  AllocateAddress .
         
@@ -12452,7 +12452,7 @@ class VpcAddress(base.ServiceResource):
         ::
         
           response = vpc_address.release(
-              PublicIp='string',
+              PublicIp=\'string\',
               DryRun=True|False
           )
         :type PublicIp: string
@@ -12514,10 +12514,10 @@ class classic_addresses(ResourceCollection):
         
           classic_address_iterator = ec2.classic_addresses.filter(
               PublicIps=[
-                  'string',
+                  \'string\',
               ],
               AllocationIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -12612,13 +12612,13 @@ class classic_addresses(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -12656,13 +12656,13 @@ class dhcp_options_sets(ResourceCollection):
         
           dhcp_options_iterator = ec2.dhcp_options_sets.filter(
               DhcpOptionsIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -12799,13 +12799,13 @@ class dhcp_options_sets(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -12843,21 +12843,21 @@ class images(ResourceCollection):
         
           image_iterator = ec2.images.filter(
               ExecutableUsers=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ImageIds=[
-                  'string',
+                  \'string\',
               ],
               Owners=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -13056,13 +13056,13 @@ class images(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -13093,7 +13093,7 @@ class instances(ResourceCollection):
     def create_tags(cls, Tags: List, DryRun: bool = None):
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -13104,8 +13104,8 @@ class instances(ResourceCollection):
               DryRun=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -13117,7 +13117,7 @@ class instances(ResourceCollection):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -13152,18 +13152,18 @@ class instances(ResourceCollection):
           instance_iterator = ec2.instances.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -13304,11 +13304,11 @@ class instances(ResourceCollection):
            
           * ``ramdisk-id`` - The RAM disk ID. 
            
-          * ``reason`` - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter. 
+          * ``reason`` - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter. 
            
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on). 
            
-          * ``reservation-id`` - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
+          * ``reservation-id`` - The ID of the instance\'s reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
            
           * ``root-device-name`` - The device name of the root device volume (for example, ``/dev/sda1`` ). 
            
@@ -13456,11 +13456,11 @@ class instances(ResourceCollection):
           ::
         
             {
-                'InstanceMonitorings': [
+                \'InstanceMonitorings\': [
                     {
-                        'InstanceId': 'string',
-                        'Monitoring': {
-                            'State': 'disabled'|'disabling'|'enabled'|'pending'
+                        \'InstanceId\': \'string\',
+                        \'Monitoring\': {
+                            \'State\': \'disabled\'|\'disabling\'|\'enabled\'|\'pending\'
                         }
                     },
                 ]
@@ -13526,13 +13526,13 @@ class instances(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -13584,7 +13584,7 @@ class instances(ResourceCollection):
         ::
         
           response = ec2.instances.start(
-              AdditionalInfo='string',
+              AdditionalInfo=\'string\',
               DryRun=True|False
           )
         :type AdditionalInfo: string
@@ -13605,16 +13605,16 @@ class instances(ResourceCollection):
           ::
         
             {
-                'StartingInstances': [
+                \'StartingInstances\': [
                     {
-                        'CurrentState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'CurrentState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'InstanceId': 'string',
-                        'PreviousState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'InstanceId\': \'string\',
+                        \'PreviousState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         }
                     },
                 ]
@@ -13693,9 +13693,9 @@ class instances(ResourceCollection):
     def stop(cls, DryRun: bool = None, Force: bool = None) -> Dict:
         """
         
-        We don't charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.
+        We don\'t charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.
         
-        You can't start or stop Spot Instances, and you can't stop instance store-backed instances.
+        You can\'t start or stop Spot Instances, and you can\'t stop instance store-backed instances.
         
         When you stop an instance, we shut it down. You can restart your instance at any time. Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.
         
@@ -13732,16 +13732,16 @@ class instances(ResourceCollection):
           ::
         
             {
-                'StoppingInstances': [
+                \'StoppingInstances\': [
                     {
-                        'CurrentState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'CurrentState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'InstanceId': 'string',
-                        'PreviousState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'InstanceId\': \'string\',
+                        \'PreviousState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         }
                     },
                 ]
@@ -13851,16 +13851,16 @@ class instances(ResourceCollection):
           ::
         
             {
-                'TerminatingInstances': [
+                \'TerminatingInstances\': [
                     {
-                        'CurrentState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'CurrentState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'InstanceId': 'string',
-                        'PreviousState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'InstanceId\': \'string\',
+                        \'PreviousState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         }
                     },
                 ]
@@ -13960,11 +13960,11 @@ class instances(ResourceCollection):
           ::
         
             {
-                'InstanceMonitorings': [
+                \'InstanceMonitorings\': [
                     {
-                        'InstanceId': 'string',
-                        'Monitoring': {
-                            'State': 'disabled'|'disabling'|'enabled'|'pending'
+                        \'InstanceId\': \'string\',
+                        \'Monitoring\': {
+                            \'State\': \'disabled\'|\'disabling\'|\'enabled\'|\'pending\'
                         }
                     },
                 ]
@@ -14030,15 +14030,15 @@ class internet_gateways(ResourceCollection):
           internet_gateway_iterator = ec2.internet_gateways.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               InternetGatewayIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Filters: list
@@ -14172,13 +14172,13 @@ class internet_gateways(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -14217,14 +14217,14 @@ class key_pairs(ResourceCollection):
           key_pair_info_iterator = ec2.key_pairs.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               KeyNames=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -14353,13 +14353,13 @@ class key_pairs(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -14398,15 +14398,15 @@ class network_acls(ResourceCollection):
           network_acl_iterator = ec2.network_acls.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               NetworkAclIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Filters: list
@@ -14564,13 +14564,13 @@ class network_acls(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -14609,17 +14609,17 @@ class network_interfaces(ResourceCollection):
           network_interface_iterator = ec2.network_interfaces.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               NetworkInterfaceIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -14823,13 +14823,13 @@ class network_interfaces(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -14868,15 +14868,15 @@ class placement_groups(ResourceCollection):
           placement_group_iterator = ec2.placement_groups.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               GroupNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Filters: list
@@ -15006,13 +15006,13 @@ class placement_groups(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -15051,17 +15051,17 @@ class route_tables(ResourceCollection):
           route_table_iterator = ec2.route_tables.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               RouteTableIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -15095,7 +15095,7 @@ class route_tables(ResourceCollection):
            
           * ``route.origin`` - Describes how the route was created. ``CreateRouteTable`` indicates that the route was automatically created when the route table was created; ``CreateRoute`` indicates that the route was manually added to the route table; ``EnableVgwRoutePropagation`` indicates that the route was propagated by route propagation. 
            
-          * ``route.state`` - The state of a route in the route table (``active`` | ``blackhole`` ). The blackhole state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, the specified NAT instance has been terminated, and so on). 
+          * ``route.state`` - The state of a route in the route table (``active`` | ``blackhole`` ). The blackhole state indicates that the route\'s target isn\'t available (for example, the specified gateway isn\'t attached to the VPC, the specified NAT instance has been terminated, and so on). 
            
           * ``route.vpc-peering-connection-id`` - The ID of a VPC peering connection specified in a route in the table. 
            
@@ -15231,13 +15231,13 @@ class route_tables(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -15276,20 +15276,20 @@ class security_groups(ResourceCollection):
           security_group_iterator = ec2.security_groups.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               GroupIds=[
-                  'string',
+                  \'string\',
               ],
               GroupNames=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -15482,13 +15482,13 @@ class security_groups(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -15527,22 +15527,22 @@ class snapshots(ResourceCollection):
           snapshot_iterator = ec2.snapshots.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               OwnerIds=[
-                  'string',
+                  \'string\',
               ],
               RestorableByUserIds=[
-                  'string',
+                  \'string\',
               ],
               SnapshotIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -15713,13 +15713,13 @@ class snapshots(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -15758,14 +15758,14 @@ class subnets(ResourceCollection):
           subnet_iterator = ec2.subnets.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SubnetIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -15778,7 +15778,7 @@ class subnets(ResourceCollection):
            
           * ``available-ip-address-count`` - The number of IPv4 addresses in the subnet that are available. 
            
-          * ``cidrBlock`` - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use ``cidr`` or ``cidr-block`` as the filter names. 
+          * ``cidrBlock`` - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet\'s CIDR block for information to be returned for the subnet. You can also use ``cidr`` or ``cidr-block`` as the filter names. 
            
           * ``defaultForAz`` - Indicates whether this is the default subnet for the Availability Zone. You can also use ``default-for-az`` as the filter name. 
            
@@ -15914,13 +15914,13 @@ class subnets(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -15959,18 +15959,18 @@ class volumes(ResourceCollection):
           volume_iterator = ec2.volumes.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VolumeIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -16131,13 +16131,13 @@ class volumes(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -16175,10 +16175,10 @@ class vpc_addresses(ResourceCollection):
         
           vpc_address_iterator = ec2.vpc_addresses.filter(
               PublicIps=[
-                  'string',
+                  \'string\',
               ],
               AllocationIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -16273,13 +16273,13 @@ class vpc_addresses(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -16318,15 +16318,15 @@ class vpc_peering_connections(ResourceCollection):
           vpc_peering_connection_iterator = ec2.vpc_peering_connections.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               VpcPeeringConnectionIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Filters: list
@@ -16342,7 +16342,7 @@ class vpc_peering_connections(ResourceCollection):
            
           * ``expiration-time`` - The expiration date and time for the VPC peering connection. 
            
-          * ``requester-vpc-info.cidr-block`` - The IPv4 CIDR block of the requester's VPC. 
+          * ``requester-vpc-info.cidr-block`` - The IPv4 CIDR block of the requester\'s VPC. 
            
           * ``requester-vpc-info.owner-id`` - The AWS account ID of the owner of the requester VPC. 
            
@@ -16474,13 +16474,13 @@ class vpc_peering_connections(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -16519,14 +16519,14 @@ class vpcs(ResourceCollection):
           vpc_iterator = ec2.vpcs.filter(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VpcIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -16535,7 +16535,7 @@ class vpcs(ResourceCollection):
         
           One or more filters.
         
-          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
+          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC\'s CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
            
           * ``cidr-block-association.cidr-block`` - An IPv4 CIDR block associated with the VPC. 
            
@@ -16677,13 +16677,13 @@ class vpcs(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances

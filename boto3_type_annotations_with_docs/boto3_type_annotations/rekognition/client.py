@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -31,7 +31,7 @@ class Client(BaseClient):
         
           If the source image contains multiple faces, the service detects the largest face and compares it with each face detected in the target image. 
         
-        You pass the input and target images either as base64-encoded image bytes or as references to images in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn't supported. The image must be formatted as a PNG or JPEG file. 
+        You pass the input and target images either as base64-encoded image bytes or as references to images in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn\'t supported. The image must be formatted as a PNG or JPEG file. 
         
         In response, the operation returns an array of face matches ordered by similarity score in descending order. For each face match, the response provides a bounding box of the face, facial landmarks, pose details (pitch, role, and yaw), quality (brightness and sharpness), and confidence value (indicating the level of confidence that the bounding box contains a face). The response also provides a similarity score, which indicates how closely the faces match. 
         
@@ -39,15 +39,15 @@ class Client(BaseClient):
         
           By default, only faces with a similarity score of greater than or equal to 80% are returned in the response. You can change this value by specifying the ``SimilarityThreshold`` parameter.
         
-         ``CompareFaces`` also returns an array of faces that don't match the source image. For each face, it returns a bounding box, confidence value, landmarks, pose details, and quality. The response also returns information about the face in the source image, including the bounding box of the face and confidence value.
+         ``CompareFaces`` also returns an array of faces that don\'t match the source image. For each face, it returns a bounding box, confidence value, landmarks, pose details, and quality. The response also returns information about the face in the source image, including the bounding box of the face and confidence value.
         
-        If the image doesn't contain Exif metadata, ``CompareFaces`` returns orientation information for the source and target images. Use these values to display the images with the correct image orientation.
+        If the image doesn\'t contain Exif metadata, ``CompareFaces`` returns orientation information for the source and target images. Use these values to display the images with the correct image orientation.
         
         If no faces are detected in the source or target images, ``CompareFaces`` returns an ``InvalidParameterException`` error. 
         
         .. note::
         
-          This is a stateless API operation. That is, data returned by this operation doesn't persist.
+          This is a stateless API operation. That is, data returned by this operation doesn\'t persist.
         
         For an example, see Comparing Faces in Images in the Amazon Rekognition Developer Guide.
         
@@ -60,19 +60,19 @@ class Client(BaseClient):
         
           response = client.compare_faces(
               SourceImage={
-                  'Bytes': b'bytes',
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'Bytes\': b\'bytes\',
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
               TargetImage={
-                  'Bytes': b'bytes',
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'Bytes\': b\'bytes\',
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
               SimilarityThreshold=...
@@ -140,74 +140,74 @@ class Client(BaseClient):
           ::
         
             {
-                'SourceImageFace': {
-                    'BoundingBox': {
-                        'Width': ...,
-                        'Height': ...,
-                        'Left': ...,
-                        'Top': ...
+                \'SourceImageFace\': {
+                    \'BoundingBox\': {
+                        \'Width\': ...,
+                        \'Height\': ...,
+                        \'Left\': ...,
+                        \'Top\': ...
                     },
-                    'Confidence': ...
+                    \'Confidence\': ...
                 },
-                'FaceMatches': [
+                \'FaceMatches\': [
                     {
-                        'Similarity': ...,
-                        'Face': {
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                        \'Similarity\': ...,
+                        \'Face\': {
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'Confidence': ...,
-                            'Landmarks': [
+                            \'Confidence\': ...,
+                            \'Landmarks\': [
                                 {
-                                    'Type': 'eyeLeft'|'eyeRight'|'nose'|'mouthLeft'|'mouthRight'|'leftEyeBrowLeft'|'leftEyeBrowRight'|'leftEyeBrowUp'|'rightEyeBrowLeft'|'rightEyeBrowRight'|'rightEyeBrowUp'|'leftEyeLeft'|'leftEyeRight'|'leftEyeUp'|'leftEyeDown'|'rightEyeLeft'|'rightEyeRight'|'rightEyeUp'|'rightEyeDown'|'noseLeft'|'noseRight'|'mouthUp'|'mouthDown'|'leftPupil'|'rightPupil',
-                                    'X': ...,
-                                    'Y': ...
+                                    \'Type\': \'eyeLeft\'|\'eyeRight\'|\'nose\'|\'mouthLeft\'|\'mouthRight\'|\'leftEyeBrowLeft\'|\'leftEyeBrowRight\'|\'leftEyeBrowUp\'|\'rightEyeBrowLeft\'|\'rightEyeBrowRight\'|\'rightEyeBrowUp\'|\'leftEyeLeft\'|\'leftEyeRight\'|\'leftEyeUp\'|\'leftEyeDown\'|\'rightEyeLeft\'|\'rightEyeRight\'|\'rightEyeUp\'|\'rightEyeDown\'|\'noseLeft\'|\'noseRight\'|\'mouthUp\'|\'mouthDown\'|\'leftPupil\'|\'rightPupil\',
+                                    \'X\': ...,
+                                    \'Y\': ...
                                 },
                             ],
-                            'Pose': {
-                                'Roll': ...,
-                                'Yaw': ...,
-                                'Pitch': ...
+                            \'Pose\': {
+                                \'Roll\': ...,
+                                \'Yaw\': ...,
+                                \'Pitch\': ...
                             },
-                            'Quality': {
-                                'Brightness': ...,
-                                'Sharpness': ...
+                            \'Quality\': {
+                                \'Brightness\': ...,
+                                \'Sharpness\': ...
                             }
                         }
                     },
                 ],
-                'UnmatchedFaces': [
+                \'UnmatchedFaces\': [
                     {
-                        'BoundingBox': {
-                            'Width': ...,
-                            'Height': ...,
-                            'Left': ...,
-                            'Top': ...
+                        \'BoundingBox\': {
+                            \'Width\': ...,
+                            \'Height\': ...,
+                            \'Left\': ...,
+                            \'Top\': ...
                         },
-                        'Confidence': ...,
-                        'Landmarks': [
+                        \'Confidence\': ...,
+                        \'Landmarks\': [
                             {
-                                'Type': 'eyeLeft'|'eyeRight'|'nose'|'mouthLeft'|'mouthRight'|'leftEyeBrowLeft'|'leftEyeBrowRight'|'leftEyeBrowUp'|'rightEyeBrowLeft'|'rightEyeBrowRight'|'rightEyeBrowUp'|'leftEyeLeft'|'leftEyeRight'|'leftEyeUp'|'leftEyeDown'|'rightEyeLeft'|'rightEyeRight'|'rightEyeUp'|'rightEyeDown'|'noseLeft'|'noseRight'|'mouthUp'|'mouthDown'|'leftPupil'|'rightPupil',
-                                'X': ...,
-                                'Y': ...
+                                \'Type\': \'eyeLeft\'|\'eyeRight\'|\'nose\'|\'mouthLeft\'|\'mouthRight\'|\'leftEyeBrowLeft\'|\'leftEyeBrowRight\'|\'leftEyeBrowUp\'|\'rightEyeBrowLeft\'|\'rightEyeBrowRight\'|\'rightEyeBrowUp\'|\'leftEyeLeft\'|\'leftEyeRight\'|\'leftEyeUp\'|\'leftEyeDown\'|\'rightEyeLeft\'|\'rightEyeRight\'|\'rightEyeUp\'|\'rightEyeDown\'|\'noseLeft\'|\'noseRight\'|\'mouthUp\'|\'mouthDown\'|\'leftPupil\'|\'rightPupil\',
+                                \'X\': ...,
+                                \'Y\': ...
                             },
                         ],
-                        'Pose': {
-                            'Roll': ...,
-                            'Yaw': ...,
-                            'Pitch': ...
+                        \'Pose\': {
+                            \'Roll\': ...,
+                            \'Yaw\': ...,
+                            \'Pitch\': ...
                         },
-                        'Quality': {
-                            'Brightness': ...,
-                            'Sharpness': ...
+                        \'Quality\': {
+                            \'Brightness\': ...,
+                            \'Sharpness\': ...
                         }
                     },
                 ],
-                'SourceImageOrientationCorrection': 'ROTATE_0'|'ROTATE_90'|'ROTATE_180'|'ROTATE_270',
-                'TargetImageOrientationCorrection': 'ROTATE_0'|'ROTATE_90'|'ROTATE_180'|'ROTATE_270'
+                \'SourceImageOrientationCorrection\': \'ROTATE_0\'|\'ROTATE_90\'|\'ROTATE_180\'|\'ROTATE_270\',
+                \'TargetImageOrientationCorrection\': \'ROTATE_0\'|\'ROTATE_90\'|\'ROTATE_180\'|\'ROTATE_270\'
             }
           **Response Structure** 
         
@@ -415,7 +415,7 @@ class Client(BaseClient):
         
               .. note::
         
-                If the source image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image's orientation. If the Exif metadata for the source image populates the orientation field, the value of ``OrientationCorrection`` is null. The ``SourceImageFace`` bounding box coordinates represent the location of the face after Exif metadata is used to correct the orientation. Images in .png format don't contain Exif metadata.
+                If the source image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image\'s orientation. If the Exif metadata for the source image populates the orientation field, the value of ``OrientationCorrection`` is null. The ``SourceImageFace`` bounding box coordinates represent the location of the face after Exif metadata is used to correct the orientation. Images in .png format don\'t contain Exif metadata.
         
             - **TargetImageOrientationCorrection** *(string) --* 
         
@@ -423,7 +423,7 @@ class Client(BaseClient):
         
               .. note::
         
-                If the target image is in .jpg format, it might contain Exif metadata that includes the orientation of the image. If the Exif metadata for the target image populates the orientation field, the value of ``OrientationCorrection`` is null. The bounding box coordinates in ``FaceMatches`` and ``UnmatchedFaces`` represent the location of the face after Exif metadata is used to correct the orientation. Images in .png format don't contain Exif metadata.
+                If the target image is in .jpg format, it might contain Exif metadata that includes the orientation of the image. If the Exif metadata for the target image populates the orientation field, the value of ``OrientationCorrection`` is null. The bounding box coordinates in ``FaceMatches`` and ``UnmatchedFaces`` represent the location of the face after Exif metadata is used to correct the orientation. Images in .png format don\'t contain Exif metadata.
         
         """
         pass
@@ -445,7 +445,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_collection(
-              CollectionId='string'
+              CollectionId=\'string\'
           )
         :type CollectionId: string
         :param CollectionId: **[REQUIRED]** 
@@ -460,9 +460,9 @@ class Client(BaseClient):
           ::
         
             {
-                'StatusCode': 123,
-                'CollectionArn': 'string',
-                'FaceModelVersion': 'string'
+                \'StatusCode\': 123,
+                \'CollectionArn\': \'string\',
+                \'FaceModelVersion\': \'string\'
             }
           **Response Structure** 
         
@@ -499,23 +499,23 @@ class Client(BaseClient):
         
           response = client.create_stream_processor(
               Input={
-                  'KinesisVideoStream': {
-                      'Arn': 'string'
+                  \'KinesisVideoStream\': {
+                      \'Arn\': \'string\'
                   }
               },
               Output={
-                  'KinesisDataStream': {
-                      'Arn': 'string'
+                  \'KinesisDataStream\': {
+                      \'Arn\': \'string\'
                   }
               },
-              Name='string',
+              Name=\'string\',
               Settings={
-                  'FaceSearch': {
-                      'CollectionId': 'string',
-                      'FaceMatchThreshold': ...
+                  \'FaceSearch\': {
+                      \'CollectionId\': \'string\',
+                      \'FaceMatchThreshold\': ...
                   }
               },
-              RoleArn='string'
+              RoleArn=\'string\'
           )
         :type Input: dict
         :param Input: **[REQUIRED]** 
@@ -578,7 +578,7 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamProcessorArn': 'string'
+                \'StreamProcessorArn\': \'string\'
             }
           **Response Structure** 
         
@@ -602,7 +602,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_collection(
-              CollectionId='string'
+              CollectionId=\'string\'
           )
         :type CollectionId: string
         :param CollectionId: **[REQUIRED]** 
@@ -617,7 +617,7 @@ class Client(BaseClient):
           ::
         
             {
-                'StatusCode': 123
+                \'StatusCode\': 123
             }
           **Response Structure** 
         
@@ -641,9 +641,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_faces(
-              CollectionId='string',
+              CollectionId=\'string\',
               FaceIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CollectionId: string
@@ -666,8 +666,8 @@ class Client(BaseClient):
           ::
         
             {
-                'DeletedFaces': [
-                    'string',
+                \'DeletedFaces\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -692,7 +692,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_stream_processor(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -724,7 +724,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_collection(
-              CollectionId='string'
+              CollectionId=\'string\'
           )
         :type CollectionId: string
         :param CollectionId: **[REQUIRED]** 
@@ -739,10 +739,10 @@ class Client(BaseClient):
           ::
         
             {
-                'FaceCount': 123,
-                'FaceModelVersion': 'string',
-                'CollectionARN': 'string',
-                'CreationTimestamp': datetime(2015, 1, 1)
+                \'FaceCount\': 123,
+                \'FaceModelVersion\': \'string\',
+                \'CollectionARN\': \'string\',
+                \'CreationTimestamp\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -754,7 +754,7 @@ class Client(BaseClient):
         
             - **FaceModelVersion** *(string) --* 
         
-              The version of the face model that's used by the collection for face detection.
+              The version of the face model that\'s used by the collection for face detection.
         
               For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
         
@@ -778,7 +778,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stream_processor(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -793,27 +793,27 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string',
-                'StreamProcessorArn': 'string',
-                'Status': 'STOPPED'|'STARTING'|'RUNNING'|'FAILED'|'STOPPING',
-                'StatusMessage': 'string',
-                'CreationTimestamp': datetime(2015, 1, 1),
-                'LastUpdateTimestamp': datetime(2015, 1, 1),
-                'Input': {
-                    'KinesisVideoStream': {
-                        'Arn': 'string'
+                \'Name\': \'string\',
+                \'StreamProcessorArn\': \'string\',
+                \'Status\': \'STOPPED\'|\'STARTING\'|\'RUNNING\'|\'FAILED\'|\'STOPPING\',
+                \'StatusMessage\': \'string\',
+                \'CreationTimestamp\': datetime(2015, 1, 1),
+                \'LastUpdateTimestamp\': datetime(2015, 1, 1),
+                \'Input\': {
+                    \'KinesisVideoStream\': {
+                        \'Arn\': \'string\'
                     }
                 },
-                'Output': {
-                    'KinesisDataStream': {
-                        'Arn': 'string'
+                \'Output\': {
+                    \'KinesisDataStream\': {
+                        \'Arn\': \'string\'
                     }
                 },
-                'RoleArn': 'string',
-                'Settings': {
-                    'FaceSearch': {
-                        'CollectionId': 'string',
-                        'FaceMatchThreshold': ...
+                \'RoleArn\': \'string\',
+                \'Settings\': {
+                    \'FaceSearch\': {
+                        \'CollectionId\': \'string\',
+                        \'FaceMatchThreshold\': ...
                     }
                 }
             }
@@ -914,15 +914,15 @@ class Client(BaseClient):
         
           response = client.detect_faces(
               Image={
-                  'Bytes': b'bytes',
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'Bytes\': b\'bytes\',
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
               Attributes=[
-                  'DEFAULT'|'ALL',
+                  \'DEFAULT\'|\'ALL\',
               ]
           )
         :type Image: dict
@@ -953,9 +953,9 @@ class Client(BaseClient):
         :type Attributes: list
         :param Attributes: 
         
-          An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for ``Attributes`` or if you specify ``["DEFAULT"]`` , the API returns the following subset of facial attributes: ``BoundingBox`` , ``Confidence`` , ``Pose`` , ``Quality`` , and ``Landmarks`` . If you provide ``["ALL"]`` , all facial attributes are returned, but the operation takes longer to complete.
+          An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don\'t specify a value for ``Attributes`` or if you specify ``[\"DEFAULT\"]`` , the API returns the following subset of facial attributes: ``BoundingBox`` , ``Confidence`` , ``Pose`` , ``Quality`` , and ``Landmarks`` . If you provide ``[\"ALL\"]`` , all facial attributes are returned, but the operation takes longer to complete.
         
-          If you provide both, ``["ALL", "DEFAULT"]`` , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). 
+          If you provide both, ``[\"ALL\", \"DEFAULT\"]`` , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). 
         
           - *(string) --* 
         
@@ -967,76 +967,76 @@ class Client(BaseClient):
           ::
         
             {
-                'FaceDetails': [
+                \'FaceDetails\': [
                     {
-                        'BoundingBox': {
-                            'Width': ...,
-                            'Height': ...,
-                            'Left': ...,
-                            'Top': ...
+                        \'BoundingBox\': {
+                            \'Width\': ...,
+                            \'Height\': ...,
+                            \'Left\': ...,
+                            \'Top\': ...
                         },
-                        'AgeRange': {
-                            'Low': 123,
-                            'High': 123
+                        \'AgeRange\': {
+                            \'Low\': 123,
+                            \'High\': 123
                         },
-                        'Smile': {
-                            'Value': True|False,
-                            'Confidence': ...
+                        \'Smile\': {
+                            \'Value\': True|False,
+                            \'Confidence\': ...
                         },
-                        'Eyeglasses': {
-                            'Value': True|False,
-                            'Confidence': ...
+                        \'Eyeglasses\': {
+                            \'Value\': True|False,
+                            \'Confidence\': ...
                         },
-                        'Sunglasses': {
-                            'Value': True|False,
-                            'Confidence': ...
+                        \'Sunglasses\': {
+                            \'Value\': True|False,
+                            \'Confidence\': ...
                         },
-                        'Gender': {
-                            'Value': 'Male'|'Female',
-                            'Confidence': ...
+                        \'Gender\': {
+                            \'Value\': \'Male\'|\'Female\',
+                            \'Confidence\': ...
                         },
-                        'Beard': {
-                            'Value': True|False,
-                            'Confidence': ...
+                        \'Beard\': {
+                            \'Value\': True|False,
+                            \'Confidence\': ...
                         },
-                        'Mustache': {
-                            'Value': True|False,
-                            'Confidence': ...
+                        \'Mustache\': {
+                            \'Value\': True|False,
+                            \'Confidence\': ...
                         },
-                        'EyesOpen': {
-                            'Value': True|False,
-                            'Confidence': ...
+                        \'EyesOpen\': {
+                            \'Value\': True|False,
+                            \'Confidence\': ...
                         },
-                        'MouthOpen': {
-                            'Value': True|False,
-                            'Confidence': ...
+                        \'MouthOpen\': {
+                            \'Value\': True|False,
+                            \'Confidence\': ...
                         },
-                        'Emotions': [
+                        \'Emotions\': [
                             {
-                                'Type': 'HAPPY'|'SAD'|'ANGRY'|'CONFUSED'|'DISGUSTED'|'SURPRISED'|'CALM'|'UNKNOWN',
-                                'Confidence': ...
+                                \'Type\': \'HAPPY\'|\'SAD\'|\'ANGRY\'|\'CONFUSED\'|\'DISGUSTED\'|\'SURPRISED\'|\'CALM\'|\'UNKNOWN\',
+                                \'Confidence\': ...
                             },
                         ],
-                        'Landmarks': [
+                        \'Landmarks\': [
                             {
-                                'Type': 'eyeLeft'|'eyeRight'|'nose'|'mouthLeft'|'mouthRight'|'leftEyeBrowLeft'|'leftEyeBrowRight'|'leftEyeBrowUp'|'rightEyeBrowLeft'|'rightEyeBrowRight'|'rightEyeBrowUp'|'leftEyeLeft'|'leftEyeRight'|'leftEyeUp'|'leftEyeDown'|'rightEyeLeft'|'rightEyeRight'|'rightEyeUp'|'rightEyeDown'|'noseLeft'|'noseRight'|'mouthUp'|'mouthDown'|'leftPupil'|'rightPupil',
-                                'X': ...,
-                                'Y': ...
+                                \'Type\': \'eyeLeft\'|\'eyeRight\'|\'nose\'|\'mouthLeft\'|\'mouthRight\'|\'leftEyeBrowLeft\'|\'leftEyeBrowRight\'|\'leftEyeBrowUp\'|\'rightEyeBrowLeft\'|\'rightEyeBrowRight\'|\'rightEyeBrowUp\'|\'leftEyeLeft\'|\'leftEyeRight\'|\'leftEyeUp\'|\'leftEyeDown\'|\'rightEyeLeft\'|\'rightEyeRight\'|\'rightEyeUp\'|\'rightEyeDown\'|\'noseLeft\'|\'noseRight\'|\'mouthUp\'|\'mouthDown\'|\'leftPupil\'|\'rightPupil\',
+                                \'X\': ...,
+                                \'Y\': ...
                             },
                         ],
-                        'Pose': {
-                            'Roll': ...,
-                            'Yaw': ...,
-                            'Pitch': ...
+                        \'Pose\': {
+                            \'Roll\': ...,
+                            \'Yaw\': ...,
+                            \'Pitch\': ...
                         },
-                        'Quality': {
-                            'Brightness': ...,
-                            'Sharpness': ...
+                        \'Quality\': {
+                            \'Brightness\': ...,
+                            \'Sharpness\': ...
                         },
-                        'Confidence': ...
+                        \'Confidence\': ...
                     },
                 ],
-                'OrientationCorrection': 'ROTATE_0'|'ROTATE_90'|'ROTATE_180'|'ROTATE_270'
+                \'OrientationCorrection\': \'ROTATE_0\'|\'ROTATE_90\'|\'ROTATE_180\'|\'ROTATE_270\'
             }
           **Response Structure** 
         
@@ -1052,7 +1052,7 @@ class Client(BaseClient):
         
                 A ``FaceDetail`` object contains either the default facial attributes or all facial attributes. The default attributes are ``BoundingBox`` , ``Confidence`` , ``Landmarks`` , ``Pose`` , and ``Quality`` .
         
-                is the only Amazon Rekognition Video stored video operation that can return a ``FaceDetail`` object with all attributes. To specify which attributes to return, use the ``FaceAttributes`` input parameter for . The following Amazon Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a ``FaceAttributes`` input parameter.
+                is the only Amazon Rekognition Video stored video operation that can return a ``FaceDetail`` object with all attributes. To specify which attributes to return, use the ``FaceAttributes`` input parameter for . The following Amazon Rekognition Video operations return only the default attributes. The corresponding Start operations don\'t have a ``FaceAttributes`` input parameter.
         
                 * GetCelebrityRecognition 
                  
@@ -1264,7 +1264,7 @@ class Client(BaseClient):
         
               .. note::
         
-                If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image's orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of ``OrientationCorrection`` is null. The ``FaceDetails`` bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.
+                If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image\'s orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of ``OrientationCorrection`` is null. The ``FaceDetails`` bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don\'t contain Exif metadata.
         
         """
         pass
@@ -1302,7 +1302,7 @@ class Client(BaseClient):
         
         .. note::
         
-          If the object detected is a person, the operation doesn't provide the same facial details that the  DetectFaces operation provides.
+          If the object detected is a person, the operation doesn\'t provide the same facial details that the  DetectFaces operation provides.
         
          ``DetectLabels`` returns bounding boxes for instances of common object labels in an array of objects. An ``Instance`` object contains a object, for the location of the label on the image. It also includes the confidence by which the bounding box was detected.
         
@@ -1319,11 +1319,11 @@ class Client(BaseClient):
         
           response = client.detect_labels(
               Image={
-                  'Bytes': b'bytes',
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'Bytes\': b\'bytes\',
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
               MaxLabels=123,
@@ -1362,7 +1362,7 @@ class Client(BaseClient):
         :type MinConfidence: float
         :param MinConfidence: 
         
-          Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.
+          Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn\'t return any labels with confidence lower than this specified value.
         
           If ``MinConfidence`` is not specified, the operation returns labels with a confidence values greater than or equal to 50 percent.
         
@@ -1374,30 +1374,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Labels': [
+                \'Labels\': [
                     {
-                        'Name': 'string',
-                        'Confidence': ...,
-                        'Instances': [
+                        \'Name\': \'string\',
+                        \'Confidence\': ...,
+                        \'Instances\': [
                             {
-                                'BoundingBox': {
-                                    'Width': ...,
-                                    'Height': ...,
-                                    'Left': ...,
-                                    'Top': ...
+                                \'BoundingBox\': {
+                                    \'Width\': ...,
+                                    \'Height\': ...,
+                                    \'Left\': ...,
+                                    \'Top\': ...
                                 },
-                                'Confidence': ...
+                                \'Confidence\': ...
                             },
                         ],
-                        'Parents': [
+                        \'Parents\': [
                             {
-                                'Name': 'string'
+                                \'Name\': \'string\'
                             },
                         ]
                     },
                 ],
-                'OrientationCorrection': 'ROTATE_0'|'ROTATE_90'|'ROTATE_180'|'ROTATE_270',
-                'LabelModelVersion': 'string'
+                \'OrientationCorrection\': \'ROTATE_0\'|\'ROTATE_90\'|\'ROTATE_180\'|\'ROTATE_270\',
+                \'LabelModelVersion\': \'string\'
             }
           **Response Structure** 
         
@@ -1411,7 +1411,7 @@ class Client(BaseClient):
         
                 Structure containing details about the detected label, including the name, and level of confidence.
         
-                The Amazon Rekognition Image operation operation returns a hierarchical taxonomy (``Parents`` ) for detected labels and also bounding box information (``Instances`` ) for detected labels. Amazon Rekognition Video doesn't return this information and returns ``null`` for the ``Parents`` and ``Instances`` attributes. 
+                The Amazon Rekognition Image operation operation returns a hierarchical taxonomy (``Parents`` ) for detected labels and also bounding box information (``Instances`` ) for detected labels. Amazon Rekognition Video doesn\'t return this information and returns ``null`` for the ``Parents`` and ``Instances`` attributes. 
         
                 - **Name** *(string) --* 
         
@@ -1477,7 +1477,7 @@ class Client(BaseClient):
         
               The value of ``OrientationCorrection`` is always null.
         
-              If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction - the bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.
+              If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image\'s orientation. Amazon Rekognition uses this orientation information to perform image correction - the bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don\'t contain Exif metadata.
         
               Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates are not translated and represent the object locations before the image is rotated. 
         
@@ -1504,11 +1504,11 @@ class Client(BaseClient):
         
           response = client.detect_moderation_labels(
               Image={
-                  'Bytes': b'bytes',
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'Bytes\': b\'bytes\',
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
               MinConfidence=...
@@ -1541,9 +1541,9 @@ class Client(BaseClient):
         :type MinConfidence: float
         :param MinConfidence: 
         
-          Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value.
+          Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn\'t return any labels with a confidence level lower than this specified value.
         
-          If you don't specify ``MinConfidence`` , the operation returns labels with confidence values greater than or equal to 50 percent.
+          If you don\'t specify ``MinConfidence`` , the operation returns labels with confidence values greater than or equal to 50 percent.
         
         :rtype: dict
         :returns: 
@@ -1553,11 +1553,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ModerationLabels': [
+                \'ModerationLabels\': [
                     {
-                        'Confidence': ...,
-                        'Name': 'string',
-                        'ParentName': 'string'
+                        \'Confidence\': ...,
+                        \'Name\': \'string\',
+                        \'ParentName\': \'string\'
                     },
                 ]
             }
@@ -1577,7 +1577,7 @@ class Client(BaseClient):
         
                   Specifies the confidence that Amazon Rekognition has that the label has been correctly identified.
         
-                  If you don't specify the ``MinConfidence`` parameter in the call to ``DetectModerationLabels`` , the operation returns labels with a confidence value greater than or equal to 50 percent.
+                  If you don\'t specify the ``MinConfidence`` parameter in the call to ``DetectModerationLabels`` , the operation returns labels with a confidence value greater than or equal to 50 percent.
         
                 - **Name** *(string) --* 
         
@@ -1585,7 +1585,7 @@ class Client(BaseClient):
         
                 - **ParentName** *(string) --* 
         
-                  The name for the parent label. Labels at the top level of the hierarchy have the parent label ``""`` .
+                  The name for the parent label. Labels at the top level of the hierarchy have the parent label ``\"\"`` .
         
         """
         pass
@@ -1599,7 +1599,7 @@ class Client(BaseClient):
         
         A word is one or more ISO basic latin script characters that are not separated by spaces. ``DetectText`` can detect up to 50 words in an image.
         
-        A line is a string of equally spaced words. A line isn't necessarily a complete sentence. For example, a driver's license number is detected as a line. A line ends when there is no aligned text after it. Also, a line ends when there is a large gap between words, relative to the length of the words. This means, depending on the gap between words, Amazon Rekognition may detect multiple lines in text aligned in the same direction. Periods don't represent the end of a line. If a sentence spans multiple lines, the ``DetectText`` operation returns multiple lines.
+        A line is a string of equally spaced words. A line isn\'t necessarily a complete sentence. For example, a driver\'s license number is detected as a line. A line ends when there is no aligned text after it. Also, a line ends when there is a large gap between words, relative to the length of the words. This means, depending on the gap between words, Amazon Rekognition may detect multiple lines in text aligned in the same direction. Periods don\'t represent the end of a line. If a sentence spans multiple lines, the ``DetectText`` operation returns multiple lines.
         
         To determine whether a ``TextDetection`` element is a line of text or a word, use the ``TextDetection`` object ``Type`` field. 
         
@@ -1614,18 +1614,18 @@ class Client(BaseClient):
         
           response = client.detect_text(
               Image={
-                  'Bytes': b'bytes',
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'Bytes\': b\'bytes\',
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               }
           )
         :type Image: dict
         :param Image: **[REQUIRED]** 
         
-          The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes. 
+          The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can\'t pass image bytes. 
         
           - **Bytes** *(bytes) --* 
         
@@ -1655,24 +1655,24 @@ class Client(BaseClient):
           ::
         
             {
-                'TextDetections': [
+                \'TextDetections\': [
                     {
-                        'DetectedText': 'string',
-                        'Type': 'LINE'|'WORD',
-                        'Id': 123,
-                        'ParentId': 123,
-                        'Confidence': ...,
-                        'Geometry': {
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                        \'DetectedText\': \'string\',
+                        \'Type\': \'LINE\'|\'WORD\',
+                        \'Id\': 123,
+                        \'ParentId\': 123,
+                        \'Confidence\': ...,
+                        \'Geometry\': {
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'Polygon': [
+                            \'Polygon\': [
                                 {
-                                    'X': ...,
-                                    'Y': ...
+                                    \'X\': ...,
+                                    \'Y\': ...
                                 },
                             ]
                         }
@@ -1723,7 +1723,7 @@ class Client(BaseClient):
         
                   - **BoundingBox** *(dict) --* 
         
-                    An axis-aligned coarse representation of the detected text's location on the image.
+                    An axis-aligned coarse representation of the detected text\'s location on the image.
         
                     - **Width** *(float) --* 
         
@@ -1778,7 +1778,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1797,7 +1797,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_celebrity_info(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -1812,10 +1812,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Urls': [
-                    'string',
+                \'Urls\': [
+                    \'string\',
                 ],
-                'Name': 'string'
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -1849,7 +1849,7 @@ class Client(BaseClient):
         
         By default, the ``Celebrities`` array is sorted by time (milliseconds from the start of the video). You can also sort the array by celebrity by specifying the value ``ID`` in the ``SortBy`` input parameter.
         
-        The ``CelebrityDetail`` object includes the celebrity identifer and additional information urls. If you don't store the additional information urls, you can get them later by calling with the celebrity identifer.
+        The ``CelebrityDetail`` object includes the celebrity identifer and additional information urls. If you don\'t store the additional information urls, you can get them later by calling with the celebrity identifer.
         
         No information is returned for faces not recognized as celebrities.
         
@@ -1861,10 +1861,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_celebrity_recognition(
-              JobId='string',
+              JobId=\'string\',
               MaxResults=123,
-              NextToken='string',
-              SortBy='ID'|'TIMESTAMP'
+              NextToken=\'string\',
+              SortBy=\'ID\'|\'TIMESTAMP\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -1894,99 +1894,99 @@ class Client(BaseClient):
           ::
         
             {
-                'JobStatus': 'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
-                'StatusMessage': 'string',
-                'VideoMetadata': {
-                    'Codec': 'string',
-                    'DurationMillis': 123,
-                    'Format': 'string',
-                    'FrameRate': ...,
-                    'FrameHeight': 123,
-                    'FrameWidth': 123
+                \'JobStatus\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
+                \'StatusMessage\': \'string\',
+                \'VideoMetadata\': {
+                    \'Codec\': \'string\',
+                    \'DurationMillis\': 123,
+                    \'Format\': \'string\',
+                    \'FrameRate\': ...,
+                    \'FrameHeight\': 123,
+                    \'FrameWidth\': 123
                 },
-                'NextToken': 'string',
-                'Celebrities': [
+                \'NextToken\': \'string\',
+                \'Celebrities\': [
                     {
-                        'Timestamp': 123,
-                        'Celebrity': {
-                            'Urls': [
-                                'string',
+                        \'Timestamp\': 123,
+                        \'Celebrity\': {
+                            \'Urls\': [
+                                \'string\',
                             ],
-                            'Name': 'string',
-                            'Id': 'string',
-                            'Confidence': ...,
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                            \'Name\': \'string\',
+                            \'Id\': \'string\',
+                            \'Confidence\': ...,
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'Face': {
-                                'BoundingBox': {
-                                    'Width': ...,
-                                    'Height': ...,
-                                    'Left': ...,
-                                    'Top': ...
+                            \'Face\': {
+                                \'BoundingBox\': {
+                                    \'Width\': ...,
+                                    \'Height\': ...,
+                                    \'Left\': ...,
+                                    \'Top\': ...
                                 },
-                                'AgeRange': {
-                                    'Low': 123,
-                                    'High': 123
+                                \'AgeRange\': {
+                                    \'Low\': 123,
+                                    \'High\': 123
                                 },
-                                'Smile': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Smile\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Eyeglasses': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Eyeglasses\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Sunglasses': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Sunglasses\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Gender': {
-                                    'Value': 'Male'|'Female',
-                                    'Confidence': ...
+                                \'Gender\': {
+                                    \'Value\': \'Male\'|\'Female\',
+                                    \'Confidence\': ...
                                 },
-                                'Beard': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Beard\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Mustache': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Mustache\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'EyesOpen': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'EyesOpen\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'MouthOpen': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'MouthOpen\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Emotions': [
+                                \'Emotions\': [
                                     {
-                                        'Type': 'HAPPY'|'SAD'|'ANGRY'|'CONFUSED'|'DISGUSTED'|'SURPRISED'|'CALM'|'UNKNOWN',
-                                        'Confidence': ...
+                                        \'Type\': \'HAPPY\'|\'SAD\'|\'ANGRY\'|\'CONFUSED\'|\'DISGUSTED\'|\'SURPRISED\'|\'CALM\'|\'UNKNOWN\',
+                                        \'Confidence\': ...
                                     },
                                 ],
-                                'Landmarks': [
+                                \'Landmarks\': [
                                     {
-                                        'Type': 'eyeLeft'|'eyeRight'|'nose'|'mouthLeft'|'mouthRight'|'leftEyeBrowLeft'|'leftEyeBrowRight'|'leftEyeBrowUp'|'rightEyeBrowLeft'|'rightEyeBrowRight'|'rightEyeBrowUp'|'leftEyeLeft'|'leftEyeRight'|'leftEyeUp'|'leftEyeDown'|'rightEyeLeft'|'rightEyeRight'|'rightEyeUp'|'rightEyeDown'|'noseLeft'|'noseRight'|'mouthUp'|'mouthDown'|'leftPupil'|'rightPupil',
-                                        'X': ...,
-                                        'Y': ...
+                                        \'Type\': \'eyeLeft\'|\'eyeRight\'|\'nose\'|\'mouthLeft\'|\'mouthRight\'|\'leftEyeBrowLeft\'|\'leftEyeBrowRight\'|\'leftEyeBrowUp\'|\'rightEyeBrowLeft\'|\'rightEyeBrowRight\'|\'rightEyeBrowUp\'|\'leftEyeLeft\'|\'leftEyeRight\'|\'leftEyeUp\'|\'leftEyeDown\'|\'rightEyeLeft\'|\'rightEyeRight\'|\'rightEyeUp\'|\'rightEyeDown\'|\'noseLeft\'|\'noseRight\'|\'mouthUp\'|\'mouthDown\'|\'leftPupil\'|\'rightPupil\',
+                                        \'X\': ...,
+                                        \'Y\': ...
                                     },
                                 ],
-                                'Pose': {
-                                    'Roll': ...,
-                                    'Yaw': ...,
-                                    'Pitch': ...
+                                \'Pose\': {
+                                    \'Roll\': ...,
+                                    \'Yaw\': ...,
+                                    \'Pitch\': ...
                                 },
-                                'Quality': {
-                                    'Brightness': ...,
-                                    'Sharpness': ...
+                                \'Quality\': {
+                                    \'Brightness\': ...,
+                                    \'Sharpness\': ...
                                 },
-                                'Confidence': ...
+                                \'Confidence\': ...
                             }
                         }
                     },
@@ -2314,10 +2314,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_content_moderation(
-              JobId='string',
+              JobId=\'string\',
               MaxResults=123,
-              NextToken='string',
-              SortBy='NAME'|'TIMESTAMP'
+              NextToken=\'string\',
+              SortBy=\'NAME\'|\'TIMESTAMP\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -2347,27 +2347,27 @@ class Client(BaseClient):
           ::
         
             {
-                'JobStatus': 'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
-                'StatusMessage': 'string',
-                'VideoMetadata': {
-                    'Codec': 'string',
-                    'DurationMillis': 123,
-                    'Format': 'string',
-                    'FrameRate': ...,
-                    'FrameHeight': 123,
-                    'FrameWidth': 123
+                \'JobStatus\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
+                \'StatusMessage\': \'string\',
+                \'VideoMetadata\': {
+                    \'Codec\': \'string\',
+                    \'DurationMillis\': 123,
+                    \'Format\': \'string\',
+                    \'FrameRate\': ...,
+                    \'FrameHeight\': 123,
+                    \'FrameWidth\': 123
                 },
-                'ModerationLabels': [
+                \'ModerationLabels\': [
                     {
-                        'Timestamp': 123,
-                        'ModerationLabel': {
-                            'Confidence': ...,
-                            'Name': 'string',
-                            'ParentName': 'string'
+                        \'Timestamp\': 123,
+                        \'ModerationLabel\': {
+                            \'Confidence\': ...,
+                            \'Name\': \'string\',
+                            \'ParentName\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2429,7 +2429,7 @@ class Client(BaseClient):
         
                     Specifies the confidence that Amazon Rekognition has that the label has been correctly identified.
         
-                    If you don't specify the ``MinConfidence`` parameter in the call to ``DetectModerationLabels`` , the operation returns labels with a confidence value greater than or equal to 50 percent.
+                    If you don\'t specify the ``MinConfidence`` parameter in the call to ``DetectModerationLabels`` , the operation returns labels with a confidence value greater than or equal to 50 percent.
         
                   - **Name** *(string) --* 
         
@@ -2437,7 +2437,7 @@ class Client(BaseClient):
         
                   - **ParentName** *(string) --* 
         
-                    The name for the parent label. Labels at the top level of the hierarchy have the parent label ``""`` .
+                    The name for the parent label. Labels at the top level of the hierarchy have the parent label ``\"\"`` .
         
             - **NextToken** *(string) --* 
         
@@ -2461,9 +2461,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_face_detection(
-              JobId='string',
+              JobId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -2488,86 +2488,86 @@ class Client(BaseClient):
           ::
         
             {
-                'JobStatus': 'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
-                'StatusMessage': 'string',
-                'VideoMetadata': {
-                    'Codec': 'string',
-                    'DurationMillis': 123,
-                    'Format': 'string',
-                    'FrameRate': ...,
-                    'FrameHeight': 123,
-                    'FrameWidth': 123
+                \'JobStatus\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
+                \'StatusMessage\': \'string\',
+                \'VideoMetadata\': {
+                    \'Codec\': \'string\',
+                    \'DurationMillis\': 123,
+                    \'Format\': \'string\',
+                    \'FrameRate\': ...,
+                    \'FrameHeight\': 123,
+                    \'FrameWidth\': 123
                 },
-                'NextToken': 'string',
-                'Faces': [
+                \'NextToken\': \'string\',
+                \'Faces\': [
                     {
-                        'Timestamp': 123,
-                        'Face': {
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                        \'Timestamp\': 123,
+                        \'Face\': {
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'AgeRange': {
-                                'Low': 123,
-                                'High': 123
+                            \'AgeRange\': {
+                                \'Low\': 123,
+                                \'High\': 123
                             },
-                            'Smile': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Smile\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Eyeglasses': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Eyeglasses\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Sunglasses': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Sunglasses\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Gender': {
-                                'Value': 'Male'|'Female',
-                                'Confidence': ...
+                            \'Gender\': {
+                                \'Value\': \'Male\'|\'Female\',
+                                \'Confidence\': ...
                             },
-                            'Beard': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Beard\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Mustache': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Mustache\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'EyesOpen': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'EyesOpen\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'MouthOpen': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'MouthOpen\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Emotions': [
+                            \'Emotions\': [
                                 {
-                                    'Type': 'HAPPY'|'SAD'|'ANGRY'|'CONFUSED'|'DISGUSTED'|'SURPRISED'|'CALM'|'UNKNOWN',
-                                    'Confidence': ...
+                                    \'Type\': \'HAPPY\'|\'SAD\'|\'ANGRY\'|\'CONFUSED\'|\'DISGUSTED\'|\'SURPRISED\'|\'CALM\'|\'UNKNOWN\',
+                                    \'Confidence\': ...
                                 },
                             ],
-                            'Landmarks': [
+                            \'Landmarks\': [
                                 {
-                                    'Type': 'eyeLeft'|'eyeRight'|'nose'|'mouthLeft'|'mouthRight'|'leftEyeBrowLeft'|'leftEyeBrowRight'|'leftEyeBrowUp'|'rightEyeBrowLeft'|'rightEyeBrowRight'|'rightEyeBrowUp'|'leftEyeLeft'|'leftEyeRight'|'leftEyeUp'|'leftEyeDown'|'rightEyeLeft'|'rightEyeRight'|'rightEyeUp'|'rightEyeDown'|'noseLeft'|'noseRight'|'mouthUp'|'mouthDown'|'leftPupil'|'rightPupil',
-                                    'X': ...,
-                                    'Y': ...
+                                    \'Type\': \'eyeLeft\'|\'eyeRight\'|\'nose\'|\'mouthLeft\'|\'mouthRight\'|\'leftEyeBrowLeft\'|\'leftEyeBrowRight\'|\'leftEyeBrowUp\'|\'rightEyeBrowLeft\'|\'rightEyeBrowRight\'|\'rightEyeBrowUp\'|\'leftEyeLeft\'|\'leftEyeRight\'|\'leftEyeUp\'|\'leftEyeDown\'|\'rightEyeLeft\'|\'rightEyeRight\'|\'rightEyeUp\'|\'rightEyeDown\'|\'noseLeft\'|\'noseRight\'|\'mouthUp\'|\'mouthDown\'|\'leftPupil\'|\'rightPupil\',
+                                    \'X\': ...,
+                                    \'Y\': ...
                                 },
                             ],
-                            'Pose': {
-                                'Roll': ...,
-                                'Yaw': ...,
-                                'Pitch': ...
+                            \'Pose\': {
+                                \'Roll\': ...,
+                                \'Yaw\': ...,
+                                \'Pitch\': ...
                             },
-                            'Quality': {
-                                'Brightness': ...,
-                                'Sharpness': ...
+                            \'Quality\': {
+                                \'Brightness\': ...,
+                                \'Sharpness\': ...
                             },
-                            'Confidence': ...
+                            \'Confidence\': ...
                         }
                     },
                 ]
@@ -2618,7 +2618,7 @@ class Client(BaseClient):
         
             - **Faces** *(list) --* 
         
-              An array of faces detected in the video. Each element contains a detected face's details and the time, in milliseconds from the start of the video, the face was detected. 
+              An array of faces detected in the video. Each element contains a detected face\'s details and the time, in milliseconds from the start of the video, the face was detected. 
         
               - *(dict) --* 
         
@@ -2852,10 +2852,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_face_search(
-              JobId='string',
+              JobId=\'string\',
               MaxResults=123,
-              NextToken='string',
-              SortBy='INDEX'|'TIMESTAMP'
+              NextToken=\'string\',
+              SortBy=\'INDEX\'|\'TIMESTAMP\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -2885,110 +2885,110 @@ class Client(BaseClient):
           ::
         
             {
-                'JobStatus': 'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
-                'StatusMessage': 'string',
-                'NextToken': 'string',
-                'VideoMetadata': {
-                    'Codec': 'string',
-                    'DurationMillis': 123,
-                    'Format': 'string',
-                    'FrameRate': ...,
-                    'FrameHeight': 123,
-                    'FrameWidth': 123
+                \'JobStatus\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
+                \'StatusMessage\': \'string\',
+                \'NextToken\': \'string\',
+                \'VideoMetadata\': {
+                    \'Codec\': \'string\',
+                    \'DurationMillis\': 123,
+                    \'Format\': \'string\',
+                    \'FrameRate\': ...,
+                    \'FrameHeight\': 123,
+                    \'FrameWidth\': 123
                 },
-                'Persons': [
+                \'Persons\': [
                     {
-                        'Timestamp': 123,
-                        'Person': {
-                            'Index': 123,
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                        \'Timestamp\': 123,
+                        \'Person\': {
+                            \'Index\': 123,
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'Face': {
-                                'BoundingBox': {
-                                    'Width': ...,
-                                    'Height': ...,
-                                    'Left': ...,
-                                    'Top': ...
+                            \'Face\': {
+                                \'BoundingBox\': {
+                                    \'Width\': ...,
+                                    \'Height\': ...,
+                                    \'Left\': ...,
+                                    \'Top\': ...
                                 },
-                                'AgeRange': {
-                                    'Low': 123,
-                                    'High': 123
+                                \'AgeRange\': {
+                                    \'Low\': 123,
+                                    \'High\': 123
                                 },
-                                'Smile': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Smile\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Eyeglasses': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Eyeglasses\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Sunglasses': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Sunglasses\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Gender': {
-                                    'Value': 'Male'|'Female',
-                                    'Confidence': ...
+                                \'Gender\': {
+                                    \'Value\': \'Male\'|\'Female\',
+                                    \'Confidence\': ...
                                 },
-                                'Beard': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Beard\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Mustache': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Mustache\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'EyesOpen': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'EyesOpen\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'MouthOpen': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'MouthOpen\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Emotions': [
+                                \'Emotions\': [
                                     {
-                                        'Type': 'HAPPY'|'SAD'|'ANGRY'|'CONFUSED'|'DISGUSTED'|'SURPRISED'|'CALM'|'UNKNOWN',
-                                        'Confidence': ...
+                                        \'Type\': \'HAPPY\'|\'SAD\'|\'ANGRY\'|\'CONFUSED\'|\'DISGUSTED\'|\'SURPRISED\'|\'CALM\'|\'UNKNOWN\',
+                                        \'Confidence\': ...
                                     },
                                 ],
-                                'Landmarks': [
+                                \'Landmarks\': [
                                     {
-                                        'Type': 'eyeLeft'|'eyeRight'|'nose'|'mouthLeft'|'mouthRight'|'leftEyeBrowLeft'|'leftEyeBrowRight'|'leftEyeBrowUp'|'rightEyeBrowLeft'|'rightEyeBrowRight'|'rightEyeBrowUp'|'leftEyeLeft'|'leftEyeRight'|'leftEyeUp'|'leftEyeDown'|'rightEyeLeft'|'rightEyeRight'|'rightEyeUp'|'rightEyeDown'|'noseLeft'|'noseRight'|'mouthUp'|'mouthDown'|'leftPupil'|'rightPupil',
-                                        'X': ...,
-                                        'Y': ...
+                                        \'Type\': \'eyeLeft\'|\'eyeRight\'|\'nose\'|\'mouthLeft\'|\'mouthRight\'|\'leftEyeBrowLeft\'|\'leftEyeBrowRight\'|\'leftEyeBrowUp\'|\'rightEyeBrowLeft\'|\'rightEyeBrowRight\'|\'rightEyeBrowUp\'|\'leftEyeLeft\'|\'leftEyeRight\'|\'leftEyeUp\'|\'leftEyeDown\'|\'rightEyeLeft\'|\'rightEyeRight\'|\'rightEyeUp\'|\'rightEyeDown\'|\'noseLeft\'|\'noseRight\'|\'mouthUp\'|\'mouthDown\'|\'leftPupil\'|\'rightPupil\',
+                                        \'X\': ...,
+                                        \'Y\': ...
                                     },
                                 ],
-                                'Pose': {
-                                    'Roll': ...,
-                                    'Yaw': ...,
-                                    'Pitch': ...
+                                \'Pose\': {
+                                    \'Roll\': ...,
+                                    \'Yaw\': ...,
+                                    \'Pitch\': ...
                                 },
-                                'Quality': {
-                                    'Brightness': ...,
-                                    'Sharpness': ...
+                                \'Quality\': {
+                                    \'Brightness\': ...,
+                                    \'Sharpness\': ...
                                 },
-                                'Confidence': ...
+                                \'Confidence\': ...
                             }
                         },
-                        'FaceMatches': [
+                        \'FaceMatches\': [
                             {
-                                'Similarity': ...,
-                                'Face': {
-                                    'FaceId': 'string',
-                                    'BoundingBox': {
-                                        'Width': ...,
-                                        'Height': ...,
-                                        'Left': ...,
-                                        'Top': ...
+                                \'Similarity\': ...,
+                                \'Face\': {
+                                    \'FaceId\': \'string\',
+                                    \'BoundingBox\': {
+                                        \'Width\': ...,
+                                        \'Height\': ...,
+                                        \'Left\': ...,
+                                        \'Top\': ...
                                     },
-                                    'ImageId': 'string',
-                                    'ExternalImageId': 'string',
-                                    'Confidence': ...
+                                    \'ImageId\': \'string\',
+                                    \'ExternalImageId\': \'string\',
+                                    \'Confidence\': ...
                                 }
                             },
                         ]
@@ -3347,7 +3347,7 @@ class Client(BaseClient):
         
         .. note::
         
-           ``GetLabelDetection`` doesn't return a hierarchical taxonomy, or bounding box information, for detected labels. ``GetLabelDetection`` returns ``null`` for the ``Parents`` and ``Instances`` attributes of the object which is returned in the ``Labels`` array. 
+           ``GetLabelDetection`` doesn\'t return a hierarchical taxonomy, or bounding box information, for detected labels. ``GetLabelDetection`` returns ``null`` for the ``Parents`` and ``Instances`` attributes of the object which is returned in the ``Labels`` array. 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetLabelDetection>`_
         
@@ -3355,10 +3355,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_label_detection(
-              JobId='string',
+              JobId=\'string\',
               MaxResults=123,
-              NextToken='string',
-              SortBy='NAME'|'TIMESTAMP'
+              NextToken=\'string\',
+              SortBy=\'NAME\'|\'TIMESTAMP\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -3388,37 +3388,37 @@ class Client(BaseClient):
           ::
         
             {
-                'JobStatus': 'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
-                'StatusMessage': 'string',
-                'VideoMetadata': {
-                    'Codec': 'string',
-                    'DurationMillis': 123,
-                    'Format': 'string',
-                    'FrameRate': ...,
-                    'FrameHeight': 123,
-                    'FrameWidth': 123
+                \'JobStatus\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
+                \'StatusMessage\': \'string\',
+                \'VideoMetadata\': {
+                    \'Codec\': \'string\',
+                    \'DurationMillis\': 123,
+                    \'Format\': \'string\',
+                    \'FrameRate\': ...,
+                    \'FrameHeight\': 123,
+                    \'FrameWidth\': 123
                 },
-                'NextToken': 'string',
-                'Labels': [
+                \'NextToken\': \'string\',
+                \'Labels\': [
                     {
-                        'Timestamp': 123,
-                        'Label': {
-                            'Name': 'string',
-                            'Confidence': ...,
-                            'Instances': [
+                        \'Timestamp\': 123,
+                        \'Label\': {
+                            \'Name\': \'string\',
+                            \'Confidence\': ...,
+                            \'Instances\': [
                                 {
-                                    'BoundingBox': {
-                                        'Width': ...,
-                                        'Height': ...,
-                                        'Left': ...,
-                                        'Top': ...
+                                    \'BoundingBox\': {
+                                        \'Width\': ...,
+                                        \'Height\': ...,
+                                        \'Left\': ...,
+                                        \'Top\': ...
                                     },
-                                    'Confidence': ...
+                                    \'Confidence\': ...
                                 },
                             ],
-                            'Parents': [
+                            \'Parents\': [
                                 {
-                                    'Name': 'string'
+                                    \'Name\': \'string\'
                                 },
                             ]
                         }
@@ -3554,10 +3554,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3583,7 +3583,7 @@ class Client(BaseClient):
         
           For more information, see FaceDetail in the Amazon Rekognition Developer Guide.
         
-        By default, the array is sorted by the time(s) a person's path is tracked in the video. You can sort by tracked persons by specifying ``INDEX`` for the ``SortBy`` input parameter.
+        By default, the array is sorted by the time(s) a person\'s path is tracked in the video. You can sort by tracked persons by specifying ``INDEX`` for the ``SortBy`` input parameter.
         
         Use the ``MaxResults`` parameter to limit the number of items returned. If there are more results than specified in ``MaxResults`` , the value of ``NextToken`` in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call ``GetPersonTracking`` and populate the ``NextToken`` request parameter with the token value returned from the previous call to ``GetPersonTracking`` .
         
@@ -3593,10 +3593,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_person_tracking(
-              JobId='string',
+              JobId=\'string\',
               MaxResults=123,
-              NextToken='string',
-              SortBy='INDEX'|'TIMESTAMP'
+              NextToken=\'string\',
+              SortBy=\'INDEX\'|\'TIMESTAMP\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -3626,94 +3626,94 @@ class Client(BaseClient):
           ::
         
             {
-                'JobStatus': 'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
-                'StatusMessage': 'string',
-                'VideoMetadata': {
-                    'Codec': 'string',
-                    'DurationMillis': 123,
-                    'Format': 'string',
-                    'FrameRate': ...,
-                    'FrameHeight': 123,
-                    'FrameWidth': 123
+                \'JobStatus\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
+                \'StatusMessage\': \'string\',
+                \'VideoMetadata\': {
+                    \'Codec\': \'string\',
+                    \'DurationMillis\': 123,
+                    \'Format\': \'string\',
+                    \'FrameRate\': ...,
+                    \'FrameHeight\': 123,
+                    \'FrameWidth\': 123
                 },
-                'NextToken': 'string',
-                'Persons': [
+                \'NextToken\': \'string\',
+                \'Persons\': [
                     {
-                        'Timestamp': 123,
-                        'Person': {
-                            'Index': 123,
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                        \'Timestamp\': 123,
+                        \'Person\': {
+                            \'Index\': 123,
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'Face': {
-                                'BoundingBox': {
-                                    'Width': ...,
-                                    'Height': ...,
-                                    'Left': ...,
-                                    'Top': ...
+                            \'Face\': {
+                                \'BoundingBox\': {
+                                    \'Width\': ...,
+                                    \'Height\': ...,
+                                    \'Left\': ...,
+                                    \'Top\': ...
                                 },
-                                'AgeRange': {
-                                    'Low': 123,
-                                    'High': 123
+                                \'AgeRange\': {
+                                    \'Low\': 123,
+                                    \'High\': 123
                                 },
-                                'Smile': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Smile\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Eyeglasses': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Eyeglasses\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Sunglasses': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Sunglasses\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Gender': {
-                                    'Value': 'Male'|'Female',
-                                    'Confidence': ...
+                                \'Gender\': {
+                                    \'Value\': \'Male\'|\'Female\',
+                                    \'Confidence\': ...
                                 },
-                                'Beard': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Beard\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Mustache': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'Mustache\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'EyesOpen': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'EyesOpen\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'MouthOpen': {
-                                    'Value': True|False,
-                                    'Confidence': ...
+                                \'MouthOpen\': {
+                                    \'Value\': True|False,
+                                    \'Confidence\': ...
                                 },
-                                'Emotions': [
+                                \'Emotions\': [
                                     {
-                                        'Type': 'HAPPY'|'SAD'|'ANGRY'|'CONFUSED'|'DISGUSTED'|'SURPRISED'|'CALM'|'UNKNOWN',
-                                        'Confidence': ...
+                                        \'Type\': \'HAPPY\'|\'SAD\'|\'ANGRY\'|\'CONFUSED\'|\'DISGUSTED\'|\'SURPRISED\'|\'CALM\'|\'UNKNOWN\',
+                                        \'Confidence\': ...
                                     },
                                 ],
-                                'Landmarks': [
+                                \'Landmarks\': [
                                     {
-                                        'Type': 'eyeLeft'|'eyeRight'|'nose'|'mouthLeft'|'mouthRight'|'leftEyeBrowLeft'|'leftEyeBrowRight'|'leftEyeBrowUp'|'rightEyeBrowLeft'|'rightEyeBrowRight'|'rightEyeBrowUp'|'leftEyeLeft'|'leftEyeRight'|'leftEyeUp'|'leftEyeDown'|'rightEyeLeft'|'rightEyeRight'|'rightEyeUp'|'rightEyeDown'|'noseLeft'|'noseRight'|'mouthUp'|'mouthDown'|'leftPupil'|'rightPupil',
-                                        'X': ...,
-                                        'Y': ...
+                                        \'Type\': \'eyeLeft\'|\'eyeRight\'|\'nose\'|\'mouthLeft\'|\'mouthRight\'|\'leftEyeBrowLeft\'|\'leftEyeBrowRight\'|\'leftEyeBrowUp\'|\'rightEyeBrowLeft\'|\'rightEyeBrowRight\'|\'rightEyeBrowUp\'|\'leftEyeLeft\'|\'leftEyeRight\'|\'leftEyeUp\'|\'leftEyeDown\'|\'rightEyeLeft\'|\'rightEyeRight\'|\'rightEyeUp\'|\'rightEyeDown\'|\'noseLeft\'|\'noseRight\'|\'mouthUp\'|\'mouthDown\'|\'leftPupil\'|\'rightPupil\',
+                                        \'X\': ...,
+                                        \'Y\': ...
                                     },
                                 ],
-                                'Pose': {
-                                    'Roll': ...,
-                                    'Yaw': ...,
-                                    'Pitch': ...
+                                \'Pose\': {
+                                    \'Roll\': ...,
+                                    \'Yaw\': ...,
+                                    \'Pitch\': ...
                                 },
-                                'Quality': {
-                                    'Brightness': ...,
-                                    'Sharpness': ...
+                                \'Quality\': {
+                                    \'Brightness\': ...,
+                                    \'Sharpness\': ...
                                 },
-                                'Confidence': ...
+                                \'Confidence\': ...
                             }
                         }
                     },
@@ -3765,17 +3765,17 @@ class Client(BaseClient):
         
             - **Persons** *(list) --* 
         
-              An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An array element will exist for each time a person's path is tracked. 
+              An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An array element will exist for each time a person\'s path is tracked. 
         
               - *(dict) --* 
         
-                Details and path tracking information for a single time a person's path is tracked in a video. Amazon Rekognition operations that track people's paths return an array of ``PersonDetection`` objects with elements for each time a person's path is tracked in a video. 
+                Details and path tracking information for a single time a person\'s path is tracked in a video. Amazon Rekognition operations that track people\'s paths return an array of ``PersonDetection`` objects with elements for each time a person\'s path is tracked in a video. 
         
                 For more information, see API_GetPersonTracking in the Amazon Rekognition Developer Guide. 
         
                 - **Timestamp** *(integer) --* 
         
-                  The time, in milliseconds from the start of the video, that the person's path was tracked.
+                  The time, in milliseconds from the start of the video, that the person\'s path was tracked.
         
                 - **Person** *(dict) --* 
         
@@ -4023,19 +4023,19 @@ class Client(BaseClient):
     def index_faces(self, CollectionId: str, Image: Dict, ExternalImageId: str = None, DetectionAttributes: List = None, MaxFaces: int = None, QualityFilter: str = None) -> Dict:
         """
         
-        Amazon Rekognition doesn't save the actual faces that are detected. Instead, the underlying detection algorithm first detects the faces in the input image. For each face, the algorithm extracts facial features into a feature vector, and stores it in the backend database. Amazon Rekognition uses feature vectors when it performs face match and search operations using the and operations.
+        Amazon Rekognition doesn\'t save the actual faces that are detected. Instead, the underlying detection algorithm first detects the faces in the input image. For each face, the algorithm extracts facial features into a feature vector, and stores it in the backend database. Amazon Rekognition uses feature vectors when it performs face match and search operations using the and operations.
         
         For more information, see Adding Faces to a Collection in the Amazon Rekognition Developer Guide.
         
         To get the number of faces in a collection, call . 
         
-        If you're using version 1.0 of the face detection model, ``IndexFaces`` indexes the 15 largest faces in the input image. Later versions of the face detection model index the 100 largest faces in the input image. To determine which version of the model you're using, call and supply the collection ID. You can also get the model version from the value of ``FaceModelVersion`` in the response from ``IndexFaces`` . 
+        If you\'re using version 1.0 of the face detection model, ``IndexFaces`` indexes the 15 largest faces in the input image. Later versions of the face detection model index the 100 largest faces in the input image. To determine which version of the model you\'re using, call and supply the collection ID. You can also get the model version from the value of ``FaceModelVersion`` in the response from ``IndexFaces`` . 
         
         For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
         
         If you provide the optional ``ExternalImageID`` for the input image you provided, Amazon Rekognition associates this ID with all faces that it detects. When you call the operation, the response returns the external ID. You can use this external image ID to create a client-side index to associate the faces with each image. You can then use the index to find all faces in an image.
         
-        You can specify the maximum number of faces to index with the ``MaxFaces`` input parameter. This is useful when you want to index the largest faces in an image and don't want to index smaller faces, such as those belonging to people standing in the background.
+        You can specify the maximum number of faces to index with the ``MaxFaces`` input parameter. This is useful when you want to index the largest faces in an image and don\'t want to index smaller faces, such as those belonging to people standing in the background.
         
         The ``QualityFilter`` input parameter allows you to filter out detected faces that don’t meet the required quality bar chosen by Amazon Rekognition. The quality bar is based on a variety of common use cases. By default, ``IndexFaces`` filters detected faces. You can also explicitly filter detected faces by specifying ``AUTO`` for the value of ``QualityFilter`` . If you do not want to filter detected faces, specify ``NONE`` . 
         
@@ -4043,7 +4043,7 @@ class Client(BaseClient):
         
           To use quality filtering, you need a collection associated with version 3 of the face model. To get the version of the face model associated with a collection, call . 
         
-        Information about faces detected in an image, but not indexed, is returned in an array of objects, ``UnindexedFaces`` . Faces aren't indexed for reasons such as:
+        Information about faces detected in an image, but not indexed, is returned in an array of objects, ``UnindexedFaces`` . Faces aren\'t indexed for reasons such as:
         
         * The number of faces detected exceeds the value of the ``MaxFaces`` request parameter. 
          
@@ -4061,13 +4061,13 @@ class Client(BaseClient):
          
         * A confidence value, ``Confidence`` , which indicates the confidence that the bounding box contains a face. 
          
-        * A face ID, ``faceId`` , assigned by the service for each face that's detected and stored. 
+        * A face ID, ``faceId`` , assigned by the service for each face that\'s detected and stored. 
          
         * An image ID, ``ImageId`` , assigned by the service for the input image. 
          
-        If you request all facial attributes (by using the ``detectionAttributes`` parameter), Amazon Rekognition returns detailed facial attributes, such as facial landmarks (for example, location of eye and mouth) and other facial attributes like gender. If you provide the same image, specify the same collection, and use the same external ID in the ``IndexFaces`` operation, Amazon Rekognition doesn't save duplicate face metadata.
+        If you request all facial attributes (by using the ``detectionAttributes`` parameter), Amazon Rekognition returns detailed facial attributes, such as facial landmarks (for example, location of eye and mouth) and other facial attributes like gender. If you provide the same image, specify the same collection, and use the same external ID in the ``IndexFaces`` operation, Amazon Rekognition doesn\'t save duplicate face metadata.
         
-        The input image is passed either as base64-encoded image bytes, or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn't supported. The image must be formatted as a PNG or JPEG file. 
+        The input image is passed either as base64-encoded image bytes, or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn\'t supported. The image must be formatted as a PNG or JPEG file. 
         
         This operation requires permissions to perform the ``rekognition:IndexFaces`` action.
         
@@ -4077,21 +4077,21 @@ class Client(BaseClient):
         ::
         
           response = client.index_faces(
-              CollectionId='string',
+              CollectionId=\'string\',
               Image={
-                  'Bytes': b'bytes',
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'Bytes\': b\'bytes\',
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
-              ExternalImageId='string',
+              ExternalImageId=\'string\',
               DetectionAttributes=[
-                  'DEFAULT'|'ALL',
+                  \'DEFAULT\'|\'ALL\',
               ],
               MaxFaces=123,
-              QualityFilter='NONE'|'AUTO'
+              QualityFilter=\'NONE\'|\'AUTO\'
           )
         :type CollectionId: string
         :param CollectionId: **[REQUIRED]** 
@@ -4101,7 +4101,7 @@ class Client(BaseClient):
         :type Image: dict
         :param Image: **[REQUIRED]** 
         
-          The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes isn't supported. 
+          The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes isn\'t supported. 
         
           - **Bytes** *(bytes) --* 
         
@@ -4131,9 +4131,9 @@ class Client(BaseClient):
         :type DetectionAttributes: list
         :param DetectionAttributes: 
         
-          An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for ``Attributes`` or if you specify ``["DEFAULT"]`` , the API returns the following subset of facial attributes: ``BoundingBox`` , ``Confidence`` , ``Pose`` , ``Quality`` , and ``Landmarks`` . If you provide ``["ALL"]`` , all facial attributes are returned, but the operation takes longer to complete.
+          An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don\'t specify a value for ``Attributes`` or if you specify ``[\"DEFAULT\"]`` , the API returns the following subset of facial attributes: ``BoundingBox`` , ``Confidence`` , ``Pose`` , ``Quality`` , and ``Landmarks`` . If you provide ``[\"ALL\"]`` , all facial attributes are returned, but the operation takes longer to complete.
         
-          If you provide both, ``["ALL", "DEFAULT"]`` , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). 
+          If you provide both, ``[\"ALL\", \"DEFAULT\"]`` , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). 
         
           - *(string) --* 
         
@@ -4142,7 +4142,7 @@ class Client(BaseClient):
         
           The maximum number of faces to index. The value of ``MaxFaces`` must be greater than or equal to 1. ``IndexFaces`` returns no more than 100 detected faces in an image, even if you specify a larger value for ``MaxFaces`` .
         
-          If ``IndexFaces`` detects more faces than the value of ``MaxFaces`` , the faces with the lowest quality are filtered out first. If there are still more faces than the value of ``MaxFaces`` , the faces with the smallest bounding boxes are filtered out (up to the number that's needed to satisfy the value of ``MaxFaces`` ). Information about the unindexed faces is available in the ``UnindexedFaces`` array. 
+          If ``IndexFaces`` detects more faces than the value of ``MaxFaces`` , the faces with the lowest quality are filtered out first. If there are still more faces than the value of ``MaxFaces`` , the faces with the smallest bounding boxes are filtered out (up to the number that\'s needed to satisfy the value of ``MaxFaces`` ). Information about the unindexed faces is available in the ``UnindexedFaces`` array. 
         
           The faces that are returned by ``IndexFaces`` are sorted by the largest face bounding box size to the smallest size, in descending order.
         
@@ -4151,7 +4151,7 @@ class Client(BaseClient):
         :type QualityFilter: string
         :param QualityFilter: 
         
-          A filter that specifies how much filtering is done to identify faces that are detected with low quality. Filtered faces aren't indexed. If you specify ``AUTO`` , filtering prioritizes the identification of faces that don’t meet the required quality bar chosen by Amazon Rekognition. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify ``NONE`` , no filtering is performed. The default value is AUTO.
+          A filter that specifies how much filtering is done to identify faces that are detected with low quality. Filtered faces aren\'t indexed. If you specify ``AUTO`` , filtering prioritizes the identification of faces that don’t meet the required quality bar chosen by Amazon Rekognition. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that\'s misidentified as a face, a face that\'s too blurry, or a face with a pose that\'s too extreme to use. If you specify ``NONE`` , no filtering is performed. The default value is AUTO.
         
           To use quality filtering, the collection you are using must be associated with version 3 of the face model.
         
@@ -4163,162 +4163,162 @@ class Client(BaseClient):
           ::
         
             {
-                'FaceRecords': [
+                \'FaceRecords\': [
                     {
-                        'Face': {
-                            'FaceId': 'string',
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                        \'Face\': {
+                            \'FaceId\': \'string\',
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'ImageId': 'string',
-                            'ExternalImageId': 'string',
-                            'Confidence': ...
+                            \'ImageId\': \'string\',
+                            \'ExternalImageId\': \'string\',
+                            \'Confidence\': ...
                         },
-                        'FaceDetail': {
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                        \'FaceDetail\': {
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'AgeRange': {
-                                'Low': 123,
-                                'High': 123
+                            \'AgeRange\': {
+                                \'Low\': 123,
+                                \'High\': 123
                             },
-                            'Smile': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Smile\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Eyeglasses': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Eyeglasses\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Sunglasses': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Sunglasses\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Gender': {
-                                'Value': 'Male'|'Female',
-                                'Confidence': ...
+                            \'Gender\': {
+                                \'Value\': \'Male\'|\'Female\',
+                                \'Confidence\': ...
                             },
-                            'Beard': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Beard\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Mustache': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Mustache\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'EyesOpen': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'EyesOpen\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'MouthOpen': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'MouthOpen\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Emotions': [
+                            \'Emotions\': [
                                 {
-                                    'Type': 'HAPPY'|'SAD'|'ANGRY'|'CONFUSED'|'DISGUSTED'|'SURPRISED'|'CALM'|'UNKNOWN',
-                                    'Confidence': ...
+                                    \'Type\': \'HAPPY\'|\'SAD\'|\'ANGRY\'|\'CONFUSED\'|\'DISGUSTED\'|\'SURPRISED\'|\'CALM\'|\'UNKNOWN\',
+                                    \'Confidence\': ...
                                 },
                             ],
-                            'Landmarks': [
+                            \'Landmarks\': [
                                 {
-                                    'Type': 'eyeLeft'|'eyeRight'|'nose'|'mouthLeft'|'mouthRight'|'leftEyeBrowLeft'|'leftEyeBrowRight'|'leftEyeBrowUp'|'rightEyeBrowLeft'|'rightEyeBrowRight'|'rightEyeBrowUp'|'leftEyeLeft'|'leftEyeRight'|'leftEyeUp'|'leftEyeDown'|'rightEyeLeft'|'rightEyeRight'|'rightEyeUp'|'rightEyeDown'|'noseLeft'|'noseRight'|'mouthUp'|'mouthDown'|'leftPupil'|'rightPupil',
-                                    'X': ...,
-                                    'Y': ...
+                                    \'Type\': \'eyeLeft\'|\'eyeRight\'|\'nose\'|\'mouthLeft\'|\'mouthRight\'|\'leftEyeBrowLeft\'|\'leftEyeBrowRight\'|\'leftEyeBrowUp\'|\'rightEyeBrowLeft\'|\'rightEyeBrowRight\'|\'rightEyeBrowUp\'|\'leftEyeLeft\'|\'leftEyeRight\'|\'leftEyeUp\'|\'leftEyeDown\'|\'rightEyeLeft\'|\'rightEyeRight\'|\'rightEyeUp\'|\'rightEyeDown\'|\'noseLeft\'|\'noseRight\'|\'mouthUp\'|\'mouthDown\'|\'leftPupil\'|\'rightPupil\',
+                                    \'X\': ...,
+                                    \'Y\': ...
                                 },
                             ],
-                            'Pose': {
-                                'Roll': ...,
-                                'Yaw': ...,
-                                'Pitch': ...
+                            \'Pose\': {
+                                \'Roll\': ...,
+                                \'Yaw\': ...,
+                                \'Pitch\': ...
                             },
-                            'Quality': {
-                                'Brightness': ...,
-                                'Sharpness': ...
+                            \'Quality\': {
+                                \'Brightness\': ...,
+                                \'Sharpness\': ...
                             },
-                            'Confidence': ...
+                            \'Confidence\': ...
                         }
                     },
                 ],
-                'OrientationCorrection': 'ROTATE_0'|'ROTATE_90'|'ROTATE_180'|'ROTATE_270',
-                'FaceModelVersion': 'string',
-                'UnindexedFaces': [
+                \'OrientationCorrection\': \'ROTATE_0\'|\'ROTATE_90\'|\'ROTATE_180\'|\'ROTATE_270\',
+                \'FaceModelVersion\': \'string\',
+                \'UnindexedFaces\': [
                     {
-                        'Reasons': [
-                            'EXCEEDS_MAX_FACES'|'EXTREME_POSE'|'LOW_BRIGHTNESS'|'LOW_SHARPNESS'|'LOW_CONFIDENCE'|'SMALL_BOUNDING_BOX',
+                        \'Reasons\': [
+                            \'EXCEEDS_MAX_FACES\'|\'EXTREME_POSE\'|\'LOW_BRIGHTNESS\'|\'LOW_SHARPNESS\'|\'LOW_CONFIDENCE\'|\'SMALL_BOUNDING_BOX\',
                         ],
-                        'FaceDetail': {
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                        \'FaceDetail\': {
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'AgeRange': {
-                                'Low': 123,
-                                'High': 123
+                            \'AgeRange\': {
+                                \'Low\': 123,
+                                \'High\': 123
                             },
-                            'Smile': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Smile\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Eyeglasses': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Eyeglasses\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Sunglasses': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Sunglasses\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Gender': {
-                                'Value': 'Male'|'Female',
-                                'Confidence': ...
+                            \'Gender\': {
+                                \'Value\': \'Male\'|\'Female\',
+                                \'Confidence\': ...
                             },
-                            'Beard': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Beard\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Mustache': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'Mustache\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'EyesOpen': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'EyesOpen\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'MouthOpen': {
-                                'Value': True|False,
-                                'Confidence': ...
+                            \'MouthOpen\': {
+                                \'Value\': True|False,
+                                \'Confidence\': ...
                             },
-                            'Emotions': [
+                            \'Emotions\': [
                                 {
-                                    'Type': 'HAPPY'|'SAD'|'ANGRY'|'CONFUSED'|'DISGUSTED'|'SURPRISED'|'CALM'|'UNKNOWN',
-                                    'Confidence': ...
+                                    \'Type\': \'HAPPY\'|\'SAD\'|\'ANGRY\'|\'CONFUSED\'|\'DISGUSTED\'|\'SURPRISED\'|\'CALM\'|\'UNKNOWN\',
+                                    \'Confidence\': ...
                                 },
                             ],
-                            'Landmarks': [
+                            \'Landmarks\': [
                                 {
-                                    'Type': 'eyeLeft'|'eyeRight'|'nose'|'mouthLeft'|'mouthRight'|'leftEyeBrowLeft'|'leftEyeBrowRight'|'leftEyeBrowUp'|'rightEyeBrowLeft'|'rightEyeBrowRight'|'rightEyeBrowUp'|'leftEyeLeft'|'leftEyeRight'|'leftEyeUp'|'leftEyeDown'|'rightEyeLeft'|'rightEyeRight'|'rightEyeUp'|'rightEyeDown'|'noseLeft'|'noseRight'|'mouthUp'|'mouthDown'|'leftPupil'|'rightPupil',
-                                    'X': ...,
-                                    'Y': ...
+                                    \'Type\': \'eyeLeft\'|\'eyeRight\'|\'nose\'|\'mouthLeft\'|\'mouthRight\'|\'leftEyeBrowLeft\'|\'leftEyeBrowRight\'|\'leftEyeBrowUp\'|\'rightEyeBrowLeft\'|\'rightEyeBrowRight\'|\'rightEyeBrowUp\'|\'leftEyeLeft\'|\'leftEyeRight\'|\'leftEyeUp\'|\'leftEyeDown\'|\'rightEyeLeft\'|\'rightEyeRight\'|\'rightEyeUp\'|\'rightEyeDown\'|\'noseLeft\'|\'noseRight\'|\'mouthUp\'|\'mouthDown\'|\'leftPupil\'|\'rightPupil\',
+                                    \'X\': ...,
+                                    \'Y\': ...
                                 },
                             ],
-                            'Pose': {
-                                'Roll': ...,
-                                'Yaw': ...,
-                                'Pitch': ...
+                            \'Pose\': {
+                                \'Roll\': ...,
+                                \'Yaw\': ...,
+                                \'Pitch\': ...
                             },
-                            'Quality': {
-                                'Brightness': ...,
-                                'Sharpness': ...
+                            \'Quality\': {
+                                \'Brightness\': ...,
+                                \'Sharpness\': ...
                             },
-                            'Confidence': ...
+                            \'Confidence\': ...
                         }
                     },
                 ]
@@ -4333,7 +4333,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Object containing both the face metadata (stored in the backend database), and facial attributes that are detected but aren't stored in the database.
+                Object containing both the face metadata (stored in the backend database), and facial attributes that are detected but aren\'t stored in the database.
         
                 - **Face** *(dict) --* 
         
@@ -4581,25 +4581,25 @@ class Client(BaseClient):
         
               .. note::
         
-                If the input image is in jpeg format, it might contain exchangeable image (Exif) metadata. If so, and the Exif metadata populates the orientation field, the value of ``OrientationCorrection`` is null. The bounding box coordinates in ``FaceRecords`` represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.
+                If the input image is in jpeg format, it might contain exchangeable image (Exif) metadata. If so, and the Exif metadata populates the orientation field, the value of ``OrientationCorrection`` is null. The bounding box coordinates in ``FaceRecords`` represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don\'t contain Exif metadata.
         
             - **FaceModelVersion** *(string) --* 
         
-              The version number of the face detection model that's associated with the input collection (``CollectionId`` ).
+              The version number of the face detection model that\'s associated with the input collection (``CollectionId`` ).
         
             - **UnindexedFaces** *(list) --* 
         
-              An array of faces that were detected in the image but weren't indexed. They weren't indexed because the quality filter identified them as low quality, or the ``MaxFaces`` request parameter filtered them out. To use the quality filter, you specify the ``QualityFilter`` request parameter.
+              An array of faces that were detected in the image but weren\'t indexed. They weren\'t indexed because the quality filter identified them as low quality, or the ``MaxFaces`` request parameter filtered them out. To use the quality filter, you specify the ``QualityFilter`` request parameter.
         
               - *(dict) --* 
         
-                A face that detected, but didn't index. Use the ``Reasons`` response attribute to determine why a face wasn't indexed.
+                A face that detected, but didn\'t index. Use the ``Reasons`` response attribute to determine why a face wasn\'t indexed.
         
                 - **Reasons** *(list) --* 
         
-                  An array of reasons that specify why a face wasn't indexed. 
+                  An array of reasons that specify why a face wasn\'t indexed. 
         
-                  * EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is turned too far away from the camera. 
+                  * EXTREME_POSE - The face is at a pose that can\'t be detected. For example, the head is turned too far away from the camera. 
                    
                   * EXCEEDS_MAX_FACES - The number of faces detected is already higher than that specified by the ``MaxFaces`` input parameter for ``IndexFaces`` . 
                    
@@ -4615,7 +4615,7 @@ class Client(BaseClient):
               
                 - **FaceDetail** *(dict) --* 
         
-                  The structure that contains attributes of a face that ``IndexFaces`` detected, but didn't index. 
+                  The structure that contains attributes of a face that ``IndexFaces`` detected, but didn\'t index. 
         
                   - **BoundingBox** *(dict) --* 
         
@@ -4829,7 +4829,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_collections(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -4850,12 +4850,12 @@ class Client(BaseClient):
           ::
         
             {
-                'CollectionIds': [
-                    'string',
+                \'CollectionIds\': [
+                    \'string\',
                 ],
-                'NextToken': 'string',
-                'FaceModelVersions': [
-                    'string',
+                \'NextToken\': \'string\',
+                \'FaceModelVersions\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -4892,8 +4892,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_faces(
-              CollectionId='string',
-              NextToken='string',
+              CollectionId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type CollectionId: string
@@ -4919,22 +4919,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Faces': [
+                \'Faces\': [
                     {
-                        'FaceId': 'string',
-                        'BoundingBox': {
-                            'Width': ...,
-                            'Height': ...,
-                            'Left': ...,
-                            'Top': ...
+                        \'FaceId\': \'string\',
+                        \'BoundingBox\': {
+                            \'Width\': ...,
+                            \'Height\': ...,
+                            \'Left\': ...,
+                            \'Top\': ...
                         },
-                        'ImageId': 'string',
-                        'ExternalImageId': 'string',
-                        'Confidence': ...
+                        \'ImageId\': \'string\',
+                        \'ExternalImageId\': \'string\',
+                        \'Confidence\': ...
                     },
                 ],
-                'NextToken': 'string',
-                'FaceModelVersion': 'string'
+                \'NextToken\': \'string\',
+                \'FaceModelVersion\': \'string\'
             }
           **Response Structure** 
         
@@ -5004,7 +5004,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_stream_processors(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -5025,11 +5025,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'StreamProcessors': [
+                \'NextToken\': \'string\',
+                \'StreamProcessors\': [
                     {
-                        'Name': 'string',
-                        'Status': 'STOPPED'|'STARTING'|'RUNNING'|'FAILED'|'STOPPING'
+                        \'Name\': \'string\',
+                        \'Status\': \'STOPPED\'|\'STARTING\'|\'RUNNING\'|\'FAILED\'|\'STOPPING\'
                     },
                 ]
             }
@@ -5063,11 +5063,11 @@ class Client(BaseClient):
     def recognize_celebrities(self, Image: Dict) -> Dict:
         """
         
-         ``RecognizeCelebrities`` returns the 100 largest faces in the image. It lists recognized celebrities in the ``CelebrityFaces`` array and unrecognized faces in the ``UnrecognizedFaces`` array. ``RecognizeCelebrities`` doesn't return celebrities whose faces aren't among the largest 100 faces in the image.
+         ``RecognizeCelebrities`` returns the 100 largest faces in the image. It lists recognized celebrities in the ``CelebrityFaces`` array and unrecognized faces in the ``UnrecognizedFaces`` array. ``RecognizeCelebrities`` doesn\'t return celebrities whose faces aren\'t among the largest 100 faces in the image.
         
-        For each celebrity recognized, ``RecognizeCelebrities`` returns a ``Celebrity`` object. The ``Celebrity`` object contains the celebrity name, ID, URL links to additional information, match confidence, and a ``ComparedFace`` object that you can use to locate the celebrity's face on the image.
+        For each celebrity recognized, ``RecognizeCelebrities`` returns a ``Celebrity`` object. The ``Celebrity`` object contains the celebrity name, ID, URL links to additional information, match confidence, and a ``ComparedFace`` object that you can use to locate the celebrity\'s face on the image.
         
-        Amazon Rekognition doesn't retain information about which images a celebrity has been recognized in. Your application must store this information and use the ``Celebrity`` ID property as a unique identifier for the celebrity. If you don't store the celebrity name or additional information URLs returned by ``RecognizeCelebrities`` , you will need the ID to identify the celebrity in a call to the operation.
+        Amazon Rekognition doesn\'t retain information about which images a celebrity has been recognized in. Your application must store this information and use the ``Celebrity`` ID property as a unique identifier for the celebrity. If you don\'t store the celebrity name or additional information URLs returned by ``RecognizeCelebrities`` , you will need the ID to identify the celebrity in a call to the operation.
         
         You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. 
         
@@ -5082,11 +5082,11 @@ class Client(BaseClient):
         
           response = client.recognize_celebrities(
               Image={
-                  'Bytes': b'bytes',
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'Bytes\': b\'bytes\',
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               }
           )
@@ -5123,69 +5123,69 @@ class Client(BaseClient):
           ::
         
             {
-                'CelebrityFaces': [
+                \'CelebrityFaces\': [
                     {
-                        'Urls': [
-                            'string',
+                        \'Urls\': [
+                            \'string\',
                         ],
-                        'Name': 'string',
-                        'Id': 'string',
-                        'Face': {
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                        \'Name\': \'string\',
+                        \'Id\': \'string\',
+                        \'Face\': {
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'Confidence': ...,
-                            'Landmarks': [
+                            \'Confidence\': ...,
+                            \'Landmarks\': [
                                 {
-                                    'Type': 'eyeLeft'|'eyeRight'|'nose'|'mouthLeft'|'mouthRight'|'leftEyeBrowLeft'|'leftEyeBrowRight'|'leftEyeBrowUp'|'rightEyeBrowLeft'|'rightEyeBrowRight'|'rightEyeBrowUp'|'leftEyeLeft'|'leftEyeRight'|'leftEyeUp'|'leftEyeDown'|'rightEyeLeft'|'rightEyeRight'|'rightEyeUp'|'rightEyeDown'|'noseLeft'|'noseRight'|'mouthUp'|'mouthDown'|'leftPupil'|'rightPupil',
-                                    'X': ...,
-                                    'Y': ...
+                                    \'Type\': \'eyeLeft\'|\'eyeRight\'|\'nose\'|\'mouthLeft\'|\'mouthRight\'|\'leftEyeBrowLeft\'|\'leftEyeBrowRight\'|\'leftEyeBrowUp\'|\'rightEyeBrowLeft\'|\'rightEyeBrowRight\'|\'rightEyeBrowUp\'|\'leftEyeLeft\'|\'leftEyeRight\'|\'leftEyeUp\'|\'leftEyeDown\'|\'rightEyeLeft\'|\'rightEyeRight\'|\'rightEyeUp\'|\'rightEyeDown\'|\'noseLeft\'|\'noseRight\'|\'mouthUp\'|\'mouthDown\'|\'leftPupil\'|\'rightPupil\',
+                                    \'X\': ...,
+                                    \'Y\': ...
                                 },
                             ],
-                            'Pose': {
-                                'Roll': ...,
-                                'Yaw': ...,
-                                'Pitch': ...
+                            \'Pose\': {
+                                \'Roll\': ...,
+                                \'Yaw\': ...,
+                                \'Pitch\': ...
                             },
-                            'Quality': {
-                                'Brightness': ...,
-                                'Sharpness': ...
+                            \'Quality\': {
+                                \'Brightness\': ...,
+                                \'Sharpness\': ...
                             }
                         },
-                        'MatchConfidence': ...
+                        \'MatchConfidence\': ...
                     },
                 ],
-                'UnrecognizedFaces': [
+                \'UnrecognizedFaces\': [
                     {
-                        'BoundingBox': {
-                            'Width': ...,
-                            'Height': ...,
-                            'Left': ...,
-                            'Top': ...
+                        \'BoundingBox\': {
+                            \'Width\': ...,
+                            \'Height\': ...,
+                            \'Left\': ...,
+                            \'Top\': ...
                         },
-                        'Confidence': ...,
-                        'Landmarks': [
+                        \'Confidence\': ...,
+                        \'Landmarks\': [
                             {
-                                'Type': 'eyeLeft'|'eyeRight'|'nose'|'mouthLeft'|'mouthRight'|'leftEyeBrowLeft'|'leftEyeBrowRight'|'leftEyeBrowUp'|'rightEyeBrowLeft'|'rightEyeBrowRight'|'rightEyeBrowUp'|'leftEyeLeft'|'leftEyeRight'|'leftEyeUp'|'leftEyeDown'|'rightEyeLeft'|'rightEyeRight'|'rightEyeUp'|'rightEyeDown'|'noseLeft'|'noseRight'|'mouthUp'|'mouthDown'|'leftPupil'|'rightPupil',
-                                'X': ...,
-                                'Y': ...
+                                \'Type\': \'eyeLeft\'|\'eyeRight\'|\'nose\'|\'mouthLeft\'|\'mouthRight\'|\'leftEyeBrowLeft\'|\'leftEyeBrowRight\'|\'leftEyeBrowUp\'|\'rightEyeBrowLeft\'|\'rightEyeBrowRight\'|\'rightEyeBrowUp\'|\'leftEyeLeft\'|\'leftEyeRight\'|\'leftEyeUp\'|\'leftEyeDown\'|\'rightEyeLeft\'|\'rightEyeRight\'|\'rightEyeUp\'|\'rightEyeDown\'|\'noseLeft\'|\'noseRight\'|\'mouthUp\'|\'mouthDown\'|\'leftPupil\'|\'rightPupil\',
+                                \'X\': ...,
+                                \'Y\': ...
                             },
                         ],
-                        'Pose': {
-                            'Roll': ...,
-                            'Yaw': ...,
-                            'Pitch': ...
+                        \'Pose\': {
+                            \'Roll\': ...,
+                            \'Yaw\': ...,
+                            \'Pitch\': ...
                         },
-                        'Quality': {
-                            'Brightness': ...,
-                            'Sharpness': ...
+                        \'Quality\': {
+                            \'Brightness\': ...,
+                            \'Sharpness\': ...
                         }
                     },
                 ],
-                'OrientationCorrection': 'ROTATE_0'|'ROTATE_90'|'ROTATE_180'|'ROTATE_270'
+                \'OrientationCorrection\': \'ROTATE_0\'|\'ROTATE_90\'|\'ROTATE_180\'|\'ROTATE_270\'
             }
           **Response Structure** 
         
@@ -5215,7 +5215,7 @@ class Client(BaseClient):
         
                 - **Face** *(dict) --* 
         
-                  Provides information about the celebrity's face, such as its location on the image.
+                  Provides information about the celebrity\'s face, such as its location on the image.
         
                   - **BoundingBox** *(dict) --* 
         
@@ -5379,7 +5379,7 @@ class Client(BaseClient):
         
               .. note::
         
-                If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image's orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of ``OrientationCorrection`` is null. The ``CelebrityFaces`` and ``UnrecognizedFaces`` bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata. 
+                If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image\'s orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of ``OrientationCorrection`` is null. The ``CelebrityFaces`` and ``UnrecognizedFaces`` bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don\'t contain Exif metadata. 
         
         """
         pass
@@ -5403,8 +5403,8 @@ class Client(BaseClient):
         ::
         
           response = client.search_faces(
-              CollectionId='string',
-              FaceId='string',
+              CollectionId=\'string\',
+              FaceId=\'string\',
               MaxFaces=123,
               FaceMatchThreshold=...
           )
@@ -5426,7 +5426,7 @@ class Client(BaseClient):
         :type FaceMatchThreshold: float
         :param FaceMatchThreshold: 
         
-          Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%.
+          Optional value specifying the minimum confidence in the face match to return. For example, don\'t return any matches where confidence in matches is less than 70%.
         
         :rtype: dict
         :returns: 
@@ -5436,25 +5436,25 @@ class Client(BaseClient):
           ::
         
             {
-                'SearchedFaceId': 'string',
-                'FaceMatches': [
+                \'SearchedFaceId\': \'string\',
+                \'FaceMatches\': [
                     {
-                        'Similarity': ...,
-                        'Face': {
-                            'FaceId': 'string',
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                        \'Similarity\': ...,
+                        \'Face\': {
+                            \'FaceId\': \'string\',
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'ImageId': 'string',
-                            'ExternalImageId': 'string',
-                            'Confidence': ...
+                            \'ImageId\': \'string\',
+                            \'ExternalImageId\': \'string\',
+                            \'Confidence\': ...
                         }
                     },
                 ],
-                'FaceModelVersion': 'string'
+                \'FaceModelVersion\': \'string\'
             }
           **Response Structure** 
         
@@ -5546,13 +5546,13 @@ class Client(BaseClient):
         ::
         
           response = client.search_faces_by_image(
-              CollectionId='string',
+              CollectionId=\'string\',
               Image={
-                  'Bytes': b'bytes',
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'Bytes\': b\'bytes\',
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
               MaxFaces=123,
@@ -5596,7 +5596,7 @@ class Client(BaseClient):
         :type FaceMatchThreshold: float
         :param FaceMatchThreshold: 
         
-          (Optional) Specifies the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%.
+          (Optional) Specifies the minimum confidence in the face match to return. For example, don\'t return any matches where confidence in matches is less than 70%.
         
         :rtype: dict
         :returns: 
@@ -5606,31 +5606,31 @@ class Client(BaseClient):
           ::
         
             {
-                'SearchedFaceBoundingBox': {
-                    'Width': ...,
-                    'Height': ...,
-                    'Left': ...,
-                    'Top': ...
+                \'SearchedFaceBoundingBox\': {
+                    \'Width\': ...,
+                    \'Height\': ...,
+                    \'Left\': ...,
+                    \'Top\': ...
                 },
-                'SearchedFaceConfidence': ...,
-                'FaceMatches': [
+                \'SearchedFaceConfidence\': ...,
+                \'FaceMatches\': [
                     {
-                        'Similarity': ...,
-                        'Face': {
-                            'FaceId': 'string',
-                            'BoundingBox': {
-                                'Width': ...,
-                                'Height': ...,
-                                'Left': ...,
-                                'Top': ...
+                        \'Similarity\': ...,
+                        \'Face\': {
+                            \'FaceId\': \'string\',
+                            \'BoundingBox\': {
+                                \'Width\': ...,
+                                \'Height\': ...,
+                                \'Left\': ...,
+                                \'Top\': ...
                             },
-                            'ImageId': 'string',
-                            'ExternalImageId': 'string',
-                            'Confidence': ...
+                            \'ImageId\': \'string\',
+                            \'ExternalImageId\': \'string\',
+                            \'Confidence\': ...
                         }
                     },
                 ],
-                'FaceModelVersion': 'string'
+                \'FaceModelVersion\': \'string\'
             }
           **Response Structure** 
         
@@ -5733,18 +5733,18 @@ class Client(BaseClient):
         
           response = client.start_celebrity_recognition(
               Video={
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
-              ClientRequestToken='string',
+              ClientRequestToken=\'string\',
               NotificationChannel={
-                  'SNSTopicArn': 'string',
-                  'RoleArn': 'string'
+                  \'SNSTopicArn\': \'string\',
+                  \'RoleArn\': \'string\'
               },
-              JobTag='string'
+              JobTag=\'string\'
           )
         :type Video: dict
         :param Video: **[REQUIRED]** 
@@ -5798,7 +5798,7 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string'
+                \'JobId\': \'string\'
             }
           **Response Structure** 
         
@@ -5827,19 +5827,19 @@ class Client(BaseClient):
         
           response = client.start_content_moderation(
               Video={
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
               MinConfidence=...,
-              ClientRequestToken='string',
+              ClientRequestToken=\'string\',
               NotificationChannel={
-                  'SNSTopicArn': 'string',
-                  'RoleArn': 'string'
+                  \'SNSTopicArn\': \'string\',
+                  \'RoleArn\': \'string\'
               },
-              JobTag='string'
+              JobTag=\'string\'
           )
         :type Video: dict
         :param Video: **[REQUIRED]** 
@@ -5865,7 +5865,7 @@ class Client(BaseClient):
         :type MinConfidence: float
         :param MinConfidence: 
         
-          Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content labels with a confidence level lower than this specified value. If you don't specify ``MinConfidence`` , ``GetContentModeration`` returns labels with confidence values greater than or equal to 50 percent.
+          Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn\'t return any moderated content labels with a confidence level lower than this specified value. If you don\'t specify ``MinConfidence`` , ``GetContentModeration`` returns labels with confidence values greater than or equal to 50 percent.
         
         :type ClientRequestToken: string
         :param ClientRequestToken: 
@@ -5898,7 +5898,7 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string'
+                \'JobId\': \'string\'
             }
           **Response Structure** 
         
@@ -5925,19 +5925,19 @@ class Client(BaseClient):
         
           response = client.start_face_detection(
               Video={
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
-              ClientRequestToken='string',
+              ClientRequestToken=\'string\',
               NotificationChannel={
-                  'SNSTopicArn': 'string',
-                  'RoleArn': 'string'
+                  \'SNSTopicArn\': \'string\',
+                  \'RoleArn\': \'string\'
               },
-              FaceAttributes='DEFAULT'|'ALL',
-              JobTag='string'
+              FaceAttributes=\'DEFAULT\'|\'ALL\',
+              JobTag=\'string\'
           )
         :type Video: dict
         :param Video: **[REQUIRED]** 
@@ -6000,7 +6000,7 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string'
+                \'JobId\': \'string\'
             }
           **Response Structure** 
         
@@ -6025,20 +6025,20 @@ class Client(BaseClient):
         
           response = client.start_face_search(
               Video={
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
-              ClientRequestToken='string',
+              ClientRequestToken=\'string\',
               FaceMatchThreshold=...,
-              CollectionId='string',
+              CollectionId=\'string\',
               NotificationChannel={
-                  'SNSTopicArn': 'string',
-                  'RoleArn': 'string'
+                  \'SNSTopicArn\': \'string\',
+                  \'RoleArn\': \'string\'
               },
-              JobTag='string'
+              JobTag=\'string\'
           )
         :type Video: dict
         :param Video: **[REQUIRED]** 
@@ -6069,7 +6069,7 @@ class Client(BaseClient):
         :type FaceMatchThreshold: float
         :param FaceMatchThreshold: 
         
-          The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%. 
+          The minimum confidence in the person match to return. For example, don\'t return any matches where confidence in matches is less than 70%. 
         
         :type CollectionId: string
         :param CollectionId: **[REQUIRED]** 
@@ -6102,7 +6102,7 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string'
+                \'JobId\': \'string\'
             }
           **Response Structure** 
         
@@ -6131,19 +6131,19 @@ class Client(BaseClient):
         
           response = client.start_label_detection(
               Video={
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
-              ClientRequestToken='string',
+              ClientRequestToken=\'string\',
               MinConfidence=...,
               NotificationChannel={
-                  'SNSTopicArn': 'string',
-                  'RoleArn': 'string'
+                  \'SNSTopicArn\': \'string\',
+                  \'RoleArn\': \'string\'
               },
-              JobTag='string'
+              JobTag=\'string\'
           )
         :type Video: dict
         :param Video: **[REQUIRED]** 
@@ -6174,9 +6174,9 @@ class Client(BaseClient):
         :type MinConfidence: float
         :param MinConfidence: 
         
-          Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.
+          Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn\'t return any labels with a confidence level lower than this specified value.
         
-          If you don't specify ``MinConfidence`` , the operation returns labels with confidence values greater than or equal to 50 percent.
+          If you don\'t specify ``MinConfidence`` , the operation returns labels with confidence values greater than or equal to 50 percent.
         
         :type NotificationChannel: dict
         :param NotificationChannel: 
@@ -6204,7 +6204,7 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string'
+                \'JobId\': \'string\'
             }
           **Response Structure** 
         
@@ -6231,18 +6231,18 @@ class Client(BaseClient):
         
           response = client.start_person_tracking(
               Video={
-                  'S3Object': {
-                      'Bucket': 'string',
-                      'Name': 'string',
-                      'Version': 'string'
+                  \'S3Object\': {
+                      \'Bucket\': \'string\',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\'
                   }
               },
-              ClientRequestToken='string',
+              ClientRequestToken=\'string\',
               NotificationChannel={
-                  'SNSTopicArn': 'string',
-                  'RoleArn': 'string'
+                  \'SNSTopicArn\': \'string\',
+                  \'RoleArn\': \'string\'
               },
-              JobTag='string'
+              JobTag=\'string\'
           )
         :type Video: dict
         :param Video: **[REQUIRED]** 
@@ -6296,7 +6296,7 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string'
+                \'JobId\': \'string\'
             }
           **Response Structure** 
         
@@ -6318,7 +6318,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_stream_processor(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -6348,7 +6348,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_stream_processor(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 

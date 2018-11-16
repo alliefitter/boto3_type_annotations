@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -22,11 +22,11 @@ class Client(BaseClient):
         ::
         
           response = client.activate_pipeline(
-              pipelineId='string',
+              pipelineId=\'string\',
               parameterValues=[
                   {
-                      'id': 'string',
-                      'stringValue': 'string'
+                      \'id\': \'string\',
+                      \'stringValue\': \'string\'
                   },
               ],
               startTimestamp=datetime(2015, 1, 1)
@@ -84,11 +84,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags(
-              pipelineId='string',
+              pipelineId=\'string\',
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -137,10 +137,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -156,13 +156,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_pipeline(
-              name='string',
-              uniqueId='string',
-              description='string',
+              name=\'string\',
+              uniqueId=\'string\',
+              description=\'string\',
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -174,7 +174,7 @@ class Client(BaseClient):
         :type uniqueId: string
         :param uniqueId: **[REQUIRED]** 
         
-          A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to ``CreatePipeline`` . For example, if the first call to ``CreatePipeline`` does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to ``CreatePipeline`` . ``CreatePipeline`` ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.
+          A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to ``CreatePipeline`` . For example, if the first call to ``CreatePipeline`` does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to ``CreatePipeline`` . ``CreatePipeline`` ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you\'ll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.
         
         :type description: string
         :param description: 
@@ -206,7 +206,7 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineId': 'string'
+                \'pipelineId\': \'string\'
             }
           **Response Structure** 
         
@@ -232,7 +232,7 @@ class Client(BaseClient):
         ::
         
           response = client.deactivate_pipeline(
-              pipelineId='string',
+              pipelineId=\'string\',
               cancelActive=True|False
           )
         :type pipelineId: string
@@ -273,7 +273,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_pipeline(
-              pipelineId='string'
+              pipelineId=\'string\'
           )
         :type pipelineId: string
         :param pipelineId: **[REQUIRED]** 
@@ -293,12 +293,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_objects(
-              pipelineId='string',
+              pipelineId=\'string\',
               objectIds=[
-                  'string',
+                  \'string\',
               ],
               evaluateExpressions=True|False,
-              marker='string'
+              marker=\'string\'
           )
         :type pipelineId: string
         :param pipelineId: **[REQUIRED]** 
@@ -330,21 +330,21 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineObjects': [
+                \'pipelineObjects\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'fields': [
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'fields\': [
                             {
-                                'key': 'string',
-                                'stringValue': 'string',
-                                'refValue': 'string'
+                                \'key\': \'string\',
+                                \'stringValue\': \'string\',
+                                \'refValue\': \'string\'
                             },
                         ]
                     },
                 ],
-                'marker': 'string',
-                'hasMoreResults': True|False
+                \'marker\': \'string\',
+                \'hasMoreResults\': True|False
             }
           **Response Structure** 
         
@@ -411,7 +411,7 @@ class Client(BaseClient):
         
           response = client.describe_pipelines(
               pipelineIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type pipelineIds: list
@@ -429,22 +429,22 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineDescriptionList': [
+                \'pipelineDescriptionList\': [
                     {
-                        'pipelineId': 'string',
-                        'name': 'string',
-                        'fields': [
+                        \'pipelineId\': \'string\',
+                        \'name\': \'string\',
+                        \'fields\': [
                             {
-                                'key': 'string',
-                                'stringValue': 'string',
-                                'refValue': 'string'
+                                \'key\': \'string\',
+                                \'stringValue\': \'string\',
+                                \'refValue\': \'string\'
                             },
                         ],
-                        'description': 'string',
-                        'tags': [
+                        \'description\': \'string\',
+                        \'tags\': [
                             {
-                                'key': 'string',
-                                'value': 'string'
+                                \'key\': \'string\',
+                                \'value\': \'string\'
                             },
                         ]
                     },
@@ -524,9 +524,9 @@ class Client(BaseClient):
         ::
         
           response = client.evaluate_expression(
-              pipelineId='string',
-              objectId='string',
-              expression='string'
+              pipelineId=\'string\',
+              objectId=\'string\',
+              expression=\'string\'
           )
         :type pipelineId: string
         :param pipelineId: **[REQUIRED]** 
@@ -551,7 +551,7 @@ class Client(BaseClient):
           ::
         
             {
-                'evaluatedExpression': 'string'
+                \'evaluatedExpression\': \'string\'
             }
           **Response Structure** 
         
@@ -582,7 +582,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -594,10 +594,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -617,8 +617,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_pipeline_definition(
-              pipelineId='string',
-              version='string'
+              pipelineId=\'string\',
+              version=\'string\'
           )
         :type pipelineId: string
         :param pipelineId: **[REQUIRED]** 
@@ -638,34 +638,34 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineObjects': [
+                \'pipelineObjects\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'fields': [
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'fields\': [
                             {
-                                'key': 'string',
-                                'stringValue': 'string',
-                                'refValue': 'string'
+                                \'key\': \'string\',
+                                \'stringValue\': \'string\',
+                                \'refValue\': \'string\'
                             },
                         ]
                     },
                 ],
-                'parameterObjects': [
+                \'parameterObjects\': [
                     {
-                        'id': 'string',
-                        'attributes': [
+                        \'id\': \'string\',
+                        \'attributes\': [
                             {
-                                'key': 'string',
-                                'stringValue': 'string'
+                                \'key\': \'string\',
+                                \'stringValue\': \'string\'
                             },
                         ]
                     },
                 ],
-                'parameterValues': [
+                \'parameterValues\': [
                     {
-                        'id': 'string',
-                        'stringValue': 'string'
+                        \'id\': \'string\',
+                        \'stringValue\': \'string\'
                     },
                 ]
             }
@@ -779,7 +779,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_pipelines(
-              marker='string'
+              marker=\'string\'
           )
         :type marker: string
         :param marker: 
@@ -794,14 +794,14 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineIdList': [
+                \'pipelineIdList\': [
                     {
-                        'id': 'string',
-                        'name': 'string'
+                        \'id\': \'string\',
+                        \'name\': \'string\'
                     },
                 ],
-                'marker': 'string',
-                'hasMoreResults': True|False
+                \'marker\': \'string\',
+                \'hasMoreResults\': True|False
             }
           **Response Structure** 
         
@@ -847,11 +847,11 @@ class Client(BaseClient):
         ::
         
           response = client.poll_for_task(
-              workerGroup='string',
-              hostname='string',
+              workerGroup=\'string\',
+              hostname=\'string\',
               instanceIdentity={
-                  'document': 'string',
-                  'signature': 'string'
+                  \'document\': \'string\',
+                  \'signature\': \'string\'
               }
           )
         :type workerGroup: string
@@ -885,19 +885,19 @@ class Client(BaseClient):
           ::
         
             {
-                'taskObject': {
-                    'taskId': 'string',
-                    'pipelineId': 'string',
-                    'attemptId': 'string',
-                    'objects': {
-                        'string': {
-                            'id': 'string',
-                            'name': 'string',
-                            'fields': [
+                \'taskObject\': {
+                    \'taskId\': \'string\',
+                    \'pipelineId\': \'string\',
+                    \'attemptId\': \'string\',
+                    \'objects\': {
+                        \'string\': {
+                            \'id\': \'string\',
+                            \'name\': \'string\',
+                            \'fields\': [
                                 {
-                                    'key': 'string',
-                                    'stringValue': 'string',
-                                    'refValue': 'string'
+                                    \'key\': \'string\',
+                                    \'stringValue\': \'string\',
+                                    \'refValue\': \'string\'
                                 },
                             ]
                         }
@@ -988,35 +988,35 @@ class Client(BaseClient):
         ::
         
           response = client.put_pipeline_definition(
-              pipelineId='string',
+              pipelineId=\'string\',
               pipelineObjects=[
                   {
-                      'id': 'string',
-                      'name': 'string',
-                      'fields': [
+                      \'id\': \'string\',
+                      \'name\': \'string\',
+                      \'fields\': [
                           {
-                              'key': 'string',
-                              'stringValue': 'string',
-                              'refValue': 'string'
+                              \'key\': \'string\',
+                              \'stringValue\': \'string\',
+                              \'refValue\': \'string\'
                           },
                       ]
                   },
               ],
               parameterObjects=[
                   {
-                      'id': 'string',
-                      'attributes': [
+                      \'id\': \'string\',
+                      \'attributes\': [
                           {
-                              'key': 'string',
-                              'stringValue': 'string'
+                              \'key\': \'string\',
+                              \'stringValue\': \'string\'
                           },
                       ]
                   },
               ],
               parameterValues=[
                   {
-                      'id': 'string',
-                      'stringValue': 'string'
+                      \'id\': \'string\',
+                      \'stringValue\': \'string\'
                   },
               ]
           )
@@ -1116,23 +1116,23 @@ class Client(BaseClient):
           ::
         
             {
-                'validationErrors': [
+                \'validationErrors\': [
                     {
-                        'id': 'string',
-                        'errors': [
-                            'string',
+                        \'id\': \'string\',
+                        \'errors\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'validationWarnings': [
+                \'validationWarnings\': [
                     {
-                        'id': 'string',
-                        'warnings': [
-                            'string',
+                        \'id\': \'string\',
+                        \'warnings\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'errored': True|False
+                \'errored\': True|False
             }
           **Response Structure** 
         
@@ -1192,22 +1192,22 @@ class Client(BaseClient):
         ::
         
           response = client.query_objects(
-              pipelineId='string',
+              pipelineId=\'string\',
               query={
-                  'selectors': [
+                  \'selectors\': [
                       {
-                          'fieldName': 'string',
-                          'operator': {
-                              'type': 'EQ'|'REF_EQ'|'LE'|'GE'|'BETWEEN',
-                              'values': [
-                                  'string',
+                          \'fieldName\': \'string\',
+                          \'operator\': {
+                              \'type\': \'EQ\'|\'REF_EQ\'|\'LE\'|\'GE\'|\'BETWEEN\',
+                              \'values\': [
+                                  \'string\',
                               ]
                           }
                       },
                   ]
               },
-              sphere='string',
-              marker='string',
+              sphere=\'string\',
+              marker=\'string\',
               limit=123
           )
         :type pipelineId: string
@@ -1230,7 +1230,7 @@ class Client(BaseClient):
         
               - **fieldName** *(string) --* 
         
-                The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
+                The name of the field that the operator will be applied to. The field name is the \"key\" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
         
               - **operator** *(dict) --* 
         
@@ -1272,7 +1272,7 @@ class Client(BaseClient):
                    
                   * @actualEndTime
                    
-                  Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string "my".
+                  Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".
         
                 - **values** *(list) --* 
         
@@ -1303,11 +1303,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ids': [
-                    'string',
+                \'ids\': [
+                    \'string\',
                 ],
-                'marker': 'string',
-                'hasMoreResults': True|False
+                \'marker\': \'string\',
+                \'hasMoreResults\': True|False
             }
           **Response Structure** 
         
@@ -1341,9 +1341,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags(
-              pipelineId='string',
+              pipelineId=\'string\',
               tagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type pipelineId: string
@@ -1386,12 +1386,12 @@ class Client(BaseClient):
         ::
         
           response = client.report_task_progress(
-              taskId='string',
+              taskId=\'string\',
               fields=[
                   {
-                      'key': 'string',
-                      'stringValue': 'string',
-                      'refValue': 'string'
+                      \'key\': \'string\',
+                      \'stringValue\': \'string\',
+                      \'refValue\': \'string\'
                   },
               ]
           )
@@ -1429,7 +1429,7 @@ class Client(BaseClient):
           ::
         
             {
-                'canceled': True|False
+                \'canceled\': True|False
             }
           **Response Structure** 
         
@@ -1453,9 +1453,9 @@ class Client(BaseClient):
         ::
         
           response = client.report_task_runner_heartbeat(
-              taskrunnerId='string',
-              workerGroup='string',
-              hostname='string'
+              taskrunnerId=\'string\',
+              workerGroup=\'string\',
+              hostname=\'string\'
           )
         :type taskrunnerId: string
         :param taskrunnerId: **[REQUIRED]** 
@@ -1480,7 +1480,7 @@ class Client(BaseClient):
           ::
         
             {
-                'terminate': True|False
+                \'terminate\': True|False
             }
           **Response Structure** 
         
@@ -1504,11 +1504,11 @@ class Client(BaseClient):
         ::
         
           response = client.set_status(
-              pipelineId='string',
+              pipelineId=\'string\',
               objectIds=[
-                  'string',
+                  \'string\',
               ],
-              status='string'
+              status=\'string\'
           )
         :type pipelineId: string
         :param pipelineId: **[REQUIRED]** 
@@ -1540,11 +1540,11 @@ class Client(BaseClient):
         ::
         
           response = client.set_task_status(
-              taskId='string',
-              taskStatus='FINISHED'|'FAILED'|'FALSE',
-              errorId='string',
-              errorMessage='string',
-              errorStackTrace='string'
+              taskId=\'string\',
+              taskStatus=\'FINISHED\'|\'FAILED\'|\'FALSE\',
+              errorId=\'string\',
+              errorMessage=\'string\',
+              errorStackTrace=\'string\'
           )
         :type taskId: string
         :param taskId: **[REQUIRED]** 
@@ -1559,7 +1559,7 @@ class Client(BaseClient):
         :type errorId: string
         :param errorId: 
         
-          If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.
+          If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.
         
         :type errorMessage: string
         :param errorMessage: 
@@ -1597,35 +1597,35 @@ class Client(BaseClient):
         ::
         
           response = client.validate_pipeline_definition(
-              pipelineId='string',
+              pipelineId=\'string\',
               pipelineObjects=[
                   {
-                      'id': 'string',
-                      'name': 'string',
-                      'fields': [
+                      \'id\': \'string\',
+                      \'name\': \'string\',
+                      \'fields\': [
                           {
-                              'key': 'string',
-                              'stringValue': 'string',
-                              'refValue': 'string'
+                              \'key\': \'string\',
+                              \'stringValue\': \'string\',
+                              \'refValue\': \'string\'
                           },
                       ]
                   },
               ],
               parameterObjects=[
                   {
-                      'id': 'string',
-                      'attributes': [
+                      \'id\': \'string\',
+                      \'attributes\': [
                           {
-                              'key': 'string',
-                              'stringValue': 'string'
+                              \'key\': \'string\',
+                              \'stringValue\': \'string\'
                           },
                       ]
                   },
               ],
               parameterValues=[
                   {
-                      'id': 'string',
-                      'stringValue': 'string'
+                      \'id\': \'string\',
+                      \'stringValue\': \'string\'
                   },
               ]
           )
@@ -1725,23 +1725,23 @@ class Client(BaseClient):
           ::
         
             {
-                'validationErrors': [
+                \'validationErrors\': [
                     {
-                        'id': 'string',
-                        'errors': [
-                            'string',
+                        \'id\': \'string\',
+                        \'errors\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'validationWarnings': [
+                \'validationWarnings\': [
                     {
-                        'id': 'string',
-                        'warnings': [
-                            'string',
+                        \'id\': \'string\',
+                        \'warnings\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'errored': True|False
+                \'errored\': True|False
             }
           **Response Structure** 
         

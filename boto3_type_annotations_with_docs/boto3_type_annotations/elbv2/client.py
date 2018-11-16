@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
+from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -21,11 +21,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_listener_certificates(
-              ListenerArn='string',
+              ListenerArn=\'string\',
               Certificates=[
                   {
-                      'CertificateArn': 'string',
-                      'IsDefault': True|False
+                      \'CertificateArn\': \'string\',
+                      \'IsDefault\': True|False
                   },
               ]
           )
@@ -59,10 +59,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificates': [
+                \'Certificates\': [
                     {
-                        'CertificateArn': 'string',
-                        'IsDefault': True|False
+                        \'CertificateArn\': \'string\',
+                        \'IsDefault\': True|False
                     },
                 ]
             }
@@ -103,12 +103,12 @@ class Client(BaseClient):
         
           response = client.add_tags(
               ResourceArns=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -156,10 +156,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -181,60 +181,60 @@ class Client(BaseClient):
         ::
         
           response = client.create_listener(
-              LoadBalancerArn='string',
-              Protocol='HTTP'|'HTTPS'|'TCP',
+              LoadBalancerArn=\'string\',
+              Protocol=\'HTTP\'|\'HTTPS\'|\'TCP\',
               Port=123,
-              SslPolicy='string',
+              SslPolicy=\'string\',
               Certificates=[
                   {
-                      'CertificateArn': 'string',
-                      'IsDefault': True|False
+                      \'CertificateArn\': \'string\',
+                      \'IsDefault\': True|False
                   },
               ],
               DefaultActions=[
                   {
-                      'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                      'TargetGroupArn': 'string',
-                      'AuthenticateOidcConfig': {
-                          'Issuer': 'string',
-                          'AuthorizationEndpoint': 'string',
-                          'TokenEndpoint': 'string',
-                          'UserInfoEndpoint': 'string',
-                          'ClientId': 'string',
-                          'ClientSecret': 'string',
-                          'SessionCookieName': 'string',
-                          'Scope': 'string',
-                          'SessionTimeout': 123,
-                          'AuthenticationRequestExtraParams': {
-                              'string': 'string'
+                      \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                      \'TargetGroupArn\': \'string\',
+                      \'AuthenticateOidcConfig\': {
+                          \'Issuer\': \'string\',
+                          \'AuthorizationEndpoint\': \'string\',
+                          \'TokenEndpoint\': \'string\',
+                          \'UserInfoEndpoint\': \'string\',
+                          \'ClientId\': \'string\',
+                          \'ClientSecret\': \'string\',
+                          \'SessionCookieName\': \'string\',
+                          \'Scope\': \'string\',
+                          \'SessionTimeout\': 123,
+                          \'AuthenticationRequestExtraParams\': {
+                              \'string\': \'string\'
                           },
-                          'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                          \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                       },
-                      'AuthenticateCognitoConfig': {
-                          'UserPoolArn': 'string',
-                          'UserPoolClientId': 'string',
-                          'UserPoolDomain': 'string',
-                          'SessionCookieName': 'string',
-                          'Scope': 'string',
-                          'SessionTimeout': 123,
-                          'AuthenticationRequestExtraParams': {
-                              'string': 'string'
+                      \'AuthenticateCognitoConfig\': {
+                          \'UserPoolArn\': \'string\',
+                          \'UserPoolClientId\': \'string\',
+                          \'UserPoolDomain\': \'string\',
+                          \'SessionCookieName\': \'string\',
+                          \'Scope\': \'string\',
+                          \'SessionTimeout\': 123,
+                          \'AuthenticationRequestExtraParams\': {
+                              \'string\': \'string\'
                           },
-                          'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                          \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                       },
-                      'Order': 123,
-                      'RedirectConfig': {
-                          'Protocol': 'string',
-                          'Port': 'string',
-                          'Host': 'string',
-                          'Path': 'string',
-                          'Query': 'string',
-                          'StatusCode': 'HTTP_301'|'HTTP_302'
+                      \'Order\': 123,
+                      \'RedirectConfig\': {
+                          \'Protocol\': \'string\',
+                          \'Port\': \'string\',
+                          \'Host\': \'string\',
+                          \'Path\': \'string\',
+                          \'Query\': \'string\',
+                          \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                       },
-                      'FixedResponseConfig': {
-                          'MessageBody': 'string',
-                          'StatusCode': 'string',
-                          'ContentType': 'string'
+                      \'FixedResponseConfig\': {
+                          \'MessageBody\': \'string\',
+                          \'StatusCode\': \'string\',
+                          \'ContentType\': \'string\'
                       }
                   },
               ]
@@ -433,11 +433,11 @@ class Client(BaseClient):
         
               - **Path** *(string) --* 
         
-                The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
               - **Query** *(string) --* 
         
-                The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
               - **StatusCode** *(string) --* **[REQUIRED]** 
         
@@ -469,63 +469,63 @@ class Client(BaseClient):
           ::
         
             {
-                'Listeners': [
+                \'Listeners\': [
                     {
-                        'ListenerArn': 'string',
-                        'LoadBalancerArn': 'string',
-                        'Port': 123,
-                        'Protocol': 'HTTP'|'HTTPS'|'TCP',
-                        'Certificates': [
+                        \'ListenerArn\': \'string\',
+                        \'LoadBalancerArn\': \'string\',
+                        \'Port\': 123,
+                        \'Protocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'Certificates\': [
                             {
-                                'CertificateArn': 'string',
-                                'IsDefault': True|False
+                                \'CertificateArn\': \'string\',
+                                \'IsDefault\': True|False
                             },
                         ],
-                        'SslPolicy': 'string',
-                        'DefaultActions': [
+                        \'SslPolicy\': \'string\',
+                        \'DefaultActions\': [
                             {
-                                'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                                'TargetGroupArn': 'string',
-                                'AuthenticateOidcConfig': {
-                                    'Issuer': 'string',
-                                    'AuthorizationEndpoint': 'string',
-                                    'TokenEndpoint': 'string',
-                                    'UserInfoEndpoint': 'string',
-                                    'ClientId': 'string',
-                                    'ClientSecret': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                                \'TargetGroupArn\': \'string\',
+                                \'AuthenticateOidcConfig\': {
+                                    \'Issuer\': \'string\',
+                                    \'AuthorizationEndpoint\': \'string\',
+                                    \'TokenEndpoint\': \'string\',
+                                    \'UserInfoEndpoint\': \'string\',
+                                    \'ClientId\': \'string\',
+                                    \'ClientSecret\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'AuthenticateCognitoConfig': {
-                                    'UserPoolArn': 'string',
-                                    'UserPoolClientId': 'string',
-                                    'UserPoolDomain': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'AuthenticateCognitoConfig\': {
+                                    \'UserPoolArn\': \'string\',
+                                    \'UserPoolClientId\': \'string\',
+                                    \'UserPoolDomain\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'Order': 123,
-                                'RedirectConfig': {
-                                    'Protocol': 'string',
-                                    'Port': 'string',
-                                    'Host': 'string',
-                                    'Path': 'string',
-                                    'Query': 'string',
-                                    'StatusCode': 'HTTP_301'|'HTTP_302'
+                                \'Order\': 123,
+                                \'RedirectConfig\': {
+                                    \'Protocol\': \'string\',
+                                    \'Port\': \'string\',
+                                    \'Host\': \'string\',
+                                    \'Path\': \'string\',
+                                    \'Query\': \'string\',
+                                    \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                                 },
-                                'FixedResponseConfig': {
-                                    'MessageBody': 'string',
-                                    'StatusCode': 'string',
-                                    'ContentType': 'string'
+                                \'FixedResponseConfig\': {
+                                    \'MessageBody\': \'string\',
+                                    \'StatusCode\': \'string\',
+                                    \'ContentType\': \'string\'
                                 }
                             },
                         ]
@@ -726,11 +726,11 @@ class Client(BaseClient):
         
                       - **Path** *(string) --* 
         
-                        The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                        The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
                       - **Query** *(string) --* 
         
-                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
                       - **StatusCode** *(string) --* 
         
@@ -776,35 +776,35 @@ class Client(BaseClient):
         ::
         
           response = client.create_load_balancer(
-              Name='string',
+              Name=\'string\',
               Subnets=[
-                  'string',
+                  \'string\',
               ],
               SubnetMappings=[
                   {
-                      'SubnetId': 'string',
-                      'AllocationId': 'string'
+                      \'SubnetId\': \'string\',
+                      \'AllocationId\': \'string\'
                   },
               ],
               SecurityGroups=[
-                  'string',
+                  \'string\',
               ],
-              Scheme='internet-facing'|'internal',
+              Scheme=\'internet-facing\'|\'internal\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              Type='application'|'network',
-              IpAddressType='ipv4'|'dualstack'
+              Type=\'application\'|\'network\',
+              IpAddressType=\'ipv4\'|\'dualstack\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
           The name of the load balancer.
         
-          This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+          This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with \"internal-\".
         
         :type Subnets: list
         :param Subnets: 
@@ -889,36 +889,36 @@ class Client(BaseClient):
           ::
         
             {
-                'LoadBalancers': [
+                \'LoadBalancers\': [
                     {
-                        'LoadBalancerArn': 'string',
-                        'DNSName': 'string',
-                        'CanonicalHostedZoneId': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'LoadBalancerName': 'string',
-                        'Scheme': 'internet-facing'|'internal',
-                        'VpcId': 'string',
-                        'State': {
-                            'Code': 'active'|'provisioning'|'active_impaired'|'failed',
-                            'Reason': 'string'
+                        \'LoadBalancerArn\': \'string\',
+                        \'DNSName\': \'string\',
+                        \'CanonicalHostedZoneId\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'LoadBalancerName\': \'string\',
+                        \'Scheme\': \'internet-facing\'|\'internal\',
+                        \'VpcId\': \'string\',
+                        \'State\': {
+                            \'Code\': \'active\'|\'provisioning\'|\'active_impaired\'|\'failed\',
+                            \'Reason\': \'string\'
                         },
-                        'Type': 'application'|'network',
-                        'AvailabilityZones': [
+                        \'Type\': \'application\'|\'network\',
+                        \'AvailabilityZones\': [
                             {
-                                'ZoneName': 'string',
-                                'SubnetId': 'string',
-                                'LoadBalancerAddresses': [
+                                \'ZoneName\': \'string\',
+                                \'SubnetId\': \'string\',
+                                \'LoadBalancerAddresses\': [
                                     {
-                                        'IpAddress': 'string',
-                                        'AllocationId': 'string'
+                                        \'IpAddress\': \'string\',
+                                        \'AllocationId\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'SecurityGroups': [
-                            'string',
+                        \'SecurityGroups\': [
+                            \'string\',
                         ],
-                        'IpAddressType': 'ipv4'|'dualstack'
+                        \'IpAddressType\': \'ipv4\'|\'dualstack\'
                     },
                 ]
             }
@@ -1038,60 +1038,60 @@ class Client(BaseClient):
         ::
         
           response = client.create_rule(
-              ListenerArn='string',
+              ListenerArn=\'string\',
               Conditions=[
                   {
-                      'Field': 'string',
-                      'Values': [
-                          'string',
+                      \'Field\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               Priority=123,
               Actions=[
                   {
-                      'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                      'TargetGroupArn': 'string',
-                      'AuthenticateOidcConfig': {
-                          'Issuer': 'string',
-                          'AuthorizationEndpoint': 'string',
-                          'TokenEndpoint': 'string',
-                          'UserInfoEndpoint': 'string',
-                          'ClientId': 'string',
-                          'ClientSecret': 'string',
-                          'SessionCookieName': 'string',
-                          'Scope': 'string',
-                          'SessionTimeout': 123,
-                          'AuthenticationRequestExtraParams': {
-                              'string': 'string'
+                      \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                      \'TargetGroupArn\': \'string\',
+                      \'AuthenticateOidcConfig\': {
+                          \'Issuer\': \'string\',
+                          \'AuthorizationEndpoint\': \'string\',
+                          \'TokenEndpoint\': \'string\',
+                          \'UserInfoEndpoint\': \'string\',
+                          \'ClientId\': \'string\',
+                          \'ClientSecret\': \'string\',
+                          \'SessionCookieName\': \'string\',
+                          \'Scope\': \'string\',
+                          \'SessionTimeout\': 123,
+                          \'AuthenticationRequestExtraParams\': {
+                              \'string\': \'string\'
                           },
-                          'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                          \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                       },
-                      'AuthenticateCognitoConfig': {
-                          'UserPoolArn': 'string',
-                          'UserPoolClientId': 'string',
-                          'UserPoolDomain': 'string',
-                          'SessionCookieName': 'string',
-                          'Scope': 'string',
-                          'SessionTimeout': 123,
-                          'AuthenticationRequestExtraParams': {
-                              'string': 'string'
+                      \'AuthenticateCognitoConfig\': {
+                          \'UserPoolArn\': \'string\',
+                          \'UserPoolClientId\': \'string\',
+                          \'UserPoolDomain\': \'string\',
+                          \'SessionCookieName\': \'string\',
+                          \'Scope\': \'string\',
+                          \'SessionTimeout\': 123,
+                          \'AuthenticationRequestExtraParams\': {
+                              \'string\': \'string\'
                           },
-                          'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                          \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                       },
-                      'Order': 123,
-                      'RedirectConfig': {
-                          'Protocol': 'string',
-                          'Port': 'string',
-                          'Host': 'string',
-                          'Path': 'string',
-                          'Query': 'string',
-                          'StatusCode': 'HTTP_301'|'HTTP_302'
+                      \'Order\': 123,
+                      \'RedirectConfig\': {
+                          \'Protocol\': \'string\',
+                          \'Port\': \'string\',
+                          \'Host\': \'string\',
+                          \'Path\': \'string\',
+                          \'Query\': \'string\',
+                          \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                       },
-                      'FixedResponseConfig': {
-                          'MessageBody': 'string',
-                          'StatusCode': 'string',
-                          'ContentType': 'string'
+                      \'FixedResponseConfig\': {
+                          \'MessageBody\': \'string\',
+                          \'StatusCode\': \'string\',
+                          \'ContentType\': \'string\'
                       }
                   },
               ]
@@ -1120,7 +1120,7 @@ class Client(BaseClient):
         
           * A-Z, a-z, 0-9 
            
-          * _ - . $ / ~ " ' @ : + 
+          * _ - . $ / ~ \" \' @ : + 
            
           * & (using &amp;) 
            
@@ -1154,7 +1154,7 @@ class Client(BaseClient):
         
               * A-Z, a-z, 0-9 
                
-              * _ - . $ / ~ " ' @ : + 
+              * _ - . $ / ~ \" \' @ : + 
                
               * & (using &amp;) 
                
@@ -1167,7 +1167,7 @@ class Client(BaseClient):
         :type Priority: integer
         :param Priority: **[REQUIRED]** 
         
-          The rule priority. A listener can't have multiple rules with the same priority.
+          The rule priority. A listener can\'t have multiple rules with the same priority.
         
         :type Actions: list
         :param Actions: **[REQUIRED]** 
@@ -1326,11 +1326,11 @@ class Client(BaseClient):
         
               - **Path** *(string) --* 
         
-                The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
               - **Query** *(string) --* 
         
-                The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
               - **StatusCode** *(string) --* **[REQUIRED]** 
         
@@ -1362,66 +1362,66 @@ class Client(BaseClient):
           ::
         
             {
-                'Rules': [
+                \'Rules\': [
                     {
-                        'RuleArn': 'string',
-                        'Priority': 'string',
-                        'Conditions': [
+                        \'RuleArn\': \'string\',
+                        \'Priority\': \'string\',
+                        \'Conditions\': [
                             {
-                                'Field': 'string',
-                                'Values': [
-                                    'string',
+                                \'Field\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'Actions': [
+                        \'Actions\': [
                             {
-                                'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                                'TargetGroupArn': 'string',
-                                'AuthenticateOidcConfig': {
-                                    'Issuer': 'string',
-                                    'AuthorizationEndpoint': 'string',
-                                    'TokenEndpoint': 'string',
-                                    'UserInfoEndpoint': 'string',
-                                    'ClientId': 'string',
-                                    'ClientSecret': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                                \'TargetGroupArn\': \'string\',
+                                \'AuthenticateOidcConfig\': {
+                                    \'Issuer\': \'string\',
+                                    \'AuthorizationEndpoint\': \'string\',
+                                    \'TokenEndpoint\': \'string\',
+                                    \'UserInfoEndpoint\': \'string\',
+                                    \'ClientId\': \'string\',
+                                    \'ClientSecret\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'AuthenticateCognitoConfig': {
-                                    'UserPoolArn': 'string',
-                                    'UserPoolClientId': 'string',
-                                    'UserPoolDomain': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'AuthenticateCognitoConfig\': {
+                                    \'UserPoolArn\': \'string\',
+                                    \'UserPoolClientId\': \'string\',
+                                    \'UserPoolDomain\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'Order': 123,
-                                'RedirectConfig': {
-                                    'Protocol': 'string',
-                                    'Port': 'string',
-                                    'Host': 'string',
-                                    'Path': 'string',
-                                    'Query': 'string',
-                                    'StatusCode': 'HTTP_301'|'HTTP_302'
+                                \'Order\': 123,
+                                \'RedirectConfig\': {
+                                    \'Protocol\': \'string\',
+                                    \'Port\': \'string\',
+                                    \'Host\': \'string\',
+                                    \'Path\': \'string\',
+                                    \'Query\': \'string\',
+                                    \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                                 },
-                                'FixedResponseConfig': {
-                                    'MessageBody': 'string',
-                                    'StatusCode': 'string',
-                                    'ContentType': 'string'
+                                \'FixedResponseConfig\': {
+                                    \'MessageBody\': \'string\',
+                                    \'StatusCode\': \'string\',
+                                    \'ContentType\': \'string\'
                                 }
                             },
                         ],
-                        'IsDefault': True|False
+                        \'IsDefault\': True|False
                     },
                 ]
             }
@@ -1475,7 +1475,7 @@ class Client(BaseClient):
         
                       * A-Z, a-z, 0-9 
                        
-                      * _ - . $ / ~ " ' @ : + 
+                      * _ - . $ / ~ \" \' @ : + 
                        
                       * & (using &amp;) 
                        
@@ -1631,11 +1631,11 @@ class Client(BaseClient):
         
                       - **Path** *(string) --* 
         
-                        The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                        The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
                       - **Query** *(string) --* 
         
-                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
                       - **StatusCode** *(string) --* 
         
@@ -1685,21 +1685,21 @@ class Client(BaseClient):
         ::
         
           response = client.create_target_group(
-              Name='string',
-              Protocol='HTTP'|'HTTPS'|'TCP',
+              Name=\'string\',
+              Protocol=\'HTTP\'|\'HTTPS\'|\'TCP\',
               Port=123,
-              VpcId='string',
-              HealthCheckProtocol='HTTP'|'HTTPS'|'TCP',
-              HealthCheckPort='string',
-              HealthCheckPath='string',
+              VpcId=\'string\',
+              HealthCheckProtocol=\'HTTP\'|\'HTTPS\'|\'TCP\',
+              HealthCheckPort=\'string\',
+              HealthCheckPath=\'string\',
               HealthCheckIntervalSeconds=123,
               HealthCheckTimeoutSeconds=123,
               HealthyThresholdCount=123,
               UnhealthyThresholdCount=123,
               Matcher={
-                  'HttpCode': 'string'
+                  \'HttpCode\': \'string\'
               },
-              TargetType='instance'|'ip'
+              TargetType=\'instance\'|\'ip\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1767,16 +1767,16 @@ class Client(BaseClient):
         
             The HTTP codes.
         
-            For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+            For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\").
         
             For Network Load Balancers, this is 200–399.
         
         :type TargetType: string
         :param TargetType: 
         
-          The type of target that you must specify when registering targets with this target group. The possible values are ``instance`` (targets are specified by instance ID) or ``ip`` (targets are specified by IP address). The default is ``instance`` . You can't specify targets for a target group using both instance IDs and IP addresses.
+          The type of target that you must specify when registering targets with this target group. The possible values are ``instance`` (targets are specified by instance ID) or ``ip`` (targets are specified by IP address). The default is ``instance`` . You can\'t specify targets for a target group using both instance IDs and IP addresses.
         
-          If the target type is ``ip`` , specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+          If the target type is ``ip`` , specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can\'t specify publicly routable IP addresses.
         
         :rtype: dict
         :returns: 
@@ -1786,27 +1786,27 @@ class Client(BaseClient):
           ::
         
             {
-                'TargetGroups': [
+                \'TargetGroups\': [
                     {
-                        'TargetGroupArn': 'string',
-                        'TargetGroupName': 'string',
-                        'Protocol': 'HTTP'|'HTTPS'|'TCP',
-                        'Port': 123,
-                        'VpcId': 'string',
-                        'HealthCheckProtocol': 'HTTP'|'HTTPS'|'TCP',
-                        'HealthCheckPort': 'string',
-                        'HealthCheckIntervalSeconds': 123,
-                        'HealthCheckTimeoutSeconds': 123,
-                        'HealthyThresholdCount': 123,
-                        'UnhealthyThresholdCount': 123,
-                        'HealthCheckPath': 'string',
-                        'Matcher': {
-                            'HttpCode': 'string'
+                        \'TargetGroupArn\': \'string\',
+                        \'TargetGroupName\': \'string\',
+                        \'Protocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'Port\': 123,
+                        \'VpcId\': \'string\',
+                        \'HealthCheckProtocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'HealthCheckPort\': \'string\',
+                        \'HealthCheckIntervalSeconds\': 123,
+                        \'HealthCheckTimeoutSeconds\': 123,
+                        \'HealthyThresholdCount\': 123,
+                        \'UnhealthyThresholdCount\': 123,
+                        \'HealthCheckPath\': \'string\',
+                        \'Matcher\': {
+                            \'HttpCode\': \'string\'
                         },
-                        'LoadBalancerArns': [
-                            'string',
+                        \'LoadBalancerArns\': [
+                            \'string\',
                         ],
-                        'TargetType': 'instance'|'ip'
+                        \'TargetType\': \'instance\'|\'ip\'
                     },
                 ]
             }
@@ -1878,7 +1878,7 @@ class Client(BaseClient):
         
                     The HTTP codes.
         
-                    For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+                    For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\").
         
                     For Network Load Balancers, this is 200–399.
         
@@ -1906,7 +1906,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_listener(
-              ListenerArn='string'
+              ListenerArn=\'string\'
           )
         :type ListenerArn: string
         :param ListenerArn: **[REQUIRED]** 
@@ -1930,7 +1930,7 @@ class Client(BaseClient):
     def delete_load_balancer(self, LoadBalancerArn: str) -> Dict:
         """
         
-        You can't delete a load balancer if deletion protection is enabled. If the load balancer does not exist or has already been deleted, the call succeeds.
+        You can\'t delete a load balancer if deletion protection is enabled. If the load balancer does not exist or has already been deleted, the call succeeds.
         
         Deleting a load balancer does not affect its registered targets. For example, your EC2 instances continue to run and are still registered to their target groups. If you no longer need these EC2 instances, you can stop or terminate them.
         
@@ -1940,7 +1940,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_load_balancer(
-              LoadBalancerArn='string'
+              LoadBalancerArn=\'string\'
           )
         :type LoadBalancerArn: string
         :param LoadBalancerArn: **[REQUIRED]** 
@@ -1970,7 +1970,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_rule(
-              RuleArn='string'
+              RuleArn=\'string\'
           )
         :type RuleArn: string
         :param RuleArn: **[REQUIRED]** 
@@ -2002,7 +2002,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_target_group(
-              TargetGroupArn='string'
+              TargetGroupArn=\'string\'
           )
         :type TargetGroupArn: string
         :param TargetGroupArn: **[REQUIRED]** 
@@ -2032,12 +2032,12 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_targets(
-              TargetGroupArn='string',
+              TargetGroupArn=\'string\',
               Targets=[
                   {
-                      'Id': 'string',
-                      'Port': 123,
-                      'AvailabilityZone': 'string'
+                      \'Id\': \'string\',
+                      \'Port\': 123,
+                      \'AvailabilityZone\': \'string\'
                   },
               ]
           )
@@ -2096,7 +2096,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_account_limits(
-              Marker='string',
+              Marker=\'string\',
               PageSize=123
           )
         :type Marker: string
@@ -2117,13 +2117,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Limits': [
+                \'Limits\': [
                     {
-                        'Name': 'string',
-                        'Max': 'string'
+                        \'Name\': \'string\',
+                        \'Max\': \'string\'
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -2179,8 +2179,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_listener_certificates(
-              ListenerArn='string',
-              Marker='string',
+              ListenerArn=\'string\',
+              Marker=\'string\',
               PageSize=123
           )
         :type ListenerArn: string
@@ -2206,13 +2206,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificates': [
+                \'Certificates\': [
                     {
-                        'CertificateArn': 'string',
-                        'IsDefault': True|False
+                        \'CertificateArn\': \'string\',
+                        \'IsDefault\': True|False
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -2250,11 +2250,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_listeners(
-              LoadBalancerArn='string',
+              LoadBalancerArn=\'string\',
               ListenerArns=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               PageSize=123
           )
         :type LoadBalancerArn: string
@@ -2287,69 +2287,69 @@ class Client(BaseClient):
           ::
         
             {
-                'Listeners': [
+                \'Listeners\': [
                     {
-                        'ListenerArn': 'string',
-                        'LoadBalancerArn': 'string',
-                        'Port': 123,
-                        'Protocol': 'HTTP'|'HTTPS'|'TCP',
-                        'Certificates': [
+                        \'ListenerArn\': \'string\',
+                        \'LoadBalancerArn\': \'string\',
+                        \'Port\': 123,
+                        \'Protocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'Certificates\': [
                             {
-                                'CertificateArn': 'string',
-                                'IsDefault': True|False
+                                \'CertificateArn\': \'string\',
+                                \'IsDefault\': True|False
                             },
                         ],
-                        'SslPolicy': 'string',
-                        'DefaultActions': [
+                        \'SslPolicy\': \'string\',
+                        \'DefaultActions\': [
                             {
-                                'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                                'TargetGroupArn': 'string',
-                                'AuthenticateOidcConfig': {
-                                    'Issuer': 'string',
-                                    'AuthorizationEndpoint': 'string',
-                                    'TokenEndpoint': 'string',
-                                    'UserInfoEndpoint': 'string',
-                                    'ClientId': 'string',
-                                    'ClientSecret': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                                \'TargetGroupArn\': \'string\',
+                                \'AuthenticateOidcConfig\': {
+                                    \'Issuer\': \'string\',
+                                    \'AuthorizationEndpoint\': \'string\',
+                                    \'TokenEndpoint\': \'string\',
+                                    \'UserInfoEndpoint\': \'string\',
+                                    \'ClientId\': \'string\',
+                                    \'ClientSecret\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'AuthenticateCognitoConfig': {
-                                    'UserPoolArn': 'string',
-                                    'UserPoolClientId': 'string',
-                                    'UserPoolDomain': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'AuthenticateCognitoConfig\': {
+                                    \'UserPoolArn\': \'string\',
+                                    \'UserPoolClientId\': \'string\',
+                                    \'UserPoolDomain\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'Order': 123,
-                                'RedirectConfig': {
-                                    'Protocol': 'string',
-                                    'Port': 'string',
-                                    'Host': 'string',
-                                    'Path': 'string',
-                                    'Query': 'string',
-                                    'StatusCode': 'HTTP_301'|'HTTP_302'
+                                \'Order\': 123,
+                                \'RedirectConfig\': {
+                                    \'Protocol\': \'string\',
+                                    \'Port\': \'string\',
+                                    \'Host\': \'string\',
+                                    \'Path\': \'string\',
+                                    \'Query\': \'string\',
+                                    \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                                 },
-                                'FixedResponseConfig': {
-                                    'MessageBody': 'string',
-                                    'StatusCode': 'string',
-                                    'ContentType': 'string'
+                                \'FixedResponseConfig\': {
+                                    \'MessageBody\': \'string\',
+                                    \'StatusCode\': \'string\',
+                                    \'ContentType\': \'string\'
                                 }
                             },
                         ]
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -2545,11 +2545,11 @@ class Client(BaseClient):
         
                       - **Path** *(string) --* 
         
-                        The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                        The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
                       - **Query** *(string) --* 
         
-                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
                       - **StatusCode** *(string) --* 
         
@@ -2591,7 +2591,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_load_balancer_attributes(
-              LoadBalancerArn='string'
+              LoadBalancerArn=\'string\'
           )
         :type LoadBalancerArn: string
         :param LoadBalancerArn: **[REQUIRED]** 
@@ -2606,10 +2606,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -2668,12 +2668,12 @@ class Client(BaseClient):
         
           response = client.describe_load_balancers(
               LoadBalancerArns=[
-                  'string',
+                  \'string\',
               ],
               Names=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               PageSize=123
           )
         :type LoadBalancerArns: list
@@ -2708,39 +2708,39 @@ class Client(BaseClient):
           ::
         
             {
-                'LoadBalancers': [
+                \'LoadBalancers\': [
                     {
-                        'LoadBalancerArn': 'string',
-                        'DNSName': 'string',
-                        'CanonicalHostedZoneId': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'LoadBalancerName': 'string',
-                        'Scheme': 'internet-facing'|'internal',
-                        'VpcId': 'string',
-                        'State': {
-                            'Code': 'active'|'provisioning'|'active_impaired'|'failed',
-                            'Reason': 'string'
+                        \'LoadBalancerArn\': \'string\',
+                        \'DNSName\': \'string\',
+                        \'CanonicalHostedZoneId\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'LoadBalancerName\': \'string\',
+                        \'Scheme\': \'internet-facing\'|\'internal\',
+                        \'VpcId\': \'string\',
+                        \'State\': {
+                            \'Code\': \'active\'|\'provisioning\'|\'active_impaired\'|\'failed\',
+                            \'Reason\': \'string\'
                         },
-                        'Type': 'application'|'network',
-                        'AvailabilityZones': [
+                        \'Type\': \'application\'|\'network\',
+                        \'AvailabilityZones\': [
                             {
-                                'ZoneName': 'string',
-                                'SubnetId': 'string',
-                                'LoadBalancerAddresses': [
+                                \'ZoneName\': \'string\',
+                                \'SubnetId\': \'string\',
+                                \'LoadBalancerAddresses\': [
                                     {
-                                        'IpAddress': 'string',
-                                        'AllocationId': 'string'
+                                        \'IpAddress\': \'string\',
+                                        \'AllocationId\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'SecurityGroups': [
-                            'string',
+                        \'SecurityGroups\': [
+                            \'string\',
                         ],
-                        'IpAddressType': 'ipv4'|'dualstack'
+                        \'IpAddressType\': \'ipv4\'|\'dualstack\'
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -2858,11 +2858,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_rules(
-              ListenerArn='string',
+              ListenerArn=\'string\',
               RuleArns=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               PageSize=123
           )
         :type ListenerArn: string
@@ -2895,69 +2895,69 @@ class Client(BaseClient):
           ::
         
             {
-                'Rules': [
+                \'Rules\': [
                     {
-                        'RuleArn': 'string',
-                        'Priority': 'string',
-                        'Conditions': [
+                        \'RuleArn\': \'string\',
+                        \'Priority\': \'string\',
+                        \'Conditions\': [
                             {
-                                'Field': 'string',
-                                'Values': [
-                                    'string',
+                                \'Field\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'Actions': [
+                        \'Actions\': [
                             {
-                                'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                                'TargetGroupArn': 'string',
-                                'AuthenticateOidcConfig': {
-                                    'Issuer': 'string',
-                                    'AuthorizationEndpoint': 'string',
-                                    'TokenEndpoint': 'string',
-                                    'UserInfoEndpoint': 'string',
-                                    'ClientId': 'string',
-                                    'ClientSecret': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                                \'TargetGroupArn\': \'string\',
+                                \'AuthenticateOidcConfig\': {
+                                    \'Issuer\': \'string\',
+                                    \'AuthorizationEndpoint\': \'string\',
+                                    \'TokenEndpoint\': \'string\',
+                                    \'UserInfoEndpoint\': \'string\',
+                                    \'ClientId\': \'string\',
+                                    \'ClientSecret\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'AuthenticateCognitoConfig': {
-                                    'UserPoolArn': 'string',
-                                    'UserPoolClientId': 'string',
-                                    'UserPoolDomain': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'AuthenticateCognitoConfig\': {
+                                    \'UserPoolArn\': \'string\',
+                                    \'UserPoolClientId\': \'string\',
+                                    \'UserPoolDomain\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'Order': 123,
-                                'RedirectConfig': {
-                                    'Protocol': 'string',
-                                    'Port': 'string',
-                                    'Host': 'string',
-                                    'Path': 'string',
-                                    'Query': 'string',
-                                    'StatusCode': 'HTTP_301'|'HTTP_302'
+                                \'Order\': 123,
+                                \'RedirectConfig\': {
+                                    \'Protocol\': \'string\',
+                                    \'Port\': \'string\',
+                                    \'Host\': \'string\',
+                                    \'Path\': \'string\',
+                                    \'Query\': \'string\',
+                                    \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                                 },
-                                'FixedResponseConfig': {
-                                    'MessageBody': 'string',
-                                    'StatusCode': 'string',
-                                    'ContentType': 'string'
+                                \'FixedResponseConfig\': {
+                                    \'MessageBody\': \'string\',
+                                    \'StatusCode\': \'string\',
+                                    \'ContentType\': \'string\'
                                 }
                             },
                         ],
-                        'IsDefault': True|False
+                        \'IsDefault\': True|False
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -3009,7 +3009,7 @@ class Client(BaseClient):
         
                       * A-Z, a-z, 0-9 
                        
-                      * _ - . $ / ~ " ' @ : + 
+                      * _ - . $ / ~ \" \' @ : + 
                        
                       * & (using &amp;) 
                        
@@ -3165,11 +3165,11 @@ class Client(BaseClient):
         
                       - **Path** *(string) --* 
         
-                        The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                        The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
                       - **Query** *(string) --* 
         
-                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
                       - **StatusCode** *(string) --* 
         
@@ -3216,9 +3216,9 @@ class Client(BaseClient):
         
           response = client.describe_ssl_policies(
               Names=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               PageSize=123
           )
         :type Names: list
@@ -3246,21 +3246,21 @@ class Client(BaseClient):
           ::
         
             {
-                'SslPolicies': [
+                \'SslPolicies\': [
                     {
-                        'SslProtocols': [
-                            'string',
+                        \'SslProtocols\': [
+                            \'string\',
                         ],
-                        'Ciphers': [
+                        \'Ciphers\': [
                             {
-                                'Name': 'string',
-                                'Priority': 123
+                                \'Name\': \'string\',
+                                \'Priority\': 123
                             },
                         ],
-                        'Name': 'string'
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -3317,7 +3317,7 @@ class Client(BaseClient):
         
           response = client.describe_tags(
               ResourceArns=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceArns: list
@@ -3335,13 +3335,13 @@ class Client(BaseClient):
           ::
         
             {
-                'TagDescriptions': [
+                \'TagDescriptions\': [
                     {
-                        'ResourceArn': 'string',
-                        'Tags': [
+                        \'ResourceArn\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -3393,7 +3393,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_target_group_attributes(
-              TargetGroupArn='string'
+              TargetGroupArn=\'string\'
           )
         :type TargetGroupArn: string
         :param TargetGroupArn: **[REQUIRED]** 
@@ -3408,10 +3408,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -3467,14 +3467,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_target_groups(
-              LoadBalancerArn='string',
+              LoadBalancerArn=\'string\',
               TargetGroupArns=[
-                  'string',
+                  \'string\',
               ],
               Names=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               PageSize=123
           )
         :type LoadBalancerArn: string
@@ -3514,30 +3514,30 @@ class Client(BaseClient):
           ::
         
             {
-                'TargetGroups': [
+                \'TargetGroups\': [
                     {
-                        'TargetGroupArn': 'string',
-                        'TargetGroupName': 'string',
-                        'Protocol': 'HTTP'|'HTTPS'|'TCP',
-                        'Port': 123,
-                        'VpcId': 'string',
-                        'HealthCheckProtocol': 'HTTP'|'HTTPS'|'TCP',
-                        'HealthCheckPort': 'string',
-                        'HealthCheckIntervalSeconds': 123,
-                        'HealthCheckTimeoutSeconds': 123,
-                        'HealthyThresholdCount': 123,
-                        'UnhealthyThresholdCount': 123,
-                        'HealthCheckPath': 'string',
-                        'Matcher': {
-                            'HttpCode': 'string'
+                        \'TargetGroupArn\': \'string\',
+                        \'TargetGroupName\': \'string\',
+                        \'Protocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'Port\': 123,
+                        \'VpcId\': \'string\',
+                        \'HealthCheckProtocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'HealthCheckPort\': \'string\',
+                        \'HealthCheckIntervalSeconds\': 123,
+                        \'HealthCheckTimeoutSeconds\': 123,
+                        \'HealthyThresholdCount\': 123,
+                        \'UnhealthyThresholdCount\': 123,
+                        \'HealthCheckPath\': \'string\',
+                        \'Matcher\': {
+                            \'HttpCode\': \'string\'
                         },
-                        'LoadBalancerArns': [
-                            'string',
+                        \'LoadBalancerArns\': [
+                            \'string\',
                         ],
-                        'TargetType': 'instance'|'ip'
+                        \'TargetType\': \'instance\'|\'ip\'
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -3607,7 +3607,7 @@ class Client(BaseClient):
         
                     The HTTP codes.
         
-                    For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+                    For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\").
         
                     For Network Load Balancers, this is 200–399.
         
@@ -3637,12 +3637,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_target_health(
-              TargetGroupArn='string',
+              TargetGroupArn=\'string\',
               Targets=[
                   {
-                      'Id': 'string',
-                      'Port': 123,
-                      'AvailabilityZone': 'string'
+                      \'Id\': \'string\',
+                      \'Port\': 123,
+                      \'AvailabilityZone\': \'string\'
                   },
               ]
           )
@@ -3684,18 +3684,18 @@ class Client(BaseClient):
           ::
         
             {
-                'TargetHealthDescriptions': [
+                \'TargetHealthDescriptions\': [
                     {
-                        'Target': {
-                            'Id': 'string',
-                            'Port': 123,
-                            'AvailabilityZone': 'string'
+                        \'Target\': {
+                            \'Id\': \'string\',
+                            \'Port\': 123,
+                            \'AvailabilityZone\': \'string\'
                         },
-                        'HealthCheckPort': 'string',
-                        'TargetHealth': {
-                            'State': 'initial'|'healthy'|'unhealthy'|'unused'|'draining'|'unavailable',
-                            'Reason': 'Elb.RegistrationInProgress'|'Elb.InitialHealthChecking'|'Target.ResponseCodeMismatch'|'Target.Timeout'|'Target.FailedHealthChecks'|'Target.NotRegistered'|'Target.NotInUse'|'Target.DeregistrationInProgress'|'Target.InvalidState'|'Target.IpUnusable'|'Elb.InternalError',
-                            'Description': 'string'
+                        \'HealthCheckPort\': \'string\',
+                        \'TargetHealth\': {
+                            \'State\': \'initial\'|\'healthy\'|\'unhealthy\'|\'unused\'|\'draining\'|\'unavailable\',
+                            \'Reason\': \'Elb.RegistrationInProgress\'|\'Elb.InitialHealthChecking\'|\'Target.ResponseCodeMismatch\'|\'Target.Timeout\'|\'Target.FailedHealthChecks\'|\'Target.NotRegistered\'|\'Target.NotInUse\'|\'Target.DeregistrationInProgress\'|\'Target.InvalidState\'|\'Target.IpUnusable\'|\'Elb.InternalError\',
+                            \'Description\': \'string\'
                         }
                     },
                 ]
@@ -3801,7 +3801,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3813,10 +3813,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3850,60 +3850,60 @@ class Client(BaseClient):
         ::
         
           response = client.modify_listener(
-              ListenerArn='string',
+              ListenerArn=\'string\',
               Port=123,
-              Protocol='HTTP'|'HTTPS'|'TCP',
-              SslPolicy='string',
+              Protocol=\'HTTP\'|\'HTTPS\'|\'TCP\',
+              SslPolicy=\'string\',
               Certificates=[
                   {
-                      'CertificateArn': 'string',
-                      'IsDefault': True|False
+                      \'CertificateArn\': \'string\',
+                      \'IsDefault\': True|False
                   },
               ],
               DefaultActions=[
                   {
-                      'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                      'TargetGroupArn': 'string',
-                      'AuthenticateOidcConfig': {
-                          'Issuer': 'string',
-                          'AuthorizationEndpoint': 'string',
-                          'TokenEndpoint': 'string',
-                          'UserInfoEndpoint': 'string',
-                          'ClientId': 'string',
-                          'ClientSecret': 'string',
-                          'SessionCookieName': 'string',
-                          'Scope': 'string',
-                          'SessionTimeout': 123,
-                          'AuthenticationRequestExtraParams': {
-                              'string': 'string'
+                      \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                      \'TargetGroupArn\': \'string\',
+                      \'AuthenticateOidcConfig\': {
+                          \'Issuer\': \'string\',
+                          \'AuthorizationEndpoint\': \'string\',
+                          \'TokenEndpoint\': \'string\',
+                          \'UserInfoEndpoint\': \'string\',
+                          \'ClientId\': \'string\',
+                          \'ClientSecret\': \'string\',
+                          \'SessionCookieName\': \'string\',
+                          \'Scope\': \'string\',
+                          \'SessionTimeout\': 123,
+                          \'AuthenticationRequestExtraParams\': {
+                              \'string\': \'string\'
                           },
-                          'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                          \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                       },
-                      'AuthenticateCognitoConfig': {
-                          'UserPoolArn': 'string',
-                          'UserPoolClientId': 'string',
-                          'UserPoolDomain': 'string',
-                          'SessionCookieName': 'string',
-                          'Scope': 'string',
-                          'SessionTimeout': 123,
-                          'AuthenticationRequestExtraParams': {
-                              'string': 'string'
+                      \'AuthenticateCognitoConfig\': {
+                          \'UserPoolArn\': \'string\',
+                          \'UserPoolClientId\': \'string\',
+                          \'UserPoolDomain\': \'string\',
+                          \'SessionCookieName\': \'string\',
+                          \'Scope\': \'string\',
+                          \'SessionTimeout\': 123,
+                          \'AuthenticationRequestExtraParams\': {
+                              \'string\': \'string\'
                           },
-                          'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                          \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                       },
-                      'Order': 123,
-                      'RedirectConfig': {
-                          'Protocol': 'string',
-                          'Port': 'string',
-                          'Host': 'string',
-                          'Path': 'string',
-                          'Query': 'string',
-                          'StatusCode': 'HTTP_301'|'HTTP_302'
+                      \'Order\': 123,
+                      \'RedirectConfig\': {
+                          \'Protocol\': \'string\',
+                          \'Port\': \'string\',
+                          \'Host\': \'string\',
+                          \'Path\': \'string\',
+                          \'Query\': \'string\',
+                          \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                       },
-                      'FixedResponseConfig': {
-                          'MessageBody': 'string',
-                          'StatusCode': 'string',
-                          'ContentType': 'string'
+                      \'FixedResponseConfig\': {
+                          \'MessageBody\': \'string\',
+                          \'StatusCode\': \'string\',
+                          \'ContentType\': \'string\'
                       }
                   },
               ]
@@ -4102,11 +4102,11 @@ class Client(BaseClient):
         
               - **Path** *(string) --* 
         
-                The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
               - **Query** *(string) --* 
         
-                The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
               - **StatusCode** *(string) --* **[REQUIRED]** 
         
@@ -4138,63 +4138,63 @@ class Client(BaseClient):
           ::
         
             {
-                'Listeners': [
+                \'Listeners\': [
                     {
-                        'ListenerArn': 'string',
-                        'LoadBalancerArn': 'string',
-                        'Port': 123,
-                        'Protocol': 'HTTP'|'HTTPS'|'TCP',
-                        'Certificates': [
+                        \'ListenerArn\': \'string\',
+                        \'LoadBalancerArn\': \'string\',
+                        \'Port\': 123,
+                        \'Protocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'Certificates\': [
                             {
-                                'CertificateArn': 'string',
-                                'IsDefault': True|False
+                                \'CertificateArn\': \'string\',
+                                \'IsDefault\': True|False
                             },
                         ],
-                        'SslPolicy': 'string',
-                        'DefaultActions': [
+                        \'SslPolicy\': \'string\',
+                        \'DefaultActions\': [
                             {
-                                'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                                'TargetGroupArn': 'string',
-                                'AuthenticateOidcConfig': {
-                                    'Issuer': 'string',
-                                    'AuthorizationEndpoint': 'string',
-                                    'TokenEndpoint': 'string',
-                                    'UserInfoEndpoint': 'string',
-                                    'ClientId': 'string',
-                                    'ClientSecret': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                                \'TargetGroupArn\': \'string\',
+                                \'AuthenticateOidcConfig\': {
+                                    \'Issuer\': \'string\',
+                                    \'AuthorizationEndpoint\': \'string\',
+                                    \'TokenEndpoint\': \'string\',
+                                    \'UserInfoEndpoint\': \'string\',
+                                    \'ClientId\': \'string\',
+                                    \'ClientSecret\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'AuthenticateCognitoConfig': {
-                                    'UserPoolArn': 'string',
-                                    'UserPoolClientId': 'string',
-                                    'UserPoolDomain': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'AuthenticateCognitoConfig\': {
+                                    \'UserPoolArn\': \'string\',
+                                    \'UserPoolClientId\': \'string\',
+                                    \'UserPoolDomain\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'Order': 123,
-                                'RedirectConfig': {
-                                    'Protocol': 'string',
-                                    'Port': 'string',
-                                    'Host': 'string',
-                                    'Path': 'string',
-                                    'Query': 'string',
-                                    'StatusCode': 'HTTP_301'|'HTTP_302'
+                                \'Order\': 123,
+                                \'RedirectConfig\': {
+                                    \'Protocol\': \'string\',
+                                    \'Port\': \'string\',
+                                    \'Host\': \'string\',
+                                    \'Path\': \'string\',
+                                    \'Query\': \'string\',
+                                    \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                                 },
-                                'FixedResponseConfig': {
-                                    'MessageBody': 'string',
-                                    'StatusCode': 'string',
-                                    'ContentType': 'string'
+                                \'FixedResponseConfig\': {
+                                    \'MessageBody\': \'string\',
+                                    \'StatusCode\': \'string\',
+                                    \'ContentType\': \'string\'
                                 }
                             },
                         ]
@@ -4395,11 +4395,11 @@ class Client(BaseClient):
         
                       - **Path** *(string) --* 
         
-                        The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                        The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
                       - **Query** *(string) --* 
         
-                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
                       - **StatusCode** *(string) --* 
         
@@ -4429,7 +4429,7 @@ class Client(BaseClient):
     def modify_load_balancer_attributes(self, LoadBalancerArn: str, Attributes: List) -> Dict:
         """
         
-        If any of the specified attributes can't be modified as requested, the call fails. Any existing attributes that you do not modify retain their current values.
+        If any of the specified attributes can\'t be modified as requested, the call fails. Any existing attributes that you do not modify retain their current values.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/ModifyLoadBalancerAttributes>`_
         
@@ -4437,11 +4437,11 @@ class Client(BaseClient):
         ::
         
           response = client.modify_load_balancer_attributes(
-              LoadBalancerArn='string',
+              LoadBalancerArn=\'string\',
               Attributes=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -4495,10 +4495,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -4558,59 +4558,59 @@ class Client(BaseClient):
         ::
         
           response = client.modify_rule(
-              RuleArn='string',
+              RuleArn=\'string\',
               Conditions=[
                   {
-                      'Field': 'string',
-                      'Values': [
-                          'string',
+                      \'Field\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               Actions=[
                   {
-                      'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                      'TargetGroupArn': 'string',
-                      'AuthenticateOidcConfig': {
-                          'Issuer': 'string',
-                          'AuthorizationEndpoint': 'string',
-                          'TokenEndpoint': 'string',
-                          'UserInfoEndpoint': 'string',
-                          'ClientId': 'string',
-                          'ClientSecret': 'string',
-                          'SessionCookieName': 'string',
-                          'Scope': 'string',
-                          'SessionTimeout': 123,
-                          'AuthenticationRequestExtraParams': {
-                              'string': 'string'
+                      \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                      \'TargetGroupArn\': \'string\',
+                      \'AuthenticateOidcConfig\': {
+                          \'Issuer\': \'string\',
+                          \'AuthorizationEndpoint\': \'string\',
+                          \'TokenEndpoint\': \'string\',
+                          \'UserInfoEndpoint\': \'string\',
+                          \'ClientId\': \'string\',
+                          \'ClientSecret\': \'string\',
+                          \'SessionCookieName\': \'string\',
+                          \'Scope\': \'string\',
+                          \'SessionTimeout\': 123,
+                          \'AuthenticationRequestExtraParams\': {
+                              \'string\': \'string\'
                           },
-                          'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                          \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                       },
-                      'AuthenticateCognitoConfig': {
-                          'UserPoolArn': 'string',
-                          'UserPoolClientId': 'string',
-                          'UserPoolDomain': 'string',
-                          'SessionCookieName': 'string',
-                          'Scope': 'string',
-                          'SessionTimeout': 123,
-                          'AuthenticationRequestExtraParams': {
-                              'string': 'string'
+                      \'AuthenticateCognitoConfig\': {
+                          \'UserPoolArn\': \'string\',
+                          \'UserPoolClientId\': \'string\',
+                          \'UserPoolDomain\': \'string\',
+                          \'SessionCookieName\': \'string\',
+                          \'Scope\': \'string\',
+                          \'SessionTimeout\': 123,
+                          \'AuthenticationRequestExtraParams\': {
+                              \'string\': \'string\'
                           },
-                          'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                          \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                       },
-                      'Order': 123,
-                      'RedirectConfig': {
-                          'Protocol': 'string',
-                          'Port': 'string',
-                          'Host': 'string',
-                          'Path': 'string',
-                          'Query': 'string',
-                          'StatusCode': 'HTTP_301'|'HTTP_302'
+                      \'Order\': 123,
+                      \'RedirectConfig\': {
+                          \'Protocol\': \'string\',
+                          \'Port\': \'string\',
+                          \'Host\': \'string\',
+                          \'Path\': \'string\',
+                          \'Query\': \'string\',
+                          \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                       },
-                      'FixedResponseConfig': {
-                          'MessageBody': 'string',
-                          'StatusCode': 'string',
-                          'ContentType': 'string'
+                      \'FixedResponseConfig\': {
+                          \'MessageBody\': \'string\',
+                          \'StatusCode\': \'string\',
+                          \'ContentType\': \'string\'
                       }
                   },
               ]
@@ -4639,7 +4639,7 @@ class Client(BaseClient):
         
           * A-Z, a-z, 0-9 
            
-          * _ - . $ / ~ " ' @ : + 
+          * _ - . $ / ~ \" \' @ : + 
            
           * & (using &amp;) 
            
@@ -4673,7 +4673,7 @@ class Client(BaseClient):
         
               * A-Z, a-z, 0-9 
                
-              * _ - . $ / ~ " ' @ : + 
+              * _ - . $ / ~ \" \' @ : + 
                
               * & (using &amp;) 
                
@@ -4836,11 +4836,11 @@ class Client(BaseClient):
         
               - **Path** *(string) --* 
         
-                The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
               - **Query** *(string) --* 
         
-                The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
               - **StatusCode** *(string) --* **[REQUIRED]** 
         
@@ -4872,66 +4872,66 @@ class Client(BaseClient):
           ::
         
             {
-                'Rules': [
+                \'Rules\': [
                     {
-                        'RuleArn': 'string',
-                        'Priority': 'string',
-                        'Conditions': [
+                        \'RuleArn\': \'string\',
+                        \'Priority\': \'string\',
+                        \'Conditions\': [
                             {
-                                'Field': 'string',
-                                'Values': [
-                                    'string',
+                                \'Field\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'Actions': [
+                        \'Actions\': [
                             {
-                                'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                                'TargetGroupArn': 'string',
-                                'AuthenticateOidcConfig': {
-                                    'Issuer': 'string',
-                                    'AuthorizationEndpoint': 'string',
-                                    'TokenEndpoint': 'string',
-                                    'UserInfoEndpoint': 'string',
-                                    'ClientId': 'string',
-                                    'ClientSecret': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                                \'TargetGroupArn\': \'string\',
+                                \'AuthenticateOidcConfig\': {
+                                    \'Issuer\': \'string\',
+                                    \'AuthorizationEndpoint\': \'string\',
+                                    \'TokenEndpoint\': \'string\',
+                                    \'UserInfoEndpoint\': \'string\',
+                                    \'ClientId\': \'string\',
+                                    \'ClientSecret\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'AuthenticateCognitoConfig': {
-                                    'UserPoolArn': 'string',
-                                    'UserPoolClientId': 'string',
-                                    'UserPoolDomain': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'AuthenticateCognitoConfig\': {
+                                    \'UserPoolArn\': \'string\',
+                                    \'UserPoolClientId\': \'string\',
+                                    \'UserPoolDomain\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'Order': 123,
-                                'RedirectConfig': {
-                                    'Protocol': 'string',
-                                    'Port': 'string',
-                                    'Host': 'string',
-                                    'Path': 'string',
-                                    'Query': 'string',
-                                    'StatusCode': 'HTTP_301'|'HTTP_302'
+                                \'Order\': 123,
+                                \'RedirectConfig\': {
+                                    \'Protocol\': \'string\',
+                                    \'Port\': \'string\',
+                                    \'Host\': \'string\',
+                                    \'Path\': \'string\',
+                                    \'Query\': \'string\',
+                                    \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                                 },
-                                'FixedResponseConfig': {
-                                    'MessageBody': 'string',
-                                    'StatusCode': 'string',
-                                    'ContentType': 'string'
+                                \'FixedResponseConfig\': {
+                                    \'MessageBody\': \'string\',
+                                    \'StatusCode\': \'string\',
+                                    \'ContentType\': \'string\'
                                 }
                             },
                         ],
-                        'IsDefault': True|False
+                        \'IsDefault\': True|False
                     },
                 ]
             }
@@ -4985,7 +4985,7 @@ class Client(BaseClient):
         
                       * A-Z, a-z, 0-9 
                        
-                      * _ - . $ / ~ " ' @ : + 
+                      * _ - . $ / ~ \" \' @ : + 
                        
                       * & (using &amp;) 
                        
@@ -5141,11 +5141,11 @@ class Client(BaseClient):
         
                       - **Path** *(string) --* 
         
-                        The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                        The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
                       - **Query** *(string) --* 
         
-                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
                       - **StatusCode** *(string) --* 
         
@@ -5187,16 +5187,16 @@ class Client(BaseClient):
         ::
         
           response = client.modify_target_group(
-              TargetGroupArn='string',
-              HealthCheckProtocol='HTTP'|'HTTPS'|'TCP',
-              HealthCheckPort='string',
-              HealthCheckPath='string',
+              TargetGroupArn=\'string\',
+              HealthCheckProtocol=\'HTTP\'|\'HTTPS\'|\'TCP\',
+              HealthCheckPort=\'string\',
+              HealthCheckPath=\'string\',
               HealthCheckIntervalSeconds=123,
               HealthCheckTimeoutSeconds=123,
               HealthyThresholdCount=123,
               UnhealthyThresholdCount=123,
               Matcher={
-                  'HttpCode': 'string'
+                  \'HttpCode\': \'string\'
               }
           )
         :type TargetGroupArn: string
@@ -5248,7 +5248,7 @@ class Client(BaseClient):
         
             The HTTP codes.
         
-            For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+            For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\").
         
             For Network Load Balancers, this is 200–399.
         
@@ -5260,27 +5260,27 @@ class Client(BaseClient):
           ::
         
             {
-                'TargetGroups': [
+                \'TargetGroups\': [
                     {
-                        'TargetGroupArn': 'string',
-                        'TargetGroupName': 'string',
-                        'Protocol': 'HTTP'|'HTTPS'|'TCP',
-                        'Port': 123,
-                        'VpcId': 'string',
-                        'HealthCheckProtocol': 'HTTP'|'HTTPS'|'TCP',
-                        'HealthCheckPort': 'string',
-                        'HealthCheckIntervalSeconds': 123,
-                        'HealthCheckTimeoutSeconds': 123,
-                        'HealthyThresholdCount': 123,
-                        'UnhealthyThresholdCount': 123,
-                        'HealthCheckPath': 'string',
-                        'Matcher': {
-                            'HttpCode': 'string'
+                        \'TargetGroupArn\': \'string\',
+                        \'TargetGroupName\': \'string\',
+                        \'Protocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'Port\': 123,
+                        \'VpcId\': \'string\',
+                        \'HealthCheckProtocol\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'HealthCheckPort\': \'string\',
+                        \'HealthCheckIntervalSeconds\': 123,
+                        \'HealthCheckTimeoutSeconds\': 123,
+                        \'HealthyThresholdCount\': 123,
+                        \'UnhealthyThresholdCount\': 123,
+                        \'HealthCheckPath\': \'string\',
+                        \'Matcher\': {
+                            \'HttpCode\': \'string\'
                         },
-                        'LoadBalancerArns': [
-                            'string',
+                        \'LoadBalancerArns\': [
+                            \'string\',
                         ],
-                        'TargetType': 'instance'|'ip'
+                        \'TargetType\': \'instance\'|\'ip\'
                     },
                 ]
             }
@@ -5352,7 +5352,7 @@ class Client(BaseClient):
         
                     The HTTP codes.
         
-                    For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+                    For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\").
         
                     For Network Load Balancers, this is 200–399.
         
@@ -5378,11 +5378,11 @@ class Client(BaseClient):
         ::
         
           response = client.modify_target_group_attributes(
-              TargetGroupArn='string',
+              TargetGroupArn=\'string\',
               Attributes=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -5434,10 +5434,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -5499,12 +5499,12 @@ class Client(BaseClient):
         ::
         
           response = client.register_targets(
-              TargetGroupArn='string',
+              TargetGroupArn=\'string\',
               Targets=[
                   {
-                      'Id': 'string',
-                      'Port': 123,
-                      'AvailabilityZone': 'string'
+                      \'Id\': \'string\',
+                      \'Port\': 123,
+                      \'AvailabilityZone\': \'string\'
                   },
               ]
           )
@@ -5555,7 +5555,7 @@ class Client(BaseClient):
     def remove_listener_certificates(self, ListenerArn: str, Certificates: List) -> Dict:
         """
         
-        You can't remove the default certificate for a listener. To replace the default certificate, call  ModifyListener .
+        You can\'t remove the default certificate for a listener. To replace the default certificate, call  ModifyListener .
         
         To list the certificates for your listener, use  DescribeListenerCertificates .
         
@@ -5565,11 +5565,11 @@ class Client(BaseClient):
         ::
         
           response = client.remove_listener_certificates(
-              ListenerArn='string',
+              ListenerArn=\'string\',
               Certificates=[
                   {
-                      'CertificateArn': 'string',
-                      'IsDefault': True|False
+                      \'CertificateArn\': \'string\',
+                      \'IsDefault\': True|False
                   },
               ]
           )
@@ -5621,10 +5621,10 @@ class Client(BaseClient):
         
           response = client.remove_tags(
               ResourceArns=[
-                  'string',
+                  \'string\',
               ],
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceArns: list
@@ -5666,8 +5666,8 @@ class Client(BaseClient):
         ::
         
           response = client.set_ip_address_type(
-              LoadBalancerArn='string',
-              IpAddressType='ipv4'|'dualstack'
+              LoadBalancerArn=\'string\',
+              IpAddressType=\'ipv4\'|\'dualstack\'
           )
         :type LoadBalancerArn: string
         :param LoadBalancerArn: **[REQUIRED]** 
@@ -5687,7 +5687,7 @@ class Client(BaseClient):
           ::
         
             {
-                'IpAddressType': 'ipv4'|'dualstack'
+                \'IpAddressType\': \'ipv4\'|\'dualstack\'
             }
           **Response Structure** 
         
@@ -5713,8 +5713,8 @@ class Client(BaseClient):
           response = client.set_rule_priorities(
               RulePriorities=[
                   {
-                      'RuleArn': 'string',
-                      'Priority': 123
+                      \'RuleArn\': \'string\',
+                      \'Priority\': 123
                   },
               ]
           )
@@ -5743,66 +5743,66 @@ class Client(BaseClient):
           ::
         
             {
-                'Rules': [
+                \'Rules\': [
                     {
-                        'RuleArn': 'string',
-                        'Priority': 'string',
-                        'Conditions': [
+                        \'RuleArn\': \'string\',
+                        \'Priority\': \'string\',
+                        \'Conditions\': [
                             {
-                                'Field': 'string',
-                                'Values': [
-                                    'string',
+                                \'Field\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'Actions': [
+                        \'Actions\': [
                             {
-                                'Type': 'forward'|'authenticate-oidc'|'authenticate-cognito'|'redirect'|'fixed-response',
-                                'TargetGroupArn': 'string',
-                                'AuthenticateOidcConfig': {
-                                    'Issuer': 'string',
-                                    'AuthorizationEndpoint': 'string',
-                                    'TokenEndpoint': 'string',
-                                    'UserInfoEndpoint': 'string',
-                                    'ClientId': 'string',
-                                    'ClientSecret': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'Type\': \'forward\'|\'authenticate-oidc\'|\'authenticate-cognito\'|\'redirect\'|\'fixed-response\',
+                                \'TargetGroupArn\': \'string\',
+                                \'AuthenticateOidcConfig\': {
+                                    \'Issuer\': \'string\',
+                                    \'AuthorizationEndpoint\': \'string\',
+                                    \'TokenEndpoint\': \'string\',
+                                    \'UserInfoEndpoint\': \'string\',
+                                    \'ClientId\': \'string\',
+                                    \'ClientSecret\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'AuthenticateCognitoConfig': {
-                                    'UserPoolArn': 'string',
-                                    'UserPoolClientId': 'string',
-                                    'UserPoolDomain': 'string',
-                                    'SessionCookieName': 'string',
-                                    'Scope': 'string',
-                                    'SessionTimeout': 123,
-                                    'AuthenticationRequestExtraParams': {
-                                        'string': 'string'
+                                \'AuthenticateCognitoConfig\': {
+                                    \'UserPoolArn\': \'string\',
+                                    \'UserPoolClientId\': \'string\',
+                                    \'UserPoolDomain\': \'string\',
+                                    \'SessionCookieName\': \'string\',
+                                    \'Scope\': \'string\',
+                                    \'SessionTimeout\': 123,
+                                    \'AuthenticationRequestExtraParams\': {
+                                        \'string\': \'string\'
                                     },
-                                    'OnUnauthenticatedRequest': 'deny'|'allow'|'authenticate'
+                                    \'OnUnauthenticatedRequest\': \'deny\'|\'allow\'|\'authenticate\'
                                 },
-                                'Order': 123,
-                                'RedirectConfig': {
-                                    'Protocol': 'string',
-                                    'Port': 'string',
-                                    'Host': 'string',
-                                    'Path': 'string',
-                                    'Query': 'string',
-                                    'StatusCode': 'HTTP_301'|'HTTP_302'
+                                \'Order\': 123,
+                                \'RedirectConfig\': {
+                                    \'Protocol\': \'string\',
+                                    \'Port\': \'string\',
+                                    \'Host\': \'string\',
+                                    \'Path\': \'string\',
+                                    \'Query\': \'string\',
+                                    \'StatusCode\': \'HTTP_301\'|\'HTTP_302\'
                                 },
-                                'FixedResponseConfig': {
-                                    'MessageBody': 'string',
-                                    'StatusCode': 'string',
-                                    'ContentType': 'string'
+                                \'FixedResponseConfig\': {
+                                    \'MessageBody\': \'string\',
+                                    \'StatusCode\': \'string\',
+                                    \'ContentType\': \'string\'
                                 }
                             },
                         ],
-                        'IsDefault': True|False
+                        \'IsDefault\': True|False
                     },
                 ]
             }
@@ -5856,7 +5856,7 @@ class Client(BaseClient):
         
                       * A-Z, a-z, 0-9 
                        
-                      * _ - . $ / ~ " ' @ : + 
+                      * _ - . $ / ~ \" \' @ : + 
                        
                       * & (using &amp;) 
                        
@@ -6012,11 +6012,11 @@ class Client(BaseClient):
         
                       - **Path** *(string) --* 
         
-                        The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+                        The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         
                       - **Query** *(string) --* 
         
-                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+                        The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.
         
                       - **StatusCode** *(string) --* 
         
@@ -6050,7 +6050,7 @@ class Client(BaseClient):
     def set_security_groups(self, LoadBalancerArn: str, SecurityGroups: List) -> Dict:
         """
         
-        You can't specify a security group for a Network Load Balancer.
+        You can\'t specify a security group for a Network Load Balancer.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/SetSecurityGroups>`_
         
@@ -6058,9 +6058,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_security_groups(
-              LoadBalancerArn='string',
+              LoadBalancerArn=\'string\',
               SecurityGroups=[
-                  'string',
+                  \'string\',
               ]
           )
         :type LoadBalancerArn: string
@@ -6083,8 +6083,8 @@ class Client(BaseClient):
           ::
         
             {
-                'SecurityGroupIds': [
-                    'string',
+                \'SecurityGroupIds\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -6103,7 +6103,7 @@ class Client(BaseClient):
     def set_subnets(self, LoadBalancerArn: str, Subnets: List = None, SubnetMappings: List = None) -> Dict:
         """
         
-        You can't change the subnets for a Network Load Balancer.
+        You can\'t change the subnets for a Network Load Balancer.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/SetSubnets>`_
         
@@ -6111,14 +6111,14 @@ class Client(BaseClient):
         ::
         
           response = client.set_subnets(
-              LoadBalancerArn='string',
+              LoadBalancerArn=\'string\',
               Subnets=[
-                  'string',
+                  \'string\',
               ],
               SubnetMappings=[
                   {
-                      'SubnetId': 'string',
-                      'AllocationId': 'string'
+                      \'SubnetId\': \'string\',
+                      \'AllocationId\': \'string\'
                   },
               ]
           )
@@ -6161,14 +6161,14 @@ class Client(BaseClient):
           ::
         
             {
-                'AvailabilityZones': [
+                \'AvailabilityZones\': [
                     {
-                        'ZoneName': 'string',
-                        'SubnetId': 'string',
-                        'LoadBalancerAddresses': [
+                        \'ZoneName\': \'string\',
+                        \'SubnetId\': \'string\',
+                        \'LoadBalancerAddresses\': [
                             {
-                                'IpAddress': 'string',
-                                'AllocationId': 'string'
+                                \'IpAddress\': \'string\',
+                                \'AllocationId\': \'string\'
                             },
                         ]
                     },

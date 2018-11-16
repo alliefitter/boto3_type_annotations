@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -22,47 +22,47 @@ class Client(BaseClient):
         ::
         
           response = client.add_instance_fleet(
-              ClusterId='string',
+              ClusterId=\'string\',
               InstanceFleet={
-                  'Name': 'string',
-                  'InstanceFleetType': 'MASTER'|'CORE'|'TASK',
-                  'TargetOnDemandCapacity': 123,
-                  'TargetSpotCapacity': 123,
-                  'InstanceTypeConfigs': [
+                  \'Name\': \'string\',
+                  \'InstanceFleetType\': \'MASTER\'|\'CORE\'|\'TASK\',
+                  \'TargetOnDemandCapacity\': 123,
+                  \'TargetSpotCapacity\': 123,
+                  \'InstanceTypeConfigs\': [
                       {
-                          'InstanceType': 'string',
-                          'WeightedCapacity': 123,
-                          'BidPrice': 'string',
-                          'BidPriceAsPercentageOfOnDemandPrice': 123.0,
-                          'EbsConfiguration': {
-                              'EbsBlockDeviceConfigs': [
+                          \'InstanceType\': \'string\',
+                          \'WeightedCapacity\': 123,
+                          \'BidPrice\': \'string\',
+                          \'BidPriceAsPercentageOfOnDemandPrice\': 123.0,
+                          \'EbsConfiguration\': {
+                              \'EbsBlockDeviceConfigs\': [
                                   {
-                                      'VolumeSpecification': {
-                                          'VolumeType': 'string',
-                                          'Iops': 123,
-                                          'SizeInGB': 123
+                                      \'VolumeSpecification\': {
+                                          \'VolumeType\': \'string\',
+                                          \'Iops\': 123,
+                                          \'SizeInGB\': 123
                                       },
-                                      'VolumesPerInstance': 123
+                                      \'VolumesPerInstance\': 123
                                   },
                               ],
-                              'EbsOptimized': True|False
+                              \'EbsOptimized\': True|False
                           },
-                          'Configurations': [
+                          \'Configurations\': [
                               {
-                                  'Classification': 'string',
-                                  'Configurations': {'... recursive ...'},
-                                  'Properties': {
-                                      'string': 'string'
+                                  \'Classification\': \'string\',
+                                  \'Configurations\': {\'... recursive ...\'},
+                                  \'Properties\': {
+                                      \'string\': \'string\'
                                   }
                               },
                           ]
                       },
                   ],
-                  'LaunchSpecifications': {
-                      'SpotSpecification': {
-                          'TimeoutDurationMinutes': 123,
-                          'TimeoutAction': 'SWITCH_TO_ON_DEMAND'|'TERMINATE_CLUSTER',
-                          'BlockDurationMinutes': 123
+                  \'LaunchSpecifications\': {
+                      \'SpotSpecification\': {
+                          \'TimeoutDurationMinutes\': 123,
+                          \'TimeoutAction\': \'SWITCH_TO_ON_DEMAND\'|\'TERMINATE_CLUSTER\',
+                          \'BlockDurationMinutes\': 123
                       }
                   }
               }
@@ -221,8 +221,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ClusterId': 'string',
-                'InstanceFleetId': 'string'
+                \'ClusterId\': \'string\',
+                \'InstanceFleetId\': \'string\'
             }
           **Response Structure** 
         
@@ -250,65 +250,65 @@ class Client(BaseClient):
           response = client.add_instance_groups(
               InstanceGroups=[
                   {
-                      'Name': 'string',
-                      'Market': 'ON_DEMAND'|'SPOT',
-                      'InstanceRole': 'MASTER'|'CORE'|'TASK',
-                      'BidPrice': 'string',
-                      'InstanceType': 'string',
-                      'InstanceCount': 123,
-                      'Configurations': [
+                      \'Name\': \'string\',
+                      \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                      \'InstanceRole\': \'MASTER\'|\'CORE\'|\'TASK\',
+                      \'BidPrice\': \'string\',
+                      \'InstanceType\': \'string\',
+                      \'InstanceCount\': 123,
+                      \'Configurations\': [
                           {
-                              'Classification': 'string',
-                              'Configurations': {'... recursive ...'},
-                              'Properties': {
-                                  'string': 'string'
+                              \'Classification\': \'string\',
+                              \'Configurations\': {\'... recursive ...\'},
+                              \'Properties\': {
+                                  \'string\': \'string\'
                               }
                           },
                       ],
-                      'EbsConfiguration': {
-                          'EbsBlockDeviceConfigs': [
+                      \'EbsConfiguration\': {
+                          \'EbsBlockDeviceConfigs\': [
                               {
-                                  'VolumeSpecification': {
-                                      'VolumeType': 'string',
-                                      'Iops': 123,
-                                      'SizeInGB': 123
+                                  \'VolumeSpecification\': {
+                                      \'VolumeType\': \'string\',
+                                      \'Iops\': 123,
+                                      \'SizeInGB\': 123
                                   },
-                                  'VolumesPerInstance': 123
+                                  \'VolumesPerInstance\': 123
                               },
                           ],
-                          'EbsOptimized': True|False
+                          \'EbsOptimized\': True|False
                       },
-                      'AutoScalingPolicy': {
-                          'Constraints': {
-                              'MinCapacity': 123,
-                              'MaxCapacity': 123
+                      \'AutoScalingPolicy\': {
+                          \'Constraints\': {
+                              \'MinCapacity\': 123,
+                              \'MaxCapacity\': 123
                           },
-                          'Rules': [
+                          \'Rules\': [
                               {
-                                  'Name': 'string',
-                                  'Description': 'string',
-                                  'Action': {
-                                      'Market': 'ON_DEMAND'|'SPOT',
-                                      'SimpleScalingPolicyConfiguration': {
-                                          'AdjustmentType': 'CHANGE_IN_CAPACITY'|'PERCENT_CHANGE_IN_CAPACITY'|'EXACT_CAPACITY',
-                                          'ScalingAdjustment': 123,
-                                          'CoolDown': 123
+                                  \'Name\': \'string\',
+                                  \'Description\': \'string\',
+                                  \'Action\': {
+                                      \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                                      \'SimpleScalingPolicyConfiguration\': {
+                                          \'AdjustmentType\': \'CHANGE_IN_CAPACITY\'|\'PERCENT_CHANGE_IN_CAPACITY\'|\'EXACT_CAPACITY\',
+                                          \'ScalingAdjustment\': 123,
+                                          \'CoolDown\': 123
                                       }
                                   },
-                                  'Trigger': {
-                                      'CloudWatchAlarmDefinition': {
-                                          'ComparisonOperator': 'GREATER_THAN_OR_EQUAL'|'GREATER_THAN'|'LESS_THAN'|'LESS_THAN_OR_EQUAL',
-                                          'EvaluationPeriods': 123,
-                                          'MetricName': 'string',
-                                          'Namespace': 'string',
-                                          'Period': 123,
-                                          'Statistic': 'SAMPLE_COUNT'|'AVERAGE'|'SUM'|'MINIMUM'|'MAXIMUM',
-                                          'Threshold': 123.0,
-                                          'Unit': 'NONE'|'SECONDS'|'MICRO_SECONDS'|'MILLI_SECONDS'|'BYTES'|'KILO_BYTES'|'MEGA_BYTES'|'GIGA_BYTES'|'TERA_BYTES'|'BITS'|'KILO_BITS'|'MEGA_BITS'|'GIGA_BITS'|'TERA_BITS'|'PERCENT'|'COUNT'|'BYTES_PER_SECOND'|'KILO_BYTES_PER_SECOND'|'MEGA_BYTES_PER_SECOND'|'GIGA_BYTES_PER_SECOND'|'TERA_BYTES_PER_SECOND'|'BITS_PER_SECOND'|'KILO_BITS_PER_SECOND'|'MEGA_BITS_PER_SECOND'|'GIGA_BITS_PER_SECOND'|'TERA_BITS_PER_SECOND'|'COUNT_PER_SECOND',
-                                          'Dimensions': [
+                                  \'Trigger\': {
+                                      \'CloudWatchAlarmDefinition\': {
+                                          \'ComparisonOperator\': \'GREATER_THAN_OR_EQUAL\'|\'GREATER_THAN\'|\'LESS_THAN\'|\'LESS_THAN_OR_EQUAL\',
+                                          \'EvaluationPeriods\': 123,
+                                          \'MetricName\': \'string\',
+                                          \'Namespace\': \'string\',
+                                          \'Period\': 123,
+                                          \'Statistic\': \'SAMPLE_COUNT\'|\'AVERAGE\'|\'SUM\'|\'MINIMUM\'|\'MAXIMUM\',
+                                          \'Threshold\': 123.0,
+                                          \'Unit\': \'NONE\'|\'SECONDS\'|\'MICRO_SECONDS\'|\'MILLI_SECONDS\'|\'BYTES\'|\'KILO_BYTES\'|\'MEGA_BYTES\'|\'GIGA_BYTES\'|\'TERA_BYTES\'|\'BITS\'|\'KILO_BITS\'|\'MEGA_BITS\'|\'GIGA_BITS\'|\'TERA_BITS\'|\'PERCENT\'|\'COUNT\'|\'BYTES_PER_SECOND\'|\'KILO_BYTES_PER_SECOND\'|\'MEGA_BYTES_PER_SECOND\'|\'GIGA_BYTES_PER_SECOND\'|\'TERA_BYTES_PER_SECOND\'|\'BITS_PER_SECOND\'|\'KILO_BITS_PER_SECOND\'|\'MEGA_BITS_PER_SECOND\'|\'GIGA_BITS_PER_SECOND\'|\'TERA_BITS_PER_SECOND\'|\'COUNT_PER_SECOND\',
+                                          \'Dimensions\': [
                                               {
-                                                  'Key': 'string',
-                                                  'Value': 'string'
+                                                  \'Key\': \'string\',
+                                                  \'Value\': \'string\'
                                               },
                                           ]
                                       }
@@ -318,7 +318,7 @@ class Client(BaseClient):
                       }
                   },
               ],
-              JobFlowId='string'
+              JobFlowId=\'string\'
           )
         :type InstanceGroups: list
         :param InstanceGroups: **[REQUIRED]** 
@@ -473,7 +473,7 @@ class Client(BaseClient):
         
                       - **ScalingAdjustment** *(integer) --* **[REQUIRED]** 
         
-                        The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+                        The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group\'s EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
         
                       - **CoolDown** *(integer) --* 
         
@@ -548,9 +548,9 @@ class Client(BaseClient):
           ::
         
             {
-                'JobFlowId': 'string',
-                'InstanceGroupIds': [
-                    'string',
+                \'JobFlowId\': \'string\',
+                \'InstanceGroupIds\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -589,22 +589,22 @@ class Client(BaseClient):
         ::
         
           response = client.add_job_flow_steps(
-              JobFlowId='string',
+              JobFlowId=\'string\',
               Steps=[
                   {
-                      'Name': 'string',
-                      'ActionOnFailure': 'TERMINATE_JOB_FLOW'|'TERMINATE_CLUSTER'|'CANCEL_AND_WAIT'|'CONTINUE',
-                      'HadoopJarStep': {
-                          'Properties': [
+                      \'Name\': \'string\',
+                      \'ActionOnFailure\': \'TERMINATE_JOB_FLOW\'|\'TERMINATE_CLUSTER\'|\'CANCEL_AND_WAIT\'|\'CONTINUE\',
+                      \'HadoopJarStep\': {
+                          \'Properties\': [
                               {
-                                  'Key': 'string',
-                                  'Value': 'string'
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ],
-                          'Jar': 'string',
-                          'MainClass': 'string',
-                          'Args': [
-                              'string',
+                          \'Jar\': \'string\',
+                          \'MainClass\': \'string\',
+                          \'Args\': [
+                              \'string\',
                           ]
                       }
                   },
@@ -662,7 +662,7 @@ class Client(BaseClient):
         
               - **Args** *(list) --* 
         
-                A list of command line arguments passed to the JAR file's main function when executed.
+                A list of command line arguments passed to the JAR file\'s main function when executed.
         
                 - *(string) --* 
         
@@ -674,8 +674,8 @@ class Client(BaseClient):
           ::
         
             {
-                'StepIds': [
-                    'string',
+                \'StepIds\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -702,11 +702,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags(
-              ResourceId='string',
+              ResourceId=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -755,10 +755,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -774,9 +774,9 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_steps(
-              ClusterId='string',
+              ClusterId=\'string\',
               StepIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ClusterId: string
@@ -799,11 +799,11 @@ class Client(BaseClient):
           ::
         
             {
-                'CancelStepsInfoList': [
+                \'CancelStepsInfoList\': [
                     {
-                        'StepId': 'string',
-                        'Status': 'SUBMITTED'|'FAILED',
-                        'Reason': 'string'
+                        \'StepId\': \'string\',
+                        \'Status\': \'SUBMITTED\'|\'FAILED\',
+                        \'Reason\': \'string\'
                     },
                 ]
             }
@@ -845,8 +845,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_security_configuration(
-              Name='string',
-              SecurityConfiguration='string'
+              Name=\'string\',
+              SecurityConfiguration=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -866,8 +866,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string',
-                'CreationDateTime': datetime(2015, 1, 1)
+                \'Name\': \'string\',
+                \'CreationDateTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -893,7 +893,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_security_configuration(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -923,7 +923,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cluster(
-              ClusterId='string'
+              ClusterId=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -938,92 +938,92 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'Status': {
-                        'State': 'STARTING'|'BOOTSTRAPPING'|'RUNNING'|'WAITING'|'TERMINATING'|'TERMINATED'|'TERMINATED_WITH_ERRORS',
-                        'StateChangeReason': {
-                            'Code': 'INTERNAL_ERROR'|'VALIDATION_ERROR'|'INSTANCE_FAILURE'|'INSTANCE_FLEET_TIMEOUT'|'BOOTSTRAP_FAILURE'|'USER_REQUEST'|'STEP_FAILURE'|'ALL_STEPS_COMPLETED',
-                            'Message': 'string'
+                \'Cluster\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'Status\': {
+                        \'State\': \'STARTING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'WAITING\'|\'TERMINATING\'|\'TERMINATED\'|\'TERMINATED_WITH_ERRORS\',
+                        \'StateChangeReason\': {
+                            \'Code\': \'INTERNAL_ERROR\'|\'VALIDATION_ERROR\'|\'INSTANCE_FAILURE\'|\'INSTANCE_FLEET_TIMEOUT\'|\'BOOTSTRAP_FAILURE\'|\'USER_REQUEST\'|\'STEP_FAILURE\'|\'ALL_STEPS_COMPLETED\',
+                            \'Message\': \'string\'
                         },
-                        'Timeline': {
-                            'CreationDateTime': datetime(2015, 1, 1),
-                            'ReadyDateTime': datetime(2015, 1, 1),
-                            'EndDateTime': datetime(2015, 1, 1)
+                        \'Timeline\': {
+                            \'CreationDateTime\': datetime(2015, 1, 1),
+                            \'ReadyDateTime\': datetime(2015, 1, 1),
+                            \'EndDateTime\': datetime(2015, 1, 1)
                         }
                     },
-                    'Ec2InstanceAttributes': {
-                        'Ec2KeyName': 'string',
-                        'Ec2SubnetId': 'string',
-                        'RequestedEc2SubnetIds': [
-                            'string',
+                    \'Ec2InstanceAttributes\': {
+                        \'Ec2KeyName\': \'string\',
+                        \'Ec2SubnetId\': \'string\',
+                        \'RequestedEc2SubnetIds\': [
+                            \'string\',
                         ],
-                        'Ec2AvailabilityZone': 'string',
-                        'RequestedEc2AvailabilityZones': [
-                            'string',
+                        \'Ec2AvailabilityZone\': \'string\',
+                        \'RequestedEc2AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'IamInstanceProfile': 'string',
-                        'EmrManagedMasterSecurityGroup': 'string',
-                        'EmrManagedSlaveSecurityGroup': 'string',
-                        'ServiceAccessSecurityGroup': 'string',
-                        'AdditionalMasterSecurityGroups': [
-                            'string',
+                        \'IamInstanceProfile\': \'string\',
+                        \'EmrManagedMasterSecurityGroup\': \'string\',
+                        \'EmrManagedSlaveSecurityGroup\': \'string\',
+                        \'ServiceAccessSecurityGroup\': \'string\',
+                        \'AdditionalMasterSecurityGroups\': [
+                            \'string\',
                         ],
-                        'AdditionalSlaveSecurityGroups': [
-                            'string',
+                        \'AdditionalSlaveSecurityGroups\': [
+                            \'string\',
                         ]
                     },
-                    'InstanceCollectionType': 'INSTANCE_FLEET'|'INSTANCE_GROUP',
-                    'LogUri': 'string',
-                    'RequestedAmiVersion': 'string',
-                    'RunningAmiVersion': 'string',
-                    'ReleaseLabel': 'string',
-                    'AutoTerminate': True|False,
-                    'TerminationProtected': True|False,
-                    'VisibleToAllUsers': True|False,
-                    'Applications': [
+                    \'InstanceCollectionType\': \'INSTANCE_FLEET\'|\'INSTANCE_GROUP\',
+                    \'LogUri\': \'string\',
+                    \'RequestedAmiVersion\': \'string\',
+                    \'RunningAmiVersion\': \'string\',
+                    \'ReleaseLabel\': \'string\',
+                    \'AutoTerminate\': True|False,
+                    \'TerminationProtected\': True|False,
+                    \'VisibleToAllUsers\': True|False,
+                    \'Applications\': [
                         {
-                            'Name': 'string',
-                            'Version': 'string',
-                            'Args': [
-                                'string',
+                            \'Name\': \'string\',
+                            \'Version\': \'string\',
+                            \'Args\': [
+                                \'string\',
                             ],
-                            'AdditionalInfo': {
-                                'string': 'string'
+                            \'AdditionalInfo\': {
+                                \'string\': \'string\'
                             }
                         },
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'ServiceRole': 'string',
-                    'NormalizedInstanceHours': 123,
-                    'MasterPublicDnsName': 'string',
-                    'Configurations': [
+                    \'ServiceRole\': \'string\',
+                    \'NormalizedInstanceHours\': 123,
+                    \'MasterPublicDnsName\': \'string\',
+                    \'Configurations\': [
                         {
-                            'Classification': 'string',
-                            'Configurations': {'... recursive ...'},
-                            'Properties': {
-                                'string': 'string'
+                            \'Classification\': \'string\',
+                            \'Configurations\': {\'... recursive ...\'},
+                            \'Properties\': {
+                                \'string\': \'string\'
                             }
                         },
                     ],
-                    'SecurityConfiguration': 'string',
-                    'AutoScalingRole': 'string',
-                    'ScaleDownBehavior': 'TERMINATE_AT_INSTANCE_HOUR'|'TERMINATE_AT_TASK_COMPLETION',
-                    'CustomAmiId': 'string',
-                    'EbsRootVolumeSize': 123,
-                    'RepoUpgradeOnBoot': 'SECURITY'|'NONE',
-                    'KerberosAttributes': {
-                        'Realm': 'string',
-                        'KdcAdminPassword': 'string',
-                        'CrossRealmTrustPrincipalPassword': 'string',
-                        'ADDomainJoinUser': 'string',
-                        'ADDomainJoinPassword': 'string'
+                    \'SecurityConfiguration\': \'string\',
+                    \'AutoScalingRole\': \'string\',
+                    \'ScaleDownBehavior\': \'TERMINATE_AT_INSTANCE_HOUR\'|\'TERMINATE_AT_TASK_COMPLETION\',
+                    \'CustomAmiId\': \'string\',
+                    \'EbsRootVolumeSize\': 123,
+                    \'RepoUpgradeOnBoot\': \'SECURITY\'|\'NONE\',
+                    \'KerberosAttributes\': {
+                        \'Realm\': \'string\',
+                        \'KdcAdminPassword\': \'string\',
+                        \'CrossRealmTrustPrincipalPassword\': \'string\',
+                        \'ADDomainJoinUser\': \'string\',
+                        \'ADDomainJoinPassword\': \'string\'
                     }
                 }
             }
@@ -1087,7 +1087,7 @@ class Client(BaseClient):
         
                 - **Ec2KeyName** *(string) --* 
         
-                  The name of the Amazon EC2 key pair to use when connecting with SSH into the master node as a user named "hadoop".
+                  The name of the Amazon EC2 key pair to use when connecting with SSH into the master node as a user named \"hadoop\".
         
                 - **Ec2SubnetId** *(string) --* 
         
@@ -1183,11 +1183,11 @@ class Client(BaseClient):
         
                   An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument. For more information, see `Using the MapR Distribution for Hadoop <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-mapr.html>`__ . Currently supported values are:
         
-                  * "mapr-m3" - launch the cluster using MapR M3 Edition. 
+                  * \"mapr-m3\" - launch the cluster using MapR M3 Edition. 
                    
-                  * "mapr-m5" - launch the cluster using MapR M5 Edition. 
+                  * \"mapr-m5\" - launch the cluster using MapR M5 Edition. 
                    
-                  * "mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the cluster using MapR M3 or M5 Edition, respectively. 
+                  * \"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the cluster using MapR M3 or M5 Edition, respectively. 
                    
                   .. note::
         
@@ -1350,10 +1350,10 @@ class Client(BaseClient):
               CreatedAfter=datetime(2015, 1, 1),
               CreatedBefore=datetime(2015, 1, 1),
               JobFlowIds=[
-                  'string',
+                  \'string\',
               ],
               JobFlowStates=[
-                  'STARTING'|'BOOTSTRAPPING'|'RUNNING'|'WAITING'|'SHUTTING_DOWN'|'TERMINATED'|'COMPLETED'|'FAILED',
+                  \'STARTING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'WAITING\'|\'SHUTTING_DOWN\'|\'TERMINATED\'|\'COMPLETED\'|\'FAILED\',
               ]
           )
         :type CreatedAfter: datetime
@@ -1390,106 +1390,106 @@ class Client(BaseClient):
           ::
         
             {
-                'JobFlows': [
+                \'JobFlows\': [
                     {
-                        'JobFlowId': 'string',
-                        'Name': 'string',
-                        'LogUri': 'string',
-                        'AmiVersion': 'string',
-                        'ExecutionStatusDetail': {
-                            'State': 'STARTING'|'BOOTSTRAPPING'|'RUNNING'|'WAITING'|'SHUTTING_DOWN'|'TERMINATED'|'COMPLETED'|'FAILED',
-                            'CreationDateTime': datetime(2015, 1, 1),
-                            'StartDateTime': datetime(2015, 1, 1),
-                            'ReadyDateTime': datetime(2015, 1, 1),
-                            'EndDateTime': datetime(2015, 1, 1),
-                            'LastStateChangeReason': 'string'
+                        \'JobFlowId\': \'string\',
+                        \'Name\': \'string\',
+                        \'LogUri\': \'string\',
+                        \'AmiVersion\': \'string\',
+                        \'ExecutionStatusDetail\': {
+                            \'State\': \'STARTING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'WAITING\'|\'SHUTTING_DOWN\'|\'TERMINATED\'|\'COMPLETED\'|\'FAILED\',
+                            \'CreationDateTime\': datetime(2015, 1, 1),
+                            \'StartDateTime\': datetime(2015, 1, 1),
+                            \'ReadyDateTime\': datetime(2015, 1, 1),
+                            \'EndDateTime\': datetime(2015, 1, 1),
+                            \'LastStateChangeReason\': \'string\'
                         },
-                        'Instances': {
-                            'MasterInstanceType': 'string',
-                            'MasterPublicDnsName': 'string',
-                            'MasterInstanceId': 'string',
-                            'SlaveInstanceType': 'string',
-                            'InstanceCount': 123,
-                            'InstanceGroups': [
+                        \'Instances\': {
+                            \'MasterInstanceType\': \'string\',
+                            \'MasterPublicDnsName\': \'string\',
+                            \'MasterInstanceId\': \'string\',
+                            \'SlaveInstanceType\': \'string\',
+                            \'InstanceCount\': 123,
+                            \'InstanceGroups\': [
                                 {
-                                    'InstanceGroupId': 'string',
-                                    'Name': 'string',
-                                    'Market': 'ON_DEMAND'|'SPOT',
-                                    'InstanceRole': 'MASTER'|'CORE'|'TASK',
-                                    'BidPrice': 'string',
-                                    'InstanceType': 'string',
-                                    'InstanceRequestCount': 123,
-                                    'InstanceRunningCount': 123,
-                                    'State': 'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'RESIZING'|'SUSPENDED'|'TERMINATING'|'TERMINATED'|'ARRESTED'|'SHUTTING_DOWN'|'ENDED',
-                                    'LastStateChangeReason': 'string',
-                                    'CreationDateTime': datetime(2015, 1, 1),
-                                    'StartDateTime': datetime(2015, 1, 1),
-                                    'ReadyDateTime': datetime(2015, 1, 1),
-                                    'EndDateTime': datetime(2015, 1, 1)
+                                    \'InstanceGroupId\': \'string\',
+                                    \'Name\': \'string\',
+                                    \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                                    \'InstanceRole\': \'MASTER\'|\'CORE\'|\'TASK\',
+                                    \'BidPrice\': \'string\',
+                                    \'InstanceType\': \'string\',
+                                    \'InstanceRequestCount\': 123,
+                                    \'InstanceRunningCount\': 123,
+                                    \'State\': \'PROVISIONING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'RESIZING\'|\'SUSPENDED\'|\'TERMINATING\'|\'TERMINATED\'|\'ARRESTED\'|\'SHUTTING_DOWN\'|\'ENDED\',
+                                    \'LastStateChangeReason\': \'string\',
+                                    \'CreationDateTime\': datetime(2015, 1, 1),
+                                    \'StartDateTime\': datetime(2015, 1, 1),
+                                    \'ReadyDateTime\': datetime(2015, 1, 1),
+                                    \'EndDateTime\': datetime(2015, 1, 1)
                                 },
                             ],
-                            'NormalizedInstanceHours': 123,
-                            'Ec2KeyName': 'string',
-                            'Ec2SubnetId': 'string',
-                            'Placement': {
-                                'AvailabilityZone': 'string',
-                                'AvailabilityZones': [
-                                    'string',
+                            \'NormalizedInstanceHours\': 123,
+                            \'Ec2KeyName\': \'string\',
+                            \'Ec2SubnetId\': \'string\',
+                            \'Placement\': {
+                                \'AvailabilityZone\': \'string\',
+                                \'AvailabilityZones\': [
+                                    \'string\',
                                 ]
                             },
-                            'KeepJobFlowAliveWhenNoSteps': True|False,
-                            'TerminationProtected': True|False,
-                            'HadoopVersion': 'string'
+                            \'KeepJobFlowAliveWhenNoSteps\': True|False,
+                            \'TerminationProtected\': True|False,
+                            \'HadoopVersion\': \'string\'
                         },
-                        'Steps': [
+                        \'Steps\': [
                             {
-                                'StepConfig': {
-                                    'Name': 'string',
-                                    'ActionOnFailure': 'TERMINATE_JOB_FLOW'|'TERMINATE_CLUSTER'|'CANCEL_AND_WAIT'|'CONTINUE',
-                                    'HadoopJarStep': {
-                                        'Properties': [
+                                \'StepConfig\': {
+                                    \'Name\': \'string\',
+                                    \'ActionOnFailure\': \'TERMINATE_JOB_FLOW\'|\'TERMINATE_CLUSTER\'|\'CANCEL_AND_WAIT\'|\'CONTINUE\',
+                                    \'HadoopJarStep\': {
+                                        \'Properties\': [
                                             {
-                                                'Key': 'string',
-                                                'Value': 'string'
+                                                \'Key\': \'string\',
+                                                \'Value\': \'string\'
                                             },
                                         ],
-                                        'Jar': 'string',
-                                        'MainClass': 'string',
-                                        'Args': [
-                                            'string',
+                                        \'Jar\': \'string\',
+                                        \'MainClass\': \'string\',
+                                        \'Args\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'ExecutionStatusDetail': {
-                                    'State': 'PENDING'|'RUNNING'|'CONTINUE'|'COMPLETED'|'CANCELLED'|'FAILED'|'INTERRUPTED',
-                                    'CreationDateTime': datetime(2015, 1, 1),
-                                    'StartDateTime': datetime(2015, 1, 1),
-                                    'EndDateTime': datetime(2015, 1, 1),
-                                    'LastStateChangeReason': 'string'
+                                \'ExecutionStatusDetail\': {
+                                    \'State\': \'PENDING\'|\'RUNNING\'|\'CONTINUE\'|\'COMPLETED\'|\'CANCELLED\'|\'FAILED\'|\'INTERRUPTED\',
+                                    \'CreationDateTime\': datetime(2015, 1, 1),
+                                    \'StartDateTime\': datetime(2015, 1, 1),
+                                    \'EndDateTime\': datetime(2015, 1, 1),
+                                    \'LastStateChangeReason\': \'string\'
                                 }
                             },
                         ],
-                        'BootstrapActions': [
+                        \'BootstrapActions\': [
                             {
-                                'BootstrapActionConfig': {
-                                    'Name': 'string',
-                                    'ScriptBootstrapAction': {
-                                        'Path': 'string',
-                                        'Args': [
-                                            'string',
+                                \'BootstrapActionConfig\': {
+                                    \'Name\': \'string\',
+                                    \'ScriptBootstrapAction\': {
+                                        \'Path\': \'string\',
+                                        \'Args\': [
+                                            \'string\',
                                         ]
                                     }
                                 }
                             },
                         ],
-                        'SupportedProducts': [
-                            'string',
+                        \'SupportedProducts\': [
+                            \'string\',
                         ],
-                        'VisibleToAllUsers': True|False,
-                        'JobFlowRole': 'string',
-                        'ServiceRole': 'string',
-                        'AutoScalingRole': 'string',
-                        'ScaleDownBehavior': 'TERMINATE_AT_INSTANCE_HOUR'|'TERMINATE_AT_TASK_COMPLETION'
+                        \'VisibleToAllUsers\': True|False,
+                        \'JobFlowRole\': \'string\',
+                        \'ServiceRole\': \'string\',
+                        \'AutoScalingRole\': \'string\',
+                        \'ScaleDownBehavior\': \'TERMINATE_AT_INSTANCE_HOUR\'|\'TERMINATE_AT_TASK_COMPLETION\'
                     },
                 ]
             }
@@ -1733,7 +1733,7 @@ class Client(BaseClient):
         
                         - **Args** *(list) --* 
         
-                          A list of command line arguments passed to the JAR file's main function when executed.
+                          A list of command line arguments passed to the JAR file\'s main function when executed.
         
                           - *(string) --* 
                       
@@ -1759,7 +1759,7 @@ class Client(BaseClient):
         
                       - **LastStateChangeReason** *(string) --* 
         
-                        A description of the step's current state.
+                        A description of the step\'s current state.
         
                 - **BootstrapActions** *(list) --* 
         
@@ -1829,7 +1829,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_security_configuration(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1844,9 +1844,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string',
-                'SecurityConfiguration': 'string',
-                'CreationDateTime': datetime(2015, 1, 1)
+                \'Name\': \'string\',
+                \'SecurityConfiguration\': \'string\',
+                \'CreationDateTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1876,8 +1876,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_step(
-              ClusterId='string',
-              StepId='string'
+              ClusterId=\'string\',
+              StepId=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -1897,35 +1897,35 @@ class Client(BaseClient):
           ::
         
             {
-                'Step': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'Config': {
-                        'Jar': 'string',
-                        'Properties': {
-                            'string': 'string'
+                \'Step\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'Config\': {
+                        \'Jar\': \'string\',
+                        \'Properties\': {
+                            \'string\': \'string\'
                         },
-                        'MainClass': 'string',
-                        'Args': [
-                            'string',
+                        \'MainClass\': \'string\',
+                        \'Args\': [
+                            \'string\',
                         ]
                     },
-                    'ActionOnFailure': 'TERMINATE_JOB_FLOW'|'TERMINATE_CLUSTER'|'CANCEL_AND_WAIT'|'CONTINUE',
-                    'Status': {
-                        'State': 'PENDING'|'CANCEL_PENDING'|'RUNNING'|'COMPLETED'|'CANCELLED'|'FAILED'|'INTERRUPTED',
-                        'StateChangeReason': {
-                            'Code': 'NONE',
-                            'Message': 'string'
+                    \'ActionOnFailure\': \'TERMINATE_JOB_FLOW\'|\'TERMINATE_CLUSTER\'|\'CANCEL_AND_WAIT\'|\'CONTINUE\',
+                    \'Status\': {
+                        \'State\': \'PENDING\'|\'CANCEL_PENDING\'|\'RUNNING\'|\'COMPLETED\'|\'CANCELLED\'|\'FAILED\'|\'INTERRUPTED\',
+                        \'StateChangeReason\': {
+                            \'Code\': \'NONE\',
+                            \'Message\': \'string\'
                         },
-                        'FailureDetails': {
-                            'Reason': 'string',
-                            'Message': 'string',
-                            'LogFile': 'string'
+                        \'FailureDetails\': {
+                            \'Reason\': \'string\',
+                            \'Message\': \'string\',
+                            \'LogFile\': \'string\'
                         },
-                        'Timeline': {
-                            'CreationDateTime': datetime(2015, 1, 1),
-                            'StartDateTime': datetime(2015, 1, 1),
-                            'EndDateTime': datetime(2015, 1, 1)
+                        \'Timeline\': {
+                            \'CreationDateTime\': datetime(2015, 1, 1),
+                            \'StartDateTime\': datetime(2015, 1, 1),
+                            \'EndDateTime\': datetime(2015, 1, 1)
                         }
                     }
                 }
@@ -1970,7 +1970,7 @@ class Client(BaseClient):
         
                 - **Args** *(list) --* 
         
-                  The list of command line arguments to pass to the JAR file's main function for execution.
+                  The list of command line arguments to pass to the JAR file\'s main function for execution.
         
                   - *(string) --* 
               
@@ -2004,7 +2004,7 @@ class Client(BaseClient):
         
                   - **Reason** *(string) --* 
         
-                    The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns "Unknown Error" as a reason.
+                    The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns \"Unknown Error\" as a reason.
         
                   - **Message** *(string) --* 
         
@@ -2049,7 +2049,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2061,10 +2061,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2096,8 +2096,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_bootstrap_actions(
-              ClusterId='string',
-              Marker='string'
+              ClusterId=\'string\',
+              Marker=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -2117,16 +2117,16 @@ class Client(BaseClient):
           ::
         
             {
-                'BootstrapActions': [
+                \'BootstrapActions\': [
                     {
-                        'Name': 'string',
-                        'ScriptPath': 'string',
-                        'Args': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'ScriptPath\': \'string\',
+                        \'Args\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2175,9 +2175,9 @@ class Client(BaseClient):
               CreatedAfter=datetime(2015, 1, 1),
               CreatedBefore=datetime(2015, 1, 1),
               ClusterStates=[
-                  'STARTING'|'BOOTSTRAPPING'|'RUNNING'|'WAITING'|'TERMINATING'|'TERMINATED'|'TERMINATED_WITH_ERRORS',
+                  \'STARTING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'WAITING\'|\'TERMINATING\'|\'TERMINATED\'|\'TERMINATED_WITH_ERRORS\',
               ],
-              Marker='string'
+              Marker=\'string\'
           )
         :type CreatedAfter: datetime
         :param CreatedAfter: 
@@ -2209,26 +2209,26 @@ class Client(BaseClient):
           ::
         
             {
-                'Clusters': [
+                \'Clusters\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Status': {
-                            'State': 'STARTING'|'BOOTSTRAPPING'|'RUNNING'|'WAITING'|'TERMINATING'|'TERMINATED'|'TERMINATED_WITH_ERRORS',
-                            'StateChangeReason': {
-                                'Code': 'INTERNAL_ERROR'|'VALIDATION_ERROR'|'INSTANCE_FAILURE'|'INSTANCE_FLEET_TIMEOUT'|'BOOTSTRAP_FAILURE'|'USER_REQUEST'|'STEP_FAILURE'|'ALL_STEPS_COMPLETED',
-                                'Message': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Status\': {
+                            \'State\': \'STARTING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'WAITING\'|\'TERMINATING\'|\'TERMINATED\'|\'TERMINATED_WITH_ERRORS\',
+                            \'StateChangeReason\': {
+                                \'Code\': \'INTERNAL_ERROR\'|\'VALIDATION_ERROR\'|\'INSTANCE_FAILURE\'|\'INSTANCE_FLEET_TIMEOUT\'|\'BOOTSTRAP_FAILURE\'|\'USER_REQUEST\'|\'STEP_FAILURE\'|\'ALL_STEPS_COMPLETED\',
+                                \'Message\': \'string\'
                             },
-                            'Timeline': {
-                                'CreationDateTime': datetime(2015, 1, 1),
-                                'ReadyDateTime': datetime(2015, 1, 1),
-                                'EndDateTime': datetime(2015, 1, 1)
+                            \'Timeline\': {
+                                \'CreationDateTime\': datetime(2015, 1, 1),
+                                \'ReadyDateTime\': datetime(2015, 1, 1),
+                                \'EndDateTime\': datetime(2015, 1, 1)
                             }
                         },
-                        'NormalizedInstanceHours': 123
+                        \'NormalizedInstanceHours\': 123
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2312,8 +2312,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_instance_fleets(
-              ClusterId='string',
-              Marker='string'
+              ClusterId=\'string\',
+              Marker=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -2333,65 +2333,65 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceFleets': [
+                \'InstanceFleets\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Status': {
-                            'State': 'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'RESIZING'|'SUSPENDED'|'TERMINATING'|'TERMINATED',
-                            'StateChangeReason': {
-                                'Code': 'INTERNAL_ERROR'|'VALIDATION_ERROR'|'INSTANCE_FAILURE'|'CLUSTER_TERMINATED',
-                                'Message': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Status\': {
+                            \'State\': \'PROVISIONING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'RESIZING\'|\'SUSPENDED\'|\'TERMINATING\'|\'TERMINATED\',
+                            \'StateChangeReason\': {
+                                \'Code\': \'INTERNAL_ERROR\'|\'VALIDATION_ERROR\'|\'INSTANCE_FAILURE\'|\'CLUSTER_TERMINATED\',
+                                \'Message\': \'string\'
                             },
-                            'Timeline': {
-                                'CreationDateTime': datetime(2015, 1, 1),
-                                'ReadyDateTime': datetime(2015, 1, 1),
-                                'EndDateTime': datetime(2015, 1, 1)
+                            \'Timeline\': {
+                                \'CreationDateTime\': datetime(2015, 1, 1),
+                                \'ReadyDateTime\': datetime(2015, 1, 1),
+                                \'EndDateTime\': datetime(2015, 1, 1)
                             }
                         },
-                        'InstanceFleetType': 'MASTER'|'CORE'|'TASK',
-                        'TargetOnDemandCapacity': 123,
-                        'TargetSpotCapacity': 123,
-                        'ProvisionedOnDemandCapacity': 123,
-                        'ProvisionedSpotCapacity': 123,
-                        'InstanceTypeSpecifications': [
+                        \'InstanceFleetType\': \'MASTER\'|\'CORE\'|\'TASK\',
+                        \'TargetOnDemandCapacity\': 123,
+                        \'TargetSpotCapacity\': 123,
+                        \'ProvisionedOnDemandCapacity\': 123,
+                        \'ProvisionedSpotCapacity\': 123,
+                        \'InstanceTypeSpecifications\': [
                             {
-                                'InstanceType': 'string',
-                                'WeightedCapacity': 123,
-                                'BidPrice': 'string',
-                                'BidPriceAsPercentageOfOnDemandPrice': 123.0,
-                                'Configurations': [
+                                \'InstanceType\': \'string\',
+                                \'WeightedCapacity\': 123,
+                                \'BidPrice\': \'string\',
+                                \'BidPriceAsPercentageOfOnDemandPrice\': 123.0,
+                                \'Configurations\': [
                                     {
-                                        'Classification': 'string',
-                                        'Configurations': {'... recursive ...'},
-                                        'Properties': {
-                                            'string': 'string'
+                                        \'Classification\': \'string\',
+                                        \'Configurations\': {\'... recursive ...\'},
+                                        \'Properties\': {
+                                            \'string\': \'string\'
                                         }
                                     },
                                 ],
-                                'EbsBlockDevices': [
+                                \'EbsBlockDevices\': [
                                     {
-                                        'VolumeSpecification': {
-                                            'VolumeType': 'string',
-                                            'Iops': 123,
-                                            'SizeInGB': 123
+                                        \'VolumeSpecification\': {
+                                            \'VolumeType\': \'string\',
+                                            \'Iops\': 123,
+                                            \'SizeInGB\': 123
                                         },
-                                        'Device': 'string'
+                                        \'Device\': \'string\'
                                     },
                                 ],
-                                'EbsOptimized': True|False
+                                \'EbsOptimized\': True|False
                             },
                         ],
-                        'LaunchSpecifications': {
-                            'SpotSpecification': {
-                                'TimeoutDurationMinutes': 123,
-                                'TimeoutAction': 'SWITCH_TO_ON_DEMAND'|'TERMINATE_CLUSTER',
-                                'BlockDurationMinutes': 123
+                        \'LaunchSpecifications\': {
+                            \'SpotSpecification\': {
+                                \'TimeoutDurationMinutes\': 123,
+                                \'TimeoutAction\': \'SWITCH_TO_ON_DEMAND\'|\'TERMINATE_CLUSTER\',
+                                \'BlockDurationMinutes\': 123
                             }
                         }
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2433,7 +2433,7 @@ class Client(BaseClient):
                      
                     * ``RESIZING`` —A resize operation is underway. EC2 instances are either being added or removed. 
                      
-                    * ``SUSPENDED`` —A resize operation could not complete. Existing EC2 instances are running, but instances can't be added or removed. 
+                    * ``SUSPENDED`` —A resize operation could not complete. Existing EC2 instances are running, but instances can\'t be added or removed. 
                      
                     * ``TERMINATING`` —The instance fleet is terminating EC2 instances. 
                      
@@ -2619,8 +2619,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_instance_groups(
-              ClusterId='string',
-              Marker='string'
+              ClusterId=\'string\',
+              Marker=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -2640,98 +2640,98 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceGroups': [
+                \'InstanceGroups\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Market': 'ON_DEMAND'|'SPOT',
-                        'InstanceGroupType': 'MASTER'|'CORE'|'TASK',
-                        'BidPrice': 'string',
-                        'InstanceType': 'string',
-                        'RequestedInstanceCount': 123,
-                        'RunningInstanceCount': 123,
-                        'Status': {
-                            'State': 'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'RESIZING'|'SUSPENDED'|'TERMINATING'|'TERMINATED'|'ARRESTED'|'SHUTTING_DOWN'|'ENDED',
-                            'StateChangeReason': {
-                                'Code': 'INTERNAL_ERROR'|'VALIDATION_ERROR'|'INSTANCE_FAILURE'|'CLUSTER_TERMINATED',
-                                'Message': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                        \'InstanceGroupType\': \'MASTER\'|\'CORE\'|\'TASK\',
+                        \'BidPrice\': \'string\',
+                        \'InstanceType\': \'string\',
+                        \'RequestedInstanceCount\': 123,
+                        \'RunningInstanceCount\': 123,
+                        \'Status\': {
+                            \'State\': \'PROVISIONING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'RESIZING\'|\'SUSPENDED\'|\'TERMINATING\'|\'TERMINATED\'|\'ARRESTED\'|\'SHUTTING_DOWN\'|\'ENDED\',
+                            \'StateChangeReason\': {
+                                \'Code\': \'INTERNAL_ERROR\'|\'VALIDATION_ERROR\'|\'INSTANCE_FAILURE\'|\'CLUSTER_TERMINATED\',
+                                \'Message\': \'string\'
                             },
-                            'Timeline': {
-                                'CreationDateTime': datetime(2015, 1, 1),
-                                'ReadyDateTime': datetime(2015, 1, 1),
-                                'EndDateTime': datetime(2015, 1, 1)
+                            \'Timeline\': {
+                                \'CreationDateTime\': datetime(2015, 1, 1),
+                                \'ReadyDateTime\': datetime(2015, 1, 1),
+                                \'EndDateTime\': datetime(2015, 1, 1)
                             }
                         },
-                        'Configurations': [
+                        \'Configurations\': [
                             {
-                                'Classification': 'string',
-                                'Configurations': {'... recursive ...'},
-                                'Properties': {
-                                    'string': 'string'
+                                \'Classification\': \'string\',
+                                \'Configurations\': {\'... recursive ...\'},
+                                \'Properties\': {
+                                    \'string\': \'string\'
                                 }
                             },
                         ],
-                        'EbsBlockDevices': [
+                        \'EbsBlockDevices\': [
                             {
-                                'VolumeSpecification': {
-                                    'VolumeType': 'string',
-                                    'Iops': 123,
-                                    'SizeInGB': 123
+                                \'VolumeSpecification\': {
+                                    \'VolumeType\': \'string\',
+                                    \'Iops\': 123,
+                                    \'SizeInGB\': 123
                                 },
-                                'Device': 'string'
+                                \'Device\': \'string\'
                             },
                         ],
-                        'EbsOptimized': True|False,
-                        'ShrinkPolicy': {
-                            'DecommissionTimeout': 123,
-                            'InstanceResizePolicy': {
-                                'InstancesToTerminate': [
-                                    'string',
+                        \'EbsOptimized\': True|False,
+                        \'ShrinkPolicy\': {
+                            \'DecommissionTimeout\': 123,
+                            \'InstanceResizePolicy\': {
+                                \'InstancesToTerminate\': [
+                                    \'string\',
                                 ],
-                                'InstancesToProtect': [
-                                    'string',
+                                \'InstancesToProtect\': [
+                                    \'string\',
                                 ],
-                                'InstanceTerminationTimeout': 123
+                                \'InstanceTerminationTimeout\': 123
                             }
                         },
-                        'AutoScalingPolicy': {
-                            'Status': {
-                                'State': 'PENDING'|'ATTACHING'|'ATTACHED'|'DETACHING'|'DETACHED'|'FAILED',
-                                'StateChangeReason': {
-                                    'Code': 'USER_REQUEST'|'PROVISION_FAILURE'|'CLEANUP_FAILURE',
-                                    'Message': 'string'
+                        \'AutoScalingPolicy\': {
+                            \'Status\': {
+                                \'State\': \'PENDING\'|\'ATTACHING\'|\'ATTACHED\'|\'DETACHING\'|\'DETACHED\'|\'FAILED\',
+                                \'StateChangeReason\': {
+                                    \'Code\': \'USER_REQUEST\'|\'PROVISION_FAILURE\'|\'CLEANUP_FAILURE\',
+                                    \'Message\': \'string\'
                                 }
                             },
-                            'Constraints': {
-                                'MinCapacity': 123,
-                                'MaxCapacity': 123
+                            \'Constraints\': {
+                                \'MinCapacity\': 123,
+                                \'MaxCapacity\': 123
                             },
-                            'Rules': [
+                            \'Rules\': [
                                 {
-                                    'Name': 'string',
-                                    'Description': 'string',
-                                    'Action': {
-                                        'Market': 'ON_DEMAND'|'SPOT',
-                                        'SimpleScalingPolicyConfiguration': {
-                                            'AdjustmentType': 'CHANGE_IN_CAPACITY'|'PERCENT_CHANGE_IN_CAPACITY'|'EXACT_CAPACITY',
-                                            'ScalingAdjustment': 123,
-                                            'CoolDown': 123
+                                    \'Name\': \'string\',
+                                    \'Description\': \'string\',
+                                    \'Action\': {
+                                        \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                                        \'SimpleScalingPolicyConfiguration\': {
+                                            \'AdjustmentType\': \'CHANGE_IN_CAPACITY\'|\'PERCENT_CHANGE_IN_CAPACITY\'|\'EXACT_CAPACITY\',
+                                            \'ScalingAdjustment\': 123,
+                                            \'CoolDown\': 123
                                         }
                                     },
-                                    'Trigger': {
-                                        'CloudWatchAlarmDefinition': {
-                                            'ComparisonOperator': 'GREATER_THAN_OR_EQUAL'|'GREATER_THAN'|'LESS_THAN'|'LESS_THAN_OR_EQUAL',
-                                            'EvaluationPeriods': 123,
-                                            'MetricName': 'string',
-                                            'Namespace': 'string',
-                                            'Period': 123,
-                                            'Statistic': 'SAMPLE_COUNT'|'AVERAGE'|'SUM'|'MINIMUM'|'MAXIMUM',
-                                            'Threshold': 123.0,
-                                            'Unit': 'NONE'|'SECONDS'|'MICRO_SECONDS'|'MILLI_SECONDS'|'BYTES'|'KILO_BYTES'|'MEGA_BYTES'|'GIGA_BYTES'|'TERA_BYTES'|'BITS'|'KILO_BITS'|'MEGA_BITS'|'GIGA_BITS'|'TERA_BITS'|'PERCENT'|'COUNT'|'BYTES_PER_SECOND'|'KILO_BYTES_PER_SECOND'|'MEGA_BYTES_PER_SECOND'|'GIGA_BYTES_PER_SECOND'|'TERA_BYTES_PER_SECOND'|'BITS_PER_SECOND'|'KILO_BITS_PER_SECOND'|'MEGA_BITS_PER_SECOND'|'GIGA_BITS_PER_SECOND'|'TERA_BITS_PER_SECOND'|'COUNT_PER_SECOND',
-                                            'Dimensions': [
+                                    \'Trigger\': {
+                                        \'CloudWatchAlarmDefinition\': {
+                                            \'ComparisonOperator\': \'GREATER_THAN_OR_EQUAL\'|\'GREATER_THAN\'|\'LESS_THAN\'|\'LESS_THAN_OR_EQUAL\',
+                                            \'EvaluationPeriods\': 123,
+                                            \'MetricName\': \'string\',
+                                            \'Namespace\': \'string\',
+                                            \'Period\': 123,
+                                            \'Statistic\': \'SAMPLE_COUNT\'|\'AVERAGE\'|\'SUM\'|\'MINIMUM\'|\'MAXIMUM\',
+                                            \'Threshold\': 123.0,
+                                            \'Unit\': \'NONE\'|\'SECONDS\'|\'MICRO_SECONDS\'|\'MILLI_SECONDS\'|\'BYTES\'|\'KILO_BYTES\'|\'MEGA_BYTES\'|\'GIGA_BYTES\'|\'TERA_BYTES\'|\'BITS\'|\'KILO_BITS\'|\'MEGA_BITS\'|\'GIGA_BITS\'|\'TERA_BITS\'|\'PERCENT\'|\'COUNT\'|\'BYTES_PER_SECOND\'|\'KILO_BYTES_PER_SECOND\'|\'MEGA_BYTES_PER_SECOND\'|\'GIGA_BYTES_PER_SECOND\'|\'TERA_BYTES_PER_SECOND\'|\'BITS_PER_SECOND\'|\'KILO_BITS_PER_SECOND\'|\'MEGA_BITS_PER_SECOND\'|\'GIGA_BITS_PER_SECOND\'|\'TERA_BITS_PER_SECOND\'|\'COUNT_PER_SECOND\',
+                                            \'Dimensions\': [
                                                 {
-                                                    'Key': 'string',
-                                                    'Value': 'string'
+                                                    \'Key\': \'string\',
+                                                    \'Value\': \'string\'
                                                 },
                                             ]
                                         }
@@ -2741,7 +2741,7 @@ class Client(BaseClient):
                         }
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2989,7 +2989,7 @@ class Client(BaseClient):
         
                           - **ScalingAdjustment** *(integer) --* 
         
-                            The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+                            The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group\'s EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
         
                           - **CoolDown** *(integer) --* 
         
@@ -3067,17 +3067,17 @@ class Client(BaseClient):
         ::
         
           response = client.list_instances(
-              ClusterId='string',
-              InstanceGroupId='string',
+              ClusterId=\'string\',
+              InstanceGroupId=\'string\',
               InstanceGroupTypes=[
-                  'MASTER'|'CORE'|'TASK',
+                  \'MASTER\'|\'CORE\'|\'TASK\',
               ],
-              InstanceFleetId='string',
-              InstanceFleetType='MASTER'|'CORE'|'TASK',
+              InstanceFleetId=\'string\',
+              InstanceFleetType=\'MASTER\'|\'CORE\'|\'TASK\',
               InstanceStates=[
-                  'AWAITING_FULFILLMENT'|'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'TERMINATED',
+                  \'AWAITING_FULFILLMENT\'|\'PROVISIONING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'TERMINATED\',
               ],
-              Marker='string'
+              Marker=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -3126,39 +3126,39 @@ class Client(BaseClient):
           ::
         
             {
-                'Instances': [
+                \'Instances\': [
                     {
-                        'Id': 'string',
-                        'Ec2InstanceId': 'string',
-                        'PublicDnsName': 'string',
-                        'PublicIpAddress': 'string',
-                        'PrivateDnsName': 'string',
-                        'PrivateIpAddress': 'string',
-                        'Status': {
-                            'State': 'AWAITING_FULFILLMENT'|'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'TERMINATED',
-                            'StateChangeReason': {
-                                'Code': 'INTERNAL_ERROR'|'VALIDATION_ERROR'|'INSTANCE_FAILURE'|'BOOTSTRAP_FAILURE'|'CLUSTER_TERMINATED',
-                                'Message': 'string'
+                        \'Id\': \'string\',
+                        \'Ec2InstanceId\': \'string\',
+                        \'PublicDnsName\': \'string\',
+                        \'PublicIpAddress\': \'string\',
+                        \'PrivateDnsName\': \'string\',
+                        \'PrivateIpAddress\': \'string\',
+                        \'Status\': {
+                            \'State\': \'AWAITING_FULFILLMENT\'|\'PROVISIONING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'TERMINATED\',
+                            \'StateChangeReason\': {
+                                \'Code\': \'INTERNAL_ERROR\'|\'VALIDATION_ERROR\'|\'INSTANCE_FAILURE\'|\'BOOTSTRAP_FAILURE\'|\'CLUSTER_TERMINATED\',
+                                \'Message\': \'string\'
                             },
-                            'Timeline': {
-                                'CreationDateTime': datetime(2015, 1, 1),
-                                'ReadyDateTime': datetime(2015, 1, 1),
-                                'EndDateTime': datetime(2015, 1, 1)
+                            \'Timeline\': {
+                                \'CreationDateTime\': datetime(2015, 1, 1),
+                                \'ReadyDateTime\': datetime(2015, 1, 1),
+                                \'EndDateTime\': datetime(2015, 1, 1)
                             }
                         },
-                        'InstanceGroupId': 'string',
-                        'InstanceFleetId': 'string',
-                        'Market': 'ON_DEMAND'|'SPOT',
-                        'InstanceType': 'string',
-                        'EbsVolumes': [
+                        \'InstanceGroupId\': \'string\',
+                        \'InstanceFleetId\': \'string\',
+                        \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                        \'InstanceType\': \'string\',
+                        \'EbsVolumes\': [
                             {
-                                'Device': 'string',
-                                'VolumeId': 'string'
+                                \'Device\': \'string\',
+                                \'VolumeId\': \'string\'
                             },
                         ]
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -3256,7 +3256,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    EBS block device that's attached to an EC2 instance.
+                    EBS block device that\'s attached to an EC2 instance.
         
                     - **Device** *(string) --* 
         
@@ -3282,7 +3282,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_security_configurations(
-              Marker='string'
+              Marker=\'string\'
           )
         :type Marker: string
         :param Marker: 
@@ -3297,13 +3297,13 @@ class Client(BaseClient):
           ::
         
             {
-                'SecurityConfigurations': [
+                \'SecurityConfigurations\': [
                     {
-                        'Name': 'string',
-                        'CreationDateTime': datetime(2015, 1, 1)
+                        \'Name\': \'string\',
+                        \'CreationDateTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -3341,14 +3341,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_steps(
-              ClusterId='string',
+              ClusterId=\'string\',
               StepStates=[
-                  'PENDING'|'CANCEL_PENDING'|'RUNNING'|'COMPLETED'|'CANCELLED'|'FAILED'|'INTERRUPTED',
+                  \'PENDING\'|\'CANCEL_PENDING\'|\'RUNNING\'|\'COMPLETED\'|\'CANCELLED\'|\'FAILED\'|\'INTERRUPTED\',
               ],
               StepIds=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string'
+              Marker=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -3382,41 +3382,41 @@ class Client(BaseClient):
           ::
         
             {
-                'Steps': [
+                \'Steps\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Config': {
-                            'Jar': 'string',
-                            'Properties': {
-                                'string': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Config\': {
+                            \'Jar\': \'string\',
+                            \'Properties\': {
+                                \'string\': \'string\'
                             },
-                            'MainClass': 'string',
-                            'Args': [
-                                'string',
+                            \'MainClass\': \'string\',
+                            \'Args\': [
+                                \'string\',
                             ]
                         },
-                        'ActionOnFailure': 'TERMINATE_JOB_FLOW'|'TERMINATE_CLUSTER'|'CANCEL_AND_WAIT'|'CONTINUE',
-                        'Status': {
-                            'State': 'PENDING'|'CANCEL_PENDING'|'RUNNING'|'COMPLETED'|'CANCELLED'|'FAILED'|'INTERRUPTED',
-                            'StateChangeReason': {
-                                'Code': 'NONE',
-                                'Message': 'string'
+                        \'ActionOnFailure\': \'TERMINATE_JOB_FLOW\'|\'TERMINATE_CLUSTER\'|\'CANCEL_AND_WAIT\'|\'CONTINUE\',
+                        \'Status\': {
+                            \'State\': \'PENDING\'|\'CANCEL_PENDING\'|\'RUNNING\'|\'COMPLETED\'|\'CANCELLED\'|\'FAILED\'|\'INTERRUPTED\',
+                            \'StateChangeReason\': {
+                                \'Code\': \'NONE\',
+                                \'Message\': \'string\'
                             },
-                            'FailureDetails': {
-                                'Reason': 'string',
-                                'Message': 'string',
-                                'LogFile': 'string'
+                            \'FailureDetails\': {
+                                \'Reason\': \'string\',
+                                \'Message\': \'string\',
+                                \'LogFile\': \'string\'
                             },
-                            'Timeline': {
-                                'CreationDateTime': datetime(2015, 1, 1),
-                                'StartDateTime': datetime(2015, 1, 1),
-                                'EndDateTime': datetime(2015, 1, 1)
+                            \'Timeline\': {
+                                \'CreationDateTime\': datetime(2015, 1, 1),
+                                \'StartDateTime\': datetime(2015, 1, 1),
+                                \'EndDateTime\': datetime(2015, 1, 1)
                             }
                         }
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -3462,7 +3462,7 @@ class Client(BaseClient):
         
                   - **Args** *(list) --* 
         
-                    The list of command line arguments to pass to the JAR file's main function for execution.
+                    The list of command line arguments to pass to the JAR file\'s main function for execution.
         
                     - *(string) --* 
                 
@@ -3496,7 +3496,7 @@ class Client(BaseClient):
         
                     - **Reason** *(string) --* 
         
-                      The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns "Unknown Error" as a reason.
+                      The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns \"Unknown Error\" as a reason.
         
                     - **Message** *(string) --* 
         
@@ -3542,11 +3542,11 @@ class Client(BaseClient):
         ::
         
           response = client.modify_instance_fleet(
-              ClusterId='string',
+              ClusterId=\'string\',
               InstanceFleet={
-                  'InstanceFleetId': 'string',
-                  'TargetOnDemandCapacity': 123,
-                  'TargetSpotCapacity': 123
+                  \'InstanceFleetId\': \'string\',
+                  \'TargetOnDemandCapacity\': 123,
+                  \'TargetSpotCapacity\': 123
               }
           )
         :type ClusterId: string
@@ -3584,24 +3584,24 @@ class Client(BaseClient):
         ::
         
           response = client.modify_instance_groups(
-              ClusterId='string',
+              ClusterId=\'string\',
               InstanceGroups=[
                   {
-                      'InstanceGroupId': 'string',
-                      'InstanceCount': 123,
-                      'EC2InstanceIdsToTerminate': [
-                          'string',
+                      \'InstanceGroupId\': \'string\',
+                      \'InstanceCount\': 123,
+                      \'EC2InstanceIdsToTerminate\': [
+                          \'string\',
                       ],
-                      'ShrinkPolicy': {
-                          'DecommissionTimeout': 123,
-                          'InstanceResizePolicy': {
-                              'InstancesToTerminate': [
-                                  'string',
+                      \'ShrinkPolicy\': {
+                          \'DecommissionTimeout\': 123,
+                          \'InstanceResizePolicy\': {
+                              \'InstancesToTerminate\': [
+                                  \'string\',
                               ],
-                              'InstancesToProtect': [
-                                  'string',
+                              \'InstancesToProtect\': [
+                                  \'string\',
                               ],
-                              'InstanceTerminationTimeout': 123
+                              \'InstanceTerminationTimeout\': 123
                           }
                       }
                   },
@@ -3676,39 +3676,39 @@ class Client(BaseClient):
         ::
         
           response = client.put_auto_scaling_policy(
-              ClusterId='string',
-              InstanceGroupId='string',
+              ClusterId=\'string\',
+              InstanceGroupId=\'string\',
               AutoScalingPolicy={
-                  'Constraints': {
-                      'MinCapacity': 123,
-                      'MaxCapacity': 123
+                  \'Constraints\': {
+                      \'MinCapacity\': 123,
+                      \'MaxCapacity\': 123
                   },
-                  'Rules': [
+                  \'Rules\': [
                       {
-                          'Name': 'string',
-                          'Description': 'string',
-                          'Action': {
-                              'Market': 'ON_DEMAND'|'SPOT',
-                              'SimpleScalingPolicyConfiguration': {
-                                  'AdjustmentType': 'CHANGE_IN_CAPACITY'|'PERCENT_CHANGE_IN_CAPACITY'|'EXACT_CAPACITY',
-                                  'ScalingAdjustment': 123,
-                                  'CoolDown': 123
+                          \'Name\': \'string\',
+                          \'Description\': \'string\',
+                          \'Action\': {
+                              \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                              \'SimpleScalingPolicyConfiguration\': {
+                                  \'AdjustmentType\': \'CHANGE_IN_CAPACITY\'|\'PERCENT_CHANGE_IN_CAPACITY\'|\'EXACT_CAPACITY\',
+                                  \'ScalingAdjustment\': 123,
+                                  \'CoolDown\': 123
                               }
                           },
-                          'Trigger': {
-                              'CloudWatchAlarmDefinition': {
-                                  'ComparisonOperator': 'GREATER_THAN_OR_EQUAL'|'GREATER_THAN'|'LESS_THAN'|'LESS_THAN_OR_EQUAL',
-                                  'EvaluationPeriods': 123,
-                                  'MetricName': 'string',
-                                  'Namespace': 'string',
-                                  'Period': 123,
-                                  'Statistic': 'SAMPLE_COUNT'|'AVERAGE'|'SUM'|'MINIMUM'|'MAXIMUM',
-                                  'Threshold': 123.0,
-                                  'Unit': 'NONE'|'SECONDS'|'MICRO_SECONDS'|'MILLI_SECONDS'|'BYTES'|'KILO_BYTES'|'MEGA_BYTES'|'GIGA_BYTES'|'TERA_BYTES'|'BITS'|'KILO_BITS'|'MEGA_BITS'|'GIGA_BITS'|'TERA_BITS'|'PERCENT'|'COUNT'|'BYTES_PER_SECOND'|'KILO_BYTES_PER_SECOND'|'MEGA_BYTES_PER_SECOND'|'GIGA_BYTES_PER_SECOND'|'TERA_BYTES_PER_SECOND'|'BITS_PER_SECOND'|'KILO_BITS_PER_SECOND'|'MEGA_BITS_PER_SECOND'|'GIGA_BITS_PER_SECOND'|'TERA_BITS_PER_SECOND'|'COUNT_PER_SECOND',
-                                  'Dimensions': [
+                          \'Trigger\': {
+                              \'CloudWatchAlarmDefinition\': {
+                                  \'ComparisonOperator\': \'GREATER_THAN_OR_EQUAL\'|\'GREATER_THAN\'|\'LESS_THAN\'|\'LESS_THAN_OR_EQUAL\',
+                                  \'EvaluationPeriods\': 123,
+                                  \'MetricName\': \'string\',
+                                  \'Namespace\': \'string\',
+                                  \'Period\': 123,
+                                  \'Statistic\': \'SAMPLE_COUNT\'|\'AVERAGE\'|\'SUM\'|\'MINIMUM\'|\'MAXIMUM\',
+                                  \'Threshold\': 123.0,
+                                  \'Unit\': \'NONE\'|\'SECONDS\'|\'MICRO_SECONDS\'|\'MILLI_SECONDS\'|\'BYTES\'|\'KILO_BYTES\'|\'MEGA_BYTES\'|\'GIGA_BYTES\'|\'TERA_BYTES\'|\'BITS\'|\'KILO_BITS\'|\'MEGA_BITS\'|\'GIGA_BITS\'|\'TERA_BITS\'|\'PERCENT\'|\'COUNT\'|\'BYTES_PER_SECOND\'|\'KILO_BYTES_PER_SECOND\'|\'MEGA_BYTES_PER_SECOND\'|\'GIGA_BYTES_PER_SECOND\'|\'TERA_BYTES_PER_SECOND\'|\'BITS_PER_SECOND\'|\'KILO_BITS_PER_SECOND\'|\'MEGA_BITS_PER_SECOND\'|\'GIGA_BITS_PER_SECOND\'|\'TERA_BITS_PER_SECOND\'|\'COUNT_PER_SECOND\',
+                                  \'Dimensions\': [
                                       {
-                                          'Key': 'string',
-                                          'Value': 'string'
+                                          \'Key\': \'string\',
+                                          \'Value\': \'string\'
                                       },
                                   ]
                               }
@@ -3778,7 +3778,7 @@ class Client(BaseClient):
         
                   - **ScalingAdjustment** *(integer) --* **[REQUIRED]** 
         
-                    The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+                    The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group\'s EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
         
                   - **CoolDown** *(integer) --* 
         
@@ -3848,46 +3848,46 @@ class Client(BaseClient):
           ::
         
             {
-                'ClusterId': 'string',
-                'InstanceGroupId': 'string',
-                'AutoScalingPolicy': {
-                    'Status': {
-                        'State': 'PENDING'|'ATTACHING'|'ATTACHED'|'DETACHING'|'DETACHED'|'FAILED',
-                        'StateChangeReason': {
-                            'Code': 'USER_REQUEST'|'PROVISION_FAILURE'|'CLEANUP_FAILURE',
-                            'Message': 'string'
+                \'ClusterId\': \'string\',
+                \'InstanceGroupId\': \'string\',
+                \'AutoScalingPolicy\': {
+                    \'Status\': {
+                        \'State\': \'PENDING\'|\'ATTACHING\'|\'ATTACHED\'|\'DETACHING\'|\'DETACHED\'|\'FAILED\',
+                        \'StateChangeReason\': {
+                            \'Code\': \'USER_REQUEST\'|\'PROVISION_FAILURE\'|\'CLEANUP_FAILURE\',
+                            \'Message\': \'string\'
                         }
                     },
-                    'Constraints': {
-                        'MinCapacity': 123,
-                        'MaxCapacity': 123
+                    \'Constraints\': {
+                        \'MinCapacity\': 123,
+                        \'MaxCapacity\': 123
                     },
-                    'Rules': [
+                    \'Rules\': [
                         {
-                            'Name': 'string',
-                            'Description': 'string',
-                            'Action': {
-                                'Market': 'ON_DEMAND'|'SPOT',
-                                'SimpleScalingPolicyConfiguration': {
-                                    'AdjustmentType': 'CHANGE_IN_CAPACITY'|'PERCENT_CHANGE_IN_CAPACITY'|'EXACT_CAPACITY',
-                                    'ScalingAdjustment': 123,
-                                    'CoolDown': 123
+                            \'Name\': \'string\',
+                            \'Description\': \'string\',
+                            \'Action\': {
+                                \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                                \'SimpleScalingPolicyConfiguration\': {
+                                    \'AdjustmentType\': \'CHANGE_IN_CAPACITY\'|\'PERCENT_CHANGE_IN_CAPACITY\'|\'EXACT_CAPACITY\',
+                                    \'ScalingAdjustment\': 123,
+                                    \'CoolDown\': 123
                                 }
                             },
-                            'Trigger': {
-                                'CloudWatchAlarmDefinition': {
-                                    'ComparisonOperator': 'GREATER_THAN_OR_EQUAL'|'GREATER_THAN'|'LESS_THAN'|'LESS_THAN_OR_EQUAL',
-                                    'EvaluationPeriods': 123,
-                                    'MetricName': 'string',
-                                    'Namespace': 'string',
-                                    'Period': 123,
-                                    'Statistic': 'SAMPLE_COUNT'|'AVERAGE'|'SUM'|'MINIMUM'|'MAXIMUM',
-                                    'Threshold': 123.0,
-                                    'Unit': 'NONE'|'SECONDS'|'MICRO_SECONDS'|'MILLI_SECONDS'|'BYTES'|'KILO_BYTES'|'MEGA_BYTES'|'GIGA_BYTES'|'TERA_BYTES'|'BITS'|'KILO_BITS'|'MEGA_BITS'|'GIGA_BITS'|'TERA_BITS'|'PERCENT'|'COUNT'|'BYTES_PER_SECOND'|'KILO_BYTES_PER_SECOND'|'MEGA_BYTES_PER_SECOND'|'GIGA_BYTES_PER_SECOND'|'TERA_BYTES_PER_SECOND'|'BITS_PER_SECOND'|'KILO_BITS_PER_SECOND'|'MEGA_BITS_PER_SECOND'|'GIGA_BITS_PER_SECOND'|'TERA_BITS_PER_SECOND'|'COUNT_PER_SECOND',
-                                    'Dimensions': [
+                            \'Trigger\': {
+                                \'CloudWatchAlarmDefinition\': {
+                                    \'ComparisonOperator\': \'GREATER_THAN_OR_EQUAL\'|\'GREATER_THAN\'|\'LESS_THAN\'|\'LESS_THAN_OR_EQUAL\',
+                                    \'EvaluationPeriods\': 123,
+                                    \'MetricName\': \'string\',
+                                    \'Namespace\': \'string\',
+                                    \'Period\': 123,
+                                    \'Statistic\': \'SAMPLE_COUNT\'|\'AVERAGE\'|\'SUM\'|\'MINIMUM\'|\'MAXIMUM\',
+                                    \'Threshold\': 123.0,
+                                    \'Unit\': \'NONE\'|\'SECONDS\'|\'MICRO_SECONDS\'|\'MILLI_SECONDS\'|\'BYTES\'|\'KILO_BYTES\'|\'MEGA_BYTES\'|\'GIGA_BYTES\'|\'TERA_BYTES\'|\'BITS\'|\'KILO_BITS\'|\'MEGA_BITS\'|\'GIGA_BITS\'|\'TERA_BITS\'|\'PERCENT\'|\'COUNT\'|\'BYTES_PER_SECOND\'|\'KILO_BYTES_PER_SECOND\'|\'MEGA_BYTES_PER_SECOND\'|\'GIGA_BYTES_PER_SECOND\'|\'TERA_BYTES_PER_SECOND\'|\'BITS_PER_SECOND\'|\'KILO_BITS_PER_SECOND\'|\'MEGA_BITS_PER_SECOND\'|\'GIGA_BITS_PER_SECOND\'|\'TERA_BITS_PER_SECOND\'|\'COUNT_PER_SECOND\',
+                                    \'Dimensions\': [
                                         {
-                                            'Key': 'string',
-                                            'Value': 'string'
+                                            \'Key\': \'string\',
+                                            \'Value\': \'string\'
                                         },
                                     ]
                                 }
@@ -3978,7 +3978,7 @@ class Client(BaseClient):
         
                       - **ScalingAdjustment** *(integer) --* 
         
-                        The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+                        The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group\'s EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
         
                       - **CoolDown** *(integer) --* 
         
@@ -4052,8 +4052,8 @@ class Client(BaseClient):
         ::
         
           response = client.remove_auto_scaling_policy(
-              ClusterId='string',
-              InstanceGroupId='string'
+              ClusterId=\'string\',
+              InstanceGroupId=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -4090,9 +4090,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags(
-              ResourceId='string',
+              ResourceId=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceId: string
@@ -4145,76 +4145,76 @@ class Client(BaseClient):
         ::
         
           response = client.run_job_flow(
-              Name='string',
-              LogUri='string',
-              AdditionalInfo='string',
-              AmiVersion='string',
-              ReleaseLabel='string',
+              Name=\'string\',
+              LogUri=\'string\',
+              AdditionalInfo=\'string\',
+              AmiVersion=\'string\',
+              ReleaseLabel=\'string\',
               Instances={
-                  'MasterInstanceType': 'string',
-                  'SlaveInstanceType': 'string',
-                  'InstanceCount': 123,
-                  'InstanceGroups': [
+                  \'MasterInstanceType\': \'string\',
+                  \'SlaveInstanceType\': \'string\',
+                  \'InstanceCount\': 123,
+                  \'InstanceGroups\': [
                       {
-                          'Name': 'string',
-                          'Market': 'ON_DEMAND'|'SPOT',
-                          'InstanceRole': 'MASTER'|'CORE'|'TASK',
-                          'BidPrice': 'string',
-                          'InstanceType': 'string',
-                          'InstanceCount': 123,
-                          'Configurations': [
+                          \'Name\': \'string\',
+                          \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                          \'InstanceRole\': \'MASTER\'|\'CORE\'|\'TASK\',
+                          \'BidPrice\': \'string\',
+                          \'InstanceType\': \'string\',
+                          \'InstanceCount\': 123,
+                          \'Configurations\': [
                               {
-                                  'Classification': 'string',
-                                  'Configurations': {'... recursive ...'},
-                                  'Properties': {
-                                      'string': 'string'
+                                  \'Classification\': \'string\',
+                                  \'Configurations\': {\'... recursive ...\'},
+                                  \'Properties\': {
+                                      \'string\': \'string\'
                                   }
                               },
                           ],
-                          'EbsConfiguration': {
-                              'EbsBlockDeviceConfigs': [
+                          \'EbsConfiguration\': {
+                              \'EbsBlockDeviceConfigs\': [
                                   {
-                                      'VolumeSpecification': {
-                                          'VolumeType': 'string',
-                                          'Iops': 123,
-                                          'SizeInGB': 123
+                                      \'VolumeSpecification\': {
+                                          \'VolumeType\': \'string\',
+                                          \'Iops\': 123,
+                                          \'SizeInGB\': 123
                                       },
-                                      'VolumesPerInstance': 123
+                                      \'VolumesPerInstance\': 123
                                   },
                               ],
-                              'EbsOptimized': True|False
+                              \'EbsOptimized\': True|False
                           },
-                          'AutoScalingPolicy': {
-                              'Constraints': {
-                                  'MinCapacity': 123,
-                                  'MaxCapacity': 123
+                          \'AutoScalingPolicy\': {
+                              \'Constraints\': {
+                                  \'MinCapacity\': 123,
+                                  \'MaxCapacity\': 123
                               },
-                              'Rules': [
+                              \'Rules\': [
                                   {
-                                      'Name': 'string',
-                                      'Description': 'string',
-                                      'Action': {
-                                          'Market': 'ON_DEMAND'|'SPOT',
-                                          'SimpleScalingPolicyConfiguration': {
-                                              'AdjustmentType': 'CHANGE_IN_CAPACITY'|'PERCENT_CHANGE_IN_CAPACITY'|'EXACT_CAPACITY',
-                                              'ScalingAdjustment': 123,
-                                              'CoolDown': 123
+                                      \'Name\': \'string\',
+                                      \'Description\': \'string\',
+                                      \'Action\': {
+                                          \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                                          \'SimpleScalingPolicyConfiguration\': {
+                                              \'AdjustmentType\': \'CHANGE_IN_CAPACITY\'|\'PERCENT_CHANGE_IN_CAPACITY\'|\'EXACT_CAPACITY\',
+                                              \'ScalingAdjustment\': 123,
+                                              \'CoolDown\': 123
                                           }
                                       },
-                                      'Trigger': {
-                                          'CloudWatchAlarmDefinition': {
-                                              'ComparisonOperator': 'GREATER_THAN_OR_EQUAL'|'GREATER_THAN'|'LESS_THAN'|'LESS_THAN_OR_EQUAL',
-                                              'EvaluationPeriods': 123,
-                                              'MetricName': 'string',
-                                              'Namespace': 'string',
-                                              'Period': 123,
-                                              'Statistic': 'SAMPLE_COUNT'|'AVERAGE'|'SUM'|'MINIMUM'|'MAXIMUM',
-                                              'Threshold': 123.0,
-                                              'Unit': 'NONE'|'SECONDS'|'MICRO_SECONDS'|'MILLI_SECONDS'|'BYTES'|'KILO_BYTES'|'MEGA_BYTES'|'GIGA_BYTES'|'TERA_BYTES'|'BITS'|'KILO_BITS'|'MEGA_BITS'|'GIGA_BITS'|'TERA_BITS'|'PERCENT'|'COUNT'|'BYTES_PER_SECOND'|'KILO_BYTES_PER_SECOND'|'MEGA_BYTES_PER_SECOND'|'GIGA_BYTES_PER_SECOND'|'TERA_BYTES_PER_SECOND'|'BITS_PER_SECOND'|'KILO_BITS_PER_SECOND'|'MEGA_BITS_PER_SECOND'|'GIGA_BITS_PER_SECOND'|'TERA_BITS_PER_SECOND'|'COUNT_PER_SECOND',
-                                              'Dimensions': [
+                                      \'Trigger\': {
+                                          \'CloudWatchAlarmDefinition\': {
+                                              \'ComparisonOperator\': \'GREATER_THAN_OR_EQUAL\'|\'GREATER_THAN\'|\'LESS_THAN\'|\'LESS_THAN_OR_EQUAL\',
+                                              \'EvaluationPeriods\': 123,
+                                              \'MetricName\': \'string\',
+                                              \'Namespace\': \'string\',
+                                              \'Period\': 123,
+                                              \'Statistic\': \'SAMPLE_COUNT\'|\'AVERAGE\'|\'SUM\'|\'MINIMUM\'|\'MAXIMUM\',
+                                              \'Threshold\': 123.0,
+                                              \'Unit\': \'NONE\'|\'SECONDS\'|\'MICRO_SECONDS\'|\'MILLI_SECONDS\'|\'BYTES\'|\'KILO_BYTES\'|\'MEGA_BYTES\'|\'GIGA_BYTES\'|\'TERA_BYTES\'|\'BITS\'|\'KILO_BITS\'|\'MEGA_BITS\'|\'GIGA_BITS\'|\'TERA_BITS\'|\'PERCENT\'|\'COUNT\'|\'BYTES_PER_SECOND\'|\'KILO_BYTES_PER_SECOND\'|\'MEGA_BYTES_PER_SECOND\'|\'GIGA_BYTES_PER_SECOND\'|\'TERA_BYTES_PER_SECOND\'|\'BITS_PER_SECOND\'|\'KILO_BITS_PER_SECOND\'|\'MEGA_BITS_PER_SECOND\'|\'GIGA_BITS_PER_SECOND\'|\'TERA_BITS_PER_SECOND\'|\'COUNT_PER_SECOND\',
+                                              \'Dimensions\': [
                                                   {
-                                                      'Key': 'string',
-                                                      'Value': 'string'
+                                                      \'Key\': \'string\',
+                                                      \'Value\': \'string\'
                                                   },
                                               ]
                                           }
@@ -4224,158 +4224,158 @@ class Client(BaseClient):
                           }
                       },
                   ],
-                  'InstanceFleets': [
+                  \'InstanceFleets\': [
                       {
-                          'Name': 'string',
-                          'InstanceFleetType': 'MASTER'|'CORE'|'TASK',
-                          'TargetOnDemandCapacity': 123,
-                          'TargetSpotCapacity': 123,
-                          'InstanceTypeConfigs': [
+                          \'Name\': \'string\',
+                          \'InstanceFleetType\': \'MASTER\'|\'CORE\'|\'TASK\',
+                          \'TargetOnDemandCapacity\': 123,
+                          \'TargetSpotCapacity\': 123,
+                          \'InstanceTypeConfigs\': [
                               {
-                                  'InstanceType': 'string',
-                                  'WeightedCapacity': 123,
-                                  'BidPrice': 'string',
-                                  'BidPriceAsPercentageOfOnDemandPrice': 123.0,
-                                  'EbsConfiguration': {
-                                      'EbsBlockDeviceConfigs': [
+                                  \'InstanceType\': \'string\',
+                                  \'WeightedCapacity\': 123,
+                                  \'BidPrice\': \'string\',
+                                  \'BidPriceAsPercentageOfOnDemandPrice\': 123.0,
+                                  \'EbsConfiguration\': {
+                                      \'EbsBlockDeviceConfigs\': [
                                           {
-                                              'VolumeSpecification': {
-                                                  'VolumeType': 'string',
-                                                  'Iops': 123,
-                                                  'SizeInGB': 123
+                                              \'VolumeSpecification\': {
+                                                  \'VolumeType\': \'string\',
+                                                  \'Iops\': 123,
+                                                  \'SizeInGB\': 123
                                               },
-                                              'VolumesPerInstance': 123
+                                              \'VolumesPerInstance\': 123
                                           },
                                       ],
-                                      'EbsOptimized': True|False
+                                      \'EbsOptimized\': True|False
                                   },
-                                  'Configurations': [
+                                  \'Configurations\': [
                                       {
-                                          'Classification': 'string',
-                                          'Configurations': {'... recursive ...'},
-                                          'Properties': {
-                                              'string': 'string'
+                                          \'Classification\': \'string\',
+                                          \'Configurations\': {\'... recursive ...\'},
+                                          \'Properties\': {
+                                              \'string\': \'string\'
                                           }
                                       },
                                   ]
                               },
                           ],
-                          'LaunchSpecifications': {
-                              'SpotSpecification': {
-                                  'TimeoutDurationMinutes': 123,
-                                  'TimeoutAction': 'SWITCH_TO_ON_DEMAND'|'TERMINATE_CLUSTER',
-                                  'BlockDurationMinutes': 123
+                          \'LaunchSpecifications\': {
+                              \'SpotSpecification\': {
+                                  \'TimeoutDurationMinutes\': 123,
+                                  \'TimeoutAction\': \'SWITCH_TO_ON_DEMAND\'|\'TERMINATE_CLUSTER\',
+                                  \'BlockDurationMinutes\': 123
                               }
                           }
                       },
                   ],
-                  'Ec2KeyName': 'string',
-                  'Placement': {
-                      'AvailabilityZone': 'string',
-                      'AvailabilityZones': [
-                          'string',
+                  \'Ec2KeyName\': \'string\',
+                  \'Placement\': {
+                      \'AvailabilityZone\': \'string\',
+                      \'AvailabilityZones\': [
+                          \'string\',
                       ]
                   },
-                  'KeepJobFlowAliveWhenNoSteps': True|False,
-                  'TerminationProtected': True|False,
-                  'HadoopVersion': 'string',
-                  'Ec2SubnetId': 'string',
-                  'Ec2SubnetIds': [
-                      'string',
+                  \'KeepJobFlowAliveWhenNoSteps\': True|False,
+                  \'TerminationProtected\': True|False,
+                  \'HadoopVersion\': \'string\',
+                  \'Ec2SubnetId\': \'string\',
+                  \'Ec2SubnetIds\': [
+                      \'string\',
                   ],
-                  'EmrManagedMasterSecurityGroup': 'string',
-                  'EmrManagedSlaveSecurityGroup': 'string',
-                  'ServiceAccessSecurityGroup': 'string',
-                  'AdditionalMasterSecurityGroups': [
-                      'string',
+                  \'EmrManagedMasterSecurityGroup\': \'string\',
+                  \'EmrManagedSlaveSecurityGroup\': \'string\',
+                  \'ServiceAccessSecurityGroup\': \'string\',
+                  \'AdditionalMasterSecurityGroups\': [
+                      \'string\',
                   ],
-                  'AdditionalSlaveSecurityGroups': [
-                      'string',
+                  \'AdditionalSlaveSecurityGroups\': [
+                      \'string\',
                   ]
               },
               Steps=[
                   {
-                      'Name': 'string',
-                      'ActionOnFailure': 'TERMINATE_JOB_FLOW'|'TERMINATE_CLUSTER'|'CANCEL_AND_WAIT'|'CONTINUE',
-                      'HadoopJarStep': {
-                          'Properties': [
+                      \'Name\': \'string\',
+                      \'ActionOnFailure\': \'TERMINATE_JOB_FLOW\'|\'TERMINATE_CLUSTER\'|\'CANCEL_AND_WAIT\'|\'CONTINUE\',
+                      \'HadoopJarStep\': {
+                          \'Properties\': [
                               {
-                                  'Key': 'string',
-                                  'Value': 'string'
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ],
-                          'Jar': 'string',
-                          'MainClass': 'string',
-                          'Args': [
-                              'string',
+                          \'Jar\': \'string\',
+                          \'MainClass\': \'string\',
+                          \'Args\': [
+                              \'string\',
                           ]
                       }
                   },
               ],
               BootstrapActions=[
                   {
-                      'Name': 'string',
-                      'ScriptBootstrapAction': {
-                          'Path': 'string',
-                          'Args': [
-                              'string',
+                      \'Name\': \'string\',
+                      \'ScriptBootstrapAction\': {
+                          \'Path\': \'string\',
+                          \'Args\': [
+                              \'string\',
                           ]
                       }
                   },
               ],
               SupportedProducts=[
-                  'string',
+                  \'string\',
               ],
               NewSupportedProducts=[
                   {
-                      'Name': 'string',
-                      'Args': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Args\': [
+                          \'string\',
                       ]
                   },
               ],
               Applications=[
                   {
-                      'Name': 'string',
-                      'Version': 'string',
-                      'Args': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Version\': \'string\',
+                      \'Args\': [
+                          \'string\',
                       ],
-                      'AdditionalInfo': {
-                          'string': 'string'
+                      \'AdditionalInfo\': {
+                          \'string\': \'string\'
                       }
                   },
               ],
               Configurations=[
                   {
-                      'Classification': 'string',
-                      'Configurations': {'... recursive ...'},
-                      'Properties': {
-                          'string': 'string'
+                      \'Classification\': \'string\',
+                      \'Configurations\': {\'... recursive ...\'},
+                      \'Properties\': {
+                          \'string\': \'string\'
                       }
                   },
               ],
               VisibleToAllUsers=True|False,
-              JobFlowRole='string',
-              ServiceRole='string',
+              JobFlowRole=\'string\',
+              ServiceRole=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              SecurityConfiguration='string',
-              AutoScalingRole='string',
-              ScaleDownBehavior='TERMINATE_AT_INSTANCE_HOUR'|'TERMINATE_AT_TASK_COMPLETION',
-              CustomAmiId='string',
+              SecurityConfiguration=\'string\',
+              AutoScalingRole=\'string\',
+              ScaleDownBehavior=\'TERMINATE_AT_INSTANCE_HOUR\'|\'TERMINATE_AT_TASK_COMPLETION\',
+              CustomAmiId=\'string\',
               EbsRootVolumeSize=123,
-              RepoUpgradeOnBoot='SECURITY'|'NONE',
+              RepoUpgradeOnBoot=\'SECURITY\'|\'NONE\',
               KerberosAttributes={
-                  'Realm': 'string',
-                  'KdcAdminPassword': 'string',
-                  'CrossRealmTrustPrincipalPassword': 'string',
-                  'ADDomainJoinUser': 'string',
-                  'ADDomainJoinPassword': 'string'
+                  \'Realm\': \'string\',
+                  \'KdcAdminPassword\': \'string\',
+                  \'CrossRealmTrustPrincipalPassword\': \'string\',
+                  \'ADDomainJoinUser\': \'string\',
+                  \'ADDomainJoinPassword\': \'string\'
               }
           )
         :type Name: string
@@ -4572,7 +4572,7 @@ class Client(BaseClient):
         
                         - **ScalingAdjustment** *(integer) --* **[REQUIRED]** 
         
-                          The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+                          The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group\'s EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
         
                         - **CoolDown** *(integer) --* 
         
@@ -4788,7 +4788,7 @@ class Client(BaseClient):
         
           - **Ec2KeyName** *(string) --* 
         
-            The name of the EC2 key pair that can be used to ssh to the master node as the user called "hadoop."
+            The name of the EC2 key pair that can be used to ssh to the master node as the user called \"hadoop.\"
         
           - **Placement** *(dict) --* 
         
@@ -4818,7 +4818,7 @@ class Client(BaseClient):
         
           - **HadoopVersion** *(string) --* 
         
-            Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the ``AmiVersion`` parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+            Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are \"0.18\" (deprecated), \"0.20\" (deprecated), \"0.20.205\" (deprecated), \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do not set this value, the default of 0.18 is used, unless the ``AmiVersion`` parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
         
           - **Ec2SubnetId** *(string) --* 
         
@@ -4907,7 +4907,7 @@ class Client(BaseClient):
         
               - **Args** *(list) --* 
         
-                A list of command line arguments passed to the JAR file's main function when executed.
+                A list of command line arguments passed to the JAR file\'s main function when executed.
         
                 - *(string) --* 
         
@@ -4947,9 +4947,9 @@ class Client(BaseClient):
         
           A list of strings that indicates third-party software to use. For more information, see the `Amazon EMR Developer Guide <http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf>`__ . Currently supported values are:
         
-          * "mapr-m3" - launch the job flow using MapR M3 Edition. 
+          * \"mapr-m3\" - launch the job flow using MapR M3 Edition. 
            
-          * "mapr-m5" - launch the job flow using MapR M5 Edition. 
+          * \"mapr-m5\" - launch the job flow using MapR M5 Edition. 
            
           - *(string) --* 
         
@@ -4960,23 +4960,23 @@ class Client(BaseClient):
         
             For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.
         
-          A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see "Launch a Job Flow on the MapR Distribution for Hadoop" in the `Amazon EMR Developer Guide <http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf>`__ . Supported values are:
+          A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see \"Launch a Job Flow on the MapR Distribution for Hadoop\" in the `Amazon EMR Developer Guide <http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf>`__ . Supported values are:
         
-          * "mapr-m3" - launch the cluster using MapR M3 Edition. 
+          * \"mapr-m3\" - launch the cluster using MapR M3 Edition. 
            
-          * "mapr-m5" - launch the cluster using MapR M5 Edition. 
+          * \"mapr-m5\" - launch the cluster using MapR M5 Edition. 
            
-          * "mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition respectively. 
+          * \"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition respectively. 
            
-          * "mapr-m7" - launch the cluster using MapR M7 Edition. 
+          * \"mapr-m7\" - launch the cluster using MapR M7 Edition. 
            
-          * "hunk" - launch the cluster with the Hunk Big Data Analtics Platform. 
+          * \"hunk\" - launch the cluster with the Hunk Big Data Analtics Platform. 
            
-          * "hue"- launch the cluster with Hue installed. 
+          * \"hue\"- launch the cluster with Hue installed. 
            
-          * "spark" - launch the cluster with Apache Spark installed. 
+          * \"spark\" - launch the cluster with Apache Spark installed. 
            
-          * "ganglia" - launch the cluster with the Ganglia Monitoring System installed. 
+          * \"ganglia\" - launch the cluster with the Ganglia Monitoring System installed. 
            
           - *(dict) --* 
         
@@ -4995,17 +4995,17 @@ class Client(BaseClient):
         :type Applications: list
         :param Applications: 
         
-          For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
+          For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: \"Hadoop\", \"Hive\", \"Mahout\", \"Pig\", and \"Spark.\" They are case insensitive.
         
           - *(dict) --* 
         
             An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument. For more information, see `Using the MapR Distribution for Hadoop <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-mapr.html>`__ . Currently supported values are:
         
-            * "mapr-m3" - launch the cluster using MapR M3 Edition. 
+            * \"mapr-m3\" - launch the cluster using MapR M3 Edition. 
              
-            * "mapr-m5" - launch the cluster using MapR M5 Edition. 
+            * \"mapr-m5\" - launch the cluster using MapR M5 Edition. 
              
-            * "mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the cluster using MapR M3 or M5 Edition, respectively. 
+            * \"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the cluster using MapR M3 or M5 Edition, respectively. 
              
             .. note::
         
@@ -5159,7 +5159,7 @@ class Client(BaseClient):
           ::
         
             {
-                'JobFlowId': 'string'
+                \'JobFlowId\': \'string\'
             }
           **Response Structure** 
         
@@ -5190,7 +5190,7 @@ class Client(BaseClient):
         
           response = client.set_termination_protection(
               JobFlowIds=[
-                  'string',
+                  \'string\',
               ],
               TerminationProtected=True|False
           )
@@ -5220,7 +5220,7 @@ class Client(BaseClient):
         
           response = client.set_visible_to_all_users(
               JobFlowIds=[
-                  'string',
+                  \'string\',
               ],
               VisibleToAllUsers=True|False
           )
@@ -5252,7 +5252,7 @@ class Client(BaseClient):
         
           response = client.terminate_job_flows(
               JobFlowIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type JobFlowIds: list

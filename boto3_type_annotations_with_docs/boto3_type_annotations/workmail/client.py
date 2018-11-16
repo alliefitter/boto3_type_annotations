@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -17,9 +17,9 @@ class Client(BaseClient):
         ::
         
           response = client.associate_delegate_to_resource(
-              OrganizationId='string',
-              ResourceId='string',
-              EntityId='string'
+              OrganizationId=\'string\',
+              ResourceId=\'string\',
+              EntityId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -59,9 +59,9 @@ class Client(BaseClient):
         ::
         
           response = client.associate_member_to_group(
-              OrganizationId='string',
-              GroupId='string',
-              MemberId='string'
+              OrganizationId=\'string\',
+              GroupId=\'string\',
+              MemberId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -98,10 +98,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -117,9 +117,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_alias(
-              OrganizationId='string',
-              EntityId='string',
-              Alias='string'
+              OrganizationId=\'string\',
+              EntityId=\'string\',
+              Alias=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -159,8 +159,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_group(
-              OrganizationId='string',
-              Name='string'
+              OrganizationId=\'string\',
+              Name=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -180,7 +180,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupId': 'string'
+                \'GroupId\': \'string\'
             }
           **Response Structure** 
         
@@ -202,9 +202,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_resource(
-              OrganizationId='string',
-              Name='string',
-              Type='ROOM'|'EQUIPMENT'
+              OrganizationId=\'string\',
+              Name=\'string\',
+              Type=\'ROOM\'|\'EQUIPMENT\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -229,7 +229,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceId': 'string'
+                \'ResourceId\': \'string\'
             }
           **Response Structure** 
         
@@ -251,10 +251,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_user(
-              OrganizationId='string',
-              Name='string',
-              DisplayName='string',
-              Password='string'
+              OrganizationId=\'string\',
+              Name=\'string\',
+              DisplayName=\'string\',
+              Password=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -284,7 +284,7 @@ class Client(BaseClient):
           ::
         
             {
-                'UserId': 'string'
+                \'UserId\': \'string\'
             }
           **Response Structure** 
         
@@ -306,9 +306,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_alias(
-              OrganizationId='string',
-              EntityId='string',
-              Alias='string'
+              OrganizationId=\'string\',
+              EntityId=\'string\',
+              Alias=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -323,7 +323,7 @@ class Client(BaseClient):
         :type Alias: string
         :param Alias: **[REQUIRED]** 
         
-          The aliases to be removed from the user's set of aliases. Duplicate entries in the list are collapsed into single entries (the list is transformed into a set).
+          The aliases to be removed from the user\'s set of aliases. Duplicate entries in the list are collapsed into single entries (the list is transformed into a set).
         
         :rtype: dict
         :returns: 
@@ -348,8 +348,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_group(
-              OrganizationId='string',
-              GroupId='string'
+              OrganizationId=\'string\',
+              GroupId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -384,9 +384,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_mailbox_permissions(
-              OrganizationId='string',
-              EntityId='string',
-              GranteeId='string'
+              OrganizationId=\'string\',
+              EntityId=\'string\',
+              GranteeId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -426,8 +426,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_resource(
-              OrganizationId='string',
-              ResourceId='string'
+              OrganizationId=\'string\',
+              ResourceId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -462,8 +462,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user(
-              OrganizationId='string',
-              UserId='string'
+              OrganizationId=\'string\',
+              UserId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -498,8 +498,8 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_from_work_mail(
-              OrganizationId='string',
-              EntityId='string'
+              OrganizationId=\'string\',
+              EntityId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -534,8 +534,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_group(
-              OrganizationId='string',
-              GroupId='string'
+              OrganizationId=\'string\',
+              GroupId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -555,12 +555,12 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupId': 'string',
-                'Name': 'string',
-                'Email': 'string',
-                'State': 'ENABLED'|'DISABLED'|'DELETED',
-                'EnabledDate': datetime(2015, 1, 1),
-                'DisabledDate': datetime(2015, 1, 1)
+                \'GroupId\': \'string\',
+                \'Name\': \'string\',
+                \'Email\': \'string\',
+                \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                \'EnabledDate\': datetime(2015, 1, 1),
+                \'DisabledDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -602,7 +602,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_organization(
-              OrganizationId='string'
+              OrganizationId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -617,14 +617,14 @@ class Client(BaseClient):
           ::
         
             {
-                'OrganizationId': 'string',
-                'Alias': 'string',
-                'State': 'string',
-                'DirectoryId': 'string',
-                'DirectoryType': 'string',
-                'DefaultMailDomain': 'string',
-                'CompletedDate': datetime(2015, 1, 1),
-                'ErrorMessage': 'string'
+                \'OrganizationId\': \'string\',
+                \'Alias\': \'string\',
+                \'State\': \'string\',
+                \'DirectoryId\': \'string\',
+                \'DirectoryType\': \'string\',
+                \'DefaultMailDomain\': \'string\',
+                \'CompletedDate\': datetime(2015, 1, 1),
+                \'ErrorMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -674,8 +674,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_resource(
-              OrganizationId='string',
-              ResourceId='string'
+              OrganizationId=\'string\',
+              ResourceId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -695,18 +695,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceId': 'string',
-                'Email': 'string',
-                'Name': 'string',
-                'Type': 'ROOM'|'EQUIPMENT',
-                'BookingOptions': {
-                    'AutoAcceptRequests': True|False,
-                    'AutoDeclineRecurringRequests': True|False,
-                    'AutoDeclineConflictingRequests': True|False
+                \'ResourceId\': \'string\',
+                \'Email\': \'string\',
+                \'Name\': \'string\',
+                \'Type\': \'ROOM\'|\'EQUIPMENT\',
+                \'BookingOptions\': {
+                    \'AutoAcceptRequests\': True|False,
+                    \'AutoDeclineRecurringRequests\': True|False,
+                    \'AutoDeclineConflictingRequests\': True|False
                 },
-                'State': 'ENABLED'|'DISABLED'|'DELETED',
-                'EnabledDate': datetime(2015, 1, 1),
-                'DisabledDate': datetime(2015, 1, 1)
+                \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                \'EnabledDate\': datetime(2015, 1, 1),
+                \'DisabledDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -734,15 +734,15 @@ class Client(BaseClient):
         
               - **AutoAcceptRequests** *(boolean) --* 
         
-                The resource's ability to automatically reply to requests. If disabled, delegates must be associated to the resource.
+                The resource\'s ability to automatically reply to requests. If disabled, delegates must be associated to the resource.
         
               - **AutoDeclineRecurringRequests** *(boolean) --* 
         
-                The resource's ability to automatically decline any recurring requests.
+                The resource\'s ability to automatically decline any recurring requests.
         
               - **AutoDeclineConflictingRequests** *(boolean) --* 
         
-                The resource's ability to automatically decline any conflicting requests.
+                The resource\'s ability to automatically decline any conflicting requests.
         
             - **State** *(string) --* 
         
@@ -768,8 +768,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_user(
-              OrganizationId='string',
-              UserId='string'
+              OrganizationId=\'string\',
+              UserId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -789,14 +789,14 @@ class Client(BaseClient):
           ::
         
             {
-                'UserId': 'string',
-                'Name': 'string',
-                'Email': 'string',
-                'DisplayName': 'string',
-                'State': 'ENABLED'|'DISABLED'|'DELETED',
-                'UserRole': 'USER'|'RESOURCE'|'SYSTEM_USER',
-                'EnabledDate': datetime(2015, 1, 1),
-                'DisabledDate': datetime(2015, 1, 1)
+                \'UserId\': \'string\',
+                \'Name\': \'string\',
+                \'Email\': \'string\',
+                \'DisplayName\': \'string\',
+                \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                \'UserRole\': \'USER\'|\'RESOURCE\'|\'SYSTEM_USER\',
+                \'EnabledDate\': datetime(2015, 1, 1),
+                \'DisabledDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -846,9 +846,9 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_delegate_from_resource(
-              OrganizationId='string',
-              ResourceId='string',
-              EntityId='string'
+              OrganizationId=\'string\',
+              ResourceId=\'string\',
+              EntityId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -858,12 +858,12 @@ class Client(BaseClient):
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]** 
         
-          The identifier of the resource from which delegates' set members are removed. 
+          The identifier of the resource from which delegates\' set members are removed. 
         
         :type EntityId: string
         :param EntityId: **[REQUIRED]** 
         
-          The identifier for the member (user, group) to be removed from the resource's delegates.
+          The identifier for the member (user, group) to be removed from the resource\'s delegates.
         
         :rtype: dict
         :returns: 
@@ -888,9 +888,9 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_member_from_group(
-              OrganizationId='string',
-              GroupId='string',
-              MemberId='string'
+              OrganizationId=\'string\',
+              GroupId=\'string\',
+              MemberId=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -937,7 +937,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -949,10 +949,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -984,9 +984,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_aliases(
-              OrganizationId='string',
-              EntityId='string',
-              NextToken='string',
+              OrganizationId=\'string\',
+              EntityId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type OrganizationId: string
@@ -1017,10 +1017,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Aliases': [
-                    'string',
+                \'Aliases\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1028,13 +1028,13 @@ class Client(BaseClient):
             
             - **Aliases** *(list) --* 
         
-              The entity's paginated aliases.
+              The entity\'s paginated aliases.
         
               - *(string) --* 
           
             - **NextToken** *(string) --* 
         
-              The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
+              The token to use to retrieve the next page of results. The value is \"null\" when there are no more results to return.
         
         """
         pass
@@ -1048,9 +1048,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_group_members(
-              OrganizationId='string',
-              GroupId='string',
-              NextToken='string',
+              OrganizationId=\'string\',
+              GroupId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type OrganizationId: string
@@ -1081,17 +1081,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Members': [
+                \'Members\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Type': 'GROUP'|'USER',
-                        'State': 'ENABLED'|'DISABLED'|'DELETED',
-                        'EnabledDate': datetime(2015, 1, 1),
-                        'DisabledDate': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Type\': \'GROUP\'|\'USER\',
+                        \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                        \'EnabledDate\': datetime(2015, 1, 1),
+                        \'DisabledDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1145,8 +1145,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_groups(
-              OrganizationId='string',
-              NextToken='string',
+              OrganizationId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type OrganizationId: string
@@ -1172,17 +1172,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'Id': 'string',
-                        'Email': 'string',
-                        'Name': 'string',
-                        'State': 'ENABLED'|'DISABLED'|'DELETED',
-                        'EnabledDate': datetime(2015, 1, 1),
-                        'DisabledDate': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Email\': \'string\',
+                        \'Name\': \'string\',
+                        \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                        \'EnabledDate\': datetime(2015, 1, 1),
+                        \'DisabledDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1222,7 +1222,7 @@ class Client(BaseClient):
         
             - **NextToken** *(string) --* 
         
-              The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
+              The token to use to retrieve the next page of results. The value is \"null\" when there are no more results to return.
         
         """
         pass
@@ -1236,9 +1236,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_mailbox_permissions(
-              OrganizationId='string',
-              EntityId='string',
-              NextToken='string',
+              OrganizationId=\'string\',
+              EntityId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type OrganizationId: string
@@ -1269,16 +1269,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Permissions': [
+                \'Permissions\': [
                     {
-                        'GranteeId': 'string',
-                        'GranteeType': 'GROUP'|'USER',
-                        'PermissionValues': [
-                            'FULL_ACCESS'|'SEND_AS'|'SEND_ON_BEHALF',
+                        \'GranteeId\': \'string\',
+                        \'GranteeType\': \'GROUP\'|\'USER\',
+                        \'PermissionValues\': [
+                            \'FULL_ACCESS\'|\'SEND_AS\'|\'SEND_ON_BEHALF\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1286,11 +1286,11 @@ class Client(BaseClient):
             
             - **Permissions** *(list) --* 
         
-              One page of the entity's mailbox permissions.
+              One page of the entity\'s mailbox permissions.
         
               - *(dict) --* 
         
-                Permission granted to an entity (user, group) to access a certain aspect of another entity's mailbox.
+                Permission granted to an entity (user, group) to access a certain aspect of another entity\'s mailbox.
         
                 - **GranteeId** *(string) --* 
         
@@ -1308,7 +1308,7 @@ class Client(BaseClient):
               
             - **NextToken** *(string) --* 
         
-              The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
+              The token to use to retrieve the next page of results. The value is \"null\" when there are no more results to return.
         
         """
         pass
@@ -1322,7 +1322,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_organizations(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -1343,15 +1343,15 @@ class Client(BaseClient):
           ::
         
             {
-                'OrganizationSummaries': [
+                \'OrganizationSummaries\': [
                     {
-                        'OrganizationId': 'string',
-                        'Alias': 'string',
-                        'ErrorMessage': 'string',
-                        'State': 'string'
+                        \'OrganizationId\': \'string\',
+                        \'Alias\': \'string\',
+                        \'ErrorMessage\': \'string\',
+                        \'State\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1383,7 +1383,7 @@ class Client(BaseClient):
         
             - **NextToken** *(string) --* 
         
-              The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
+              The token to use to retrieve the next page of results. The value is \"null\" when there are no more results to return.
         
         """
         pass
@@ -1397,9 +1397,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_resource_delegates(
-              OrganizationId='string',
-              ResourceId='string',
-              NextToken='string',
+              OrganizationId=\'string\',
+              ResourceId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type OrganizationId: string
@@ -1430,13 +1430,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Delegates': [
+                \'Delegates\': [
                     {
-                        'Id': 'string',
-                        'Type': 'GROUP'|'USER'
+                        \'Id\': \'string\',
+                        \'Type\': \'GROUP\'|\'USER\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1444,7 +1444,7 @@ class Client(BaseClient):
             
             - **Delegates** *(list) --* 
         
-              One page of the resource's delegates.
+              One page of the resource\'s delegates.
         
               - *(dict) --* 
         
@@ -1452,7 +1452,7 @@ class Client(BaseClient):
         
                 - **Id** *(string) --* 
         
-                  The identifier for the user or group is associated as the resource's delegate.
+                  The identifier for the user or group is associated as the resource\'s delegate.
         
                 - **Type** *(string) --* 
         
@@ -1474,8 +1474,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_resources(
-              OrganizationId='string',
-              NextToken='string',
+              OrganizationId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type OrganizationId: string
@@ -1501,18 +1501,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Resources': [
+                \'Resources\': [
                     {
-                        'Id': 'string',
-                        'Email': 'string',
-                        'Name': 'string',
-                        'Type': 'ROOM'|'EQUIPMENT',
-                        'State': 'ENABLED'|'DISABLED'|'DELETED',
-                        'EnabledDate': datetime(2015, 1, 1),
-                        'DisabledDate': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Email\': \'string\',
+                        \'Name\': \'string\',
+                        \'Type\': \'ROOM\'|\'EQUIPMENT\',
+                        \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                        \'EnabledDate\': datetime(2015, 1, 1),
+                        \'DisabledDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1520,7 +1520,7 @@ class Client(BaseClient):
             
             - **Resources** *(list) --* 
         
-              One page of the organization's resource representation.
+              One page of the organization\'s resource representation.
         
               - *(dict) --* 
         
@@ -1556,7 +1556,7 @@ class Client(BaseClient):
         
             - **NextToken** *(string) --* 
         
-              The token used to paginate through all the organization's resources. While results are still available, it has an associated value. When the last page is reached, the token is empty.
+              The token used to paginate through all the organization\'s resources. While results are still available, it has an associated value. When the last page is reached, the token is empty.
         
         """
         pass
@@ -1570,8 +1570,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_users(
-              OrganizationId='string',
-              NextToken='string',
+              OrganizationId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type OrganizationId: string
@@ -1597,19 +1597,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'Id': 'string',
-                        'Email': 'string',
-                        'Name': 'string',
-                        'DisplayName': 'string',
-                        'State': 'ENABLED'|'DISABLED'|'DELETED',
-                        'UserRole': 'USER'|'RESOURCE'|'SYSTEM_USER',
-                        'EnabledDate': datetime(2015, 1, 1),
-                        'DisabledDate': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Email\': \'string\',
+                        \'Name\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                        \'UserRole\': \'USER\'|\'RESOURCE\'|\'SYSTEM_USER\',
+                        \'EnabledDate\': datetime(2015, 1, 1),
+                        \'DisabledDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1671,11 +1671,11 @@ class Client(BaseClient):
         ::
         
           response = client.put_mailbox_permissions(
-              OrganizationId='string',
-              EntityId='string',
-              GranteeId='string',
+              OrganizationId=\'string\',
+              EntityId=\'string\',
+              GranteeId=\'string\',
               PermissionValues=[
-                  'FULL_ACCESS'|'SEND_AS'|'SEND_ON_BEHALF',
+                  \'FULL_ACCESS\'|\'SEND_AS\'|\'SEND_ON_BEHALF\',
               ]
           )
         :type OrganizationId: string
@@ -1723,9 +1723,9 @@ class Client(BaseClient):
         ::
         
           response = client.register_to_work_mail(
-              OrganizationId='string',
-              EntityId='string',
-              Email='string'
+              OrganizationId=\'string\',
+              EntityId=\'string\',
+              Email=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -1765,9 +1765,9 @@ class Client(BaseClient):
         ::
         
           response = client.reset_password(
-              OrganizationId='string',
-              UserId='string',
-              Password='string'
+              OrganizationId=\'string\',
+              UserId=\'string\',
+              Password=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -1807,9 +1807,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_primary_email_address(
-              OrganizationId='string',
-              EntityId='string',
-              Email='string'
+              OrganizationId=\'string\',
+              EntityId=\'string\',
+              Email=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -1849,13 +1849,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_resource(
-              OrganizationId='string',
-              ResourceId='string',
-              Name='string',
+              OrganizationId=\'string\',
+              ResourceId=\'string\',
+              Name=\'string\',
               BookingOptions={
-                  'AutoAcceptRequests': True|False,
-                  'AutoDeclineRecurringRequests': True|False,
-                  'AutoDeclineConflictingRequests': True|False
+                  \'AutoAcceptRequests\': True|False,
+                  \'AutoDeclineRecurringRequests\': True|False,
+                  \'AutoDeclineConflictingRequests\': True|False
               }
           )
         :type OrganizationId: string
@@ -1876,19 +1876,19 @@ class Client(BaseClient):
         :type BookingOptions: dict
         :param BookingOptions: 
         
-          The resource's booking options to be updated.
+          The resource\'s booking options to be updated.
         
           - **AutoAcceptRequests** *(boolean) --* 
         
-            The resource's ability to automatically reply to requests. If disabled, delegates must be associated to the resource.
+            The resource\'s ability to automatically reply to requests. If disabled, delegates must be associated to the resource.
         
           - **AutoDeclineRecurringRequests** *(boolean) --* 
         
-            The resource's ability to automatically decline any recurring requests.
+            The resource\'s ability to automatically decline any recurring requests.
         
           - **AutoDeclineConflictingRequests** *(boolean) --* 
         
-            The resource's ability to automatically decline any conflicting requests.
+            The resource\'s ability to automatically decline any conflicting requests.
         
         :rtype: dict
         :returns: 

@@ -12,10 +12,10 @@ class DeploymentSuccessful(Waiter):
         ::
         
           waiter.wait(
-              deploymentId='string',
+              deploymentId=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type deploymentId: string

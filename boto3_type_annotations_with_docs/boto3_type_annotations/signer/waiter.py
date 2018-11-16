@@ -12,10 +12,10 @@ class SuccessfulSigningJob(Waiter):
         ::
         
           waiter.wait(
-              jobId='string',
+              jobId=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type jobId: string

@@ -1,10 +1,10 @@
 from datetime import datetime
+from typing import Optional
+from typing import Union
 from botocore.waiter import Waiter
 from botocore.paginate import Paginator
-from typing import Union
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,12 +33,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_replication_job(
-              serverId='string',
+              serverId=\'string\',
               seedReplicationTime=datetime(2015, 1, 1),
               frequency=123,
-              licenseType='AWS'|'BYOL',
-              roleName='string',
-              description='string'
+              licenseType=\'AWS\'|\'BYOL\',
+              roleName=\'string\',
+              description=\'string\'
           )
         :type serverId: string
         :param serverId: **[REQUIRED]** Unique Identifier for a server
@@ -53,7 +53,7 @@ class Client(BaseClient):
         :param licenseType: The license type to be used for the Amazon Machine Image (AMI) created after a successful ReplicationRun.
         
         :type roleName: string
-        :param roleName: Name of service role in customer's account to be used by SMS service.
+        :param roleName: Name of service role in customer\'s account to be used by SMS service.
         
         :type description: string
         :param description: The description for a Replication Job/Run.
@@ -66,7 +66,7 @@ class Client(BaseClient):
           ::
         
             {
-                'replicationJobId': 'string'
+                \'replicationJobId\': \'string\'
             }
           **Response Structure** 
         
@@ -85,7 +85,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_replication_job(
-              replicationJobId='string'
+              replicationJobId=\'string\'
           )
         :type replicationJobId: string
         :param replicationJobId: **[REQUIRED]** The unique identifier for a Replication Job.
@@ -137,7 +137,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_connector(
-              connectorId='string'
+              connectorId=\'string\'
           )
         :type connectorId: string
         :param connectorId: **[REQUIRED]** Unique Identifier for Connector
@@ -172,7 +172,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -187,7 +187,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_connectors(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -204,23 +204,23 @@ class Client(BaseClient):
           ::
         
             {
-                'connectorList': [
+                \'connectorList\': [
                     {
-                        'connectorId': 'string',
-                        'version': 'string',
-                        'status': 'HEALTHY'|'UNHEALTHY',
-                        'capabilityList': [
-                            'VSPHERE',
+                        \'connectorId\': \'string\',
+                        \'version\': \'string\',
+                        \'status\': \'HEALTHY\'|\'UNHEALTHY\',
+                        \'capabilityList\': [
+                            \'VSPHERE\',
                         ],
-                        'vmManagerName': 'string',
-                        'vmManagerType': 'VSPHERE',
-                        'vmManagerId': 'string',
-                        'ipAddress': 'string',
-                        'macAddress': 'string',
-                        'associatedOn': datetime(2015, 1, 1)
+                        \'vmManagerName\': \'string\',
+                        \'vmManagerType\': \'VSPHERE\',
+                        \'vmManagerId\': \'string\',
+                        \'ipAddress\': \'string\',
+                        \'macAddress\': \'string\',
+                        \'associatedOn\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -262,10 +262,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -285,8 +285,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_replication_jobs(
-              replicationJobId='string',
-              nextToken='string',
+              replicationJobId=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type replicationJobId: string
@@ -306,45 +306,45 @@ class Client(BaseClient):
           ::
         
             {
-                'replicationJobList': [
+                \'replicationJobList\': [
                     {
-                        'replicationJobId': 'string',
-                        'serverId': 'string',
-                        'serverType': 'VIRTUAL_MACHINE',
-                        'vmServer': {
-                            'vmServerAddress': {
-                                'vmManagerId': 'string',
-                                'vmId': 'string'
+                        \'replicationJobId\': \'string\',
+                        \'serverId\': \'string\',
+                        \'serverType\': \'VIRTUAL_MACHINE\',
+                        \'vmServer\': {
+                            \'vmServerAddress\': {
+                                \'vmManagerId\': \'string\',
+                                \'vmId\': \'string\'
                             },
-                            'vmName': 'string',
-                            'vmManagerName': 'string',
-                            'vmManagerType': 'VSPHERE',
-                            'vmPath': 'string'
+                            \'vmName\': \'string\',
+                            \'vmManagerName\': \'string\',
+                            \'vmManagerType\': \'VSPHERE\',
+                            \'vmPath\': \'string\'
                         },
-                        'seedReplicationTime': datetime(2015, 1, 1),
-                        'frequency': 123,
-                        'nextReplicationRunStartTime': datetime(2015, 1, 1),
-                        'licenseType': 'AWS'|'BYOL',
-                        'roleName': 'string',
-                        'latestAmiId': 'string',
-                        'state': 'PENDING'|'ACTIVE'|'FAILED'|'DELETING'|'DELETED',
-                        'statusMessage': 'string',
-                        'description': 'string',
-                        'replicationRunList': [
+                        \'seedReplicationTime\': datetime(2015, 1, 1),
+                        \'frequency\': 123,
+                        \'nextReplicationRunStartTime\': datetime(2015, 1, 1),
+                        \'licenseType\': \'AWS\'|\'BYOL\',
+                        \'roleName\': \'string\',
+                        \'latestAmiId\': \'string\',
+                        \'state\': \'PENDING\'|\'ACTIVE\'|\'FAILED\'|\'DELETING\'|\'DELETED\',
+                        \'statusMessage\': \'string\',
+                        \'description\': \'string\',
+                        \'replicationRunList\': [
                             {
-                                'replicationRunId': 'string',
-                                'state': 'PENDING'|'MISSED'|'ACTIVE'|'FAILED'|'COMPLETED'|'DELETING'|'DELETED',
-                                'type': 'ON_DEMAND'|'AUTOMATIC',
-                                'statusMessage': 'string',
-                                'amiId': 'string',
-                                'scheduledStartTime': datetime(2015, 1, 1),
-                                'completedTime': datetime(2015, 1, 1),
-                                'description': 'string'
+                                \'replicationRunId\': \'string\',
+                                \'state\': \'PENDING\'|\'MISSED\'|\'ACTIVE\'|\'FAILED\'|\'COMPLETED\'|\'DELETING\'|\'DELETED\',
+                                \'type\': \'ON_DEMAND\'|\'AUTOMATIC\',
+                                \'statusMessage\': \'string\',
+                                \'amiId\': \'string\',
+                                \'scheduledStartTime\': datetime(2015, 1, 1),
+                                \'completedTime\': datetime(2015, 1, 1),
+                                \'description\': \'string\'
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -362,7 +362,7 @@ class Client(BaseClient):
                 
                 - **vmServer** *(dict) --* Object representing a VM server
                   
-                  - **vmServerAddress** *(dict) --* Object representing a server's location
+                  - **vmServerAddress** *(dict) --* Object representing a server\'s location
                     
                     - **vmManagerId** *(string) --* Unique Identifier for VM Manager
                     
@@ -384,7 +384,7 @@ class Client(BaseClient):
                 
                 - **licenseType** *(string) --* The license type to be used for the Amazon Machine Image (AMI) created after a successful ReplicationRun.
                 
-                - **roleName** *(string) --* Name of service role in customer's account to be used by SMS service.
+                - **roleName** *(string) --* Name of service role in customer\'s account to be used by SMS service.
                 
                 - **latestAmiId** *(string) --* The AMI id for the image resulting from a Replication Run.
                 
@@ -427,8 +427,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_replication_runs(
-              replicationJobId='string',
-              nextToken='string',
+              replicationJobId=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type replicationJobId: string
@@ -448,55 +448,55 @@ class Client(BaseClient):
           ::
         
             {
-                'replicationJob': {
-                    'replicationJobId': 'string',
-                    'serverId': 'string',
-                    'serverType': 'VIRTUAL_MACHINE',
-                    'vmServer': {
-                        'vmServerAddress': {
-                            'vmManagerId': 'string',
-                            'vmId': 'string'
+                \'replicationJob\': {
+                    \'replicationJobId\': \'string\',
+                    \'serverId\': \'string\',
+                    \'serverType\': \'VIRTUAL_MACHINE\',
+                    \'vmServer\': {
+                        \'vmServerAddress\': {
+                            \'vmManagerId\': \'string\',
+                            \'vmId\': \'string\'
                         },
-                        'vmName': 'string',
-                        'vmManagerName': 'string',
-                        'vmManagerType': 'VSPHERE',
-                        'vmPath': 'string'
+                        \'vmName\': \'string\',
+                        \'vmManagerName\': \'string\',
+                        \'vmManagerType\': \'VSPHERE\',
+                        \'vmPath\': \'string\'
                     },
-                    'seedReplicationTime': datetime(2015, 1, 1),
-                    'frequency': 123,
-                    'nextReplicationRunStartTime': datetime(2015, 1, 1),
-                    'licenseType': 'AWS'|'BYOL',
-                    'roleName': 'string',
-                    'latestAmiId': 'string',
-                    'state': 'PENDING'|'ACTIVE'|'FAILED'|'DELETING'|'DELETED',
-                    'statusMessage': 'string',
-                    'description': 'string',
-                    'replicationRunList': [
+                    \'seedReplicationTime\': datetime(2015, 1, 1),
+                    \'frequency\': 123,
+                    \'nextReplicationRunStartTime\': datetime(2015, 1, 1),
+                    \'licenseType\': \'AWS\'|\'BYOL\',
+                    \'roleName\': \'string\',
+                    \'latestAmiId\': \'string\',
+                    \'state\': \'PENDING\'|\'ACTIVE\'|\'FAILED\'|\'DELETING\'|\'DELETED\',
+                    \'statusMessage\': \'string\',
+                    \'description\': \'string\',
+                    \'replicationRunList\': [
                         {
-                            'replicationRunId': 'string',
-                            'state': 'PENDING'|'MISSED'|'ACTIVE'|'FAILED'|'COMPLETED'|'DELETING'|'DELETED',
-                            'type': 'ON_DEMAND'|'AUTOMATIC',
-                            'statusMessage': 'string',
-                            'amiId': 'string',
-                            'scheduledStartTime': datetime(2015, 1, 1),
-                            'completedTime': datetime(2015, 1, 1),
-                            'description': 'string'
+                            \'replicationRunId\': \'string\',
+                            \'state\': \'PENDING\'|\'MISSED\'|\'ACTIVE\'|\'FAILED\'|\'COMPLETED\'|\'DELETING\'|\'DELETED\',
+                            \'type\': \'ON_DEMAND\'|\'AUTOMATIC\',
+                            \'statusMessage\': \'string\',
+                            \'amiId\': \'string\',
+                            \'scheduledStartTime\': datetime(2015, 1, 1),
+                            \'completedTime\': datetime(2015, 1, 1),
+                            \'description\': \'string\'
                         },
                     ]
                 },
-                'replicationRunList': [
+                \'replicationRunList\': [
                     {
-                        'replicationRunId': 'string',
-                        'state': 'PENDING'|'MISSED'|'ACTIVE'|'FAILED'|'COMPLETED'|'DELETING'|'DELETED',
-                        'type': 'ON_DEMAND'|'AUTOMATIC',
-                        'statusMessage': 'string',
-                        'amiId': 'string',
-                        'scheduledStartTime': datetime(2015, 1, 1),
-                        'completedTime': datetime(2015, 1, 1),
-                        'description': 'string'
+                        \'replicationRunId\': \'string\',
+                        \'state\': \'PENDING\'|\'MISSED\'|\'ACTIVE\'|\'FAILED\'|\'COMPLETED\'|\'DELETING\'|\'DELETED\',
+                        \'type\': \'ON_DEMAND\'|\'AUTOMATIC\',
+                        \'statusMessage\': \'string\',
+                        \'amiId\': \'string\',
+                        \'scheduledStartTime\': datetime(2015, 1, 1),
+                        \'completedTime\': datetime(2015, 1, 1),
+                        \'description\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -512,7 +512,7 @@ class Client(BaseClient):
               
               - **vmServer** *(dict) --* Object representing a VM server
                 
-                - **vmServerAddress** *(dict) --* Object representing a server's location
+                - **vmServerAddress** *(dict) --* Object representing a server\'s location
                   
                   - **vmManagerId** *(string) --* Unique Identifier for VM Manager
                   
@@ -534,7 +534,7 @@ class Client(BaseClient):
               
               - **licenseType** *(string) --* The license type to be used for the Amazon Machine Image (AMI) created after a successful ReplicationRun.
               
-              - **roleName** *(string) --* Name of service role in customer's account to be used by SMS service.
+              - **roleName** *(string) --* Name of service role in customer\'s account to be used by SMS service.
               
               - **latestAmiId** *(string) --* The AMI id for the image resulting from a Replication Run.
               
@@ -597,7 +597,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_servers(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -614,27 +614,27 @@ class Client(BaseClient):
           ::
         
             {
-                'lastModifiedOn': datetime(2015, 1, 1),
-                'serverCatalogStatus': 'NOT_IMPORTED'|'IMPORTING'|'AVAILABLE'|'DELETED'|'EXPIRED',
-                'serverList': [
+                \'lastModifiedOn\': datetime(2015, 1, 1),
+                \'serverCatalogStatus\': \'NOT_IMPORTED\'|\'IMPORTING\'|\'AVAILABLE\'|\'DELETED\'|\'EXPIRED\',
+                \'serverList\': [
                     {
-                        'serverId': 'string',
-                        'serverType': 'VIRTUAL_MACHINE',
-                        'vmServer': {
-                            'vmServerAddress': {
-                                'vmManagerId': 'string',
-                                'vmId': 'string'
+                        \'serverId\': \'string\',
+                        \'serverType\': \'VIRTUAL_MACHINE\',
+                        \'vmServer\': {
+                            \'vmServerAddress\': {
+                                \'vmManagerId\': \'string\',
+                                \'vmId\': \'string\'
                             },
-                            'vmName': 'string',
-                            'vmManagerName': 'string',
-                            'vmManagerType': 'VSPHERE',
-                            'vmPath': 'string'
+                            \'vmName\': \'string\',
+                            \'vmManagerName\': \'string\',
+                            \'vmManagerType\': \'VSPHERE\',
+                            \'vmPath\': \'string\'
                         },
-                        'replicationJobId': 'string',
-                        'replicationJobTerminated': True|False
+                        \'replicationJobId\': \'string\',
+                        \'replicationJobTerminated\': True|False
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -654,7 +654,7 @@ class Client(BaseClient):
                 
                 - **vmServer** *(dict) --* Object representing a VM server
                   
-                  - **vmServerAddress** *(dict) --* Object representing a server's location
+                  - **vmServerAddress** *(dict) --* Object representing a server\'s location
                     
                     - **vmManagerId** *(string) --* Unique Identifier for VM Manager
                     
@@ -721,8 +721,8 @@ class Client(BaseClient):
         ::
         
           response = client.start_on_demand_replication_run(
-              replicationJobId='string',
-              description='string'
+              replicationJobId=\'string\',
+              description=\'string\'
           )
         :type replicationJobId: string
         :param replicationJobId: **[REQUIRED]** The unique identifier for a Replication Job.
@@ -738,7 +738,7 @@ class Client(BaseClient):
           ::
         
             {
-                'replicationRunId': 'string'
+                \'replicationRunId\': \'string\'
             }
           **Response Structure** 
         
@@ -757,12 +757,12 @@ class Client(BaseClient):
         ::
         
           response = client.update_replication_job(
-              replicationJobId='string',
+              replicationJobId=\'string\',
               frequency=123,
               nextReplicationRunStartTime=datetime(2015, 1, 1),
-              licenseType='AWS'|'BYOL',
-              roleName='string',
-              description='string'
+              licenseType=\'AWS\'|\'BYOL\',
+              roleName=\'string\',
+              description=\'string\'
           )
         :type replicationJobId: string
         :param replicationJobId: **[REQUIRED]** The unique identifier for a Replication Job.
@@ -777,7 +777,7 @@ class Client(BaseClient):
         :param licenseType: The license type to be used for the Amazon Machine Image (AMI) created after a successful ReplicationRun.
         
         :type roleName: string
-        :param roleName: Name of service role in customer's account to be used by SMS service.
+        :param roleName: Name of service role in customer\'s account to be used by SMS service.
         
         :type description: string
         :param description: The description for a Replication Job/Run.

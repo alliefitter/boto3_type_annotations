@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -17,21 +17,21 @@ class Client(BaseClient):
         ::
         
           response = client.add_custom_attributes(
-              UserPoolId='string',
+              UserPoolId=\'string\',
               CustomAttributes=[
                   {
-                      'Name': 'string',
-                      'AttributeDataType': 'String'|'Number'|'DateTime'|'Boolean',
-                      'DeveloperOnlyAttribute': True|False,
-                      'Mutable': True|False,
-                      'Required': True|False,
-                      'NumberAttributeConstraints': {
-                          'MinValue': 'string',
-                          'MaxValue': 'string'
+                      \'Name\': \'string\',
+                      \'AttributeDataType\': \'String\'|\'Number\'|\'DateTime\'|\'Boolean\',
+                      \'DeveloperOnlyAttribute\': True|False,
+                      \'Mutable\': True|False,
+                      \'Required\': True|False,
+                      \'NumberAttributeConstraints\': {
+                          \'MinValue\': \'string\',
+                          \'MaxValue\': \'string\'
                       },
-                      'StringAttributeConstraints': {
-                          'MinLength': 'string',
-                          'MaxLength': 'string'
+                      \'StringAttributeConstraints\': {
+                          \'MinLength\': \'string\',
+                          \'MaxLength\': \'string\'
                       }
                   },
               ]
@@ -122,9 +122,9 @@ class Client(BaseClient):
         ::
         
           response = client.admin_add_user_to_group(
-              UserPoolId='string',
-              Username='string',
-              GroupName='string'
+              UserPoolId=\'string\',
+              Username=\'string\',
+              GroupName=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -156,8 +156,8 @@ class Client(BaseClient):
         ::
         
           response = client.admin_confirm_sign_up(
-              UserPoolId='string',
-              Username='string'
+              UserPoolId=\'string\',
+              Username=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -207,25 +207,25 @@ class Client(BaseClient):
         ::
         
           response = client.admin_create_user(
-              UserPoolId='string',
-              Username='string',
+              UserPoolId=\'string\',
+              Username=\'string\',
               UserAttributes=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               ValidationData=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              TemporaryPassword='string',
+              TemporaryPassword=\'string\',
               ForceAliasCreation=True|False,
-              MessageAction='RESEND'|'SUPPRESS',
+              MessageAction=\'RESEND\'|\'SUPPRESS\',
               DesiredDeliveryMediums=[
-                  'SMS'|'EMAIL',
+                  \'SMS\'|\'EMAIL\',
               ]
           )
         :type UserPoolId: string
@@ -245,13 +245,13 @@ class Client(BaseClient):
         
           For custom attributes, you must prepend the ``custom:`` prefix to the attribute name.
         
-          To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the **Users** tab of the Amazon Cognito console for managing your user pools.
+          To send a message inviting the user to sign up, you must specify the user\'s email address or phone number. This can be done in your call to AdminCreateUser or in the **Users** tab of the Amazon Cognito console for managing your user pools.
         
           In your call to ``AdminCreateUser`` , you can set the ``email_verified`` attribute to ``True`` , and you can set the ``phone_number_verified`` attribute to ``True`` . (You can also do this by calling .)
         
-          * **email** : The email address of the user to whom the message that contains the code and username will be sent. Required if the ``email_verified`` attribute is set to ``True`` , or if ``"EMAIL"`` is specified in the ``DesiredDeliveryMediums`` parameter. 
+          * **email** : The email address of the user to whom the message that contains the code and username will be sent. Required if the ``email_verified`` attribute is set to ``True`` , or if ``\"EMAIL\"`` is specified in the ``DesiredDeliveryMediums`` parameter. 
            
-          * **phone_number** : The phone number of the user to whom the message that contains the code and username will be sent. Required if the ``phone_number_verified`` attribute is set to ``True`` , or if ``"SMS"`` is specified in the ``DesiredDeliveryMediums`` parameter. 
+          * **phone_number** : The phone number of the user to whom the message that contains the code and username will be sent. Required if the ``phone_number_verified`` attribute is set to ``True`` , or if ``\"SMS\"`` is specified in the ``DesiredDeliveryMediums`` parameter. 
            
           - *(dict) --* 
         
@@ -268,11 +268,11 @@ class Client(BaseClient):
         :type ValidationData: list
         :param ValidationData: 
         
-          The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain.
+          The user\'s validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user\'s domain.
         
           To configure custom validation, you must create a Pre Sign-up Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.
         
-          The user's validation data is not persisted.
+          The user\'s validation data is not persisted.
         
           - *(dict) --* 
         
@@ -289,13 +289,13 @@ class Client(BaseClient):
         :type TemporaryPassword: string
         :param TemporaryPassword: 
         
-          The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.
+          The user\'s temporary password. This password must conform to the password policy that you specified when you created the user pool.
         
           The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.
         
           This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.
         
-          The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``"RESEND"`` for the ``MessageAction`` parameter.
+          The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``\"RESEND\"`` for the ``MessageAction`` parameter.
         
         :type ForceAliasCreation: boolean
         :param ForceAliasCreation: 
@@ -309,12 +309,12 @@ class Client(BaseClient):
         :type MessageAction: string
         :param MessageAction: 
         
-          Set to ``"RESEND"`` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to ``"SUPPRESS"`` to suppress sending the message. Only one value can be specified.
+          Set to ``\"RESEND\"`` to resend the invitation message to a user that already exists and reset the expiration limit on the user\'s account. Set to ``\"SUPPRESS\"`` to suppress sending the message. Only one value can be specified.
         
         :type DesiredDeliveryMediums: list
         :param DesiredDeliveryMediums: 
         
-          Specify ``"EMAIL"`` if email will be used to send the welcome message. Specify ``"SMS"`` if the phone number will be used. The default value is ``"SMS"`` . More than one value can be specified.
+          Specify ``\"EMAIL\"`` if email will be used to send the welcome message. Specify ``\"SMS\"`` if the phone number will be used. The default value is ``\"SMS\"`` . More than one value can be specified.
         
           - *(string) --* 
         
@@ -326,22 +326,22 @@ class Client(BaseClient):
           ::
         
             {
-                'User': {
-                    'Username': 'string',
-                    'Attributes': [
+                \'User\': {
+                    \'Username\': \'string\',
+                    \'Attributes\': [
                         {
-                            'Name': 'string',
-                            'Value': 'string'
+                            \'Name\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'UserCreateDate': datetime(2015, 1, 1),
-                    'UserLastModifiedDate': datetime(2015, 1, 1),
-                    'Enabled': True|False,
-                    'UserStatus': 'UNCONFIRMED'|'CONFIRMED'|'ARCHIVED'|'COMPROMISED'|'UNKNOWN'|'RESET_REQUIRED'|'FORCE_CHANGE_PASSWORD',
-                    'MFAOptions': [
+                    \'UserCreateDate\': datetime(2015, 1, 1),
+                    \'UserLastModifiedDate\': datetime(2015, 1, 1),
+                    \'Enabled\': True|False,
+                    \'UserStatus\': \'UNCONFIRMED\'|\'CONFIRMED\'|\'ARCHIVED\'|\'COMPROMISED\'|\'UNKNOWN\'|\'RESET_REQUIRED\'|\'FORCE_CHANGE_PASSWORD\',
+                    \'MFAOptions\': [
                         {
-                            'DeliveryMedium': 'SMS'|'EMAIL',
-                            'AttributeName': 'string'
+                            \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                            \'AttributeName\': \'string\'
                         },
                     ]
                 }
@@ -432,8 +432,8 @@ class Client(BaseClient):
         ::
         
           response = client.admin_delete_user(
-              UserPoolId='string',
-              Username='string'
+              UserPoolId=\'string\',
+              Username=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -460,10 +460,10 @@ class Client(BaseClient):
         ::
         
           response = client.admin_delete_user_attributes(
-              UserPoolId='string',
-              Username='string',
+              UserPoolId=\'string\',
+              Username=\'string\',
               UserAttributeNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type UserPoolId: string
@@ -521,11 +521,11 @@ class Client(BaseClient):
         ::
         
           response = client.admin_disable_provider_for_user(
-              UserPoolId='string',
+              UserPoolId=\'string\',
               User={
-                  'ProviderName': 'string',
-                  'ProviderAttributeName': 'string',
-                  'ProviderAttributeValue': 'string'
+                  \'ProviderName\': \'string\',
+                  \'ProviderAttributeName\': \'string\',
+                  \'ProviderAttributeValue\': \'string\'
               }
           )
         :type UserPoolId: string
@@ -575,8 +575,8 @@ class Client(BaseClient):
         ::
         
           response = client.admin_disable_user(
-              UserPoolId='string',
-              Username='string'
+              UserPoolId=\'string\',
+              Username=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -616,8 +616,8 @@ class Client(BaseClient):
         ::
         
           response = client.admin_enable_user(
-              UserPoolId='string',
-              Username='string'
+              UserPoolId=\'string\',
+              Username=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -657,9 +657,9 @@ class Client(BaseClient):
         ::
         
           response = client.admin_forget_device(
-              UserPoolId='string',
-              Username='string',
-              DeviceKey='string'
+              UserPoolId=\'string\',
+              Username=\'string\',
+              DeviceKey=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -691,9 +691,9 @@ class Client(BaseClient):
         ::
         
           response = client.admin_get_device(
-              DeviceKey='string',
-              UserPoolId='string',
-              Username='string'
+              DeviceKey=\'string\',
+              UserPoolId=\'string\',
+              Username=\'string\'
           )
         :type DeviceKey: string
         :param DeviceKey: **[REQUIRED]** 
@@ -718,17 +718,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Device': {
-                    'DeviceKey': 'string',
-                    'DeviceAttributes': [
+                \'Device\': {
+                    \'DeviceKey\': \'string\',
+                    \'DeviceAttributes\': [
                         {
-                            'Name': 'string',
-                            'Value': 'string'
+                            \'Name\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'DeviceCreateDate': datetime(2015, 1, 1),
-                    'DeviceLastModifiedDate': datetime(2015, 1, 1),
-                    'DeviceLastAuthenticatedDate': datetime(2015, 1, 1)
+                    \'DeviceCreateDate\': datetime(2015, 1, 1),
+                    \'DeviceLastModifiedDate\': datetime(2015, 1, 1),
+                    \'DeviceLastAuthenticatedDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -787,8 +787,8 @@ class Client(BaseClient):
         ::
         
           response = client.admin_get_user(
-              UserPoolId='string',
-              Username='string'
+              UserPoolId=\'string\',
+              Username=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -808,26 +808,26 @@ class Client(BaseClient):
           ::
         
             {
-                'Username': 'string',
-                'UserAttributes': [
+                \'Username\': \'string\',
+                \'UserAttributes\': [
                     {
-                        'Name': 'string',
-                        'Value': 'string'
+                        \'Name\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'UserCreateDate': datetime(2015, 1, 1),
-                'UserLastModifiedDate': datetime(2015, 1, 1),
-                'Enabled': True|False,
-                'UserStatus': 'UNCONFIRMED'|'CONFIRMED'|'ARCHIVED'|'COMPROMISED'|'UNKNOWN'|'RESET_REQUIRED'|'FORCE_CHANGE_PASSWORD',
-                'MFAOptions': [
+                \'UserCreateDate\': datetime(2015, 1, 1),
+                \'UserLastModifiedDate\': datetime(2015, 1, 1),
+                \'Enabled\': True|False,
+                \'UserStatus\': \'UNCONFIRMED\'|\'CONFIRMED\'|\'ARCHIVED\'|\'COMPROMISED\'|\'UNKNOWN\'|\'RESET_REQUIRED\'|\'FORCE_CHANGE_PASSWORD\',
+                \'MFAOptions\': [
                     {
-                        'DeliveryMedium': 'SMS'|'EMAIL',
-                        'AttributeName': 'string'
+                        \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                        \'AttributeName\': \'string\'
                     },
                 ],
-                'PreferredMfaSetting': 'string',
-                'UserMFASettingList': [
-                    'string',
+                \'PreferredMfaSetting\': \'string\',
+                \'UserMFASettingList\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -900,11 +900,11 @@ class Client(BaseClient):
         
             - **PreferredMfaSetting** *(string) --* 
         
-              The user's preferred MFA setting.
+              The user\'s preferred MFA setting.
         
             - **UserMFASettingList** *(list) --* 
         
-              The list of the user's MFA settings.
+              The list of the user\'s MFA settings.
         
               - *(string) --* 
           
@@ -922,29 +922,29 @@ class Client(BaseClient):
         ::
         
           response = client.admin_initiate_auth(
-              UserPoolId='string',
-              ClientId='string',
-              AuthFlow='USER_SRP_AUTH'|'REFRESH_TOKEN_AUTH'|'REFRESH_TOKEN'|'CUSTOM_AUTH'|'ADMIN_NO_SRP_AUTH'|'USER_PASSWORD_AUTH',
+              UserPoolId=\'string\',
+              ClientId=\'string\',
+              AuthFlow=\'USER_SRP_AUTH\'|\'REFRESH_TOKEN_AUTH\'|\'REFRESH_TOKEN\'|\'CUSTOM_AUTH\'|\'ADMIN_NO_SRP_AUTH\'|\'USER_PASSWORD_AUTH\',
               AuthParameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               ClientMetadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               AnalyticsMetadata={
-                  'AnalyticsEndpointId': 'string'
+                  \'AnalyticsEndpointId\': \'string\'
               },
               ContextData={
-                  'IpAddress': 'string',
-                  'ServerName': 'string',
-                  'ServerPath': 'string',
-                  'HttpHeaders': [
+                  \'IpAddress\': \'string\',
+                  \'ServerName\': \'string\',
+                  \'ServerPath\': \'string\',
+                  \'HttpHeaders\': [
                       {
-                          'headerName': 'string',
-                          'headerValue': 'string'
+                          \'headerName\': \'string\',
+                          \'headerValue\': \'string\'
                       },
                   ],
-                  'EncodedData': 'string'
+                  \'EncodedData\': \'string\'
               }
           )
         :type UserPoolId: string
@@ -1018,7 +1018,7 @@ class Client(BaseClient):
         :type ContextData: dict
         :param ContextData: 
         
-          Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+          Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
           - **IpAddress** *(string) --* **[REQUIRED]** 
         
@@ -1060,20 +1060,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ChallengeName': 'SMS_MFA'|'SOFTWARE_TOKEN_MFA'|'SELECT_MFA_TYPE'|'MFA_SETUP'|'PASSWORD_VERIFIER'|'CUSTOM_CHALLENGE'|'DEVICE_SRP_AUTH'|'DEVICE_PASSWORD_VERIFIER'|'ADMIN_NO_SRP_AUTH'|'NEW_PASSWORD_REQUIRED',
-                'Session': 'string',
-                'ChallengeParameters': {
-                    'string': 'string'
+                \'ChallengeName\': \'SMS_MFA\'|\'SOFTWARE_TOKEN_MFA\'|\'SELECT_MFA_TYPE\'|\'MFA_SETUP\'|\'PASSWORD_VERIFIER\'|\'CUSTOM_CHALLENGE\'|\'DEVICE_SRP_AUTH\'|\'DEVICE_PASSWORD_VERIFIER\'|\'ADMIN_NO_SRP_AUTH\'|\'NEW_PASSWORD_REQUIRED\',
+                \'Session\': \'string\',
+                \'ChallengeParameters\': {
+                    \'string\': \'string\'
                 },
-                'AuthenticationResult': {
-                    'AccessToken': 'string',
-                    'ExpiresIn': 123,
-                    'TokenType': 'string',
-                    'RefreshToken': 'string',
-                    'IdToken': 'string',
-                    'NewDeviceMetadata': {
-                        'DeviceKey': 'string',
-                        'DeviceGroupKey': 'string'
+                \'AuthenticationResult\': {
+                    \'AccessToken\': \'string\',
+                    \'ExpiresIn\': 123,
+                    \'TokenType\': \'string\',
+                    \'RefreshToken\': \'string\',
+                    \'IdToken\': \'string\',
+                    \'NewDeviceMetadata\': {
+                        \'DeviceKey\': \'string\',
+                        \'DeviceGroupKey\': \'string\'
                     }
                 }
             }
@@ -1115,7 +1115,7 @@ class Client(BaseClient):
         
               All challenges require ``USERNAME`` and ``SECRET_HASH`` (if applicable).
         
-              The value of the ``USER_ID_FOR_SRP`` attribute will be the user's actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to ``AdminInitiateAuth`` . This is because, in the ``AdminRespondToAuthChallenge`` API ``ChallengeResponses`` , the ``USERNAME`` attribute cannot be an alias.
+              The value of the ``USER_ID_FOR_SRP`` attribute will be the user\'s actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to ``AdminInitiateAuth`` . This is because, in the ``AdminRespondToAuthChallenge`` API ``ChallengeResponses`` , the ``USERNAME`` attribute cannot be an alias.
         
               - *(string) --* 
                 
@@ -1179,16 +1179,16 @@ class Client(BaseClient):
         ::
         
           response = client.admin_link_provider_for_user(
-              UserPoolId='string',
+              UserPoolId=\'string\',
               DestinationUser={
-                  'ProviderName': 'string',
-                  'ProviderAttributeName': 'string',
-                  'ProviderAttributeValue': 'string'
+                  \'ProviderName\': \'string\',
+                  \'ProviderAttributeName\': \'string\',
+                  \'ProviderAttributeValue\': \'string\'
               },
               SourceUser={
-                  'ProviderName': 'string',
-                  'ProviderAttributeName': 'string',
-                  'ProviderAttributeValue': 'string'
+                  \'ProviderName\': \'string\',
+                  \'ProviderAttributeName\': \'string\',
+                  \'ProviderAttributeValue\': \'string\'
               }
           )
         :type UserPoolId: string
@@ -1199,7 +1199,7 @@ class Client(BaseClient):
         :type DestinationUser: dict
         :param DestinationUser: **[REQUIRED]** 
         
-          The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.
+          The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn\'t exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.
         
           For a native username + password user, the ``ProviderAttributeValue`` for the ``DestinationUser`` should be the username in the user pool. For a federated user, it should be the provider-specific ``user_id`` .
         
@@ -1265,10 +1265,10 @@ class Client(BaseClient):
         ::
         
           response = client.admin_list_devices(
-              UserPoolId='string',
-              Username='string',
+              UserPoolId=\'string\',
+              Username=\'string\',
               Limit=123,
-              PaginationToken='string'
+              PaginationToken=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -1298,27 +1298,27 @@ class Client(BaseClient):
           ::
         
             {
-                'Devices': [
+                \'Devices\': [
                     {
-                        'DeviceKey': 'string',
-                        'DeviceAttributes': [
+                        \'DeviceKey\': \'string\',
+                        \'DeviceAttributes\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'DeviceCreateDate': datetime(2015, 1, 1),
-                        'DeviceLastModifiedDate': datetime(2015, 1, 1),
-                        'DeviceLastAuthenticatedDate': datetime(2015, 1, 1)
+                        \'DeviceCreateDate\': datetime(2015, 1, 1),
+                        \'DeviceLastModifiedDate\': datetime(2015, 1, 1),
+                        \'DeviceLastAuthenticatedDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'PaginationToken': 'string'
+                \'PaginationToken\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* 
         
-            Lists the device's response, as an administrator.
+            Lists the device\'s response, as an administrator.
         
             - **Devices** *(list) --* 
         
@@ -1378,10 +1378,10 @@ class Client(BaseClient):
         ::
         
           response = client.admin_list_groups_for_user(
-              Username='string',
-              UserPoolId='string',
+              Username=\'string\',
+              UserPoolId=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Username: string
         :param Username: **[REQUIRED]** 
@@ -1411,18 +1411,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'GroupName': 'string',
-                        'UserPoolId': 'string',
-                        'Description': 'string',
-                        'RoleArn': 'string',
-                        'Precedence': 123,
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'CreationDate': datetime(2015, 1, 1)
+                        \'GroupName\': \'string\',
+                        \'UserPoolId\': \'string\',
+                        \'Description\': \'string\',
+                        \'RoleArn\': \'string\',
+                        \'Precedence\': 123,
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'CreationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1454,9 +1454,9 @@ class Client(BaseClient):
         
                 - **Precedence** *(integer) --* 
         
-                  A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user's tokens. Groups with higher ``Precedence`` values take precedence over groups with lower ``Precedence`` values or with null ``Precedence`` values.
+                  A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user\'s tokens. Groups with higher ``Precedence`` values take precedence over groups with lower ``Precedence`` values or with null ``Precedence`` values.
         
-                  Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users' tokens.
+                  Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users\' tokens.
         
                   The default ``Precedence`` value is null.
         
@@ -1484,10 +1484,10 @@ class Client(BaseClient):
         ::
         
           response = client.admin_list_user_auth_events(
-              UserPoolId='string',
-              Username='string',
+              UserPoolId=\'string\',
+              Username=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -1517,37 +1517,37 @@ class Client(BaseClient):
           ::
         
             {
-                'AuthEvents': [
+                \'AuthEvents\': [
                     {
-                        'EventId': 'string',
-                        'EventType': 'SignIn'|'SignUp'|'ForgotPassword',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'EventResponse': 'Success'|'Failure',
-                        'EventRisk': {
-                            'RiskDecision': 'NoRisk'|'AccountTakeover'|'Block',
-                            'RiskLevel': 'Low'|'Medium'|'High'
+                        \'EventId\': \'string\',
+                        \'EventType\': \'SignIn\'|\'SignUp\'|\'ForgotPassword\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'EventResponse\': \'Success\'|\'Failure\',
+                        \'EventRisk\': {
+                            \'RiskDecision\': \'NoRisk\'|\'AccountTakeover\'|\'Block\',
+                            \'RiskLevel\': \'Low\'|\'Medium\'|\'High\'
                         },
-                        'ChallengeResponses': [
+                        \'ChallengeResponses\': [
                             {
-                                'ChallengeName': 'Password'|'Mfa',
-                                'ChallengeResponse': 'Success'|'Failure'
+                                \'ChallengeName\': \'Password\'|\'Mfa\',
+                                \'ChallengeResponse\': \'Success\'|\'Failure\'
                             },
                         ],
-                        'EventContextData': {
-                            'IpAddress': 'string',
-                            'DeviceName': 'string',
-                            'Timezone': 'string',
-                            'City': 'string',
-                            'Country': 'string'
+                        \'EventContextData\': {
+                            \'IpAddress\': \'string\',
+                            \'DeviceName\': \'string\',
+                            \'Timezone\': \'string\',
+                            \'City\': \'string\',
+                            \'Country\': \'string\'
                         },
-                        'EventFeedback': {
-                            'FeedbackValue': 'Valid'|'Invalid',
-                            'Provider': 'string',
-                            'FeedbackDate': datetime(2015, 1, 1)
+                        \'EventFeedback\': {
+                            \'FeedbackValue\': \'Valid\'|\'Invalid\',
+                            \'Provider\': \'string\',
+                            \'FeedbackDate\': datetime(2015, 1, 1)
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1611,23 +1611,23 @@ class Client(BaseClient):
         
                   - **IpAddress** *(string) --* 
         
-                    The user's IP address.
+                    The user\'s IP address.
         
                   - **DeviceName** *(string) --* 
         
-                    The user's device name.
+                    The user\'s device name.
         
                   - **Timezone** *(string) --* 
         
-                    The user's time zone.
+                    The user\'s time zone.
         
                   - **City** *(string) --* 
         
-                    The user's city.
+                    The user\'s city.
         
                   - **Country** *(string) --* 
         
-                    The user's country.
+                    The user\'s country.
         
                 - **EventFeedback** *(dict) --* 
         
@@ -1663,9 +1663,9 @@ class Client(BaseClient):
         ::
         
           response = client.admin_remove_user_from_group(
-              UserPoolId='string',
-              Username='string',
-              GroupName='string'
+              UserPoolId=\'string\',
+              Username=\'string\',
+              GroupName=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -1699,13 +1699,13 @@ class Client(BaseClient):
         ::
         
           response = client.admin_reset_user_password(
-              UserPoolId='string',
-              Username='string'
+              UserPoolId=\'string\',
+              Username=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
         
-          The user pool ID for the user pool where you want to reset the user's password.
+          The user pool ID for the user pool where you want to reset the user\'s password.
         
         :type Username: string
         :param Username: **[REQUIRED]** 
@@ -1740,27 +1740,27 @@ class Client(BaseClient):
         ::
         
           response = client.admin_respond_to_auth_challenge(
-              UserPoolId='string',
-              ClientId='string',
-              ChallengeName='SMS_MFA'|'SOFTWARE_TOKEN_MFA'|'SELECT_MFA_TYPE'|'MFA_SETUP'|'PASSWORD_VERIFIER'|'CUSTOM_CHALLENGE'|'DEVICE_SRP_AUTH'|'DEVICE_PASSWORD_VERIFIER'|'ADMIN_NO_SRP_AUTH'|'NEW_PASSWORD_REQUIRED',
+              UserPoolId=\'string\',
+              ClientId=\'string\',
+              ChallengeName=\'SMS_MFA\'|\'SOFTWARE_TOKEN_MFA\'|\'SELECT_MFA_TYPE\'|\'MFA_SETUP\'|\'PASSWORD_VERIFIER\'|\'CUSTOM_CHALLENGE\'|\'DEVICE_SRP_AUTH\'|\'DEVICE_PASSWORD_VERIFIER\'|\'ADMIN_NO_SRP_AUTH\'|\'NEW_PASSWORD_REQUIRED\',
               ChallengeResponses={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              Session='string',
+              Session=\'string\',
               AnalyticsMetadata={
-                  'AnalyticsEndpointId': 'string'
+                  \'AnalyticsEndpointId\': \'string\'
               },
               ContextData={
-                  'IpAddress': 'string',
-                  'ServerName': 'string',
-                  'ServerPath': 'string',
-                  'HttpHeaders': [
+                  \'IpAddress\': \'string\',
+                  \'ServerName\': \'string\',
+                  \'ServerPath\': \'string\',
+                  \'HttpHeaders\': [
                       {
-                          'headerName': 'string',
-                          'headerValue': 'string'
+                          \'headerName\': \'string\',
+                          \'headerValue\': \'string\'
                       },
                   ],
-                  'EncodedData': 'string'
+                  \'EncodedData\': \'string\'
               }
           )
         :type UserPoolId: string
@@ -1791,7 +1791,7 @@ class Client(BaseClient):
            
           * ``NEW_PASSWORD_REQUIRED`` : ``NEW_PASSWORD`` , any other required attributes, ``USERNAME`` , ``SECRET_HASH`` (if app client is configured with client secret).  
            
-          The value of the ``USERNAME`` attribute must be the user's actual username, not an alias (such as email address or phone number). To make this easier, the ``AdminInitiateAuth`` response includes the actual username value in the ``USERNAMEUSER_ID_FOR_SRP`` attribute, even if you specified an alias in your call to ``AdminInitiateAuth`` .
+          The value of the ``USERNAME`` attribute must be the user\'s actual username, not an alias (such as email address or phone number). To make this easier, the ``AdminInitiateAuth`` response includes the actual username value in the ``USERNAMEUSER_ID_FOR_SRP`` attribute, even if you specified an alias in your call to ``AdminInitiateAuth`` .
         
           - *(string) --* 
         
@@ -1814,7 +1814,7 @@ class Client(BaseClient):
         :type ContextData: dict
         :param ContextData: 
         
-          Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+          Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
           - **IpAddress** *(string) --* **[REQUIRED]** 
         
@@ -1856,20 +1856,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ChallengeName': 'SMS_MFA'|'SOFTWARE_TOKEN_MFA'|'SELECT_MFA_TYPE'|'MFA_SETUP'|'PASSWORD_VERIFIER'|'CUSTOM_CHALLENGE'|'DEVICE_SRP_AUTH'|'DEVICE_PASSWORD_VERIFIER'|'ADMIN_NO_SRP_AUTH'|'NEW_PASSWORD_REQUIRED',
-                'Session': 'string',
-                'ChallengeParameters': {
-                    'string': 'string'
+                \'ChallengeName\': \'SMS_MFA\'|\'SOFTWARE_TOKEN_MFA\'|\'SELECT_MFA_TYPE\'|\'MFA_SETUP\'|\'PASSWORD_VERIFIER\'|\'CUSTOM_CHALLENGE\'|\'DEVICE_SRP_AUTH\'|\'DEVICE_PASSWORD_VERIFIER\'|\'ADMIN_NO_SRP_AUTH\'|\'NEW_PASSWORD_REQUIRED\',
+                \'Session\': \'string\',
+                \'ChallengeParameters\': {
+                    \'string\': \'string\'
                 },
-                'AuthenticationResult': {
-                    'AccessToken': 'string',
-                    'ExpiresIn': 123,
-                    'TokenType': 'string',
-                    'RefreshToken': 'string',
-                    'IdToken': 'string',
-                    'NewDeviceMetadata': {
-                        'DeviceKey': 'string',
-                        'DeviceGroupKey': 'string'
+                \'AuthenticationResult\': {
+                    \'AccessToken\': \'string\',
+                    \'ExpiresIn\': 123,
+                    \'TokenType\': \'string\',
+                    \'RefreshToken\': \'string\',
+                    \'IdToken\': \'string\',
+                    \'NewDeviceMetadata\': {
+                        \'DeviceKey\': \'string\',
+                        \'DeviceGroupKey\': \'string\'
                     }
                 }
             }
@@ -1944,15 +1944,15 @@ class Client(BaseClient):
         
           response = client.admin_set_user_mfa_preference(
               SMSMfaSettings={
-                  'Enabled': True|False,
-                  'PreferredMfa': True|False
+                  \'Enabled\': True|False,
+                  \'PreferredMfa\': True|False
               },
               SoftwareTokenMfaSettings={
-                  'Enabled': True|False,
-                  'PreferredMfa': True|False
+                  \'Enabled\': True|False,
+                  \'PreferredMfa\': True|False
               },
-              Username='string',
-              UserPoolId='string'
+              Username=\'string\',
+              UserPoolId=\'string\'
           )
         :type SMSMfaSettings: dict
         :param SMSMfaSettings: 
@@ -2015,19 +2015,19 @@ class Client(BaseClient):
         ::
         
           response = client.admin_set_user_settings(
-              UserPoolId='string',
-              Username='string',
+              UserPoolId=\'string\',
+              Username=\'string\',
               MFAOptions=[
                   {
-                      'DeliveryMedium': 'SMS'|'EMAIL',
-                      'AttributeName': 'string'
+                      \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                      \'AttributeName\': \'string\'
                   },
               ]
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
         
-          The user pool ID for the user pool where you want to set the user's settings, such as MFA options.
+          The user pool ID for the user pool where you want to set the user\'s settings, such as MFA options.
         
         :type Username: string
         :param Username: **[REQUIRED]** 
@@ -2077,10 +2077,10 @@ class Client(BaseClient):
         ::
         
           response = client.admin_update_auth_event_feedback(
-              UserPoolId='string',
-              Username='string',
-              EventId='string',
-              FeedbackValue='Valid'|'Invalid'
+              UserPoolId=\'string\',
+              Username=\'string\',
+              EventId=\'string\',
+              FeedbackValue=\'Valid\'|\'Invalid\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -2127,10 +2127,10 @@ class Client(BaseClient):
         ::
         
           response = client.admin_update_device_status(
-              UserPoolId='string',
-              Username='string',
-              DeviceKey='string',
-              DeviceRememberedStatus='remembered'|'not_remembered'
+              UserPoolId=\'string\',
+              Username=\'string\',
+              DeviceKey=\'string\',
+              DeviceRememberedStatus=\'remembered\'|\'not_remembered\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -2184,12 +2184,12 @@ class Client(BaseClient):
         ::
         
           response = client.admin_update_user_attributes(
-              UserPoolId='string',
-              Username='string',
+              UserPoolId=\'string\',
+              Username=\'string\',
               UserAttributes=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2250,8 +2250,8 @@ class Client(BaseClient):
         ::
         
           response = client.admin_user_global_sign_out(
-              UserPoolId='string',
-              Username='string'
+              UserPoolId=\'string\',
+              Username=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -2289,8 +2289,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_software_token(
-              AccessToken='string',
-              Session='string'
+              AccessToken=\'string\',
+              Session=\'string\'
           )
         :type AccessToken: string
         :param AccessToken: 
@@ -2310,8 +2310,8 @@ class Client(BaseClient):
           ::
         
             {
-                'SecretCode': 'string',
-                'Session': 'string'
+                \'SecretCode\': \'string\',
+                \'Session\': \'string\'
             }
           **Response Structure** 
         
@@ -2334,10 +2334,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -2353,9 +2353,9 @@ class Client(BaseClient):
         ::
         
           response = client.change_password(
-              PreviousPassword='string',
-              ProposedPassword='string',
-              AccessToken='string'
+              PreviousPassword=\'string\',
+              ProposedPassword=\'string\',
+              AccessToken=\'string\'
           )
         :type PreviousPassword: string
         :param PreviousPassword: **[REQUIRED]** 
@@ -2398,13 +2398,13 @@ class Client(BaseClient):
         ::
         
           response = client.confirm_device(
-              AccessToken='string',
-              DeviceKey='string',
+              AccessToken=\'string\',
+              DeviceKey=\'string\',
               DeviceSecretVerifierConfig={
-                  'PasswordVerifier': 'string',
-                  'Salt': 'string'
+                  \'PasswordVerifier\': \'string\',
+                  \'Salt\': \'string\'
               },
-              DeviceName='string'
+              DeviceName=\'string\'
           )
         :type AccessToken: string
         :param AccessToken: **[REQUIRED]** 
@@ -2442,7 +2442,7 @@ class Client(BaseClient):
           ::
         
             {
-                'UserConfirmationNecessary': True|False
+                \'UserConfirmationNecessary\': True|False
             }
           **Response Structure** 
         
@@ -2466,16 +2466,16 @@ class Client(BaseClient):
         ::
         
           response = client.confirm_forgot_password(
-              ClientId='string',
-              SecretHash='string',
-              Username='string',
-              ConfirmationCode='string',
-              Password='string',
+              ClientId=\'string\',
+              SecretHash=\'string\',
+              Username=\'string\',
+              ConfirmationCode=\'string\',
+              Password=\'string\',
               AnalyticsMetadata={
-                  'AnalyticsEndpointId': 'string'
+                  \'AnalyticsEndpointId\': \'string\'
               },
               UserContextData={
-                  'EncodedData': 'string'
+                  \'EncodedData\': \'string\'
               }
           )
         :type ClientId: string
@@ -2496,12 +2496,12 @@ class Client(BaseClient):
         :type ConfirmationCode: string
         :param ConfirmationCode: **[REQUIRED]** 
         
-          The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see 
+          The confirmation code sent by a user\'s request to retrieve a forgotten password. For more information, see 
         
         :type Password: string
         :param Password: **[REQUIRED]** 
         
-          The password sent by a user's request to retrieve a forgotten password.
+          The password sent by a user\'s request to retrieve a forgotten password.
         
         :type AnalyticsMetadata: dict
         :param AnalyticsMetadata: 
@@ -2515,11 +2515,11 @@ class Client(BaseClient):
         :type UserContextData: dict
         :param UserContextData: 
         
-          Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+          Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
           - **EncodedData** *(string) --* 
         
-            Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+            Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
         :rtype: dict
         :returns: 
@@ -2533,7 +2533,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            The response from the server that results from a user's request to retrieve a forgotten password.
+            The response from the server that results from a user\'s request to retrieve a forgotten password.
         
         """
         pass
@@ -2547,16 +2547,16 @@ class Client(BaseClient):
         ::
         
           response = client.confirm_sign_up(
-              ClientId='string',
-              SecretHash='string',
-              Username='string',
-              ConfirmationCode='string',
+              ClientId=\'string\',
+              SecretHash=\'string\',
+              Username=\'string\',
+              ConfirmationCode=\'string\',
               ForceAliasCreation=True|False,
               AnalyticsMetadata={
-                  'AnalyticsEndpointId': 'string'
+                  \'AnalyticsEndpointId\': \'string\'
               },
               UserContextData={
-                  'EncodedData': 'string'
+                  \'EncodedData\': \'string\'
               }
           )
         :type ClientId: string
@@ -2577,7 +2577,7 @@ class Client(BaseClient):
         :type ConfirmationCode: string
         :param ConfirmationCode: **[REQUIRED]** 
         
-          The confirmation code sent by a user's request to confirm registration.
+          The confirmation code sent by a user\'s request to confirm registration.
         
         :type ForceAliasCreation: boolean
         :param ForceAliasCreation: 
@@ -2596,11 +2596,11 @@ class Client(BaseClient):
         :type UserContextData: dict
         :param UserContextData: 
         
-          Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+          Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
           - **EncodedData** *(string) --* 
         
-            Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+            Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
         :rtype: dict
         :returns: 
@@ -2630,10 +2630,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_group(
-              GroupName='string',
-              UserPoolId='string',
-              Description='string',
-              RoleArn='string',
+              GroupName=\'string\',
+              UserPoolId=\'string\',
+              Description=\'string\',
+              RoleArn=\'string\',
               Precedence=123
           )
         :type GroupName: string
@@ -2659,9 +2659,9 @@ class Client(BaseClient):
         :type Precedence: integer
         :param Precedence: 
         
-          A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower ``Precedence`` values take precedence over groups with higher or null ``Precedence`` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user's tokens.
+          A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower ``Precedence`` values take precedence over groups with higher or null ``Precedence`` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user\'s tokens.
         
-          Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users' tokens.
+          Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users\' tokens.
         
           The default ``Precedence`` value is null.
         
@@ -2673,14 +2673,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Group': {
-                    'GroupName': 'string',
-                    'UserPoolId': 'string',
-                    'Description': 'string',
-                    'RoleArn': 'string',
-                    'Precedence': 123,
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1)
+                \'Group\': {
+                    \'GroupName\': \'string\',
+                    \'UserPoolId\': \'string\',
+                    \'Description\': \'string\',
+                    \'RoleArn\': \'string\',
+                    \'Precedence\': 123,
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -2709,9 +2709,9 @@ class Client(BaseClient):
         
               - **Precedence** *(integer) --* 
         
-                A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user's tokens. Groups with higher ``Precedence`` values take precedence over groups with lower ``Precedence`` values or with null ``Precedence`` values.
+                A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user\'s tokens. Groups with higher ``Precedence`` values take precedence over groups with lower ``Precedence`` values or with null ``Precedence`` values.
         
-                Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users' tokens.
+                Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users\' tokens.
         
                 The default ``Precedence`` value is null.
         
@@ -2735,17 +2735,17 @@ class Client(BaseClient):
         ::
         
           response = client.create_identity_provider(
-              UserPoolId='string',
-              ProviderName='string',
-              ProviderType='SAML'|'Facebook'|'Google'|'LoginWithAmazon'|'OIDC',
+              UserPoolId=\'string\',
+              ProviderName=\'string\',
+              ProviderType=\'SAML\'|\'Facebook\'|\'Google\'|\'LoginWithAmazon\'|\'OIDC\',
               ProviderDetails={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               AttributeMapping={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               IdpIdentifiers=[
-                  'string',
+                  \'string\',
               ]
           )
         :type UserPoolId: string
@@ -2796,21 +2796,21 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityProvider': {
-                    'UserPoolId': 'string',
-                    'ProviderName': 'string',
-                    'ProviderType': 'SAML'|'Facebook'|'Google'|'LoginWithAmazon'|'OIDC',
-                    'ProviderDetails': {
-                        'string': 'string'
+                \'IdentityProvider\': {
+                    \'UserPoolId\': \'string\',
+                    \'ProviderName\': \'string\',
+                    \'ProviderType\': \'SAML\'|\'Facebook\'|\'Google\'|\'LoginWithAmazon\'|\'OIDC\',
+                    \'ProviderDetails\': {
+                        \'string\': \'string\'
                     },
-                    'AttributeMapping': {
-                        'string': 'string'
+                    \'AttributeMapping\': {
+                        \'string\': \'string\'
                     },
-                    'IdpIdentifiers': [
-                        'string',
+                    \'IdpIdentifiers\': [
+                        \'string\',
                     ],
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1)
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -2875,13 +2875,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_resource_server(
-              UserPoolId='string',
-              Identifier='string',
-              Name='string',
+              UserPoolId=\'string\',
+              Identifier=\'string\',
+              Name=\'string\',
               Scopes=[
                   {
-                      'ScopeName': 'string',
-                      'ScopeDescription': 'string'
+                      \'ScopeName\': \'string\',
+                      \'ScopeDescription\': \'string\'
                   },
               ]
           )
@@ -2925,14 +2925,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceServer': {
-                    'UserPoolId': 'string',
-                    'Identifier': 'string',
-                    'Name': 'string',
-                    'Scopes': [
+                \'ResourceServer\': {
+                    \'UserPoolId\': \'string\',
+                    \'Identifier\': \'string\',
+                    \'Name\': \'string\',
+                    \'Scopes\': [
                         {
-                            'ScopeName': 'string',
-                            'ScopeDescription': 'string'
+                            \'ScopeName\': \'string\',
+                            \'ScopeDescription\': \'string\'
                         },
                     ]
                 }
@@ -2985,9 +2985,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_user_import_job(
-              JobName='string',
-              UserPoolId='string',
-              CloudWatchLogsRoleArn='string'
+              JobName=\'string\',
+              UserPoolId=\'string\',
+              CloudWatchLogsRoleArn=\'string\'
           )
         :type JobName: string
         :param JobName: **[REQUIRED]** 
@@ -3012,20 +3012,20 @@ class Client(BaseClient):
           ::
         
             {
-                'UserImportJob': {
-                    'JobName': 'string',
-                    'JobId': 'string',
-                    'UserPoolId': 'string',
-                    'PreSignedUrl': 'string',
-                    'CreationDate': datetime(2015, 1, 1),
-                    'StartDate': datetime(2015, 1, 1),
-                    'CompletionDate': datetime(2015, 1, 1),
-                    'Status': 'Created'|'Pending'|'InProgress'|'Stopping'|'Expired'|'Stopped'|'Failed'|'Succeeded',
-                    'CloudWatchLogsRoleArn': 'string',
-                    'ImportedUsers': 123,
-                    'SkippedUsers': 123,
-                    'FailedUsers': 123,
-                    'CompletionMessage': 'string'
+                \'UserImportJob\': {
+                    \'JobName\': \'string\',
+                    \'JobId\': \'string\',
+                    \'UserPoolId\': \'string\',
+                    \'PreSignedUrl\': \'string\',
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'StartDate\': datetime(2015, 1, 1),
+                    \'CompletionDate\': datetime(2015, 1, 1),
+                    \'Status\': \'Created\'|\'Pending\'|\'InProgress\'|\'Stopping\'|\'Expired\'|\'Stopped\'|\'Failed\'|\'Succeeded\',
+                    \'CloudWatchLogsRoleArn\': \'string\',
+                    \'ImportedUsers\': 123,
+                    \'SkippedUsers\': 123,
+                    \'FailedUsers\': 123,
+                    \'CompletionMessage\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3088,7 +3088,7 @@ class Client(BaseClient):
                  
               - **CloudWatchLogsRoleArn** *(string) --* 
         
-                The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
+                The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see \"Creating the CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide.
         
               - **ImportedUsers** *(integer) --* 
         
@@ -3118,93 +3118,93 @@ class Client(BaseClient):
         ::
         
           response = client.create_user_pool(
-              PoolName='string',
+              PoolName=\'string\',
               Policies={
-                  'PasswordPolicy': {
-                      'MinimumLength': 123,
-                      'RequireUppercase': True|False,
-                      'RequireLowercase': True|False,
-                      'RequireNumbers': True|False,
-                      'RequireSymbols': True|False
+                  \'PasswordPolicy\': {
+                      \'MinimumLength\': 123,
+                      \'RequireUppercase\': True|False,
+                      \'RequireLowercase\': True|False,
+                      \'RequireNumbers\': True|False,
+                      \'RequireSymbols\': True|False
                   }
               },
               LambdaConfig={
-                  'PreSignUp': 'string',
-                  'CustomMessage': 'string',
-                  'PostConfirmation': 'string',
-                  'PreAuthentication': 'string',
-                  'PostAuthentication': 'string',
-                  'DefineAuthChallenge': 'string',
-                  'CreateAuthChallenge': 'string',
-                  'VerifyAuthChallengeResponse': 'string',
-                  'PreTokenGeneration': 'string',
-                  'UserMigration': 'string'
+                  \'PreSignUp\': \'string\',
+                  \'CustomMessage\': \'string\',
+                  \'PostConfirmation\': \'string\',
+                  \'PreAuthentication\': \'string\',
+                  \'PostAuthentication\': \'string\',
+                  \'DefineAuthChallenge\': \'string\',
+                  \'CreateAuthChallenge\': \'string\',
+                  \'VerifyAuthChallengeResponse\': \'string\',
+                  \'PreTokenGeneration\': \'string\',
+                  \'UserMigration\': \'string\'
               },
               AutoVerifiedAttributes=[
-                  'phone_number'|'email',
+                  \'phone_number\'|\'email\',
               ],
               AliasAttributes=[
-                  'phone_number'|'email'|'preferred_username',
+                  \'phone_number\'|\'email\'|\'preferred_username\',
               ],
               UsernameAttributes=[
-                  'phone_number'|'email',
+                  \'phone_number\'|\'email\',
               ],
-              SmsVerificationMessage='string',
-              EmailVerificationMessage='string',
-              EmailVerificationSubject='string',
+              SmsVerificationMessage=\'string\',
+              EmailVerificationMessage=\'string\',
+              EmailVerificationSubject=\'string\',
               VerificationMessageTemplate={
-                  'SmsMessage': 'string',
-                  'EmailMessage': 'string',
-                  'EmailSubject': 'string',
-                  'EmailMessageByLink': 'string',
-                  'EmailSubjectByLink': 'string',
-                  'DefaultEmailOption': 'CONFIRM_WITH_LINK'|'CONFIRM_WITH_CODE'
+                  \'SmsMessage\': \'string\',
+                  \'EmailMessage\': \'string\',
+                  \'EmailSubject\': \'string\',
+                  \'EmailMessageByLink\': \'string\',
+                  \'EmailSubjectByLink\': \'string\',
+                  \'DefaultEmailOption\': \'CONFIRM_WITH_LINK\'|\'CONFIRM_WITH_CODE\'
               },
-              SmsAuthenticationMessage='string',
-              MfaConfiguration='OFF'|'ON'|'OPTIONAL',
+              SmsAuthenticationMessage=\'string\',
+              MfaConfiguration=\'OFF\'|\'ON\'|\'OPTIONAL\',
               DeviceConfiguration={
-                  'ChallengeRequiredOnNewDevice': True|False,
-                  'DeviceOnlyRememberedOnUserPrompt': True|False
+                  \'ChallengeRequiredOnNewDevice\': True|False,
+                  \'DeviceOnlyRememberedOnUserPrompt\': True|False
               },
               EmailConfiguration={
-                  'SourceArn': 'string',
-                  'ReplyToEmailAddress': 'string'
+                  \'SourceArn\': \'string\',
+                  \'ReplyToEmailAddress\': \'string\'
               },
               SmsConfiguration={
-                  'SnsCallerArn': 'string',
-                  'ExternalId': 'string'
+                  \'SnsCallerArn\': \'string\',
+                  \'ExternalId\': \'string\'
               },
               UserPoolTags={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               AdminCreateUserConfig={
-                  'AllowAdminCreateUserOnly': True|False,
-                  'UnusedAccountValidityDays': 123,
-                  'InviteMessageTemplate': {
-                      'SMSMessage': 'string',
-                      'EmailMessage': 'string',
-                      'EmailSubject': 'string'
+                  \'AllowAdminCreateUserOnly\': True|False,
+                  \'UnusedAccountValidityDays\': 123,
+                  \'InviteMessageTemplate\': {
+                      \'SMSMessage\': \'string\',
+                      \'EmailMessage\': \'string\',
+                      \'EmailSubject\': \'string\'
                   }
               },
               Schema=[
                   {
-                      'Name': 'string',
-                      'AttributeDataType': 'String'|'Number'|'DateTime'|'Boolean',
-                      'DeveloperOnlyAttribute': True|False,
-                      'Mutable': True|False,
-                      'Required': True|False,
-                      'NumberAttributeConstraints': {
-                          'MinValue': 'string',
-                          'MaxValue': 'string'
+                      \'Name\': \'string\',
+                      \'AttributeDataType\': \'String\'|\'Number\'|\'DateTime\'|\'Boolean\',
+                      \'DeveloperOnlyAttribute\': True|False,
+                      \'Mutable\': True|False,
+                      \'Required\': True|False,
+                      \'NumberAttributeConstraints\': {
+                          \'MinValue\': \'string\',
+                          \'MaxValue\': \'string\'
                       },
-                      'StringAttributeConstraints': {
-                          'MinLength': 'string',
-                          'MaxLength': 'string'
+                      \'StringAttributeConstraints\': {
+                          \'MinLength\': \'string\',
+                          \'MaxLength\': \'string\'
                       }
                   },
               ],
               UserPoolAddOns={
-                  'AdvancedSecurityMode': 'OFF'|'AUDIT'|'ENFORCED'
+                  \'AdvancedSecurityMode\': \'OFF\'|\'AUDIT\'|\'ENFORCED\'
               }
           )
         :type PoolName: string
@@ -3333,7 +3333,7 @@ class Client(BaseClient):
         :type VerificationMessageTemplate: dict
         :param VerificationMessageTemplate: 
         
-          The template for the verification message that the user sees when the app requests permission to access the user's information.
+          The template for the verification message that the user sees when the app requests permission to access the user\'s information.
         
           - **SmsMessage** *(string) --* 
         
@@ -3428,7 +3428,7 @@ class Client(BaseClient):
         
           - **UnusedAccountValidityDays** *(integer) --* 
         
-            The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``"RESEND"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
+            The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``\"RESEND\"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
         
           - **InviteMessageTemplate** *(dict) --* 
         
@@ -3504,7 +3504,7 @@ class Client(BaseClient):
         :type UserPoolAddOns: dict
         :param UserPoolAddOns: 
         
-          Used to enable advanced security risk detection. Set the key ``AdvancedSecurityMode`` to the value "AUDIT".
+          Used to enable advanced security risk detection. Set the key ``AdvancedSecurityMode`` to the value \"AUDIT\".
         
           - **AdvancedSecurityMode** *(string) --* **[REQUIRED]** 
         
@@ -3518,105 +3518,105 @@ class Client(BaseClient):
           ::
         
             {
-                'UserPool': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'Policies': {
-                        'PasswordPolicy': {
-                            'MinimumLength': 123,
-                            'RequireUppercase': True|False,
-                            'RequireLowercase': True|False,
-                            'RequireNumbers': True|False,
-                            'RequireSymbols': True|False
+                \'UserPool\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'Policies\': {
+                        \'PasswordPolicy\': {
+                            \'MinimumLength\': 123,
+                            \'RequireUppercase\': True|False,
+                            \'RequireLowercase\': True|False,
+                            \'RequireNumbers\': True|False,
+                            \'RequireSymbols\': True|False
                         }
                     },
-                    'LambdaConfig': {
-                        'PreSignUp': 'string',
-                        'CustomMessage': 'string',
-                        'PostConfirmation': 'string',
-                        'PreAuthentication': 'string',
-                        'PostAuthentication': 'string',
-                        'DefineAuthChallenge': 'string',
-                        'CreateAuthChallenge': 'string',
-                        'VerifyAuthChallengeResponse': 'string',
-                        'PreTokenGeneration': 'string',
-                        'UserMigration': 'string'
+                    \'LambdaConfig\': {
+                        \'PreSignUp\': \'string\',
+                        \'CustomMessage\': \'string\',
+                        \'PostConfirmation\': \'string\',
+                        \'PreAuthentication\': \'string\',
+                        \'PostAuthentication\': \'string\',
+                        \'DefineAuthChallenge\': \'string\',
+                        \'CreateAuthChallenge\': \'string\',
+                        \'VerifyAuthChallengeResponse\': \'string\',
+                        \'PreTokenGeneration\': \'string\',
+                        \'UserMigration\': \'string\'
                     },
-                    'Status': 'Enabled'|'Disabled',
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1),
-                    'SchemaAttributes': [
+                    \'Status\': \'Enabled\'|\'Disabled\',
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'SchemaAttributes\': [
                         {
-                            'Name': 'string',
-                            'AttributeDataType': 'String'|'Number'|'DateTime'|'Boolean',
-                            'DeveloperOnlyAttribute': True|False,
-                            'Mutable': True|False,
-                            'Required': True|False,
-                            'NumberAttributeConstraints': {
-                                'MinValue': 'string',
-                                'MaxValue': 'string'
+                            \'Name\': \'string\',
+                            \'AttributeDataType\': \'String\'|\'Number\'|\'DateTime\'|\'Boolean\',
+                            \'DeveloperOnlyAttribute\': True|False,
+                            \'Mutable\': True|False,
+                            \'Required\': True|False,
+                            \'NumberAttributeConstraints\': {
+                                \'MinValue\': \'string\',
+                                \'MaxValue\': \'string\'
                             },
-                            'StringAttributeConstraints': {
-                                'MinLength': 'string',
-                                'MaxLength': 'string'
+                            \'StringAttributeConstraints\': {
+                                \'MinLength\': \'string\',
+                                \'MaxLength\': \'string\'
                             }
                         },
                     ],
-                    'AutoVerifiedAttributes': [
-                        'phone_number'|'email',
+                    \'AutoVerifiedAttributes\': [
+                        \'phone_number\'|\'email\',
                     ],
-                    'AliasAttributes': [
-                        'phone_number'|'email'|'preferred_username',
+                    \'AliasAttributes\': [
+                        \'phone_number\'|\'email\'|\'preferred_username\',
                     ],
-                    'UsernameAttributes': [
-                        'phone_number'|'email',
+                    \'UsernameAttributes\': [
+                        \'phone_number\'|\'email\',
                     ],
-                    'SmsVerificationMessage': 'string',
-                    'EmailVerificationMessage': 'string',
-                    'EmailVerificationSubject': 'string',
-                    'VerificationMessageTemplate': {
-                        'SmsMessage': 'string',
-                        'EmailMessage': 'string',
-                        'EmailSubject': 'string',
-                        'EmailMessageByLink': 'string',
-                        'EmailSubjectByLink': 'string',
-                        'DefaultEmailOption': 'CONFIRM_WITH_LINK'|'CONFIRM_WITH_CODE'
+                    \'SmsVerificationMessage\': \'string\',
+                    \'EmailVerificationMessage\': \'string\',
+                    \'EmailVerificationSubject\': \'string\',
+                    \'VerificationMessageTemplate\': {
+                        \'SmsMessage\': \'string\',
+                        \'EmailMessage\': \'string\',
+                        \'EmailSubject\': \'string\',
+                        \'EmailMessageByLink\': \'string\',
+                        \'EmailSubjectByLink\': \'string\',
+                        \'DefaultEmailOption\': \'CONFIRM_WITH_LINK\'|\'CONFIRM_WITH_CODE\'
                     },
-                    'SmsAuthenticationMessage': 'string',
-                    'MfaConfiguration': 'OFF'|'ON'|'OPTIONAL',
-                    'DeviceConfiguration': {
-                        'ChallengeRequiredOnNewDevice': True|False,
-                        'DeviceOnlyRememberedOnUserPrompt': True|False
+                    \'SmsAuthenticationMessage\': \'string\',
+                    \'MfaConfiguration\': \'OFF\'|\'ON\'|\'OPTIONAL\',
+                    \'DeviceConfiguration\': {
+                        \'ChallengeRequiredOnNewDevice\': True|False,
+                        \'DeviceOnlyRememberedOnUserPrompt\': True|False
                     },
-                    'EstimatedNumberOfUsers': 123,
-                    'EmailConfiguration': {
-                        'SourceArn': 'string',
-                        'ReplyToEmailAddress': 'string'
+                    \'EstimatedNumberOfUsers\': 123,
+                    \'EmailConfiguration\': {
+                        \'SourceArn\': \'string\',
+                        \'ReplyToEmailAddress\': \'string\'
                     },
-                    'SmsConfiguration': {
-                        'SnsCallerArn': 'string',
-                        'ExternalId': 'string'
+                    \'SmsConfiguration\': {
+                        \'SnsCallerArn\': \'string\',
+                        \'ExternalId\': \'string\'
                     },
-                    'UserPoolTags': {
-                        'string': 'string'
+                    \'UserPoolTags\': {
+                        \'string\': \'string\'
                     },
-                    'SmsConfigurationFailure': 'string',
-                    'EmailConfigurationFailure': 'string',
-                    'Domain': 'string',
-                    'CustomDomain': 'string',
-                    'AdminCreateUserConfig': {
-                        'AllowAdminCreateUserOnly': True|False,
-                        'UnusedAccountValidityDays': 123,
-                        'InviteMessageTemplate': {
-                            'SMSMessage': 'string',
-                            'EmailMessage': 'string',
-                            'EmailSubject': 'string'
+                    \'SmsConfigurationFailure\': \'string\',
+                    \'EmailConfigurationFailure\': \'string\',
+                    \'Domain\': \'string\',
+                    \'CustomDomain\': \'string\',
+                    \'AdminCreateUserConfig\': {
+                        \'AllowAdminCreateUserOnly\': True|False,
+                        \'UnusedAccountValidityDays\': 123,
+                        \'InviteMessageTemplate\': {
+                            \'SMSMessage\': \'string\',
+                            \'EmailMessage\': \'string\',
+                            \'EmailSubject\': \'string\'
                         }
                     },
-                    'UserPoolAddOns': {
-                        'AdvancedSecurityMode': 'OFF'|'AUDIT'|'ENFORCED'
+                    \'UserPoolAddOns\': {
+                        \'AdvancedSecurityMode\': \'OFF\'|\'AUDIT\'|\'ENFORCED\'
                     },
-                    'Arn': 'string'
+                    \'Arn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3917,7 +3917,7 @@ class Client(BaseClient):
         
                 - **UnusedAccountValidityDays** *(integer) --* 
         
-                  The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``"RESEND"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
+                  The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``\"RESEND\"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
         
                 - **InviteMessageTemplate** *(dict) --* 
         
@@ -3961,41 +3961,41 @@ class Client(BaseClient):
         ::
         
           response = client.create_user_pool_client(
-              UserPoolId='string',
-              ClientName='string',
+              UserPoolId=\'string\',
+              ClientName=\'string\',
               GenerateSecret=True|False,
               RefreshTokenValidity=123,
               ReadAttributes=[
-                  'string',
+                  \'string\',
               ],
               WriteAttributes=[
-                  'string',
+                  \'string\',
               ],
               ExplicitAuthFlows=[
-                  'ADMIN_NO_SRP_AUTH'|'CUSTOM_AUTH_FLOW_ONLY'|'USER_PASSWORD_AUTH',
+                  \'ADMIN_NO_SRP_AUTH\'|\'CUSTOM_AUTH_FLOW_ONLY\'|\'USER_PASSWORD_AUTH\',
               ],
               SupportedIdentityProviders=[
-                  'string',
+                  \'string\',
               ],
               CallbackURLs=[
-                  'string',
+                  \'string\',
               ],
               LogoutURLs=[
-                  'string',
+                  \'string\',
               ],
-              DefaultRedirectURI='string',
+              DefaultRedirectURI=\'string\',
               AllowedOAuthFlows=[
-                  'code'|'implicit'|'client_credentials',
+                  \'code\'|\'implicit\'|\'client_credentials\',
               ],
               AllowedOAuthScopes=[
-                  'string',
+                  \'string\',
               ],
               AllowedOAuthFlowsUserPoolClient=True|False,
               AnalyticsConfiguration={
-                  'ApplicationId': 'string',
-                  'RoleArn': 'string',
-                  'ExternalId': 'string',
-                  'UserDataShared': True|False
+                  \'ApplicationId\': \'string\',
+                  \'RoleArn\': \'string\',
+                  \'ExternalId\': \'string\',
+                  \'UserDataShared\': True|False
               }
           )
         :type UserPoolId: string
@@ -4105,7 +4105,7 @@ class Client(BaseClient):
         :type AllowedOAuthScopes: list
         :param AllowedOAuthScopes: 
         
-          A list of allowed ``OAuth`` scopes. Currently supported values are ``"phone"`` , ``"email"`` , ``"openid"`` , and ``"Cognito"`` .
+          A list of allowed ``OAuth`` scopes. Currently supported values are ``\"phone\"`` , ``\"email\"`` , ``\"openid\"`` , and ``\"Cognito\"`` .
         
           - *(string) --* 
         
@@ -4143,45 +4143,45 @@ class Client(BaseClient):
           ::
         
             {
-                'UserPoolClient': {
-                    'UserPoolId': 'string',
-                    'ClientName': 'string',
-                    'ClientId': 'string',
-                    'ClientSecret': 'string',
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1),
-                    'RefreshTokenValidity': 123,
-                    'ReadAttributes': [
-                        'string',
+                \'UserPoolClient\': {
+                    \'UserPoolId\': \'string\',
+                    \'ClientName\': \'string\',
+                    \'ClientId\': \'string\',
+                    \'ClientSecret\': \'string\',
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'RefreshTokenValidity\': 123,
+                    \'ReadAttributes\': [
+                        \'string\',
                     ],
-                    'WriteAttributes': [
-                        'string',
+                    \'WriteAttributes\': [
+                        \'string\',
                     ],
-                    'ExplicitAuthFlows': [
-                        'ADMIN_NO_SRP_AUTH'|'CUSTOM_AUTH_FLOW_ONLY'|'USER_PASSWORD_AUTH',
+                    \'ExplicitAuthFlows\': [
+                        \'ADMIN_NO_SRP_AUTH\'|\'CUSTOM_AUTH_FLOW_ONLY\'|\'USER_PASSWORD_AUTH\',
                     ],
-                    'SupportedIdentityProviders': [
-                        'string',
+                    \'SupportedIdentityProviders\': [
+                        \'string\',
                     ],
-                    'CallbackURLs': [
-                        'string',
+                    \'CallbackURLs\': [
+                        \'string\',
                     ],
-                    'LogoutURLs': [
-                        'string',
+                    \'LogoutURLs\': [
+                        \'string\',
                     ],
-                    'DefaultRedirectURI': 'string',
-                    'AllowedOAuthFlows': [
-                        'code'|'implicit'|'client_credentials',
+                    \'DefaultRedirectURI\': \'string\',
+                    \'AllowedOAuthFlows\': [
+                        \'code\'|\'implicit\'|\'client_credentials\',
                     ],
-                    'AllowedOAuthScopes': [
-                        'string',
+                    \'AllowedOAuthScopes\': [
+                        \'string\',
                     ],
-                    'AllowedOAuthFlowsUserPoolClient': True|False,
-                    'AnalyticsConfiguration': {
-                        'ApplicationId': 'string',
-                        'RoleArn': 'string',
-                        'ExternalId': 'string',
-                        'UserDataShared': True|False
+                    \'AllowedOAuthFlowsUserPoolClient\': True|False,
+                    \'AnalyticsConfiguration\': {
+                        \'ApplicationId\': \'string\',
+                        \'RoleArn\': \'string\',
+                        \'ExternalId\': \'string\',
+                        \'UserDataShared\': True|False
                     }
                 }
             }
@@ -4301,7 +4301,7 @@ class Client(BaseClient):
             
               - **AllowedOAuthScopes** *(list) --* 
         
-                A list of allowed ``OAuth`` scopes. Currently supported values are ``"phone"`` , ``"email"`` , ``"openid"`` , and ``"Cognito"`` .
+                A list of allowed ``OAuth`` scopes. Currently supported values are ``\"phone\"`` , ``\"email\"`` , ``\"openid\"`` , and ``\"Cognito\"`` .
         
                 - *(string) --* 
             
@@ -4341,10 +4341,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_user_pool_domain(
-              Domain='string',
-              UserPoolId='string',
+              Domain=\'string\',
+              UserPoolId=\'string\',
               CustomDomainConfig={
-                  'CertificateArn': 'string'
+                  \'CertificateArn\': \'string\'
               }
           )
         :type Domain: string
@@ -4378,7 +4378,7 @@ class Client(BaseClient):
           ::
         
             {
-                'CloudFrontDomain': 'string'
+                \'CloudFrontDomain\': \'string\'
             }
           **Response Structure** 
         
@@ -4402,8 +4402,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_group(
-              GroupName='string',
-              UserPoolId='string'
+              GroupName=\'string\',
+              UserPoolId=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -4428,8 +4428,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_identity_provider(
-              UserPoolId='string',
-              ProviderName='string'
+              UserPoolId=\'string\',
+              ProviderName=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -4454,8 +4454,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_resource_server(
-              UserPoolId='string',
-              Identifier='string'
+              UserPoolId=\'string\',
+              Identifier=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -4480,7 +4480,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user(
-              AccessToken='string'
+              AccessToken=\'string\'
           )
         :type AccessToken: string
         :param AccessToken: **[REQUIRED]** 
@@ -4501,9 +4501,9 @@ class Client(BaseClient):
         
           response = client.delete_user_attributes(
               UserAttributeNames=[
-                  'string',
+                  \'string\',
               ],
-              AccessToken='string'
+              AccessToken=\'string\'
           )
         :type UserAttributeNames: list
         :param UserAttributeNames: **[REQUIRED]** 
@@ -4545,7 +4545,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user_pool(
-              UserPoolId='string'
+              UserPoolId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -4565,8 +4565,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user_pool_client(
-              UserPoolId='string',
-              ClientId='string'
+              UserPoolId=\'string\',
+              ClientId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -4591,8 +4591,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user_pool_domain(
-              Domain='string',
-              UserPoolId='string'
+              Domain=\'string\',
+              UserPoolId=\'string\'
           )
         :type Domain: string
         :param Domain: **[REQUIRED]** 
@@ -4627,8 +4627,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_identity_provider(
-              UserPoolId='string',
-              ProviderName='string'
+              UserPoolId=\'string\',
+              ProviderName=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -4648,21 +4648,21 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityProvider': {
-                    'UserPoolId': 'string',
-                    'ProviderName': 'string',
-                    'ProviderType': 'SAML'|'Facebook'|'Google'|'LoginWithAmazon'|'OIDC',
-                    'ProviderDetails': {
-                        'string': 'string'
+                \'IdentityProvider\': {
+                    \'UserPoolId\': \'string\',
+                    \'ProviderName\': \'string\',
+                    \'ProviderType\': \'SAML\'|\'Facebook\'|\'Google\'|\'LoginWithAmazon\'|\'OIDC\',
+                    \'ProviderDetails\': {
+                        \'string\': \'string\'
                     },
-                    'AttributeMapping': {
-                        'string': 'string'
+                    \'AttributeMapping\': {
+                        \'string\': \'string\'
                     },
-                    'IdpIdentifiers': [
-                        'string',
+                    \'IdpIdentifiers\': [
+                        \'string\',
                     ],
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1)
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -4727,8 +4727,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_resource_server(
-              UserPoolId='string',
-              Identifier='string'
+              UserPoolId=\'string\',
+              Identifier=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -4748,14 +4748,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceServer': {
-                    'UserPoolId': 'string',
-                    'Identifier': 'string',
-                    'Name': 'string',
-                    'Scopes': [
+                \'ResourceServer\': {
+                    \'UserPoolId\': \'string\',
+                    \'Identifier\': \'string\',
+                    \'Name\': \'string\',
+                    \'Scopes\': [
                         {
-                            'ScopeName': 'string',
-                            'ScopeDescription': 'string'
+                            \'ScopeName\': \'string\',
+                            \'ScopeDescription\': \'string\'
                         },
                     ]
                 }
@@ -4808,8 +4808,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_risk_configuration(
-              UserPoolId='string',
-              ClientId='string'
+              UserPoolId=\'string\',
+              ClientId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -4829,62 +4829,62 @@ class Client(BaseClient):
           ::
         
             {
-                'RiskConfiguration': {
-                    'UserPoolId': 'string',
-                    'ClientId': 'string',
-                    'CompromisedCredentialsRiskConfiguration': {
-                        'EventFilter': [
-                            'SIGN_IN'|'PASSWORD_CHANGE'|'SIGN_UP',
+                \'RiskConfiguration\': {
+                    \'UserPoolId\': \'string\',
+                    \'ClientId\': \'string\',
+                    \'CompromisedCredentialsRiskConfiguration\': {
+                        \'EventFilter\': [
+                            \'SIGN_IN\'|\'PASSWORD_CHANGE\'|\'SIGN_UP\',
                         ],
-                        'Actions': {
-                            'EventAction': 'BLOCK'|'NO_ACTION'
+                        \'Actions\': {
+                            \'EventAction\': \'BLOCK\'|\'NO_ACTION\'
                         }
                     },
-                    'AccountTakeoverRiskConfiguration': {
-                        'NotifyConfiguration': {
-                            'From': 'string',
-                            'ReplyTo': 'string',
-                            'SourceArn': 'string',
-                            'BlockEmail': {
-                                'Subject': 'string',
-                                'HtmlBody': 'string',
-                                'TextBody': 'string'
+                    \'AccountTakeoverRiskConfiguration\': {
+                        \'NotifyConfiguration\': {
+                            \'From\': \'string\',
+                            \'ReplyTo\': \'string\',
+                            \'SourceArn\': \'string\',
+                            \'BlockEmail\': {
+                                \'Subject\': \'string\',
+                                \'HtmlBody\': \'string\',
+                                \'TextBody\': \'string\'
                             },
-                            'NoActionEmail': {
-                                'Subject': 'string',
-                                'HtmlBody': 'string',
-                                'TextBody': 'string'
+                            \'NoActionEmail\': {
+                                \'Subject\': \'string\',
+                                \'HtmlBody\': \'string\',
+                                \'TextBody\': \'string\'
                             },
-                            'MfaEmail': {
-                                'Subject': 'string',
-                                'HtmlBody': 'string',
-                                'TextBody': 'string'
+                            \'MfaEmail\': {
+                                \'Subject\': \'string\',
+                                \'HtmlBody\': \'string\',
+                                \'TextBody\': \'string\'
                             }
                         },
-                        'Actions': {
-                            'LowAction': {
-                                'Notify': True|False,
-                                'EventAction': 'BLOCK'|'MFA_IF_CONFIGURED'|'MFA_REQUIRED'|'NO_ACTION'
+                        \'Actions\': {
+                            \'LowAction\': {
+                                \'Notify\': True|False,
+                                \'EventAction\': \'BLOCK\'|\'MFA_IF_CONFIGURED\'|\'MFA_REQUIRED\'|\'NO_ACTION\'
                             },
-                            'MediumAction': {
-                                'Notify': True|False,
-                                'EventAction': 'BLOCK'|'MFA_IF_CONFIGURED'|'MFA_REQUIRED'|'NO_ACTION'
+                            \'MediumAction\': {
+                                \'Notify\': True|False,
+                                \'EventAction\': \'BLOCK\'|\'MFA_IF_CONFIGURED\'|\'MFA_REQUIRED\'|\'NO_ACTION\'
                             },
-                            'HighAction': {
-                                'Notify': True|False,
-                                'EventAction': 'BLOCK'|'MFA_IF_CONFIGURED'|'MFA_REQUIRED'|'NO_ACTION'
+                            \'HighAction\': {
+                                \'Notify\': True|False,
+                                \'EventAction\': \'BLOCK\'|\'MFA_IF_CONFIGURED\'|\'MFA_REQUIRED\'|\'NO_ACTION\'
                             }
                         }
                     },
-                    'RiskExceptionConfiguration': {
-                        'BlockedIPRangeList': [
-                            'string',
+                    \'RiskExceptionConfiguration\': {
+                        \'BlockedIPRangeList\': [
+                            \'string\',
                         ],
-                        'SkippedIPRangeList': [
-                            'string',
+                        \'SkippedIPRangeList\': [
+                            \'string\',
                         ]
                     },
-                    'LastModifiedDate': datetime(2015, 1, 1)
+                    \'LastModifiedDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -5085,8 +5085,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_user_import_job(
-              UserPoolId='string',
-              JobId='string'
+              UserPoolId=\'string\',
+              JobId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -5106,20 +5106,20 @@ class Client(BaseClient):
           ::
         
             {
-                'UserImportJob': {
-                    'JobName': 'string',
-                    'JobId': 'string',
-                    'UserPoolId': 'string',
-                    'PreSignedUrl': 'string',
-                    'CreationDate': datetime(2015, 1, 1),
-                    'StartDate': datetime(2015, 1, 1),
-                    'CompletionDate': datetime(2015, 1, 1),
-                    'Status': 'Created'|'Pending'|'InProgress'|'Stopping'|'Expired'|'Stopped'|'Failed'|'Succeeded',
-                    'CloudWatchLogsRoleArn': 'string',
-                    'ImportedUsers': 123,
-                    'SkippedUsers': 123,
-                    'FailedUsers': 123,
-                    'CompletionMessage': 'string'
+                \'UserImportJob\': {
+                    \'JobName\': \'string\',
+                    \'JobId\': \'string\',
+                    \'UserPoolId\': \'string\',
+                    \'PreSignedUrl\': \'string\',
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'StartDate\': datetime(2015, 1, 1),
+                    \'CompletionDate\': datetime(2015, 1, 1),
+                    \'Status\': \'Created\'|\'Pending\'|\'InProgress\'|\'Stopping\'|\'Expired\'|\'Stopped\'|\'Failed\'|\'Succeeded\',
+                    \'CloudWatchLogsRoleArn\': \'string\',
+                    \'ImportedUsers\': 123,
+                    \'SkippedUsers\': 123,
+                    \'FailedUsers\': 123,
+                    \'CompletionMessage\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5182,7 +5182,7 @@ class Client(BaseClient):
                  
               - **CloudWatchLogsRoleArn** *(string) --* 
         
-                The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
+                The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see \"Creating the CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide.
         
               - **ImportedUsers** *(integer) --* 
         
@@ -5212,7 +5212,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_user_pool(
-              UserPoolId='string'
+              UserPoolId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -5227,105 +5227,105 @@ class Client(BaseClient):
           ::
         
             {
-                'UserPool': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'Policies': {
-                        'PasswordPolicy': {
-                            'MinimumLength': 123,
-                            'RequireUppercase': True|False,
-                            'RequireLowercase': True|False,
-                            'RequireNumbers': True|False,
-                            'RequireSymbols': True|False
+                \'UserPool\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'Policies\': {
+                        \'PasswordPolicy\': {
+                            \'MinimumLength\': 123,
+                            \'RequireUppercase\': True|False,
+                            \'RequireLowercase\': True|False,
+                            \'RequireNumbers\': True|False,
+                            \'RequireSymbols\': True|False
                         }
                     },
-                    'LambdaConfig': {
-                        'PreSignUp': 'string',
-                        'CustomMessage': 'string',
-                        'PostConfirmation': 'string',
-                        'PreAuthentication': 'string',
-                        'PostAuthentication': 'string',
-                        'DefineAuthChallenge': 'string',
-                        'CreateAuthChallenge': 'string',
-                        'VerifyAuthChallengeResponse': 'string',
-                        'PreTokenGeneration': 'string',
-                        'UserMigration': 'string'
+                    \'LambdaConfig\': {
+                        \'PreSignUp\': \'string\',
+                        \'CustomMessage\': \'string\',
+                        \'PostConfirmation\': \'string\',
+                        \'PreAuthentication\': \'string\',
+                        \'PostAuthentication\': \'string\',
+                        \'DefineAuthChallenge\': \'string\',
+                        \'CreateAuthChallenge\': \'string\',
+                        \'VerifyAuthChallengeResponse\': \'string\',
+                        \'PreTokenGeneration\': \'string\',
+                        \'UserMigration\': \'string\'
                     },
-                    'Status': 'Enabled'|'Disabled',
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1),
-                    'SchemaAttributes': [
+                    \'Status\': \'Enabled\'|\'Disabled\',
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'SchemaAttributes\': [
                         {
-                            'Name': 'string',
-                            'AttributeDataType': 'String'|'Number'|'DateTime'|'Boolean',
-                            'DeveloperOnlyAttribute': True|False,
-                            'Mutable': True|False,
-                            'Required': True|False,
-                            'NumberAttributeConstraints': {
-                                'MinValue': 'string',
-                                'MaxValue': 'string'
+                            \'Name\': \'string\',
+                            \'AttributeDataType\': \'String\'|\'Number\'|\'DateTime\'|\'Boolean\',
+                            \'DeveloperOnlyAttribute\': True|False,
+                            \'Mutable\': True|False,
+                            \'Required\': True|False,
+                            \'NumberAttributeConstraints\': {
+                                \'MinValue\': \'string\',
+                                \'MaxValue\': \'string\'
                             },
-                            'StringAttributeConstraints': {
-                                'MinLength': 'string',
-                                'MaxLength': 'string'
+                            \'StringAttributeConstraints\': {
+                                \'MinLength\': \'string\',
+                                \'MaxLength\': \'string\'
                             }
                         },
                     ],
-                    'AutoVerifiedAttributes': [
-                        'phone_number'|'email',
+                    \'AutoVerifiedAttributes\': [
+                        \'phone_number\'|\'email\',
                     ],
-                    'AliasAttributes': [
-                        'phone_number'|'email'|'preferred_username',
+                    \'AliasAttributes\': [
+                        \'phone_number\'|\'email\'|\'preferred_username\',
                     ],
-                    'UsernameAttributes': [
-                        'phone_number'|'email',
+                    \'UsernameAttributes\': [
+                        \'phone_number\'|\'email\',
                     ],
-                    'SmsVerificationMessage': 'string',
-                    'EmailVerificationMessage': 'string',
-                    'EmailVerificationSubject': 'string',
-                    'VerificationMessageTemplate': {
-                        'SmsMessage': 'string',
-                        'EmailMessage': 'string',
-                        'EmailSubject': 'string',
-                        'EmailMessageByLink': 'string',
-                        'EmailSubjectByLink': 'string',
-                        'DefaultEmailOption': 'CONFIRM_WITH_LINK'|'CONFIRM_WITH_CODE'
+                    \'SmsVerificationMessage\': \'string\',
+                    \'EmailVerificationMessage\': \'string\',
+                    \'EmailVerificationSubject\': \'string\',
+                    \'VerificationMessageTemplate\': {
+                        \'SmsMessage\': \'string\',
+                        \'EmailMessage\': \'string\',
+                        \'EmailSubject\': \'string\',
+                        \'EmailMessageByLink\': \'string\',
+                        \'EmailSubjectByLink\': \'string\',
+                        \'DefaultEmailOption\': \'CONFIRM_WITH_LINK\'|\'CONFIRM_WITH_CODE\'
                     },
-                    'SmsAuthenticationMessage': 'string',
-                    'MfaConfiguration': 'OFF'|'ON'|'OPTIONAL',
-                    'DeviceConfiguration': {
-                        'ChallengeRequiredOnNewDevice': True|False,
-                        'DeviceOnlyRememberedOnUserPrompt': True|False
+                    \'SmsAuthenticationMessage\': \'string\',
+                    \'MfaConfiguration\': \'OFF\'|\'ON\'|\'OPTIONAL\',
+                    \'DeviceConfiguration\': {
+                        \'ChallengeRequiredOnNewDevice\': True|False,
+                        \'DeviceOnlyRememberedOnUserPrompt\': True|False
                     },
-                    'EstimatedNumberOfUsers': 123,
-                    'EmailConfiguration': {
-                        'SourceArn': 'string',
-                        'ReplyToEmailAddress': 'string'
+                    \'EstimatedNumberOfUsers\': 123,
+                    \'EmailConfiguration\': {
+                        \'SourceArn\': \'string\',
+                        \'ReplyToEmailAddress\': \'string\'
                     },
-                    'SmsConfiguration': {
-                        'SnsCallerArn': 'string',
-                        'ExternalId': 'string'
+                    \'SmsConfiguration\': {
+                        \'SnsCallerArn\': \'string\',
+                        \'ExternalId\': \'string\'
                     },
-                    'UserPoolTags': {
-                        'string': 'string'
+                    \'UserPoolTags\': {
+                        \'string\': \'string\'
                     },
-                    'SmsConfigurationFailure': 'string',
-                    'EmailConfigurationFailure': 'string',
-                    'Domain': 'string',
-                    'CustomDomain': 'string',
-                    'AdminCreateUserConfig': {
-                        'AllowAdminCreateUserOnly': True|False,
-                        'UnusedAccountValidityDays': 123,
-                        'InviteMessageTemplate': {
-                            'SMSMessage': 'string',
-                            'EmailMessage': 'string',
-                            'EmailSubject': 'string'
+                    \'SmsConfigurationFailure\': \'string\',
+                    \'EmailConfigurationFailure\': \'string\',
+                    \'Domain\': \'string\',
+                    \'CustomDomain\': \'string\',
+                    \'AdminCreateUserConfig\': {
+                        \'AllowAdminCreateUserOnly\': True|False,
+                        \'UnusedAccountValidityDays\': 123,
+                        \'InviteMessageTemplate\': {
+                            \'SMSMessage\': \'string\',
+                            \'EmailMessage\': \'string\',
+                            \'EmailSubject\': \'string\'
                         }
                     },
-                    'UserPoolAddOns': {
-                        'AdvancedSecurityMode': 'OFF'|'AUDIT'|'ENFORCED'
+                    \'UserPoolAddOns\': {
+                        \'AdvancedSecurityMode\': \'OFF\'|\'AUDIT\'|\'ENFORCED\'
                     },
-                    'Arn': 'string'
+                    \'Arn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5626,7 +5626,7 @@ class Client(BaseClient):
         
                 - **UnusedAccountValidityDays** *(integer) --* 
         
-                  The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``"RESEND"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
+                  The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``\"RESEND\"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
         
                 - **InviteMessageTemplate** *(dict) --* 
         
@@ -5670,8 +5670,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_user_pool_client(
-              UserPoolId='string',
-              ClientId='string'
+              UserPoolId=\'string\',
+              ClientId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -5691,45 +5691,45 @@ class Client(BaseClient):
           ::
         
             {
-                'UserPoolClient': {
-                    'UserPoolId': 'string',
-                    'ClientName': 'string',
-                    'ClientId': 'string',
-                    'ClientSecret': 'string',
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1),
-                    'RefreshTokenValidity': 123,
-                    'ReadAttributes': [
-                        'string',
+                \'UserPoolClient\': {
+                    \'UserPoolId\': \'string\',
+                    \'ClientName\': \'string\',
+                    \'ClientId\': \'string\',
+                    \'ClientSecret\': \'string\',
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'RefreshTokenValidity\': 123,
+                    \'ReadAttributes\': [
+                        \'string\',
                     ],
-                    'WriteAttributes': [
-                        'string',
+                    \'WriteAttributes\': [
+                        \'string\',
                     ],
-                    'ExplicitAuthFlows': [
-                        'ADMIN_NO_SRP_AUTH'|'CUSTOM_AUTH_FLOW_ONLY'|'USER_PASSWORD_AUTH',
+                    \'ExplicitAuthFlows\': [
+                        \'ADMIN_NO_SRP_AUTH\'|\'CUSTOM_AUTH_FLOW_ONLY\'|\'USER_PASSWORD_AUTH\',
                     ],
-                    'SupportedIdentityProviders': [
-                        'string',
+                    \'SupportedIdentityProviders\': [
+                        \'string\',
                     ],
-                    'CallbackURLs': [
-                        'string',
+                    \'CallbackURLs\': [
+                        \'string\',
                     ],
-                    'LogoutURLs': [
-                        'string',
+                    \'LogoutURLs\': [
+                        \'string\',
                     ],
-                    'DefaultRedirectURI': 'string',
-                    'AllowedOAuthFlows': [
-                        'code'|'implicit'|'client_credentials',
+                    \'DefaultRedirectURI\': \'string\',
+                    \'AllowedOAuthFlows\': [
+                        \'code\'|\'implicit\'|\'client_credentials\',
                     ],
-                    'AllowedOAuthScopes': [
-                        'string',
+                    \'AllowedOAuthScopes\': [
+                        \'string\',
                     ],
-                    'AllowedOAuthFlowsUserPoolClient': True|False,
-                    'AnalyticsConfiguration': {
-                        'ApplicationId': 'string',
-                        'RoleArn': 'string',
-                        'ExternalId': 'string',
-                        'UserDataShared': True|False
+                    \'AllowedOAuthFlowsUserPoolClient\': True|False,
+                    \'AnalyticsConfiguration\': {
+                        \'ApplicationId\': \'string\',
+                        \'RoleArn\': \'string\',
+                        \'ExternalId\': \'string\',
+                        \'UserDataShared\': True|False
                     }
                 }
             }
@@ -5849,7 +5849,7 @@ class Client(BaseClient):
             
               - **AllowedOAuthScopes** *(list) --* 
         
-                A list of allowed ``OAuth`` scopes. Currently supported values are ``"phone"`` , ``"email"`` , ``"openid"`` , and ``"Cognito"`` .
+                A list of allowed ``OAuth`` scopes. Currently supported values are ``\"phone\"`` , ``\"email\"`` , ``\"openid\"`` , and ``\"Cognito\"`` .
         
                 - *(string) --* 
             
@@ -5889,7 +5889,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_user_pool_domain(
-              Domain='string'
+              Domain=\'string\'
           )
         :type Domain: string
         :param Domain: **[REQUIRED]** 
@@ -5904,16 +5904,16 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainDescription': {
-                    'UserPoolId': 'string',
-                    'AWSAccountId': 'string',
-                    'Domain': 'string',
-                    'S3Bucket': 'string',
-                    'CloudFrontDistribution': 'string',
-                    'Version': 'string',
-                    'Status': 'CREATING'|'DELETING'|'UPDATING'|'ACTIVE'|'FAILED',
-                    'CustomDomainConfig': {
-                        'CertificateArn': 'string'
+                \'DomainDescription\': {
+                    \'UserPoolId\': \'string\',
+                    \'AWSAccountId\': \'string\',
+                    \'Domain\': \'string\',
+                    \'S3Bucket\': \'string\',
+                    \'CloudFrontDistribution\': \'string\',
+                    \'Version\': \'string\',
+                    \'Status\': \'CREATING\'|\'DELETING\'|\'UPDATING\'|\'ACTIVE\'|\'FAILED\',
+                    \'CustomDomainConfig\': {
+                        \'CertificateArn\': \'string\'
                     }
                 }
             }
@@ -5973,8 +5973,8 @@ class Client(BaseClient):
         ::
         
           response = client.forget_device(
-              AccessToken='string',
-              DeviceKey='string'
+              AccessToken=\'string\',
+              DeviceKey=\'string\'
           )
         :type AccessToken: string
         :param AccessToken: 
@@ -5999,14 +5999,14 @@ class Client(BaseClient):
         ::
         
           response = client.forgot_password(
-              ClientId='string',
-              SecretHash='string',
+              ClientId=\'string\',
+              SecretHash=\'string\',
               UserContextData={
-                  'EncodedData': 'string'
+                  \'EncodedData\': \'string\'
               },
-              Username='string',
+              Username=\'string\',
               AnalyticsMetadata={
-                  'AnalyticsEndpointId': 'string'
+                  \'AnalyticsEndpointId\': \'string\'
               }
           )
         :type ClientId: string
@@ -6022,11 +6022,11 @@ class Client(BaseClient):
         :type UserContextData: dict
         :param UserContextData: 
         
-          Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+          Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
           - **EncodedData** *(string) --* 
         
-            Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+            Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
         :type Username: string
         :param Username: **[REQUIRED]** 
@@ -6050,10 +6050,10 @@ class Client(BaseClient):
           ::
         
             {
-                'CodeDeliveryDetails': {
-                    'Destination': 'string',
-                    'DeliveryMedium': 'SMS'|'EMAIL',
-                    'AttributeName': 'string'
+                \'CodeDeliveryDetails\': {
+                    \'Destination\': \'string\',
+                    \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                    \'AttributeName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -6097,7 +6097,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -6112,7 +6112,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_csv_header(
-              UserPoolId='string'
+              UserPoolId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -6127,9 +6127,9 @@ class Client(BaseClient):
           ::
         
             {
-                'UserPoolId': 'string',
-                'CSVHeader': [
-                    'string',
+                \'UserPoolId\': \'string\',
+                \'CSVHeader\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -6160,8 +6160,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_device(
-              DeviceKey='string',
-              AccessToken='string'
+              DeviceKey=\'string\',
+              AccessToken=\'string\'
           )
         :type DeviceKey: string
         :param DeviceKey: **[REQUIRED]** 
@@ -6181,17 +6181,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Device': {
-                    'DeviceKey': 'string',
-                    'DeviceAttributes': [
+                \'Device\': {
+                    \'DeviceKey\': \'string\',
+                    \'DeviceAttributes\': [
                         {
-                            'Name': 'string',
-                            'Value': 'string'
+                            \'Name\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'DeviceCreateDate': datetime(2015, 1, 1),
-                    'DeviceLastModifiedDate': datetime(2015, 1, 1),
-                    'DeviceLastAuthenticatedDate': datetime(2015, 1, 1)
+                    \'DeviceCreateDate\': datetime(2015, 1, 1),
+                    \'DeviceLastModifiedDate\': datetime(2015, 1, 1),
+                    \'DeviceLastAuthenticatedDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -6250,8 +6250,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_group(
-              GroupName='string',
-              UserPoolId='string'
+              GroupName=\'string\',
+              UserPoolId=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -6271,14 +6271,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Group': {
-                    'GroupName': 'string',
-                    'UserPoolId': 'string',
-                    'Description': 'string',
-                    'RoleArn': 'string',
-                    'Precedence': 123,
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1)
+                \'Group\': {
+                    \'GroupName\': \'string\',
+                    \'UserPoolId\': \'string\',
+                    \'Description\': \'string\',
+                    \'RoleArn\': \'string\',
+                    \'Precedence\': 123,
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -6307,9 +6307,9 @@ class Client(BaseClient):
         
               - **Precedence** *(integer) --* 
         
-                A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user's tokens. Groups with higher ``Precedence`` values take precedence over groups with lower ``Precedence`` values or with null ``Precedence`` values.
+                A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user\'s tokens. Groups with higher ``Precedence`` values take precedence over groups with lower ``Precedence`` values or with null ``Precedence`` values.
         
-                Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users' tokens.
+                Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users\' tokens.
         
                 The default ``Precedence`` value is null.
         
@@ -6333,8 +6333,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_identity_provider_by_identifier(
-              UserPoolId='string',
-              IdpIdentifier='string'
+              UserPoolId=\'string\',
+              IdpIdentifier=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -6354,21 +6354,21 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityProvider': {
-                    'UserPoolId': 'string',
-                    'ProviderName': 'string',
-                    'ProviderType': 'SAML'|'Facebook'|'Google'|'LoginWithAmazon'|'OIDC',
-                    'ProviderDetails': {
-                        'string': 'string'
+                \'IdentityProvider\': {
+                    \'UserPoolId\': \'string\',
+                    \'ProviderName\': \'string\',
+                    \'ProviderType\': \'SAML\'|\'Facebook\'|\'Google\'|\'LoginWithAmazon\'|\'OIDC\',
+                    \'ProviderDetails\': {
+                        \'string\': \'string\'
                     },
-                    'AttributeMapping': {
-                        'string': 'string'
+                    \'AttributeMapping\': {
+                        \'string\': \'string\'
                     },
-                    'IdpIdentifiers': [
-                        'string',
+                    \'IdpIdentifiers\': [
+                        \'string\',
                     ],
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1)
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -6430,10 +6430,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -6453,7 +6453,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_signing_certificate(
-              UserPoolId='string'
+              UserPoolId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -6468,7 +6468,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificate': 'string'
+                \'Certificate\': \'string\'
             }
           **Response Structure** 
         
@@ -6492,8 +6492,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_ui_customization(
-              UserPoolId='string',
-              ClientId='string'
+              UserPoolId=\'string\',
+              ClientId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -6513,14 +6513,14 @@ class Client(BaseClient):
           ::
         
             {
-                'UICustomization': {
-                    'UserPoolId': 'string',
-                    'ClientId': 'string',
-                    'ImageUrl': 'string',
-                    'CSS': 'string',
-                    'CSSVersion': 'string',
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1)
+                \'UICustomization\': {
+                    \'UserPoolId\': \'string\',
+                    \'ClientId\': \'string\',
+                    \'ImageUrl\': \'string\',
+                    \'CSS\': \'string\',
+                    \'CSSVersion\': \'string\',
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -6571,7 +6571,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_user(
-              AccessToken='string'
+              AccessToken=\'string\'
           )
         :type AccessToken: string
         :param AccessToken: **[REQUIRED]** 
@@ -6586,22 +6586,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Username': 'string',
-                'UserAttributes': [
+                \'Username\': \'string\',
+                \'UserAttributes\': [
                     {
-                        'Name': 'string',
-                        'Value': 'string'
+                        \'Name\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'MFAOptions': [
+                \'MFAOptions\': [
                     {
-                        'DeliveryMedium': 'SMS'|'EMAIL',
-                        'AttributeName': 'string'
+                        \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                        \'AttributeName\': \'string\'
                     },
                 ],
-                'PreferredMfaSetting': 'string',
-                'UserMFASettingList': [
-                    'string',
+                \'PreferredMfaSetting\': \'string\',
+                \'UserMFASettingList\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -6650,11 +6650,11 @@ class Client(BaseClient):
         
             - **PreferredMfaSetting** *(string) --* 
         
-              The user's preferred MFA setting.
+              The user\'s preferred MFA setting.
         
             - **UserMFASettingList** *(list) --* 
         
-              The list of the user's MFA settings.
+              The list of the user\'s MFA settings.
         
               - *(string) --* 
           
@@ -6670,8 +6670,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_user_attribute_verification_code(
-              AccessToken='string',
-              AttributeName='string'
+              AccessToken=\'string\',
+              AttributeName=\'string\'
           )
         :type AccessToken: string
         :param AccessToken: **[REQUIRED]** 
@@ -6691,10 +6691,10 @@ class Client(BaseClient):
           ::
         
             {
-                'CodeDeliveryDetails': {
-                    'Destination': 'string',
-                    'DeliveryMedium': 'SMS'|'EMAIL',
-                    'AttributeName': 'string'
+                \'CodeDeliveryDetails\': {
+                    \'Destination\': \'string\',
+                    \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                    \'AttributeName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -6731,7 +6731,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_user_pool_mfa_config(
-              UserPoolId='string'
+              UserPoolId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -6746,17 +6746,17 @@ class Client(BaseClient):
           ::
         
             {
-                'SmsMfaConfiguration': {
-                    'SmsAuthenticationMessage': 'string',
-                    'SmsConfiguration': {
-                        'SnsCallerArn': 'string',
-                        'ExternalId': 'string'
+                \'SmsMfaConfiguration\': {
+                    \'SmsAuthenticationMessage\': \'string\',
+                    \'SmsConfiguration\': {
+                        \'SnsCallerArn\': \'string\',
+                        \'ExternalId\': \'string\'
                     }
                 },
-                'SoftwareTokenMfaConfiguration': {
-                    'Enabled': True|False
+                \'SoftwareTokenMfaConfiguration\': {
+                    \'Enabled\': True|False
                 },
-                'MfaConfiguration': 'OFF'|'ON'|'OPTIONAL'
+                \'MfaConfiguration\': \'OFF\'|\'ON\'|\'OPTIONAL\'
             }
           **Response Structure** 
         
@@ -6818,7 +6818,7 @@ class Client(BaseClient):
         ::
         
           response = client.global_sign_out(
-              AccessToken='string'
+              AccessToken=\'string\'
           )
         :type AccessToken: string
         :param AccessToken: **[REQUIRED]** 
@@ -6851,19 +6851,19 @@ class Client(BaseClient):
         ::
         
           response = client.initiate_auth(
-              AuthFlow='USER_SRP_AUTH'|'REFRESH_TOKEN_AUTH'|'REFRESH_TOKEN'|'CUSTOM_AUTH'|'ADMIN_NO_SRP_AUTH'|'USER_PASSWORD_AUTH',
+              AuthFlow=\'USER_SRP_AUTH\'|\'REFRESH_TOKEN_AUTH\'|\'REFRESH_TOKEN\'|\'CUSTOM_AUTH\'|\'ADMIN_NO_SRP_AUTH\'|\'USER_PASSWORD_AUTH\',
               AuthParameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               ClientMetadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ClientId='string',
+              ClientId=\'string\',
               AnalyticsMetadata={
-                  'AnalyticsEndpointId': 'string'
+                  \'AnalyticsEndpointId\': \'string\'
               },
               UserContextData={
-                  'EncodedData': 'string'
+                  \'EncodedData\': \'string\'
               }
           )
         :type AuthFlow: string
@@ -6930,11 +6930,11 @@ class Client(BaseClient):
         :type UserContextData: dict
         :param UserContextData: 
         
-          Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+          Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
           - **EncodedData** *(string) --* 
         
-            Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+            Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
         :rtype: dict
         :returns: 
@@ -6944,20 +6944,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ChallengeName': 'SMS_MFA'|'SOFTWARE_TOKEN_MFA'|'SELECT_MFA_TYPE'|'MFA_SETUP'|'PASSWORD_VERIFIER'|'CUSTOM_CHALLENGE'|'DEVICE_SRP_AUTH'|'DEVICE_PASSWORD_VERIFIER'|'ADMIN_NO_SRP_AUTH'|'NEW_PASSWORD_REQUIRED',
-                'Session': 'string',
-                'ChallengeParameters': {
-                    'string': 'string'
+                \'ChallengeName\': \'SMS_MFA\'|\'SOFTWARE_TOKEN_MFA\'|\'SELECT_MFA_TYPE\'|\'MFA_SETUP\'|\'PASSWORD_VERIFIER\'|\'CUSTOM_CHALLENGE\'|\'DEVICE_SRP_AUTH\'|\'DEVICE_PASSWORD_VERIFIER\'|\'ADMIN_NO_SRP_AUTH\'|\'NEW_PASSWORD_REQUIRED\',
+                \'Session\': \'string\',
+                \'ChallengeParameters\': {
+                    \'string\': \'string\'
                 },
-                'AuthenticationResult': {
-                    'AccessToken': 'string',
-                    'ExpiresIn': 123,
-                    'TokenType': 'string',
-                    'RefreshToken': 'string',
-                    'IdToken': 'string',
-                    'NewDeviceMetadata': {
-                        'DeviceKey': 'string',
-                        'DeviceGroupKey': 'string'
+                \'AuthenticationResult\': {
+                    \'AccessToken\': \'string\',
+                    \'ExpiresIn\': 123,
+                    \'TokenType\': \'string\',
+                    \'RefreshToken\': \'string\',
+                    \'IdToken\': \'string\',
+                    \'NewDeviceMetadata\': {
+                        \'DeviceKey\': \'string\',
+                        \'DeviceGroupKey\': \'string\'
                     }
                 }
             }
@@ -7047,9 +7047,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_devices(
-              AccessToken='string',
+              AccessToken=\'string\',
               Limit=123,
-              PaginationToken='string'
+              PaginationToken=\'string\'
           )
         :type AccessToken: string
         :param AccessToken: **[REQUIRED]** 
@@ -7074,21 +7074,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Devices': [
+                \'Devices\': [
                     {
-                        'DeviceKey': 'string',
-                        'DeviceAttributes': [
+                        \'DeviceKey\': \'string\',
+                        \'DeviceAttributes\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'DeviceCreateDate': datetime(2015, 1, 1),
-                        'DeviceLastModifiedDate': datetime(2015, 1, 1),
-                        'DeviceLastAuthenticatedDate': datetime(2015, 1, 1)
+                        \'DeviceCreateDate\': datetime(2015, 1, 1),
+                        \'DeviceLastModifiedDate\': datetime(2015, 1, 1),
+                        \'DeviceLastAuthenticatedDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'PaginationToken': 'string'
+                \'PaginationToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7154,9 +7154,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_groups(
-              UserPoolId='string',
+              UserPoolId=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -7181,18 +7181,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'GroupName': 'string',
-                        'UserPoolId': 'string',
-                        'Description': 'string',
-                        'RoleArn': 'string',
-                        'Precedence': 123,
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'CreationDate': datetime(2015, 1, 1)
+                        \'GroupName\': \'string\',
+                        \'UserPoolId\': \'string\',
+                        \'Description\': \'string\',
+                        \'RoleArn\': \'string\',
+                        \'Precedence\': 123,
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'CreationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7224,9 +7224,9 @@ class Client(BaseClient):
         
                 - **Precedence** *(integer) --* 
         
-                  A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user's tokens. Groups with higher ``Precedence`` values take precedence over groups with lower ``Precedence`` values or with null ``Precedence`` values.
+                  A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user\'s tokens. Groups with higher ``Precedence`` values take precedence over groups with lower ``Precedence`` values or with null ``Precedence`` values.
         
-                  Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users' tokens.
+                  Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users\' tokens.
         
                   The default ``Precedence`` value is null.
         
@@ -7254,9 +7254,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_identity_providers(
-              UserPoolId='string',
+              UserPoolId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -7281,15 +7281,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Providers': [
+                \'Providers\': [
                     {
-                        'ProviderName': 'string',
-                        'ProviderType': 'SAML'|'Facebook'|'Google'|'LoginWithAmazon'|'OIDC',
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'CreationDate': datetime(2015, 1, 1)
+                        \'ProviderName\': \'string\',
+                        \'ProviderType\': \'SAML\'|\'Facebook\'|\'Google\'|\'LoginWithAmazon\'|\'OIDC\',
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'CreationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7335,9 +7335,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_resource_servers(
-              UserPoolId='string',
+              UserPoolId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -7362,20 +7362,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceServers': [
+                \'ResourceServers\': [
                     {
-                        'UserPoolId': 'string',
-                        'Identifier': 'string',
-                        'Name': 'string',
-                        'Scopes': [
+                        \'UserPoolId\': \'string\',
+                        \'Identifier\': \'string\',
+                        \'Name\': \'string\',
+                        \'Scopes\': [
                             {
-                                'ScopeName': 'string',
-                                'ScopeDescription': 'string'
+                                \'ScopeName\': \'string\',
+                                \'ScopeDescription\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7433,9 +7433,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_user_import_jobs(
-              UserPoolId='string',
+              UserPoolId=\'string\',
               MaxResults=123,
-              PaginationToken='string'
+              PaginationToken=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -7460,24 +7460,24 @@ class Client(BaseClient):
           ::
         
             {
-                'UserImportJobs': [
+                \'UserImportJobs\': [
                     {
-                        'JobName': 'string',
-                        'JobId': 'string',
-                        'UserPoolId': 'string',
-                        'PreSignedUrl': 'string',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'StartDate': datetime(2015, 1, 1),
-                        'CompletionDate': datetime(2015, 1, 1),
-                        'Status': 'Created'|'Pending'|'InProgress'|'Stopping'|'Expired'|'Stopped'|'Failed'|'Succeeded',
-                        'CloudWatchLogsRoleArn': 'string',
-                        'ImportedUsers': 123,
-                        'SkippedUsers': 123,
-                        'FailedUsers': 123,
-                        'CompletionMessage': 'string'
+                        \'JobName\': \'string\',
+                        \'JobId\': \'string\',
+                        \'UserPoolId\': \'string\',
+                        \'PreSignedUrl\': \'string\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'StartDate\': datetime(2015, 1, 1),
+                        \'CompletionDate\': datetime(2015, 1, 1),
+                        \'Status\': \'Created\'|\'Pending\'|\'InProgress\'|\'Stopping\'|\'Expired\'|\'Stopped\'|\'Failed\'|\'Succeeded\',
+                        \'CloudWatchLogsRoleArn\': \'string\',
+                        \'ImportedUsers\': 123,
+                        \'SkippedUsers\': 123,
+                        \'FailedUsers\': 123,
+                        \'CompletionMessage\': \'string\'
                     },
                 ],
-                'PaginationToken': 'string'
+                \'PaginationToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7543,7 +7543,7 @@ class Client(BaseClient):
                    
                 - **CloudWatchLogsRoleArn** *(string) --* 
         
-                  The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
+                  The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see \"Creating the CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide.
         
                 - **ImportedUsers** *(integer) --* 
         
@@ -7577,9 +7577,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_user_pool_clients(
-              UserPoolId='string',
+              UserPoolId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -7604,14 +7604,14 @@ class Client(BaseClient):
           ::
         
             {
-                'UserPoolClients': [
+                \'UserPoolClients\': [
                     {
-                        'ClientId': 'string',
-                        'UserPoolId': 'string',
-                        'ClientName': 'string'
+                        \'ClientId\': \'string\',
+                        \'UserPoolId\': \'string\',
+                        \'ClientName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7655,7 +7655,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_user_pools(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -7676,28 +7676,28 @@ class Client(BaseClient):
           ::
         
             {
-                'UserPools': [
+                \'UserPools\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'LambdaConfig': {
-                            'PreSignUp': 'string',
-                            'CustomMessage': 'string',
-                            'PostConfirmation': 'string',
-                            'PreAuthentication': 'string',
-                            'PostAuthentication': 'string',
-                            'DefineAuthChallenge': 'string',
-                            'CreateAuthChallenge': 'string',
-                            'VerifyAuthChallengeResponse': 'string',
-                            'PreTokenGeneration': 'string',
-                            'UserMigration': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'LambdaConfig\': {
+                            \'PreSignUp\': \'string\',
+                            \'CustomMessage\': \'string\',
+                            \'PostConfirmation\': \'string\',
+                            \'PreAuthentication\': \'string\',
+                            \'PostAuthentication\': \'string\',
+                            \'DefineAuthChallenge\': \'string\',
+                            \'CreateAuthChallenge\': \'string\',
+                            \'VerifyAuthChallengeResponse\': \'string\',
+                            \'PreTokenGeneration\': \'string\',
+                            \'UserMigration\': \'string\'
                         },
-                        'Status': 'Enabled'|'Disabled',
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'CreationDate': datetime(2015, 1, 1)
+                        \'Status\': \'Enabled\'|\'Disabled\',
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'CreationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7793,13 +7793,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_users(
-              UserPoolId='string',
+              UserPoolId=\'string\',
               AttributesToGet=[
-                  'string',
+                  \'string\',
               ],
               Limit=123,
-              PaginationToken='string',
-              Filter='string'
+              PaginationToken=\'string\',
+              Filter=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -7826,11 +7826,11 @@ class Client(BaseClient):
         :type Filter: string
         :param Filter: 
         
-          A filter string of the form "*AttributeName*  *Filter-Type* "*AttributeValue* "". Quotation marks within the filter string must be escaped using the backslash (\) character. For example, "``family_name`` = \"Reddy\"".
+          A filter string of the form \"*AttributeName*  *Filter-Type* \"*AttributeValue* \"\". Quotation marks within the filter string must be escaped using the backslash (\) character. For example, \"``family_name`` = \\"Reddy\\"\".
         
           * *AttributeName* : The name of the attribute to search for. You can only search for one attribute at a time. 
            
-          * *Filter-Type* : For an exact match, use =, for example, "``given_name`` = \"Jon\"". For a prefix ("starts with") match, use ^=, for example, "``given_name`` ^= \"Jon\"".  
+          * *Filter-Type* : For an exact match, use =, for example, \"``given_name`` = \\"Jon\\"\". For a prefix (\"starts with\") match, use ^=, for example, \"``given_name`` ^= \\"Jon\\"\".  
            
           * *AttributeValue* : The attribute value that must be matched for each user. 
            
@@ -7870,28 +7870,28 @@ class Client(BaseClient):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'Username': 'string',
-                        'Attributes': [
+                        \'Username\': \'string\',
+                        \'Attributes\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'UserCreateDate': datetime(2015, 1, 1),
-                        'UserLastModifiedDate': datetime(2015, 1, 1),
-                        'Enabled': True|False,
-                        'UserStatus': 'UNCONFIRMED'|'CONFIRMED'|'ARCHIVED'|'COMPROMISED'|'UNKNOWN'|'RESET_REQUIRED'|'FORCE_CHANGE_PASSWORD',
-                        'MFAOptions': [
+                        \'UserCreateDate\': datetime(2015, 1, 1),
+                        \'UserLastModifiedDate\': datetime(2015, 1, 1),
+                        \'Enabled\': True|False,
+                        \'UserStatus\': \'UNCONFIRMED\'|\'CONFIRMED\'|\'ARCHIVED\'|\'COMPROMISED\'|\'UNKNOWN\'|\'RESET_REQUIRED\'|\'FORCE_CHANGE_PASSWORD\',
+                        \'MFAOptions\': [
                             {
-                                'DeliveryMedium': 'SMS'|'EMAIL',
-                                'AttributeName': 'string'
+                                \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                                \'AttributeName\': \'string\'
                             },
                         ]
                     },
                 ],
-                'PaginationToken': 'string'
+                \'PaginationToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7987,10 +7987,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_users_in_group(
-              UserPoolId='string',
-              GroupName='string',
+              UserPoolId=\'string\',
+              GroupName=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -8020,28 +8020,28 @@ class Client(BaseClient):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'Username': 'string',
-                        'Attributes': [
+                        \'Username\': \'string\',
+                        \'Attributes\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'UserCreateDate': datetime(2015, 1, 1),
-                        'UserLastModifiedDate': datetime(2015, 1, 1),
-                        'Enabled': True|False,
-                        'UserStatus': 'UNCONFIRMED'|'CONFIRMED'|'ARCHIVED'|'COMPROMISED'|'UNKNOWN'|'RESET_REQUIRED'|'FORCE_CHANGE_PASSWORD',
-                        'MFAOptions': [
+                        \'UserCreateDate\': datetime(2015, 1, 1),
+                        \'UserLastModifiedDate\': datetime(2015, 1, 1),
+                        \'Enabled\': True|False,
+                        \'UserStatus\': \'UNCONFIRMED\'|\'CONFIRMED\'|\'ARCHIVED\'|\'COMPROMISED\'|\'UNKNOWN\'|\'RESET_REQUIRED\'|\'FORCE_CHANGE_PASSWORD\',
+                        \'MFAOptions\': [
                             {
-                                'DeliveryMedium': 'SMS'|'EMAIL',
-                                'AttributeName': 'string'
+                                \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                                \'AttributeName\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8133,14 +8133,14 @@ class Client(BaseClient):
         ::
         
           response = client.resend_confirmation_code(
-              ClientId='string',
-              SecretHash='string',
+              ClientId=\'string\',
+              SecretHash=\'string\',
               UserContextData={
-                  'EncodedData': 'string'
+                  \'EncodedData\': \'string\'
               },
-              Username='string',
+              Username=\'string\',
               AnalyticsMetadata={
-                  'AnalyticsEndpointId': 'string'
+                  \'AnalyticsEndpointId\': \'string\'
               }
           )
         :type ClientId: string
@@ -8156,11 +8156,11 @@ class Client(BaseClient):
         :type UserContextData: dict
         :param UserContextData: 
         
-          Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+          Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
           - **EncodedData** *(string) --* 
         
-            Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+            Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
         :type Username: string
         :param Username: **[REQUIRED]** 
@@ -8184,10 +8184,10 @@ class Client(BaseClient):
           ::
         
             {
-                'CodeDeliveryDetails': {
-                    'Destination': 'string',
-                    'DeliveryMedium': 'SMS'|'EMAIL',
-                    'AttributeName': 'string'
+                \'CodeDeliveryDetails\': {
+                    \'Destination\': \'string\',
+                    \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                    \'AttributeName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -8224,17 +8224,17 @@ class Client(BaseClient):
         ::
         
           response = client.respond_to_auth_challenge(
-              ClientId='string',
-              ChallengeName='SMS_MFA'|'SOFTWARE_TOKEN_MFA'|'SELECT_MFA_TYPE'|'MFA_SETUP'|'PASSWORD_VERIFIER'|'CUSTOM_CHALLENGE'|'DEVICE_SRP_AUTH'|'DEVICE_PASSWORD_VERIFIER'|'ADMIN_NO_SRP_AUTH'|'NEW_PASSWORD_REQUIRED',
-              Session='string',
+              ClientId=\'string\',
+              ChallengeName=\'SMS_MFA\'|\'SOFTWARE_TOKEN_MFA\'|\'SELECT_MFA_TYPE\'|\'MFA_SETUP\'|\'PASSWORD_VERIFIER\'|\'CUSTOM_CHALLENGE\'|\'DEVICE_SRP_AUTH\'|\'DEVICE_PASSWORD_VERIFIER\'|\'ADMIN_NO_SRP_AUTH\'|\'NEW_PASSWORD_REQUIRED\',
+              Session=\'string\',
               ChallengeResponses={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               AnalyticsMetadata={
-                  'AnalyticsEndpointId': 'string'
+                  \'AnalyticsEndpointId\': \'string\'
               },
               UserContextData={
-                  'EncodedData': 'string'
+                  \'EncodedData\': \'string\'
               }
           )
         :type ClientId: string
@@ -8281,11 +8281,11 @@ class Client(BaseClient):
         :type UserContextData: dict
         :param UserContextData: 
         
-          Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+          Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
           - **EncodedData** *(string) --* 
         
-            Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+            Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
         :rtype: dict
         :returns: 
@@ -8295,20 +8295,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ChallengeName': 'SMS_MFA'|'SOFTWARE_TOKEN_MFA'|'SELECT_MFA_TYPE'|'MFA_SETUP'|'PASSWORD_VERIFIER'|'CUSTOM_CHALLENGE'|'DEVICE_SRP_AUTH'|'DEVICE_PASSWORD_VERIFIER'|'ADMIN_NO_SRP_AUTH'|'NEW_PASSWORD_REQUIRED',
-                'Session': 'string',
-                'ChallengeParameters': {
-                    'string': 'string'
+                \'ChallengeName\': \'SMS_MFA\'|\'SOFTWARE_TOKEN_MFA\'|\'SELECT_MFA_TYPE\'|\'MFA_SETUP\'|\'PASSWORD_VERIFIER\'|\'CUSTOM_CHALLENGE\'|\'DEVICE_SRP_AUTH\'|\'DEVICE_PASSWORD_VERIFIER\'|\'ADMIN_NO_SRP_AUTH\'|\'NEW_PASSWORD_REQUIRED\',
+                \'Session\': \'string\',
+                \'ChallengeParameters\': {
+                    \'string\': \'string\'
                 },
-                'AuthenticationResult': {
-                    'AccessToken': 'string',
-                    'ExpiresIn': 123,
-                    'TokenType': 'string',
-                    'RefreshToken': 'string',
-                    'IdToken': 'string',
-                    'NewDeviceMetadata': {
-                        'DeviceKey': 'string',
-                        'DeviceGroupKey': 'string'
+                \'AuthenticationResult\': {
+                    \'AccessToken\': \'string\',
+                    \'ExpiresIn\': 123,
+                    \'TokenType\': \'string\',
+                    \'RefreshToken\': \'string\',
+                    \'IdToken\': \'string\',
+                    \'NewDeviceMetadata\': {
+                        \'DeviceKey\': \'string\',
+                        \'DeviceGroupKey\': \'string\'
                     }
                 }
             }
@@ -8386,58 +8386,58 @@ class Client(BaseClient):
         ::
         
           response = client.set_risk_configuration(
-              UserPoolId='string',
-              ClientId='string',
+              UserPoolId=\'string\',
+              ClientId=\'string\',
               CompromisedCredentialsRiskConfiguration={
-                  'EventFilter': [
-                      'SIGN_IN'|'PASSWORD_CHANGE'|'SIGN_UP',
+                  \'EventFilter\': [
+                      \'SIGN_IN\'|\'PASSWORD_CHANGE\'|\'SIGN_UP\',
                   ],
-                  'Actions': {
-                      'EventAction': 'BLOCK'|'NO_ACTION'
+                  \'Actions\': {
+                      \'EventAction\': \'BLOCK\'|\'NO_ACTION\'
                   }
               },
               AccountTakeoverRiskConfiguration={
-                  'NotifyConfiguration': {
-                      'From': 'string',
-                      'ReplyTo': 'string',
-                      'SourceArn': 'string',
-                      'BlockEmail': {
-                          'Subject': 'string',
-                          'HtmlBody': 'string',
-                          'TextBody': 'string'
+                  \'NotifyConfiguration\': {
+                      \'From\': \'string\',
+                      \'ReplyTo\': \'string\',
+                      \'SourceArn\': \'string\',
+                      \'BlockEmail\': {
+                          \'Subject\': \'string\',
+                          \'HtmlBody\': \'string\',
+                          \'TextBody\': \'string\'
                       },
-                      'NoActionEmail': {
-                          'Subject': 'string',
-                          'HtmlBody': 'string',
-                          'TextBody': 'string'
+                      \'NoActionEmail\': {
+                          \'Subject\': \'string\',
+                          \'HtmlBody\': \'string\',
+                          \'TextBody\': \'string\'
                       },
-                      'MfaEmail': {
-                          'Subject': 'string',
-                          'HtmlBody': 'string',
-                          'TextBody': 'string'
+                      \'MfaEmail\': {
+                          \'Subject\': \'string\',
+                          \'HtmlBody\': \'string\',
+                          \'TextBody\': \'string\'
                       }
                   },
-                  'Actions': {
-                      'LowAction': {
-                          'Notify': True|False,
-                          'EventAction': 'BLOCK'|'MFA_IF_CONFIGURED'|'MFA_REQUIRED'|'NO_ACTION'
+                  \'Actions\': {
+                      \'LowAction\': {
+                          \'Notify\': True|False,
+                          \'EventAction\': \'BLOCK\'|\'MFA_IF_CONFIGURED\'|\'MFA_REQUIRED\'|\'NO_ACTION\'
                       },
-                      'MediumAction': {
-                          'Notify': True|False,
-                          'EventAction': 'BLOCK'|'MFA_IF_CONFIGURED'|'MFA_REQUIRED'|'NO_ACTION'
+                      \'MediumAction\': {
+                          \'Notify\': True|False,
+                          \'EventAction\': \'BLOCK\'|\'MFA_IF_CONFIGURED\'|\'MFA_REQUIRED\'|\'NO_ACTION\'
                       },
-                      'HighAction': {
-                          'Notify': True|False,
-                          'EventAction': 'BLOCK'|'MFA_IF_CONFIGURED'|'MFA_REQUIRED'|'NO_ACTION'
+                      \'HighAction\': {
+                          \'Notify\': True|False,
+                          \'EventAction\': \'BLOCK\'|\'MFA_IF_CONFIGURED\'|\'MFA_REQUIRED\'|\'NO_ACTION\'
                       }
                   }
               },
               RiskExceptionConfiguration={
-                  'BlockedIPRangeList': [
-                      'string',
+                  \'BlockedIPRangeList\': [
+                      \'string\',
                   ],
-                  'SkippedIPRangeList': [
-                      'string',
+                  \'SkippedIPRangeList\': [
+                      \'string\',
                   ]
               }
           )
@@ -8630,62 +8630,62 @@ class Client(BaseClient):
           ::
         
             {
-                'RiskConfiguration': {
-                    'UserPoolId': 'string',
-                    'ClientId': 'string',
-                    'CompromisedCredentialsRiskConfiguration': {
-                        'EventFilter': [
-                            'SIGN_IN'|'PASSWORD_CHANGE'|'SIGN_UP',
+                \'RiskConfiguration\': {
+                    \'UserPoolId\': \'string\',
+                    \'ClientId\': \'string\',
+                    \'CompromisedCredentialsRiskConfiguration\': {
+                        \'EventFilter\': [
+                            \'SIGN_IN\'|\'PASSWORD_CHANGE\'|\'SIGN_UP\',
                         ],
-                        'Actions': {
-                            'EventAction': 'BLOCK'|'NO_ACTION'
+                        \'Actions\': {
+                            \'EventAction\': \'BLOCK\'|\'NO_ACTION\'
                         }
                     },
-                    'AccountTakeoverRiskConfiguration': {
-                        'NotifyConfiguration': {
-                            'From': 'string',
-                            'ReplyTo': 'string',
-                            'SourceArn': 'string',
-                            'BlockEmail': {
-                                'Subject': 'string',
-                                'HtmlBody': 'string',
-                                'TextBody': 'string'
+                    \'AccountTakeoverRiskConfiguration\': {
+                        \'NotifyConfiguration\': {
+                            \'From\': \'string\',
+                            \'ReplyTo\': \'string\',
+                            \'SourceArn\': \'string\',
+                            \'BlockEmail\': {
+                                \'Subject\': \'string\',
+                                \'HtmlBody\': \'string\',
+                                \'TextBody\': \'string\'
                             },
-                            'NoActionEmail': {
-                                'Subject': 'string',
-                                'HtmlBody': 'string',
-                                'TextBody': 'string'
+                            \'NoActionEmail\': {
+                                \'Subject\': \'string\',
+                                \'HtmlBody\': \'string\',
+                                \'TextBody\': \'string\'
                             },
-                            'MfaEmail': {
-                                'Subject': 'string',
-                                'HtmlBody': 'string',
-                                'TextBody': 'string'
+                            \'MfaEmail\': {
+                                \'Subject\': \'string\',
+                                \'HtmlBody\': \'string\',
+                                \'TextBody\': \'string\'
                             }
                         },
-                        'Actions': {
-                            'LowAction': {
-                                'Notify': True|False,
-                                'EventAction': 'BLOCK'|'MFA_IF_CONFIGURED'|'MFA_REQUIRED'|'NO_ACTION'
+                        \'Actions\': {
+                            \'LowAction\': {
+                                \'Notify\': True|False,
+                                \'EventAction\': \'BLOCK\'|\'MFA_IF_CONFIGURED\'|\'MFA_REQUIRED\'|\'NO_ACTION\'
                             },
-                            'MediumAction': {
-                                'Notify': True|False,
-                                'EventAction': 'BLOCK'|'MFA_IF_CONFIGURED'|'MFA_REQUIRED'|'NO_ACTION'
+                            \'MediumAction\': {
+                                \'Notify\': True|False,
+                                \'EventAction\': \'BLOCK\'|\'MFA_IF_CONFIGURED\'|\'MFA_REQUIRED\'|\'NO_ACTION\'
                             },
-                            'HighAction': {
-                                'Notify': True|False,
-                                'EventAction': 'BLOCK'|'MFA_IF_CONFIGURED'|'MFA_REQUIRED'|'NO_ACTION'
+                            \'HighAction\': {
+                                \'Notify\': True|False,
+                                \'EventAction\': \'BLOCK\'|\'MFA_IF_CONFIGURED\'|\'MFA_REQUIRED\'|\'NO_ACTION\'
                             }
                         }
                     },
-                    'RiskExceptionConfiguration': {
-                        'BlockedIPRangeList': [
-                            'string',
+                    \'RiskExceptionConfiguration\': {
+                        \'BlockedIPRangeList\': [
+                            \'string\',
                         ],
-                        'SkippedIPRangeList': [
-                            'string',
+                        \'SkippedIPRangeList\': [
+                            \'string\',
                         ]
                     },
-                    'LastModifiedDate': datetime(2015, 1, 1)
+                    \'LastModifiedDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -8884,7 +8884,7 @@ class Client(BaseClient):
         
         .. note::
         
-          To use this API, your user pool must have a domain associated with it. Otherwise, there is no place to host the app's pages, and the service will throw an error.
+          To use this API, your user pool must have a domain associated with it. Otherwise, there is no place to host the app\'s pages, and the service will throw an error.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/SetUICustomization>`_
         
@@ -8892,10 +8892,10 @@ class Client(BaseClient):
         ::
         
           response = client.set_ui_customization(
-              UserPoolId='string',
-              ClientId='string',
-              CSS='string',
-              ImageFile=b'bytes'
+              UserPoolId=\'string\',
+              ClientId=\'string\',
+              CSS=\'string\',
+              ImageFile=b\'bytes\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -8925,14 +8925,14 @@ class Client(BaseClient):
           ::
         
             {
-                'UICustomization': {
-                    'UserPoolId': 'string',
-                    'ClientId': 'string',
-                    'ImageUrl': 'string',
-                    'CSS': 'string',
-                    'CSSVersion': 'string',
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1)
+                \'UICustomization\': {
+                    \'UserPoolId\': \'string\',
+                    \'ClientId\': \'string\',
+                    \'ImageUrl\': \'string\',
+                    \'CSS\': \'string\',
+                    \'CSSVersion\': \'string\',
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -8984,14 +8984,14 @@ class Client(BaseClient):
         
           response = client.set_user_mfa_preference(
               SMSMfaSettings={
-                  'Enabled': True|False,
-                  'PreferredMfa': True|False
+                  \'Enabled\': True|False,
+                  \'PreferredMfa\': True|False
               },
               SoftwareTokenMfaSettings={
-                  'Enabled': True|False,
-                  'PreferredMfa': True|False
+                  \'Enabled\': True|False,
+                  \'PreferredMfa\': True|False
               },
-              AccessToken='string'
+              AccessToken=\'string\'
           )
         :type SMSMfaSettings: dict
         :param SMSMfaSettings: 
@@ -9047,18 +9047,18 @@ class Client(BaseClient):
         ::
         
           response = client.set_user_pool_mfa_config(
-              UserPoolId='string',
+              UserPoolId=\'string\',
               SmsMfaConfiguration={
-                  'SmsAuthenticationMessage': 'string',
-                  'SmsConfiguration': {
-                      'SnsCallerArn': 'string',
-                      'ExternalId': 'string'
+                  \'SmsAuthenticationMessage\': \'string\',
+                  \'SmsConfiguration\': {
+                      \'SnsCallerArn\': \'string\',
+                      \'ExternalId\': \'string\'
                   }
               },
               SoftwareTokenMfaConfiguration={
-                  'Enabled': True|False
+                  \'Enabled\': True|False
               },
-              MfaConfiguration='OFF'|'ON'|'OPTIONAL'
+              MfaConfiguration=\'OFF\'|\'ON\'|\'OPTIONAL\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -9108,17 +9108,17 @@ class Client(BaseClient):
           ::
         
             {
-                'SmsMfaConfiguration': {
-                    'SmsAuthenticationMessage': 'string',
-                    'SmsConfiguration': {
-                        'SnsCallerArn': 'string',
-                        'ExternalId': 'string'
+                \'SmsMfaConfiguration\': {
+                    \'SmsAuthenticationMessage\': \'string\',
+                    \'SmsConfiguration\': {
+                        \'SnsCallerArn\': \'string\',
+                        \'ExternalId\': \'string\'
                     }
                 },
-                'SoftwareTokenMfaConfiguration': {
-                    'Enabled': True|False
+                \'SoftwareTokenMfaConfiguration\': {
+                    \'Enabled\': True|False
                 },
-                'MfaConfiguration': 'OFF'|'ON'|'OPTIONAL'
+                \'MfaConfiguration\': \'OFF\'|\'ON\'|\'OPTIONAL\'
             }
           **Response Structure** 
         
@@ -9168,11 +9168,11 @@ class Client(BaseClient):
         ::
         
           response = client.set_user_settings(
-              AccessToken='string',
+              AccessToken=\'string\',
               MFAOptions=[
                   {
-                      'DeliveryMedium': 'SMS'|'EMAIL',
-                      'AttributeName': 'string'
+                      \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                      \'AttributeName\': \'string\'
                   },
               ]
           )
@@ -9224,27 +9224,27 @@ class Client(BaseClient):
         ::
         
           response = client.sign_up(
-              ClientId='string',
-              SecretHash='string',
-              Username='string',
-              Password='string',
+              ClientId=\'string\',
+              SecretHash=\'string\',
+              Username=\'string\',
+              Password=\'string\',
               UserAttributes=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               ValidationData=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               AnalyticsMetadata={
-                  'AnalyticsEndpointId': 'string'
+                  \'AnalyticsEndpointId\': \'string\'
               },
               UserContextData={
-                  'EncodedData': 'string'
+                  \'EncodedData\': \'string\'
               }
           )
         :type ClientId: string
@@ -9315,11 +9315,11 @@ class Client(BaseClient):
         :type UserContextData: dict
         :param UserContextData: 
         
-          Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+          Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
           - **EncodedData** *(string) --* 
         
-            Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+            Contextual data such as the user\'s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
         
         :rtype: dict
         :returns: 
@@ -9329,13 +9329,13 @@ class Client(BaseClient):
           ::
         
             {
-                'UserConfirmed': True|False,
-                'CodeDeliveryDetails': {
-                    'Destination': 'string',
-                    'DeliveryMedium': 'SMS'|'EMAIL',
-                    'AttributeName': 'string'
+                \'UserConfirmed\': True|False,
+                \'CodeDeliveryDetails\': {
+                    \'Destination\': \'string\',
+                    \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                    \'AttributeName\': \'string\'
                 },
-                'UserSub': 'string'
+                \'UserSub\': \'string\'
             }
           **Response Structure** 
         
@@ -9379,8 +9379,8 @@ class Client(BaseClient):
         ::
         
           response = client.start_user_import_job(
-              UserPoolId='string',
-              JobId='string'
+              UserPoolId=\'string\',
+              JobId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -9400,20 +9400,20 @@ class Client(BaseClient):
           ::
         
             {
-                'UserImportJob': {
-                    'JobName': 'string',
-                    'JobId': 'string',
-                    'UserPoolId': 'string',
-                    'PreSignedUrl': 'string',
-                    'CreationDate': datetime(2015, 1, 1),
-                    'StartDate': datetime(2015, 1, 1),
-                    'CompletionDate': datetime(2015, 1, 1),
-                    'Status': 'Created'|'Pending'|'InProgress'|'Stopping'|'Expired'|'Stopped'|'Failed'|'Succeeded',
-                    'CloudWatchLogsRoleArn': 'string',
-                    'ImportedUsers': 123,
-                    'SkippedUsers': 123,
-                    'FailedUsers': 123,
-                    'CompletionMessage': 'string'
+                \'UserImportJob\': {
+                    \'JobName\': \'string\',
+                    \'JobId\': \'string\',
+                    \'UserPoolId\': \'string\',
+                    \'PreSignedUrl\': \'string\',
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'StartDate\': datetime(2015, 1, 1),
+                    \'CompletionDate\': datetime(2015, 1, 1),
+                    \'Status\': \'Created\'|\'Pending\'|\'InProgress\'|\'Stopping\'|\'Expired\'|\'Stopped\'|\'Failed\'|\'Succeeded\',
+                    \'CloudWatchLogsRoleArn\': \'string\',
+                    \'ImportedUsers\': 123,
+                    \'SkippedUsers\': 123,
+                    \'FailedUsers\': 123,
+                    \'CompletionMessage\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9476,7 +9476,7 @@ class Client(BaseClient):
                  
               - **CloudWatchLogsRoleArn** *(string) --* 
         
-                The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
+                The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see \"Creating the CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide.
         
               - **ImportedUsers** *(integer) --* 
         
@@ -9506,8 +9506,8 @@ class Client(BaseClient):
         ::
         
           response = client.stop_user_import_job(
-              UserPoolId='string',
-              JobId='string'
+              UserPoolId=\'string\',
+              JobId=\'string\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -9527,20 +9527,20 @@ class Client(BaseClient):
           ::
         
             {
-                'UserImportJob': {
-                    'JobName': 'string',
-                    'JobId': 'string',
-                    'UserPoolId': 'string',
-                    'PreSignedUrl': 'string',
-                    'CreationDate': datetime(2015, 1, 1),
-                    'StartDate': datetime(2015, 1, 1),
-                    'CompletionDate': datetime(2015, 1, 1),
-                    'Status': 'Created'|'Pending'|'InProgress'|'Stopping'|'Expired'|'Stopped'|'Failed'|'Succeeded',
-                    'CloudWatchLogsRoleArn': 'string',
-                    'ImportedUsers': 123,
-                    'SkippedUsers': 123,
-                    'FailedUsers': 123,
-                    'CompletionMessage': 'string'
+                \'UserImportJob\': {
+                    \'JobName\': \'string\',
+                    \'JobId\': \'string\',
+                    \'UserPoolId\': \'string\',
+                    \'PreSignedUrl\': \'string\',
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'StartDate\': datetime(2015, 1, 1),
+                    \'CompletionDate\': datetime(2015, 1, 1),
+                    \'Status\': \'Created\'|\'Pending\'|\'InProgress\'|\'Stopping\'|\'Expired\'|\'Stopped\'|\'Failed\'|\'Succeeded\',
+                    \'CloudWatchLogsRoleArn\': \'string\',
+                    \'ImportedUsers\': 123,
+                    \'SkippedUsers\': 123,
+                    \'FailedUsers\': 123,
+                    \'CompletionMessage\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9603,7 +9603,7 @@ class Client(BaseClient):
                  
               - **CloudWatchLogsRoleArn** *(string) --* 
         
-                The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
+                The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see \"Creating the CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide.
         
               - **ImportedUsers** *(integer) --* 
         
@@ -9633,11 +9633,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_auth_event_feedback(
-              UserPoolId='string',
-              Username='string',
-              EventId='string',
-              FeedbackToken='string',
-              FeedbackValue='Valid'|'Invalid'
+              UserPoolId=\'string\',
+              Username=\'string\',
+              EventId=\'string\',
+              FeedbackToken=\'string\',
+              FeedbackValue=\'Valid\'|\'Invalid\'
           )
         :type UserPoolId: string
         :param UserPoolId: **[REQUIRED]** 
@@ -9687,9 +9687,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_device_status(
-              AccessToken='string',
-              DeviceKey='string',
-              DeviceRememberedStatus='remembered'|'not_remembered'
+              AccessToken=\'string\',
+              DeviceKey=\'string\',
+              DeviceRememberedStatus=\'remembered\'|\'not_remembered\'
           )
         :type AccessToken: string
         :param AccessToken: **[REQUIRED]** 
@@ -9734,10 +9734,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_group(
-              GroupName='string',
-              UserPoolId='string',
-              Description='string',
-              RoleArn='string',
+              GroupName=\'string\',
+              UserPoolId=\'string\',
+              Description=\'string\',
+              RoleArn=\'string\',
               Precedence=123
           )
         :type GroupName: string
@@ -9773,14 +9773,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Group': {
-                    'GroupName': 'string',
-                    'UserPoolId': 'string',
-                    'Description': 'string',
-                    'RoleArn': 'string',
-                    'Precedence': 123,
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1)
+                \'Group\': {
+                    \'GroupName\': \'string\',
+                    \'UserPoolId\': \'string\',
+                    \'Description\': \'string\',
+                    \'RoleArn\': \'string\',
+                    \'Precedence\': 123,
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -9809,9 +9809,9 @@ class Client(BaseClient):
         
               - **Precedence** *(integer) --* 
         
-                A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user's tokens. Groups with higher ``Precedence`` values take precedence over groups with lower ``Precedence`` values or with null ``Precedence`` values.
+                A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the ``cognito:roles`` and ``cognito:preferred_role`` claims in the user\'s tokens. Groups with higher ``Precedence`` values take precedence over groups with lower ``Precedence`` values or with null ``Precedence`` values.
         
-                Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users' tokens.
+                Two groups can have the same ``Precedence`` value. If this happens, neither group takes precedence over the other. If two groups with the same ``Precedence`` have the same role ARN, that role is used in the ``cognito:preferred_role`` claim in tokens for users in each group. If the two groups have different role ARNs, the ``cognito:preferred_role`` claim is not set in users\' tokens.
         
                 The default ``Precedence`` value is null.
         
@@ -9835,16 +9835,16 @@ class Client(BaseClient):
         ::
         
           response = client.update_identity_provider(
-              UserPoolId='string',
-              ProviderName='string',
+              UserPoolId=\'string\',
+              ProviderName=\'string\',
               ProviderDetails={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               AttributeMapping={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               IdpIdentifiers=[
-                  'string',
+                  \'string\',
               ]
           )
         :type UserPoolId: string
@@ -9890,21 +9890,21 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityProvider': {
-                    'UserPoolId': 'string',
-                    'ProviderName': 'string',
-                    'ProviderType': 'SAML'|'Facebook'|'Google'|'LoginWithAmazon'|'OIDC',
-                    'ProviderDetails': {
-                        'string': 'string'
+                \'IdentityProvider\': {
+                    \'UserPoolId\': \'string\',
+                    \'ProviderName\': \'string\',
+                    \'ProviderType\': \'SAML\'|\'Facebook\'|\'Google\'|\'LoginWithAmazon\'|\'OIDC\',
+                    \'ProviderDetails\': {
+                        \'string\': \'string\'
                     },
-                    'AttributeMapping': {
-                        'string': 'string'
+                    \'AttributeMapping\': {
+                        \'string\': \'string\'
                     },
-                    'IdpIdentifiers': [
-                        'string',
+                    \'IdpIdentifiers\': [
+                        \'string\',
                     ],
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1)
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -9969,13 +9969,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_resource_server(
-              UserPoolId='string',
-              Identifier='string',
-              Name='string',
+              UserPoolId=\'string\',
+              Identifier=\'string\',
+              Name=\'string\',
               Scopes=[
                   {
-                      'ScopeName': 'string',
-                      'ScopeDescription': 'string'
+                      \'ScopeName\': \'string\',
+                      \'ScopeDescription\': \'string\'
                   },
               ]
           )
@@ -10019,14 +10019,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceServer': {
-                    'UserPoolId': 'string',
-                    'Identifier': 'string',
-                    'Name': 'string',
-                    'Scopes': [
+                \'ResourceServer\': {
+                    \'UserPoolId\': \'string\',
+                    \'Identifier\': \'string\',
+                    \'Name\': \'string\',
+                    \'Scopes\': [
                         {
-                            'ScopeName': 'string',
-                            'ScopeDescription': 'string'
+                            \'ScopeName\': \'string\',
+                            \'ScopeDescription\': \'string\'
                         },
                     ]
                 }
@@ -10081,11 +10081,11 @@ class Client(BaseClient):
           response = client.update_user_attributes(
               UserAttributes=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              AccessToken='string'
+              AccessToken=\'string\'
           )
         :type UserAttributes: list
         :param UserAttributes: **[REQUIRED]** 
@@ -10119,11 +10119,11 @@ class Client(BaseClient):
           ::
         
             {
-                'CodeDeliveryDetailsList': [
+                \'CodeDeliveryDetailsList\': [
                     {
-                        'Destination': 'string',
-                        'DeliveryMedium': 'SMS'|'EMAIL',
-                        'AttributeName': 'string'
+                        \'Destination\': \'string\',
+                        \'DeliveryMedium\': \'SMS\'|\'EMAIL\',
+                        \'AttributeName\': \'string\'
                     },
                 ]
             }
@@ -10165,70 +10165,70 @@ class Client(BaseClient):
         ::
         
           response = client.update_user_pool(
-              UserPoolId='string',
+              UserPoolId=\'string\',
               Policies={
-                  'PasswordPolicy': {
-                      'MinimumLength': 123,
-                      'RequireUppercase': True|False,
-                      'RequireLowercase': True|False,
-                      'RequireNumbers': True|False,
-                      'RequireSymbols': True|False
+                  \'PasswordPolicy\': {
+                      \'MinimumLength\': 123,
+                      \'RequireUppercase\': True|False,
+                      \'RequireLowercase\': True|False,
+                      \'RequireNumbers\': True|False,
+                      \'RequireSymbols\': True|False
                   }
               },
               LambdaConfig={
-                  'PreSignUp': 'string',
-                  'CustomMessage': 'string',
-                  'PostConfirmation': 'string',
-                  'PreAuthentication': 'string',
-                  'PostAuthentication': 'string',
-                  'DefineAuthChallenge': 'string',
-                  'CreateAuthChallenge': 'string',
-                  'VerifyAuthChallengeResponse': 'string',
-                  'PreTokenGeneration': 'string',
-                  'UserMigration': 'string'
+                  \'PreSignUp\': \'string\',
+                  \'CustomMessage\': \'string\',
+                  \'PostConfirmation\': \'string\',
+                  \'PreAuthentication\': \'string\',
+                  \'PostAuthentication\': \'string\',
+                  \'DefineAuthChallenge\': \'string\',
+                  \'CreateAuthChallenge\': \'string\',
+                  \'VerifyAuthChallengeResponse\': \'string\',
+                  \'PreTokenGeneration\': \'string\',
+                  \'UserMigration\': \'string\'
               },
               AutoVerifiedAttributes=[
-                  'phone_number'|'email',
+                  \'phone_number\'|\'email\',
               ],
-              SmsVerificationMessage='string',
-              EmailVerificationMessage='string',
-              EmailVerificationSubject='string',
+              SmsVerificationMessage=\'string\',
+              EmailVerificationMessage=\'string\',
+              EmailVerificationSubject=\'string\',
               VerificationMessageTemplate={
-                  'SmsMessage': 'string',
-                  'EmailMessage': 'string',
-                  'EmailSubject': 'string',
-                  'EmailMessageByLink': 'string',
-                  'EmailSubjectByLink': 'string',
-                  'DefaultEmailOption': 'CONFIRM_WITH_LINK'|'CONFIRM_WITH_CODE'
+                  \'SmsMessage\': \'string\',
+                  \'EmailMessage\': \'string\',
+                  \'EmailSubject\': \'string\',
+                  \'EmailMessageByLink\': \'string\',
+                  \'EmailSubjectByLink\': \'string\',
+                  \'DefaultEmailOption\': \'CONFIRM_WITH_LINK\'|\'CONFIRM_WITH_CODE\'
               },
-              SmsAuthenticationMessage='string',
-              MfaConfiguration='OFF'|'ON'|'OPTIONAL',
+              SmsAuthenticationMessage=\'string\',
+              MfaConfiguration=\'OFF\'|\'ON\'|\'OPTIONAL\',
               DeviceConfiguration={
-                  'ChallengeRequiredOnNewDevice': True|False,
-                  'DeviceOnlyRememberedOnUserPrompt': True|False
+                  \'ChallengeRequiredOnNewDevice\': True|False,
+                  \'DeviceOnlyRememberedOnUserPrompt\': True|False
               },
               EmailConfiguration={
-                  'SourceArn': 'string',
-                  'ReplyToEmailAddress': 'string'
+                  \'SourceArn\': \'string\',
+                  \'ReplyToEmailAddress\': \'string\'
               },
               SmsConfiguration={
-                  'SnsCallerArn': 'string',
-                  'ExternalId': 'string'
+                  \'SnsCallerArn\': \'string\',
+                  \'ExternalId\': \'string\'
               },
               UserPoolTags={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               AdminCreateUserConfig={
-                  'AllowAdminCreateUserOnly': True|False,
-                  'UnusedAccountValidityDays': 123,
-                  'InviteMessageTemplate': {
-                      'SMSMessage': 'string',
-                      'EmailMessage': 'string',
-                      'EmailSubject': 'string'
+                  \'AllowAdminCreateUserOnly\': True|False,
+                  \'UnusedAccountValidityDays\': 123,
+                  \'InviteMessageTemplate\': {
+                      \'SMSMessage\': \'string\',
+                      \'EmailMessage\': \'string\',
+                      \'EmailSubject\': \'string\'
                   }
               },
               UserPoolAddOns={
-                  'AdvancedSecurityMode': 'OFF'|'AUDIT'|'ENFORCED'
+                  \'AdvancedSecurityMode\': \'OFF\'|\'AUDIT\'|\'ENFORCED\'
               }
           )
         :type UserPoolId: string
@@ -10436,7 +10436,7 @@ class Client(BaseClient):
         
           - **UnusedAccountValidityDays** *(integer) --* 
         
-            The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``"RESEND"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
+            The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``\"RESEND\"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
         
           - **InviteMessageTemplate** *(dict) --* 
         
@@ -10459,7 +10459,7 @@ class Client(BaseClient):
         :type UserPoolAddOns: dict
         :param UserPoolAddOns: 
         
-          Used to enable advanced security risk detection. Set the key ``AdvancedSecurityMode`` to the value "AUDIT".
+          Used to enable advanced security risk detection. Set the key ``AdvancedSecurityMode`` to the value \"AUDIT\".
         
           - **AdvancedSecurityMode** *(string) --* **[REQUIRED]** 
         
@@ -10491,41 +10491,41 @@ class Client(BaseClient):
         ::
         
           response = client.update_user_pool_client(
-              UserPoolId='string',
-              ClientId='string',
-              ClientName='string',
+              UserPoolId=\'string\',
+              ClientId=\'string\',
+              ClientName=\'string\',
               RefreshTokenValidity=123,
               ReadAttributes=[
-                  'string',
+                  \'string\',
               ],
               WriteAttributes=[
-                  'string',
+                  \'string\',
               ],
               ExplicitAuthFlows=[
-                  'ADMIN_NO_SRP_AUTH'|'CUSTOM_AUTH_FLOW_ONLY'|'USER_PASSWORD_AUTH',
+                  \'ADMIN_NO_SRP_AUTH\'|\'CUSTOM_AUTH_FLOW_ONLY\'|\'USER_PASSWORD_AUTH\',
               ],
               SupportedIdentityProviders=[
-                  'string',
+                  \'string\',
               ],
               CallbackURLs=[
-                  'string',
+                  \'string\',
               ],
               LogoutURLs=[
-                  'string',
+                  \'string\',
               ],
-              DefaultRedirectURI='string',
+              DefaultRedirectURI=\'string\',
               AllowedOAuthFlows=[
-                  'code'|'implicit'|'client_credentials',
+                  \'code\'|\'implicit\'|\'client_credentials\',
               ],
               AllowedOAuthScopes=[
-                  'string',
+                  \'string\',
               ],
               AllowedOAuthFlowsUserPoolClient=True|False,
               AnalyticsConfiguration={
-                  'ApplicationId': 'string',
-                  'RoleArn': 'string',
-                  'ExternalId': 'string',
-                  'UserDataShared': True|False
+                  \'ApplicationId\': \'string\',
+                  \'RoleArn\': \'string\',
+                  \'ExternalId\': \'string\',
+                  \'UserDataShared\': True|False
               }
           )
         :type UserPoolId: string
@@ -10635,7 +10635,7 @@ class Client(BaseClient):
         :type AllowedOAuthScopes: list
         :param AllowedOAuthScopes: 
         
-          A list of allowed ``OAuth`` scopes. Currently supported values are ``"phone"`` , ``"email"`` , ``"openid"`` , and ``"Cognito"`` .
+          A list of allowed ``OAuth`` scopes. Currently supported values are ``\"phone\"`` , ``\"email\"`` , ``\"openid\"`` , and ``\"Cognito\"`` .
         
           - *(string) --* 
         
@@ -10673,45 +10673,45 @@ class Client(BaseClient):
           ::
         
             {
-                'UserPoolClient': {
-                    'UserPoolId': 'string',
-                    'ClientName': 'string',
-                    'ClientId': 'string',
-                    'ClientSecret': 'string',
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'CreationDate': datetime(2015, 1, 1),
-                    'RefreshTokenValidity': 123,
-                    'ReadAttributes': [
-                        'string',
+                \'UserPoolClient\': {
+                    \'UserPoolId\': \'string\',
+                    \'ClientName\': \'string\',
+                    \'ClientId\': \'string\',
+                    \'ClientSecret\': \'string\',
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'RefreshTokenValidity\': 123,
+                    \'ReadAttributes\': [
+                        \'string\',
                     ],
-                    'WriteAttributes': [
-                        'string',
+                    \'WriteAttributes\': [
+                        \'string\',
                     ],
-                    'ExplicitAuthFlows': [
-                        'ADMIN_NO_SRP_AUTH'|'CUSTOM_AUTH_FLOW_ONLY'|'USER_PASSWORD_AUTH',
+                    \'ExplicitAuthFlows\': [
+                        \'ADMIN_NO_SRP_AUTH\'|\'CUSTOM_AUTH_FLOW_ONLY\'|\'USER_PASSWORD_AUTH\',
                     ],
-                    'SupportedIdentityProviders': [
-                        'string',
+                    \'SupportedIdentityProviders\': [
+                        \'string\',
                     ],
-                    'CallbackURLs': [
-                        'string',
+                    \'CallbackURLs\': [
+                        \'string\',
                     ],
-                    'LogoutURLs': [
-                        'string',
+                    \'LogoutURLs\': [
+                        \'string\',
                     ],
-                    'DefaultRedirectURI': 'string',
-                    'AllowedOAuthFlows': [
-                        'code'|'implicit'|'client_credentials',
+                    \'DefaultRedirectURI\': \'string\',
+                    \'AllowedOAuthFlows\': [
+                        \'code\'|\'implicit\'|\'client_credentials\',
                     ],
-                    'AllowedOAuthScopes': [
-                        'string',
+                    \'AllowedOAuthScopes\': [
+                        \'string\',
                     ],
-                    'AllowedOAuthFlowsUserPoolClient': True|False,
-                    'AnalyticsConfiguration': {
-                        'ApplicationId': 'string',
-                        'RoleArn': 'string',
-                        'ExternalId': 'string',
-                        'UserDataShared': True|False
+                    \'AllowedOAuthFlowsUserPoolClient\': True|False,
+                    \'AnalyticsConfiguration\': {
+                        \'ApplicationId\': \'string\',
+                        \'RoleArn\': \'string\',
+                        \'ExternalId\': \'string\',
+                        \'UserDataShared\': True|False
                     }
                 }
             }
@@ -10831,7 +10831,7 @@ class Client(BaseClient):
             
               - **AllowedOAuthScopes** *(list) --* 
         
-                A list of allowed ``OAuth`` scopes. Currently supported values are ``"phone"`` , ``"email"`` , ``"openid"`` , and ``"Cognito"`` .
+                A list of allowed ``OAuth`` scopes. Currently supported values are ``\"phone\"`` , ``\"email\"`` , ``\"openid\"`` , and ``\"Cognito\"`` .
         
                 - *(string) --* 
             
@@ -10871,10 +10871,10 @@ class Client(BaseClient):
         ::
         
           response = client.verify_software_token(
-              AccessToken='string',
-              Session='string',
-              UserCode='string',
-              FriendlyDeviceName='string'
+              AccessToken=\'string\',
+              Session=\'string\',
+              UserCode=\'string\',
+              FriendlyDeviceName=\'string\'
           )
         :type AccessToken: string
         :param AccessToken: 
@@ -10904,8 +10904,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 'SUCCESS'|'ERROR',
-                'Session': 'string'
+                \'Status\': \'SUCCESS\'|\'ERROR\',
+                \'Session\': \'string\'
             }
           **Response Structure** 
         
@@ -10931,9 +10931,9 @@ class Client(BaseClient):
         ::
         
           response = client.verify_user_attribute(
-              AccessToken='string',
-              AttributeName='string',
-              Code='string'
+              AccessToken=\'string\',
+              AttributeName=\'string\',
+              Code=\'string\'
           )
         :type AccessToken: string
         :param AccessToken: **[REQUIRED]** 

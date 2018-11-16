@@ -1,9 +1,9 @@
-from boto3.resources.collection import ResourceCollection
-from typing import Union
-from typing import List
 from typing import Optional
-from typing import IO
+from typing import Union
+from boto3.resources.collection import ResourceCollection
+from typing import List
 from typing import Dict
+from typing import IO
 from boto3.resources import base
 
 
@@ -14,10 +14,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Account resource.::
         
-          account = glacier.Account('id')
+          account = glacier.Account(\'id\')
         
         :type id: string
-        :param id: The Account's id identifier. This **must** be set.
+        :param id: The Account\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`Glacier.Account`
         :returns: A Account resource
@@ -28,14 +28,14 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Archive resource.::
         
-          archive = glacier.Archive('account_id','vault_name','id')
+          archive = glacier.Archive(\'account_id\',\'vault_name\',\'id\')
         
         :type account_id: string
-        :param account_id: The Archive's account_id identifier. This **must** be set.
+        :param account_id: The Archive\'s account_id identifier. This **must** be set.
         :type vault_name: string
-        :param vault_name: The Archive's vault_name identifier. This **must** be set.
+        :param vault_name: The Archive\'s vault_name identifier. This **must** be set.
         :type id: string
-        :param id: The Archive's id identifier. This **must** be set.
+        :param id: The Archive\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`Glacier.Archive`
         :returns: A Archive resource
@@ -46,14 +46,14 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Job resource.::
         
-          job = glacier.Job('account_id','vault_name','id')
+          job = glacier.Job(\'account_id\',\'vault_name\',\'id\')
         
         :type account_id: string
-        :param account_id: The Job's account_id identifier. This **must** be set.
+        :param account_id: The Job\'s account_id identifier. This **must** be set.
         :type vault_name: string
-        :param vault_name: The Job's vault_name identifier. This **must** be set.
+        :param vault_name: The Job\'s vault_name identifier. This **must** be set.
         :type id: string
-        :param id: The Job's id identifier. This **must** be set.
+        :param id: The Job\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`Glacier.Job`
         :returns: A Job resource
@@ -64,14 +64,14 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a MultipartUpload resource.::
         
-          multipart_upload = glacier.MultipartUpload('account_id','vault_name','id')
+          multipart_upload = glacier.MultipartUpload(\'account_id\',\'vault_name\',\'id\')
         
         :type account_id: string
-        :param account_id: The MultipartUpload's account_id identifier. This **must** be set.
+        :param account_id: The MultipartUpload\'s account_id identifier. This **must** be set.
         :type vault_name: string
-        :param vault_name: The MultipartUpload's vault_name identifier. This **must** be set.
+        :param vault_name: The MultipartUpload\'s vault_name identifier. This **must** be set.
         :type id: string
-        :param id: The MultipartUpload's id identifier. This **must** be set.
+        :param id: The MultipartUpload\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`Glacier.MultipartUpload`
         :returns: A MultipartUpload resource
@@ -82,12 +82,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Notification resource.::
         
-          notification = glacier.Notification('account_id','vault_name')
+          notification = glacier.Notification(\'account_id\',\'vault_name\')
         
         :type account_id: string
-        :param account_id: The Notification's account_id identifier. This **must** be set.
+        :param account_id: The Notification\'s account_id identifier. This **must** be set.
         :type vault_name: string
-        :param vault_name: The Notification's vault_name identifier. This **must** be set.
+        :param vault_name: The Notification\'s vault_name identifier. This **must** be set.
         
         :rtype: :py:class:`Glacier.Notification`
         :returns: A Notification resource
@@ -98,12 +98,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Vault resource.::
         
-          vault = glacier.Vault('account_id','name')
+          vault = glacier.Vault(\'account_id\',\'name\')
         
         :type account_id: string
-        :param account_id: The Vault's account_id identifier. This **must** be set.
+        :param account_id: The Vault\'s account_id identifier. This **must** be set.
         :type name: string
-        :param name: The Vault's name identifier. This **must** be set.
+        :param name: The Vault\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`Glacier.Vault`
         :returns: A Vault resource
@@ -117,11 +117,11 @@ class ServiceResource(base.ServiceResource):
         
         * Names can be between 1 and 255 characters long. 
          
-        * Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period). 
+        * Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (hyphen), and \'.\' (period). 
          
         This operation is idempotent.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Creating a Vault in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/creating-vaults.html>`__ and `Create Vault <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -131,7 +131,7 @@ class ServiceResource(base.ServiceResource):
         ::
         
           vault = glacier.create_vault(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -165,11 +165,11 @@ class Account(base.ServiceResource):
         
         * Names can be between 1 and 255 characters long. 
          
-        * Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period). 
+        * Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (hyphen), and \'.\' (period). 
          
         This operation is idempotent.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Creating a Vault in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/creating-vaults.html>`__ and `Create Vault <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -179,7 +179,7 @@ class Account(base.ServiceResource):
         ::
         
           vault = account.create_vault(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -217,7 +217,7 @@ class Archive(base.ServiceResource):
          
         This operation is idempotent. Attempting to delete an already-deleted archive does not result in an error.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Deleting an Archive in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-an-archive.html>`__ and `Delete Archive <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -307,7 +307,7 @@ class Job(base.ServiceResource):
         
         A job ID does not expire for at least 24 hours after Amazon Glacier completes the job. That is, you can download the job output within the 24 hours period after Amazon Glacier completes the job.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and the underlying REST API, see `Downloading a Vault Inventory <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html>`__ , `Downloading an Archive <http://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive.html>`__ , and `Get Job Output <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html>`__  
         
@@ -317,7 +317,7 @@ class Job(base.ServiceResource):
         ::
         
           response = job.get_output(
-              range='string'
+              range=\'string\'
           )
         :type range: string
         :param range: 
@@ -342,13 +342,13 @@ class Job(base.ServiceResource):
           ::
         
             {
-                'body': StreamingBody(),
-                'checksum': 'string',
-                'status': 123,
-                'contentRange': 'string',
-                'acceptRanges': 'string',
-                'contentType': 'string',
-                'archiveDescription': 'string'
+                \'body\': StreamingBody(),
+                \'checksum\': \'string\',
+                \'status\': 123,
+                \'contentRange\': \'string\',
+                \'acceptRanges\': \'string\',
+                \'contentType\': \'string\',
+                \'archiveDescription\': \'string\'
             }
           **Response Structure** 
         
@@ -439,7 +439,7 @@ class MultipartUpload(base.ServiceResource):
         
         This operation is idempotent.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Working with Archives in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html>`__ and `Abort Multipart Upload <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -463,7 +463,7 @@ class MultipartUpload(base.ServiceResource):
         
         Complete Multipart Upload is an idempotent operation. After your first successful complete multipart upload, if you call the operation again within a short period, the operation will succeed and return the same archive ID. This is useful in the event you experience a network issue that causes an aborted connection or receive a 500 server error, in which case you can repeat your Complete Multipart Upload request and get the same archive ID without creating duplicate archives. Note, however, that after the multipart upload completes, you cannot call the List Parts operation and the multipart upload will not appear in List Multipart Uploads response, even if idempotent complete is possible.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Uploading Large Archives in Parts (Multipart Upload) <http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html>`__ and `Complete Multipart Upload <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-complete-upload.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -473,8 +473,8 @@ class MultipartUpload(base.ServiceResource):
         ::
         
           response = multipart_upload.complete(
-              archiveSize='string',
-              checksum='string'
+              archiveSize=\'string\',
+              checksum=\'string\'
           )
         :type archiveSize: string
         :param archiveSize: 
@@ -495,7 +495,7 @@ class MultipartUpload(base.ServiceResource):
                 But if you prefer, you can also use botocore.utils.calculate_tree_hash()
                 to compute it from raw file by::
         
-                    checksum = calculate_tree_hash(open('your_file.txt', 'rb'))
+                    checksum = calculate_tree_hash(open(\'your_file.txt\', \'rb\'))
         
         :rtype: dict
         :returns: 
@@ -505,9 +505,9 @@ class MultipartUpload(base.ServiceResource):
           ::
         
             {
-                'location': 'string',
-                'checksum': 'string',
-                'archiveId': 'string'
+                \'location\': \'string\',
+                \'checksum\': \'string\',
+                \'archiveId\': \'string\'
             }
           **Response Structure** 
         
@@ -547,7 +547,7 @@ class MultipartUpload(base.ServiceResource):
         
         The List Parts operation supports pagination. By default, this operation returns up to 50 uploaded parts in the response. You should always check the response for a ``marker`` at which to continue the list; if there are no more items the ``marker`` is ``null`` . To return a list of parts that begins at a specific part, set the ``marker`` request parameter to the value you obtained from a previous List Parts request. You can also limit the number of parts returned in the response by specifying the ``limit`` parameter in the request. 
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and the underlying REST API, see `Working with Archives in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html>`__ and `List Parts <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html>`__ in the *Amazon Glacier Developer Guide* .
         
@@ -557,8 +557,8 @@ class MultipartUpload(base.ServiceResource):
         ::
         
           response = multipart_upload.parts(
-              marker='string',
-              limit='string'
+              marker=\'string\',
+              limit=\'string\'
           )
         :type marker: string
         :param marker: 
@@ -578,18 +578,18 @@ class MultipartUpload(base.ServiceResource):
           ::
         
             {
-                'MultipartUploadId': 'string',
-                'VaultARN': 'string',
-                'ArchiveDescription': 'string',
-                'PartSizeInBytes': 123,
-                'CreationDate': 'string',
-                'Parts': [
+                \'MultipartUploadId\': \'string\',
+                \'VaultARN\': \'string\',
+                \'ArchiveDescription\': \'string\',
+                \'PartSizeInBytes\': 123,
+                \'CreationDate\': \'string\',
+                \'Parts\': [
                     {
-                        'RangeInBytes': 'string',
-                        'SHA256TreeHash': 'string'
+                        \'RangeInBytes\': \'string\',
+                        \'SHA256TreeHash\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -645,7 +645,7 @@ class MultipartUpload(base.ServiceResource):
         
         Amazon Glacier rejects your upload part request if any of the following conditions is true:
         
-        * **SHA256 tree hash does not match** To ensure that part data is not corrupted in transmission, you compute a SHA256 tree hash of the part and include it in your request. Upon receiving the part data, Amazon Glacier also computes a SHA256 tree hash. If these hash values don't match, the operation fails. For information about computing a SHA256 tree hash, see `Computing Checksums <http://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html>`__ . 
+        * **SHA256 tree hash does not match** To ensure that part data is not corrupted in transmission, you compute a SHA256 tree hash of the part and include it in your request. Upon receiving the part data, Amazon Glacier also computes a SHA256 tree hash. If these hash values don\'t match, the operation fails. For information about computing a SHA256 tree hash, see `Computing Checksums <http://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html>`__ . 
          
         * **Part size does not match** The size of each part except the last must match the size specified in the corresponding  InitiateMultipartUpload request. The size of the last part must be the same size as, or smaller than, the specified size. 
         
@@ -657,7 +657,7 @@ class MultipartUpload(base.ServiceResource):
          
         This operation is idempotent. If you upload the same part multiple times, the data included in the most recent request overwrites the previously uploaded data.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Uploading Large Archives in Parts (Multipart Upload) <http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html>`__ and `Upload Part <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html>`__ in the *Amazon Glacier Developer Guide* .
         
@@ -667,8 +667,8 @@ class MultipartUpload(base.ServiceResource):
         ::
         
           response = multipart_upload.upload_part(
-              range='string',
-              body=b'bytes'|file
+              range=\'string\',
+              body=b\'bytes\'|file
           )
         :type checksum: string
         :param checksum: 
@@ -695,7 +695,7 @@ class MultipartUpload(base.ServiceResource):
           ::
         
             {
-                'checksum': 'string'
+                \'checksum\': \'string\'
             }
           **Response Structure** 
         
@@ -720,7 +720,7 @@ class Notification(base.ServiceResource):
     def delete(self):
         """
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Configuring Vault Notifications in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html>`__ and `Delete Vault Notification Configuration <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html>`__ in the Amazon Glacier Developer Guide. 
         
@@ -780,11 +780,11 @@ class Notification(base.ServiceResource):
         
         Amazon SNS topics must grant permission to the vault to be allowed to publish notifications to the topic. You can configure a vault to publish a notification for the following vault events:
         
-        * **ArchiveRetrievalCompleted** This event occurs when a job that was initiated for an archive retrieval is completed ( InitiateJob ). The status of the completed job can be "Succeeded" or "Failed". The notification sent to the SNS topic is the same output as returned from  DescribeJob .  
+        * **ArchiveRetrievalCompleted** This event occurs when a job that was initiated for an archive retrieval is completed ( InitiateJob ). The status of the completed job can be \"Succeeded\" or \"Failed\". The notification sent to the SNS topic is the same output as returned from  DescribeJob .  
          
-        * **InventoryRetrievalCompleted** This event occurs when a job that was initiated for an inventory retrieval is completed ( InitiateJob ). The status of the completed job can be "Succeeded" or "Failed". The notification sent to the SNS topic is the same output as returned from  DescribeJob .  
+        * **InventoryRetrievalCompleted** This event occurs when a job that was initiated for an inventory retrieval is completed ( InitiateJob ). The status of the completed job can be \"Succeeded\" or \"Failed\". The notification sent to the SNS topic is the same output as returned from  DescribeJob .  
          
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Configuring Vault Notifications in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html>`__ and `Set Vault Notification Configuration <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -795,9 +795,9 @@ class Notification(base.ServiceResource):
         
           response = notification.set(
               vaultNotificationConfig={
-                  'SNSTopic': 'string',
-                  'Events': [
-                      'string',
+                  \'SNSTopic\': \'string\',
+                  \'Events\': [
+                      \'string\',
                   ]
               }
           )
@@ -845,11 +845,11 @@ class Vault(base.ServiceResource):
         
         * Names can be between 1 and 255 characters long. 
          
-        * Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period). 
+        * Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (hyphen), and \'.\' (period). 
          
         This operation is idempotent.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Creating a Vault in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/creating-vaults.html>`__ and `Create Vault <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -868,7 +868,7 @@ class Vault(base.ServiceResource):
           ::
         
             {
-                'location': 'string'
+                \'location\': \'string\'
             }
           **Response Structure** 
         
@@ -888,7 +888,7 @@ class Vault(base.ServiceResource):
         
         This operation is idempotent.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Deleting a Vault in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html>`__ and `Delete Vault <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -937,11 +937,11 @@ class Vault(base.ServiceResource):
         
         .. note::
         
-          You don't need to know the size of the archive when you start a multipart upload because Amazon Glacier does not require you to specify the overall archive size.
+          You don\'t need to know the size of the archive when you start a multipart upload because Amazon Glacier does not require you to specify the overall archive size.
         
         After you complete the multipart upload, Amazon Glacier removes the multipart upload resource referenced by the ID. Amazon Glacier also removes the multipart upload resource if you cancel the multipart upload or it may be removed if there is no activity for a period of 24 hours.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Uploading Large Archives in Parts (Multipart Upload) <http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html>`__ and `Initiate Multipart Upload <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html>`__ in the *Amazon Glacier Developer Guide* .
         
@@ -951,8 +951,8 @@ class Vault(base.ServiceResource):
         ::
         
           multipart_upload = vault.initiate_multipart_upload(
-              archiveDescription='string',
-              partSize='string'
+              archiveDescription=\'string\',
+              partSize=\'string\'
           )
         :type archiveDescription: string
         :param archiveDescription: 
@@ -1010,7 +1010,7 @@ class Vault(base.ServiceResource):
         
         Archives are immutable. After you upload an archive, you cannot edit the archive or its description.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Uploading an Archive in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-an-archive.html>`__ and `Upload Archive <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -1020,8 +1020,8 @@ class Vault(base.ServiceResource):
         ::
         
           archive = vault.upload_archive(
-              archiveDescription='string',
-              body=b'bytes'|file
+              archiveDescription=\'string\',
+              body=b\'bytes\'|file
           )
         :type archiveDescription: string
         :param archiveDescription: 
@@ -1075,8 +1075,8 @@ class vaults(ResourceCollection):
         ::
         
           vault_iterator = glacier.vaults.filter(
-              marker='string',
-              limit='string'
+              marker=\'string\',
+              limit=\'string\'
           )
         :type marker: string
         :param marker: 
@@ -1156,13 +1156,13 @@ class vaults(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances

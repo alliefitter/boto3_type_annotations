@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
+from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,7 +33,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_container(
-              ContainerName='string'
+              ContainerName=\'string\'
           )
         :type ContainerName: string
         :param ContainerName: **[REQUIRED]** 
@@ -48,12 +48,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Container': {
-                    'Endpoint': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'ARN': 'string',
-                    'Name': 'string',
-                    'Status': 'ACTIVE'|'CREATING'|'DELETING'
+                \'Container\': {
+                    \'Endpoint\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'ARN\': \'string\',
+                    \'Name\': \'string\',
+                    \'Status\': \'ACTIVE\'|\'CREATING\'|\'DELETING\'
                 }
             }
           **Response Structure** 
@@ -70,7 +70,7 @@ class Client(BaseClient):
         
               Status: The status of container creation or deletion. The status is one of the following: ``CREATING`` , ``ACTIVE`` , or ``DELETING`` . While the service is creating the container, the status is ``CREATING`` . When an endpoint is available, the status changes to ``ACTIVE`` .
         
-              The return value does not include the container's endpoint. To make downstream requests, you must obtain this value by using  DescribeContainer or  ListContainers .
+              The return value does not include the container\'s endpoint. To make downstream requests, you must obtain this value by using  DescribeContainer or  ListContainers .
         
               - **Endpoint** *(string) --* 
         
@@ -108,7 +108,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_container(
-              ContainerName='string'
+              ContainerName=\'string\'
           )
         :type ContainerName: string
         :param ContainerName: **[REQUIRED]** 
@@ -138,7 +138,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_container_policy(
-              ContainerName='string'
+              ContainerName=\'string\'
           )
         :type ContainerName: string
         :param ContainerName: **[REQUIRED]** 
@@ -170,7 +170,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cors_policy(
-              ContainerName='string'
+              ContainerName=\'string\'
           )
         :type ContainerName: string
         :param ContainerName: **[REQUIRED]** 
@@ -200,7 +200,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_container(
-              ContainerName='string'
+              ContainerName=\'string\'
           )
         :type ContainerName: string
         :param ContainerName: 
@@ -215,12 +215,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Container': {
-                    'Endpoint': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'ARN': 'string',
-                    'Name': 'string',
-                    'Status': 'ACTIVE'|'CREATING'|'DELETING'
+                \'Container\': {
+                    \'Endpoint\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'ARN\': \'string\',
+                    \'Name\': \'string\',
+                    \'Status\': \'ACTIVE\'|\'CREATING\'|\'DELETING\'
                 }
             }
           **Response Structure** 
@@ -274,7 +274,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -289,7 +289,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_container_policy(
-              ContainerName='string'
+              ContainerName=\'string\'
           )
         :type ContainerName: string
         :param ContainerName: **[REQUIRED]** 
@@ -304,7 +304,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': 'string'
+                \'Policy\': \'string\'
             }
           **Response Structure** 
         
@@ -328,7 +328,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_cors_policy(
-              ContainerName='string'
+              ContainerName=\'string\'
           )
         :type ContainerName: string
         :param ContainerName: **[REQUIRED]** 
@@ -343,20 +343,20 @@ class Client(BaseClient):
           ::
         
             {
-                'CorsPolicy': [
+                \'CorsPolicy\': [
                     {
-                        'AllowedOrigins': [
-                            'string',
+                        \'AllowedOrigins\': [
+                            \'string\',
                         ],
-                        'AllowedMethods': [
-                            'PUT'|'GET'|'DELETE'|'HEAD',
+                        \'AllowedMethods\': [
+                            \'PUT\'|\'GET\'|\'DELETE\'|\'HEAD\',
                         ],
-                        'AllowedHeaders': [
-                            'string',
+                        \'AllowedHeaders\': [
+                            \'string\',
                         ],
-                        'MaxAgeSeconds': 123,
-                        'ExposeHeaders': [
-                            'string',
+                        \'MaxAgeSeconds\': 123,
+                        \'ExposeHeaders\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -420,10 +420,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -459,7 +459,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_containers(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -480,16 +480,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Containers': [
+                \'Containers\': [
                     {
-                        'Endpoint': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'ARN': 'string',
-                        'Name': 'string',
-                        'Status': 'ACTIVE'|'CREATING'|'DELETING'
+                        \'Endpoint\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'ARN\': \'string\',
+                        \'Name\': \'string\',
+                        \'Status\': \'ACTIVE\'|\'CREATING\'|\'DELETING\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -545,8 +545,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_container_policy(
-              ContainerName='string',
-              Policy='string'
+              ContainerName=\'string\',
+              Policy=\'string\'
           )
         :type ContainerName: string
         :param ContainerName: **[REQUIRED]** 
@@ -587,21 +587,21 @@ class Client(BaseClient):
         ::
         
           response = client.put_cors_policy(
-              ContainerName='string',
+              ContainerName=\'string\',
               CorsPolicy=[
                   {
-                      'AllowedOrigins': [
-                          'string',
+                      \'AllowedOrigins\': [
+                          \'string\',
                       ],
-                      'AllowedMethods': [
-                          'PUT'|'GET'|'DELETE'|'HEAD',
+                      \'AllowedMethods\': [
+                          \'PUT\'|\'GET\'|\'DELETE\'|\'HEAD\',
                       ],
-                      'AllowedHeaders': [
-                          'string',
+                      \'AllowedHeaders\': [
+                          \'string\',
                       ],
-                      'MaxAgeSeconds': 123,
-                      'ExposeHeaders': [
-                          'string',
+                      \'MaxAgeSeconds\': 123,
+                      \'ExposeHeaders\': [
+                          \'string\',
                       ]
                   },
               ]

@@ -1,9 +1,9 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
-from typing import Union
 from typing import Optional
-from botocore.client import BaseClient
+from typing import Union
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -18,7 +18,7 @@ class Client(BaseClient):
         ::
         
           response = client.associate_admin_account(
-              AdminAccount='string'
+              AdminAccount=\'string\'
           )
         :type AdminAccount: string
         :param AdminAccount: **[REQUIRED]** 
@@ -35,10 +35,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -68,7 +68,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_policy(
-              PolicyId='string'
+              PolicyId=\'string\'
           )
         :type PolicyId: string
         :param PolicyId: **[REQUIRED]** 
@@ -109,7 +109,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -133,8 +133,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AdminAccount': 'string',
-                'RoleStatus': 'READY'|'CREATING'|'PENDING_DELETION'|'DELETING'|'DELETED'
+                \'AdminAccount\': \'string\',
+                \'RoleStatus\': \'READY\'|\'CREATING\'|\'PENDING_DELETION\'|\'DELETING\'|\'DELETED\'
             }
           **Response Structure** 
         
@@ -160,8 +160,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_compliance_detail(
-              PolicyId='string',
-              MemberAccount='string'
+              PolicyId=\'string\',
+              MemberAccount=\'string\'
           )
         :type PolicyId: string
         :param PolicyId: **[REQUIRED]** 
@@ -181,21 +181,21 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyComplianceDetail': {
-                    'PolicyOwner': 'string',
-                    'PolicyId': 'string',
-                    'MemberAccount': 'string',
-                    'Violators': [
+                \'PolicyComplianceDetail\': {
+                    \'PolicyOwner\': \'string\',
+                    \'PolicyId\': \'string\',
+                    \'MemberAccount\': \'string\',
+                    \'Violators\': [
                         {
-                            'ResourceId': 'string',
-                            'ViolationReason': 'WEB_ACL_MISSING_RULE_GROUP'|'RESOURCE_MISSING_WEB_ACL'|'RESOURCE_INCORRECT_WEB_ACL',
-                            'ResourceType': 'string'
+                            \'ResourceId\': \'string\',
+                            \'ViolationReason\': \'WEB_ACL_MISSING_RULE_GROUP\'|\'RESOURCE_MISSING_WEB_ACL\'|\'RESOURCE_INCORRECT_WEB_ACL\',
+                            \'ResourceType\': \'string\'
                         },
                     ],
-                    'EvaluationLimitExceeded': True|False,
-                    'ExpiredAt': datetime(2015, 1, 1),
-                    'IssueInfoMap': {
-                        'string': 'string'
+                    \'EvaluationLimitExceeded\': True|False,
+                    \'ExpiredAt\': datetime(2015, 1, 1),
+                    \'IssueInfoMap\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -276,8 +276,8 @@ class Client(BaseClient):
           ::
         
             {
-                'SnsTopicArn': 'string',
-                'SnsRoleName': 'string'
+                \'SnsTopicArn\': \'string\',
+                \'SnsRoleName\': \'string\'
             }
           **Response Structure** 
         
@@ -300,10 +300,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -323,7 +323,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_policy(
-              PolicyId='string'
+              PolicyId=\'string\'
           )
         :type PolicyId: string
         :param PolicyId: **[REQUIRED]** 
@@ -338,35 +338,35 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': {
-                    'PolicyId': 'string',
-                    'PolicyName': 'string',
-                    'PolicyUpdateToken': 'string',
-                    'SecurityServicePolicyData': {
-                        'Type': 'WAF',
-                        'ManagedServiceData': 'string'
+                \'Policy\': {
+                    \'PolicyId\': \'string\',
+                    \'PolicyName\': \'string\',
+                    \'PolicyUpdateToken\': \'string\',
+                    \'SecurityServicePolicyData\': {
+                        \'Type\': \'WAF\',
+                        \'ManagedServiceData\': \'string\'
                     },
-                    'ResourceType': 'string',
-                    'ResourceTags': [
+                    \'ResourceType\': \'string\',
+                    \'ResourceTags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'ExcludeResourceTags': True|False,
-                    'RemediationEnabled': True|False,
-                    'IncludeMap': {
-                        'string': [
-                            'string',
+                    \'ExcludeResourceTags\': True|False,
+                    \'RemediationEnabled\': True|False,
+                    \'IncludeMap\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'ExcludeMap': {
-                        'string': [
-                            'string',
+                    \'ExcludeMap\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     }
                 },
-                'PolicyArn': 'string'
+                \'PolicyArn\': \'string\'
             }
           **Response Structure** 
         
@@ -400,7 +400,7 @@ class Client(BaseClient):
         
                   Details about the service. This contains ``WAF`` data in JSON format, as shown in the following example:
         
-                   ``ManagedServiceData": "{\"type\": \"WAF\", \"ruleGroups\": [{\"id\": \"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : {\"type\": \"COUNT\"}}], \"defaultAction\": {\"type\": \"BLOCK\"}}``  
+                   ``ManagedServiceData\": \"{\\"type\\": \\"WAF\\", \\"ruleGroups\\": [{\\"id\\": \\"12345678-1bcd-9012-efga-0987654321ab\\", \\"overrideAction\\" : {\\"type\\": \\"COUNT\\"}}], \\"defaultAction\\": {\\"type\\": \\"BLOCK\\"}}``  
         
               - **ResourceType** *(string) --* 
         
@@ -412,7 +412,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from protection by the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. Tags are combined with an "OR." That is, if you add more than one tag, if any of the tags matches, the resource is considered a match for the include or exclude. `Working with Tag Editor <https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html>`__ .
+                  The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from protection by the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. Tags are combined with an \"OR.\" That is, if you add more than one tag, if any of the tags matches, the resource is considered a match for the include or exclude. `Working with Tag Editor <https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html>`__ .
         
                   - **Key** *(string) --* 
         
@@ -482,8 +482,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_compliance_status(
-              PolicyId='string',
-              NextToken='string',
+              PolicyId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type PolicyId: string
@@ -509,26 +509,26 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyComplianceStatusList': [
+                \'PolicyComplianceStatusList\': [
                     {
-                        'PolicyOwner': 'string',
-                        'PolicyId': 'string',
-                        'PolicyName': 'string',
-                        'MemberAccount': 'string',
-                        'EvaluationResults': [
+                        \'PolicyOwner\': \'string\',
+                        \'PolicyId\': \'string\',
+                        \'PolicyName\': \'string\',
+                        \'MemberAccount\': \'string\',
+                        \'EvaluationResults\': [
                             {
-                                'ComplianceStatus': 'COMPLIANT'|'NON_COMPLIANT',
-                                'ViolatorCount': 123,
-                                'EvaluationLimitExceeded': True|False
+                                \'ComplianceStatus\': \'COMPLIANT\'|\'NON_COMPLIANT\',
+                                \'ViolatorCount\': 123,
+                                \'EvaluationLimitExceeded\': True|False
                             },
                         ],
-                        'LastUpdated': datetime(2015, 1, 1),
-                        'IssueInfoMap': {
-                            'string': 'string'
+                        \'LastUpdated\': datetime(2015, 1, 1),
+                        \'IssueInfoMap\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -568,7 +568,7 @@ class Client(BaseClient):
         
                     - **ComplianceStatus** *(string) --* 
         
-                      Describes an AWS account's compliance with the AWS Firewall Manager policy.
+                      Describes an AWS account\'s compliance with the AWS Firewall Manager policy.
         
                     - **ViolatorCount** *(integer) --* 
         
@@ -608,7 +608,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_member_accounts(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -629,10 +629,10 @@ class Client(BaseClient):
           ::
         
             {
-                'MemberAccounts': [
-                    'string',
+                \'MemberAccounts\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -660,7 +660,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_policies(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -681,17 +681,17 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyList': [
+                \'PolicyList\': [
                     {
-                        'PolicyArn': 'string',
-                        'PolicyId': 'string',
-                        'PolicyName': 'string',
-                        'ResourceType': 'string',
-                        'SecurityServiceType': 'WAF',
-                        'RemediationEnabled': True|False
+                        \'PolicyArn\': \'string\',
+                        \'PolicyId\': \'string\',
+                        \'PolicyName\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'SecurityServiceType\': \'WAF\',
+                        \'RemediationEnabled\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -745,8 +745,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_notification_channel(
-              SnsTopicArn='string',
-              SnsRoleName='string'
+              SnsTopicArn=\'string\',
+              SnsRoleName=\'string\'
           )
         :type SnsTopicArn: string
         :param SnsTopicArn: **[REQUIRED]** 
@@ -772,30 +772,30 @@ class Client(BaseClient):
         
           response = client.put_policy(
               Policy={
-                  'PolicyId': 'string',
-                  'PolicyName': 'string',
-                  'PolicyUpdateToken': 'string',
-                  'SecurityServicePolicyData': {
-                      'Type': 'WAF',
-                      'ManagedServiceData': 'string'
+                  \'PolicyId\': \'string\',
+                  \'PolicyName\': \'string\',
+                  \'PolicyUpdateToken\': \'string\',
+                  \'SecurityServicePolicyData\': {
+                      \'Type\': \'WAF\',
+                      \'ManagedServiceData\': \'string\'
                   },
-                  'ResourceType': 'string',
-                  'ResourceTags': [
+                  \'ResourceType\': \'string\',
+                  \'ResourceTags\': [
                       {
-                          'Key': 'string',
-                          'Value': 'string'
+                          \'Key\': \'string\',
+                          \'Value\': \'string\'
                       },
                   ],
-                  'ExcludeResourceTags': True|False,
-                  'RemediationEnabled': True|False,
-                  'IncludeMap': {
-                      'string': [
-                          'string',
+                  \'ExcludeResourceTags\': True|False,
+                  \'RemediationEnabled\': True|False,
+                  \'IncludeMap\': {
+                      \'string\': [
+                          \'string\',
                       ]
                   },
-                  'ExcludeMap': {
-                      'string': [
-                          'string',
+                  \'ExcludeMap\': {
+                      \'string\': [
+                          \'string\',
                       ]
                   }
               }
@@ -829,7 +829,7 @@ class Client(BaseClient):
         
               Details about the service. This contains ``WAF`` data in JSON format, as shown in the following example:
         
-               ``ManagedServiceData": "{\"type\": \"WAF\", \"ruleGroups\": [{\"id\": \"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : {\"type\": \"COUNT\"}}], \"defaultAction\": {\"type\": \"BLOCK\"}}``  
+               ``ManagedServiceData\": \"{\\"type\\": \\"WAF\\", \\"ruleGroups\\": [{\\"id\\": \\"12345678-1bcd-9012-efga-0987654321ab\\", \\"overrideAction\\" : {\\"type\\": \\"COUNT\\"}}], \\"defaultAction\\": {\\"type\\": \\"BLOCK\\"}}``  
         
           - **ResourceType** *(string) --* **[REQUIRED]** 
         
@@ -841,7 +841,7 @@ class Client(BaseClient):
         
             - *(dict) --* 
         
-              The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from protection by the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. Tags are combined with an "OR." That is, if you add more than one tag, if any of the tags matches, the resource is considered a match for the include or exclude. `Working with Tag Editor <https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html>`__ .
+              The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from protection by the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. Tags are combined with an \"OR.\" That is, if you add more than one tag, if any of the tags matches, the resource is considered a match for the include or exclude. `Working with Tag Editor <https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html>`__ .
         
               - **Key** *(string) --* **[REQUIRED]** 
         
@@ -891,35 +891,35 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': {
-                    'PolicyId': 'string',
-                    'PolicyName': 'string',
-                    'PolicyUpdateToken': 'string',
-                    'SecurityServicePolicyData': {
-                        'Type': 'WAF',
-                        'ManagedServiceData': 'string'
+                \'Policy\': {
+                    \'PolicyId\': \'string\',
+                    \'PolicyName\': \'string\',
+                    \'PolicyUpdateToken\': \'string\',
+                    \'SecurityServicePolicyData\': {
+                        \'Type\': \'WAF\',
+                        \'ManagedServiceData\': \'string\'
                     },
-                    'ResourceType': 'string',
-                    'ResourceTags': [
+                    \'ResourceType\': \'string\',
+                    \'ResourceTags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'ExcludeResourceTags': True|False,
-                    'RemediationEnabled': True|False,
-                    'IncludeMap': {
-                        'string': [
-                            'string',
+                    \'ExcludeResourceTags\': True|False,
+                    \'RemediationEnabled\': True|False,
+                    \'IncludeMap\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'ExcludeMap': {
-                        'string': [
-                            'string',
+                    \'ExcludeMap\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     }
                 },
-                'PolicyArn': 'string'
+                \'PolicyArn\': \'string\'
             }
           **Response Structure** 
         
@@ -953,7 +953,7 @@ class Client(BaseClient):
         
                   Details about the service. This contains ``WAF`` data in JSON format, as shown in the following example:
         
-                   ``ManagedServiceData": "{\"type\": \"WAF\", \"ruleGroups\": [{\"id\": \"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : {\"type\": \"COUNT\"}}], \"defaultAction\": {\"type\": \"BLOCK\"}}``  
+                   ``ManagedServiceData\": \"{\\"type\\": \\"WAF\\", \\"ruleGroups\\": [{\\"id\\": \\"12345678-1bcd-9012-efga-0987654321ab\\", \\"overrideAction\\" : {\\"type\\": \\"COUNT\\"}}], \\"defaultAction\\": {\\"type\\": \\"BLOCK\\"}}``  
         
               - **ResourceType** *(string) --* 
         
@@ -965,7 +965,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from protection by the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. Tags are combined with an "OR." That is, if you add more than one tag, if any of the tags matches, the resource is considered a match for the include or exclude. `Working with Tag Editor <https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html>`__ .
+                  The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from protection by the AWS Firewall Manager policy. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. Tags are combined with an \"OR.\" That is, if you add more than one tag, if any of the tags matches, the resource is considered a match for the include or exclude. `Working with Tag Editor <https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html>`__ .
         
                   - **Key** *(string) --* 
         

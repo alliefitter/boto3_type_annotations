@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
+from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -18,12 +18,12 @@ class Client(BaseClient):
         
           response = client.add_attributes_to_findings(
               findingArns=[
-                  'string',
+                  \'string\',
               ],
               attributes=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -59,10 +59,10 @@ class Client(BaseClient):
           ::
         
             {
-                'failedItems': {
-                    'string': {
-                        'failureCode': 'INVALID_ARN'|'DUPLICATE_ARN'|'ITEM_DOES_NOT_EXIST'|'ACCESS_DENIED'|'LIMIT_EXCEEDED'|'INTERNAL_ERROR',
-                        'retryable': True|False
+                \'failedItems\': {
+                    \'string\': {
+                        \'failureCode\': \'INVALID_ARN\'|\'DUPLICATE_ARN\'|\'ITEM_DOES_NOT_EXIST\'|\'ACCESS_DENIED\'|\'LIMIT_EXCEEDED\'|\'INTERNAL_ERROR\',
+                        \'retryable\': True|False
                     }
                 }
             }
@@ -97,10 +97,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -116,8 +116,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_assessment_target(
-              assessmentTargetName='string',
-              resourceGroupArn='string'
+              assessmentTargetName=\'string\',
+              resourceGroupArn=\'string\'
           )
         :type assessmentTargetName: string
         :param assessmentTargetName: **[REQUIRED]** 
@@ -137,7 +137,7 @@ class Client(BaseClient):
           ::
         
             {
-                'assessmentTargetArn': 'string'
+                \'assessmentTargetArn\': \'string\'
             }
           **Response Structure** 
         
@@ -159,16 +159,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_assessment_template(
-              assessmentTargetArn='string',
-              assessmentTemplateName='string',
+              assessmentTargetArn=\'string\',
+              assessmentTemplateName=\'string\',
               durationInSeconds=123,
               rulesPackageArns=[
-                  'string',
+                  \'string\',
               ],
               userAttributesForFindings=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -219,7 +219,7 @@ class Client(BaseClient):
           ::
         
             {
-                'assessmentTemplateArn': 'string'
+                \'assessmentTemplateArn\': \'string\'
             }
           **Response Structure** 
         
@@ -241,7 +241,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_exclusions_preview(
-              assessmentTemplateArn='string'
+              assessmentTemplateArn=\'string\'
           )
         :type assessmentTemplateArn: string
         :param assessmentTemplateArn: **[REQUIRED]** 
@@ -256,7 +256,7 @@ class Client(BaseClient):
           ::
         
             {
-                'previewToken': 'string'
+                \'previewToken\': \'string\'
             }
           **Response Structure** 
         
@@ -280,17 +280,17 @@ class Client(BaseClient):
           response = client.create_resource_group(
               resourceGroupTags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
         :type resourceGroupTags: list
         :param resourceGroupTags: **[REQUIRED]** 
         
-          A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.
+          A collection of keys and an array of possible values, \'[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]\'.
         
-          For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.
+          For example,\'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]\'.
         
           - *(dict) --* 
         
@@ -312,7 +312,7 @@ class Client(BaseClient):
           ::
         
             {
-                'resourceGroupArn': 'string'
+                \'resourceGroupArn\': \'string\'
             }
           **Response Structure** 
         
@@ -334,7 +334,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_assessment_run(
-              assessmentRunArn='string'
+              assessmentRunArn=\'string\'
           )
         :type assessmentRunArn: string
         :param assessmentRunArn: **[REQUIRED]** 
@@ -354,7 +354,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_assessment_target(
-              assessmentTargetArn='string'
+              assessmentTargetArn=\'string\'
           )
         :type assessmentTargetArn: string
         :param assessmentTargetArn: **[REQUIRED]** 
@@ -374,7 +374,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_assessment_template(
-              assessmentTemplateArn='string'
+              assessmentTemplateArn=\'string\'
           )
         :type assessmentTemplateArn: string
         :param assessmentTemplateArn: **[REQUIRED]** 
@@ -395,7 +395,7 @@ class Client(BaseClient):
         
           response = client.describe_assessment_runs(
               assessmentRunArns=[
-                  'string',
+                  \'string\',
               ]
           )
         :type assessmentRunArns: list
@@ -413,52 +413,52 @@ class Client(BaseClient):
           ::
         
             {
-                'assessmentRuns': [
+                \'assessmentRuns\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'assessmentTemplateArn': 'string',
-                        'state': 'CREATED'|'START_DATA_COLLECTION_PENDING'|'START_DATA_COLLECTION_IN_PROGRESS'|'COLLECTING_DATA'|'STOP_DATA_COLLECTION_PENDING'|'DATA_COLLECTED'|'START_EVALUATING_RULES_PENDING'|'EVALUATING_RULES'|'FAILED'|'ERROR'|'COMPLETED'|'COMPLETED_WITH_ERRORS'|'CANCELED',
-                        'durationInSeconds': 123,
-                        'rulesPackageArns': [
-                            'string',
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'assessmentTemplateArn\': \'string\',
+                        \'state\': \'CREATED\'|\'START_DATA_COLLECTION_PENDING\'|\'START_DATA_COLLECTION_IN_PROGRESS\'|\'COLLECTING_DATA\'|\'STOP_DATA_COLLECTION_PENDING\'|\'DATA_COLLECTED\'|\'START_EVALUATING_RULES_PENDING\'|\'EVALUATING_RULES\'|\'FAILED\'|\'ERROR\'|\'COMPLETED\'|\'COMPLETED_WITH_ERRORS\'|\'CANCELED\',
+                        \'durationInSeconds\': 123,
+                        \'rulesPackageArns\': [
+                            \'string\',
                         ],
-                        'userAttributesForFindings': [
+                        \'userAttributesForFindings\': [
                             {
-                                'key': 'string',
-                                'value': 'string'
+                                \'key\': \'string\',
+                                \'value\': \'string\'
                             },
                         ],
-                        'createdAt': datetime(2015, 1, 1),
-                        'startedAt': datetime(2015, 1, 1),
-                        'completedAt': datetime(2015, 1, 1),
-                        'stateChangedAt': datetime(2015, 1, 1),
-                        'dataCollected': True|False,
-                        'stateChanges': [
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'startedAt\': datetime(2015, 1, 1),
+                        \'completedAt\': datetime(2015, 1, 1),
+                        \'stateChangedAt\': datetime(2015, 1, 1),
+                        \'dataCollected\': True|False,
+                        \'stateChanges\': [
                             {
-                                'stateChangedAt': datetime(2015, 1, 1),
-                                'state': 'CREATED'|'START_DATA_COLLECTION_PENDING'|'START_DATA_COLLECTION_IN_PROGRESS'|'COLLECTING_DATA'|'STOP_DATA_COLLECTION_PENDING'|'DATA_COLLECTED'|'START_EVALUATING_RULES_PENDING'|'EVALUATING_RULES'|'FAILED'|'ERROR'|'COMPLETED'|'COMPLETED_WITH_ERRORS'|'CANCELED'
+                                \'stateChangedAt\': datetime(2015, 1, 1),
+                                \'state\': \'CREATED\'|\'START_DATA_COLLECTION_PENDING\'|\'START_DATA_COLLECTION_IN_PROGRESS\'|\'COLLECTING_DATA\'|\'STOP_DATA_COLLECTION_PENDING\'|\'DATA_COLLECTED\'|\'START_EVALUATING_RULES_PENDING\'|\'EVALUATING_RULES\'|\'FAILED\'|\'ERROR\'|\'COMPLETED\'|\'COMPLETED_WITH_ERRORS\'|\'CANCELED\'
                             },
                         ],
-                        'notifications': [
+                        \'notifications\': [
                             {
-                                'date': datetime(2015, 1, 1),
-                                'event': 'ASSESSMENT_RUN_STARTED'|'ASSESSMENT_RUN_COMPLETED'|'ASSESSMENT_RUN_STATE_CHANGED'|'FINDING_REPORTED'|'OTHER',
-                                'message': 'string',
-                                'error': True|False,
-                                'snsTopicArn': 'string',
-                                'snsPublishStatusCode': 'SUCCESS'|'TOPIC_DOES_NOT_EXIST'|'ACCESS_DENIED'|'INTERNAL_ERROR'
+                                \'date\': datetime(2015, 1, 1),
+                                \'event\': \'ASSESSMENT_RUN_STARTED\'|\'ASSESSMENT_RUN_COMPLETED\'|\'ASSESSMENT_RUN_STATE_CHANGED\'|\'FINDING_REPORTED\'|\'OTHER\',
+                                \'message\': \'string\',
+                                \'error\': True|False,
+                                \'snsTopicArn\': \'string\',
+                                \'snsPublishStatusCode\': \'SUCCESS\'|\'TOPIC_DOES_NOT_EXIST\'|\'ACCESS_DENIED\'|\'INTERNAL_ERROR\'
                             },
                         ],
-                        'findingCounts': {
-                            'string': 123
+                        \'findingCounts\': {
+                            \'string\': 123
                         }
                     },
                 ],
-                'failedItems': {
-                    'string': {
-                        'failureCode': 'INVALID_ARN'|'DUPLICATE_ARN'|'ITEM_DOES_NOT_EXIST'|'ACCESS_DENIED'|'LIMIT_EXCEEDED'|'INTERNAL_ERROR',
-                        'retryable': True|False
+                \'failedItems\': {
+                    \'string\': {
+                        \'failureCode\': \'INVALID_ARN\'|\'DUPLICATE_ARN\'|\'ITEM_DOES_NOT_EXIST\'|\'ACCESS_DENIED\'|\'LIMIT_EXCEEDED\'|\'INTERNAL_ERROR\',
+                        \'retryable\': True|False
                     }
                 }
             }
@@ -532,7 +532,7 @@ class Client(BaseClient):
         
                 - **stateChangedAt** *(datetime) --* 
         
-                  The last time when the assessment run's state changed.
+                  The last time when the assessment run\'s state changed.
         
                 - **dataCollected** *(boolean) --* 
         
@@ -625,7 +625,7 @@ class Client(BaseClient):
         
           response = client.describe_assessment_targets(
               assessmentTargetArns=[
-                  'string',
+                  \'string\',
               ]
           )
         :type assessmentTargetArns: list
@@ -643,19 +643,19 @@ class Client(BaseClient):
           ::
         
             {
-                'assessmentTargets': [
+                \'assessmentTargets\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'resourceGroupArn': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'updatedAt': datetime(2015, 1, 1)
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'resourceGroupArn\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'updatedAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'failedItems': {
-                    'string': {
-                        'failureCode': 'INVALID_ARN'|'DUPLICATE_ARN'|'ITEM_DOES_NOT_EXIST'|'ACCESS_DENIED'|'LIMIT_EXCEEDED'|'INTERNAL_ERROR',
-                        'retryable': True|False
+                \'failedItems\': {
+                    \'string\': {
+                        \'failureCode\': \'INVALID_ARN\'|\'DUPLICATE_ARN\'|\'ITEM_DOES_NOT_EXIST\'|\'ACCESS_DENIED\'|\'LIMIT_EXCEEDED\'|\'INTERNAL_ERROR\',
+                        \'retryable\': True|False
                     }
                 }
             }
@@ -722,7 +722,7 @@ class Client(BaseClient):
         
           response = client.describe_assessment_templates(
               assessmentTemplateArns=[
-                  'string',
+                  \'string\',
               ]
           )
         :type assessmentTemplateArns: list
@@ -738,30 +738,30 @@ class Client(BaseClient):
           ::
         
             {
-                'assessmentTemplates': [
+                \'assessmentTemplates\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'assessmentTargetArn': 'string',
-                        'durationInSeconds': 123,
-                        'rulesPackageArns': [
-                            'string',
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'assessmentTargetArn\': \'string\',
+                        \'durationInSeconds\': 123,
+                        \'rulesPackageArns\': [
+                            \'string\',
                         ],
-                        'userAttributesForFindings': [
+                        \'userAttributesForFindings\': [
                             {
-                                'key': 'string',
-                                'value': 'string'
+                                \'key\': \'string\',
+                                \'value\': \'string\'
                             },
                         ],
-                        'lastAssessmentRunArn': 'string',
-                        'assessmentRunCount': 123,
-                        'createdAt': datetime(2015, 1, 1)
+                        \'lastAssessmentRunArn\': \'string\',
+                        \'assessmentRunCount\': 123,
+                        \'createdAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'failedItems': {
-                    'string': {
-                        'failureCode': 'INVALID_ARN'|'DUPLICATE_ARN'|'ITEM_DOES_NOT_EXIST'|'ACCESS_DENIED'|'LIMIT_EXCEEDED'|'INTERNAL_ERROR',
-                        'retryable': True|False
+                \'failedItems\': {
+                    \'string\': {
+                        \'failureCode\': \'INVALID_ARN\'|\'DUPLICATE_ARN\'|\'ITEM_DOES_NOT_EXIST\'|\'ACCESS_DENIED\'|\'LIMIT_EXCEEDED\'|\'INTERNAL_ERROR\',
+                        \'retryable\': True|False
                     }
                 }
             }
@@ -866,9 +866,9 @@ class Client(BaseClient):
           ::
         
             {
-                'roleArn': 'string',
-                'valid': True|False,
-                'registeredAt': datetime(2015, 1, 1)
+                \'roleArn\': \'string\',
+                \'valid\': True|False,
+                \'registeredAt\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -899,9 +899,9 @@ class Client(BaseClient):
         
           response = client.describe_exclusions(
               exclusionArns=[
-                  'string',
+                  \'string\',
               ],
-              locale='EN_US'
+              locale=\'EN_US\'
           )
         :type exclusionArns: list
         :param exclusionArns: **[REQUIRED]** 
@@ -913,7 +913,7 @@ class Client(BaseClient):
         :type locale: string
         :param locale: 
         
-          The locale into which you want to translate the exclusion's title, description, and recommendation.
+          The locale into which you want to translate the exclusion\'s title, description, and recommendation.
         
         :rtype: dict
         :returns: 
@@ -923,30 +923,30 @@ class Client(BaseClient):
           ::
         
             {
-                'exclusions': {
-                    'string': {
-                        'arn': 'string',
-                        'title': 'string',
-                        'description': 'string',
-                        'recommendation': 'string',
-                        'scopes': [
+                \'exclusions\': {
+                    \'string\': {
+                        \'arn\': \'string\',
+                        \'title\': \'string\',
+                        \'description\': \'string\',
+                        \'recommendation\': \'string\',
+                        \'scopes\': [
                             {
-                                'key': 'INSTANCE_ID'|'RULES_PACKAGE_ARN',
-                                'value': 'string'
+                                \'key\': \'INSTANCE_ID\'|\'RULES_PACKAGE_ARN\',
+                                \'value\': \'string\'
                             },
                         ],
-                        'attributes': [
+                        \'attributes\': [
                             {
-                                'key': 'string',
-                                'value': 'string'
+                                \'key\': \'string\',
+                                \'value\': \'string\'
                             },
                         ]
                     }
                 },
-                'failedItems': {
-                    'string': {
-                        'failureCode': 'INVALID_ARN'|'DUPLICATE_ARN'|'ITEM_DOES_NOT_EXIST'|'ACCESS_DENIED'|'LIMIT_EXCEEDED'|'INTERNAL_ERROR',
-                        'retryable': True|False
+                \'failedItems\': {
+                    \'string\': {
+                        \'failureCode\': \'INVALID_ARN\'|\'DUPLICATE_ARN\'|\'ITEM_DOES_NOT_EXIST\'|\'ACCESS_DENIED\'|\'LIMIT_EXCEEDED\'|\'INTERNAL_ERROR\',
+                        \'retryable\': True|False
                     }
                 }
             }
@@ -1043,9 +1043,9 @@ class Client(BaseClient):
         
           response = client.describe_findings(
               findingArns=[
-                  'string',
+                  \'string\',
               ],
-              locale='EN_US'
+              locale=\'EN_US\'
           )
         :type findingArns: list
         :param findingArns: **[REQUIRED]** 
@@ -1067,87 +1067,87 @@ class Client(BaseClient):
           ::
         
             {
-                'findings': [
+                \'findings\': [
                     {
-                        'arn': 'string',
-                        'schemaVersion': 123,
-                        'service': 'string',
-                        'serviceAttributes': {
-                            'schemaVersion': 123,
-                            'assessmentRunArn': 'string',
-                            'rulesPackageArn': 'string'
+                        \'arn\': \'string\',
+                        \'schemaVersion\': 123,
+                        \'service\': \'string\',
+                        \'serviceAttributes\': {
+                            \'schemaVersion\': 123,
+                            \'assessmentRunArn\': \'string\',
+                            \'rulesPackageArn\': \'string\'
                         },
-                        'assetType': 'ec2-instance',
-                        'assetAttributes': {
-                            'schemaVersion': 123,
-                            'agentId': 'string',
-                            'autoScalingGroup': 'string',
-                            'amiId': 'string',
-                            'hostname': 'string',
-                            'ipv4Addresses': [
-                                'string',
+                        \'assetType\': \'ec2-instance\',
+                        \'assetAttributes\': {
+                            \'schemaVersion\': 123,
+                            \'agentId\': \'string\',
+                            \'autoScalingGroup\': \'string\',
+                            \'amiId\': \'string\',
+                            \'hostname\': \'string\',
+                            \'ipv4Addresses\': [
+                                \'string\',
                             ],
-                            'tags': [
+                            \'tags\': [
                                 {
-                                    'key': 'string',
-                                    'value': 'string'
+                                    \'key\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ],
-                            'networkInterfaces': [
+                            \'networkInterfaces\': [
                                 {
-                                    'networkInterfaceId': 'string',
-                                    'subnetId': 'string',
-                                    'vpcId': 'string',
-                                    'privateDnsName': 'string',
-                                    'privateIpAddress': 'string',
-                                    'privateIpAddresses': [
+                                    \'networkInterfaceId\': \'string\',
+                                    \'subnetId\': \'string\',
+                                    \'vpcId\': \'string\',
+                                    \'privateDnsName\': \'string\',
+                                    \'privateIpAddress\': \'string\',
+                                    \'privateIpAddresses\': [
                                         {
-                                            'privateDnsName': 'string',
-                                            'privateIpAddress': 'string'
+                                            \'privateDnsName\': \'string\',
+                                            \'privateIpAddress\': \'string\'
                                         },
                                     ],
-                                    'publicDnsName': 'string',
-                                    'publicIp': 'string',
-                                    'ipv6Addresses': [
-                                        'string',
+                                    \'publicDnsName\': \'string\',
+                                    \'publicIp\': \'string\',
+                                    \'ipv6Addresses\': [
+                                        \'string\',
                                     ],
-                                    'securityGroups': [
+                                    \'securityGroups\': [
                                         {
-                                            'groupName': 'string',
-                                            'groupId': 'string'
+                                            \'groupName\': \'string\',
+                                            \'groupId\': \'string\'
                                         },
                                     ]
                                 },
                             ]
                         },
-                        'id': 'string',
-                        'title': 'string',
-                        'description': 'string',
-                        'recommendation': 'string',
-                        'severity': 'Low'|'Medium'|'High'|'Informational'|'Undefined',
-                        'numericSeverity': 123.0,
-                        'confidence': 123,
-                        'indicatorOfCompromise': True|False,
-                        'attributes': [
+                        \'id\': \'string\',
+                        \'title\': \'string\',
+                        \'description\': \'string\',
+                        \'recommendation\': \'string\',
+                        \'severity\': \'Low\'|\'Medium\'|\'High\'|\'Informational\'|\'Undefined\',
+                        \'numericSeverity\': 123.0,
+                        \'confidence\': 123,
+                        \'indicatorOfCompromise\': True|False,
+                        \'attributes\': [
                             {
-                                'key': 'string',
-                                'value': 'string'
+                                \'key\': \'string\',
+                                \'value\': \'string\'
                             },
                         ],
-                        'userAttributes': [
+                        \'userAttributes\': [
                             {
-                                'key': 'string',
-                                'value': 'string'
+                                \'key\': \'string\',
+                                \'value\': \'string\'
                             },
                         ],
-                        'createdAt': datetime(2015, 1, 1),
-                        'updatedAt': datetime(2015, 1, 1)
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'updatedAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'failedItems': {
-                    'string': {
-                        'failureCode': 'INVALID_ARN'|'DUPLICATE_ARN'|'ITEM_DOES_NOT_EXIST'|'ACCESS_DENIED'|'LIMIT_EXCEEDED'|'INTERNAL_ERROR',
-                        'retryable': True|False
+                \'failedItems\': {
+                    \'string\': {
+                        \'failureCode\': \'INVALID_ARN\'|\'DUPLICATE_ARN\'|\'ITEM_DOES_NOT_EXIST\'|\'ACCESS_DENIED\'|\'LIMIT_EXCEEDED\'|\'INTERNAL_ERROR\',
+                        \'retryable\': True|False
                     }
                 }
             }
@@ -1173,7 +1173,7 @@ class Client(BaseClient):
         
                 - **service** *(string) --* 
         
-                  The data element is set to "Inspector".
+                  The data element is set to \"Inspector\".
         
                 - **serviceAttributes** *(dict) --* 
         
@@ -1418,7 +1418,7 @@ class Client(BaseClient):
         
           response = client.describe_resource_groups(
               resourceGroupArns=[
-                  'string',
+                  \'string\',
               ]
           )
         :type resourceGroupArns: list
@@ -1436,22 +1436,22 @@ class Client(BaseClient):
           ::
         
             {
-                'resourceGroups': [
+                \'resourceGroups\': [
                     {
-                        'arn': 'string',
-                        'tags': [
+                        \'arn\': \'string\',
+                        \'tags\': [
                             {
-                                'key': 'string',
-                                'value': 'string'
+                                \'key\': \'string\',
+                                \'value\': \'string\'
                             },
                         ],
-                        'createdAt': datetime(2015, 1, 1)
+                        \'createdAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'failedItems': {
-                    'string': {
-                        'failureCode': 'INVALID_ARN'|'DUPLICATE_ARN'|'ITEM_DOES_NOT_EXIST'|'ACCESS_DENIED'|'LIMIT_EXCEEDED'|'INTERNAL_ERROR',
-                        'retryable': True|False
+                \'failedItems\': {
+                    \'string\': {
+                        \'failureCode\': \'INVALID_ARN\'|\'DUPLICATE_ARN\'|\'ITEM_DOES_NOT_EXIST\'|\'ACCESS_DENIED\'|\'LIMIT_EXCEEDED\'|\'INTERNAL_ERROR\',
+                        \'retryable\': True|False
                     }
                 }
             }
@@ -1522,9 +1522,9 @@ class Client(BaseClient):
         
           response = client.describe_rules_packages(
               rulesPackageArns=[
-                  'string',
+                  \'string\',
               ],
-              locale='EN_US'
+              locale=\'EN_US\'
           )
         :type rulesPackageArns: list
         :param rulesPackageArns: **[REQUIRED]** 
@@ -1546,19 +1546,19 @@ class Client(BaseClient):
           ::
         
             {
-                'rulesPackages': [
+                \'rulesPackages\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'version': 'string',
-                        'provider': 'string',
-                        'description': 'string'
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'version\': \'string\',
+                        \'provider\': \'string\',
+                        \'description\': \'string\'
                     },
                 ],
-                'failedItems': {
-                    'string': {
-                        'failureCode': 'INVALID_ARN'|'DUPLICATE_ARN'|'ITEM_DOES_NOT_EXIST'|'ACCESS_DENIED'|'LIMIT_EXCEEDED'|'INTERNAL_ERROR',
-                        'retryable': True|False
+                \'failedItems\': {
+                    \'string\': {
+                        \'failureCode\': \'INVALID_ARN\'|\'DUPLICATE_ARN\'|\'ITEM_DOES_NOT_EXIST\'|\'ACCESS_DENIED\'|\'LIMIT_EXCEEDED\'|\'INTERNAL_ERROR\',
+                        \'retryable\': True|False
                     }
                 }
             }
@@ -1631,7 +1631,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1646,9 +1646,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_assessment_report(
-              assessmentRunArn='string',
-              reportFileFormat='HTML'|'PDF',
-              reportType='FINDING'|'FULL'
+              assessmentRunArn=\'string\',
+              reportFileFormat=\'HTML\'|\'PDF\',
+              reportType=\'FINDING\'|\'FULL\'
           )
         :type assessmentRunArn: string
         :param assessmentRunArn: **[REQUIRED]** 
@@ -1673,8 +1673,8 @@ class Client(BaseClient):
           ::
         
             {
-                'status': 'WORK_IN_PROGRESS'|'FAILED'|'COMPLETED',
-                'url': 'string'
+                \'status\': \'WORK_IN_PROGRESS\'|\'FAILED\'|\'COMPLETED\',
+                \'url\': \'string\'
             }
           **Response Structure** 
         
@@ -1700,11 +1700,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_exclusions_preview(
-              assessmentTemplateArn='string',
-              previewToken='string',
-              nextToken='string',
+              assessmentTemplateArn=\'string\',
+              previewToken=\'string\',
+              nextToken=\'string\',
               maxResults=123,
-              locale='EN_US'
+              locale=\'EN_US\'
           )
         :type assessmentTemplateArn: string
         :param assessmentTemplateArn: **[REQUIRED]** 
@@ -1729,7 +1729,7 @@ class Client(BaseClient):
         :type locale: string
         :param locale: 
         
-          The locale into which you want to translate the exclusion's title, description, and recommendation.
+          The locale into which you want to translate the exclusion\'s title, description, and recommendation.
         
         :rtype: dict
         :returns: 
@@ -1739,27 +1739,27 @@ class Client(BaseClient):
           ::
         
             {
-                'previewStatus': 'WORK_IN_PROGRESS'|'COMPLETED',
-                'exclusionPreviews': [
+                \'previewStatus\': \'WORK_IN_PROGRESS\'|\'COMPLETED\',
+                \'exclusionPreviews\': [
                     {
-                        'title': 'string',
-                        'description': 'string',
-                        'recommendation': 'string',
-                        'scopes': [
+                        \'title\': \'string\',
+                        \'description\': \'string\',
+                        \'recommendation\': \'string\',
+                        \'scopes\': [
                             {
-                                'key': 'INSTANCE_ID'|'RULES_PACKAGE_ARN',
-                                'value': 'string'
+                                \'key\': \'INSTANCE_ID\'|\'RULES_PACKAGE_ARN\',
+                                \'value\': \'string\'
                             },
                         ],
-                        'attributes': [
+                        \'attributes\': [
                             {
-                                'key': 'string',
-                                'value': 'string'
+                                \'key\': \'string\',
+                                \'value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1834,10 +1834,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1857,7 +1857,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_telemetry_metadata(
-              assessmentRunArn='string'
+              assessmentRunArn=\'string\'
           )
         :type assessmentRunArn: string
         :param assessmentRunArn: **[REQUIRED]** 
@@ -1872,11 +1872,11 @@ class Client(BaseClient):
           ::
         
             {
-                'telemetryMetadata': [
+                \'telemetryMetadata\': [
                     {
-                        'messageType': 'string',
-                        'count': 123,
-                        'dataSize': 123
+                        \'messageType\': \'string\',
+                        \'count\': 123,
+                        \'dataSize\': 123
                     },
                 ]
             }
@@ -1928,16 +1928,16 @@ class Client(BaseClient):
         ::
         
           response = client.list_assessment_run_agents(
-              assessmentRunArn='string',
+              assessmentRunArn=\'string\',
               filter={
-                  'agentHealths': [
-                      'HEALTHY'|'UNHEALTHY'|'UNKNOWN',
+                  \'agentHealths\': [
+                      \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\',
                   ],
-                  'agentHealthCodes': [
-                      'IDLE'|'RUNNING'|'SHUTDOWN'|'UNHEALTHY'|'THROTTLED'|'UNKNOWN',
+                  \'agentHealthCodes\': [
+                      \'IDLE\'|\'RUNNING\'|\'SHUTDOWN\'|\'UNHEALTHY\'|\'THROTTLED\'|\'UNKNOWN\',
                   ]
               },
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type assessmentRunArn: string
@@ -1948,7 +1948,7 @@ class Client(BaseClient):
         :type filter: dict
         :param filter: 
         
-          You can use this parameter to specify a subset of data to be included in the action's response.
+          You can use this parameter to specify a subset of data to be included in the action\'s response.
         
           For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
         
@@ -1982,24 +1982,24 @@ class Client(BaseClient):
           ::
         
             {
-                'assessmentRunAgents': [
+                \'assessmentRunAgents\': [
                     {
-                        'agentId': 'string',
-                        'assessmentRunArn': 'string',
-                        'agentHealth': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN',
-                        'agentHealthCode': 'IDLE'|'RUNNING'|'SHUTDOWN'|'UNHEALTHY'|'THROTTLED'|'UNKNOWN',
-                        'agentHealthDetails': 'string',
-                        'autoScalingGroup': 'string',
-                        'telemetryMetadata': [
+                        \'agentId\': \'string\',
+                        \'assessmentRunArn\': \'string\',
+                        \'agentHealth\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\',
+                        \'agentHealthCode\': \'IDLE\'|\'RUNNING\'|\'SHUTDOWN\'|\'UNHEALTHY\'|\'THROTTLED\'|\'UNKNOWN\',
+                        \'agentHealthDetails\': \'string\',
+                        \'autoScalingGroup\': \'string\',
+                        \'telemetryMetadata\': [
                             {
-                                'messageType': 'string',
-                                'count': 123,
-                                'dataSize': 123
+                                \'messageType\': \'string\',
+                                \'count\': 123,
+                                \'dataSize\': 123
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2074,34 +2074,34 @@ class Client(BaseClient):
         
           response = client.list_assessment_runs(
               assessmentTemplateArns=[
-                  'string',
+                  \'string\',
               ],
               filter={
-                  'namePattern': 'string',
-                  'states': [
-                      'CREATED'|'START_DATA_COLLECTION_PENDING'|'START_DATA_COLLECTION_IN_PROGRESS'|'COLLECTING_DATA'|'STOP_DATA_COLLECTION_PENDING'|'DATA_COLLECTED'|'START_EVALUATING_RULES_PENDING'|'EVALUATING_RULES'|'FAILED'|'ERROR'|'COMPLETED'|'COMPLETED_WITH_ERRORS'|'CANCELED',
+                  \'namePattern\': \'string\',
+                  \'states\': [
+                      \'CREATED\'|\'START_DATA_COLLECTION_PENDING\'|\'START_DATA_COLLECTION_IN_PROGRESS\'|\'COLLECTING_DATA\'|\'STOP_DATA_COLLECTION_PENDING\'|\'DATA_COLLECTED\'|\'START_EVALUATING_RULES_PENDING\'|\'EVALUATING_RULES\'|\'FAILED\'|\'ERROR\'|\'COMPLETED\'|\'COMPLETED_WITH_ERRORS\'|\'CANCELED\',
                   ],
-                  'durationRange': {
-                      'minSeconds': 123,
-                      'maxSeconds': 123
+                  \'durationRange\': {
+                      \'minSeconds\': 123,
+                      \'maxSeconds\': 123
                   },
-                  'rulesPackageArns': [
-                      'string',
+                  \'rulesPackageArns\': [
+                      \'string\',
                   ],
-                  'startTimeRange': {
-                      'beginDate': datetime(2015, 1, 1),
-                      'endDate': datetime(2015, 1, 1)
+                  \'startTimeRange\': {
+                      \'beginDate\': datetime(2015, 1, 1),
+                      \'endDate\': datetime(2015, 1, 1)
                   },
-                  'completionTimeRange': {
-                      'beginDate': datetime(2015, 1, 1),
-                      'endDate': datetime(2015, 1, 1)
+                  \'completionTimeRange\': {
+                      \'beginDate\': datetime(2015, 1, 1),
+                      \'endDate\': datetime(2015, 1, 1)
                   },
-                  'stateChangeTimeRange': {
-                      'beginDate': datetime(2015, 1, 1),
-                      'endDate': datetime(2015, 1, 1)
+                  \'stateChangeTimeRange\': {
+                      \'beginDate\': datetime(2015, 1, 1),
+                      \'endDate\': datetime(2015, 1, 1)
                   }
               },
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type assessmentTemplateArns: list
@@ -2114,7 +2114,7 @@ class Client(BaseClient):
         :type filter: dict
         :param filter: 
         
-          You can use this parameter to specify a subset of data to be included in the action's response.
+          You can use this parameter to specify a subset of data to be included in the action\'s response.
         
           For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
         
@@ -2200,10 +2200,10 @@ class Client(BaseClient):
           ::
         
             {
-                'assessmentRunArns': [
-                    'string',
+                \'assessmentRunArns\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2232,15 +2232,15 @@ class Client(BaseClient):
         
           response = client.list_assessment_targets(
               filter={
-                  'assessmentTargetNamePattern': 'string'
+                  \'assessmentTargetNamePattern\': \'string\'
               },
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type filter: dict
         :param filter: 
         
-          You can use this parameter to specify a subset of data to be included in the action's response.
+          You can use this parameter to specify a subset of data to be included in the action\'s response.
         
           For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
         
@@ -2266,10 +2266,10 @@ class Client(BaseClient):
           ::
         
             {
-                'assessmentTargetArns': [
-                    'string',
+                \'assessmentTargetArns\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2298,19 +2298,19 @@ class Client(BaseClient):
         
           response = client.list_assessment_templates(
               assessmentTargetArns=[
-                  'string',
+                  \'string\',
               ],
               filter={
-                  'namePattern': 'string',
-                  'durationRange': {
-                      'minSeconds': 123,
-                      'maxSeconds': 123
+                  \'namePattern\': \'string\',
+                  \'durationRange\': {
+                      \'minSeconds\': 123,
+                      \'maxSeconds\': 123
                   },
-                  'rulesPackageArns': [
-                      'string',
+                  \'rulesPackageArns\': [
+                      \'string\',
                   ]
               },
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type assessmentTargetArns: list
@@ -2323,7 +2323,7 @@ class Client(BaseClient):
         :type filter: dict
         :param filter: 
         
-          You can use this parameter to specify a subset of data to be included in the action's response.
+          You can use this parameter to specify a subset of data to be included in the action\'s response.
         
           For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
         
@@ -2367,10 +2367,10 @@ class Client(BaseClient):
           ::
         
             {
-                'assessmentTemplateArns': [
-                    'string',
+                \'assessmentTemplateArns\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2398,8 +2398,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_event_subscriptions(
-              resourceArn='string',
-              nextToken='string',
+              resourceArn=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type resourceArn: string
@@ -2425,19 +2425,19 @@ class Client(BaseClient):
           ::
         
             {
-                'subscriptions': [
+                \'subscriptions\': [
                     {
-                        'resourceArn': 'string',
-                        'topicArn': 'string',
-                        'eventSubscriptions': [
+                        \'resourceArn\': \'string\',
+                        \'topicArn\': \'string\',
+                        \'eventSubscriptions\': [
                             {
-                                'event': 'ASSESSMENT_RUN_STARTED'|'ASSESSMENT_RUN_COMPLETED'|'ASSESSMENT_RUN_STATE_CHANGED'|'FINDING_REPORTED'|'OTHER',
-                                'subscribedAt': datetime(2015, 1, 1)
+                                \'event\': \'ASSESSMENT_RUN_STARTED\'|\'ASSESSMENT_RUN_COMPLETED\'|\'ASSESSMENT_RUN_STATE_CHANGED\'|\'FINDING_REPORTED\'|\'OTHER\',
+                                \'subscribedAt\': datetime(2015, 1, 1)
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2491,8 +2491,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_exclusions(
-              assessmentRunArn='string',
-              nextToken='string',
+              assessmentRunArn=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type assessmentRunArn: string
@@ -2518,10 +2518,10 @@ class Client(BaseClient):
           ::
         
             {
-                'exclusionArns': [
-                    'string',
+                \'exclusionArns\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2529,7 +2529,7 @@ class Client(BaseClient):
             
             - **exclusionArns** *(list) --* 
         
-              A list of exclusions' ARNs returned by the action.
+              A list of exclusions\' ARNs returned by the action.
         
               - *(string) --* 
           
@@ -2550,42 +2550,42 @@ class Client(BaseClient):
         
           response = client.list_findings(
               assessmentRunArns=[
-                  'string',
+                  \'string\',
               ],
               filter={
-                  'agentIds': [
-                      'string',
+                  \'agentIds\': [
+                      \'string\',
                   ],
-                  'autoScalingGroups': [
-                      'string',
+                  \'autoScalingGroups\': [
+                      \'string\',
                   ],
-                  'ruleNames': [
-                      'string',
+                  \'ruleNames\': [
+                      \'string\',
                   ],
-                  'severities': [
-                      'Low'|'Medium'|'High'|'Informational'|'Undefined',
+                  \'severities\': [
+                      \'Low\'|\'Medium\'|\'High\'|\'Informational\'|\'Undefined\',
                   ],
-                  'rulesPackageArns': [
-                      'string',
+                  \'rulesPackageArns\': [
+                      \'string\',
                   ],
-                  'attributes': [
+                  \'attributes\': [
                       {
-                          'key': 'string',
-                          'value': 'string'
+                          \'key\': \'string\',
+                          \'value\': \'string\'
                       },
                   ],
-                  'userAttributes': [
+                  \'userAttributes\': [
                       {
-                          'key': 'string',
-                          'value': 'string'
+                          \'key\': \'string\',
+                          \'value\': \'string\'
                       },
                   ],
-                  'creationTimeRange': {
-                      'beginDate': datetime(2015, 1, 1),
-                      'endDate': datetime(2015, 1, 1)
+                  \'creationTimeRange\': {
+                      \'beginDate\': datetime(2015, 1, 1),
+                      \'endDate\': datetime(2015, 1, 1)
                   }
               },
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type assessmentRunArns: list
@@ -2598,7 +2598,7 @@ class Client(BaseClient):
         :type filter: dict
         :param filter: 
         
-          You can use this parameter to specify a subset of data to be included in the action's response.
+          You can use this parameter to specify a subset of data to be included in the action\'s response.
         
           For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
         
@@ -2694,10 +2694,10 @@ class Client(BaseClient):
           ::
         
             {
-                'findingArns': [
-                    'string',
+                \'findingArns\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2725,7 +2725,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_rules_packages(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -2746,10 +2746,10 @@ class Client(BaseClient):
           ::
         
             {
-                'rulesPackageArns': [
-                    'string',
+                \'rulesPackageArns\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2777,7 +2777,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              resourceArn='string'
+              resourceArn=\'string\'
           )
         :type resourceArn: string
         :param resourceArn: **[REQUIRED]** 
@@ -2792,10 +2792,10 @@ class Client(BaseClient):
           ::
         
             {
-                'tags': [
+                \'tags\': [
                     {
-                        'key': 'string',
-                        'value': 'string'
+                        \'key\': \'string\',
+                        \'value\': \'string\'
                     },
                 ]
             }
@@ -2831,8 +2831,8 @@ class Client(BaseClient):
         ::
         
           response = client.preview_agents(
-              previewAgentsArn='string',
-              nextToken='string',
+              previewAgentsArn=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type previewAgentsArn: string
@@ -2858,19 +2858,19 @@ class Client(BaseClient):
           ::
         
             {
-                'agentPreviews': [
+                \'agentPreviews\': [
                     {
-                        'hostname': 'string',
-                        'agentId': 'string',
-                        'autoScalingGroup': 'string',
-                        'agentHealth': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN',
-                        'agentVersion': 'string',
-                        'operatingSystem': 'string',
-                        'kernelVersion': 'string',
-                        'ipv4Address': 'string'
+                        \'hostname\': \'string\',
+                        \'agentId\': \'string\',
+                        \'autoScalingGroup\': \'string\',
+                        \'agentHealth\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\',
+                        \'agentVersion\': \'string\',
+                        \'operatingSystem\': \'string\',
+                        \'kernelVersion\': \'string\',
+                        \'ipv4Address\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2932,7 +2932,7 @@ class Client(BaseClient):
         ::
         
           response = client.register_cross_account_access_role(
-              roleArn='string'
+              roleArn=\'string\'
           )
         :type roleArn: string
         :param roleArn: **[REQUIRED]** 
@@ -2953,10 +2953,10 @@ class Client(BaseClient):
         
           response = client.remove_attributes_from_findings(
               findingArns=[
-                  'string',
+                  \'string\',
               ],
               attributeKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type findingArns: list
@@ -2981,10 +2981,10 @@ class Client(BaseClient):
           ::
         
             {
-                'failedItems': {
-                    'string': {
-                        'failureCode': 'INVALID_ARN'|'DUPLICATE_ARN'|'ITEM_DOES_NOT_EXIST'|'ACCESS_DENIED'|'LIMIT_EXCEEDED'|'INTERNAL_ERROR',
-                        'retryable': True|False
+                \'failedItems\': {
+                    \'string\': {
+                        \'failureCode\': \'INVALID_ARN\'|\'DUPLICATE_ARN\'|\'ITEM_DOES_NOT_EXIST\'|\'ACCESS_DENIED\'|\'LIMIT_EXCEEDED\'|\'INTERNAL_ERROR\',
+                        \'retryable\': True|False
                     }
                 }
             }
@@ -3022,11 +3022,11 @@ class Client(BaseClient):
         ::
         
           response = client.set_tags_for_resource(
-              resourceArn='string',
+              resourceArn=\'string\',
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -3065,8 +3065,8 @@ class Client(BaseClient):
         ::
         
           response = client.start_assessment_run(
-              assessmentTemplateArn='string',
-              assessmentRunName='string'
+              assessmentTemplateArn=\'string\',
+              assessmentRunName=\'string\'
           )
         :type assessmentTemplateArn: string
         :param assessmentTemplateArn: **[REQUIRED]** 
@@ -3086,7 +3086,7 @@ class Client(BaseClient):
           ::
         
             {
-                'assessmentRunArn': 'string'
+                \'assessmentRunArn\': \'string\'
             }
           **Response Structure** 
         
@@ -3108,8 +3108,8 @@ class Client(BaseClient):
         ::
         
           response = client.stop_assessment_run(
-              assessmentRunArn='string',
-              stopAction='START_EVALUATION'|'SKIP_EVALUATION'
+              assessmentRunArn=\'string\',
+              stopAction=\'START_EVALUATION\'|\'SKIP_EVALUATION\'
           )
         :type assessmentRunArn: string
         :param assessmentRunArn: **[REQUIRED]** 
@@ -3134,9 +3134,9 @@ class Client(BaseClient):
         ::
         
           response = client.subscribe_to_event(
-              resourceArn='string',
-              event='ASSESSMENT_RUN_STARTED'|'ASSESSMENT_RUN_COMPLETED'|'ASSESSMENT_RUN_STATE_CHANGED'|'FINDING_REPORTED'|'OTHER',
-              topicArn='string'
+              resourceArn=\'string\',
+              event=\'ASSESSMENT_RUN_STARTED\'|\'ASSESSMENT_RUN_COMPLETED\'|\'ASSESSMENT_RUN_STATE_CHANGED\'|\'FINDING_REPORTED\'|\'OTHER\',
+              topicArn=\'string\'
           )
         :type resourceArn: string
         :param resourceArn: **[REQUIRED]** 
@@ -3166,9 +3166,9 @@ class Client(BaseClient):
         ::
         
           response = client.unsubscribe_from_event(
-              resourceArn='string',
-              event='ASSESSMENT_RUN_STARTED'|'ASSESSMENT_RUN_COMPLETED'|'ASSESSMENT_RUN_STATE_CHANGED'|'FINDING_REPORTED'|'OTHER',
-              topicArn='string'
+              resourceArn=\'string\',
+              event=\'ASSESSMENT_RUN_STARTED\'|\'ASSESSMENT_RUN_COMPLETED\'|\'ASSESSMENT_RUN_STATE_CHANGED\'|\'FINDING_REPORTED\'|\'OTHER\',
+              topicArn=\'string\'
           )
         :type resourceArn: string
         :param resourceArn: **[REQUIRED]** 
@@ -3200,9 +3200,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_assessment_target(
-              assessmentTargetArn='string',
-              assessmentTargetName='string',
-              resourceGroupArn='string'
+              assessmentTargetArn=\'string\',
+              assessmentTargetName=\'string\',
+              resourceGroupArn=\'string\'
           )
         :type assessmentTargetArn: string
         :param assessmentTargetArn: **[REQUIRED]** 

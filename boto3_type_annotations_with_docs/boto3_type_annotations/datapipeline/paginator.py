@@ -13,15 +13,15 @@ class DescribeObjects(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              pipelineId='string',
+              pipelineId=\'string\',
               objectIds=[
-                  'string',
+                  \'string\',
               ],
               evaluateExpressions=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type pipelineId: string
@@ -66,21 +66,21 @@ class DescribeObjects(Paginator):
           ::
         
             {
-                'pipelineObjects': [
+                \'pipelineObjects\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'fields': [
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'fields\': [
                             {
-                                'key': 'string',
-                                'stringValue': 'string',
-                                'refValue': 'string'
+                                \'key\': \'string\',
+                                \'stringValue\': \'string\',
+                                \'refValue\': \'string\'
                             },
                         ]
                     },
                 ],
-                'hasMoreResults': True|False,
-                'NextToken': 'string'
+                \'hasMoreResults\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -147,9 +147,9 @@ class ListPipelines(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -177,14 +177,14 @@ class ListPipelines(Paginator):
           ::
         
             {
-                'pipelineIdList': [
+                \'pipelineIdList\': [
                     {
-                        'id': 'string',
-                        'name': 'string'
+                        \'id\': \'string\',
+                        \'name\': \'string\'
                     },
                 ],
-                'hasMoreResults': True|False,
-                'NextToken': 'string'
+                \'hasMoreResults\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -230,25 +230,25 @@ class QueryObjects(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              pipelineId='string',
+              pipelineId=\'string\',
               query={
-                  'selectors': [
+                  \'selectors\': [
                       {
-                          'fieldName': 'string',
-                          'operator': {
-                              'type': 'EQ'|'REF_EQ'|'LE'|'GE'|'BETWEEN',
-                              'values': [
-                                  'string',
+                          \'fieldName\': \'string\',
+                          \'operator\': {
+                              \'type\': \'EQ\'|\'REF_EQ\'|\'LE\'|\'GE\'|\'BETWEEN\',
+                              \'values\': [
+                                  \'string\',
                               ]
                           }
                       },
                   ]
               },
-              sphere='string',
+              sphere=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type pipelineId: string
@@ -271,7 +271,7 @@ class QueryObjects(Paginator):
         
               - **fieldName** *(string) --* 
         
-                The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
+                The name of the field that the operator will be applied to. The field name is the \"key\" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
         
               - **operator** *(dict) --* 
         
@@ -313,7 +313,7 @@ class QueryObjects(Paginator):
                    
                   * @actualEndTime
                    
-                  Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string "my".
+                  Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".
         
                 - **values** *(list) --* 
         
@@ -351,11 +351,11 @@ class QueryObjects(Paginator):
           ::
         
             {
-                'ids': [
-                    'string',
+                \'ids\': [
+                    \'string\',
                 ],
-                'hasMoreResults': True|False,
-                'NextToken': 'string'
+                \'hasMoreResults\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

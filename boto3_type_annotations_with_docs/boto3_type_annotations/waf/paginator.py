@@ -13,9 +13,9 @@ class ListByteMatchSets(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,13 +43,13 @@ class ListByteMatchSets(Paginator):
           ::
         
             {
-                'ByteMatchSets': [
+                \'ByteMatchSets\': [
                     {
-                        'ByteMatchSetId': 'string',
-                        'Name': 'string'
+                        \'ByteMatchSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -71,7 +71,7 @@ class ListByteMatchSets(Paginator):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  ByteMatchSet . You can't change ``Name`` after you create a ``ByteMatchSet`` .
+                  A friendly name or description of the  ByteMatchSet . You can\'t change ``Name`` after you create a ``ByteMatchSet`` .
         
             - **NextToken** *(string) --* 
         
@@ -92,9 +92,9 @@ class ListIPSets(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -122,13 +122,13 @@ class ListIPSets(Paginator):
           ::
         
             {
-                'IPSets': [
+                \'IPSets\': [
                     {
-                        'IPSetId': 'string',
-                        'Name': 'string'
+                        \'IPSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -148,7 +148,7 @@ class ListIPSets(Paginator):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  IPSet . You can't change the name of an ``IPSet`` after you create it.
+                  A friendly name or description of the  IPSet . You can\'t change the name of an ``IPSet`` after you create it.
         
             - **NextToken** *(string) --* 
         
@@ -169,9 +169,9 @@ class ListRules(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -199,13 +199,13 @@ class ListRules(Paginator):
           ::
         
             {
-                'Rules': [
+                \'Rules\': [
                     {
-                        'RuleId': 'string',
-                        'Name': 'string'
+                        \'RuleId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -227,7 +227,7 @@ class ListRules(Paginator):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  Rule . You can't change the name of a ``Rule`` after you create it.
+                  A friendly name or description of the  Rule . You can\'t change the name of a ``Rule`` after you create it.
         
             - **NextToken** *(string) --* 
         
@@ -248,9 +248,9 @@ class ListSizeConstraintSets(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -278,13 +278,13 @@ class ListSizeConstraintSets(Paginator):
           ::
         
             {
-                'SizeConstraintSets': [
+                \'SizeConstraintSets\': [
                     {
-                        'SizeConstraintSetId': 'string',
-                        'Name': 'string'
+                        \'SizeConstraintSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -327,9 +327,9 @@ class ListSqlInjectionMatchSets(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -357,13 +357,13 @@ class ListSqlInjectionMatchSets(Paginator):
           ::
         
             {
-                'SqlInjectionMatchSets': [
+                \'SqlInjectionMatchSets\': [
                     {
-                        'SqlInjectionMatchSetId': 'string',
-                        'Name': 'string'
+                        \'SqlInjectionMatchSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -408,9 +408,9 @@ class ListWebACLs(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -438,13 +438,13 @@ class ListWebACLs(Paginator):
           ::
         
             {
-                'WebACLs': [
+                \'WebACLs\': [
                     {
-                        'WebACLId': 'string',
-                        'Name': 'string'
+                        \'WebACLId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -466,7 +466,7 @@ class ListWebACLs(Paginator):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  WebACL . You can't change the name of a ``WebACL`` after you create it.
+                  A friendly name or description of the  WebACL . You can\'t change the name of a ``WebACL`` after you create it.
         
             - **NextToken** *(string) --* 
         
@@ -487,9 +487,9 @@ class ListXssMatchSets(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -517,13 +517,13 @@ class ListXssMatchSets(Paginator):
           ::
         
             {
-                'XssMatchSets': [
+                \'XssMatchSets\': [
                     {
-                        'XssMatchSetId': 'string',
-                        'Name': 'string'
+                        \'XssMatchSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

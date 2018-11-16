@@ -13,9 +13,9 @@ class ListCustomVerificationEmailTemplates(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,13 +43,13 @@ class ListCustomVerificationEmailTemplates(Paginator):
           ::
         
             {
-                'CustomVerificationEmailTemplates': [
+                \'CustomVerificationEmailTemplates\': [
                     {
-                        'TemplateName': 'string',
-                        'FromEmailAddress': 'string',
-                        'TemplateSubject': 'string',
-                        'SuccessRedirectionURL': 'string',
-                        'FailureRedirectionURL': 'string'
+                        \'TemplateName\': \'string\',
+                        \'FromEmailAddress\': \'string\',
+                        \'TemplateSubject\': \'string\',
+                        \'SuccessRedirectionURL\': \'string\',
+                        \'FailureRedirectionURL\': \'string\'
                     },
                 ],
                 
@@ -102,17 +102,17 @@ class ListIdentities(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              IdentityType='EmailAddress'|'Domain',
+              IdentityType=\'EmailAddress\'|\'Domain\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type IdentityType: string
         :param IdentityType: 
         
-          The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
+          The type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities will be listed.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -139,8 +139,8 @@ class ListIdentities(Paginator):
           ::
         
             {
-                'Identities': [
-                    'string',
+                \'Identities\': [
+                    \'string\',
                 ],
                 
             }

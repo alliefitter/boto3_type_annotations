@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -18,11 +18,11 @@ class Client(BaseClient):
         ::
         
           response = client.batch_put_message(
-              channelName='string',
+              channelName=\'string\',
               messages=[
                   {
-                      'messageId': 'string',
-                      'payload': b'bytes'
+                      \'messageId\': \'string\',
+                      \'payload\': b\'bytes\'
                   },
               ]
           )
@@ -34,7 +34,7 @@ class Client(BaseClient):
         :type messages: list
         :param messages: **[REQUIRED]** 
         
-          The list of messages to be sent. Each message has format: '{ "messageId": "string", "payload": "string"}'.
+          The list of messages to be sent. Each message has format: \'{ \"messageId\": \"string\", \"payload\": \"string\"}\'.
         
           - *(dict) --* 
         
@@ -42,7 +42,7 @@ class Client(BaseClient):
         
             - **messageId** *(string) --* **[REQUIRED]** 
         
-              The ID you wish to assign to the message. Each "messageId" must be unique within each batch sent.
+              The ID you wish to assign to the message. Each \"messageId\" must be unique within each batch sent.
         
             - **payload** *(bytes) --* **[REQUIRED]** 
         
@@ -56,11 +56,11 @@ class Client(BaseClient):
           ::
         
             {
-                'batchPutMessageErrorEntries': [
+                \'batchPutMessageErrorEntries\': [
                     {
-                        'messageId': 'string',
-                        'errorCode': 'string',
-                        'errorMessage': 'string'
+                        \'messageId\': \'string\',
+                        \'errorCode\': \'string\',
+                        \'errorMessage\': \'string\'
                     },
                 ]
             }
@@ -78,7 +78,7 @@ class Client(BaseClient):
         
                 - **messageId** *(string) --* 
         
-                  The ID of the message that caused the error. (See the value corresponding to the "messageId" key in the message object.)
+                  The ID of the message that caused the error. (See the value corresponding to the \"messageId\" key in the message object.)
         
                 - **errorCode** *(string) --* 
         
@@ -97,10 +97,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -116,8 +116,8 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_pipeline_reprocessing(
-              pipelineName='string',
-              reprocessingId='string'
+              pipelineName=\'string\',
+              reprocessingId=\'string\'
           )
         :type pipelineName: string
         :param pipelineName: **[REQUIRED]** 
@@ -127,7 +127,7 @@ class Client(BaseClient):
         :type reprocessingId: string
         :param reprocessingId: **[REQUIRED]** 
         
-          The ID of the reprocessing task (returned by "StartPipelineReprocessing").
+          The ID of the reprocessing task (returned by \"StartPipelineReprocessing\").
         
         :rtype: dict
         :returns: 
@@ -152,15 +152,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_channel(
-              channelName='string',
+              channelName=\'string\',
               retentionPeriod={
-                  'unlimited': True|False,
-                  'numberOfDays': 123
+                  \'unlimited\': True|False,
+                  \'numberOfDays\': 123
               },
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -180,7 +180,7 @@ class Client(BaseClient):
         
           - **numberOfDays** *(integer) --* 
         
-            The number of days that message data is kept. The "unlimited" parameter must be false.
+            The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
         :type tags: list
         :param tags: 
@@ -193,11 +193,11 @@ class Client(BaseClient):
         
             - **key** *(string) --* **[REQUIRED]** 
         
-              The tag's key.
+              The tag\'s key.
         
             - **value** *(string) --* **[REQUIRED]** 
         
-              The tag's value.
+              The tag\'s value.
         
         :rtype: dict
         :returns: 
@@ -207,11 +207,11 @@ class Client(BaseClient):
           ::
         
             {
-                'channelName': 'string',
-                'channelArn': 'string',
-                'retentionPeriod': {
-                    'unlimited': True|False,
-                    'numberOfDays': 123
+                \'channelName\': \'string\',
+                \'channelArn\': \'string\',
+                \'retentionPeriod\': {
+                    \'unlimited\': True|False,
+                    \'numberOfDays\': 123
                 }
             }
           **Response Structure** 
@@ -236,7 +236,7 @@ class Client(BaseClient):
         
               - **numberOfDays** *(integer) --* 
         
-                The number of days that message data is kept. The "unlimited" parameter must be false.
+                The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
         """
         pass
@@ -250,38 +250,38 @@ class Client(BaseClient):
         ::
         
           response = client.create_dataset(
-              datasetName='string',
+              datasetName=\'string\',
               actions=[
                   {
-                      'actionName': 'string',
-                      'queryAction': {
-                          'sqlQuery': 'string',
-                          'filters': [
+                      \'actionName\': \'string\',
+                      \'queryAction\': {
+                          \'sqlQuery\': \'string\',
+                          \'filters\': [
                               {
-                                  'deltaTime': {
-                                      'offsetSeconds': 123,
-                                      'timeExpression': 'string'
+                                  \'deltaTime\': {
+                                      \'offsetSeconds\': 123,
+                                      \'timeExpression\': \'string\'
                                   }
                               },
                           ]
                       },
-                      'containerAction': {
-                          'image': 'string',
-                          'executionRoleArn': 'string',
-                          'resourceConfiguration': {
-                              'computeType': 'ACU_1'|'ACU_2',
-                              'volumeSizeInGB': 123
+                      \'containerAction\': {
+                          \'image\': \'string\',
+                          \'executionRoleArn\': \'string\',
+                          \'resourceConfiguration\': {
+                              \'computeType\': \'ACU_1\'|\'ACU_2\',
+                              \'volumeSizeInGB\': 123
                           },
-                          'variables': [
+                          \'variables\': [
                               {
-                                  'name': 'string',
-                                  'stringValue': 'string',
-                                  'doubleValue': 123.0,
-                                  'datasetContentVersionValue': {
-                                      'datasetName': 'string'
+                                  \'name\': \'string\',
+                                  \'stringValue\': \'string\',
+                                  \'doubleValue\': 123.0,
+                                  \'datasetContentVersionValue\': {
+                                      \'datasetName\': \'string\'
                                   },
-                                  'outputFileUriValue': {
-                                      'fileName': 'string'
+                                  \'outputFileUriValue\': {
+                                      \'fileName\': \'string\'
                                   }
                               },
                           ]
@@ -290,22 +290,22 @@ class Client(BaseClient):
               ],
               triggers=[
                   {
-                      'schedule': {
-                          'expression': 'string'
+                      \'schedule\': {
+                          \'expression\': \'string\'
                       },
-                      'dataset': {
-                          'name': 'string'
+                      \'dataset\': {
+                          \'name\': \'string\'
                       }
                   },
               ],
               retentionPeriod={
-                  'unlimited': True|False,
-                  'numberOfDays': 123
+                  \'unlimited\': True|False,
+                  \'numberOfDays\': 123
               },
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -321,7 +321,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            A "DatasetAction" object specifying the query that creates the data set content.
+            A \"DatasetAction\" object specifying the query that creates the data set content.
         
             - **actionName** *(string) --* 
         
@@ -329,7 +329,7 @@ class Client(BaseClient):
         
             - **queryAction** *(dict) --* 
         
-              An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+              An \"SqlQueryDatasetAction\" object that contains the SQL query to modify the message.
         
               - **sqlQuery** *(string) --* **[REQUIRED]** 
         
@@ -345,11 +345,11 @@ class Client(BaseClient):
         
                   - **deltaTime** *(dict) --* 
         
-                    Used to limit data to that which has arrived since the last execution of the action. When you create data set contents using message data from a specified time frame, some message data may still be "in flight" when processing begins, and so will not arrive in time to be processed. Use this field to make allowances for the "in flight" time of you message data, so that data not processed from a previous time frame will be included with the next time frame. Without this, missed message data would be excluded from processing during the next time frame as well, because its timestamp places it within the previous time frame.
+                    Used to limit data to that which has arrived since the last execution of the action. When you create data set contents using message data from a specified time frame, some message data may still be \"in flight\" when processing begins, and so will not arrive in time to be processed. Use this field to make allowances for the \"in flight\" time of you message data, so that data not processed from a previous time frame will be included with the next time frame. Without this, missed message data would be excluded from processing during the next time frame as well, because its timestamp places it within the previous time frame.
         
                     - **offsetSeconds** *(integer) --* **[REQUIRED]** 
         
-                      The number of seconds of estimated "in flight" lag time of message data.
+                      The number of seconds of estimated \"in flight\" lag time of message data.
         
                     - **timeExpression** *(string) --* **[REQUIRED]** 
         
@@ -365,27 +365,27 @@ class Client(BaseClient):
         
               - **executionRoleArn** *(string) --* **[REQUIRED]** 
         
-                The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
+                The ARN of the role which gives permission to the system to access needed resources in order to run the \"containerAction\". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
         
               - **resourceConfiguration** *(dict) --* **[REQUIRED]** 
         
-                Configuration of the resource which executes the "containerAction".
+                Configuration of the resource which executes the \"containerAction\".
         
                 - **computeType** *(string) --* **[REQUIRED]** 
         
-                  The type of the compute resource used to execute the "containerAction". Possible values are: ACU_1 (vCPU=4, memory=16GiB) or ACU_2 (vCPU=8, memory=32GiB).
+                  The type of the compute resource used to execute the \"containerAction\". Possible values are: ACU_1 (vCPU=4, memory=16GiB) or ACU_2 (vCPU=8, memory=32GiB).
         
                 - **volumeSizeInGB** *(integer) --* **[REQUIRED]** 
         
-                  The size (in GB) of the persistent storage available to the resource instance used to execute the "containerAction" (min: 1, max: 50).
+                  The size (in GB) of the persistent storage available to the resource instance used to execute the \"containerAction\" (min: 1, max: 50).
         
               - **variables** *(list) --* 
         
-                The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
+                The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of \"stringValue\", \"datasetContentVersionValue\", or \"outputFileUriValue\".
         
                 - *(dict) --* 
         
-                  An instance of a variable to be passed to the "containerAction" execution. Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
+                  An instance of a variable to be passed to the \"containerAction\" execution. Each variable must have a name and a value given by one of \"stringValue\", \"datasetContentVersionValue\", or \"outputFileUriValue\".
         
                   - **name** *(string) --* **[REQUIRED]** 
         
@@ -418,15 +418,15 @@ class Client(BaseClient):
         :type triggers: list
         :param triggers: 
         
-          A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when another data set's contents are created. The list of triggers can be empty or contain up to five **DataSetTrigger** objects.
+          A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when another data set\'s contents are created. The list of triggers can be empty or contain up to five **DataSetTrigger** objects.
         
           - *(dict) --* 
         
-            The "DatasetTrigger" that specifies when the data set is automatically updated.
+            The \"DatasetTrigger\" that specifies when the data set is automatically updated.
         
             - **schedule** *(dict) --* 
         
-              The "Schedule" when the trigger is initiated.
+              The \"Schedule\" when the trigger is initiated.
         
               - **expression** *(string) --* 
         
@@ -434,7 +434,7 @@ class Client(BaseClient):
         
             - **dataset** *(dict) --* 
         
-              The data set whose content creation will trigger the creation of this data set's contents.
+              The data set whose content creation will trigger the creation of this data set\'s contents.
         
               - **name** *(string) --* **[REQUIRED]** 
         
@@ -451,7 +451,7 @@ class Client(BaseClient):
         
           - **numberOfDays** *(integer) --* 
         
-            The number of days that message data is kept. The "unlimited" parameter must be false.
+            The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
         :type tags: list
         :param tags: 
@@ -464,11 +464,11 @@ class Client(BaseClient):
         
             - **key** *(string) --* **[REQUIRED]** 
         
-              The tag's key.
+              The tag\'s key.
         
             - **value** *(string) --* **[REQUIRED]** 
         
-              The tag's value.
+              The tag\'s value.
         
         :rtype: dict
         :returns: 
@@ -478,11 +478,11 @@ class Client(BaseClient):
           ::
         
             {
-                'datasetName': 'string',
-                'datasetArn': 'string',
-                'retentionPeriod': {
-                    'unlimited': True|False,
-                    'numberOfDays': 123
+                \'datasetName\': \'string\',
+                \'datasetArn\': \'string\',
+                \'retentionPeriod\': {
+                    \'unlimited\': True|False,
+                    \'numberOfDays\': 123
                 }
             }
           **Response Structure** 
@@ -507,7 +507,7 @@ class Client(BaseClient):
         
               - **numberOfDays** *(integer) --* 
         
-                The number of days that message data is kept. The "unlimited" parameter must be false.
+                The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
         """
         pass
@@ -521,7 +521,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_dataset_content(
-              datasetName='string'
+              datasetName=\'string\'
           )
         :type datasetName: string
         :param datasetName: **[REQUIRED]** 
@@ -536,7 +536,7 @@ class Client(BaseClient):
           ::
         
             {
-                'versionId': 'string'
+                \'versionId\': \'string\'
             }
           **Response Structure** 
         
@@ -558,15 +558,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_datastore(
-              datastoreName='string',
+              datastoreName=\'string\',
               retentionPeriod={
-                  'unlimited': True|False,
-                  'numberOfDays': 123
+                  \'unlimited\': True|False,
+                  \'numberOfDays\': 123
               },
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -586,7 +586,7 @@ class Client(BaseClient):
         
           - **numberOfDays** *(integer) --* 
         
-            The number of days that message data is kept. The "unlimited" parameter must be false.
+            The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
         :type tags: list
         :param tags: 
@@ -599,11 +599,11 @@ class Client(BaseClient):
         
             - **key** *(string) --* **[REQUIRED]** 
         
-              The tag's key.
+              The tag\'s key.
         
             - **value** *(string) --* **[REQUIRED]** 
         
-              The tag's value.
+              The tag\'s value.
         
         :rtype: dict
         :returns: 
@@ -613,11 +613,11 @@ class Client(BaseClient):
           ::
         
             {
-                'datastoreName': 'string',
-                'datastoreArn': 'string',
-                'retentionPeriod': {
-                    'unlimited': True|False,
-                    'numberOfDays': 123
+                \'datastoreName\': \'string\',
+                \'datastoreArn\': \'string\',
+                \'retentionPeriod\': {
+                    \'unlimited\': True|False,
+                    \'numberOfDays\': 123
                 }
             }
           **Response Structure** 
@@ -642,7 +642,7 @@ class Client(BaseClient):
         
               - **numberOfDays** *(integer) --* 
         
-                The number of days that message data is kept. The "unlimited" parameter must be false.
+                The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
         """
         pass
@@ -656,76 +656,76 @@ class Client(BaseClient):
         ::
         
           response = client.create_pipeline(
-              pipelineName='string',
+              pipelineName=\'string\',
               pipelineActivities=[
                   {
-                      'channel': {
-                          'name': 'string',
-                          'channelName': 'string',
-                          'next': 'string'
+                      \'channel\': {
+                          \'name\': \'string\',
+                          \'channelName\': \'string\',
+                          \'next\': \'string\'
                       },
-                      'lambda': {
-                          'name': 'string',
-                          'lambdaName': 'string',
-                          'batchSize': 123,
-                          'next': 'string'
+                      \'lambda\': {
+                          \'name\': \'string\',
+                          \'lambdaName\': \'string\',
+                          \'batchSize\': 123,
+                          \'next\': \'string\'
                       },
-                      'datastore': {
-                          'name': 'string',
-                          'datastoreName': 'string'
+                      \'datastore\': {
+                          \'name\': \'string\',
+                          \'datastoreName\': \'string\'
                       },
-                      'addAttributes': {
-                          'name': 'string',
-                          'attributes': {
-                              'string': 'string'
+                      \'addAttributes\': {
+                          \'name\': \'string\',
+                          \'attributes\': {
+                              \'string\': \'string\'
                           },
-                          'next': 'string'
+                          \'next\': \'string\'
                       },
-                      'removeAttributes': {
-                          'name': 'string',
-                          'attributes': [
-                              'string',
+                      \'removeAttributes\': {
+                          \'name\': \'string\',
+                          \'attributes\': [
+                              \'string\',
                           ],
-                          'next': 'string'
+                          \'next\': \'string\'
                       },
-                      'selectAttributes': {
-                          'name': 'string',
-                          'attributes': [
-                              'string',
+                      \'selectAttributes\': {
+                          \'name\': \'string\',
+                          \'attributes\': [
+                              \'string\',
                           ],
-                          'next': 'string'
+                          \'next\': \'string\'
                       },
-                      'filter': {
-                          'name': 'string',
-                          'filter': 'string',
-                          'next': 'string'
+                      \'filter\': {
+                          \'name\': \'string\',
+                          \'filter\': \'string\',
+                          \'next\': \'string\'
                       },
-                      'math': {
-                          'name': 'string',
-                          'attribute': 'string',
-                          'math': 'string',
-                          'next': 'string'
+                      \'math\': {
+                          \'name\': \'string\',
+                          \'attribute\': \'string\',
+                          \'math\': \'string\',
+                          \'next\': \'string\'
                       },
-                      'deviceRegistryEnrich': {
-                          'name': 'string',
-                          'attribute': 'string',
-                          'thingName': 'string',
-                          'roleArn': 'string',
-                          'next': 'string'
+                      \'deviceRegistryEnrich\': {
+                          \'name\': \'string\',
+                          \'attribute\': \'string\',
+                          \'thingName\': \'string\',
+                          \'roleArn\': \'string\',
+                          \'next\': \'string\'
                       },
-                      'deviceShadowEnrich': {
-                          'name': 'string',
-                          'attribute': 'string',
-                          'thingName': 'string',
-                          'roleArn': 'string',
-                          'next': 'string'
+                      \'deviceShadowEnrich\': {
+                          \'name\': \'string\',
+                          \'attribute\': \'string\',
+                          \'thingName\': \'string\',
+                          \'roleArn\': \'string\',
+                          \'next\': \'string\'
                       }
                   },
               ],
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -751,7 +751,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'channel' activity.
+                The name of the \'channel\' activity.
         
               - **channelName** *(string) --* **[REQUIRED]** 
         
@@ -767,7 +767,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'lambda' activity.
+                The name of the \'lambda\' activity.
         
               - **lambdaName** *(string) --* **[REQUIRED]** 
         
@@ -789,7 +789,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'datastore' activity.
+                The name of the \'datastore\' activity.
         
               - **datastoreName** *(string) --* **[REQUIRED]** 
         
@@ -801,15 +801,15 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'addAttributes' activity.
+                The name of the \'addAttributes\' activity.
         
               - **attributes** *(dict) --* **[REQUIRED]** 
         
-                A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
+                A list of 1-50 \"AttributeNameMapping\" objects that map an existing attribute to a new attribute.
         
                 .. note::
         
-                  The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
+                  The existing attributes remain in the message, so if you want to remove the originals, use \"RemoveAttributeActivity\".
         
                 - *(string) --* 
         
@@ -825,7 +825,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'removeAttributes' activity.
+                The name of the \'removeAttributes\' activity.
         
               - **attributes** *(list) --* **[REQUIRED]** 
         
@@ -843,7 +843,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'selectAttributes' activity.
+                The name of the \'selectAttributes\' activity.
         
               - **attributes** *(list) --* **[REQUIRED]** 
         
@@ -861,7 +861,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'filter' activity.
+                The name of the \'filter\' activity.
         
               - **filter** *(string) --* **[REQUIRED]** 
         
@@ -873,11 +873,11 @@ class Client(BaseClient):
         
             - **math** *(dict) --* 
         
-              Computes an arithmetic expression using the message's attributes and adds it to the message.
+              Computes an arithmetic expression using the message\'s attributes and adds it to the message.
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'math' activity.
+                The name of the \'math\' activity.
         
               - **attribute** *(string) --* **[REQUIRED]** 
         
@@ -897,7 +897,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'deviceRegistryEnrich' activity.
+                The name of the \'deviceRegistryEnrich\' activity.
         
               - **attribute** *(string) --* **[REQUIRED]** 
         
@@ -909,7 +909,7 @@ class Client(BaseClient):
         
               - **roleArn** *(string) --* **[REQUIRED]** 
         
-                The ARN of the role that allows access to the device's registry information.
+                The ARN of the role that allows access to the device\'s registry information.
         
               - **next** *(string) --* 
         
@@ -921,7 +921,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'deviceShadowEnrich' activity.
+                The name of the \'deviceShadowEnrich\' activity.
         
               - **attribute** *(string) --* **[REQUIRED]** 
         
@@ -933,7 +933,7 @@ class Client(BaseClient):
         
               - **roleArn** *(string) --* **[REQUIRED]** 
         
-                The ARN of the role that allows access to the device's shadow.
+                The ARN of the role that allows access to the device\'s shadow.
         
               - **next** *(string) --* 
         
@@ -950,11 +950,11 @@ class Client(BaseClient):
         
             - **key** *(string) --* **[REQUIRED]** 
         
-              The tag's key.
+              The tag\'s key.
         
             - **value** *(string) --* **[REQUIRED]** 
         
-              The tag's value.
+              The tag\'s value.
         
         :rtype: dict
         :returns: 
@@ -964,8 +964,8 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineName': 'string',
-                'pipelineArn': 'string'
+                \'pipelineName\': \'string\',
+                \'pipelineArn\': \'string\'
             }
           **Response Structure** 
         
@@ -991,7 +991,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_channel(
-              channelName='string'
+              channelName=\'string\'
           )
         :type channelName: string
         :param channelName: **[REQUIRED]** 
@@ -1013,7 +1013,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_dataset(
-              datasetName='string'
+              datasetName=\'string\'
           )
         :type datasetName: string
         :param datasetName: **[REQUIRED]** 
@@ -1033,8 +1033,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_dataset_content(
-              datasetName='string',
-              versionId='string'
+              datasetName=\'string\',
+              versionId=\'string\'
           )
         :type datasetName: string
         :param datasetName: **[REQUIRED]** 
@@ -1044,7 +1044,7 @@ class Client(BaseClient):
         :type versionId: string
         :param versionId: 
         
-          The version of the data set whose content is deleted. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to delete the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
+          The version of the data set whose content is deleted. You can also use the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to delete the latest or latest successfully completed data set. If not specified, \"$LATEST_SUCCEEDED\" is the default.
         
         :returns: None
         """
@@ -1059,7 +1059,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_datastore(
-              datastoreName='string'
+              datastoreName=\'string\'
           )
         :type datastoreName: string
         :param datastoreName: **[REQUIRED]** 
@@ -1079,7 +1079,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_pipeline(
-              pipelineName='string'
+              pipelineName=\'string\'
           )
         :type pipelineName: string
         :param pipelineName: **[REQUIRED]** 
@@ -1099,7 +1099,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_channel(
-              channelName='string',
+              channelName=\'string\',
               includeStatistics=True|False
           )
         :type channelName: string
@@ -1120,21 +1120,21 @@ class Client(BaseClient):
           ::
         
             {
-                'channel': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'status': 'CREATING'|'ACTIVE'|'DELETING',
-                    'retentionPeriod': {
-                        'unlimited': True|False,
-                        'numberOfDays': 123
+                \'channel\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'status\': \'CREATING\'|\'ACTIVE\'|\'DELETING\',
+                    \'retentionPeriod\': {
+                        \'unlimited\': True|False,
+                        \'numberOfDays\': 123
                     },
-                    'creationTime': datetime(2015, 1, 1),
-                    'lastUpdateTime': datetime(2015, 1, 1)
+                    \'creationTime\': datetime(2015, 1, 1),
+                    \'lastUpdateTime\': datetime(2015, 1, 1)
                 },
-                'statistics': {
-                    'size': {
-                        'estimatedSizeInBytes': 123.0,
-                        'estimatedOn': datetime(2015, 1, 1)
+                \'statistics\': {
+                    \'size\': {
+                        \'estimatedSizeInBytes\': 123.0,
+                        \'estimatedOn\': datetime(2015, 1, 1)
                     }
                 }
             }
@@ -1168,7 +1168,7 @@ class Client(BaseClient):
         
                 - **numberOfDays** *(integer) --* 
         
-                  The number of days that message data is kept. The "unlimited" parameter must be false.
+                  The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
               - **creationTime** *(datetime) --* 
         
@@ -1180,7 +1180,7 @@ class Client(BaseClient):
         
             - **statistics** *(dict) --* 
         
-              Statistics about the channel. Included if the 'includeStatistics' parameter is set to true in the request.
+              Statistics about the channel. Included if the \'includeStatistics\' parameter is set to true in the request.
         
               - **size** *(dict) --* 
         
@@ -1206,7 +1206,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_dataset(
-              datasetName='string'
+              datasetName=\'string\'
           )
         :type datasetName: string
         :param datasetName: **[REQUIRED]** 
@@ -1221,62 +1221,62 @@ class Client(BaseClient):
           ::
         
             {
-                'dataset': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'actions': [
+                \'dataset\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'actions\': [
                         {
-                            'actionName': 'string',
-                            'queryAction': {
-                                'sqlQuery': 'string',
-                                'filters': [
+                            \'actionName\': \'string\',
+                            \'queryAction\': {
+                                \'sqlQuery\': \'string\',
+                                \'filters\': [
                                     {
-                                        'deltaTime': {
-                                            'offsetSeconds': 123,
-                                            'timeExpression': 'string'
+                                        \'deltaTime\': {
+                                            \'offsetSeconds\': 123,
+                                            \'timeExpression\': \'string\'
                                         }
                                     },
                                 ]
                             },
-                            'containerAction': {
-                                'image': 'string',
-                                'executionRoleArn': 'string',
-                                'resourceConfiguration': {
-                                    'computeType': 'ACU_1'|'ACU_2',
-                                    'volumeSizeInGB': 123
+                            \'containerAction\': {
+                                \'image\': \'string\',
+                                \'executionRoleArn\': \'string\',
+                                \'resourceConfiguration\': {
+                                    \'computeType\': \'ACU_1\'|\'ACU_2\',
+                                    \'volumeSizeInGB\': 123
                                 },
-                                'variables': [
+                                \'variables\': [
                                     {
-                                        'name': 'string',
-                                        'stringValue': 'string',
-                                        'doubleValue': 123.0,
-                                        'datasetContentVersionValue': {
-                                            'datasetName': 'string'
+                                        \'name\': \'string\',
+                                        \'stringValue\': \'string\',
+                                        \'doubleValue\': 123.0,
+                                        \'datasetContentVersionValue\': {
+                                            \'datasetName\': \'string\'
                                         },
-                                        'outputFileUriValue': {
-                                            'fileName': 'string'
+                                        \'outputFileUriValue\': {
+                                            \'fileName\': \'string\'
                                         }
                                     },
                                 ]
                             }
                         },
                     ],
-                    'triggers': [
+                    \'triggers\': [
                         {
-                            'schedule': {
-                                'expression': 'string'
+                            \'schedule\': {
+                                \'expression\': \'string\'
                             },
-                            'dataset': {
-                                'name': 'string'
+                            \'dataset\': {
+                                \'name\': \'string\'
                             }
                         },
                     ],
-                    'status': 'CREATING'|'ACTIVE'|'DELETING',
-                    'creationTime': datetime(2015, 1, 1),
-                    'lastUpdateTime': datetime(2015, 1, 1),
-                    'retentionPeriod': {
-                        'unlimited': True|False,
-                        'numberOfDays': 123
+                    \'status\': \'CREATING\'|\'ACTIVE\'|\'DELETING\',
+                    \'creationTime\': datetime(2015, 1, 1),
+                    \'lastUpdateTime\': datetime(2015, 1, 1),
+                    \'retentionPeriod\': {
+                        \'unlimited\': True|False,
+                        \'numberOfDays\': 123
                     }
                 }
             }
@@ -1298,11 +1298,11 @@ class Client(BaseClient):
         
               - **actions** *(list) --* 
         
-                The "DatasetAction" objects that automatically create the data set contents.
+                The \"DatasetAction\" objects that automatically create the data set contents.
         
                 - *(dict) --* 
         
-                  A "DatasetAction" object specifying the query that creates the data set content.
+                  A \"DatasetAction\" object specifying the query that creates the data set content.
         
                   - **actionName** *(string) --* 
         
@@ -1310,7 +1310,7 @@ class Client(BaseClient):
         
                   - **queryAction** *(dict) --* 
         
-                    An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+                    An \"SqlQueryDatasetAction\" object that contains the SQL query to modify the message.
         
                     - **sqlQuery** *(string) --* 
         
@@ -1326,11 +1326,11 @@ class Client(BaseClient):
         
                         - **deltaTime** *(dict) --* 
         
-                          Used to limit data to that which has arrived since the last execution of the action. When you create data set contents using message data from a specified time frame, some message data may still be "in flight" when processing begins, and so will not arrive in time to be processed. Use this field to make allowances for the "in flight" time of you message data, so that data not processed from a previous time frame will be included with the next time frame. Without this, missed message data would be excluded from processing during the next time frame as well, because its timestamp places it within the previous time frame.
+                          Used to limit data to that which has arrived since the last execution of the action. When you create data set contents using message data from a specified time frame, some message data may still be \"in flight\" when processing begins, and so will not arrive in time to be processed. Use this field to make allowances for the \"in flight\" time of you message data, so that data not processed from a previous time frame will be included with the next time frame. Without this, missed message data would be excluded from processing during the next time frame as well, because its timestamp places it within the previous time frame.
         
                           - **offsetSeconds** *(integer) --* 
         
-                            The number of seconds of estimated "in flight" lag time of message data.
+                            The number of seconds of estimated \"in flight\" lag time of message data.
         
                           - **timeExpression** *(string) --* 
         
@@ -1346,27 +1346,27 @@ class Client(BaseClient):
         
                     - **executionRoleArn** *(string) --* 
         
-                      The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
+                      The ARN of the role which gives permission to the system to access needed resources in order to run the \"containerAction\". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
         
                     - **resourceConfiguration** *(dict) --* 
         
-                      Configuration of the resource which executes the "containerAction".
+                      Configuration of the resource which executes the \"containerAction\".
         
                       - **computeType** *(string) --* 
         
-                        The type of the compute resource used to execute the "containerAction". Possible values are: ACU_1 (vCPU=4, memory=16GiB) or ACU_2 (vCPU=8, memory=32GiB).
+                        The type of the compute resource used to execute the \"containerAction\". Possible values are: ACU_1 (vCPU=4, memory=16GiB) or ACU_2 (vCPU=8, memory=32GiB).
         
                       - **volumeSizeInGB** *(integer) --* 
         
-                        The size (in GB) of the persistent storage available to the resource instance used to execute the "containerAction" (min: 1, max: 50).
+                        The size (in GB) of the persistent storage available to the resource instance used to execute the \"containerAction\" (min: 1, max: 50).
         
                     - **variables** *(list) --* 
         
-                      The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
+                      The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of \"stringValue\", \"datasetContentVersionValue\", or \"outputFileUriValue\".
         
                       - *(dict) --* 
         
-                        An instance of a variable to be passed to the "containerAction" execution. Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
+                        An instance of a variable to be passed to the \"containerAction\" execution. Each variable must have a name and a value given by one of \"stringValue\", \"datasetContentVersionValue\", or \"outputFileUriValue\".
         
                         - **name** *(string) --* 
         
@@ -1398,15 +1398,15 @@ class Client(BaseClient):
         
               - **triggers** *(list) --* 
         
-                The "DatasetTrigger" objects that specify when the data set is automatically updated.
+                The \"DatasetTrigger\" objects that specify when the data set is automatically updated.
         
                 - *(dict) --* 
         
-                  The "DatasetTrigger" that specifies when the data set is automatically updated.
+                  The \"DatasetTrigger\" that specifies when the data set is automatically updated.
         
                   - **schedule** *(dict) --* 
         
-                    The "Schedule" when the trigger is initiated.
+                    The \"Schedule\" when the trigger is initiated.
         
                     - **expression** *(string) --* 
         
@@ -1414,7 +1414,7 @@ class Client(BaseClient):
         
                   - **dataset** *(dict) --* 
         
-                    The data set whose content creation will trigger the creation of this data set's contents.
+                    The data set whose content creation will trigger the creation of this data set\'s contents.
         
                     - **name** *(string) --* 
         
@@ -1442,7 +1442,7 @@ class Client(BaseClient):
         
                 - **numberOfDays** *(integer) --* 
         
-                  The number of days that message data is kept. The "unlimited" parameter must be false.
+                  The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
         """
         pass
@@ -1456,7 +1456,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_datastore(
-              datastoreName='string',
+              datastoreName=\'string\',
               includeStatistics=True|False
           )
         :type datastoreName: string
@@ -1477,21 +1477,21 @@ class Client(BaseClient):
           ::
         
             {
-                'datastore': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'status': 'CREATING'|'ACTIVE'|'DELETING',
-                    'retentionPeriod': {
-                        'unlimited': True|False,
-                        'numberOfDays': 123
+                \'datastore\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'status\': \'CREATING\'|\'ACTIVE\'|\'DELETING\',
+                    \'retentionPeriod\': {
+                        \'unlimited\': True|False,
+                        \'numberOfDays\': 123
                     },
-                    'creationTime': datetime(2015, 1, 1),
-                    'lastUpdateTime': datetime(2015, 1, 1)
+                    \'creationTime\': datetime(2015, 1, 1),
+                    \'lastUpdateTime\': datetime(2015, 1, 1)
                 },
-                'statistics': {
-                    'size': {
-                        'estimatedSizeInBytes': 123.0,
-                        'estimatedOn': datetime(2015, 1, 1)
+                \'statistics\': {
+                    \'size\': {
+                        \'estimatedSizeInBytes\': 123.0,
+                        \'estimatedOn\': datetime(2015, 1, 1)
                     }
                 }
             }
@@ -1537,7 +1537,7 @@ class Client(BaseClient):
         
                 - **numberOfDays** *(integer) --* 
         
-                  The number of days that message data is kept. The "unlimited" parameter must be false.
+                  The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
               - **creationTime** *(datetime) --* 
         
@@ -1549,7 +1549,7 @@ class Client(BaseClient):
         
             - **statistics** *(dict) --* 
         
-              Additional statistical information about the data store. Included if the 'includeStatistics' parameter is set to true in the request.
+              Additional statistical information about the data store. Included if the \'includeStatistics\' parameter is set to true in the request.
         
               - **size** *(dict) --* 
         
@@ -1584,10 +1584,10 @@ class Client(BaseClient):
           ::
         
             {
-                'loggingOptions': {
-                    'roleArn': 'string',
-                    'level': 'ERROR',
-                    'enabled': True|False
+                \'loggingOptions\': {
+                    \'roleArn\': \'string\',
+                    \'level\': \'ERROR\',
+                    \'enabled\': True|False
                 }
             }
           **Response Structure** 
@@ -1604,7 +1604,7 @@ class Client(BaseClient):
         
               - **level** *(string) --* 
         
-                The logging level. Currently, only "ERROR" is supported.
+                The logging level. Currently, only \"ERROR\" is supported.
         
               - **enabled** *(boolean) --* 
         
@@ -1622,7 +1622,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_pipeline(
-              pipelineName='string'
+              pipelineName=\'string\'
           )
         :type pipelineName: string
         :param pipelineName: **[REQUIRED]** 
@@ -1637,83 +1637,83 @@ class Client(BaseClient):
           ::
         
             {
-                'pipeline': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'activities': [
+                \'pipeline\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'activities\': [
                         {
-                            'channel': {
-                                'name': 'string',
-                                'channelName': 'string',
-                                'next': 'string'
+                            \'channel\': {
+                                \'name\': \'string\',
+                                \'channelName\': \'string\',
+                                \'next\': \'string\'
                             },
-                            'lambda': {
-                                'name': 'string',
-                                'lambdaName': 'string',
-                                'batchSize': 123,
-                                'next': 'string'
+                            \'lambda\': {
+                                \'name\': \'string\',
+                                \'lambdaName\': \'string\',
+                                \'batchSize\': 123,
+                                \'next\': \'string\'
                             },
-                            'datastore': {
-                                'name': 'string',
-                                'datastoreName': 'string'
+                            \'datastore\': {
+                                \'name\': \'string\',
+                                \'datastoreName\': \'string\'
                             },
-                            'addAttributes': {
-                                'name': 'string',
-                                'attributes': {
-                                    'string': 'string'
+                            \'addAttributes\': {
+                                \'name\': \'string\',
+                                \'attributes\': {
+                                    \'string\': \'string\'
                                 },
-                                'next': 'string'
+                                \'next\': \'string\'
                             },
-                            'removeAttributes': {
-                                'name': 'string',
-                                'attributes': [
-                                    'string',
+                            \'removeAttributes\': {
+                                \'name\': \'string\',
+                                \'attributes\': [
+                                    \'string\',
                                 ],
-                                'next': 'string'
+                                \'next\': \'string\'
                             },
-                            'selectAttributes': {
-                                'name': 'string',
-                                'attributes': [
-                                    'string',
+                            \'selectAttributes\': {
+                                \'name\': \'string\',
+                                \'attributes\': [
+                                    \'string\',
                                 ],
-                                'next': 'string'
+                                \'next\': \'string\'
                             },
-                            'filter': {
-                                'name': 'string',
-                                'filter': 'string',
-                                'next': 'string'
+                            \'filter\': {
+                                \'name\': \'string\',
+                                \'filter\': \'string\',
+                                \'next\': \'string\'
                             },
-                            'math': {
-                                'name': 'string',
-                                'attribute': 'string',
-                                'math': 'string',
-                                'next': 'string'
+                            \'math\': {
+                                \'name\': \'string\',
+                                \'attribute\': \'string\',
+                                \'math\': \'string\',
+                                \'next\': \'string\'
                             },
-                            'deviceRegistryEnrich': {
-                                'name': 'string',
-                                'attribute': 'string',
-                                'thingName': 'string',
-                                'roleArn': 'string',
-                                'next': 'string'
+                            \'deviceRegistryEnrich\': {
+                                \'name\': \'string\',
+                                \'attribute\': \'string\',
+                                \'thingName\': \'string\',
+                                \'roleArn\': \'string\',
+                                \'next\': \'string\'
                             },
-                            'deviceShadowEnrich': {
-                                'name': 'string',
-                                'attribute': 'string',
-                                'thingName': 'string',
-                                'roleArn': 'string',
-                                'next': 'string'
+                            \'deviceShadowEnrich\': {
+                                \'name\': \'string\',
+                                \'attribute\': \'string\',
+                                \'thingName\': \'string\',
+                                \'roleArn\': \'string\',
+                                \'next\': \'string\'
                             }
                         },
                     ],
-                    'reprocessingSummaries': [
+                    \'reprocessingSummaries\': [
                         {
-                            'id': 'string',
-                            'status': 'RUNNING'|'SUCCEEDED'|'CANCELLED'|'FAILED',
-                            'creationTime': datetime(2015, 1, 1)
+                            \'id\': \'string\',
+                            \'status\': \'RUNNING\'|\'SUCCEEDED\'|\'CANCELLED\'|\'FAILED\',
+                            \'creationTime\': datetime(2015, 1, 1)
                         },
                     ],
-                    'creationTime': datetime(2015, 1, 1),
-                    'lastUpdateTime': datetime(2015, 1, 1)
+                    \'creationTime\': datetime(2015, 1, 1),
+                    \'lastUpdateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1722,7 +1722,7 @@ class Client(BaseClient):
             
             - **pipeline** *(dict) --* 
         
-              A "Pipeline" object that contains information about the pipeline.
+              A \"Pipeline\" object that contains information about the pipeline.
         
               - **name** *(string) --* 
         
@@ -1746,7 +1746,7 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The name of the 'channel' activity.
+                      The name of the \'channel\' activity.
         
                     - **channelName** *(string) --* 
         
@@ -1762,7 +1762,7 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The name of the 'lambda' activity.
+                      The name of the \'lambda\' activity.
         
                     - **lambdaName** *(string) --* 
         
@@ -1784,7 +1784,7 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The name of the 'datastore' activity.
+                      The name of the \'datastore\' activity.
         
                     - **datastoreName** *(string) --* 
         
@@ -1796,15 +1796,15 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The name of the 'addAttributes' activity.
+                      The name of the \'addAttributes\' activity.
         
                     - **attributes** *(dict) --* 
         
-                      A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
+                      A list of 1-50 \"AttributeNameMapping\" objects that map an existing attribute to a new attribute.
         
                       .. note::
         
-                        The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
+                        The existing attributes remain in the message, so if you want to remove the originals, use \"RemoveAttributeActivity\".
         
                       - *(string) --* 
                         
@@ -1820,7 +1820,7 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The name of the 'removeAttributes' activity.
+                      The name of the \'removeAttributes\' activity.
         
                     - **attributes** *(list) --* 
         
@@ -1838,7 +1838,7 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The name of the 'selectAttributes' activity.
+                      The name of the \'selectAttributes\' activity.
         
                     - **attributes** *(list) --* 
         
@@ -1856,7 +1856,7 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The name of the 'filter' activity.
+                      The name of the \'filter\' activity.
         
                     - **filter** *(string) --* 
         
@@ -1868,11 +1868,11 @@ class Client(BaseClient):
         
                   - **math** *(dict) --* 
         
-                    Computes an arithmetic expression using the message's attributes and adds it to the message.
+                    Computes an arithmetic expression using the message\'s attributes and adds it to the message.
         
                     - **name** *(string) --* 
         
-                      The name of the 'math' activity.
+                      The name of the \'math\' activity.
         
                     - **attribute** *(string) --* 
         
@@ -1892,7 +1892,7 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The name of the 'deviceRegistryEnrich' activity.
+                      The name of the \'deviceRegistryEnrich\' activity.
         
                     - **attribute** *(string) --* 
         
@@ -1904,7 +1904,7 @@ class Client(BaseClient):
         
                     - **roleArn** *(string) --* 
         
-                      The ARN of the role that allows access to the device's registry information.
+                      The ARN of the role that allows access to the device\'s registry information.
         
                     - **next** *(string) --* 
         
@@ -1916,7 +1916,7 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The name of the 'deviceShadowEnrich' activity.
+                      The name of the \'deviceShadowEnrich\' activity.
         
                     - **attribute** *(string) --* 
         
@@ -1928,7 +1928,7 @@ class Client(BaseClient):
         
                     - **roleArn** *(string) --* 
         
-                      The ARN of the role that allows access to the device's shadow.
+                      The ARN of the role that allows access to the device\'s shadow.
         
                     - **next** *(string) --* 
         
@@ -1944,7 +1944,7 @@ class Client(BaseClient):
         
                   - **id** *(string) --* 
         
-                    The 'reprocessingId' returned by "StartPipelineReprocessing".
+                    The \'reprocessingId\' returned by \"StartPipelineReprocessing\".
         
                   - **status** *(string) --* 
         
@@ -1981,7 +1981,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1996,8 +1996,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_dataset_content(
-              datasetName='string',
-              versionId='string'
+              datasetName=\'string\',
+              versionId=\'string\'
           )
         :type datasetName: string
         :param datasetName: **[REQUIRED]** 
@@ -2007,7 +2007,7 @@ class Client(BaseClient):
         :type versionId: string
         :param versionId: 
         
-          The version of the data set whose contents are retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to retrieve the contents of the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
+          The version of the data set whose contents are retrieved. You can also use the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to retrieve the contents of the latest or latest successfully completed data set. If not specified, \"$LATEST_SUCCEEDED\" is the default.
         
         :rtype: dict
         :returns: 
@@ -2017,16 +2017,16 @@ class Client(BaseClient):
           ::
         
             {
-                'entries': [
+                \'entries\': [
                     {
-                        'entryName': 'string',
-                        'dataURI': 'string'
+                        \'entryName\': \'string\',
+                        \'dataURI\': \'string\'
                     },
                 ],
-                'timestamp': datetime(2015, 1, 1),
-                'status': {
-                    'state': 'CREATING'|'SUCCEEDED'|'FAILED',
-                    'reason': 'string'
+                \'timestamp\': datetime(2015, 1, 1),
+                \'status\': {
+                    \'state\': \'CREATING\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'reason\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2035,7 +2035,7 @@ class Client(BaseClient):
             
             - **entries** *(list) --* 
         
-              A list of "DatasetEntry" objects.
+              A list of \"DatasetEntry\" objects.
         
               - *(dict) --* 
         
@@ -2059,7 +2059,7 @@ class Client(BaseClient):
         
               - **state** *(string) --* 
         
-                The state of the data set contents. Can be one of "READY", "CREATING", "SUCCEEDED" or "FAILED".
+                The state of the data set contents. Can be one of \"READY\", \"CREATING\", \"SUCCEEDED\" or \"FAILED\".
         
               - **reason** *(string) --* 
         
@@ -2074,10 +2074,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2109,7 +2109,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_channels(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -2132,15 +2132,15 @@ class Client(BaseClient):
           ::
         
             {
-                'channelSummaries': [
+                \'channelSummaries\': [
                     {
-                        'channelName': 'string',
-                        'status': 'CREATING'|'ACTIVE'|'DELETING',
-                        'creationTime': datetime(2015, 1, 1),
-                        'lastUpdateTime': datetime(2015, 1, 1)
+                        \'channelName\': \'string\',
+                        \'status\': \'CREATING\'|\'ACTIVE\'|\'DELETING\',
+                        \'creationTime\': datetime(2015, 1, 1),
+                        \'lastUpdateTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2148,7 +2148,7 @@ class Client(BaseClient):
             
             - **channelSummaries** *(list) --* 
         
-              A list of "ChannelSummary" objects.
+              A list of \"ChannelSummary\" objects.
         
               - *(dict) --* 
         
@@ -2186,8 +2186,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_dataset_contents(
-              datasetName='string',
-              nextToken='string',
+              datasetName=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type datasetName: string
@@ -2213,18 +2213,18 @@ class Client(BaseClient):
           ::
         
             {
-                'datasetContentSummaries': [
+                \'datasetContentSummaries\': [
                     {
-                        'version': 'string',
-                        'status': {
-                            'state': 'CREATING'|'SUCCEEDED'|'FAILED',
-                            'reason': 'string'
+                        \'version\': \'string\',
+                        \'status\': {
+                            \'state\': \'CREATING\'|\'SUCCEEDED\'|\'FAILED\',
+                            \'reason\': \'string\'
                         },
-                        'creationTime': datetime(2015, 1, 1),
-                        'scheduleTime': datetime(2015, 1, 1)
+                        \'creationTime\': datetime(2015, 1, 1),
+                        \'scheduleTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2248,7 +2248,7 @@ class Client(BaseClient):
         
                   - **state** *(string) --* 
         
-                    The state of the data set contents. Can be one of "READY", "CREATING", "SUCCEEDED" or "FAILED".
+                    The state of the data set contents. Can be one of \"READY\", \"CREATING\", \"SUCCEEDED\" or \"FAILED\".
         
                   - **reason** *(string) --* 
         
@@ -2278,7 +2278,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_datasets(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -2301,31 +2301,31 @@ class Client(BaseClient):
           ::
         
             {
-                'datasetSummaries': [
+                \'datasetSummaries\': [
                     {
-                        'datasetName': 'string',
-                        'status': 'CREATING'|'ACTIVE'|'DELETING',
-                        'creationTime': datetime(2015, 1, 1),
-                        'lastUpdateTime': datetime(2015, 1, 1),
-                        'triggers': [
+                        \'datasetName\': \'string\',
+                        \'status\': \'CREATING\'|\'ACTIVE\'|\'DELETING\',
+                        \'creationTime\': datetime(2015, 1, 1),
+                        \'lastUpdateTime\': datetime(2015, 1, 1),
+                        \'triggers\': [
                             {
-                                'schedule': {
-                                    'expression': 'string'
+                                \'schedule\': {
+                                    \'expression\': \'string\'
                                 },
-                                'dataset': {
-                                    'name': 'string'
+                                \'dataset\': {
+                                    \'name\': \'string\'
                                 }
                             },
                         ],
-                        'actions': [
+                        \'actions\': [
                             {
-                                'actionName': 'string',
-                                'actionType': 'QUERY'|'CONTAINER'
+                                \'actionName\': \'string\',
+                                \'actionType\': \'QUERY\'|\'CONTAINER\'
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2333,7 +2333,7 @@ class Client(BaseClient):
             
             - **datasetSummaries** *(list) --* 
         
-              A list of "DatasetSummary" objects.
+              A list of \"DatasetSummary\" objects.
         
               - *(dict) --* 
         
@@ -2361,11 +2361,11 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    The "DatasetTrigger" that specifies when the data set is automatically updated.
+                    The \"DatasetTrigger\" that specifies when the data set is automatically updated.
         
                     - **schedule** *(dict) --* 
         
-                      The "Schedule" when the trigger is initiated.
+                      The \"Schedule\" when the trigger is initiated.
         
                       - **expression** *(string) --* 
         
@@ -2373,7 +2373,7 @@ class Client(BaseClient):
         
                     - **dataset** *(dict) --* 
         
-                      The data set whose content creation will trigger the creation of this data set's contents.
+                      The data set whose content creation will trigger the creation of this data set\'s contents.
         
                       - **name** *(string) --* 
         
@@ -2381,17 +2381,17 @@ class Client(BaseClient):
         
                 - **actions** *(list) --* 
         
-                  A list of "DataActionSummary" objects.
+                  A list of \"DataActionSummary\" objects.
         
                   - *(dict) --* 
         
                     - **actionName** *(string) --* 
         
-                      The name of the action which automatically creates the data set's contents.
+                      The name of the action which automatically creates the data set\'s contents.
         
                     - **actionType** *(string) --* 
         
-                      The type of action by which the data set's contents are automatically created.
+                      The type of action by which the data set\'s contents are automatically created.
         
             - **nextToken** *(string) --* 
         
@@ -2409,7 +2409,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_datastores(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -2432,15 +2432,15 @@ class Client(BaseClient):
           ::
         
             {
-                'datastoreSummaries': [
+                \'datastoreSummaries\': [
                     {
-                        'datastoreName': 'string',
-                        'status': 'CREATING'|'ACTIVE'|'DELETING',
-                        'creationTime': datetime(2015, 1, 1),
-                        'lastUpdateTime': datetime(2015, 1, 1)
+                        \'datastoreName\': \'string\',
+                        \'status\': \'CREATING\'|\'ACTIVE\'|\'DELETING\',
+                        \'creationTime\': datetime(2015, 1, 1),
+                        \'lastUpdateTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2448,7 +2448,7 @@ class Client(BaseClient):
             
             - **datastoreSummaries** *(list) --* 
         
-              A list of "DatastoreSummary" objects.
+              A list of \"DatastoreSummary\" objects.
         
               - *(dict) --* 
         
@@ -2486,7 +2486,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_pipelines(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -2509,21 +2509,21 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineSummaries': [
+                \'pipelineSummaries\': [
                     {
-                        'pipelineName': 'string',
-                        'reprocessingSummaries': [
+                        \'pipelineName\': \'string\',
+                        \'reprocessingSummaries\': [
                             {
-                                'id': 'string',
-                                'status': 'RUNNING'|'SUCCEEDED'|'CANCELLED'|'FAILED',
-                                'creationTime': datetime(2015, 1, 1)
+                                \'id\': \'string\',
+                                \'status\': \'RUNNING\'|\'SUCCEEDED\'|\'CANCELLED\'|\'FAILED\',
+                                \'creationTime\': datetime(2015, 1, 1)
                             },
                         ],
-                        'creationTime': datetime(2015, 1, 1),
-                        'lastUpdateTime': datetime(2015, 1, 1)
+                        \'creationTime\': datetime(2015, 1, 1),
+                        \'lastUpdateTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2531,7 +2531,7 @@ class Client(BaseClient):
             
             - **pipelineSummaries** *(list) --* 
         
-              A list of "PipelineSummary" objects.
+              A list of \"PipelineSummary\" objects.
         
               - *(dict) --* 
         
@@ -2551,7 +2551,7 @@ class Client(BaseClient):
         
                     - **id** *(string) --* 
         
-                      The 'reprocessingId' returned by "StartPipelineReprocessing".
+                      The \'reprocessingId\' returned by \"StartPipelineReprocessing\".
         
                     - **status** *(string) --* 
         
@@ -2585,7 +2585,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              resourceArn='string'
+              resourceArn=\'string\'
           )
         :type resourceArn: string
         :param resourceArn: **[REQUIRED]** 
@@ -2600,10 +2600,10 @@ class Client(BaseClient):
           ::
         
             {
-                'tags': [
+                \'tags\': [
                     {
-                        'key': 'string',
-                        'value': 'string'
+                        \'key\': \'string\',
+                        \'value\': \'string\'
                     },
                 ]
             }
@@ -2621,11 +2621,11 @@ class Client(BaseClient):
         
                 - **key** *(string) --* 
         
-                  The tag's key.
+                  The tag\'s key.
         
                 - **value** *(string) --* 
         
-                  The tag's value.
+                  The tag\'s value.
         
         """
         pass
@@ -2642,9 +2642,9 @@ class Client(BaseClient):
         
           response = client.put_logging_options(
               loggingOptions={
-                  'roleArn': 'string',
-                  'level': 'ERROR',
-                  'enabled': True|False
+                  \'roleArn\': \'string\',
+                  \'level\': \'ERROR\',
+                  \'enabled\': True|False
               }
           )
         :type loggingOptions: dict
@@ -2658,7 +2658,7 @@ class Client(BaseClient):
         
           - **level** *(string) --* **[REQUIRED]** 
         
-            The logging level. Currently, only "ERROR" is supported.
+            The logging level. Currently, only \"ERROR\" is supported.
         
           - **enabled** *(boolean) --* **[REQUIRED]** 
         
@@ -2678,76 +2678,76 @@ class Client(BaseClient):
         
           response = client.run_pipeline_activity(
               pipelineActivity={
-                  'channel': {
-                      'name': 'string',
-                      'channelName': 'string',
-                      'next': 'string'
+                  \'channel\': {
+                      \'name\': \'string\',
+                      \'channelName\': \'string\',
+                      \'next\': \'string\'
                   },
-                  'lambda': {
-                      'name': 'string',
-                      'lambdaName': 'string',
-                      'batchSize': 123,
-                      'next': 'string'
+                  \'lambda\': {
+                      \'name\': \'string\',
+                      \'lambdaName\': \'string\',
+                      \'batchSize\': 123,
+                      \'next\': \'string\'
                   },
-                  'datastore': {
-                      'name': 'string',
-                      'datastoreName': 'string'
+                  \'datastore\': {
+                      \'name\': \'string\',
+                      \'datastoreName\': \'string\'
                   },
-                  'addAttributes': {
-                      'name': 'string',
-                      'attributes': {
-                          'string': 'string'
+                  \'addAttributes\': {
+                      \'name\': \'string\',
+                      \'attributes\': {
+                          \'string\': \'string\'
                       },
-                      'next': 'string'
+                      \'next\': \'string\'
                   },
-                  'removeAttributes': {
-                      'name': 'string',
-                      'attributes': [
-                          'string',
+                  \'removeAttributes\': {
+                      \'name\': \'string\',
+                      \'attributes\': [
+                          \'string\',
                       ],
-                      'next': 'string'
+                      \'next\': \'string\'
                   },
-                  'selectAttributes': {
-                      'name': 'string',
-                      'attributes': [
-                          'string',
+                  \'selectAttributes\': {
+                      \'name\': \'string\',
+                      \'attributes\': [
+                          \'string\',
                       ],
-                      'next': 'string'
+                      \'next\': \'string\'
                   },
-                  'filter': {
-                      'name': 'string',
-                      'filter': 'string',
-                      'next': 'string'
+                  \'filter\': {
+                      \'name\': \'string\',
+                      \'filter\': \'string\',
+                      \'next\': \'string\'
                   },
-                  'math': {
-                      'name': 'string',
-                      'attribute': 'string',
-                      'math': 'string',
-                      'next': 'string'
+                  \'math\': {
+                      \'name\': \'string\',
+                      \'attribute\': \'string\',
+                      \'math\': \'string\',
+                      \'next\': \'string\'
                   },
-                  'deviceRegistryEnrich': {
-                      'name': 'string',
-                      'attribute': 'string',
-                      'thingName': 'string',
-                      'roleArn': 'string',
-                      'next': 'string'
+                  \'deviceRegistryEnrich\': {
+                      \'name\': \'string\',
+                      \'attribute\': \'string\',
+                      \'thingName\': \'string\',
+                      \'roleArn\': \'string\',
+                      \'next\': \'string\'
                   },
-                  'deviceShadowEnrich': {
-                      'name': 'string',
-                      'attribute': 'string',
-                      'thingName': 'string',
-                      'roleArn': 'string',
-                      'next': 'string'
+                  \'deviceShadowEnrich\': {
+                      \'name\': \'string\',
+                      \'attribute\': \'string\',
+                      \'thingName\': \'string\',
+                      \'roleArn\': \'string\',
+                      \'next\': \'string\'
                   }
               },
               payloads=[
-                  b'bytes',
+                  b\'bytes\',
               ]
           )
         :type pipelineActivity: dict
         :param pipelineActivity: **[REQUIRED]** 
         
-          The pipeline activity that is run. This must not be a 'channel' activity or a 'datastore' activity because these activities are used in a pipeline only to load the original message and to store the (possibly) transformed message. If a 'lambda' activity is specified, only short-running Lambda functions (those with a timeout of less than 30 seconds or less) can be used.
+          The pipeline activity that is run. This must not be a \'channel\' activity or a \'datastore\' activity because these activities are used in a pipeline only to load the original message and to store the (possibly) transformed message. If a \'lambda\' activity is specified, only short-running Lambda functions (those with a timeout of less than 30 seconds or less) can be used.
         
           - **channel** *(dict) --* 
         
@@ -2755,7 +2755,7 @@ class Client(BaseClient):
         
             - **name** *(string) --* **[REQUIRED]** 
         
-              The name of the 'channel' activity.
+              The name of the \'channel\' activity.
         
             - **channelName** *(string) --* **[REQUIRED]** 
         
@@ -2771,7 +2771,7 @@ class Client(BaseClient):
         
             - **name** *(string) --* **[REQUIRED]** 
         
-              The name of the 'lambda' activity.
+              The name of the \'lambda\' activity.
         
             - **lambdaName** *(string) --* **[REQUIRED]** 
         
@@ -2793,7 +2793,7 @@ class Client(BaseClient):
         
             - **name** *(string) --* **[REQUIRED]** 
         
-              The name of the 'datastore' activity.
+              The name of the \'datastore\' activity.
         
             - **datastoreName** *(string) --* **[REQUIRED]** 
         
@@ -2805,15 +2805,15 @@ class Client(BaseClient):
         
             - **name** *(string) --* **[REQUIRED]** 
         
-              The name of the 'addAttributes' activity.
+              The name of the \'addAttributes\' activity.
         
             - **attributes** *(dict) --* **[REQUIRED]** 
         
-              A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
+              A list of 1-50 \"AttributeNameMapping\" objects that map an existing attribute to a new attribute.
         
               .. note::
         
-                The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
+                The existing attributes remain in the message, so if you want to remove the originals, use \"RemoveAttributeActivity\".
         
               - *(string) --* 
         
@@ -2829,7 +2829,7 @@ class Client(BaseClient):
         
             - **name** *(string) --* **[REQUIRED]** 
         
-              The name of the 'removeAttributes' activity.
+              The name of the \'removeAttributes\' activity.
         
             - **attributes** *(list) --* **[REQUIRED]** 
         
@@ -2847,7 +2847,7 @@ class Client(BaseClient):
         
             - **name** *(string) --* **[REQUIRED]** 
         
-              The name of the 'selectAttributes' activity.
+              The name of the \'selectAttributes\' activity.
         
             - **attributes** *(list) --* **[REQUIRED]** 
         
@@ -2865,7 +2865,7 @@ class Client(BaseClient):
         
             - **name** *(string) --* **[REQUIRED]** 
         
-              The name of the 'filter' activity.
+              The name of the \'filter\' activity.
         
             - **filter** *(string) --* **[REQUIRED]** 
         
@@ -2877,11 +2877,11 @@ class Client(BaseClient):
         
           - **math** *(dict) --* 
         
-            Computes an arithmetic expression using the message's attributes and adds it to the message.
+            Computes an arithmetic expression using the message\'s attributes and adds it to the message.
         
             - **name** *(string) --* **[REQUIRED]** 
         
-              The name of the 'math' activity.
+              The name of the \'math\' activity.
         
             - **attribute** *(string) --* **[REQUIRED]** 
         
@@ -2901,7 +2901,7 @@ class Client(BaseClient):
         
             - **name** *(string) --* **[REQUIRED]** 
         
-              The name of the 'deviceRegistryEnrich' activity.
+              The name of the \'deviceRegistryEnrich\' activity.
         
             - **attribute** *(string) --* **[REQUIRED]** 
         
@@ -2913,7 +2913,7 @@ class Client(BaseClient):
         
             - **roleArn** *(string) --* **[REQUIRED]** 
         
-              The ARN of the role that allows access to the device's registry information.
+              The ARN of the role that allows access to the device\'s registry information.
         
             - **next** *(string) --* 
         
@@ -2925,7 +2925,7 @@ class Client(BaseClient):
         
             - **name** *(string) --* **[REQUIRED]** 
         
-              The name of the 'deviceShadowEnrich' activity.
+              The name of the \'deviceShadowEnrich\' activity.
         
             - **attribute** *(string) --* **[REQUIRED]** 
         
@@ -2937,7 +2937,7 @@ class Client(BaseClient):
         
             - **roleArn** *(string) --* **[REQUIRED]** 
         
-              The ARN of the role that allows access to the device's shadow.
+              The ARN of the role that allows access to the device\'s shadow.
         
             - **next** *(string) --* 
         
@@ -2958,10 +2958,10 @@ class Client(BaseClient):
           ::
         
             {
-                'payloads': [
-                    b'bytes',
+                \'payloads\': [
+                    b\'bytes\',
                 ],
-                'logResult': 'string'
+                \'logResult\': \'string\'
             }
           **Response Structure** 
         
@@ -2989,7 +2989,7 @@ class Client(BaseClient):
         ::
         
           response = client.sample_channel_data(
-              channelName='string',
+              channelName=\'string\',
               maxMessages=123,
               startTime=datetime(2015, 1, 1),
               endTime=datetime(2015, 1, 1)
@@ -3022,8 +3022,8 @@ class Client(BaseClient):
           ::
         
             {
-                'payloads': [
-                    b'bytes',
+                \'payloads\': [
+                    b\'bytes\',
                 ]
             }
           **Response Structure** 
@@ -3048,7 +3048,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_pipeline_reprocessing(
-              pipelineName='string',
+              pipelineName=\'string\',
               startTime=datetime(2015, 1, 1),
               endTime=datetime(2015, 1, 1)
           )
@@ -3075,7 +3075,7 @@ class Client(BaseClient):
           ::
         
             {
-                'reprocessingId': 'string'
+                \'reprocessingId\': \'string\'
             }
           **Response Structure** 
         
@@ -3097,11 +3097,11 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              resourceArn='string',
+              resourceArn=\'string\',
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -3121,11 +3121,11 @@ class Client(BaseClient):
         
             - **key** *(string) --* **[REQUIRED]** 
         
-              The tag's key.
+              The tag\'s key.
         
             - **value** *(string) --* **[REQUIRED]** 
         
-              The tag's value.
+              The tag\'s value.
         
         :rtype: dict
         :returns: 
@@ -3150,9 +3150,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              resourceArn='string',
+              resourceArn=\'string\',
               tagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type resourceArn: string
@@ -3190,10 +3190,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_channel(
-              channelName='string',
+              channelName=\'string\',
               retentionPeriod={
-                  'unlimited': True|False,
-                  'numberOfDays': 123
+                  \'unlimited\': True|False,
+                  \'numberOfDays\': 123
               }
           )
         :type channelName: string
@@ -3212,7 +3212,7 @@ class Client(BaseClient):
         
           - **numberOfDays** *(integer) --* 
         
-            The number of days that message data is kept. The "unlimited" parameter must be false.
+            The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
         :returns: None
         """
@@ -3227,38 +3227,38 @@ class Client(BaseClient):
         ::
         
           response = client.update_dataset(
-              datasetName='string',
+              datasetName=\'string\',
               actions=[
                   {
-                      'actionName': 'string',
-                      'queryAction': {
-                          'sqlQuery': 'string',
-                          'filters': [
+                      \'actionName\': \'string\',
+                      \'queryAction\': {
+                          \'sqlQuery\': \'string\',
+                          \'filters\': [
                               {
-                                  'deltaTime': {
-                                      'offsetSeconds': 123,
-                                      'timeExpression': 'string'
+                                  \'deltaTime\': {
+                                      \'offsetSeconds\': 123,
+                                      \'timeExpression\': \'string\'
                                   }
                               },
                           ]
                       },
-                      'containerAction': {
-                          'image': 'string',
-                          'executionRoleArn': 'string',
-                          'resourceConfiguration': {
-                              'computeType': 'ACU_1'|'ACU_2',
-                              'volumeSizeInGB': 123
+                      \'containerAction\': {
+                          \'image\': \'string\',
+                          \'executionRoleArn\': \'string\',
+                          \'resourceConfiguration\': {
+                              \'computeType\': \'ACU_1\'|\'ACU_2\',
+                              \'volumeSizeInGB\': 123
                           },
-                          'variables': [
+                          \'variables\': [
                               {
-                                  'name': 'string',
-                                  'stringValue': 'string',
-                                  'doubleValue': 123.0,
-                                  'datasetContentVersionValue': {
-                                      'datasetName': 'string'
+                                  \'name\': \'string\',
+                                  \'stringValue\': \'string\',
+                                  \'doubleValue\': 123.0,
+                                  \'datasetContentVersionValue\': {
+                                      \'datasetName\': \'string\'
                                   },
-                                  'outputFileUriValue': {
-                                      'fileName': 'string'
+                                  \'outputFileUriValue\': {
+                                      \'fileName\': \'string\'
                                   }
                               },
                           ]
@@ -3267,17 +3267,17 @@ class Client(BaseClient):
               ],
               triggers=[
                   {
-                      'schedule': {
-                          'expression': 'string'
+                      \'schedule\': {
+                          \'expression\': \'string\'
                       },
-                      'dataset': {
-                          'name': 'string'
+                      \'dataset\': {
+                          \'name\': \'string\'
                       }
                   },
               ],
               retentionPeriod={
-                  'unlimited': True|False,
-                  'numberOfDays': 123
+                  \'unlimited\': True|False,
+                  \'numberOfDays\': 123
               }
           )
         :type datasetName: string
@@ -3288,11 +3288,11 @@ class Client(BaseClient):
         :type actions: list
         :param actions: **[REQUIRED]** 
         
-          A list of "DatasetAction" objects.
+          A list of \"DatasetAction\" objects.
         
           - *(dict) --* 
         
-            A "DatasetAction" object specifying the query that creates the data set content.
+            A \"DatasetAction\" object specifying the query that creates the data set content.
         
             - **actionName** *(string) --* 
         
@@ -3300,7 +3300,7 @@ class Client(BaseClient):
         
             - **queryAction** *(dict) --* 
         
-              An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+              An \"SqlQueryDatasetAction\" object that contains the SQL query to modify the message.
         
               - **sqlQuery** *(string) --* **[REQUIRED]** 
         
@@ -3316,11 +3316,11 @@ class Client(BaseClient):
         
                   - **deltaTime** *(dict) --* 
         
-                    Used to limit data to that which has arrived since the last execution of the action. When you create data set contents using message data from a specified time frame, some message data may still be "in flight" when processing begins, and so will not arrive in time to be processed. Use this field to make allowances for the "in flight" time of you message data, so that data not processed from a previous time frame will be included with the next time frame. Without this, missed message data would be excluded from processing during the next time frame as well, because its timestamp places it within the previous time frame.
+                    Used to limit data to that which has arrived since the last execution of the action. When you create data set contents using message data from a specified time frame, some message data may still be \"in flight\" when processing begins, and so will not arrive in time to be processed. Use this field to make allowances for the \"in flight\" time of you message data, so that data not processed from a previous time frame will be included with the next time frame. Without this, missed message data would be excluded from processing during the next time frame as well, because its timestamp places it within the previous time frame.
         
                     - **offsetSeconds** *(integer) --* **[REQUIRED]** 
         
-                      The number of seconds of estimated "in flight" lag time of message data.
+                      The number of seconds of estimated \"in flight\" lag time of message data.
         
                     - **timeExpression** *(string) --* **[REQUIRED]** 
         
@@ -3336,27 +3336,27 @@ class Client(BaseClient):
         
               - **executionRoleArn** *(string) --* **[REQUIRED]** 
         
-                The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
+                The ARN of the role which gives permission to the system to access needed resources in order to run the \"containerAction\". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
         
               - **resourceConfiguration** *(dict) --* **[REQUIRED]** 
         
-                Configuration of the resource which executes the "containerAction".
+                Configuration of the resource which executes the \"containerAction\".
         
                 - **computeType** *(string) --* **[REQUIRED]** 
         
-                  The type of the compute resource used to execute the "containerAction". Possible values are: ACU_1 (vCPU=4, memory=16GiB) or ACU_2 (vCPU=8, memory=32GiB).
+                  The type of the compute resource used to execute the \"containerAction\". Possible values are: ACU_1 (vCPU=4, memory=16GiB) or ACU_2 (vCPU=8, memory=32GiB).
         
                 - **volumeSizeInGB** *(integer) --* **[REQUIRED]** 
         
-                  The size (in GB) of the persistent storage available to the resource instance used to execute the "containerAction" (min: 1, max: 50).
+                  The size (in GB) of the persistent storage available to the resource instance used to execute the \"containerAction\" (min: 1, max: 50).
         
               - **variables** *(list) --* 
         
-                The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
+                The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of \"stringValue\", \"datasetContentVersionValue\", or \"outputFileUriValue\".
         
                 - *(dict) --* 
         
-                  An instance of a variable to be passed to the "containerAction" execution. Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
+                  An instance of a variable to be passed to the \"containerAction\" execution. Each variable must have a name and a value given by one of \"stringValue\", \"datasetContentVersionValue\", or \"outputFileUriValue\".
         
                   - **name** *(string) --* **[REQUIRED]** 
         
@@ -3389,15 +3389,15 @@ class Client(BaseClient):
         :type triggers: list
         :param triggers: 
         
-          A list of "DatasetTrigger" objects. The list can be empty or can contain up to five **DataSetTrigger** objects.
+          A list of \"DatasetTrigger\" objects. The list can be empty or can contain up to five **DataSetTrigger** objects.
         
           - *(dict) --* 
         
-            The "DatasetTrigger" that specifies when the data set is automatically updated.
+            The \"DatasetTrigger\" that specifies when the data set is automatically updated.
         
             - **schedule** *(dict) --* 
         
-              The "Schedule" when the trigger is initiated.
+              The \"Schedule\" when the trigger is initiated.
         
               - **expression** *(string) --* 
         
@@ -3405,7 +3405,7 @@ class Client(BaseClient):
         
             - **dataset** *(dict) --* 
         
-              The data set whose content creation will trigger the creation of this data set's contents.
+              The data set whose content creation will trigger the creation of this data set\'s contents.
         
               - **name** *(string) --* **[REQUIRED]** 
         
@@ -3422,7 +3422,7 @@ class Client(BaseClient):
         
           - **numberOfDays** *(integer) --* 
         
-            The number of days that message data is kept. The "unlimited" parameter must be false.
+            The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
         :returns: None
         """
@@ -3437,10 +3437,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_datastore(
-              datastoreName='string',
+              datastoreName=\'string\',
               retentionPeriod={
-                  'unlimited': True|False,
-                  'numberOfDays': 123
+                  \'unlimited\': True|False,
+                  \'numberOfDays\': 123
               }
           )
         :type datastoreName: string
@@ -3459,7 +3459,7 @@ class Client(BaseClient):
         
           - **numberOfDays** *(integer) --* 
         
-            The number of days that message data is kept. The "unlimited" parameter must be false.
+            The number of days that message data is kept. The \"unlimited\" parameter must be false.
         
         :returns: None
         """
@@ -3474,69 +3474,69 @@ class Client(BaseClient):
         ::
         
           response = client.update_pipeline(
-              pipelineName='string',
+              pipelineName=\'string\',
               pipelineActivities=[
                   {
-                      'channel': {
-                          'name': 'string',
-                          'channelName': 'string',
-                          'next': 'string'
+                      \'channel\': {
+                          \'name\': \'string\',
+                          \'channelName\': \'string\',
+                          \'next\': \'string\'
                       },
-                      'lambda': {
-                          'name': 'string',
-                          'lambdaName': 'string',
-                          'batchSize': 123,
-                          'next': 'string'
+                      \'lambda\': {
+                          \'name\': \'string\',
+                          \'lambdaName\': \'string\',
+                          \'batchSize\': 123,
+                          \'next\': \'string\'
                       },
-                      'datastore': {
-                          'name': 'string',
-                          'datastoreName': 'string'
+                      \'datastore\': {
+                          \'name\': \'string\',
+                          \'datastoreName\': \'string\'
                       },
-                      'addAttributes': {
-                          'name': 'string',
-                          'attributes': {
-                              'string': 'string'
+                      \'addAttributes\': {
+                          \'name\': \'string\',
+                          \'attributes\': {
+                              \'string\': \'string\'
                           },
-                          'next': 'string'
+                          \'next\': \'string\'
                       },
-                      'removeAttributes': {
-                          'name': 'string',
-                          'attributes': [
-                              'string',
+                      \'removeAttributes\': {
+                          \'name\': \'string\',
+                          \'attributes\': [
+                              \'string\',
                           ],
-                          'next': 'string'
+                          \'next\': \'string\'
                       },
-                      'selectAttributes': {
-                          'name': 'string',
-                          'attributes': [
-                              'string',
+                      \'selectAttributes\': {
+                          \'name\': \'string\',
+                          \'attributes\': [
+                              \'string\',
                           ],
-                          'next': 'string'
+                          \'next\': \'string\'
                       },
-                      'filter': {
-                          'name': 'string',
-                          'filter': 'string',
-                          'next': 'string'
+                      \'filter\': {
+                          \'name\': \'string\',
+                          \'filter\': \'string\',
+                          \'next\': \'string\'
                       },
-                      'math': {
-                          'name': 'string',
-                          'attribute': 'string',
-                          'math': 'string',
-                          'next': 'string'
+                      \'math\': {
+                          \'name\': \'string\',
+                          \'attribute\': \'string\',
+                          \'math\': \'string\',
+                          \'next\': \'string\'
                       },
-                      'deviceRegistryEnrich': {
-                          'name': 'string',
-                          'attribute': 'string',
-                          'thingName': 'string',
-                          'roleArn': 'string',
-                          'next': 'string'
+                      \'deviceRegistryEnrich\': {
+                          \'name\': \'string\',
+                          \'attribute\': \'string\',
+                          \'thingName\': \'string\',
+                          \'roleArn\': \'string\',
+                          \'next\': \'string\'
                       },
-                      'deviceShadowEnrich': {
-                          'name': 'string',
-                          'attribute': 'string',
-                          'thingName': 'string',
-                          'roleArn': 'string',
-                          'next': 'string'
+                      \'deviceShadowEnrich\': {
+                          \'name\': \'string\',
+                          \'attribute\': \'string\',
+                          \'thingName\': \'string\',
+                          \'roleArn\': \'string\',
+                          \'next\': \'string\'
                       }
                   },
               ]
@@ -3549,7 +3549,7 @@ class Client(BaseClient):
         :type pipelineActivities: list
         :param pipelineActivities: **[REQUIRED]** 
         
-          A list of "PipelineActivity" objects.
+          A list of \"PipelineActivity\" objects.
         
           The list can be 1-25 **PipelineActivity** objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
         
@@ -3563,7 +3563,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'channel' activity.
+                The name of the \'channel\' activity.
         
               - **channelName** *(string) --* **[REQUIRED]** 
         
@@ -3579,7 +3579,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'lambda' activity.
+                The name of the \'lambda\' activity.
         
               - **lambdaName** *(string) --* **[REQUIRED]** 
         
@@ -3601,7 +3601,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'datastore' activity.
+                The name of the \'datastore\' activity.
         
               - **datastoreName** *(string) --* **[REQUIRED]** 
         
@@ -3613,15 +3613,15 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'addAttributes' activity.
+                The name of the \'addAttributes\' activity.
         
               - **attributes** *(dict) --* **[REQUIRED]** 
         
-                A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
+                A list of 1-50 \"AttributeNameMapping\" objects that map an existing attribute to a new attribute.
         
                 .. note::
         
-                  The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
+                  The existing attributes remain in the message, so if you want to remove the originals, use \"RemoveAttributeActivity\".
         
                 - *(string) --* 
         
@@ -3637,7 +3637,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'removeAttributes' activity.
+                The name of the \'removeAttributes\' activity.
         
               - **attributes** *(list) --* **[REQUIRED]** 
         
@@ -3655,7 +3655,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'selectAttributes' activity.
+                The name of the \'selectAttributes\' activity.
         
               - **attributes** *(list) --* **[REQUIRED]** 
         
@@ -3673,7 +3673,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'filter' activity.
+                The name of the \'filter\' activity.
         
               - **filter** *(string) --* **[REQUIRED]** 
         
@@ -3685,11 +3685,11 @@ class Client(BaseClient):
         
             - **math** *(dict) --* 
         
-              Computes an arithmetic expression using the message's attributes and adds it to the message.
+              Computes an arithmetic expression using the message\'s attributes and adds it to the message.
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'math' activity.
+                The name of the \'math\' activity.
         
               - **attribute** *(string) --* **[REQUIRED]** 
         
@@ -3709,7 +3709,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'deviceRegistryEnrich' activity.
+                The name of the \'deviceRegistryEnrich\' activity.
         
               - **attribute** *(string) --* **[REQUIRED]** 
         
@@ -3721,7 +3721,7 @@ class Client(BaseClient):
         
               - **roleArn** *(string) --* **[REQUIRED]** 
         
-                The ARN of the role that allows access to the device's registry information.
+                The ARN of the role that allows access to the device\'s registry information.
         
               - **next** *(string) --* 
         
@@ -3733,7 +3733,7 @@ class Client(BaseClient):
         
               - **name** *(string) --* **[REQUIRED]** 
         
-                The name of the 'deviceShadowEnrich' activity.
+                The name of the \'deviceShadowEnrich\' activity.
         
               - **attribute** *(string) --* **[REQUIRED]** 
         
@@ -3745,7 +3745,7 @@ class Client(BaseClient):
         
               - **roleArn** *(string) --* **[REQUIRED]** 
         
-                The ARN of the role that allows access to the device's shadow.
+                The ARN of the role that allows access to the device\'s shadow.
         
               - **next** *(string) --* 
         

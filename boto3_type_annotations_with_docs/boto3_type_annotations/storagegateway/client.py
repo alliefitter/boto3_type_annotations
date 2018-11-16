@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -21,13 +21,13 @@ class Client(BaseClient):
         ::
         
           response = client.activate_gateway(
-              ActivationKey='string',
-              GatewayName='string',
-              GatewayTimezone='string',
-              GatewayRegion='string',
-              GatewayType='string',
-              TapeDriveType='string',
-              MediumChangerType='string'
+              ActivationKey=\'string\',
+              GatewayName=\'string\',
+              GatewayTimezone=\'string\',
+              GatewayRegion=\'string\',
+              GatewayType=\'string\',
+              TapeDriveType=\'string\',
+              MediumChangerType=\'string\'
           )
         :type ActivationKey: string
         :param ActivationKey: **[REQUIRED]** 
@@ -44,35 +44,35 @@ class Client(BaseClient):
         :type GatewayTimezone: string
         :param GatewayTimezone: **[REQUIRED]** 
         
-          A value that indicates the time zone you want to set for the gateway. The time zone is of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
+          A value that indicates the time zone you want to set for the gateway. The time zone is of the format \"GMT-hr:mm\" or \"GMT+hr:mm\". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway\'s maintenance schedule.
         
         :type GatewayRegion: string
         :param GatewayRegion: **[REQUIRED]** 
         
           A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your ``Host`` header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region>`__ in the *Amazon Web Services Glossary* .
         
-          Valid Values: "us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1", "eu-west-1", "eu-central-1", "eu-west-2", "eu-west-3", "ap-northeast-1", "ap-northeast-2", "ap-southeast-1", "ap-southeast-2", "ap-south-1", "sa-east-1"
+          Valid Values: \"us-east-1\", \"us-east-2\", \"us-west-1\", \"us-west-2\", \"ca-central-1\", \"eu-west-1\", \"eu-central-1\", \"eu-west-2\", \"eu-west-3\", \"ap-northeast-1\", \"ap-northeast-2\", \"ap-southeast-1\", \"ap-southeast-2\", \"ap-south-1\", \"sa-east-1\"
         
         :type GatewayType: string
         :param GatewayType: 
         
           A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is ``CACHED`` . 
         
-          Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
+          Valid Values: \"STORED\", \"CACHED\", \"VTL\", \"FILE_S3\"
         
         :type TapeDriveType: string
         :param TapeDriveType: 
         
           The value that indicates the type of tape drive to use for tape gateway. This field is optional.
         
-          Valid Values: "IBM-ULT3580-TD5" 
+          Valid Values: \"IBM-ULT3580-TD5\" 
         
         :type MediumChangerType: string
         :param MediumChangerType: 
         
           The value that indicates the type of medium changer to use for tape gateway. This field is optional.
         
-          Valid Values: "STK-L700", "AWS-Gateway-VTL"
+          Valid Values: \"STK-L700\", \"AWS-Gateway-VTL\"
         
         :rtype: dict
         :returns: 
@@ -82,7 +82,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -112,9 +112,9 @@ class Client(BaseClient):
         ::
         
           response = client.add_cache(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               DiskIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type GatewayARN: string
@@ -135,7 +135,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -166,11 +166,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags_to_resource(
-              ResourceARN='string',
+              ResourceARN=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -202,7 +202,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceARN': 'string'
+                \'ResourceARN\': \'string\'
             }
           **Response Structure** 
         
@@ -228,9 +228,9 @@ class Client(BaseClient):
         ::
         
           response = client.add_upload_buffer(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               DiskIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type GatewayARN: string
@@ -251,7 +251,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -279,9 +279,9 @@ class Client(BaseClient):
         ::
         
           response = client.add_working_storage(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               DiskIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type GatewayARN: string
@@ -304,7 +304,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -325,10 +325,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -344,8 +344,8 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_archival(
-              GatewayARN='string',
-              TapeARN='string'
+              GatewayARN=\'string\',
+              TapeARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -365,7 +365,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TapeARN': 'string'
+                \'TapeARN\': \'string\'
             }
           **Response Structure** 
         
@@ -389,8 +389,8 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_retrieval(
-              GatewayARN='string',
-              TapeARN='string'
+              GatewayARN=\'string\',
+              TapeARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -410,7 +410,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TapeARN': 'string'
+                \'TapeARN\': \'string\'
             }
           **Response Structure** 
         
@@ -442,15 +442,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_cached_iscsi_volume(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               VolumeSizeInBytes=123,
-              SnapshotId='string',
-              TargetName='string',
-              SourceVolumeARN='string',
-              NetworkInterfaceId='string',
-              ClientToken='string',
+              SnapshotId=\'string\',
+              TargetName=\'string\',
+              SourceVolumeARN=\'string\',
+              NetworkInterfaceId=\'string\',
+              ClientToken=\'string\',
               KMSEncrypted=True|False,
-              KMSKey='string'
+              KMSKey=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -465,7 +465,7 @@ class Client(BaseClient):
         :type SnapshotId: string
         :param SnapshotId: 
         
-          The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use `DescribeSnapshots <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>`__ in the *Amazon Elastic Compute Cloud API Reference* .
+          The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new cached volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use `DescribeSnapshots <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>`__ in the *Amazon Elastic Compute Cloud API Reference* .
         
         :type TargetName: string
         :param TargetName: **[REQUIRED]** 
@@ -475,7 +475,7 @@ class Client(BaseClient):
         :type SourceVolumeARN: string
         :param SourceVolumeARN: 
         
-          The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The ``VolumeSizeInBytes`` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+          The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume\'s latest recovery point. The ``VolumeSizeInBytes`` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         
         :type NetworkInterfaceId: string
         :param NetworkInterfaceId: **[REQUIRED]** 
@@ -507,8 +507,8 @@ class Client(BaseClient):
           ::
         
             {
-                'VolumeARN': 'string',
-                'TargetARN': 'string'
+                \'VolumeARN\': \'string\',
+                \'TargetARN\': \'string\'
             }
           **Response Structure** 
         
@@ -540,24 +540,24 @@ class Client(BaseClient):
         ::
         
           response = client.create_nfs_file_share(
-              ClientToken='string',
+              ClientToken=\'string\',
               NFSFileShareDefaults={
-                  'FileMode': 'string',
-                  'DirectoryMode': 'string',
-                  'GroupId': 123,
-                  'OwnerId': 123
+                  \'FileMode\': \'string\',
+                  \'DirectoryMode\': \'string\',
+                  \'GroupId\': 123,
+                  \'OwnerId\': 123
               },
-              GatewayARN='string',
+              GatewayARN=\'string\',
               KMSEncrypted=True|False,
-              KMSKey='string',
-              Role='string',
-              LocationARN='string',
-              DefaultStorageClass='string',
-              ObjectACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'aws-exec-read',
+              KMSKey=\'string\',
+              Role=\'string\',
+              LocationARN=\'string\',
+              DefaultStorageClass=\'string\',
+              ObjectACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'aws-exec-read\',
               ClientList=[
-                  'string',
+                  \'string\',
               ],
-              Squash='string',
+              Squash=\'string\',
               ReadOnly=True|False,
               GuessMIMETypeEnabled=True|False,
               RequesterPays=True|False
@@ -574,11 +574,11 @@ class Client(BaseClient):
         
           - **FileMode** *(string) --* 
         
-            The Unix file mode in the form "nnnn". For example, "0666" represents the default file mode inside the file share. The default value is 0666. 
+            The Unix file mode in the form \"nnnn\". For example, \"0666\" represents the default file mode inside the file share. The default value is 0666. 
         
           - **DirectoryMode** *(string) --* 
         
-            The Unix directory mode in the form "nnnn". For example, "0666" represents the default access mode for all directories inside the file share. The default value is 0777.
+            The Unix directory mode in the form \"nnnn\". For example, \"0666\" represents the default access mode for all directories inside the file share. The default value is 0777.
         
           - **GroupId** *(integer) --* 
         
@@ -621,7 +621,7 @@ class Client(BaseClient):
         :type ObjectACL: string
         :param ObjectACL: 
         
-          A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
+          A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is \"private\".
         
         :type ClientList: list
         :param ClientList: 
@@ -664,7 +664,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FileShareARN': 'string'
+                \'FileShareARN\': \'string\'
             }
           **Response Structure** 
         
@@ -686,7 +686,7 @@ class Client(BaseClient):
         
           File gateways require AWS Security Token Service (AWS STS) to be activated to enable you to create a file share. Make sure that AWS STS is activated in the AWS Region you are creating your file gateway in. If AWS STS is not activated in this AWS Region, activate it. For information about how to activate AWS STS, see `Activating and Deactivating AWS STS in an AWS Region <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *AWS Identity and Access Management User Guide.*  
         
-          File gateways don't support creating hard or symbolic links on a file share.
+          File gateways don\'t support creating hard or symbolic links on a file share.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/CreateSMBFileShare>`_
         
@@ -694,24 +694,24 @@ class Client(BaseClient):
         ::
         
           response = client.create_smb_file_share(
-              ClientToken='string',
-              GatewayARN='string',
+              ClientToken=\'string\',
+              GatewayARN=\'string\',
               KMSEncrypted=True|False,
-              KMSKey='string',
-              Role='string',
-              LocationARN='string',
-              DefaultStorageClass='string',
-              ObjectACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'aws-exec-read',
+              KMSKey=\'string\',
+              Role=\'string\',
+              LocationARN=\'string\',
+              DefaultStorageClass=\'string\',
+              ObjectACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'aws-exec-read\',
               ReadOnly=True|False,
               GuessMIMETypeEnabled=True|False,
               RequesterPays=True|False,
               ValidUserList=[
-                  'string',
+                  \'string\',
               ],
               InvalidUserList=[
-                  'string',
+                  \'string\',
               ],
-              Authentication='string'
+              Authentication=\'string\'
           )
         :type ClientToken: string
         :param ClientToken: **[REQUIRED]** 
@@ -751,7 +751,7 @@ class Client(BaseClient):
         :type ObjectACL: string
         :param ObjectACL: 
         
-          A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
+          A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is \"private\".
         
         :type ReadOnly: boolean
         :param ReadOnly: 
@@ -797,7 +797,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FileShareARN': 'string'
+                \'FileShareARN\': \'string\'
             }
           **Response Structure** 
         
@@ -833,8 +833,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_snapshot(
-              VolumeARN='string',
-              SnapshotDescription='string'
+              VolumeARN=\'string\',
+              SnapshotDescription=\'string\'
           )
         :type VolumeARN: string
         :param VolumeARN: **[REQUIRED]** 
@@ -854,8 +854,8 @@ class Client(BaseClient):
           ::
         
             {
-                'VolumeARN': 'string',
-                'SnapshotId': 'string'
+                \'VolumeARN\': \'string\',
+                \'SnapshotId\': \'string\'
             }
           **Response Structure** 
         
@@ -891,8 +891,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_snapshot_from_volume_recovery_point(
-              VolumeARN='string',
-              SnapshotDescription='string'
+              VolumeARN=\'string\',
+              SnapshotDescription=\'string\'
           )
         :type VolumeARN: string
         :param VolumeARN: **[REQUIRED]** 
@@ -908,9 +908,9 @@ class Client(BaseClient):
           ::
         
             {
-                'SnapshotId': 'string',
-                'VolumeARN': 'string',
-                'VolumeRecoveryPointTime': 'string'
+                \'SnapshotId\': \'string\',
+                \'VolumeARN\': \'string\',
+                \'VolumeRecoveryPointTime\': \'string\'
             }
           **Response Structure** 
         
@@ -937,14 +937,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_stored_iscsi_volume(
-              GatewayARN='string',
-              DiskId='string',
-              SnapshotId='string',
+              GatewayARN=\'string\',
+              DiskId=\'string\',
+              SnapshotId=\'string\',
               PreserveExistingData=True|False,
-              TargetName='string',
-              NetworkInterfaceId='string',
+              TargetName=\'string\',
+              NetworkInterfaceId=\'string\',
               KMSEncrypted=True|False,
-              KMSKey='string'
+              KMSKey=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -959,7 +959,7 @@ class Client(BaseClient):
         :type SnapshotId: string
         :param SnapshotId: 
         
-          The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use `DescribeSnapshots <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>`__ in the *Amazon Elastic Compute Cloud API Reference* .
+          The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use `DescribeSnapshots <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>`__ in the *Amazon Elastic Compute Cloud API Reference* .
         
         :type PreserveExistingData: boolean
         :param PreserveExistingData: **[REQUIRED]** 
@@ -998,9 +998,9 @@ class Client(BaseClient):
           ::
         
             {
-                'VolumeARN': 'string',
-                'VolumeSizeInBytes': 123,
-                'TargetARN': 'string'
+                \'VolumeARN\': \'string\',
+                \'VolumeSizeInBytes\': 123,
+                \'TargetARN\': \'string\'
             }
           **Response Structure** 
         
@@ -1036,11 +1036,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_tape_with_barcode(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               TapeSizeInBytes=123,
-              TapeBarcode='string',
+              TapeBarcode=\'string\',
               KMSEncrypted=True|False,
-              KMSKey='string'
+              KMSKey=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -1083,7 +1083,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TapeARN': 'string'
+                \'TapeARN\': \'string\'
             }
           **Response Structure** 
         
@@ -1111,13 +1111,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_tapes(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               TapeSizeInBytes=123,
-              ClientToken='string',
+              ClientToken=\'string\',
               NumTapesToCreate=123,
-              TapeBarcodePrefix='string',
+              TapeBarcodePrefix=\'string\',
               KMSEncrypted=True|False,
-              KMSKey='string'
+              KMSKey=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -1174,8 +1174,8 @@ class Client(BaseClient):
           ::
         
             {
-                'TapeARNs': [
-                    'string',
+                \'TapeARNs\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -1202,8 +1202,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bandwidth_rate_limit(
-              GatewayARN='string',
-              BandwidthType='string'
+              GatewayARN=\'string\',
+              BandwidthType=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -1225,7 +1225,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -1249,8 +1249,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_chap_credentials(
-              TargetARN='string',
-              InitiatorName='string'
+              TargetARN=\'string\',
+              InitiatorName=\'string\'
           )
         :type TargetARN: string
         :param TargetARN: **[REQUIRED]** 
@@ -1270,8 +1270,8 @@ class Client(BaseClient):
           ::
         
             {
-                'TargetARN': 'string',
-                'InitiatorName': 'string'
+                \'TargetARN\': \'string\',
+                \'InitiatorName\': \'string\'
             }
           **Response Structure** 
         
@@ -1299,7 +1299,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_file_share(
-              FileShareARN='string',
+              FileShareARN=\'string\',
               ForceDelete=True|False
           )
         :type FileShareARN: string
@@ -1320,7 +1320,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FileShareARN': 'string'
+                \'FileShareARN\': \'string\'
             }
           **Response Structure** 
         
@@ -1350,7 +1350,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_gateway(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -1365,7 +1365,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -1395,7 +1395,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_snapshot_schedule(
-              VolumeARN='string'
+              VolumeARN=\'string\'
           )
         :type VolumeARN: string
         :param VolumeARN: **[REQUIRED]** 
@@ -1408,7 +1408,7 @@ class Client(BaseClient):
           ::
         
             {
-                'VolumeARN': 'string'
+                \'VolumeARN\': \'string\'
             }
           **Response Structure** 
         
@@ -1427,8 +1427,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_tape(
-              GatewayARN='string',
-              TapeARN='string'
+              GatewayARN=\'string\',
+              TapeARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -1448,7 +1448,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TapeARN': 'string'
+                \'TapeARN\': \'string\'
             }
           **Response Structure** 
         
@@ -1472,7 +1472,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_tape_archive(
-              TapeARN='string'
+              TapeARN=\'string\'
           )
         :type TapeARN: string
         :param TapeARN: **[REQUIRED]** 
@@ -1487,7 +1487,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TapeARN': 'string'
+                \'TapeARN\': \'string\'
             }
           **Response Structure** 
         
@@ -1515,7 +1515,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_volume(
-              VolumeARN='string'
+              VolumeARN=\'string\'
           )
         :type VolumeARN: string
         :param VolumeARN: **[REQUIRED]** 
@@ -1530,7 +1530,7 @@ class Client(BaseClient):
           ::
         
             {
-                'VolumeARN': 'string'
+                \'VolumeARN\': \'string\'
             }
           **Response Structure** 
         
@@ -1556,7 +1556,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_bandwidth_rate_limit(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -1571,9 +1571,9 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'AverageUploadRateLimitInBitsPerSec': 123,
-                'AverageDownloadRateLimitInBitsPerSec': 123
+                \'GatewayARN\': \'string\',
+                \'AverageUploadRateLimitInBitsPerSec\': 123,
+                \'AverageDownloadRateLimitInBitsPerSec\': 123
             }
           **Response Structure** 
         
@@ -1607,7 +1607,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cache(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -1622,15 +1622,15 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'DiskIds': [
-                    'string',
+                \'GatewayARN\': \'string\',
+                \'DiskIds\': [
+                    \'string\',
                 ],
-                'CacheAllocatedInBytes': 123,
-                'CacheUsedPercentage': 123.0,
-                'CacheDirtyPercentage': 123.0,
-                'CacheHitPercentage': 123.0,
-                'CacheMissPercentage': 123.0
+                \'CacheAllocatedInBytes\': 123,
+                \'CacheUsedPercentage\': 123.0,
+                \'CacheDirtyPercentage\': 123.0,
+                \'CacheHitPercentage\': 123.0,
+                \'CacheMissPercentage\': 123.0
             }
           **Response Structure** 
         
@@ -1668,7 +1668,7 @@ class Client(BaseClient):
         
           response = client.describe_cached_iscsi_volumes(
               VolumeARNs=[
-                  'string',
+                  \'string\',
               ]
           )
         :type VolumeARNs: list
@@ -1684,25 +1684,25 @@ class Client(BaseClient):
           ::
         
             {
-                'CachediSCSIVolumes': [
+                \'CachediSCSIVolumes\': [
                     {
-                        'VolumeARN': 'string',
-                        'VolumeId': 'string',
-                        'VolumeType': 'string',
-                        'VolumeStatus': 'string',
-                        'VolumeSizeInBytes': 123,
-                        'VolumeProgress': 123.0,
-                        'SourceSnapshotId': 'string',
-                        'VolumeiSCSIAttributes': {
-                            'TargetARN': 'string',
-                            'NetworkInterfaceId': 'string',
-                            'NetworkInterfacePort': 123,
-                            'LunNumber': 123,
-                            'ChapEnabled': True|False
+                        \'VolumeARN\': \'string\',
+                        \'VolumeId\': \'string\',
+                        \'VolumeType\': \'string\',
+                        \'VolumeStatus\': \'string\',
+                        \'VolumeSizeInBytes\': 123,
+                        \'VolumeProgress\': 123.0,
+                        \'SourceSnapshotId\': \'string\',
+                        \'VolumeiSCSIAttributes\': {
+                            \'TargetARN\': \'string\',
+                            \'NetworkInterfaceId\': \'string\',
+                            \'NetworkInterfacePort\': 123,
+                            \'LunNumber\': 123,
+                            \'ChapEnabled\': True|False
                         },
-                        'CreatedDate': datetime(2015, 1, 1),
-                        'VolumeUsedInBytes': 123,
-                        'KMSKey': 'string'
+                        \'CreatedDate\': datetime(2015, 1, 1),
+                        \'VolumeUsedInBytes\': 123,
+                        \'KMSKey\': \'string\'
                     },
                 ]
             }
@@ -1800,7 +1800,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_chap_credentials(
-              TargetARN='string'
+              TargetARN=\'string\'
           )
         :type TargetARN: string
         :param TargetARN: **[REQUIRED]** 
@@ -1815,12 +1815,12 @@ class Client(BaseClient):
           ::
         
             {
-                'ChapCredentials': [
+                \'ChapCredentials\': [
                     {
-                        'TargetARN': 'string',
-                        'SecretToAuthenticateInitiator': 'string',
-                        'InitiatorName': 'string',
-                        'SecretToAuthenticateTarget': 'string'
+                        \'TargetARN\': \'string\',
+                        \'SecretToAuthenticateInitiator\': \'string\',
+                        \'InitiatorName\': \'string\',
+                        \'SecretToAuthenticateTarget\': \'string\'
                     },
                 ]
             }
@@ -1876,7 +1876,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_gateway_information(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -1891,21 +1891,21 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'GatewayId': 'string',
-                'GatewayName': 'string',
-                'GatewayTimezone': 'string',
-                'GatewayState': 'string',
-                'GatewayNetworkInterfaces': [
+                \'GatewayARN\': \'string\',
+                \'GatewayId\': \'string\',
+                \'GatewayName\': \'string\',
+                \'GatewayTimezone\': \'string\',
+                \'GatewayState\': \'string\',
+                \'GatewayNetworkInterfaces\': [
                     {
-                        'Ipv4Address': 'string',
-                        'MacAddress': 'string',
-                        'Ipv6Address': 'string'
+                        \'Ipv4Address\': \'string\',
+                        \'MacAddress\': \'string\',
+                        \'Ipv6Address\': \'string\'
                     },
                 ],
-                'GatewayType': 'string',
-                'NextUpdateAvailabilityDate': 'string',
-                'LastSoftwareUpdate': 'string'
+                \'GatewayType\': \'string\',
+                \'NextUpdateAvailabilityDate\': \'string\',
+                \'LastSoftwareUpdate\': \'string\'
             }
           **Response Structure** 
         
@@ -1939,7 +1939,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Describes a gateway's network interface.
+                Describes a gateway\'s network interface.
         
                 - **Ipv4Address** *(string) --* 
         
@@ -1981,7 +1981,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_maintenance_start_time(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -1996,11 +1996,11 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'HourOfDay': 123,
-                'MinuteOfHour': 123,
-                'DayOfWeek': 123,
-                'Timezone': 'string'
+                \'GatewayARN\': \'string\',
+                \'HourOfDay\': 123,
+                \'MinuteOfHour\': 123,
+                \'DayOfWeek\': 123,
+                \'Timezone\': \'string\'
             }
           **Response Structure** 
         
@@ -2046,7 +2046,7 @@ class Client(BaseClient):
         
           response = client.describe_nfs_file_shares(
               FileShareARNList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type FileShareARNList: list
@@ -2066,32 +2066,32 @@ class Client(BaseClient):
           ::
         
             {
-                'NFSFileShareInfoList': [
+                \'NFSFileShareInfoList\': [
                     {
-                        'NFSFileShareDefaults': {
-                            'FileMode': 'string',
-                            'DirectoryMode': 'string',
-                            'GroupId': 123,
-                            'OwnerId': 123
+                        \'NFSFileShareDefaults\': {
+                            \'FileMode\': \'string\',
+                            \'DirectoryMode\': \'string\',
+                            \'GroupId\': 123,
+                            \'OwnerId\': 123
                         },
-                        'FileShareARN': 'string',
-                        'FileShareId': 'string',
-                        'FileShareStatus': 'string',
-                        'GatewayARN': 'string',
-                        'KMSEncrypted': True|False,
-                        'KMSKey': 'string',
-                        'Path': 'string',
-                        'Role': 'string',
-                        'LocationARN': 'string',
-                        'DefaultStorageClass': 'string',
-                        'ObjectACL': 'private'|'public-read'|'public-read-write'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'aws-exec-read',
-                        'ClientList': [
-                            'string',
+                        \'FileShareARN\': \'string\',
+                        \'FileShareId\': \'string\',
+                        \'FileShareStatus\': \'string\',
+                        \'GatewayARN\': \'string\',
+                        \'KMSEncrypted\': True|False,
+                        \'KMSKey\': \'string\',
+                        \'Path\': \'string\',
+                        \'Role\': \'string\',
+                        \'LocationARN\': \'string\',
+                        \'DefaultStorageClass\': \'string\',
+                        \'ObjectACL\': \'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'aws-exec-read\',
+                        \'ClientList\': [
+                            \'string\',
                         ],
-                        'Squash': 'string',
-                        'ReadOnly': True|False,
-                        'GuessMIMETypeEnabled': True|False,
-                        'RequesterPays': True|False
+                        \'Squash\': \'string\',
+                        \'ReadOnly\': True|False,
+                        \'GuessMIMETypeEnabled\': True|False,
+                        \'RequesterPays\': True|False
                     },
                 ]
             }
@@ -2111,15 +2111,15 @@ class Client(BaseClient):
         
                 - **NFSFileShareDefaults** *(dict) --* 
         
-                  Describes Network File System (NFS) file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported for file gateways.
+                  Describes Network File System (NFS) file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don\'t, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported for file gateways.
         
                   - **FileMode** *(string) --* 
         
-                    The Unix file mode in the form "nnnn". For example, "0666" represents the default file mode inside the file share. The default value is 0666. 
+                    The Unix file mode in the form \"nnnn\". For example, \"0666\" represents the default file mode inside the file share. The default value is 0666. 
         
                   - **DirectoryMode** *(string) --* 
         
-                    The Unix directory mode in the form "nnnn". For example, "0666" represents the default access mode for all directories inside the file share. The default value is 0777.
+                    The Unix directory mode in the form \"nnnn\". For example, \"0666\" represents the default access mode for all directories inside the file share. The default value is 0777.
         
                   - **GroupId** *(integer) --* 
         
@@ -2171,7 +2171,7 @@ class Client(BaseClient):
         
                 - **ObjectACL** *(string) --* 
         
-                  A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
+                  A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is \"private\".
         
                 - **ClientList** *(list) --* 
         
@@ -2214,7 +2214,7 @@ class Client(BaseClient):
         
           response = client.describe_smb_file_shares(
               FileShareARNList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type FileShareARNList: list
@@ -2234,29 +2234,29 @@ class Client(BaseClient):
           ::
         
             {
-                'SMBFileShareInfoList': [
+                \'SMBFileShareInfoList\': [
                     {
-                        'FileShareARN': 'string',
-                        'FileShareId': 'string',
-                        'FileShareStatus': 'string',
-                        'GatewayARN': 'string',
-                        'KMSEncrypted': True|False,
-                        'KMSKey': 'string',
-                        'Path': 'string',
-                        'Role': 'string',
-                        'LocationARN': 'string',
-                        'DefaultStorageClass': 'string',
-                        'ObjectACL': 'private'|'public-read'|'public-read-write'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'aws-exec-read',
-                        'ReadOnly': True|False,
-                        'GuessMIMETypeEnabled': True|False,
-                        'RequesterPays': True|False,
-                        'ValidUserList': [
-                            'string',
+                        \'FileShareARN\': \'string\',
+                        \'FileShareId\': \'string\',
+                        \'FileShareStatus\': \'string\',
+                        \'GatewayARN\': \'string\',
+                        \'KMSEncrypted\': True|False,
+                        \'KMSKey\': \'string\',
+                        \'Path\': \'string\',
+                        \'Role\': \'string\',
+                        \'LocationARN\': \'string\',
+                        \'DefaultStorageClass\': \'string\',
+                        \'ObjectACL\': \'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'aws-exec-read\',
+                        \'ReadOnly\': True|False,
+                        \'GuessMIMETypeEnabled\': True|False,
+                        \'RequesterPays\': True|False,
+                        \'ValidUserList\': [
+                            \'string\',
                         ],
-                        'InvalidUserList': [
-                            'string',
+                        \'InvalidUserList\': [
+                            \'string\',
                         ],
-                        'Authentication': 'string'
+                        \'Authentication\': \'string\'
                     },
                 ]
             }
@@ -2316,7 +2316,7 @@ class Client(BaseClient):
         
                 - **ObjectACL** *(string) --* 
         
-                  A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
+                  A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is \"private\".
         
                 - **ReadOnly** *(boolean) --* 
         
@@ -2360,7 +2360,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_smb_settings(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -2375,9 +2375,9 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'DomainName': 'string',
-                'SMBGuestPasswordSet': True|False
+                \'GatewayARN\': \'string\',
+                \'DomainName\': \'string\',
+                \'SMBGuestPasswordSet\': True|False
             }
           **Response Structure** 
         
@@ -2407,7 +2407,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_snapshot_schedule(
-              VolumeARN='string'
+              VolumeARN=\'string\'
           )
         :type VolumeARN: string
         :param VolumeARN: **[REQUIRED]** 
@@ -2422,11 +2422,11 @@ class Client(BaseClient):
           ::
         
             {
-                'VolumeARN': 'string',
-                'StartAt': 123,
-                'RecurrenceInHours': 123,
-                'Description': 'string',
-                'Timezone': 'string'
+                \'VolumeARN\': \'string\',
+                \'StartAt\': 123,
+                \'RecurrenceInHours\': 123,
+                \'Description\': \'string\',
+                \'Timezone\': \'string\'
             }
           **Response Structure** 
         
@@ -2454,7 +2454,7 @@ class Client(BaseClient):
         
           response = client.describe_stored_iscsi_volumes(
               VolumeARNs=[
-                  'string',
+                  \'string\',
               ]
           )
         :type VolumeARNs: list
@@ -2472,27 +2472,27 @@ class Client(BaseClient):
           ::
         
             {
-                'StorediSCSIVolumes': [
+                \'StorediSCSIVolumes\': [
                     {
-                        'VolumeARN': 'string',
-                        'VolumeId': 'string',
-                        'VolumeType': 'string',
-                        'VolumeStatus': 'string',
-                        'VolumeSizeInBytes': 123,
-                        'VolumeProgress': 123.0,
-                        'VolumeDiskId': 'string',
-                        'SourceSnapshotId': 'string',
-                        'PreservedExistingData': True|False,
-                        'VolumeiSCSIAttributes': {
-                            'TargetARN': 'string',
-                            'NetworkInterfaceId': 'string',
-                            'NetworkInterfacePort': 123,
-                            'LunNumber': 123,
-                            'ChapEnabled': True|False
+                        \'VolumeARN\': \'string\',
+                        \'VolumeId\': \'string\',
+                        \'VolumeType\': \'string\',
+                        \'VolumeStatus\': \'string\',
+                        \'VolumeSizeInBytes\': 123,
+                        \'VolumeProgress\': 123.0,
+                        \'VolumeDiskId\': \'string\',
+                        \'SourceSnapshotId\': \'string\',
+                        \'PreservedExistingData\': True|False,
+                        \'VolumeiSCSIAttributes\': {
+                            \'TargetARN\': \'string\',
+                            \'NetworkInterfaceId\': \'string\',
+                            \'NetworkInterfacePort\': 123,
+                            \'LunNumber\': 123,
+                            \'ChapEnabled\': True|False
                         },
-                        'CreatedDate': datetime(2015, 1, 1),
-                        'VolumeUsedInBytes': 123,
-                        'KMSKey': 'string'
+                        \'CreatedDate\': datetime(2015, 1, 1),
+                        \'VolumeUsedInBytes\': 123,
+                        \'KMSKey\': \'string\'
                     },
                 ]
             }
@@ -2599,9 +2599,9 @@ class Client(BaseClient):
         
           response = client.describe_tape_archives(
               TapeARNs=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               Limit=123
           )
         :type TapeARNs: list
@@ -2629,20 +2629,20 @@ class Client(BaseClient):
           ::
         
             {
-                'TapeArchives': [
+                \'TapeArchives\': [
                     {
-                        'TapeARN': 'string',
-                        'TapeBarcode': 'string',
-                        'TapeCreatedDate': datetime(2015, 1, 1),
-                        'TapeSizeInBytes': 123,
-                        'CompletionTime': datetime(2015, 1, 1),
-                        'RetrievedTo': 'string',
-                        'TapeStatus': 'string',
-                        'TapeUsedInBytes': 123,
-                        'KMSKey': 'string'
+                        \'TapeARN\': \'string\',
+                        \'TapeBarcode\': \'string\',
+                        \'TapeCreatedDate\': datetime(2015, 1, 1),
+                        \'TapeSizeInBytes\': 123,
+                        \'CompletionTime\': datetime(2015, 1, 1),
+                        \'RetrievedTo\': \'string\',
+                        \'TapeStatus\': \'string\',
+                        \'TapeUsedInBytes\': 123,
+                        \'KMSKey\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2678,7 +2678,7 @@ class Client(BaseClient):
         
                   The time that the archiving of the virtual tape was completed.
         
-                  The default time stamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+                  The default time stamp format is in the ISO8601 extended YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
         
                 - **RetrievedTo** *(string) --* 
         
@@ -2720,8 +2720,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_tape_recovery_points(
-              GatewayARN='string',
-              Marker='string',
+              GatewayARN=\'string\',
+              Marker=\'string\',
               Limit=123
           )
         :type GatewayARN: string
@@ -2747,16 +2747,16 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'TapeRecoveryPointInfos': [
+                \'GatewayARN\': \'string\',
+                \'TapeRecoveryPointInfos\': [
                     {
-                        'TapeARN': 'string',
-                        'TapeRecoveryPointTime': datetime(2015, 1, 1),
-                        'TapeSizeInBytes': 123,
-                        'TapeStatus': 'string'
+                        \'TapeARN\': \'string\',
+                        \'TapeRecoveryPointTime\': datetime(2015, 1, 1),
+                        \'TapeSizeInBytes\': 123,
+                        \'TapeStatus\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2784,7 +2784,7 @@ class Client(BaseClient):
         
                   The time when the point-in-time view of the virtual tape was replicated for later recovery.
         
-                  The default time stamp format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+                  The default time stamp format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
         
                 - **TapeSizeInBytes** *(integer) --* 
         
@@ -2810,11 +2810,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_tapes(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               TapeARNs=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               Limit=123
           )
         :type GatewayARN: string
@@ -2853,20 +2853,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Tapes': [
+                \'Tapes\': [
                     {
-                        'TapeARN': 'string',
-                        'TapeBarcode': 'string',
-                        'TapeCreatedDate': datetime(2015, 1, 1),
-                        'TapeSizeInBytes': 123,
-                        'TapeStatus': 'string',
-                        'VTLDevice': 'string',
-                        'Progress': 123.0,
-                        'TapeUsedInBytes': 123,
-                        'KMSKey': 'string'
+                        \'TapeARN\': \'string\',
+                        \'TapeBarcode\': \'string\',
+                        \'TapeCreatedDate\': datetime(2015, 1, 1),
+                        \'TapeSizeInBytes\': 123,
+                        \'TapeStatus\': \'string\',
+                        \'VTLDevice\': \'string\',
+                        \'Progress\': 123.0,
+                        \'TapeUsedInBytes\': 123,
+                        \'KMSKey\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2944,7 +2944,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_upload_buffer(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -2959,12 +2959,12 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'DiskIds': [
-                    'string',
+                \'GatewayARN\': \'string\',
+                \'DiskIds\': [
+                    \'string\',
                 ],
-                'UploadBufferUsedInBytes': 123,
-                'UploadBufferAllocatedInBytes': 123
+                \'UploadBufferUsedInBytes\': 123,
+                \'UploadBufferAllocatedInBytes\': 123
             }
           **Response Structure** 
         
@@ -2995,11 +2995,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_vtl_devices(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               VTLDeviceARNs=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               Limit=123
           )
         :type GatewayARN: string
@@ -3036,22 +3036,22 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'VTLDevices': [
+                \'GatewayARN\': \'string\',
+                \'VTLDevices\': [
                     {
-                        'VTLDeviceARN': 'string',
-                        'VTLDeviceType': 'string',
-                        'VTLDeviceVendor': 'string',
-                        'VTLDeviceProductIdentifier': 'string',
-                        'DeviceiSCSIAttributes': {
-                            'TargetARN': 'string',
-                            'NetworkInterfaceId': 'string',
-                            'NetworkInterfacePort': 123,
-                            'ChapEnabled': True|False
+                        \'VTLDeviceARN\': \'string\',
+                        \'VTLDeviceType\': \'string\',
+                        \'VTLDeviceVendor\': \'string\',
+                        \'VTLDeviceProductIdentifier\': \'string\',
+                        \'DeviceiSCSIAttributes\': {
+                            \'TargetARN\': \'string\',
+                            \'NetworkInterfaceId\': \'string\',
+                            \'NetworkInterfacePort\': 123,
+                            \'ChapEnabled\': True|False
                         }
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -3123,7 +3123,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_working_storage(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -3138,12 +3138,12 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'DiskIds': [
-                    'string',
+                \'GatewayARN\': \'string\',
+                \'DiskIds\': [
+                    \'string\',
                 ],
-                'WorkingStorageUsedInBytes': 123,
-                'WorkingStorageAllocatedInBytes': 123
+                \'WorkingStorageUsedInBytes\': 123,
+                \'WorkingStorageAllocatedInBytes\': 123
             }
           **Response Structure** 
         
@@ -3157,7 +3157,7 @@ class Client(BaseClient):
         
             - **DiskIds** *(list) --* 
         
-              An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
+              An array of the gateway\'s local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
         
               - *(string) --* 
           
@@ -3187,7 +3187,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_gateway(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -3202,7 +3202,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -3233,7 +3233,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3245,10 +3245,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3280,10 +3280,10 @@ class Client(BaseClient):
         ::
         
           response = client.join_domain(
-              GatewayARN='string',
-              DomainName='string',
-              UserName='string',
-              Password='string'
+              GatewayARN=\'string\',
+              DomainName=\'string\',
+              UserName=\'string\',
+              Password=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -3313,7 +3313,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -3337,9 +3337,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_file_shares(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               Limit=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: 
@@ -3364,15 +3364,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'NextMarker': 'string',
-                'FileShareInfoList': [
+                \'Marker\': \'string\',
+                \'NextMarker\': \'string\',
+                \'FileShareInfoList\': [
                     {
-                        'FileShareType': 'NFS'|'SMB',
-                        'FileShareARN': 'string',
-                        'FileShareId': 'string',
-                        'FileShareStatus': 'string',
-                        'GatewayARN': 'string'
+                        \'FileShareType\': \'NFS\'|\'SMB\',
+                        \'FileShareARN\': \'string\',
+                        \'FileShareId\': \'string\',
+                        \'FileShareStatus\': \'string\',
+                        \'GatewayARN\': \'string\'
                     },
                 ]
             }
@@ -3392,7 +3392,7 @@ class Client(BaseClient):
         
             - **FileShareInfoList** *(list) --* 
         
-              An array of information about the file gateway's file shares. 
+              An array of information about the file gateway\'s file shares. 
         
               - *(dict) --* 
         
@@ -3434,7 +3434,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_gateways(
-              Marker='string',
+              Marker=\'string\',
               Limit=123
           )
         :type Marker: string
@@ -3455,16 +3455,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Gateways': [
+                \'Gateways\': [
                     {
-                        'GatewayId': 'string',
-                        'GatewayARN': 'string',
-                        'GatewayType': 'string',
-                        'GatewayOperationalState': 'string',
-                        'GatewayName': 'string'
+                        \'GatewayId\': \'string\',
+                        \'GatewayARN\': \'string\',
+                        \'GatewayType\': \'string\',
+                        \'GatewayOperationalState\': \'string\',
+                        \'GatewayName\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -3513,7 +3513,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_local_disks(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -3528,16 +3528,16 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'Disks': [
+                \'GatewayARN\': \'string\',
+                \'Disks\': [
                     {
-                        'DiskId': 'string',
-                        'DiskPath': 'string',
-                        'DiskNode': 'string',
-                        'DiskStatus': 'string',
-                        'DiskSizeInBytes': 123,
-                        'DiskAllocationType': 'string',
-                        'DiskAllocationResource': 'string'
+                        \'DiskId\': \'string\',
+                        \'DiskPath\': \'string\',
+                        \'DiskNode\': \'string\',
+                        \'DiskStatus\': \'string\',
+                        \'DiskSizeInBytes\': 123,
+                        \'DiskAllocationType\': \'string\',
+                        \'DiskAllocationResource\': \'string\'
                     },
                 ]
             }
@@ -3579,8 +3579,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              ResourceARN='string',
-              Marker='string',
+              ResourceARN=\'string\',
+              Marker=\'string\',
               Limit=123
           )
         :type ResourceARN: string
@@ -3606,12 +3606,12 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceARN': 'string',
-                'Marker': 'string',
-                'Tags': [
+                \'ResourceARN\': \'string\',
+                \'Marker\': \'string\',
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -3654,15 +3654,15 @@ class Client(BaseClient):
         
           response = client.list_tapes(
               TapeARNs=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               Limit=123
           )
         :type TapeARNs: list
         :param TapeARNs: 
         
-          The Amazon Resource Name (ARN) of each of the tapes you want to list. If you don't specify a tape ARN, the response lists all tapes in both your VTL and VTS.
+          The Amazon Resource Name (ARN) of each of the tapes you want to list. If you don\'t specify a tape ARN, the response lists all tapes in both your VTL and VTS.
         
           - *(string) --* 
         
@@ -3684,16 +3684,16 @@ class Client(BaseClient):
           ::
         
             {
-                'TapeInfos': [
+                \'TapeInfos\': [
                     {
-                        'TapeARN': 'string',
-                        'TapeBarcode': 'string',
-                        'TapeSizeInBytes': 123,
-                        'TapeStatus': 'string',
-                        'GatewayARN': 'string'
+                        \'TapeARN\': \'string\',
+                        \'TapeBarcode\': \'string\',
+                        \'TapeSizeInBytes\': 123,
+                        \'TapeStatus\': \'string\',
+                        \'GatewayARN\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -3749,7 +3749,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_volume_initiators(
-              VolumeARN='string'
+              VolumeARN=\'string\'
           )
         :type VolumeARN: string
         :param VolumeARN: **[REQUIRED]** 
@@ -3764,8 +3764,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Initiators': [
-                    'string',
+                \'Initiators\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -3794,7 +3794,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_volume_recovery_points(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -3809,13 +3809,13 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'VolumeRecoveryPointInfos': [
+                \'GatewayARN\': \'string\',
+                \'VolumeRecoveryPointInfos\': [
                     {
-                        'VolumeARN': 'string',
-                        'VolumeSizeInBytes': 123,
-                        'VolumeUsageInBytes': 123,
-                        'VolumeRecoveryPointTime': 'string'
+                        \'VolumeARN\': \'string\',
+                        \'VolumeSizeInBytes\': 123,
+                        \'VolumeUsageInBytes\': 123,
+                        \'VolumeRecoveryPointTime\': \'string\'
                     },
                 ]
             }
@@ -3853,8 +3853,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_volumes(
-              GatewayARN='string',
-              Marker='string',
+              GatewayARN=\'string\',
+              Marker=\'string\',
               Limit=123
           )
         :type GatewayARN: string
@@ -3880,16 +3880,16 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'Marker': 'string',
-                'VolumeInfos': [
+                \'GatewayARN\': \'string\',
+                \'Marker\': \'string\',
+                \'VolumeInfos\': [
                     {
-                        'VolumeARN': 'string',
-                        'VolumeId': 'string',
-                        'GatewayARN': 'string',
-                        'GatewayId': 'string',
-                        'VolumeType': 'string',
-                        'VolumeSizeInBytes': 123
+                        \'VolumeARN\': \'string\',
+                        \'VolumeId\': \'string\',
+                        \'GatewayARN\': \'string\',
+                        \'GatewayId\': \'string\',
+                        \'VolumeType\': \'string\',
+                        \'VolumeSizeInBytes\': 123
                     },
                 ]
             }
@@ -3957,7 +3957,7 @@ class Client(BaseClient):
         ::
         
           response = client.notify_when_uploaded(
-              FileShareARN='string'
+              FileShareARN=\'string\'
           )
         :type FileShareARN: string
         :param FileShareARN: **[REQUIRED]** 
@@ -3972,8 +3972,8 @@ class Client(BaseClient):
           ::
         
             {
-                'FileShareARN': 'string',
-                'NotificationId': 'string'
+                \'FileShareARN\': \'string\',
+                \'NotificationId\': \'string\'
             }
           **Response Structure** 
         
@@ -3999,9 +3999,9 @@ class Client(BaseClient):
         ::
         
           response = client.refresh_cache(
-              FileShareARN='string',
+              FileShareARN=\'string\',
               FolderList=[
-                  'string',
+                  \'string\',
               ],
               Recursive=True|False
           )
@@ -4013,14 +4013,14 @@ class Client(BaseClient):
         :type FolderList: list
         :param FolderList: 
         
-          A comma-separated list of the paths of folders to refresh in the cache. The default is [``"/"`` ]. The default refreshes objects and folders at the root of the Amazon S3 bucket. If ``Recursive`` is set to "true", the entire S3 bucket that the file share has access to is refreshed.
+          A comma-separated list of the paths of folders to refresh in the cache. The default is [``\"/\"`` ]. The default refreshes objects and folders at the root of the Amazon S3 bucket. If ``Recursive`` is set to \"true\", the entire S3 bucket that the file share has access to is refreshed.
         
           - *(string) --* 
         
         :type Recursive: boolean
         :param Recursive: 
         
-          A value that specifies whether to recursively refresh folders in the cache. The refresh includes folders that were in the cache the last time the gateway listed the folder's contents. If this value set to "true", each folder that is listed in ``FolderList`` is recursively updated. Otherwise, subfolders listed in ``FolderList`` are not refreshed. Only objects that are in folders listed directly under ``FolderList`` are found and used for the update. The default is "true".
+          A value that specifies whether to recursively refresh folders in the cache. The refresh includes folders that were in the cache the last time the gateway listed the folder\'s contents. If this value set to \"true\", each folder that is listed in ``FolderList`` is recursively updated. Otherwise, subfolders listed in ``FolderList`` are not refreshed. Only objects that are in folders listed directly under ``FolderList`` are found and used for the update. The default is \"true\".
         
         :rtype: dict
         :returns: 
@@ -4030,8 +4030,8 @@ class Client(BaseClient):
           ::
         
             {
-                'FileShareARN': 'string',
-                'NotificationId': 'string'
+                \'FileShareARN\': \'string\',
+                \'NotificationId\': \'string\'
             }
           **Response Structure** 
         
@@ -4059,9 +4059,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags_from_resource(
-              ResourceARN='string',
+              ResourceARN=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceARN: string
@@ -4084,7 +4084,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceARN': 'string'
+                \'ResourceARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4112,7 +4112,7 @@ class Client(BaseClient):
         ::
         
           response = client.reset_cache(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -4127,7 +4127,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4151,8 +4151,8 @@ class Client(BaseClient):
         ::
         
           response = client.retrieve_tape_archive(
-              TapeARN='string',
-              GatewayARN='string'
+              TapeARN=\'string\',
+              GatewayARN=\'string\'
           )
         :type TapeARN: string
         :param TapeARN: **[REQUIRED]** 
@@ -4174,7 +4174,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TapeARN': 'string'
+                \'TapeARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4204,8 +4204,8 @@ class Client(BaseClient):
         ::
         
           response = client.retrieve_tape_recovery_point(
-              TapeARN='string',
-              GatewayARN='string'
+              TapeARN=\'string\',
+              GatewayARN=\'string\'
           )
         :type TapeARN: string
         :param TapeARN: **[REQUIRED]** 
@@ -4225,7 +4225,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TapeARN': 'string'
+                \'TapeARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4249,8 +4249,8 @@ class Client(BaseClient):
         ::
         
           response = client.set_local_console_password(
-              GatewayARN='string',
-              LocalConsolePassword='string'
+              GatewayARN=\'string\',
+              LocalConsolePassword=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -4270,7 +4270,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4292,8 +4292,8 @@ class Client(BaseClient):
         ::
         
           response = client.set_smb_guest_password(
-              GatewayARN='string',
-              Password='string'
+              GatewayARN=\'string\',
+              Password=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -4313,7 +4313,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4329,13 +4329,13 @@ class Client(BaseClient):
     def shutdown_gateway(self, GatewayARN: str) -> Dict:
         """
         
-        The operation shuts down the gateway service component running in the gateway's virtual machine (VM) and not the host VM.
+        The operation shuts down the gateway service component running in the gateway\'s virtual machine (VM) and not the host VM.
         
         .. note::
         
           If you want to shut down the VM, it is recommended that you first shut down the gateway component in the VM to avoid unpredictable conditions.
         
-        After the gateway is shutdown, you cannot call any other API except  StartGateway ,  DescribeGatewayInformation , and  ListGateways . For more information, see  ActivateGateway . Your applications cannot read from or write to the gateway's storage volumes, and there are no snapshots taken.
+        After the gateway is shutdown, you cannot call any other API except  StartGateway ,  DescribeGatewayInformation , and  ListGateways . For more information, see  ActivateGateway . Your applications cannot read from or write to the gateway\'s storage volumes, and there are no snapshots taken.
         
         .. note::
         
@@ -4349,7 +4349,7 @@ class Client(BaseClient):
         ::
         
           response = client.shutdown_gateway(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -4364,7 +4364,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4394,7 +4394,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_gateway(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -4409,7 +4409,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4427,7 +4427,7 @@ class Client(BaseClient):
     def update_bandwidth_rate_limit(self, GatewayARN: str, AverageUploadRateLimitInBitsPerSec: int = None, AverageDownloadRateLimitInBitsPerSec: int = None) -> Dict:
         """
         
-        By default, a gateway's bandwidth rate limits are not set. If you don't set any limit, the gateway does not have any limitations on its bandwidth usage and could potentially use the maximum available bandwidth.
+        By default, a gateway\'s bandwidth rate limits are not set. If you don\'t set any limit, the gateway does not have any limitations on its bandwidth usage and could potentially use the maximum available bandwidth.
         
         To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in your request.
         
@@ -4437,7 +4437,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_bandwidth_rate_limit(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               AverageUploadRateLimitInBitsPerSec=123,
               AverageDownloadRateLimitInBitsPerSec=123
           )
@@ -4464,7 +4464,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4492,10 +4492,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_chap_credentials(
-              TargetARN='string',
-              SecretToAuthenticateInitiator='string',
-              InitiatorName='string',
-              SecretToAuthenticateTarget='string'
+              TargetARN=\'string\',
+              SecretToAuthenticateInitiator=\'string\',
+              InitiatorName=\'string\',
+              SecretToAuthenticateTarget=\'string\'
           )
         :type TargetARN: string
         :param TargetARN: **[REQUIRED]** 
@@ -4535,8 +4535,8 @@ class Client(BaseClient):
           ::
         
             {
-                'TargetARN': 'string',
-                'InitiatorName': 'string'
+                \'TargetARN\': \'string\',
+                \'InitiatorName\': \'string\'
             }
           **Response Structure** 
         
@@ -4560,7 +4560,7 @@ class Client(BaseClient):
         
         .. note::
         
-          For Gateways activated after September 2, 2015, the gateway's ARN contains the gateway ID rather than the gateway name. However, changing the name of the gateway has no effect on the gateway's ARN.
+          For Gateways activated after September 2, 2015, the gateway\'s ARN contains the gateway ID rather than the gateway name. However, changing the name of the gateway has no effect on the gateway\'s ARN.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/UpdateGatewayInformation>`_
         
@@ -4568,9 +4568,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_gateway_information(
-              GatewayARN='string',
-              GatewayName='string',
-              GatewayTimezone='string'
+              GatewayARN=\'string\',
+              GatewayName=\'string\',
+              GatewayTimezone=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -4593,8 +4593,8 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string',
-                'GatewayName': 'string'
+                \'GatewayARN\': \'string\',
+                \'GatewayName\': \'string\'
             }
           **Response Structure** 
         
@@ -4619,7 +4619,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          A software update forces a system restart of your gateway. You can minimize the chance of any disruption to your applications by increasing your iSCSI Initiators' timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and Linux, see `Customizing Your Windows iSCSI Settings <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings>`__ and `Customizing Your Linux iSCSI Settings <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings>`__ , respectively.
+          A software update forces a system restart of your gateway. You can minimize the chance of any disruption to your applications by increasing your iSCSI Initiators\' timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and Linux, see `Customizing Your Windows iSCSI Settings <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings>`__ and `Customizing Your Linux iSCSI Settings <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings>`__ , respectively.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/UpdateGatewaySoftwareNow>`_
         
@@ -4627,7 +4627,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_gateway_software_now(
-              GatewayARN='string'
+              GatewayARN=\'string\'
           )
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]** 
@@ -4642,7 +4642,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4666,7 +4666,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_maintenance_start_time(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               HourOfDay=123,
               MinuteOfHour=123,
               DayOfWeek=123
@@ -4699,7 +4699,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GatewayARN': 'string'
+                \'GatewayARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4743,21 +4743,21 @@ class Client(BaseClient):
         ::
         
           response = client.update_nfs_file_share(
-              FileShareARN='string',
+              FileShareARN=\'string\',
               KMSEncrypted=True|False,
-              KMSKey='string',
+              KMSKey=\'string\',
               NFSFileShareDefaults={
-                  'FileMode': 'string',
-                  'DirectoryMode': 'string',
-                  'GroupId': 123,
-                  'OwnerId': 123
+                  \'FileMode\': \'string\',
+                  \'DirectoryMode\': \'string\',
+                  \'GroupId\': 123,
+                  \'OwnerId\': 123
               },
-              DefaultStorageClass='string',
-              ObjectACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'aws-exec-read',
+              DefaultStorageClass=\'string\',
+              ObjectACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'aws-exec-read\',
               ClientList=[
-                  'string',
+                  \'string\',
               ],
-              Squash='string',
+              Squash=\'string\',
               ReadOnly=True|False,
               GuessMIMETypeEnabled=True|False,
               RequesterPays=True|False
@@ -4784,11 +4784,11 @@ class Client(BaseClient):
         
           - **FileMode** *(string) --* 
         
-            The Unix file mode in the form "nnnn". For example, "0666" represents the default file mode inside the file share. The default value is 0666. 
+            The Unix file mode in the form \"nnnn\". For example, \"0666\" represents the default file mode inside the file share. The default value is 0666. 
         
           - **DirectoryMode** *(string) --* 
         
-            The Unix directory mode in the form "nnnn". For example, "0666" represents the default access mode for all directories inside the file share. The default value is 0777.
+            The Unix directory mode in the form \"nnnn\". For example, \"0666\" represents the default access mode for all directories inside the file share. The default value is 0777.
         
           - **GroupId** *(integer) --* 
         
@@ -4806,7 +4806,7 @@ class Client(BaseClient):
         :type ObjectACL: string
         :param ObjectACL: 
         
-          A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
+          A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is \"private\".
         
         :type ClientList: list
         :param ClientList: 
@@ -4849,7 +4849,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FileShareARN': 'string'
+                \'FileShareARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4875,7 +4875,7 @@ class Client(BaseClient):
         
           File gateways require AWS Security Token Service (AWS STS) to be activated to enable you to create a file share. Make sure that AWS STS is activated in the AWS Region you are creating your file gateway in. If AWS STS is not activated in this AWS Region, activate it. For information about how to activate AWS STS, see `Activating and Deactivating AWS STS in an AWS Region <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *AWS Identity and Access Management User Guide.*  
         
-          File gateways don't support creating hard or symbolic links on a file share.
+          File gateways don\'t support creating hard or symbolic links on a file share.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/UpdateSMBFileShare>`_
         
@@ -4883,19 +4883,19 @@ class Client(BaseClient):
         ::
         
           response = client.update_smb_file_share(
-              FileShareARN='string',
+              FileShareARN=\'string\',
               KMSEncrypted=True|False,
-              KMSKey='string',
-              DefaultStorageClass='string',
-              ObjectACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'aws-exec-read',
+              KMSKey=\'string\',
+              DefaultStorageClass=\'string\',
+              ObjectACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'aws-exec-read\',
               ReadOnly=True|False,
               GuessMIMETypeEnabled=True|False,
               RequesterPays=True|False,
               ValidUserList=[
-                  'string',
+                  \'string\',
               ],
               InvalidUserList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type FileShareARN: string
@@ -4921,7 +4921,7 @@ class Client(BaseClient):
         :type ObjectACL: string
         :param ObjectACL: 
         
-          A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
+          A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is \"private\".
         
         :type ReadOnly: boolean
         :param ReadOnly: 
@@ -4960,7 +4960,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FileShareARN': 'string'
+                \'FileShareARN\': \'string\'
             }
           **Response Structure** 
         
@@ -4988,10 +4988,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_snapshot_schedule(
-              VolumeARN='string',
+              VolumeARN=\'string\',
               StartAt=123,
               RecurrenceInHours=123,
-              Description='string'
+              Description=\'string\'
           )
         :type VolumeARN: string
         :param VolumeARN: **[REQUIRED]** 
@@ -5021,7 +5021,7 @@ class Client(BaseClient):
           ::
         
             {
-                'VolumeARN': 'string'
+                \'VolumeARN\': \'string\'
             }
           **Response Structure** 
         
@@ -5043,8 +5043,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_vtl_device_type(
-              VTLDeviceARN='string',
-              DeviceType='string'
+              VTLDeviceARN=\'string\',
+              DeviceType=\'string\'
           )
         :type VTLDeviceARN: string
         :param VTLDeviceARN: **[REQUIRED]** 
@@ -5056,7 +5056,7 @@ class Client(BaseClient):
         
           The type of medium changer you want to select.
         
-          Valid Values: "STK-L700", "AWS-Gateway-VTL"
+          Valid Values: \"STK-L700\", \"AWS-Gateway-VTL\"
         
         :rtype: dict
         :returns: 
@@ -5066,7 +5066,7 @@ class Client(BaseClient):
           ::
         
             {
-                'VTLDeviceARN': 'string'
+                \'VTLDeviceARN\': \'string\'
             }
           **Response Structure** 
         

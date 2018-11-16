@@ -14,14 +14,14 @@ class ListBackups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              TableName='string',
+              TableName=\'string\',
               TimeRangeLowerBound=datetime(2015, 1, 1),
               TimeRangeUpperBound=datetime(2015, 1, 1),
-              BackupType='USER'|'SYSTEM'|'ALL',
+              BackupType=\'USER\'|\'SYSTEM\'|\'ALL\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type TableName: string
@@ -77,21 +77,21 @@ class ListBackups(Paginator):
           ::
         
             {
-                'BackupSummaries': [
+                \'BackupSummaries\': [
                     {
-                        'TableName': 'string',
-                        'TableId': 'string',
-                        'TableArn': 'string',
-                        'BackupArn': 'string',
-                        'BackupName': 'string',
-                        'BackupCreationDateTime': datetime(2015, 1, 1),
-                        'BackupExpiryDateTime': datetime(2015, 1, 1),
-                        'BackupStatus': 'CREATING'|'DELETED'|'AVAILABLE',
-                        'BackupType': 'USER'|'SYSTEM',
-                        'BackupSizeBytes': 123
+                        \'TableName\': \'string\',
+                        \'TableId\': \'string\',
+                        \'TableArn\': \'string\',
+                        \'BackupArn\': \'string\',
+                        \'BackupName\': \'string\',
+                        \'BackupCreationDateTime\': datetime(2015, 1, 1),
+                        \'BackupExpiryDateTime\': datetime(2015, 1, 1),
+                        \'BackupStatus\': \'CREATING\'|\'DELETED\'|\'AVAILABLE\',
+                        \'BackupType\': \'USER\'|\'SYSTEM\',
+                        \'BackupSizeBytes\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -168,9 +168,9 @@ class ListTables(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -198,10 +198,10 @@ class ListTables(Paginator):
           ::
         
             {
-                'TableNames': [
-                    'string',
+                \'TableNames\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -235,108 +235,108 @@ class Query(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              TableName='string',
-              IndexName='string',
-              Select='ALL_ATTRIBUTES'|'ALL_PROJECTED_ATTRIBUTES'|'SPECIFIC_ATTRIBUTES'|'COUNT',
+              TableName=\'string\',
+              IndexName=\'string\',
+              Select=\'ALL_ATTRIBUTES\'|\'ALL_PROJECTED_ATTRIBUTES\'|\'SPECIFIC_ATTRIBUTES\'|\'COUNT\',
               AttributesToGet=[
-                  'string',
+                  \'string\',
               ],
               ConsistentRead=True|False,
               KeyConditions={
-                  'string': {
-                      'AttributeValueList': [
+                  \'string\': {
+                      \'AttributeValueList\': [
                           {
-                              'S': 'string',
-                              'N': 'string',
-                              'B': b'bytes',
-                              'SS': [
-                                  'string',
+                              \'S\': \'string\',
+                              \'N\': \'string\',
+                              \'B\': b\'bytes\',
+                              \'SS\': [
+                                  \'string\',
                               ],
-                              'NS': [
-                                  'string',
+                              \'NS\': [
+                                  \'string\',
                               ],
-                              'BS': [
-                                  b'bytes',
+                              \'BS\': [
+                                  b\'bytes\',
                               ],
-                              'M': {
-                                  'string': {'... recursive ...'}
+                              \'M\': {
+                                  \'string\': {\'... recursive ...\'}
                               },
-                              'L': [
-                                  {'... recursive ...'},
+                              \'L\': [
+                                  {\'... recursive ...\'},
                               ],
-                              'NULL': True|False,
-                              'BOOL': True|False
+                              \'NULL\': True|False,
+                              \'BOOL\': True|False
                           },
                       ],
-                      'ComparisonOperator': 'EQ'|'NE'|'IN'|'LE'|'LT'|'GE'|'GT'|'BETWEEN'|'NOT_NULL'|'NULL'|'CONTAINS'|'NOT_CONTAINS'|'BEGINS_WITH'
+                      \'ComparisonOperator\': \'EQ\'|\'NE\'|\'IN\'|\'LE\'|\'LT\'|\'GE\'|\'GT\'|\'BETWEEN\'|\'NOT_NULL\'|\'NULL\'|\'CONTAINS\'|\'NOT_CONTAINS\'|\'BEGINS_WITH\'
                   }
               },
               QueryFilter={
-                  'string': {
-                      'AttributeValueList': [
+                  \'string\': {
+                      \'AttributeValueList\': [
                           {
-                              'S': 'string',
-                              'N': 'string',
-                              'B': b'bytes',
-                              'SS': [
-                                  'string',
+                              \'S\': \'string\',
+                              \'N\': \'string\',
+                              \'B\': b\'bytes\',
+                              \'SS\': [
+                                  \'string\',
                               ],
-                              'NS': [
-                                  'string',
+                              \'NS\': [
+                                  \'string\',
                               ],
-                              'BS': [
-                                  b'bytes',
+                              \'BS\': [
+                                  b\'bytes\',
                               ],
-                              'M': {
-                                  'string': {'... recursive ...'}
+                              \'M\': {
+                                  \'string\': {\'... recursive ...\'}
                               },
-                              'L': [
-                                  {'... recursive ...'},
+                              \'L\': [
+                                  {\'... recursive ...\'},
                               ],
-                              'NULL': True|False,
-                              'BOOL': True|False
+                              \'NULL\': True|False,
+                              \'BOOL\': True|False
                           },
                       ],
-                      'ComparisonOperator': 'EQ'|'NE'|'IN'|'LE'|'LT'|'GE'|'GT'|'BETWEEN'|'NOT_NULL'|'NULL'|'CONTAINS'|'NOT_CONTAINS'|'BEGINS_WITH'
+                      \'ComparisonOperator\': \'EQ\'|\'NE\'|\'IN\'|\'LE\'|\'LT\'|\'GE\'|\'GT\'|\'BETWEEN\'|\'NOT_NULL\'|\'NULL\'|\'CONTAINS\'|\'NOT_CONTAINS\'|\'BEGINS_WITH\'
                   }
               },
-              ConditionalOperator='AND'|'OR',
+              ConditionalOperator=\'AND\'|\'OR\',
               ScanIndexForward=True|False,
-              ReturnConsumedCapacity='INDEXES'|'TOTAL'|'NONE',
-              ProjectionExpression='string',
-              FilterExpression='string',
-              KeyConditionExpression='string',
+              ReturnConsumedCapacity=\'INDEXES\'|\'TOTAL\'|\'NONE\',
+              ProjectionExpression=\'string\',
+              FilterExpression=\'string\',
+              KeyConditionExpression=\'string\',
               ExpressionAttributeNames={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               ExpressionAttributeValues={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type TableName: string
@@ -419,13 +419,13 @@ class Query(Paginator):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -433,13 +433,13 @@ class Query(Paginator):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
         
@@ -447,7 +447,7 @@ class Query(Paginator):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -457,7 +457,7 @@ class Query(Paginator):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
         
@@ -465,7 +465,7 @@ class Query(Paginator):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
         
@@ -481,7 +481,7 @@ class Query(Paginator):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -495,13 +495,13 @@ class Query(Paginator):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
               - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -513,39 +513,39 @@ class Query(Paginator):
         
                 The following are descriptions of each comparison operator.
         
-                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
                 * ``NOT_NULL`` : The attribute exists. ``NOT_NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute "``a`` " exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
+                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
         
                 * ``NULL`` : The attribute does not exist. ``NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute "``a`` " exists; its data type is not relevant to the ``NULL`` comparison operator. 
+                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NULL`` comparison operator. 
         
-                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating "``a CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating \"``a CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
-                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating "``a NOT CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating \"``a NOT CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).  
                  
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true. 
                  
-                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not compare to ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}``   
+                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``   
                  
                 For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         
@@ -586,13 +586,13 @@ class Query(Paginator):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -600,13 +600,13 @@ class Query(Paginator):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
         
@@ -614,7 +614,7 @@ class Query(Paginator):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -624,7 +624,7 @@ class Query(Paginator):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
         
@@ -632,7 +632,7 @@ class Query(Paginator):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
         
@@ -648,7 +648,7 @@ class Query(Paginator):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -662,13 +662,13 @@ class Query(Paginator):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
               - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -680,39 +680,39 @@ class Query(Paginator):
         
                 The following are descriptions of each comparison operator.
         
-                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
                 * ``NOT_NULL`` : The attribute exists. ``NOT_NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute "``a`` " exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
+                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
         
                 * ``NULL`` : The attribute does not exist. ``NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute "``a`` " exists; its data type is not relevant to the ``NULL`` comparison operator. 
+                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NULL`` comparison operator. 
         
-                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating "``a CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating \"``a CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
-                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating "``a NOT CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating \"``a NOT CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).  
                  
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true. 
                  
-                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not compare to ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}``   
+                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``   
                  
                 For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         
@@ -827,7 +827,7 @@ class Query(Paginator):
            
           The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
         
-          * ``{"#P":"Percentile"}``   
+          * ``{\"#P\":\"Percentile\"}``   
            
           You could then use this substitution in an expression, as in this example:
         
@@ -854,7 +854,7 @@ class Query(Paginator):
         
           You would first need to specify ``ExpressionAttributeValues`` as follows:
         
-           ``{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }``  
+           ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``  
         
           You could then use these values in an expression, such as this:
         
@@ -876,13 +876,13 @@ class Query(Paginator):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -890,13 +890,13 @@ class Query(Paginator):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -904,7 +904,7 @@ class Query(Paginator):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -914,7 +914,7 @@ class Query(Paginator):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -922,7 +922,7 @@ class Query(Paginator):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -938,7 +938,7 @@ class Query(Paginator):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -952,13 +952,13 @@ class Query(Paginator):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -985,52 +985,52 @@ class Query(Paginator):
           ::
         
             {
-                'Items': [
+                \'Items\': [
                     {
-                        'string': {
-                            'S': 'string',
-                            'N': 'string',
-                            'B': b'bytes',
-                            'SS': [
-                                'string',
+                        \'string\': {
+                            \'S\': \'string\',
+                            \'N\': \'string\',
+                            \'B\': b\'bytes\',
+                            \'SS\': [
+                                \'string\',
                             ],
-                            'NS': [
-                                'string',
+                            \'NS\': [
+                                \'string\',
                             ],
-                            'BS': [
-                                b'bytes',
+                            \'BS\': [
+                                b\'bytes\',
                             ],
-                            'M': {
-                                'string': {'... recursive ...'}
+                            \'M\': {
+                                \'string\': {\'... recursive ...\'}
                             },
-                            'L': [
-                                {'... recursive ...'},
+                            \'L\': [
+                                {\'... recursive ...\'},
                             ],
-                            'NULL': True|False,
-                            'BOOL': True|False
+                            \'NULL\': True|False,
+                            \'BOOL\': True|False
                         }
                     },
                 ],
-                'Count': 123,
-                'ScannedCount': 123,
-                'ConsumedCapacity': {
-                    'TableName': 'string',
-                    'CapacityUnits': 123.0,
-                    'Table': {
-                        'CapacityUnits': 123.0
+                \'Count\': 123,
+                \'ScannedCount\': 123,
+                \'ConsumedCapacity\': {
+                    \'TableName\': \'string\',
+                    \'CapacityUnits\': 123.0,
+                    \'Table\': {
+                        \'CapacityUnits\': 123.0
                     },
-                    'LocalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'LocalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     },
-                    'GlobalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'GlobalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     }
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1058,13 +1058,13 @@ class Query(Paginator):
         
                       An attribute of type String. For example:
         
-                       ``"S": "Hello"``  
+                       ``\"S\": \"Hello\"``  
         
                     - **N** *(string) --* 
         
                       An attribute of type Number. For example:
         
-                       ``"N": "123.45"``  
+                       ``\"N\": \"123.45\"``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1072,13 +1072,13 @@ class Query(Paginator):
         
                       An attribute of type Binary. For example:
         
-                       ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                       ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                     - **SS** *(list) --* 
         
                       An attribute of type String Set. For example:
         
-                       ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                       ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                       - *(string) --* 
                   
@@ -1086,7 +1086,7 @@ class Query(Paginator):
         
                       An attribute of type Number Set. For example:
         
-                       ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                       ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1096,7 +1096,7 @@ class Query(Paginator):
         
                       An attribute of type Binary Set. For example:
         
-                       ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                       ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                       - *(bytes) --* 
                   
@@ -1104,7 +1104,7 @@ class Query(Paginator):
         
                       An attribute of type Map. For example:
         
-                       ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                       ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                       - *(string) --* 
                         
@@ -1120,7 +1120,7 @@ class Query(Paginator):
         
                       An attribute of type List. For example:
         
-                       ``"L": ["Cookies", "Coffee", 3.14159]``  
+                       ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                       - *(dict) --* 
         
@@ -1134,13 +1134,13 @@ class Query(Paginator):
         
                       An attribute of type Null. For example:
         
-                       ``"NULL": true``  
+                       ``\"NULL\": true``  
         
                     - **BOOL** *(boolean) --* 
         
                       An attribute of type Boolean. For example:
         
-                       ``"BOOL": true``  
+                       ``\"BOOL\": true``  
         
             - **Count** *(integer) --* 
         
@@ -1222,79 +1222,79 @@ class Scan(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              TableName='string',
-              IndexName='string',
+              TableName=\'string\',
+              IndexName=\'string\',
               AttributesToGet=[
-                  'string',
+                  \'string\',
               ],
-              Select='ALL_ATTRIBUTES'|'ALL_PROJECTED_ATTRIBUTES'|'SPECIFIC_ATTRIBUTES'|'COUNT',
+              Select=\'ALL_ATTRIBUTES\'|\'ALL_PROJECTED_ATTRIBUTES\'|\'SPECIFIC_ATTRIBUTES\'|\'COUNT\',
               ScanFilter={
-                  'string': {
-                      'AttributeValueList': [
+                  \'string\': {
+                      \'AttributeValueList\': [
                           {
-                              'S': 'string',
-                              'N': 'string',
-                              'B': b'bytes',
-                              'SS': [
-                                  'string',
+                              \'S\': \'string\',
+                              \'N\': \'string\',
+                              \'B\': b\'bytes\',
+                              \'SS\': [
+                                  \'string\',
                               ],
-                              'NS': [
-                                  'string',
+                              \'NS\': [
+                                  \'string\',
                               ],
-                              'BS': [
-                                  b'bytes',
+                              \'BS\': [
+                                  b\'bytes\',
                               ],
-                              'M': {
-                                  'string': {'... recursive ...'}
+                              \'M\': {
+                                  \'string\': {\'... recursive ...\'}
                               },
-                              'L': [
-                                  {'... recursive ...'},
+                              \'L\': [
+                                  {\'... recursive ...\'},
                               ],
-                              'NULL': True|False,
-                              'BOOL': True|False
+                              \'NULL\': True|False,
+                              \'BOOL\': True|False
                           },
                       ],
-                      'ComparisonOperator': 'EQ'|'NE'|'IN'|'LE'|'LT'|'GE'|'GT'|'BETWEEN'|'NOT_NULL'|'NULL'|'CONTAINS'|'NOT_CONTAINS'|'BEGINS_WITH'
+                      \'ComparisonOperator\': \'EQ\'|\'NE\'|\'IN\'|\'LE\'|\'LT\'|\'GE\'|\'GT\'|\'BETWEEN\'|\'NOT_NULL\'|\'NULL\'|\'CONTAINS\'|\'NOT_CONTAINS\'|\'BEGINS_WITH\'
                   }
               },
-              ConditionalOperator='AND'|'OR',
-              ReturnConsumedCapacity='INDEXES'|'TOTAL'|'NONE',
+              ConditionalOperator=\'AND\'|\'OR\',
+              ReturnConsumedCapacity=\'INDEXES\'|\'TOTAL\'|\'NONE\',
               TotalSegments=123,
               Segment=123,
-              ProjectionExpression='string',
-              FilterExpression='string',
+              ProjectionExpression=\'string\',
+              FilterExpression=\'string\',
               ExpressionAttributeNames={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               ExpressionAttributeValues={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               },
               ConsistentRead=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type TableName: string
@@ -1370,13 +1370,13 @@ class Scan(Paginator):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1384,13 +1384,13 @@ class Scan(Paginator):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
         
@@ -1398,7 +1398,7 @@ class Scan(Paginator):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1408,7 +1408,7 @@ class Scan(Paginator):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
         
@@ -1416,7 +1416,7 @@ class Scan(Paginator):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
         
@@ -1432,7 +1432,7 @@ class Scan(Paginator):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -1446,13 +1446,13 @@ class Scan(Paginator):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
               - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -1464,39 +1464,39 @@ class Scan(Paginator):
         
                 The following are descriptions of each comparison operator.
         
-                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
                 * ``NOT_NULL`` : The attribute exists. ``NOT_NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute "``a`` " exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
+                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
         
                 * ``NULL`` : The attribute does not exist. ``NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute "``a`` " exists; its data type is not relevant to the ``NULL`` comparison operator. 
+                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NULL`` comparison operator. 
         
-                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating "``a CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating \"``a CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
-                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating "``a NOT CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating \"``a NOT CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).  
                  
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true. 
                  
-                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not compare to ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}``   
+                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``   
                  
                 For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         
@@ -1575,7 +1575,7 @@ class Scan(Paginator):
            
           The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
         
-          * ``{"#P":"Percentile"}``   
+          * ``{\"#P\":\"Percentile\"}``   
            
           You could then use this substitution in an expression, as in this example:
         
@@ -1602,7 +1602,7 @@ class Scan(Paginator):
         
           You would first need to specify ``ExpressionAttributeValues`` as follows:
         
-           ``{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }``  
+           ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``  
         
           You could then use these values in an expression, such as this:
         
@@ -1624,13 +1624,13 @@ class Scan(Paginator):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1638,13 +1638,13 @@ class Scan(Paginator):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -1652,7 +1652,7 @@ class Scan(Paginator):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1662,7 +1662,7 @@ class Scan(Paginator):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -1670,7 +1670,7 @@ class Scan(Paginator):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -1686,7 +1686,7 @@ class Scan(Paginator):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -1700,13 +1700,13 @@ class Scan(Paginator):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :type ConsistentRead: boolean
         :param ConsistentRead: 
@@ -1746,52 +1746,52 @@ class Scan(Paginator):
           ::
         
             {
-                'Items': [
+                \'Items\': [
                     {
-                        'string': {
-                            'S': 'string',
-                            'N': 'string',
-                            'B': b'bytes',
-                            'SS': [
-                                'string',
+                        \'string\': {
+                            \'S\': \'string\',
+                            \'N\': \'string\',
+                            \'B\': b\'bytes\',
+                            \'SS\': [
+                                \'string\',
                             ],
-                            'NS': [
-                                'string',
+                            \'NS\': [
+                                \'string\',
                             ],
-                            'BS': [
-                                b'bytes',
+                            \'BS\': [
+                                b\'bytes\',
                             ],
-                            'M': {
-                                'string': {'... recursive ...'}
+                            \'M\': {
+                                \'string\': {\'... recursive ...\'}
                             },
-                            'L': [
-                                {'... recursive ...'},
+                            \'L\': [
+                                {\'... recursive ...\'},
                             ],
-                            'NULL': True|False,
-                            'BOOL': True|False
+                            \'NULL\': True|False,
+                            \'BOOL\': True|False
                         }
                     },
                 ],
-                'Count': 123,
-                'ScannedCount': 123,
-                'ConsumedCapacity': {
-                    'TableName': 'string',
-                    'CapacityUnits': 123.0,
-                    'Table': {
-                        'CapacityUnits': 123.0
+                \'Count\': 123,
+                \'ScannedCount\': 123,
+                \'ConsumedCapacity\': {
+                    \'TableName\': \'string\',
+                    \'CapacityUnits\': 123.0,
+                    \'Table\': {
+                        \'CapacityUnits\': 123.0
                     },
-                    'LocalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'LocalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     },
-                    'GlobalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'GlobalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     }
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1819,13 +1819,13 @@ class Scan(Paginator):
         
                       An attribute of type String. For example:
         
-                       ``"S": "Hello"``  
+                       ``\"S\": \"Hello\"``  
         
                     - **N** *(string) --* 
         
                       An attribute of type Number. For example:
         
-                       ``"N": "123.45"``  
+                       ``\"N\": \"123.45\"``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1833,13 +1833,13 @@ class Scan(Paginator):
         
                       An attribute of type Binary. For example:
         
-                       ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                       ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                     - **SS** *(list) --* 
         
                       An attribute of type String Set. For example:
         
-                       ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                       ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                       - *(string) --* 
                   
@@ -1847,7 +1847,7 @@ class Scan(Paginator):
         
                       An attribute of type Number Set. For example:
         
-                       ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                       ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1857,7 +1857,7 @@ class Scan(Paginator):
         
                       An attribute of type Binary Set. For example:
         
-                       ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                       ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                       - *(bytes) --* 
                   
@@ -1865,7 +1865,7 @@ class Scan(Paginator):
         
                       An attribute of type Map. For example:
         
-                       ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                       ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                       - *(string) --* 
                         
@@ -1881,7 +1881,7 @@ class Scan(Paginator):
         
                       An attribute of type List. For example:
         
-                       ``"L": ["Cookies", "Coffee", 3.14159]``  
+                       ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                       - *(dict) --* 
         
@@ -1895,13 +1895,13 @@ class Scan(Paginator):
         
                       An attribute of type Null. For example:
         
-                       ``"NULL": true``  
+                       ``\"NULL\": true``  
         
                     - **BOOL** *(boolean) --* 
         
                       An attribute of type Boolean. For example:
         
-                       ``"BOOL": true``  
+                       ``\"BOOL\": true``  
         
             - **Count** *(integer) --* 
         

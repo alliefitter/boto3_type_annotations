@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
+from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -23,9 +23,9 @@ class Client(BaseClient):
         ::
         
           response = client.batch_suspend_user(
-              AccountId='string',
+              AccountId=\'string\',
               UserIdList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AccountId: string
@@ -48,11 +48,11 @@ class Client(BaseClient):
           ::
         
             {
-                'UserErrors': [
+                \'UserErrors\': [
                     {
-                        'UserId': 'string',
-                        'ErrorCode': 'Unauthorized'|'Forbidden'|'NotFound'|'BadRequest'|'Conflict'|'ServiceFailure'|'ServiceUnavailable'|'Unprocessable'|'Throttled'|'PreconditionFailed',
-                        'ErrorMessage': 'string'
+                        \'UserId\': \'string\',
+                        \'ErrorCode\': \'Unauthorized\'|\'Forbidden\'|\'NotFound\'|\'BadRequest\'|\'Conflict\'|\'ServiceFailure\'|\'ServiceUnavailable\'|\'Unprocessable\'|\'Throttled\'|\'PreconditionFailed\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -94,9 +94,9 @@ class Client(BaseClient):
         ::
         
           response = client.batch_unsuspend_user(
-              AccountId='string',
+              AccountId=\'string\',
               UserIdList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AccountId: string
@@ -119,11 +119,11 @@ class Client(BaseClient):
           ::
         
             {
-                'UserErrors': [
+                \'UserErrors\': [
                     {
-                        'UserId': 'string',
-                        'ErrorCode': 'Unauthorized'|'Forbidden'|'NotFound'|'BadRequest'|'Conflict'|'ServiceFailure'|'ServiceUnavailable'|'Unprocessable'|'Throttled'|'PreconditionFailed',
-                        'ErrorMessage': 'string'
+                        \'UserId\': \'string\',
+                        \'ErrorCode\': \'Unauthorized\'|\'Forbidden\'|\'NotFound\'|\'BadRequest\'|\'Conflict\'|\'ServiceFailure\'|\'ServiceUnavailable\'|\'Unprocessable\'|\'Throttled\'|\'PreconditionFailed\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -163,11 +163,11 @@ class Client(BaseClient):
         ::
         
           response = client.batch_update_user(
-              AccountId='string',
+              AccountId=\'string\',
               UpdateUserRequestItems=[
                   {
-                      'UserId': 'string',
-                      'LicenseType': 'Basic'|'Plus'|'Pro'|'ProTrial'
+                      \'UserId\': \'string\',
+                      \'LicenseType\': \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\'
                   },
               ]
           )
@@ -201,11 +201,11 @@ class Client(BaseClient):
           ::
         
             {
-                'UserErrors': [
+                \'UserErrors\': [
                     {
-                        'UserId': 'string',
-                        'ErrorCode': 'Unauthorized'|'Forbidden'|'NotFound'|'BadRequest'|'Conflict'|'ServiceFailure'|'ServiceUnavailable'|'Unprocessable'|'Throttled'|'PreconditionFailed',
-                        'ErrorMessage': 'string'
+                        \'UserId\': \'string\',
+                        \'ErrorCode\': \'Unauthorized\'|\'Forbidden\'|\'NotFound\'|\'BadRequest\'|\'Conflict\'|\'ServiceFailure\'|\'ServiceUnavailable\'|\'Unprocessable\'|\'Throttled\'|\'PreconditionFailed\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -242,10 +242,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -261,7 +261,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_account(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -276,15 +276,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Account': {
-                    'AwsAccountId': 'string',
-                    'AccountId': 'string',
-                    'Name': 'string',
-                    'AccountType': 'Team'|'EnterpriseDirectory'|'EnterpriseLWA'|'EnterpriseOIDC',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'DefaultLicense': 'Basic'|'Plus'|'Pro'|'ProTrial',
-                    'SupportedLicenses': [
-                        'Basic'|'Plus'|'Pro'|'ProTrial',
+                \'Account\': {
+                    \'AwsAccountId\': \'string\',
+                    \'AccountId\': \'string\',
+                    \'Name\': \'string\',
+                    \'AccountType\': \'Team\'|\'EnterpriseDirectory\'|\'EnterpriseLWA\'|\'EnterpriseOIDC\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'DefaultLicense\': \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
+                    \'SupportedLicenses\': [
+                        \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
                     ]
                 }
             }
@@ -344,7 +344,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_account(
-              AccountId='string'
+              AccountId=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -381,7 +381,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -396,7 +396,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_account(
-              AccountId='string'
+              AccountId=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -411,15 +411,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Account': {
-                    'AwsAccountId': 'string',
-                    'AccountId': 'string',
-                    'Name': 'string',
-                    'AccountType': 'Team'|'EnterpriseDirectory'|'EnterpriseLWA'|'EnterpriseOIDC',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'DefaultLicense': 'Basic'|'Plus'|'Pro'|'ProTrial',
-                    'SupportedLicenses': [
-                        'Basic'|'Plus'|'Pro'|'ProTrial',
+                \'Account\': {
+                    \'AwsAccountId\': \'string\',
+                    \'AccountId\': \'string\',
+                    \'Name\': \'string\',
+                    \'AccountType\': \'Team\'|\'EnterpriseDirectory\'|\'EnterpriseLWA\'|\'EnterpriseOIDC\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'DefaultLicense\': \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
+                    \'SupportedLicenses\': [
+                        \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
                     ]
                 }
             }
@@ -473,7 +473,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_account_settings(
-              AccountId='string'
+              AccountId=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -488,9 +488,9 @@ class Client(BaseClient):
           ::
         
             {
-                'AccountSettings': {
-                    'DisableRemoteControl': True|False,
-                    'EnableDialOut': True|False
+                \'AccountSettings\': {
+                    \'DisableRemoteControl\': True|False,
+                    \'EnableDialOut\': True|False
                 }
             }
           **Response Structure** 
@@ -518,10 +518,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -541,8 +541,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_user(
-              AccountId='string',
-              UserId='string'
+              AccountId=\'string\',
+              UserId=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -562,17 +562,17 @@ class Client(BaseClient):
           ::
         
             {
-                'User': {
-                    'UserId': 'string',
-                    'AccountId': 'string',
-                    'PrimaryEmail': 'string',
-                    'DisplayName': 'string',
-                    'LicenseType': 'Basic'|'Plus'|'Pro'|'ProTrial',
-                    'UserRegistrationStatus': 'Unregistered'|'Registered'|'Suspended',
-                    'UserInvitationStatus': 'Pending'|'Accepted'|'Failed',
-                    'RegisteredOn': datetime(2015, 1, 1),
-                    'InvitedOn': datetime(2015, 1, 1),
-                    'PersonalPIN': 'string'
+                \'User\': {
+                    \'UserId\': \'string\',
+                    \'AccountId\': \'string\',
+                    \'PrimaryEmail\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'LicenseType\': \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
+                    \'UserRegistrationStatus\': \'Unregistered\'|\'Registered\'|\'Suspended\',
+                    \'UserInvitationStatus\': \'Pending\'|\'Accepted\'|\'Failed\',
+                    \'RegisteredOn\': datetime(2015, 1, 1),
+                    \'InvitedOn\': datetime(2015, 1, 1),
+                    \'PersonalPIN\': \'string\'
                 }
             }
           **Response Structure** 
@@ -621,7 +621,7 @@ class Client(BaseClient):
         
               - **PersonalPIN** *(string) --* 
         
-                The user's personal meeting PIN.
+                The user\'s personal meeting PIN.
         
         """
         pass
@@ -647,9 +647,9 @@ class Client(BaseClient):
         ::
         
           response = client.invite_users(
-              AccountId='string',
+              AccountId=\'string\',
               UserEmailList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AccountId: string
@@ -672,12 +672,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Invites': [
+                \'Invites\': [
                     {
-                        'InviteId': 'string',
-                        'Status': 'Pending'|'Accepted'|'Failed',
-                        'EmailAddress': 'string',
-                        'EmailStatus': 'NotSent'|'Sent'|'Failed'
+                        \'InviteId\': \'string\',
+                        \'Status\': \'Pending\'|\'Accepted\'|\'Failed\',
+                        \'EmailAddress\': \'string\',
+                        \'EmailStatus\': \'NotSent\'|\'Sent\'|\'Failed\'
                     },
                 ]
             }
@@ -721,9 +721,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_accounts(
-              Name='string',
-              UserEmail='string',
-              NextToken='string',
+              Name=\'string\',
+              UserEmail=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Name: string
@@ -754,20 +754,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Accounts': [
+                \'Accounts\': [
                     {
-                        'AwsAccountId': 'string',
-                        'AccountId': 'string',
-                        'Name': 'string',
-                        'AccountType': 'Team'|'EnterpriseDirectory'|'EnterpriseLWA'|'EnterpriseOIDC',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'DefaultLicense': 'Basic'|'Plus'|'Pro'|'ProTrial',
-                        'SupportedLicenses': [
-                            'Basic'|'Plus'|'Pro'|'ProTrial',
+                        \'AwsAccountId\': \'string\',
+                        \'AccountId\': \'string\',
+                        \'Name\': \'string\',
+                        \'AccountType\': \'Team\'|\'EnterpriseDirectory\'|\'EnterpriseLWA\'|\'EnterpriseOIDC\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'DefaultLicense\': \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
+                        \'SupportedLicenses\': [
+                            \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -827,9 +827,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_users(
-              AccountId='string',
+              AccountId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -854,21 +854,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'UserId': 'string',
-                        'AccountId': 'string',
-                        'PrimaryEmail': 'string',
-                        'DisplayName': 'string',
-                        'LicenseType': 'Basic'|'Plus'|'Pro'|'ProTrial',
-                        'UserRegistrationStatus': 'Unregistered'|'Registered'|'Suspended',
-                        'UserInvitationStatus': 'Pending'|'Accepted'|'Failed',
-                        'RegisteredOn': datetime(2015, 1, 1),
-                        'InvitedOn': datetime(2015, 1, 1),
-                        'PersonalPIN': 'string'
+                        \'UserId\': \'string\',
+                        \'AccountId\': \'string\',
+                        \'PrimaryEmail\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'LicenseType\': \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
+                        \'UserRegistrationStatus\': \'Unregistered\'|\'Registered\'|\'Suspended\',
+                        \'UserInvitationStatus\': \'Pending\'|\'Accepted\'|\'Failed\',
+                        \'RegisteredOn\': datetime(2015, 1, 1),
+                        \'InvitedOn\': datetime(2015, 1, 1),
+                        \'PersonalPIN\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -920,7 +920,7 @@ class Client(BaseClient):
         
                 - **PersonalPIN** *(string) --* 
         
-                  The user's personal meeting PIN.
+                  The user\'s personal meeting PIN.
         
             - **NextToken** *(string) --* 
         
@@ -938,8 +938,8 @@ class Client(BaseClient):
         ::
         
           response = client.logout_user(
-              AccountId='string',
-              UserId='string'
+              AccountId=\'string\',
+              UserId=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -974,8 +974,8 @@ class Client(BaseClient):
         ::
         
           response = client.reset_personal_pin(
-              AccountId='string',
-              UserId='string'
+              AccountId=\'string\',
+              UserId=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -995,17 +995,17 @@ class Client(BaseClient):
           ::
         
             {
-                'User': {
-                    'UserId': 'string',
-                    'AccountId': 'string',
-                    'PrimaryEmail': 'string',
-                    'DisplayName': 'string',
-                    'LicenseType': 'Basic'|'Plus'|'Pro'|'ProTrial',
-                    'UserRegistrationStatus': 'Unregistered'|'Registered'|'Suspended',
-                    'UserInvitationStatus': 'Pending'|'Accepted'|'Failed',
-                    'RegisteredOn': datetime(2015, 1, 1),
-                    'InvitedOn': datetime(2015, 1, 1),
-                    'PersonalPIN': 'string'
+                \'User\': {
+                    \'UserId\': \'string\',
+                    \'AccountId\': \'string\',
+                    \'PrimaryEmail\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'LicenseType\': \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
+                    \'UserRegistrationStatus\': \'Unregistered\'|\'Registered\'|\'Suspended\',
+                    \'UserInvitationStatus\': \'Pending\'|\'Accepted\'|\'Failed\',
+                    \'RegisteredOn\': datetime(2015, 1, 1),
+                    \'InvitedOn\': datetime(2015, 1, 1),
+                    \'PersonalPIN\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1054,7 +1054,7 @@ class Client(BaseClient):
         
               - **PersonalPIN** *(string) --* 
         
-                The user's personal meeting PIN.
+                The user\'s personal meeting PIN.
         
         """
         pass
@@ -1068,8 +1068,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_account(
-              AccountId='string',
-              Name='string'
+              AccountId=\'string\',
+              Name=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -1089,15 +1089,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Account': {
-                    'AwsAccountId': 'string',
-                    'AccountId': 'string',
-                    'Name': 'string',
-                    'AccountType': 'Team'|'EnterpriseDirectory'|'EnterpriseLWA'|'EnterpriseOIDC',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'DefaultLicense': 'Basic'|'Plus'|'Pro'|'ProTrial',
-                    'SupportedLicenses': [
-                        'Basic'|'Plus'|'Pro'|'ProTrial',
+                \'Account\': {
+                    \'AwsAccountId\': \'string\',
+                    \'AccountId\': \'string\',
+                    \'Name\': \'string\',
+                    \'AccountType\': \'Team\'|\'EnterpriseDirectory\'|\'EnterpriseLWA\'|\'EnterpriseOIDC\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'DefaultLicense\': \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
+                    \'SupportedLicenses\': [
+                        \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
                     ]
                 }
             }
@@ -1151,10 +1151,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_account_settings(
-              AccountId='string',
+              AccountId=\'string\',
               AccountSettings={
-                  'DisableRemoteControl': True|False,
-                  'EnableDialOut': True|False
+                  \'DisableRemoteControl\': True|False,
+                  \'EnableDialOut\': True|False
               }
           )
         :type AccountId: string
@@ -1198,9 +1198,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_user(
-              AccountId='string',
-              UserId='string',
-              LicenseType='Basic'|'Plus'|'Pro'|'ProTrial'
+              AccountId=\'string\',
+              UserId=\'string\',
+              LicenseType=\'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -1225,17 +1225,17 @@ class Client(BaseClient):
           ::
         
             {
-                'User': {
-                    'UserId': 'string',
-                    'AccountId': 'string',
-                    'PrimaryEmail': 'string',
-                    'DisplayName': 'string',
-                    'LicenseType': 'Basic'|'Plus'|'Pro'|'ProTrial',
-                    'UserRegistrationStatus': 'Unregistered'|'Registered'|'Suspended',
-                    'UserInvitationStatus': 'Pending'|'Accepted'|'Failed',
-                    'RegisteredOn': datetime(2015, 1, 1),
-                    'InvitedOn': datetime(2015, 1, 1),
-                    'PersonalPIN': 'string'
+                \'User\': {
+                    \'UserId\': \'string\',
+                    \'AccountId\': \'string\',
+                    \'PrimaryEmail\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'LicenseType\': \'Basic\'|\'Plus\'|\'Pro\'|\'ProTrial\',
+                    \'UserRegistrationStatus\': \'Unregistered\'|\'Registered\'|\'Suspended\',
+                    \'UserInvitationStatus\': \'Pending\'|\'Accepted\'|\'Failed\',
+                    \'RegisteredOn\': datetime(2015, 1, 1),
+                    \'InvitedOn\': datetime(2015, 1, 1),
+                    \'PersonalPIN\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1284,7 +1284,7 @@ class Client(BaseClient):
         
               - **PersonalPIN** *(string) --* 
         
-                The user's personal meeting PIN.
+                The user\'s personal meeting PIN.
         
         """
         pass

@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -19,12 +19,12 @@ class Client(BaseClient):
           response = client.add_tags_to_on_premises_instances(
               tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               instanceNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type tags: list
@@ -40,11 +40,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              The tag's key.
+              The tag\'s key.
         
             - **Value** *(string) --* 
         
-              The tag's value.
+              The tag\'s value.
         
         :type instanceNames: list
         :param instanceNames: **[REQUIRED]** 
@@ -66,24 +66,24 @@ class Client(BaseClient):
         ::
         
           response = client.batch_get_application_revisions(
-              applicationName='string',
+              applicationName=\'string\',
               revisions=[
                   {
-                      'revisionType': 'S3'|'GitHub'|'String',
-                      's3Location': {
-                          'bucket': 'string',
-                          'key': 'string',
-                          'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                          'version': 'string',
-                          'eTag': 'string'
+                      \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                      \'s3Location\': {
+                          \'bucket\': \'string\',
+                          \'key\': \'string\',
+                          \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                          \'version\': \'string\',
+                          \'eTag\': \'string\'
                       },
-                      'gitHubLocation': {
-                          'repository': 'string',
-                          'commitId': 'string'
+                      \'gitHubLocation\': {
+                          \'repository\': \'string\',
+                          \'commitId\': \'string\'
                       },
-                      'string': {
-                          'content': 'string',
-                          'sha256': 'string'
+                      \'string\': {
+                          \'content\': \'string\',
+                          \'sha256\': \'string\'
                       }
                   },
               ]
@@ -180,36 +180,36 @@ class Client(BaseClient):
           ::
         
             {
-                'applicationName': 'string',
-                'errorMessage': 'string',
-                'revisions': [
+                \'applicationName\': \'string\',
+                \'errorMessage\': \'string\',
+                \'revisions\': [
                     {
-                        'revisionLocation': {
-                            'revisionType': 'S3'|'GitHub'|'String',
-                            's3Location': {
-                                'bucket': 'string',
-                                'key': 'string',
-                                'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                                'version': 'string',
-                                'eTag': 'string'
+                        \'revisionLocation\': {
+                            \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                            \'s3Location\': {
+                                \'bucket\': \'string\',
+                                \'key\': \'string\',
+                                \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                                \'version\': \'string\',
+                                \'eTag\': \'string\'
                             },
-                            'gitHubLocation': {
-                                'repository': 'string',
-                                'commitId': 'string'
+                            \'gitHubLocation\': {
+                                \'repository\': \'string\',
+                                \'commitId\': \'string\'
                             },
-                            'string': {
-                                'content': 'string',
-                                'sha256': 'string'
+                            \'string\': {
+                                \'content\': \'string\',
+                                \'sha256\': \'string\'
                             }
                         },
-                        'genericRevisionInfo': {
-                            'description': 'string',
-                            'deploymentGroups': [
-                                'string',
+                        \'genericRevisionInfo\': {
+                            \'description\': \'string\',
+                            \'deploymentGroups\': [
+                                \'string\',
                             ],
-                            'firstUsedTime': datetime(2015, 1, 1),
-                            'lastUsedTime': datetime(2015, 1, 1),
-                            'registerTime': datetime(2015, 1, 1)
+                            \'firstUsedTime\': datetime(2015, 1, 1),
+                            \'lastUsedTime\': datetime(2015, 1, 1),
+                            \'registerTime\': datetime(2015, 1, 1)
                         }
                     },
                 ]
@@ -349,7 +349,7 @@ class Client(BaseClient):
         
           response = client.batch_get_applications(
               applicationNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type applicationNames: list
@@ -367,14 +367,14 @@ class Client(BaseClient):
           ::
         
             {
-                'applicationsInfo': [
+                \'applicationsInfo\': [
                     {
-                        'applicationId': 'string',
-                        'applicationName': 'string',
-                        'createTime': datetime(2015, 1, 1),
-                        'linkedToGitHub': True|False,
-                        'gitHubAccountName': 'string',
-                        'computePlatform': 'Server'|'Lambda'
+                        \'applicationId\': \'string\',
+                        \'applicationName\': \'string\',
+                        \'createTime\': datetime(2015, 1, 1),
+                        \'linkedToGitHub\': True|False,
+                        \'gitHubAccountName\': \'string\',
+                        \'computePlatform\': \'Server\'|\'Lambda\'
                     },
                 ]
             }
@@ -428,9 +428,9 @@ class Client(BaseClient):
         ::
         
           response = client.batch_get_deployment_groups(
-              applicationName='string',
+              applicationName=\'string\',
               deploymentGroupNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type applicationName: string
@@ -441,7 +441,7 @@ class Client(BaseClient):
         :type deploymentGroupNames: list
         :param deploymentGroupNames: **[REQUIRED]** 
         
-          The deployment groups' names.
+          The deployment groups\' names.
         
           - *(string) --* 
         
@@ -453,142 +453,142 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentGroupsInfo': [
+                \'deploymentGroupsInfo\': [
                     {
-                        'applicationName': 'string',
-                        'deploymentGroupId': 'string',
-                        'deploymentGroupName': 'string',
-                        'deploymentConfigName': 'string',
-                        'ec2TagFilters': [
+                        \'applicationName\': \'string\',
+                        \'deploymentGroupId\': \'string\',
+                        \'deploymentGroupName\': \'string\',
+                        \'deploymentConfigName\': \'string\',
+                        \'ec2TagFilters\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string',
-                                'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\',
+                                \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                             },
                         ],
-                        'onPremisesInstanceTagFilters': [
+                        \'onPremisesInstanceTagFilters\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string',
-                                'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\',
+                                \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                             },
                         ],
-                        'autoScalingGroups': [
+                        \'autoScalingGroups\': [
                             {
-                                'name': 'string',
-                                'hook': 'string'
+                                \'name\': \'string\',
+                                \'hook\': \'string\'
                             },
                         ],
-                        'serviceRoleArn': 'string',
-                        'targetRevision': {
-                            'revisionType': 'S3'|'GitHub'|'String',
-                            's3Location': {
-                                'bucket': 'string',
-                                'key': 'string',
-                                'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                                'version': 'string',
-                                'eTag': 'string'
+                        \'serviceRoleArn\': \'string\',
+                        \'targetRevision\': {
+                            \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                            \'s3Location\': {
+                                \'bucket\': \'string\',
+                                \'key\': \'string\',
+                                \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                                \'version\': \'string\',
+                                \'eTag\': \'string\'
                             },
-                            'gitHubLocation': {
-                                'repository': 'string',
-                                'commitId': 'string'
+                            \'gitHubLocation\': {
+                                \'repository\': \'string\',
+                                \'commitId\': \'string\'
                             },
-                            'string': {
-                                'content': 'string',
-                                'sha256': 'string'
+                            \'string\': {
+                                \'content\': \'string\',
+                                \'sha256\': \'string\'
                             }
                         },
-                        'triggerConfigurations': [
+                        \'triggerConfigurations\': [
                             {
-                                'triggerName': 'string',
-                                'triggerTargetArn': 'string',
-                                'triggerEvents': [
-                                    'DeploymentStart'|'DeploymentSuccess'|'DeploymentFailure'|'DeploymentStop'|'DeploymentRollback'|'DeploymentReady'|'InstanceStart'|'InstanceSuccess'|'InstanceFailure'|'InstanceReady',
+                                \'triggerName\': \'string\',
+                                \'triggerTargetArn\': \'string\',
+                                \'triggerEvents\': [
+                                    \'DeploymentStart\'|\'DeploymentSuccess\'|\'DeploymentFailure\'|\'DeploymentStop\'|\'DeploymentRollback\'|\'DeploymentReady\'|\'InstanceStart\'|\'InstanceSuccess\'|\'InstanceFailure\'|\'InstanceReady\',
                                 ]
                             },
                         ],
-                        'alarmConfiguration': {
-                            'enabled': True|False,
-                            'ignorePollAlarmFailure': True|False,
-                            'alarms': [
+                        \'alarmConfiguration\': {
+                            \'enabled\': True|False,
+                            \'ignorePollAlarmFailure\': True|False,
+                            \'alarms\': [
                                 {
-                                    'name': 'string'
+                                    \'name\': \'string\'
                                 },
                             ]
                         },
-                        'autoRollbackConfiguration': {
-                            'enabled': True|False,
-                            'events': [
-                                'DEPLOYMENT_FAILURE'|'DEPLOYMENT_STOP_ON_ALARM'|'DEPLOYMENT_STOP_ON_REQUEST',
+                        \'autoRollbackConfiguration\': {
+                            \'enabled\': True|False,
+                            \'events\': [
+                                \'DEPLOYMENT_FAILURE\'|\'DEPLOYMENT_STOP_ON_ALARM\'|\'DEPLOYMENT_STOP_ON_REQUEST\',
                             ]
                         },
-                        'deploymentStyle': {
-                            'deploymentType': 'IN_PLACE'|'BLUE_GREEN',
-                            'deploymentOption': 'WITH_TRAFFIC_CONTROL'|'WITHOUT_TRAFFIC_CONTROL'
+                        \'deploymentStyle\': {
+                            \'deploymentType\': \'IN_PLACE\'|\'BLUE_GREEN\',
+                            \'deploymentOption\': \'WITH_TRAFFIC_CONTROL\'|\'WITHOUT_TRAFFIC_CONTROL\'
                         },
-                        'blueGreenDeploymentConfiguration': {
-                            'terminateBlueInstancesOnDeploymentSuccess': {
-                                'action': 'TERMINATE'|'KEEP_ALIVE',
-                                'terminationWaitTimeInMinutes': 123
+                        \'blueGreenDeploymentConfiguration\': {
+                            \'terminateBlueInstancesOnDeploymentSuccess\': {
+                                \'action\': \'TERMINATE\'|\'KEEP_ALIVE\',
+                                \'terminationWaitTimeInMinutes\': 123
                             },
-                            'deploymentReadyOption': {
-                                'actionOnTimeout': 'CONTINUE_DEPLOYMENT'|'STOP_DEPLOYMENT',
-                                'waitTimeInMinutes': 123
+                            \'deploymentReadyOption\': {
+                                \'actionOnTimeout\': \'CONTINUE_DEPLOYMENT\'|\'STOP_DEPLOYMENT\',
+                                \'waitTimeInMinutes\': 123
                             },
-                            'greenFleetProvisioningOption': {
-                                'action': 'DISCOVER_EXISTING'|'COPY_AUTO_SCALING_GROUP'
+                            \'greenFleetProvisioningOption\': {
+                                \'action\': \'DISCOVER_EXISTING\'|\'COPY_AUTO_SCALING_GROUP\'
                             }
                         },
-                        'loadBalancerInfo': {
-                            'elbInfoList': [
+                        \'loadBalancerInfo\': {
+                            \'elbInfoList\': [
                                 {
-                                    'name': 'string'
+                                    \'name\': \'string\'
                                 },
                             ],
-                            'targetGroupInfoList': [
+                            \'targetGroupInfoList\': [
                                 {
-                                    'name': 'string'
+                                    \'name\': \'string\'
                                 },
                             ]
                         },
-                        'lastSuccessfulDeployment': {
-                            'deploymentId': 'string',
-                            'status': 'Created'|'Queued'|'InProgress'|'Succeeded'|'Failed'|'Stopped'|'Ready',
-                            'endTime': datetime(2015, 1, 1),
-                            'createTime': datetime(2015, 1, 1)
+                        \'lastSuccessfulDeployment\': {
+                            \'deploymentId\': \'string\',
+                            \'status\': \'Created\'|\'Queued\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Stopped\'|\'Ready\',
+                            \'endTime\': datetime(2015, 1, 1),
+                            \'createTime\': datetime(2015, 1, 1)
                         },
-                        'lastAttemptedDeployment': {
-                            'deploymentId': 'string',
-                            'status': 'Created'|'Queued'|'InProgress'|'Succeeded'|'Failed'|'Stopped'|'Ready',
-                            'endTime': datetime(2015, 1, 1),
-                            'createTime': datetime(2015, 1, 1)
+                        \'lastAttemptedDeployment\': {
+                            \'deploymentId\': \'string\',
+                            \'status\': \'Created\'|\'Queued\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Stopped\'|\'Ready\',
+                            \'endTime\': datetime(2015, 1, 1),
+                            \'createTime\': datetime(2015, 1, 1)
                         },
-                        'ec2TagSet': {
-                            'ec2TagSetList': [
+                        \'ec2TagSet\': {
+                            \'ec2TagSetList\': [
                                 [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string',
-                                        'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\',
+                                        \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                                     },
                                 ],
                             ]
                         },
-                        'onPremisesTagSet': {
-                            'onPremisesTagSetList': [
+                        \'onPremisesTagSet\': {
+                            \'onPremisesTagSetList\': [
                                 [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string',
-                                        'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\',
+                                        \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                                     },
                                 ],
                             ]
                         },
-                        'computePlatform': 'Server'|'Lambda'
+                        \'computePlatform\': \'Server\'|\'Lambda\'
                     },
                 ],
-                'errorMessage': 'string'
+                \'errorMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -694,7 +694,7 @@ class Client(BaseClient):
         
                 - **targetRevision** *(dict) --* 
         
-                  Information about the deployment group's target revision, including type and location.
+                  Information about the deployment group\'s target revision, including type and location.
         
                   - **revisionType** *(string) --* 
         
@@ -800,9 +800,9 @@ class Client(BaseClient):
         
                     Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
         
-                    * true: The deployment will proceed even if alarm status information can't be retrieved from Amazon CloudWatch. 
+                    * true: The deployment will proceed even if alarm status information can\'t be retrieved from Amazon CloudWatch. 
                      
-                    * false: The deployment will stop if alarm status information can't be retrieved from Amazon CloudWatch. 
+                    * false: The deployment will stop if alarm status information can\'t be retrieved from Amazon CloudWatch. 
                      
                   - **alarms** *(list) --* 
         
@@ -1050,9 +1050,9 @@ class Client(BaseClient):
         ::
         
           response = client.batch_get_deployment_instances(
-              deploymentId='string',
+              deploymentId=\'string\',
               instanceIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type deploymentId: string
@@ -1075,30 +1075,30 @@ class Client(BaseClient):
           ::
         
             {
-                'instancesSummary': [
+                \'instancesSummary\': [
                     {
-                        'deploymentId': 'string',
-                        'instanceId': 'string',
-                        'status': 'Pending'|'InProgress'|'Succeeded'|'Failed'|'Skipped'|'Unknown'|'Ready',
-                        'lastUpdatedAt': datetime(2015, 1, 1),
-                        'lifecycleEvents': [
+                        \'deploymentId\': \'string\',
+                        \'instanceId\': \'string\',
+                        \'status\': \'Pending\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Skipped\'|\'Unknown\'|\'Ready\',
+                        \'lastUpdatedAt\': datetime(2015, 1, 1),
+                        \'lifecycleEvents\': [
                             {
-                                'lifecycleEventName': 'string',
-                                'diagnostics': {
-                                    'errorCode': 'Success'|'ScriptMissing'|'ScriptNotExecutable'|'ScriptTimedOut'|'ScriptFailed'|'UnknownError',
-                                    'scriptName': 'string',
-                                    'message': 'string',
-                                    'logTail': 'string'
+                                \'lifecycleEventName\': \'string\',
+                                \'diagnostics\': {
+                                    \'errorCode\': \'Success\'|\'ScriptMissing\'|\'ScriptNotExecutable\'|\'ScriptTimedOut\'|\'ScriptFailed\'|\'UnknownError\',
+                                    \'scriptName\': \'string\',
+                                    \'message\': \'string\',
+                                    \'logTail\': \'string\'
                                 },
-                                'startTime': datetime(2015, 1, 1),
-                                'endTime': datetime(2015, 1, 1),
-                                'status': 'Pending'|'InProgress'|'Succeeded'|'Failed'|'Skipped'|'Unknown'
+                                \'startTime\': datetime(2015, 1, 1),
+                                \'endTime\': datetime(2015, 1, 1),
+                                \'status\': \'Pending\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Skipped\'|\'Unknown\'
                             },
                         ],
-                        'instanceType': 'Blue'|'Green'
+                        \'instanceType\': \'Blue\'|\'Green\'
                     },
                 ],
-                'errorMessage': 'string'
+                \'errorMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -1237,7 +1237,7 @@ class Client(BaseClient):
         
           response = client.batch_get_deployments(
               deploymentIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type deploymentIds: list
@@ -1255,138 +1255,138 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentsInfo': [
+                \'deploymentsInfo\': [
                     {
-                        'applicationName': 'string',
-                        'deploymentGroupName': 'string',
-                        'deploymentConfigName': 'string',
-                        'deploymentId': 'string',
-                        'previousRevision': {
-                            'revisionType': 'S3'|'GitHub'|'String',
-                            's3Location': {
-                                'bucket': 'string',
-                                'key': 'string',
-                                'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                                'version': 'string',
-                                'eTag': 'string'
+                        \'applicationName\': \'string\',
+                        \'deploymentGroupName\': \'string\',
+                        \'deploymentConfigName\': \'string\',
+                        \'deploymentId\': \'string\',
+                        \'previousRevision\': {
+                            \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                            \'s3Location\': {
+                                \'bucket\': \'string\',
+                                \'key\': \'string\',
+                                \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                                \'version\': \'string\',
+                                \'eTag\': \'string\'
                             },
-                            'gitHubLocation': {
-                                'repository': 'string',
-                                'commitId': 'string'
+                            \'gitHubLocation\': {
+                                \'repository\': \'string\',
+                                \'commitId\': \'string\'
                             },
-                            'string': {
-                                'content': 'string',
-                                'sha256': 'string'
+                            \'string\': {
+                                \'content\': \'string\',
+                                \'sha256\': \'string\'
                             }
                         },
-                        'revision': {
-                            'revisionType': 'S3'|'GitHub'|'String',
-                            's3Location': {
-                                'bucket': 'string',
-                                'key': 'string',
-                                'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                                'version': 'string',
-                                'eTag': 'string'
+                        \'revision\': {
+                            \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                            \'s3Location\': {
+                                \'bucket\': \'string\',
+                                \'key\': \'string\',
+                                \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                                \'version\': \'string\',
+                                \'eTag\': \'string\'
                             },
-                            'gitHubLocation': {
-                                'repository': 'string',
-                                'commitId': 'string'
+                            \'gitHubLocation\': {
+                                \'repository\': \'string\',
+                                \'commitId\': \'string\'
                             },
-                            'string': {
-                                'content': 'string',
-                                'sha256': 'string'
+                            \'string\': {
+                                \'content\': \'string\',
+                                \'sha256\': \'string\'
                             }
                         },
-                        'status': 'Created'|'Queued'|'InProgress'|'Succeeded'|'Failed'|'Stopped'|'Ready',
-                        'errorInformation': {
-                            'code': 'DEPLOYMENT_GROUP_MISSING'|'APPLICATION_MISSING'|'REVISION_MISSING'|'IAM_ROLE_MISSING'|'IAM_ROLE_PERMISSIONS'|'NO_EC2_SUBSCRIPTION'|'OVER_MAX_INSTANCES'|'NO_INSTANCES'|'TIMEOUT'|'HEALTH_CONSTRAINTS_INVALID'|'HEALTH_CONSTRAINTS'|'INTERNAL_ERROR'|'THROTTLED'|'ALARM_ACTIVE'|'AGENT_ISSUE'|'AUTO_SCALING_IAM_ROLE_PERMISSIONS'|'AUTO_SCALING_CONFIGURATION'|'MANUAL_STOP'|'MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION'|'MISSING_ELB_INFORMATION'|'MISSING_GITHUB_TOKEN'|'ELASTIC_LOAD_BALANCING_INVALID'|'ELB_INVALID_INSTANCE'|'INVALID_LAMBDA_CONFIGURATION'|'INVALID_LAMBDA_FUNCTION'|'HOOK_EXECUTION_FAILURE',
-                            'message': 'string'
+                        \'status\': \'Created\'|\'Queued\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Stopped\'|\'Ready\',
+                        \'errorInformation\': {
+                            \'code\': \'DEPLOYMENT_GROUP_MISSING\'|\'APPLICATION_MISSING\'|\'REVISION_MISSING\'|\'IAM_ROLE_MISSING\'|\'IAM_ROLE_PERMISSIONS\'|\'NO_EC2_SUBSCRIPTION\'|\'OVER_MAX_INSTANCES\'|\'NO_INSTANCES\'|\'TIMEOUT\'|\'HEALTH_CONSTRAINTS_INVALID\'|\'HEALTH_CONSTRAINTS\'|\'INTERNAL_ERROR\'|\'THROTTLED\'|\'ALARM_ACTIVE\'|\'AGENT_ISSUE\'|\'AUTO_SCALING_IAM_ROLE_PERMISSIONS\'|\'AUTO_SCALING_CONFIGURATION\'|\'MANUAL_STOP\'|\'MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION\'|\'MISSING_ELB_INFORMATION\'|\'MISSING_GITHUB_TOKEN\'|\'ELASTIC_LOAD_BALANCING_INVALID\'|\'ELB_INVALID_INSTANCE\'|\'INVALID_LAMBDA_CONFIGURATION\'|\'INVALID_LAMBDA_FUNCTION\'|\'HOOK_EXECUTION_FAILURE\',
+                            \'message\': \'string\'
                         },
-                        'createTime': datetime(2015, 1, 1),
-                        'startTime': datetime(2015, 1, 1),
-                        'completeTime': datetime(2015, 1, 1),
-                        'deploymentOverview': {
-                            'Pending': 123,
-                            'InProgress': 123,
-                            'Succeeded': 123,
-                            'Failed': 123,
-                            'Skipped': 123,
-                            'Ready': 123
+                        \'createTime\': datetime(2015, 1, 1),
+                        \'startTime\': datetime(2015, 1, 1),
+                        \'completeTime\': datetime(2015, 1, 1),
+                        \'deploymentOverview\': {
+                            \'Pending\': 123,
+                            \'InProgress\': 123,
+                            \'Succeeded\': 123,
+                            \'Failed\': 123,
+                            \'Skipped\': 123,
+                            \'Ready\': 123
                         },
-                        'description': 'string',
-                        'creator': 'user'|'autoscaling'|'codeDeployRollback',
-                        'ignoreApplicationStopFailures': True|False,
-                        'autoRollbackConfiguration': {
-                            'enabled': True|False,
-                            'events': [
-                                'DEPLOYMENT_FAILURE'|'DEPLOYMENT_STOP_ON_ALARM'|'DEPLOYMENT_STOP_ON_REQUEST',
+                        \'description\': \'string\',
+                        \'creator\': \'user\'|\'autoscaling\'|\'codeDeployRollback\',
+                        \'ignoreApplicationStopFailures\': True|False,
+                        \'autoRollbackConfiguration\': {
+                            \'enabled\': True|False,
+                            \'events\': [
+                                \'DEPLOYMENT_FAILURE\'|\'DEPLOYMENT_STOP_ON_ALARM\'|\'DEPLOYMENT_STOP_ON_REQUEST\',
                             ]
                         },
-                        'updateOutdatedInstancesOnly': True|False,
-                        'rollbackInfo': {
-                            'rollbackDeploymentId': 'string',
-                            'rollbackTriggeringDeploymentId': 'string',
-                            'rollbackMessage': 'string'
+                        \'updateOutdatedInstancesOnly\': True|False,
+                        \'rollbackInfo\': {
+                            \'rollbackDeploymentId\': \'string\',
+                            \'rollbackTriggeringDeploymentId\': \'string\',
+                            \'rollbackMessage\': \'string\'
                         },
-                        'deploymentStyle': {
-                            'deploymentType': 'IN_PLACE'|'BLUE_GREEN',
-                            'deploymentOption': 'WITH_TRAFFIC_CONTROL'|'WITHOUT_TRAFFIC_CONTROL'
+                        \'deploymentStyle\': {
+                            \'deploymentType\': \'IN_PLACE\'|\'BLUE_GREEN\',
+                            \'deploymentOption\': \'WITH_TRAFFIC_CONTROL\'|\'WITHOUT_TRAFFIC_CONTROL\'
                         },
-                        'targetInstances': {
-                            'tagFilters': [
+                        \'targetInstances\': {
+                            \'tagFilters\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string',
-                                    'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\',
+                                    \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                                 },
                             ],
-                            'autoScalingGroups': [
-                                'string',
+                            \'autoScalingGroups\': [
+                                \'string\',
                             ],
-                            'ec2TagSet': {
-                                'ec2TagSetList': [
+                            \'ec2TagSet\': {
+                                \'ec2TagSetList\': [
                                     [
                                         {
-                                            'Key': 'string',
-                                            'Value': 'string',
-                                            'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                                            \'Key\': \'string\',
+                                            \'Value\': \'string\',
+                                            \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                                         },
                                     ],
                                 ]
                             }
                         },
-                        'instanceTerminationWaitTimeStarted': True|False,
-                        'blueGreenDeploymentConfiguration': {
-                            'terminateBlueInstancesOnDeploymentSuccess': {
-                                'action': 'TERMINATE'|'KEEP_ALIVE',
-                                'terminationWaitTimeInMinutes': 123
+                        \'instanceTerminationWaitTimeStarted\': True|False,
+                        \'blueGreenDeploymentConfiguration\': {
+                            \'terminateBlueInstancesOnDeploymentSuccess\': {
+                                \'action\': \'TERMINATE\'|\'KEEP_ALIVE\',
+                                \'terminationWaitTimeInMinutes\': 123
                             },
-                            'deploymentReadyOption': {
-                                'actionOnTimeout': 'CONTINUE_DEPLOYMENT'|'STOP_DEPLOYMENT',
-                                'waitTimeInMinutes': 123
+                            \'deploymentReadyOption\': {
+                                \'actionOnTimeout\': \'CONTINUE_DEPLOYMENT\'|\'STOP_DEPLOYMENT\',
+                                \'waitTimeInMinutes\': 123
                             },
-                            'greenFleetProvisioningOption': {
-                                'action': 'DISCOVER_EXISTING'|'COPY_AUTO_SCALING_GROUP'
+                            \'greenFleetProvisioningOption\': {
+                                \'action\': \'DISCOVER_EXISTING\'|\'COPY_AUTO_SCALING_GROUP\'
                             }
                         },
-                        'loadBalancerInfo': {
-                            'elbInfoList': [
+                        \'loadBalancerInfo\': {
+                            \'elbInfoList\': [
                                 {
-                                    'name': 'string'
+                                    \'name\': \'string\'
                                 },
                             ],
-                            'targetGroupInfoList': [
+                            \'targetGroupInfoList\': [
                                 {
-                                    'name': 'string'
+                                    \'name\': \'string\'
                                 },
                             ]
                         },
-                        'additionalDeploymentStatusInfo': 'string',
-                        'fileExistsBehavior': 'DISALLOW'|'OVERWRITE'|'RETAIN',
-                        'deploymentStatusMessages': [
-                            'string',
+                        \'additionalDeploymentStatusInfo\': \'string\',
+                        \'fileExistsBehavior\': \'DISALLOW\'|\'OVERWRITE\'|\'RETAIN\',
+                        \'deploymentStatusMessages\': [
+                            \'string\',
                         ],
-                        'computePlatform': 'Server'|'Lambda'
+                        \'computePlatform\': \'Server\'|\'Lambda\'
                     },
                 ]
             }
@@ -1706,7 +1706,7 @@ class Client(BaseClient):
         
                   - **rollbackMessage** *(string) --* 
         
-                    Information describing the status of a deployment rollback; for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded. 
+                    Information describing the status of a deployment rollback; for example, whether the deployment can\'t be rolled back, is in progress, failed, or succeeded. 
         
                 - **deploymentStyle** *(dict) --* 
         
@@ -1790,7 +1790,7 @@ class Client(BaseClient):
                              
                 - **instanceTerminationWaitTimeStarted** *(boolean) --* 
         
-                  Indicates whether the wait period set for the termination of instances in the original environment has started. Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period starts.
+                  Indicates whether the wait period set for the termination of instances in the original environment has started. Status is \'false\' if the KEEP_ALIVE option is specified; otherwise, \'true\' as soon as the termination wait period starts.
         
                 - **blueGreenDeploymentConfiguration** *(dict) --* 
         
@@ -1882,7 +1882,7 @@ class Client(BaseClient):
         
                 - **fileExistsBehavior** *(string) --* 
         
-                  Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment.
+                  Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren\'t part of the previous successful deployment.
         
                   * DISALLOW: The deployment fails. This is also the default behavior if no option is specified. 
                    
@@ -1913,7 +1913,7 @@ class Client(BaseClient):
         
           response = client.batch_get_on_premises_instances(
               instanceNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type instanceNames: list
@@ -1931,18 +1931,18 @@ class Client(BaseClient):
           ::
         
             {
-                'instanceInfos': [
+                \'instanceInfos\': [
                     {
-                        'instanceName': 'string',
-                        'iamSessionArn': 'string',
-                        'iamUserArn': 'string',
-                        'instanceArn': 'string',
-                        'registerTime': datetime(2015, 1, 1),
-                        'deregisterTime': datetime(2015, 1, 1),
-                        'tags': [
+                        \'instanceName\': \'string\',
+                        \'iamSessionArn\': \'string\',
+                        \'iamUserArn\': \'string\',
+                        \'instanceArn\': \'string\',
+                        \'registerTime\': datetime(2015, 1, 1),
+                        \'deregisterTime\': datetime(2015, 1, 1),
+                        \'tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -1996,11 +1996,11 @@ class Client(BaseClient):
         
                     - **Key** *(string) --* 
         
-                      The tag's key.
+                      The tag\'s key.
         
                     - **Value** *(string) --* 
         
-                      The tag's value.
+                      The tag\'s value.
         
         """
         pass
@@ -2011,10 +2011,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -2030,7 +2030,7 @@ class Client(BaseClient):
         ::
         
           response = client.continue_deployment(
-              deploymentId='string'
+              deploymentId=\'string\'
           )
         :type deploymentId: string
         :param deploymentId: 
@@ -2050,8 +2050,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_application(
-              applicationName='string',
-              computePlatform='Server'|'Lambda'
+              applicationName=\'string\',
+              computePlatform=\'Server\'|\'Lambda\'
           )
         :type applicationName: string
         :param applicationName: **[REQUIRED]** 
@@ -2071,7 +2071,7 @@ class Client(BaseClient):
           ::
         
             {
-                'applicationId': 'string'
+                \'applicationId\': \'string\'
             }
           **Response Structure** 
         
@@ -2095,60 +2095,60 @@ class Client(BaseClient):
         ::
         
           response = client.create_deployment(
-              applicationName='string',
-              deploymentGroupName='string',
+              applicationName=\'string\',
+              deploymentGroupName=\'string\',
               revision={
-                  'revisionType': 'S3'|'GitHub'|'String',
-                  's3Location': {
-                      'bucket': 'string',
-                      'key': 'string',
-                      'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                      'version': 'string',
-                      'eTag': 'string'
+                  \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                  \'s3Location\': {
+                      \'bucket\': \'string\',
+                      \'key\': \'string\',
+                      \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                      \'version\': \'string\',
+                      \'eTag\': \'string\'
                   },
-                  'gitHubLocation': {
-                      'repository': 'string',
-                      'commitId': 'string'
+                  \'gitHubLocation\': {
+                      \'repository\': \'string\',
+                      \'commitId\': \'string\'
                   },
-                  'string': {
-                      'content': 'string',
-                      'sha256': 'string'
+                  \'string\': {
+                      \'content\': \'string\',
+                      \'sha256\': \'string\'
                   }
               },
-              deploymentConfigName='string',
-              description='string',
+              deploymentConfigName=\'string\',
+              description=\'string\',
               ignoreApplicationStopFailures=True|False,
               targetInstances={
-                  'tagFilters': [
+                  \'tagFilters\': [
                       {
-                          'Key': 'string',
-                          'Value': 'string',
-                          'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                          \'Key\': \'string\',
+                          \'Value\': \'string\',
+                          \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                       },
                   ],
-                  'autoScalingGroups': [
-                      'string',
+                  \'autoScalingGroups\': [
+                      \'string\',
                   ],
-                  'ec2TagSet': {
-                      'ec2TagSetList': [
+                  \'ec2TagSet\': {
+                      \'ec2TagSetList\': [
                           [
                               {
-                                  'Key': 'string',
-                                  'Value': 'string',
-                                  'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\',
+                                  \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                               },
                           ],
                       ]
                   }
               },
               autoRollbackConfiguration={
-                  'enabled': True|False,
-                  'events': [
-                      'DEPLOYMENT_FAILURE'|'DEPLOYMENT_STOP_ON_ALARM'|'DEPLOYMENT_STOP_ON_REQUEST',
+                  \'enabled\': True|False,
+                  \'events\': [
+                      \'DEPLOYMENT_FAILURE\'|\'DEPLOYMENT_STOP_ON_ALARM\'|\'DEPLOYMENT_STOP_ON_REQUEST\',
                   ]
               },
               updateOutdatedInstancesOnly=True|False,
-              fileExistsBehavior='DISALLOW'|'OVERWRITE'|'RETAIN'
+              fileExistsBehavior=\'DISALLOW\'|\'OVERWRITE\'|\'RETAIN\'
           )
         :type applicationName: string
         :param applicationName: **[REQUIRED]** 
@@ -2346,7 +2346,7 @@ class Client(BaseClient):
         :type fileExistsBehavior: string
         :param fileExistsBehavior: 
         
-          Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment.
+          Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren\'t part of the previous successful deployment.
         
           The fileExistsBehavior parameter takes any of the following values:
         
@@ -2364,7 +2364,7 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentId': 'string'
+                \'deploymentId\': \'string\'
             }
           **Response Structure** 
         
@@ -2388,23 +2388,23 @@ class Client(BaseClient):
         ::
         
           response = client.create_deployment_config(
-              deploymentConfigName='string',
+              deploymentConfigName=\'string\',
               minimumHealthyHosts={
-                  'value': 123,
-                  'type': 'HOST_COUNT'|'FLEET_PERCENT'
+                  \'value\': 123,
+                  \'type\': \'HOST_COUNT\'|\'FLEET_PERCENT\'
               },
               trafficRoutingConfig={
-                  'type': 'TimeBasedCanary'|'TimeBasedLinear'|'AllAtOnce',
-                  'timeBasedCanary': {
-                      'canaryPercentage': 123,
-                      'canaryInterval': 123
+                  \'type\': \'TimeBasedCanary\'|\'TimeBasedLinear\'|\'AllAtOnce\',
+                  \'timeBasedCanary\': {
+                      \'canaryPercentage\': 123,
+                      \'canaryInterval\': 123
                   },
-                  'timeBasedLinear': {
-                      'linearPercentage': 123,
-                      'linearInterval': 123
+                  \'timeBasedLinear\': {
+                      \'linearPercentage\': 123,
+                      \'linearInterval\': 123
                   }
               },
-              computePlatform='Server'|'Lambda'
+              computePlatform=\'Server\'|\'Lambda\'
           )
         :type deploymentConfigName: string
         :param deploymentConfigName: **[REQUIRED]** 
@@ -2457,7 +2457,7 @@ class Client(BaseClient):
         
           - **timeBasedCanary** *(dict) --* 
         
-            A configuration that shifts traffic from one version of a Lambda function to another in two increments. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+            A configuration that shifts traffic from one version of a Lambda function to another in two increments. The original and target Lambda function versions are specified in the deployment\'s AppSpec file.
         
             - **canaryPercentage** *(integer) --* 
         
@@ -2469,7 +2469,7 @@ class Client(BaseClient):
         
           - **timeBasedLinear** *(dict) --* 
         
-            A configuration that shifts traffic from one version of a Lambda function to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+            A configuration that shifts traffic from one version of a Lambda function to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions are specified in the deployment\'s AppSpec file.
         
             - **linearPercentage** *(integer) --* 
         
@@ -2492,7 +2492,7 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentConfigId': 'string'
+                \'deploymentConfigId\': \'string\'
             }
           **Response Structure** 
         
@@ -2516,98 +2516,98 @@ class Client(BaseClient):
         ::
         
           response = client.create_deployment_group(
-              applicationName='string',
-              deploymentGroupName='string',
-              deploymentConfigName='string',
+              applicationName=\'string\',
+              deploymentGroupName=\'string\',
+              deploymentConfigName=\'string\',
               ec2TagFilters=[
                   {
-                      'Key': 'string',
-                      'Value': 'string',
-                      'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                   },
               ],
               onPremisesInstanceTagFilters=[
                   {
-                      'Key': 'string',
-                      'Value': 'string',
-                      'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                   },
               ],
               autoScalingGroups=[
-                  'string',
+                  \'string\',
               ],
-              serviceRoleArn='string',
+              serviceRoleArn=\'string\',
               triggerConfigurations=[
                   {
-                      'triggerName': 'string',
-                      'triggerTargetArn': 'string',
-                      'triggerEvents': [
-                          'DeploymentStart'|'DeploymentSuccess'|'DeploymentFailure'|'DeploymentStop'|'DeploymentRollback'|'DeploymentReady'|'InstanceStart'|'InstanceSuccess'|'InstanceFailure'|'InstanceReady',
+                      \'triggerName\': \'string\',
+                      \'triggerTargetArn\': \'string\',
+                      \'triggerEvents\': [
+                          \'DeploymentStart\'|\'DeploymentSuccess\'|\'DeploymentFailure\'|\'DeploymentStop\'|\'DeploymentRollback\'|\'DeploymentReady\'|\'InstanceStart\'|\'InstanceSuccess\'|\'InstanceFailure\'|\'InstanceReady\',
                       ]
                   },
               ],
               alarmConfiguration={
-                  'enabled': True|False,
-                  'ignorePollAlarmFailure': True|False,
-                  'alarms': [
+                  \'enabled\': True|False,
+                  \'ignorePollAlarmFailure\': True|False,
+                  \'alarms\': [
                       {
-                          'name': 'string'
+                          \'name\': \'string\'
                       },
                   ]
               },
               autoRollbackConfiguration={
-                  'enabled': True|False,
-                  'events': [
-                      'DEPLOYMENT_FAILURE'|'DEPLOYMENT_STOP_ON_ALARM'|'DEPLOYMENT_STOP_ON_REQUEST',
+                  \'enabled\': True|False,
+                  \'events\': [
+                      \'DEPLOYMENT_FAILURE\'|\'DEPLOYMENT_STOP_ON_ALARM\'|\'DEPLOYMENT_STOP_ON_REQUEST\',
                   ]
               },
               deploymentStyle={
-                  'deploymentType': 'IN_PLACE'|'BLUE_GREEN',
-                  'deploymentOption': 'WITH_TRAFFIC_CONTROL'|'WITHOUT_TRAFFIC_CONTROL'
+                  \'deploymentType\': \'IN_PLACE\'|\'BLUE_GREEN\',
+                  \'deploymentOption\': \'WITH_TRAFFIC_CONTROL\'|\'WITHOUT_TRAFFIC_CONTROL\'
               },
               blueGreenDeploymentConfiguration={
-                  'terminateBlueInstancesOnDeploymentSuccess': {
-                      'action': 'TERMINATE'|'KEEP_ALIVE',
-                      'terminationWaitTimeInMinutes': 123
+                  \'terminateBlueInstancesOnDeploymentSuccess\': {
+                      \'action\': \'TERMINATE\'|\'KEEP_ALIVE\',
+                      \'terminationWaitTimeInMinutes\': 123
                   },
-                  'deploymentReadyOption': {
-                      'actionOnTimeout': 'CONTINUE_DEPLOYMENT'|'STOP_DEPLOYMENT',
-                      'waitTimeInMinutes': 123
+                  \'deploymentReadyOption\': {
+                      \'actionOnTimeout\': \'CONTINUE_DEPLOYMENT\'|\'STOP_DEPLOYMENT\',
+                      \'waitTimeInMinutes\': 123
                   },
-                  'greenFleetProvisioningOption': {
-                      'action': 'DISCOVER_EXISTING'|'COPY_AUTO_SCALING_GROUP'
+                  \'greenFleetProvisioningOption\': {
+                      \'action\': \'DISCOVER_EXISTING\'|\'COPY_AUTO_SCALING_GROUP\'
                   }
               },
               loadBalancerInfo={
-                  'elbInfoList': [
+                  \'elbInfoList\': [
                       {
-                          'name': 'string'
+                          \'name\': \'string\'
                       },
                   ],
-                  'targetGroupInfoList': [
+                  \'targetGroupInfoList\': [
                       {
-                          'name': 'string'
+                          \'name\': \'string\'
                       },
                   ]
               },
               ec2TagSet={
-                  'ec2TagSetList': [
+                  \'ec2TagSetList\': [
                       [
                           {
-                              'Key': 'string',
-                              'Value': 'string',
-                              'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\',
+                              \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                           },
                       ],
                   ]
               },
               onPremisesTagSet={
-                  'onPremisesTagSetList': [
+                  \'onPremisesTagSetList\': [
                       [
                           {
-                              'Key': 'string',
-                              'Value': 'string',
-                              'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\',
+                              \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                           },
                       ],
                   ]
@@ -2628,7 +2628,7 @@ class Client(BaseClient):
         
           If specified, the deployment configuration name can be either one of the predefined configurations provided with AWS CodeDeploy or a custom deployment configuration that you create by calling the create deployment configuration operation.
         
-          CodeDeployDefault.OneAtATime is the default deployment configuration. It is used if a configuration isn't specified for the deployment or the deployment group.
+          CodeDeployDefault.OneAtATime is the default deployment configuration. It is used if a configuration isn\'t specified for the deployment or the deployment group.
         
           For more information about the predefined deployment configurations in AWS CodeDeploy, see `Working with Deployment Groups in AWS CodeDeploy <http://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html>`__ in the AWS CodeDeploy User Guide.
         
@@ -2696,7 +2696,7 @@ class Client(BaseClient):
         :type serviceRoleArn: string
         :param serviceRoleArn: **[REQUIRED]** 
         
-          A service role ARN that allows AWS CodeDeploy to act on the user's behalf when interacting with AWS services.
+          A service role ARN that allows AWS CodeDeploy to act on the user\'s behalf when interacting with AWS services.
         
         :type triggerConfigurations: list
         :param triggerConfigurations: 
@@ -2734,9 +2734,9 @@ class Client(BaseClient):
         
             Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
         
-            * true: The deployment will proceed even if alarm status information can't be retrieved from Amazon CloudWatch. 
+            * true: The deployment will proceed even if alarm status information can\'t be retrieved from Amazon CloudWatch. 
              
-            * false: The deployment will stop if alarm status information can't be retrieved from Amazon CloudWatch. 
+            * false: The deployment will stop if alarm status information can\'t be retrieved from Amazon CloudWatch. 
              
           - **alarms** *(list) --* 
         
@@ -2938,7 +2938,7 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentGroupId': 'string'
+                \'deploymentGroupId\': \'string\'
             }
           **Response Structure** 
         
@@ -2962,7 +2962,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_application(
-              applicationName='string'
+              applicationName=\'string\'
           )
         :type applicationName: string
         :param applicationName: **[REQUIRED]** 
@@ -2986,7 +2986,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_deployment_config(
-              deploymentConfigName='string'
+              deploymentConfigName=\'string\'
           )
         :type deploymentConfigName: string
         :param deploymentConfigName: **[REQUIRED]** 
@@ -3006,8 +3006,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_deployment_group(
-              applicationName='string',
-              deploymentGroupName='string'
+              applicationName=\'string\',
+              deploymentGroupName=\'string\'
           )
         :type applicationName: string
         :param applicationName: **[REQUIRED]** 
@@ -3027,10 +3027,10 @@ class Client(BaseClient):
           ::
         
             {
-                'hooksNotCleanedUp': [
+                \'hooksNotCleanedUp\': [
                     {
-                        'name': 'string',
-                        'hook': 'string'
+                        \'name\': \'string\',
+                        \'hook\': \'string\'
                     },
                 ]
             }
@@ -3068,7 +3068,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_git_hub_account_token(
-              tokenName='string'
+              tokenName=\'string\'
           )
         :type tokenName: string
         :param tokenName: 
@@ -3083,7 +3083,7 @@ class Client(BaseClient):
           ::
         
             {
-                'tokenName': 'string'
+                \'tokenName\': \'string\'
             }
           **Response Structure** 
         
@@ -3107,7 +3107,7 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_on_premises_instance(
-              instanceName='string'
+              instanceName=\'string\'
           )
         :type instanceName: string
         :param instanceName: **[REQUIRED]** 
@@ -3134,7 +3134,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3149,7 +3149,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_application(
-              applicationName='string'
+              applicationName=\'string\'
           )
         :type applicationName: string
         :param applicationName: **[REQUIRED]** 
@@ -3164,13 +3164,13 @@ class Client(BaseClient):
           ::
         
             {
-                'application': {
-                    'applicationId': 'string',
-                    'applicationName': 'string',
-                    'createTime': datetime(2015, 1, 1),
-                    'linkedToGitHub': True|False,
-                    'gitHubAccountName': 'string',
-                    'computePlatform': 'Server'|'Lambda'
+                \'application\': {
+                    \'applicationId\': \'string\',
+                    \'applicationName\': \'string\',
+                    \'createTime\': datetime(2015, 1, 1),
+                    \'linkedToGitHub\': True|False,
+                    \'gitHubAccountName\': \'string\',
+                    \'computePlatform\': \'Server\'|\'Lambda\'
                 }
             }
           **Response Structure** 
@@ -3219,23 +3219,23 @@ class Client(BaseClient):
         ::
         
           response = client.get_application_revision(
-              applicationName='string',
+              applicationName=\'string\',
               revision={
-                  'revisionType': 'S3'|'GitHub'|'String',
-                  's3Location': {
-                      'bucket': 'string',
-                      'key': 'string',
-                      'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                      'version': 'string',
-                      'eTag': 'string'
+                  \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                  \'s3Location\': {
+                      \'bucket\': \'string\',
+                      \'key\': \'string\',
+                      \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                      \'version\': \'string\',
+                      \'eTag\': \'string\'
                   },
-                  'gitHubLocation': {
-                      'repository': 'string',
-                      'commitId': 'string'
+                  \'gitHubLocation\': {
+                      \'repository\': \'string\',
+                      \'commitId\': \'string\'
                   },
-                  'string': {
-                      'content': 'string',
-                      'sha256': 'string'
+                  \'string\': {
+                      \'content\': \'string\',
+                      \'sha256\': \'string\'
                   }
               }
           )
@@ -3327,33 +3327,33 @@ class Client(BaseClient):
           ::
         
             {
-                'applicationName': 'string',
-                'revision': {
-                    'revisionType': 'S3'|'GitHub'|'String',
-                    's3Location': {
-                        'bucket': 'string',
-                        'key': 'string',
-                        'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                        'version': 'string',
-                        'eTag': 'string'
+                \'applicationName\': \'string\',
+                \'revision\': {
+                    \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                    \'s3Location\': {
+                        \'bucket\': \'string\',
+                        \'key\': \'string\',
+                        \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                        \'version\': \'string\',
+                        \'eTag\': \'string\'
                     },
-                    'gitHubLocation': {
-                        'repository': 'string',
-                        'commitId': 'string'
+                    \'gitHubLocation\': {
+                        \'repository\': \'string\',
+                        \'commitId\': \'string\'
                     },
-                    'string': {
-                        'content': 'string',
-                        'sha256': 'string'
+                    \'string\': {
+                        \'content\': \'string\',
+                        \'sha256\': \'string\'
                     }
                 },
-                'revisionInfo': {
-                    'description': 'string',
-                    'deploymentGroups': [
-                        'string',
+                \'revisionInfo\': {
+                    \'description\': \'string\',
+                    \'deploymentGroups\': [
+                        \'string\',
                     ],
-                    'firstUsedTime': datetime(2015, 1, 1),
-                    'lastUsedTime': datetime(2015, 1, 1),
-                    'registerTime': datetime(2015, 1, 1)
+                    \'firstUsedTime\': datetime(2015, 1, 1),
+                    \'lastUsedTime\': datetime(2015, 1, 1),
+                    \'registerTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -3478,7 +3478,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_deployment(
-              deploymentId='string'
+              deploymentId=\'string\'
           )
         :type deploymentId: string
         :param deploymentId: **[REQUIRED]** 
@@ -3493,137 +3493,137 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentInfo': {
-                    'applicationName': 'string',
-                    'deploymentGroupName': 'string',
-                    'deploymentConfigName': 'string',
-                    'deploymentId': 'string',
-                    'previousRevision': {
-                        'revisionType': 'S3'|'GitHub'|'String',
-                        's3Location': {
-                            'bucket': 'string',
-                            'key': 'string',
-                            'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                            'version': 'string',
-                            'eTag': 'string'
+                \'deploymentInfo\': {
+                    \'applicationName\': \'string\',
+                    \'deploymentGroupName\': \'string\',
+                    \'deploymentConfigName\': \'string\',
+                    \'deploymentId\': \'string\',
+                    \'previousRevision\': {
+                        \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                        \'s3Location\': {
+                            \'bucket\': \'string\',
+                            \'key\': \'string\',
+                            \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                            \'version\': \'string\',
+                            \'eTag\': \'string\'
                         },
-                        'gitHubLocation': {
-                            'repository': 'string',
-                            'commitId': 'string'
+                        \'gitHubLocation\': {
+                            \'repository\': \'string\',
+                            \'commitId\': \'string\'
                         },
-                        'string': {
-                            'content': 'string',
-                            'sha256': 'string'
+                        \'string\': {
+                            \'content\': \'string\',
+                            \'sha256\': \'string\'
                         }
                     },
-                    'revision': {
-                        'revisionType': 'S3'|'GitHub'|'String',
-                        's3Location': {
-                            'bucket': 'string',
-                            'key': 'string',
-                            'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                            'version': 'string',
-                            'eTag': 'string'
+                    \'revision\': {
+                        \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                        \'s3Location\': {
+                            \'bucket\': \'string\',
+                            \'key\': \'string\',
+                            \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                            \'version\': \'string\',
+                            \'eTag\': \'string\'
                         },
-                        'gitHubLocation': {
-                            'repository': 'string',
-                            'commitId': 'string'
+                        \'gitHubLocation\': {
+                            \'repository\': \'string\',
+                            \'commitId\': \'string\'
                         },
-                        'string': {
-                            'content': 'string',
-                            'sha256': 'string'
+                        \'string\': {
+                            \'content\': \'string\',
+                            \'sha256\': \'string\'
                         }
                     },
-                    'status': 'Created'|'Queued'|'InProgress'|'Succeeded'|'Failed'|'Stopped'|'Ready',
-                    'errorInformation': {
-                        'code': 'DEPLOYMENT_GROUP_MISSING'|'APPLICATION_MISSING'|'REVISION_MISSING'|'IAM_ROLE_MISSING'|'IAM_ROLE_PERMISSIONS'|'NO_EC2_SUBSCRIPTION'|'OVER_MAX_INSTANCES'|'NO_INSTANCES'|'TIMEOUT'|'HEALTH_CONSTRAINTS_INVALID'|'HEALTH_CONSTRAINTS'|'INTERNAL_ERROR'|'THROTTLED'|'ALARM_ACTIVE'|'AGENT_ISSUE'|'AUTO_SCALING_IAM_ROLE_PERMISSIONS'|'AUTO_SCALING_CONFIGURATION'|'MANUAL_STOP'|'MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION'|'MISSING_ELB_INFORMATION'|'MISSING_GITHUB_TOKEN'|'ELASTIC_LOAD_BALANCING_INVALID'|'ELB_INVALID_INSTANCE'|'INVALID_LAMBDA_CONFIGURATION'|'INVALID_LAMBDA_FUNCTION'|'HOOK_EXECUTION_FAILURE',
-                        'message': 'string'
+                    \'status\': \'Created\'|\'Queued\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Stopped\'|\'Ready\',
+                    \'errorInformation\': {
+                        \'code\': \'DEPLOYMENT_GROUP_MISSING\'|\'APPLICATION_MISSING\'|\'REVISION_MISSING\'|\'IAM_ROLE_MISSING\'|\'IAM_ROLE_PERMISSIONS\'|\'NO_EC2_SUBSCRIPTION\'|\'OVER_MAX_INSTANCES\'|\'NO_INSTANCES\'|\'TIMEOUT\'|\'HEALTH_CONSTRAINTS_INVALID\'|\'HEALTH_CONSTRAINTS\'|\'INTERNAL_ERROR\'|\'THROTTLED\'|\'ALARM_ACTIVE\'|\'AGENT_ISSUE\'|\'AUTO_SCALING_IAM_ROLE_PERMISSIONS\'|\'AUTO_SCALING_CONFIGURATION\'|\'MANUAL_STOP\'|\'MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION\'|\'MISSING_ELB_INFORMATION\'|\'MISSING_GITHUB_TOKEN\'|\'ELASTIC_LOAD_BALANCING_INVALID\'|\'ELB_INVALID_INSTANCE\'|\'INVALID_LAMBDA_CONFIGURATION\'|\'INVALID_LAMBDA_FUNCTION\'|\'HOOK_EXECUTION_FAILURE\',
+                        \'message\': \'string\'
                     },
-                    'createTime': datetime(2015, 1, 1),
-                    'startTime': datetime(2015, 1, 1),
-                    'completeTime': datetime(2015, 1, 1),
-                    'deploymentOverview': {
-                        'Pending': 123,
-                        'InProgress': 123,
-                        'Succeeded': 123,
-                        'Failed': 123,
-                        'Skipped': 123,
-                        'Ready': 123
+                    \'createTime\': datetime(2015, 1, 1),
+                    \'startTime\': datetime(2015, 1, 1),
+                    \'completeTime\': datetime(2015, 1, 1),
+                    \'deploymentOverview\': {
+                        \'Pending\': 123,
+                        \'InProgress\': 123,
+                        \'Succeeded\': 123,
+                        \'Failed\': 123,
+                        \'Skipped\': 123,
+                        \'Ready\': 123
                     },
-                    'description': 'string',
-                    'creator': 'user'|'autoscaling'|'codeDeployRollback',
-                    'ignoreApplicationStopFailures': True|False,
-                    'autoRollbackConfiguration': {
-                        'enabled': True|False,
-                        'events': [
-                            'DEPLOYMENT_FAILURE'|'DEPLOYMENT_STOP_ON_ALARM'|'DEPLOYMENT_STOP_ON_REQUEST',
+                    \'description\': \'string\',
+                    \'creator\': \'user\'|\'autoscaling\'|\'codeDeployRollback\',
+                    \'ignoreApplicationStopFailures\': True|False,
+                    \'autoRollbackConfiguration\': {
+                        \'enabled\': True|False,
+                        \'events\': [
+                            \'DEPLOYMENT_FAILURE\'|\'DEPLOYMENT_STOP_ON_ALARM\'|\'DEPLOYMENT_STOP_ON_REQUEST\',
                         ]
                     },
-                    'updateOutdatedInstancesOnly': True|False,
-                    'rollbackInfo': {
-                        'rollbackDeploymentId': 'string',
-                        'rollbackTriggeringDeploymentId': 'string',
-                        'rollbackMessage': 'string'
+                    \'updateOutdatedInstancesOnly\': True|False,
+                    \'rollbackInfo\': {
+                        \'rollbackDeploymentId\': \'string\',
+                        \'rollbackTriggeringDeploymentId\': \'string\',
+                        \'rollbackMessage\': \'string\'
                     },
-                    'deploymentStyle': {
-                        'deploymentType': 'IN_PLACE'|'BLUE_GREEN',
-                        'deploymentOption': 'WITH_TRAFFIC_CONTROL'|'WITHOUT_TRAFFIC_CONTROL'
+                    \'deploymentStyle\': {
+                        \'deploymentType\': \'IN_PLACE\'|\'BLUE_GREEN\',
+                        \'deploymentOption\': \'WITH_TRAFFIC_CONTROL\'|\'WITHOUT_TRAFFIC_CONTROL\'
                     },
-                    'targetInstances': {
-                        'tagFilters': [
+                    \'targetInstances\': {
+                        \'tagFilters\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string',
-                                'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\',
+                                \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                             },
                         ],
-                        'autoScalingGroups': [
-                            'string',
+                        \'autoScalingGroups\': [
+                            \'string\',
                         ],
-                        'ec2TagSet': {
-                            'ec2TagSetList': [
+                        \'ec2TagSet\': {
+                            \'ec2TagSetList\': [
                                 [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string',
-                                        'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\',
+                                        \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                                     },
                                 ],
                             ]
                         }
                     },
-                    'instanceTerminationWaitTimeStarted': True|False,
-                    'blueGreenDeploymentConfiguration': {
-                        'terminateBlueInstancesOnDeploymentSuccess': {
-                            'action': 'TERMINATE'|'KEEP_ALIVE',
-                            'terminationWaitTimeInMinutes': 123
+                    \'instanceTerminationWaitTimeStarted\': True|False,
+                    \'blueGreenDeploymentConfiguration\': {
+                        \'terminateBlueInstancesOnDeploymentSuccess\': {
+                            \'action\': \'TERMINATE\'|\'KEEP_ALIVE\',
+                            \'terminationWaitTimeInMinutes\': 123
                         },
-                        'deploymentReadyOption': {
-                            'actionOnTimeout': 'CONTINUE_DEPLOYMENT'|'STOP_DEPLOYMENT',
-                            'waitTimeInMinutes': 123
+                        \'deploymentReadyOption\': {
+                            \'actionOnTimeout\': \'CONTINUE_DEPLOYMENT\'|\'STOP_DEPLOYMENT\',
+                            \'waitTimeInMinutes\': 123
                         },
-                        'greenFleetProvisioningOption': {
-                            'action': 'DISCOVER_EXISTING'|'COPY_AUTO_SCALING_GROUP'
+                        \'greenFleetProvisioningOption\': {
+                            \'action\': \'DISCOVER_EXISTING\'|\'COPY_AUTO_SCALING_GROUP\'
                         }
                     },
-                    'loadBalancerInfo': {
-                        'elbInfoList': [
+                    \'loadBalancerInfo\': {
+                        \'elbInfoList\': [
                             {
-                                'name': 'string'
+                                \'name\': \'string\'
                             },
                         ],
-                        'targetGroupInfoList': [
+                        \'targetGroupInfoList\': [
                             {
-                                'name': 'string'
+                                \'name\': \'string\'
                             },
                         ]
                     },
-                    'additionalDeploymentStatusInfo': 'string',
-                    'fileExistsBehavior': 'DISALLOW'|'OVERWRITE'|'RETAIN',
-                    'deploymentStatusMessages': [
-                        'string',
+                    \'additionalDeploymentStatusInfo\': \'string\',
+                    \'fileExistsBehavior\': \'DISALLOW\'|\'OVERWRITE\'|\'RETAIN\',
+                    \'deploymentStatusMessages\': [
+                        \'string\',
                     ],
-                    'computePlatform': 'Server'|'Lambda'
+                    \'computePlatform\': \'Server\'|\'Lambda\'
                 }
             }
           **Response Structure** 
@@ -3938,7 +3938,7 @@ class Client(BaseClient):
         
                 - **rollbackMessage** *(string) --* 
         
-                  Information describing the status of a deployment rollback; for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded. 
+                  Information describing the status of a deployment rollback; for example, whether the deployment can\'t be rolled back, is in progress, failed, or succeeded. 
         
               - **deploymentStyle** *(dict) --* 
         
@@ -4022,7 +4022,7 @@ class Client(BaseClient):
                            
               - **instanceTerminationWaitTimeStarted** *(boolean) --* 
         
-                Indicates whether the wait period set for the termination of instances in the original environment has started. Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period starts.
+                Indicates whether the wait period set for the termination of instances in the original environment has started. Status is \'false\' if the KEEP_ALIVE option is specified; otherwise, \'true\' as soon as the termination wait period starts.
         
               - **blueGreenDeploymentConfiguration** *(dict) --* 
         
@@ -4114,7 +4114,7 @@ class Client(BaseClient):
         
               - **fileExistsBehavior** *(string) --* 
         
-                Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment.
+                Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren\'t part of the previous successful deployment.
         
                 * DISALLOW: The deployment fails. This is also the default behavior if no option is specified. 
                  
@@ -4144,7 +4144,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_deployment_config(
-              deploymentConfigName='string'
+              deploymentConfigName=\'string\'
           )
         :type deploymentConfigName: string
         :param deploymentConfigName: **[REQUIRED]** 
@@ -4159,24 +4159,24 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentConfigInfo': {
-                    'deploymentConfigId': 'string',
-                    'deploymentConfigName': 'string',
-                    'minimumHealthyHosts': {
-                        'value': 123,
-                        'type': 'HOST_COUNT'|'FLEET_PERCENT'
+                \'deploymentConfigInfo\': {
+                    \'deploymentConfigId\': \'string\',
+                    \'deploymentConfigName\': \'string\',
+                    \'minimumHealthyHosts\': {
+                        \'value\': 123,
+                        \'type\': \'HOST_COUNT\'|\'FLEET_PERCENT\'
                     },
-                    'createTime': datetime(2015, 1, 1),
-                    'computePlatform': 'Server'|'Lambda',
-                    'trafficRoutingConfig': {
-                        'type': 'TimeBasedCanary'|'TimeBasedLinear'|'AllAtOnce',
-                        'timeBasedCanary': {
-                            'canaryPercentage': 123,
-                            'canaryInterval': 123
+                    \'createTime\': datetime(2015, 1, 1),
+                    \'computePlatform\': \'Server\'|\'Lambda\',
+                    \'trafficRoutingConfig\': {
+                        \'type\': \'TimeBasedCanary\'|\'TimeBasedLinear\'|\'AllAtOnce\',
+                        \'timeBasedCanary\': {
+                            \'canaryPercentage\': 123,
+                            \'canaryInterval\': 123
                         },
-                        'timeBasedLinear': {
-                            'linearPercentage': 123,
-                            'linearInterval': 123
+                        \'timeBasedLinear\': {
+                            \'linearPercentage\': 123,
+                            \'linearInterval\': 123
                         }
                     }
                 }
@@ -4241,7 +4241,7 @@ class Client(BaseClient):
         
                 - **timeBasedCanary** *(dict) --* 
         
-                  A configuration that shifts traffic from one version of a Lambda function to another in two increments. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+                  A configuration that shifts traffic from one version of a Lambda function to another in two increments. The original and target Lambda function versions are specified in the deployment\'s AppSpec file.
         
                   - **canaryPercentage** *(integer) --* 
         
@@ -4253,7 +4253,7 @@ class Client(BaseClient):
         
                 - **timeBasedLinear** *(dict) --* 
         
-                  A configuration that shifts traffic from one version of a Lambda function to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions are specified in the deployment's AppSpec file.
+                  A configuration that shifts traffic from one version of a Lambda function to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions are specified in the deployment\'s AppSpec file.
         
                   - **linearPercentage** *(integer) --* 
         
@@ -4275,8 +4275,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_deployment_group(
-              applicationName='string',
-              deploymentGroupName='string'
+              applicationName=\'string\',
+              deploymentGroupName=\'string\'
           )
         :type applicationName: string
         :param applicationName: **[REQUIRED]** 
@@ -4296,138 +4296,138 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentGroupInfo': {
-                    'applicationName': 'string',
-                    'deploymentGroupId': 'string',
-                    'deploymentGroupName': 'string',
-                    'deploymentConfigName': 'string',
-                    'ec2TagFilters': [
+                \'deploymentGroupInfo\': {
+                    \'applicationName\': \'string\',
+                    \'deploymentGroupId\': \'string\',
+                    \'deploymentGroupName\': \'string\',
+                    \'deploymentConfigName\': \'string\',
+                    \'ec2TagFilters\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string',
-                            'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\',
+                            \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                         },
                     ],
-                    'onPremisesInstanceTagFilters': [
+                    \'onPremisesInstanceTagFilters\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string',
-                            'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\',
+                            \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                         },
                     ],
-                    'autoScalingGroups': [
+                    \'autoScalingGroups\': [
                         {
-                            'name': 'string',
-                            'hook': 'string'
+                            \'name\': \'string\',
+                            \'hook\': \'string\'
                         },
                     ],
-                    'serviceRoleArn': 'string',
-                    'targetRevision': {
-                        'revisionType': 'S3'|'GitHub'|'String',
-                        's3Location': {
-                            'bucket': 'string',
-                            'key': 'string',
-                            'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                            'version': 'string',
-                            'eTag': 'string'
+                    \'serviceRoleArn\': \'string\',
+                    \'targetRevision\': {
+                        \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                        \'s3Location\': {
+                            \'bucket\': \'string\',
+                            \'key\': \'string\',
+                            \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                            \'version\': \'string\',
+                            \'eTag\': \'string\'
                         },
-                        'gitHubLocation': {
-                            'repository': 'string',
-                            'commitId': 'string'
+                        \'gitHubLocation\': {
+                            \'repository\': \'string\',
+                            \'commitId\': \'string\'
                         },
-                        'string': {
-                            'content': 'string',
-                            'sha256': 'string'
+                        \'string\': {
+                            \'content\': \'string\',
+                            \'sha256\': \'string\'
                         }
                     },
-                    'triggerConfigurations': [
+                    \'triggerConfigurations\': [
                         {
-                            'triggerName': 'string',
-                            'triggerTargetArn': 'string',
-                            'triggerEvents': [
-                                'DeploymentStart'|'DeploymentSuccess'|'DeploymentFailure'|'DeploymentStop'|'DeploymentRollback'|'DeploymentReady'|'InstanceStart'|'InstanceSuccess'|'InstanceFailure'|'InstanceReady',
+                            \'triggerName\': \'string\',
+                            \'triggerTargetArn\': \'string\',
+                            \'triggerEvents\': [
+                                \'DeploymentStart\'|\'DeploymentSuccess\'|\'DeploymentFailure\'|\'DeploymentStop\'|\'DeploymentRollback\'|\'DeploymentReady\'|\'InstanceStart\'|\'InstanceSuccess\'|\'InstanceFailure\'|\'InstanceReady\',
                             ]
                         },
                     ],
-                    'alarmConfiguration': {
-                        'enabled': True|False,
-                        'ignorePollAlarmFailure': True|False,
-                        'alarms': [
+                    \'alarmConfiguration\': {
+                        \'enabled\': True|False,
+                        \'ignorePollAlarmFailure\': True|False,
+                        \'alarms\': [
                             {
-                                'name': 'string'
+                                \'name\': \'string\'
                             },
                         ]
                     },
-                    'autoRollbackConfiguration': {
-                        'enabled': True|False,
-                        'events': [
-                            'DEPLOYMENT_FAILURE'|'DEPLOYMENT_STOP_ON_ALARM'|'DEPLOYMENT_STOP_ON_REQUEST',
+                    \'autoRollbackConfiguration\': {
+                        \'enabled\': True|False,
+                        \'events\': [
+                            \'DEPLOYMENT_FAILURE\'|\'DEPLOYMENT_STOP_ON_ALARM\'|\'DEPLOYMENT_STOP_ON_REQUEST\',
                         ]
                     },
-                    'deploymentStyle': {
-                        'deploymentType': 'IN_PLACE'|'BLUE_GREEN',
-                        'deploymentOption': 'WITH_TRAFFIC_CONTROL'|'WITHOUT_TRAFFIC_CONTROL'
+                    \'deploymentStyle\': {
+                        \'deploymentType\': \'IN_PLACE\'|\'BLUE_GREEN\',
+                        \'deploymentOption\': \'WITH_TRAFFIC_CONTROL\'|\'WITHOUT_TRAFFIC_CONTROL\'
                     },
-                    'blueGreenDeploymentConfiguration': {
-                        'terminateBlueInstancesOnDeploymentSuccess': {
-                            'action': 'TERMINATE'|'KEEP_ALIVE',
-                            'terminationWaitTimeInMinutes': 123
+                    \'blueGreenDeploymentConfiguration\': {
+                        \'terminateBlueInstancesOnDeploymentSuccess\': {
+                            \'action\': \'TERMINATE\'|\'KEEP_ALIVE\',
+                            \'terminationWaitTimeInMinutes\': 123
                         },
-                        'deploymentReadyOption': {
-                            'actionOnTimeout': 'CONTINUE_DEPLOYMENT'|'STOP_DEPLOYMENT',
-                            'waitTimeInMinutes': 123
+                        \'deploymentReadyOption\': {
+                            \'actionOnTimeout\': \'CONTINUE_DEPLOYMENT\'|\'STOP_DEPLOYMENT\',
+                            \'waitTimeInMinutes\': 123
                         },
-                        'greenFleetProvisioningOption': {
-                            'action': 'DISCOVER_EXISTING'|'COPY_AUTO_SCALING_GROUP'
+                        \'greenFleetProvisioningOption\': {
+                            \'action\': \'DISCOVER_EXISTING\'|\'COPY_AUTO_SCALING_GROUP\'
                         }
                     },
-                    'loadBalancerInfo': {
-                        'elbInfoList': [
+                    \'loadBalancerInfo\': {
+                        \'elbInfoList\': [
                             {
-                                'name': 'string'
+                                \'name\': \'string\'
                             },
                         ],
-                        'targetGroupInfoList': [
+                        \'targetGroupInfoList\': [
                             {
-                                'name': 'string'
+                                \'name\': \'string\'
                             },
                         ]
                     },
-                    'lastSuccessfulDeployment': {
-                        'deploymentId': 'string',
-                        'status': 'Created'|'Queued'|'InProgress'|'Succeeded'|'Failed'|'Stopped'|'Ready',
-                        'endTime': datetime(2015, 1, 1),
-                        'createTime': datetime(2015, 1, 1)
+                    \'lastSuccessfulDeployment\': {
+                        \'deploymentId\': \'string\',
+                        \'status\': \'Created\'|\'Queued\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Stopped\'|\'Ready\',
+                        \'endTime\': datetime(2015, 1, 1),
+                        \'createTime\': datetime(2015, 1, 1)
                     },
-                    'lastAttemptedDeployment': {
-                        'deploymentId': 'string',
-                        'status': 'Created'|'Queued'|'InProgress'|'Succeeded'|'Failed'|'Stopped'|'Ready',
-                        'endTime': datetime(2015, 1, 1),
-                        'createTime': datetime(2015, 1, 1)
+                    \'lastAttemptedDeployment\': {
+                        \'deploymentId\': \'string\',
+                        \'status\': \'Created\'|\'Queued\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Stopped\'|\'Ready\',
+                        \'endTime\': datetime(2015, 1, 1),
+                        \'createTime\': datetime(2015, 1, 1)
                     },
-                    'ec2TagSet': {
-                        'ec2TagSetList': [
+                    \'ec2TagSet\': {
+                        \'ec2TagSetList\': [
                             [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string',
-                                    'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\',
+                                    \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                                 },
                             ],
                         ]
                     },
-                    'onPremisesTagSet': {
-                        'onPremisesTagSetList': [
+                    \'onPremisesTagSet\': {
+                        \'onPremisesTagSetList\': [
                             [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string',
-                                    'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\',
+                                    \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                                 },
                             ],
                         ]
                     },
-                    'computePlatform': 'Server'|'Lambda'
+                    \'computePlatform\': \'Server\'|\'Lambda\'
                 }
             }
           **Response Structure** 
@@ -4530,7 +4530,7 @@ class Client(BaseClient):
         
               - **targetRevision** *(dict) --* 
         
-                Information about the deployment group's target revision, including type and location.
+                Information about the deployment group\'s target revision, including type and location.
         
                 - **revisionType** *(string) --* 
         
@@ -4636,9 +4636,9 @@ class Client(BaseClient):
         
                   Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
         
-                  * true: The deployment will proceed even if alarm status information can't be retrieved from Amazon CloudWatch. 
+                  * true: The deployment will proceed even if alarm status information can\'t be retrieved from Amazon CloudWatch. 
                    
-                  * false: The deployment will stop if alarm status information can't be retrieved from Amazon CloudWatch. 
+                  * false: The deployment will stop if alarm status information can\'t be retrieved from Amazon CloudWatch. 
                    
                 - **alarms** *(list) --* 
         
@@ -4882,8 +4882,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_deployment_instance(
-              deploymentId='string',
-              instanceId='string'
+              deploymentId=\'string\',
+              instanceId=\'string\'
           )
         :type deploymentId: string
         :param deploymentId: **[REQUIRED]** 
@@ -4903,26 +4903,26 @@ class Client(BaseClient):
           ::
         
             {
-                'instanceSummary': {
-                    'deploymentId': 'string',
-                    'instanceId': 'string',
-                    'status': 'Pending'|'InProgress'|'Succeeded'|'Failed'|'Skipped'|'Unknown'|'Ready',
-                    'lastUpdatedAt': datetime(2015, 1, 1),
-                    'lifecycleEvents': [
+                \'instanceSummary\': {
+                    \'deploymentId\': \'string\',
+                    \'instanceId\': \'string\',
+                    \'status\': \'Pending\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Skipped\'|\'Unknown\'|\'Ready\',
+                    \'lastUpdatedAt\': datetime(2015, 1, 1),
+                    \'lifecycleEvents\': [
                         {
-                            'lifecycleEventName': 'string',
-                            'diagnostics': {
-                                'errorCode': 'Success'|'ScriptMissing'|'ScriptNotExecutable'|'ScriptTimedOut'|'ScriptFailed'|'UnknownError',
-                                'scriptName': 'string',
-                                'message': 'string',
-                                'logTail': 'string'
+                            \'lifecycleEventName\': \'string\',
+                            \'diagnostics\': {
+                                \'errorCode\': \'Success\'|\'ScriptMissing\'|\'ScriptNotExecutable\'|\'ScriptTimedOut\'|\'ScriptFailed\'|\'UnknownError\',
+                                \'scriptName\': \'string\',
+                                \'message\': \'string\',
+                                \'logTail\': \'string\'
                             },
-                            'startTime': datetime(2015, 1, 1),
-                            'endTime': datetime(2015, 1, 1),
-                            'status': 'Pending'|'InProgress'|'Succeeded'|'Failed'|'Skipped'|'Unknown'
+                            \'startTime\': datetime(2015, 1, 1),
+                            \'endTime\': datetime(2015, 1, 1),
+                            \'status\': \'Pending\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Skipped\'|\'Unknown\'
                         },
                     ],
-                    'instanceType': 'Blue'|'Green'
+                    \'instanceType\': \'Blue\'|\'Green\'
                 }
             }
           **Response Structure** 
@@ -5053,7 +5053,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_on_premises_instance(
-              instanceName='string'
+              instanceName=\'string\'
           )
         :type instanceName: string
         :param instanceName: **[REQUIRED]** 
@@ -5068,17 +5068,17 @@ class Client(BaseClient):
           ::
         
             {
-                'instanceInfo': {
-                    'instanceName': 'string',
-                    'iamSessionArn': 'string',
-                    'iamUserArn': 'string',
-                    'instanceArn': 'string',
-                    'registerTime': datetime(2015, 1, 1),
-                    'deregisterTime': datetime(2015, 1, 1),
-                    'tags': [
+                \'instanceInfo\': {
+                    \'instanceName\': \'string\',
+                    \'iamSessionArn\': \'string\',
+                    \'iamUserArn\': \'string\',
+                    \'instanceArn\': \'string\',
+                    \'registerTime\': datetime(2015, 1, 1),
+                    \'deregisterTime\': datetime(2015, 1, 1),
+                    \'tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -5127,11 +5127,11 @@ class Client(BaseClient):
         
                   - **Key** *(string) --* 
         
-                    The tag's key.
+                    The tag\'s key.
         
                   - **Value** *(string) --* 
         
-                    The tag's value.
+                    The tag\'s value.
         
         """
         pass
@@ -5142,10 +5142,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -5177,13 +5177,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_application_revisions(
-              applicationName='string',
-              sortBy='registerTime'|'firstUsedTime'|'lastUsedTime',
-              sortOrder='ascending'|'descending',
-              s3Bucket='string',
-              s3KeyPrefix='string',
-              deployed='include'|'exclude'|'ignore',
-              nextToken='string'
+              applicationName=\'string\',
+              sortBy=\'registerTime\'|\'firstUsedTime\'|\'lastUsedTime\',
+              sortOrder=\'ascending\'|\'descending\',
+              s3Bucket=\'string\',
+              s3KeyPrefix=\'string\',
+              deployed=\'include\'|\'exclude\'|\'ignore\',
+              nextToken=\'string\'
           )
         :type applicationName: string
         :param applicationName: **[REQUIRED]** 
@@ -5221,7 +5221,7 @@ class Client(BaseClient):
         
           An Amazon S3 bucket name to limit the search for revisions.
         
-          If set to null, all of the user's buckets will be searched.
+          If set to null, all of the user\'s buckets will be searched.
         
         :type s3KeyPrefix: string
         :param s3KeyPrefix: 
@@ -5252,27 +5252,27 @@ class Client(BaseClient):
           ::
         
             {
-                'revisions': [
+                \'revisions\': [
                     {
-                        'revisionType': 'S3'|'GitHub'|'String',
-                        's3Location': {
-                            'bucket': 'string',
-                            'key': 'string',
-                            'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                            'version': 'string',
-                            'eTag': 'string'
+                        \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                        \'s3Location\': {
+                            \'bucket\': \'string\',
+                            \'key\': \'string\',
+                            \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                            \'version\': \'string\',
+                            \'eTag\': \'string\'
                         },
-                        'gitHubLocation': {
-                            'repository': 'string',
-                            'commitId': 'string'
+                        \'gitHubLocation\': {
+                            \'repository\': \'string\',
+                            \'commitId\': \'string\'
                         },
-                        'string': {
-                            'content': 'string',
-                            'sha256': 'string'
+                        \'string\': {
+                            \'content\': \'string\',
+                            \'sha256\': \'string\'
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5374,7 +5374,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_applications(
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -5389,10 +5389,10 @@ class Client(BaseClient):
           ::
         
             {
-                'applications': [
-                    'string',
+                \'applications\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5422,7 +5422,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_deployment_configs(
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -5437,10 +5437,10 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentConfigsList': [
-                    'string',
+                \'deploymentConfigsList\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5470,8 +5470,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_deployment_groups(
-              applicationName='string',
-              nextToken='string'
+              applicationName=\'string\',
+              nextToken=\'string\'
           )
         :type applicationName: string
         :param applicationName: **[REQUIRED]** 
@@ -5491,11 +5491,11 @@ class Client(BaseClient):
           ::
         
             {
-                'applicationName': 'string',
-                'deploymentGroups': [
-                    'string',
+                \'applicationName\': \'string\',
+                \'deploymentGroups\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5529,13 +5529,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_deployment_instances(
-              deploymentId='string',
-              nextToken='string',
+              deploymentId=\'string\',
+              nextToken=\'string\',
               instanceStatusFilter=[
-                  'Pending'|'InProgress'|'Succeeded'|'Failed'|'Skipped'|'Unknown'|'Ready',
+                  \'Pending\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Skipped\'|\'Unknown\'|\'Ready\',
               ],
               instanceTypeFilter=[
-                  'Blue'|'Green',
+                  \'Blue\'|\'Green\',
               ]
           )
         :type deploymentId: string
@@ -5570,7 +5570,7 @@ class Client(BaseClient):
         :type instanceTypeFilter: list
         :param instanceTypeFilter: 
         
-          The set of instances in a blue/green deployment, either those in the original environment ("BLUE") or those in the replacement environment ("GREEN"), for which you want to view instance information.
+          The set of instances in a blue/green deployment, either those in the original environment (\"BLUE\") or those in the replacement environment (\"GREEN\"), for which you want to view instance information.
         
           - *(string) --* 
         
@@ -5582,10 +5582,10 @@ class Client(BaseClient):
           ::
         
             {
-                'instancesList': [
-                    'string',
+                \'instancesList\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5615,16 +5615,16 @@ class Client(BaseClient):
         ::
         
           response = client.list_deployments(
-              applicationName='string',
-              deploymentGroupName='string',
+              applicationName=\'string\',
+              deploymentGroupName=\'string\',
               includeOnlyStatuses=[
-                  'Created'|'Queued'|'InProgress'|'Succeeded'|'Failed'|'Stopped'|'Ready',
+                  \'Created\'|\'Queued\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Stopped\'|\'Ready\',
               ],
               createTimeRange={
-                  'start': datetime(2015, 1, 1),
-                  'end': datetime(2015, 1, 1)
+                  \'start\': datetime(2015, 1, 1),
+                  \'end\': datetime(2015, 1, 1)
               },
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type applicationName: string
         :param applicationName: 
@@ -5689,10 +5689,10 @@ class Client(BaseClient):
           ::
         
             {
-                'deployments': [
-                    'string',
+                \'deployments\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5722,7 +5722,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_git_hub_account_token_names(
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -5737,10 +5737,10 @@ class Client(BaseClient):
           ::
         
             {
-                'tokenNameList': [
-                    'string',
+                \'tokenNameList\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5772,15 +5772,15 @@ class Client(BaseClient):
         ::
         
           response = client.list_on_premises_instances(
-              registrationStatus='Registered'|'Deregistered',
+              registrationStatus=\'Registered\'|\'Deregistered\',
               tagFilters=[
                   {
-                      'Key': 'string',
-                      'Value': 'string',
-                      'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                   },
               ],
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type registrationStatus: string
         :param registrationStatus: 
@@ -5831,10 +5831,10 @@ class Client(BaseClient):
           ::
         
             {
-                'instanceNames': [
-                    'string',
+                \'instanceNames\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5864,9 +5864,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_lifecycle_event_hook_execution_status(
-              deploymentId='string',
-              lifecycleEventHookExecutionId='string',
-              status='Pending'|'InProgress'|'Succeeded'|'Failed'|'Skipped'|'Unknown'
+              deploymentId=\'string\',
+              lifecycleEventHookExecutionId=\'string\',
+              status=\'Pending\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Skipped\'|\'Unknown\'
           )
         :type deploymentId: string
         :param deploymentId: 
@@ -5876,7 +5876,7 @@ class Client(BaseClient):
         :type lifecycleEventHookExecutionId: string
         :param lifecycleEventHookExecutionId: 
         
-          The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is specified in the ``hooks`` section of the AppSpec file.
+          The execution ID of a deployment\'s lifecycle hook. A deployment lifecycle hook is specified in the ``hooks`` section of the AppSpec file.
         
         :type status: string
         :param status: 
@@ -5891,7 +5891,7 @@ class Client(BaseClient):
           ::
         
             {
-                'lifecycleEventHookExecutionId': 'string'
+                \'lifecycleEventHookExecutionId\': \'string\'
             }
           **Response Structure** 
         
@@ -5899,7 +5899,7 @@ class Client(BaseClient):
             
             - **lifecycleEventHookExecutionId** *(string) --* 
         
-              The execution ID of the lifecycle event hook. A hook is specified in the ``hooks`` section of the deployment's AppSpec file.
+              The execution ID of the lifecycle event hook. A hook is specified in the ``hooks`` section of the deployment\'s AppSpec file.
         
         """
         pass
@@ -5913,24 +5913,24 @@ class Client(BaseClient):
         ::
         
           response = client.register_application_revision(
-              applicationName='string',
-              description='string',
+              applicationName=\'string\',
+              description=\'string\',
               revision={
-                  'revisionType': 'S3'|'GitHub'|'String',
-                  's3Location': {
-                      'bucket': 'string',
-                      'key': 'string',
-                      'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                      'version': 'string',
-                      'eTag': 'string'
+                  \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                  \'s3Location\': {
+                      \'bucket\': \'string\',
+                      \'key\': \'string\',
+                      \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                      \'version\': \'string\',
+                      \'eTag\': \'string\'
                   },
-                  'gitHubLocation': {
-                      'repository': 'string',
-                      'commitId': 'string'
+                  \'gitHubLocation\': {
+                      \'repository\': \'string\',
+                      \'commitId\': \'string\'
                   },
-                  'string': {
-                      'content': 'string',
-                      'sha256': 'string'
+                  \'string\': {
+                      \'content\': \'string\',
+                      \'sha256\': \'string\'
                   }
               }
           )
@@ -6036,9 +6036,9 @@ class Client(BaseClient):
         ::
         
           response = client.register_on_premises_instance(
-              instanceName='string',
-              iamSessionArn='string',
-              iamUserArn='string'
+              instanceName=\'string\',
+              iamSessionArn=\'string\',
+              iamUserArn=\'string\'
           )
         :type instanceName: string
         :param instanceName: **[REQUIRED]** 
@@ -6070,12 +6070,12 @@ class Client(BaseClient):
           response = client.remove_tags_from_on_premises_instances(
               tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               instanceNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type tags: list
@@ -6089,11 +6089,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              The tag's key.
+              The tag\'s key.
         
             - **Value** *(string) --* 
         
-              The tag's value.
+              The tag\'s value.
         
         :type instanceNames: list
         :param instanceNames: **[REQUIRED]** 
@@ -6115,7 +6115,7 @@ class Client(BaseClient):
         ::
         
           response = client.skip_wait_time_for_instance_termination(
-              deploymentId='string'
+              deploymentId=\'string\'
           )
         :type deploymentId: string
         :param deploymentId: 
@@ -6135,7 +6135,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_deployment(
-              deploymentId='string',
+              deploymentId=\'string\',
               autoRollbackEnabled=True|False
           )
         :type deploymentId: string
@@ -6156,8 +6156,8 @@ class Client(BaseClient):
           ::
         
             {
-                'status': 'Pending'|'Succeeded',
-                'statusMessage': 'string'
+                \'status\': \'Pending\'|\'Succeeded\',
+                \'statusMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -6189,8 +6189,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_application(
-              applicationName='string',
-              newApplicationName='string'
+              applicationName=\'string\',
+              newApplicationName=\'string\'
           )
         :type applicationName: string
         :param applicationName: 
@@ -6215,99 +6215,99 @@ class Client(BaseClient):
         ::
         
           response = client.update_deployment_group(
-              applicationName='string',
-              currentDeploymentGroupName='string',
-              newDeploymentGroupName='string',
-              deploymentConfigName='string',
+              applicationName=\'string\',
+              currentDeploymentGroupName=\'string\',
+              newDeploymentGroupName=\'string\',
+              deploymentConfigName=\'string\',
               ec2TagFilters=[
                   {
-                      'Key': 'string',
-                      'Value': 'string',
-                      'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                   },
               ],
               onPremisesInstanceTagFilters=[
                   {
-                      'Key': 'string',
-                      'Value': 'string',
-                      'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                   },
               ],
               autoScalingGroups=[
-                  'string',
+                  \'string\',
               ],
-              serviceRoleArn='string',
+              serviceRoleArn=\'string\',
               triggerConfigurations=[
                   {
-                      'triggerName': 'string',
-                      'triggerTargetArn': 'string',
-                      'triggerEvents': [
-                          'DeploymentStart'|'DeploymentSuccess'|'DeploymentFailure'|'DeploymentStop'|'DeploymentRollback'|'DeploymentReady'|'InstanceStart'|'InstanceSuccess'|'InstanceFailure'|'InstanceReady',
+                      \'triggerName\': \'string\',
+                      \'triggerTargetArn\': \'string\',
+                      \'triggerEvents\': [
+                          \'DeploymentStart\'|\'DeploymentSuccess\'|\'DeploymentFailure\'|\'DeploymentStop\'|\'DeploymentRollback\'|\'DeploymentReady\'|\'InstanceStart\'|\'InstanceSuccess\'|\'InstanceFailure\'|\'InstanceReady\',
                       ]
                   },
               ],
               alarmConfiguration={
-                  'enabled': True|False,
-                  'ignorePollAlarmFailure': True|False,
-                  'alarms': [
+                  \'enabled\': True|False,
+                  \'ignorePollAlarmFailure\': True|False,
+                  \'alarms\': [
                       {
-                          'name': 'string'
+                          \'name\': \'string\'
                       },
                   ]
               },
               autoRollbackConfiguration={
-                  'enabled': True|False,
-                  'events': [
-                      'DEPLOYMENT_FAILURE'|'DEPLOYMENT_STOP_ON_ALARM'|'DEPLOYMENT_STOP_ON_REQUEST',
+                  \'enabled\': True|False,
+                  \'events\': [
+                      \'DEPLOYMENT_FAILURE\'|\'DEPLOYMENT_STOP_ON_ALARM\'|\'DEPLOYMENT_STOP_ON_REQUEST\',
                   ]
               },
               deploymentStyle={
-                  'deploymentType': 'IN_PLACE'|'BLUE_GREEN',
-                  'deploymentOption': 'WITH_TRAFFIC_CONTROL'|'WITHOUT_TRAFFIC_CONTROL'
+                  \'deploymentType\': \'IN_PLACE\'|\'BLUE_GREEN\',
+                  \'deploymentOption\': \'WITH_TRAFFIC_CONTROL\'|\'WITHOUT_TRAFFIC_CONTROL\'
               },
               blueGreenDeploymentConfiguration={
-                  'terminateBlueInstancesOnDeploymentSuccess': {
-                      'action': 'TERMINATE'|'KEEP_ALIVE',
-                      'terminationWaitTimeInMinutes': 123
+                  \'terminateBlueInstancesOnDeploymentSuccess\': {
+                      \'action\': \'TERMINATE\'|\'KEEP_ALIVE\',
+                      \'terminationWaitTimeInMinutes\': 123
                   },
-                  'deploymentReadyOption': {
-                      'actionOnTimeout': 'CONTINUE_DEPLOYMENT'|'STOP_DEPLOYMENT',
-                      'waitTimeInMinutes': 123
+                  \'deploymentReadyOption\': {
+                      \'actionOnTimeout\': \'CONTINUE_DEPLOYMENT\'|\'STOP_DEPLOYMENT\',
+                      \'waitTimeInMinutes\': 123
                   },
-                  'greenFleetProvisioningOption': {
-                      'action': 'DISCOVER_EXISTING'|'COPY_AUTO_SCALING_GROUP'
+                  \'greenFleetProvisioningOption\': {
+                      \'action\': \'DISCOVER_EXISTING\'|\'COPY_AUTO_SCALING_GROUP\'
                   }
               },
               loadBalancerInfo={
-                  'elbInfoList': [
+                  \'elbInfoList\': [
                       {
-                          'name': 'string'
+                          \'name\': \'string\'
                       },
                   ],
-                  'targetGroupInfoList': [
+                  \'targetGroupInfoList\': [
                       {
-                          'name': 'string'
+                          \'name\': \'string\'
                       },
                   ]
               },
               ec2TagSet={
-                  'ec2TagSetList': [
+                  \'ec2TagSetList\': [
                       [
                           {
-                              'Key': 'string',
-                              'Value': 'string',
-                              'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\',
+                              \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                           },
                       ],
                   ]
               },
               onPremisesTagSet={
-                  'onPremisesTagSetList': [
+                  \'onPremisesTagSetList\': [
                       [
                           {
-                              'Key': 'string',
-                              'Value': 'string',
-                              'Type': 'KEY_ONLY'|'VALUE_ONLY'|'KEY_AND_VALUE'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\',
+                              \'Type\': \'KEY_ONLY\'|\'VALUE_ONLY\'|\'KEY_AND_VALUE\'
                           },
                       ],
                   ]
@@ -6435,9 +6435,9 @@ class Client(BaseClient):
         
             Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
         
-            * true: The deployment will proceed even if alarm status information can't be retrieved from Amazon CloudWatch. 
+            * true: The deployment will proceed even if alarm status information can\'t be retrieved from Amazon CloudWatch. 
              
-            * false: The deployment will stop if alarm status information can't be retrieved from Amazon CloudWatch. 
+            * false: The deployment will stop if alarm status information can\'t be retrieved from Amazon CloudWatch. 
              
           - **alarms** *(list) --* 
         
@@ -6639,10 +6639,10 @@ class Client(BaseClient):
           ::
         
             {
-                'hooksNotCleanedUp': [
+                \'hooksNotCleanedUp\': [
                     {
-                        'name': 'string',
-                        'hook': 'string'
+                        \'name\': \'string\',
+                        \'hook\': \'string\'
                     },
                 ]
             }

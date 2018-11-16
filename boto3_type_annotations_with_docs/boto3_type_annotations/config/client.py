@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -26,8 +26,8 @@ class Client(BaseClient):
           response = client.batch_get_resource_config(
               resourceKeys=[
                   {
-                      'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-                      'resourceId': 'string'
+                      \'resourceType\': \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+                      \'resourceId\': \'string\'
                   },
               ]
           )
@@ -56,30 +56,30 @@ class Client(BaseClient):
           ::
         
             {
-                'baseConfigurationItems': [
+                \'baseConfigurationItems\': [
                     {
-                        'version': 'string',
-                        'accountId': 'string',
-                        'configurationItemCaptureTime': datetime(2015, 1, 1),
-                        'configurationItemStatus': 'OK'|'ResourceDiscovered'|'ResourceNotRecorded'|'ResourceDeleted'|'ResourceDeletedNotRecorded',
-                        'configurationStateId': 'string',
-                        'arn': 'string',
-                        'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-                        'resourceId': 'string',
-                        'resourceName': 'string',
-                        'awsRegion': 'string',
-                        'availabilityZone': 'string',
-                        'resourceCreationTime': datetime(2015, 1, 1),
-                        'configuration': 'string',
-                        'supplementaryConfiguration': {
-                            'string': 'string'
+                        \'version\': \'string\',
+                        \'accountId\': \'string\',
+                        \'configurationItemCaptureTime\': datetime(2015, 1, 1),
+                        \'configurationItemStatus\': \'OK\'|\'ResourceDiscovered\'|\'ResourceNotRecorded\'|\'ResourceDeleted\'|\'ResourceDeletedNotRecorded\',
+                        \'configurationStateId\': \'string\',
+                        \'arn\': \'string\',
+                        \'resourceType\': \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+                        \'resourceId\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'awsRegion\': \'string\',
+                        \'availabilityZone\': \'string\',
+                        \'resourceCreationTime\': datetime(2015, 1, 1),
+                        \'configuration\': \'string\',
+                        \'supplementaryConfiguration\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'unprocessedResourceKeys': [
+                \'unprocessedResourceKeys\': [
                     {
-                        'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-                        'resourceId': 'string'
+                        \'resourceType\': \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+                        \'resourceId\': \'string\'
                     },
                 ]
             }
@@ -180,10 +180,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -199,8 +199,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_aggregation_authorization(
-              AuthorizedAccountId='string',
-              AuthorizedAwsRegion='string'
+              AuthorizedAccountId=\'string\',
+              AuthorizedAwsRegion=\'string\'
           )
         :type AuthorizedAccountId: string
         :param AuthorizedAccountId: **[REQUIRED]** 
@@ -229,7 +229,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_config_rule(
-              ConfigRuleName='string'
+              ConfigRuleName=\'string\'
           )
         :type ConfigRuleName: string
         :param ConfigRuleName: **[REQUIRED]** 
@@ -249,7 +249,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_configuration_aggregator(
-              ConfigurationAggregatorName='string'
+              ConfigurationAggregatorName=\'string\'
           )
         :type ConfigurationAggregatorName: string
         :param ConfigurationAggregatorName: **[REQUIRED]** 
@@ -273,7 +273,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_configuration_recorder(
-              ConfigurationRecorderName='string'
+              ConfigurationRecorderName=\'string\'
           )
         :type ConfigurationRecorderName: string
         :param ConfigurationRecorderName: **[REQUIRED]** 
@@ -295,7 +295,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_delivery_channel(
-              DeliveryChannelName='string'
+              DeliveryChannelName=\'string\'
           )
         :type DeliveryChannelName: string
         :param DeliveryChannelName: **[REQUIRED]** 
@@ -315,7 +315,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_evaluation_results(
-              ConfigRuleName='string'
+              ConfigRuleName=\'string\'
           )
         :type ConfigRuleName: string
         :param ConfigRuleName: **[REQUIRED]** 
@@ -348,8 +348,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_pending_aggregation_request(
-              RequesterAccountId='string',
-              RequesterAwsRegion='string'
+              RequesterAccountId=\'string\',
+              RequesterAwsRegion=\'string\'
           )
         :type RequesterAccountId: string
         :param RequesterAccountId: **[REQUIRED]** 
@@ -374,7 +374,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_retention_configuration(
-              RetentionConfigurationName='string'
+              RetentionConfigurationName=\'string\'
           )
         :type RetentionConfigurationName: string
         :param RetentionConfigurationName: **[REQUIRED]** 
@@ -400,7 +400,7 @@ class Client(BaseClient):
         ::
         
           response = client.deliver_config_snapshot(
-              deliveryChannelName='string'
+              deliveryChannelName=\'string\'
           )
         :type deliveryChannelName: string
         :param deliveryChannelName: **[REQUIRED]** 
@@ -415,7 +415,7 @@ class Client(BaseClient):
           ::
         
             {
-                'configSnapshotId': 'string'
+                \'configSnapshotId\': \'string\'
             }
           **Response Structure** 
         
@@ -443,15 +443,15 @@ class Client(BaseClient):
         ::
         
           response = client.describe_aggregate_compliance_by_config_rules(
-              ConfigurationAggregatorName='string',
+              ConfigurationAggregatorName=\'string\',
               Filters={
-                  'ConfigRuleName': 'string',
-                  'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                  'AccountId': 'string',
-                  'AwsRegion': 'string'
+                  \'ConfigRuleName\': \'string\',
+                  \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                  \'AccountId\': \'string\',
+                  \'AwsRegion\': \'string\'
               },
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ConfigurationAggregatorName: string
         :param ConfigurationAggregatorName: **[REQUIRED]** 
@@ -499,21 +499,21 @@ class Client(BaseClient):
           ::
         
             {
-                'AggregateComplianceByConfigRules': [
+                \'AggregateComplianceByConfigRules\': [
                     {
-                        'ConfigRuleName': 'string',
-                        'Compliance': {
-                            'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                            'ComplianceContributorCount': {
-                                'CappedCount': 123,
-                                'CapExceeded': True|False
+                        \'ConfigRuleName\': \'string\',
+                        \'Compliance\': {
+                            \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                            \'ComplianceContributorCount\': {
+                                \'CappedCount\': 123,
+                                \'CapExceeded\': True|False
                             }
                         },
-                        'AccountId': 'string',
-                        'AwsRegion': 'string'
+                        \'AccountId\': \'string\',
+                        \'AwsRegion\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -586,7 +586,7 @@ class Client(BaseClient):
         
           response = client.describe_aggregation_authorizations(
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Limit: integer
         :param Limit: 
@@ -606,15 +606,15 @@ class Client(BaseClient):
           ::
         
             {
-                'AggregationAuthorizations': [
+                \'AggregationAuthorizations\': [
                     {
-                        'AggregationAuthorizationArn': 'string',
-                        'AuthorizedAccountId': 'string',
-                        'AuthorizedAwsRegion': 'string',
-                        'CreationTime': datetime(2015, 1, 1)
+                        \'AggregationAuthorizationArn\': \'string\',
+                        \'AuthorizedAccountId\': \'string\',
+                        \'AuthorizedAwsRegion\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -660,9 +660,9 @@ class Client(BaseClient):
         
         * AWS Config has never invoked an evaluation for the rule. To check whether it has, use the ``DescribeConfigRuleEvaluationStatus`` action to get the ``LastSuccessfulInvocationTime`` and ``LastFailedInvocationTime`` . 
          
-        * The rule's AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role you assigned to your configuration recorder includes the ``config:PutEvaluations`` permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the ``config:PutEvaluations`` permission. 
+        * The rule\'s AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role you assigned to your configuration recorder includes the ``config:PutEvaluations`` permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the ``config:PutEvaluations`` permission. 
          
-        * The rule's AWS Lambda function has returned ``NOT_APPLICABLE`` for all evaluation results. This can occur if the resources were deleted or removed from the rule's scope. 
+        * The rule\'s AWS Lambda function has returned ``NOT_APPLICABLE`` for all evaluation results. This can occur if the resources were deleted or removed from the rule\'s scope. 
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DescribeComplianceByConfigRule>`_
         
@@ -671,12 +671,12 @@ class Client(BaseClient):
         
           response = client.describe_compliance_by_config_rule(
               ConfigRuleNames=[
-                  'string',
+                  \'string\',
               ],
               ComplianceTypes=[
-                  'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
+                  \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ConfigRuleNames: list
         :param ConfigRuleNames: 
@@ -707,19 +707,19 @@ class Client(BaseClient):
           ::
         
             {
-                'ComplianceByConfigRules': [
+                \'ComplianceByConfigRules\': [
                     {
-                        'ConfigRuleName': 'string',
-                        'Compliance': {
-                            'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                            'ComplianceContributorCount': {
-                                'CappedCount': 123,
-                                'CapExceeded': True|False
+                        \'ConfigRuleName\': \'string\',
+                        \'Compliance\': {
+                            \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                            \'ComplianceContributorCount\': {
+                                \'CappedCount\': 123,
+                                \'CapExceeded\': True|False
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -781,9 +781,9 @@ class Client(BaseClient):
         
         * AWS Config has never invoked an evaluation for the rule. To check whether it has, use the ``DescribeConfigRuleEvaluationStatus`` action to get the ``LastSuccessfulInvocationTime`` and ``LastFailedInvocationTime`` . 
          
-        * The rule's AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role that you assigned to your configuration recorder includes the ``config:PutEvaluations`` permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the ``config:PutEvaluations`` permission. 
+        * The rule\'s AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role that you assigned to your configuration recorder includes the ``config:PutEvaluations`` permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the ``config:PutEvaluations`` permission. 
          
-        * The rule's AWS Lambda function has returned ``NOT_APPLICABLE`` for all evaluation results. This can occur if the resources were deleted or removed from the rule's scope. 
+        * The rule\'s AWS Lambda function has returned ``NOT_APPLICABLE`` for all evaluation results. This can occur if the resources were deleted or removed from the rule\'s scope. 
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DescribeComplianceByResource>`_
         
@@ -791,13 +791,13 @@ class Client(BaseClient):
         ::
         
           response = client.describe_compliance_by_resource(
-              ResourceType='string',
-              ResourceId='string',
+              ResourceType=\'string\',
+              ResourceId=\'string\',
               ComplianceTypes=[
-                  'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
+                  \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
               ],
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ResourceType: string
         :param ResourceType: 
@@ -836,20 +836,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ComplianceByResources': [
+                \'ComplianceByResources\': [
                     {
-                        'ResourceType': 'string',
-                        'ResourceId': 'string',
-                        'Compliance': {
-                            'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                            'ComplianceContributorCount': {
-                                'CappedCount': 123,
-                                'CapExceeded': True|False
+                        \'ResourceType\': \'string\',
+                        \'ResourceId\': \'string\',
+                        \'Compliance\': {
+                            \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                            \'ComplianceContributorCount\': {
+                                \'CappedCount\': 123,
+                                \'CapExceeded\': True|False
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -916,9 +916,9 @@ class Client(BaseClient):
         
           response = client.describe_config_rule_evaluation_status(
               ConfigRuleNames=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               Limit=123
           )
         :type ConfigRuleNames: list
@@ -950,22 +950,22 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigRulesEvaluationStatus': [
+                \'ConfigRulesEvaluationStatus\': [
                     {
-                        'ConfigRuleName': 'string',
-                        'ConfigRuleArn': 'string',
-                        'ConfigRuleId': 'string',
-                        'LastSuccessfulInvocationTime': datetime(2015, 1, 1),
-                        'LastFailedInvocationTime': datetime(2015, 1, 1),
-                        'LastSuccessfulEvaluationTime': datetime(2015, 1, 1),
-                        'LastFailedEvaluationTime': datetime(2015, 1, 1),
-                        'FirstActivatedTime': datetime(2015, 1, 1),
-                        'LastErrorCode': 'string',
-                        'LastErrorMessage': 'string',
-                        'FirstEvaluationStarted': True|False
+                        \'ConfigRuleName\': \'string\',
+                        \'ConfigRuleArn\': \'string\',
+                        \'ConfigRuleId\': \'string\',
+                        \'LastSuccessfulInvocationTime\': datetime(2015, 1, 1),
+                        \'LastFailedInvocationTime\': datetime(2015, 1, 1),
+                        \'LastSuccessfulEvaluationTime\': datetime(2015, 1, 1),
+                        \'LastFailedEvaluationTime\': datetime(2015, 1, 1),
+                        \'FirstActivatedTime\': datetime(2015, 1, 1),
+                        \'LastErrorCode\': \'string\',
+                        \'LastErrorMessage\': \'string\',
+                        \'FirstEvaluationStarted\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1046,9 +1046,9 @@ class Client(BaseClient):
         
           response = client.describe_config_rules(
               ConfigRuleNames=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ConfigRuleNames: list
         :param ConfigRuleNames: 
@@ -1070,38 +1070,38 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigRules': [
+                \'ConfigRules\': [
                     {
-                        'ConfigRuleName': 'string',
-                        'ConfigRuleArn': 'string',
-                        'ConfigRuleId': 'string',
-                        'Description': 'string',
-                        'Scope': {
-                            'ComplianceResourceTypes': [
-                                'string',
+                        \'ConfigRuleName\': \'string\',
+                        \'ConfigRuleArn\': \'string\',
+                        \'ConfigRuleId\': \'string\',
+                        \'Description\': \'string\',
+                        \'Scope\': {
+                            \'ComplianceResourceTypes\': [
+                                \'string\',
                             ],
-                            'TagKey': 'string',
-                            'TagValue': 'string',
-                            'ComplianceResourceId': 'string'
+                            \'TagKey\': \'string\',
+                            \'TagValue\': \'string\',
+                            \'ComplianceResourceId\': \'string\'
                         },
-                        'Source': {
-                            'Owner': 'CUSTOM_LAMBDA'|'AWS',
-                            'SourceIdentifier': 'string',
-                            'SourceDetails': [
+                        \'Source\': {
+                            \'Owner\': \'CUSTOM_LAMBDA\'|\'AWS\',
+                            \'SourceIdentifier\': \'string\',
+                            \'SourceDetails\': [
                                 {
-                                    'EventSource': 'aws.config',
-                                    'MessageType': 'ConfigurationItemChangeNotification'|'ConfigurationSnapshotDeliveryCompleted'|'ScheduledNotification'|'OversizedConfigurationItemChangeNotification',
-                                    'MaximumExecutionFrequency': 'One_Hour'|'Three_Hours'|'Six_Hours'|'Twelve_Hours'|'TwentyFour_Hours'
+                                    \'EventSource\': \'aws.config\',
+                                    \'MessageType\': \'ConfigurationItemChangeNotification\'|\'ConfigurationSnapshotDeliveryCompleted\'|\'ScheduledNotification\'|\'OversizedConfigurationItemChangeNotification\',
+                                    \'MaximumExecutionFrequency\': \'One_Hour\'|\'Three_Hours\'|\'Six_Hours\'|\'Twelve_Hours\'|\'TwentyFour_Hours\'
                                 },
                             ]
                         },
-                        'InputParameters': 'string',
-                        'MaximumExecutionFrequency': 'One_Hour'|'Three_Hours'|'Six_Hours'|'Twelve_Hours'|'TwentyFour_Hours',
-                        'ConfigRuleState': 'ACTIVE'|'DELETING'|'DELETING_RESULTS'|'EVALUATING',
-                        'CreatedBy': 'string'
+                        \'InputParameters\': \'string\',
+                        \'MaximumExecutionFrequency\': \'One_Hour\'|\'Three_Hours\'|\'Six_Hours\'|\'Twelve_Hours\'|\'TwentyFour_Hours\',
+                        \'ConfigRuleState\': \'ACTIVE\'|\'DELETING\'|\'DELETING_RESULTS\'|\'EVALUATING\',
+                        \'CreatedBy\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1171,7 +1171,7 @@ class Client(BaseClient):
         
                     For AWS Config managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see `Using AWS Managed Config Rules <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
         
-                    For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name`` .
+                    For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule\'s AWS Lambda function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name`` .
         
                   - **SourceDetails** *(list) --* 
         
@@ -1259,11 +1259,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_configuration_aggregator_sources_status(
-              ConfigurationAggregatorName='string',
+              ConfigurationAggregatorName=\'string\',
               UpdateStatus=[
-                  'FAILED'|'SUCCEEDED'|'OUTDATED',
+                  \'FAILED\'|\'SUCCEEDED\'|\'OUTDATED\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               Limit=123
           )
         :type ConfigurationAggregatorName: string
@@ -1302,18 +1302,18 @@ class Client(BaseClient):
           ::
         
             {
-                'AggregatedSourceStatusList': [
+                \'AggregatedSourceStatusList\': [
                     {
-                        'SourceId': 'string',
-                        'SourceType': 'ACCOUNT'|'ORGANIZATION',
-                        'AwsRegion': 'string',
-                        'LastUpdateStatus': 'FAILED'|'SUCCEEDED'|'OUTDATED',
-                        'LastUpdateTime': datetime(2015, 1, 1),
-                        'LastErrorCode': 'string',
-                        'LastErrorMessage': 'string'
+                        \'SourceId\': \'string\',
+                        \'SourceType\': \'ACCOUNT\'|\'ORGANIZATION\',
+                        \'AwsRegion\': \'string\',
+                        \'LastUpdateStatus\': \'FAILED\'|\'SUCCEEDED\'|\'OUTDATED\',
+                        \'LastUpdateTime\': datetime(2015, 1, 1),
+                        \'LastErrorCode\': \'string\',
+                        \'LastErrorMessage\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1378,9 +1378,9 @@ class Client(BaseClient):
         
           response = client.describe_configuration_aggregators(
               ConfigurationAggregatorNames=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               Limit=123
           )
         :type ConfigurationAggregatorNames: list
@@ -1408,33 +1408,33 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigurationAggregators': [
+                \'ConfigurationAggregators\': [
                     {
-                        'ConfigurationAggregatorName': 'string',
-                        'ConfigurationAggregatorArn': 'string',
-                        'AccountAggregationSources': [
+                        \'ConfigurationAggregatorName\': \'string\',
+                        \'ConfigurationAggregatorArn\': \'string\',
+                        \'AccountAggregationSources\': [
                             {
-                                'AccountIds': [
-                                    'string',
+                                \'AccountIds\': [
+                                    \'string\',
                                 ],
-                                'AllAwsRegions': True|False,
-                                'AwsRegions': [
-                                    'string',
+                                \'AllAwsRegions\': True|False,
+                                \'AwsRegions\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'OrganizationAggregationSource': {
-                            'RoleArn': 'string',
-                            'AwsRegions': [
-                                'string',
+                        \'OrganizationAggregationSource\': {
+                            \'RoleArn\': \'string\',
+                            \'AwsRegions\': [
+                                \'string\',
                             ],
-                            'AllAwsRegions': True|False
+                            \'AllAwsRegions\': True|False
                         },
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastUpdatedTime': datetime(2015, 1, 1)
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1527,7 +1527,7 @@ class Client(BaseClient):
         
           response = client.describe_configuration_recorder_status(
               ConfigurationRecorderNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ConfigurationRecorderNames: list
@@ -1545,16 +1545,16 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigurationRecordersStatus': [
+                \'ConfigurationRecordersStatus\': [
                     {
-                        'name': 'string',
-                        'lastStartTime': datetime(2015, 1, 1),
-                        'lastStopTime': datetime(2015, 1, 1),
-                        'recording': True|False,
-                        'lastStatus': 'Pending'|'Success'|'Failure',
-                        'lastErrorCode': 'string',
-                        'lastErrorMessage': 'string',
-                        'lastStatusChangeTime': datetime(2015, 1, 1)
+                        \'name\': \'string\',
+                        \'lastStartTime\': datetime(2015, 1, 1),
+                        \'lastStopTime\': datetime(2015, 1, 1),
+                        \'recording\': True|False,
+                        \'lastStatus\': \'Pending\'|\'Success\'|\'Failure\',
+                        \'lastErrorCode\': \'string\',
+                        \'lastErrorMessage\': \'string\',
+                        \'lastStatusChangeTime\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -1621,7 +1621,7 @@ class Client(BaseClient):
         
           response = client.describe_configuration_recorders(
               ConfigurationRecorderNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ConfigurationRecorderNames: list
@@ -1639,15 +1639,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigurationRecorders': [
+                \'ConfigurationRecorders\': [
                     {
-                        'name': 'string',
-                        'roleARN': 'string',
-                        'recordingGroup': {
-                            'allSupported': True|False,
-                            'includeGlobalResourceTypes': True|False,
-                            'resourceTypes': [
-                                'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
+                        \'name\': \'string\',
+                        \'roleARN\': \'string\',
+                        \'recordingGroup\': {
+                            \'allSupported\': True|False,
+                            \'includeGlobalResourceTypes\': True|False,
+                            \'resourceTypes\': [
+                                \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
                             ]
                         }
                     },
@@ -1669,7 +1669,7 @@ class Client(BaseClient):
         
                 - **name** *(string) --* 
         
-                  The name of the recorder. By default, AWS Config automatically assigns the name "default" when creating the configuration recorder. You cannot change the assigned name.
+                  The name of the recorder. By default, AWS Config automatically assigns the name \"default\" when creating the configuration recorder. You cannot change the assigned name.
         
                 - **roleARN** *(string) --* 
         
@@ -1726,7 +1726,7 @@ class Client(BaseClient):
         
           response = client.describe_delivery_channel_status(
               DeliveryChannelNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DeliveryChannelNames: list
@@ -1744,30 +1744,30 @@ class Client(BaseClient):
           ::
         
             {
-                'DeliveryChannelsStatus': [
+                \'DeliveryChannelsStatus\': [
                     {
-                        'name': 'string',
-                        'configSnapshotDeliveryInfo': {
-                            'lastStatus': 'Success'|'Failure'|'Not_Applicable',
-                            'lastErrorCode': 'string',
-                            'lastErrorMessage': 'string',
-                            'lastAttemptTime': datetime(2015, 1, 1),
-                            'lastSuccessfulTime': datetime(2015, 1, 1),
-                            'nextDeliveryTime': datetime(2015, 1, 1)
+                        \'name\': \'string\',
+                        \'configSnapshotDeliveryInfo\': {
+                            \'lastStatus\': \'Success\'|\'Failure\'|\'Not_Applicable\',
+                            \'lastErrorCode\': \'string\',
+                            \'lastErrorMessage\': \'string\',
+                            \'lastAttemptTime\': datetime(2015, 1, 1),
+                            \'lastSuccessfulTime\': datetime(2015, 1, 1),
+                            \'nextDeliveryTime\': datetime(2015, 1, 1)
                         },
-                        'configHistoryDeliveryInfo': {
-                            'lastStatus': 'Success'|'Failure'|'Not_Applicable',
-                            'lastErrorCode': 'string',
-                            'lastErrorMessage': 'string',
-                            'lastAttemptTime': datetime(2015, 1, 1),
-                            'lastSuccessfulTime': datetime(2015, 1, 1),
-                            'nextDeliveryTime': datetime(2015, 1, 1)
+                        \'configHistoryDeliveryInfo\': {
+                            \'lastStatus\': \'Success\'|\'Failure\'|\'Not_Applicable\',
+                            \'lastErrorCode\': \'string\',
+                            \'lastErrorMessage\': \'string\',
+                            \'lastAttemptTime\': datetime(2015, 1, 1),
+                            \'lastSuccessfulTime\': datetime(2015, 1, 1),
+                            \'nextDeliveryTime\': datetime(2015, 1, 1)
                         },
-                        'configStreamDeliveryInfo': {
-                            'lastStatus': 'Success'|'Failure'|'Not_Applicable',
-                            'lastErrorCode': 'string',
-                            'lastErrorMessage': 'string',
-                            'lastStatusChangeTime': datetime(2015, 1, 1)
+                        \'configStreamDeliveryInfo\': {
+                            \'lastStatus\': \'Success\'|\'Failure\'|\'Not_Applicable\',
+                            \'lastErrorCode\': \'string\',
+                            \'lastErrorMessage\': \'string\',
+                            \'lastStatusChangeTime\': datetime(2015, 1, 1)
                         }
                     },
                 ]
@@ -1887,7 +1887,7 @@ class Client(BaseClient):
         
           response = client.describe_delivery_channels(
               DeliveryChannelNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DeliveryChannelNames: list
@@ -1905,14 +1905,14 @@ class Client(BaseClient):
           ::
         
             {
-                'DeliveryChannels': [
+                \'DeliveryChannels\': [
                     {
-                        'name': 'string',
-                        's3BucketName': 'string',
-                        's3KeyPrefix': 'string',
-                        'snsTopicARN': 'string',
-                        'configSnapshotDeliveryProperties': {
-                            'deliveryFrequency': 'One_Hour'|'Three_Hours'|'Six_Hours'|'Twelve_Hours'|'TwentyFour_Hours'
+                        \'name\': \'string\',
+                        \'s3BucketName\': \'string\',
+                        \'s3KeyPrefix\': \'string\',
+                        \'snsTopicARN\': \'string\',
+                        \'configSnapshotDeliveryProperties\': {
+                            \'deliveryFrequency\': \'One_Hour\'|\'Three_Hours\'|\'Six_Hours\'|\'Twelve_Hours\'|\'TwentyFour_Hours\'
                         }
                     },
                 ]
@@ -1933,7 +1933,7 @@ class Client(BaseClient):
         
                 - **name** *(string) --* 
         
-                  The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+                  The name of the delivery channel. By default, AWS Config assigns the name \"default\" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
         
                 - **s3BucketName** *(string) --* 
         
@@ -1972,7 +1972,7 @@ class Client(BaseClient):
         
           response = client.describe_pending_aggregation_requests(
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Limit: integer
         :param Limit: 
@@ -1992,13 +1992,13 @@ class Client(BaseClient):
           ::
         
             {
-                'PendingAggregationRequests': [
+                \'PendingAggregationRequests\': [
                     {
-                        'RequesterAccountId': 'string',
-                        'RequesterAwsRegion': 'string'
+                        \'RequesterAccountId\': \'string\',
+                        \'RequesterAwsRegion\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2041,9 +2041,9 @@ class Client(BaseClient):
         
           response = client.describe_retention_configurations(
               RetentionConfigurationNames=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type RetentionConfigurationNames: list
         :param RetentionConfigurationNames: 
@@ -2069,13 +2069,13 @@ class Client(BaseClient):
           ::
         
             {
-                'RetentionConfigurations': [
+                \'RetentionConfigurations\': [
                     {
-                        'Name': 'string',
-                        'RetentionPeriodInDays': 123
+                        \'Name\': \'string\',
+                        \'RetentionPeriodInDays\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2124,7 +2124,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2143,13 +2143,13 @@ class Client(BaseClient):
         ::
         
           response = client.get_aggregate_compliance_details_by_config_rule(
-              ConfigurationAggregatorName='string',
-              ConfigRuleName='string',
-              AccountId='string',
-              AwsRegion='string',
-              ComplianceType='COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
+              ConfigurationAggregatorName=\'string\',
+              ConfigRuleName=\'string\',
+              AccountId=\'string\',
+              AwsRegion=\'string\',
+              ComplianceType=\'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ConfigurationAggregatorName: string
         :param ConfigurationAggregatorName: **[REQUIRED]** 
@@ -2198,25 +2198,25 @@ class Client(BaseClient):
           ::
         
             {
-                'AggregateEvaluationResults': [
+                \'AggregateEvaluationResults\': [
                     {
-                        'EvaluationResultIdentifier': {
-                            'EvaluationResultQualifier': {
-                                'ConfigRuleName': 'string',
-                                'ResourceType': 'string',
-                                'ResourceId': 'string'
+                        \'EvaluationResultIdentifier\': {
+                            \'EvaluationResultQualifier\': {
+                                \'ConfigRuleName\': \'string\',
+                                \'ResourceType\': \'string\',
+                                \'ResourceId\': \'string\'
                             },
-                            'OrderingTimestamp': datetime(2015, 1, 1)
+                            \'OrderingTimestamp\': datetime(2015, 1, 1)
                         },
-                        'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                        'ResultRecordedTime': datetime(2015, 1, 1),
-                        'ConfigRuleInvokedTime': datetime(2015, 1, 1),
-                        'Annotation': 'string',
-                        'AccountId': 'string',
-                        'AwsRegion': 'string'
+                        \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                        \'ResultRecordedTime\': datetime(2015, 1, 1),
+                        \'ConfigRuleInvokedTime\': datetime(2015, 1, 1),
+                        \'Annotation\': \'string\',
+                        \'AccountId\': \'string\',
+                        \'AwsRegion\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2300,14 +2300,14 @@ class Client(BaseClient):
         ::
         
           response = client.get_aggregate_config_rule_compliance_summary(
-              ConfigurationAggregatorName='string',
+              ConfigurationAggregatorName=\'string\',
               Filters={
-                  'AccountId': 'string',
-                  'AwsRegion': 'string'
+                  \'AccountId\': \'string\',
+                  \'AwsRegion\': \'string\'
               },
-              GroupByKey='ACCOUNT_ID'|'AWS_REGION',
+              GroupByKey=\'ACCOUNT_ID\'|\'AWS_REGION\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ConfigurationAggregatorName: string
         :param ConfigurationAggregatorName: **[REQUIRED]** 
@@ -2350,24 +2350,24 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupByKey': 'string',
-                'AggregateComplianceCounts': [
+                \'GroupByKey\': \'string\',
+                \'AggregateComplianceCounts\': [
                     {
-                        'GroupName': 'string',
-                        'ComplianceSummary': {
-                            'CompliantResourceCount': {
-                                'CappedCount': 123,
-                                'CapExceeded': True|False
+                        \'GroupName\': \'string\',
+                        \'ComplianceSummary\': {
+                            \'CompliantResourceCount\': {
+                                \'CappedCount\': 123,
+                                \'CapExceeded\': True|False
                             },
-                            'NonCompliantResourceCount': {
-                                'CappedCount': 123,
-                                'CapExceeded': True|False
+                            \'NonCompliantResourceCount\': {
+                                \'CappedCount\': 123,
+                                \'CapExceeded\': True|False
                             },
-                            'ComplianceSummaryTimestamp': datetime(2015, 1, 1)
+                            \'ComplianceSummaryTimestamp\': datetime(2015, 1, 1)
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2437,12 +2437,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_compliance_details_by_config_rule(
-              ConfigRuleName='string',
+              ConfigRuleName=\'string\',
               ComplianceTypes=[
-                  'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
+                  \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
               ],
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ConfigRuleName: string
         :param ConfigRuleName: **[REQUIRED]** 
@@ -2476,24 +2476,24 @@ class Client(BaseClient):
           ::
         
             {
-                'EvaluationResults': [
+                \'EvaluationResults\': [
                     {
-                        'EvaluationResultIdentifier': {
-                            'EvaluationResultQualifier': {
-                                'ConfigRuleName': 'string',
-                                'ResourceType': 'string',
-                                'ResourceId': 'string'
+                        \'EvaluationResultIdentifier\': {
+                            \'EvaluationResultQualifier\': {
+                                \'ConfigRuleName\': \'string\',
+                                \'ResourceType\': \'string\',
+                                \'ResourceId\': \'string\'
                             },
-                            'OrderingTimestamp': datetime(2015, 1, 1)
+                            \'OrderingTimestamp\': datetime(2015, 1, 1)
                         },
-                        'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                        'ResultRecordedTime': datetime(2015, 1, 1),
-                        'ConfigRuleInvokedTime': datetime(2015, 1, 1),
-                        'Annotation': 'string',
-                        'ResultToken': 'string'
+                        \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                        \'ResultRecordedTime\': datetime(2015, 1, 1),
+                        \'ConfigRuleInvokedTime\': datetime(2015, 1, 1),
+                        \'Annotation\': \'string\',
+                        \'ResultToken\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2569,12 +2569,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_compliance_details_by_resource(
-              ResourceType='string',
-              ResourceId='string',
+              ResourceType=\'string\',
+              ResourceId=\'string\',
               ComplianceTypes=[
-                  'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
+                  \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ResourceType: string
         :param ResourceType: **[REQUIRED]** 
@@ -2608,24 +2608,24 @@ class Client(BaseClient):
           ::
         
             {
-                'EvaluationResults': [
+                \'EvaluationResults\': [
                     {
-                        'EvaluationResultIdentifier': {
-                            'EvaluationResultQualifier': {
-                                'ConfigRuleName': 'string',
-                                'ResourceType': 'string',
-                                'ResourceId': 'string'
+                        \'EvaluationResultIdentifier\': {
+                            \'EvaluationResultQualifier\': {
+                                \'ConfigRuleName\': \'string\',
+                                \'ResourceType\': \'string\',
+                                \'ResourceId\': \'string\'
                             },
-                            'OrderingTimestamp': datetime(2015, 1, 1)
+                            \'OrderingTimestamp\': datetime(2015, 1, 1)
                         },
-                        'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                        'ResultRecordedTime': datetime(2015, 1, 1),
-                        'ConfigRuleInvokedTime': datetime(2015, 1, 1),
-                        'Annotation': 'string',
-                        'ResultToken': 'string'
+                        \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                        \'ResultRecordedTime\': datetime(2015, 1, 1),
+                        \'ConfigRuleInvokedTime\': datetime(2015, 1, 1),
+                        \'Annotation\': \'string\',
+                        \'ResultToken\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2710,16 +2710,16 @@ class Client(BaseClient):
           ::
         
             {
-                'ComplianceSummary': {
-                    'CompliantResourceCount': {
-                        'CappedCount': 123,
-                        'CapExceeded': True|False
+                \'ComplianceSummary\': {
+                    \'CompliantResourceCount\': {
+                        \'CappedCount\': 123,
+                        \'CapExceeded\': True|False
                     },
-                    'NonCompliantResourceCount': {
-                        'CappedCount': 123,
-                        'CapExceeded': True|False
+                    \'NonCompliantResourceCount\': {
+                        \'CappedCount\': 123,
+                        \'CapExceeded\': True|False
                     },
-                    'ComplianceSummaryTimestamp': datetime(2015, 1, 1)
+                    \'ComplianceSummaryTimestamp\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -2771,7 +2771,7 @@ class Client(BaseClient):
         
           response = client.get_compliance_summary_by_resource_type(
               ResourceTypes=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceTypes: list
@@ -2791,19 +2791,19 @@ class Client(BaseClient):
           ::
         
             {
-                'ComplianceSummariesByResourceType': [
+                \'ComplianceSummariesByResourceType\': [
                     {
-                        'ResourceType': 'string',
-                        'ComplianceSummary': {
-                            'CompliantResourceCount': {
-                                'CappedCount': 123,
-                                'CapExceeded': True|False
+                        \'ResourceType\': \'string\',
+                        \'ComplianceSummary\': {
+                            \'CompliantResourceCount\': {
+                                \'CappedCount\': 123,
+                                \'CapExceeded\': True|False
                             },
-                            'NonCompliantResourceCount': {
-                                'CappedCount': 123,
-                                'CapExceeded': True|False
+                            \'NonCompliantResourceCount\': {
+                                \'CappedCount\': 123,
+                                \'CapExceeded\': True|False
                             },
-                            'ComplianceSummaryTimestamp': datetime(2015, 1, 1)
+                            \'ComplianceSummaryTimestamp\': datetime(2015, 1, 1)
                         }
                     },
                 ]
@@ -2895,15 +2895,15 @@ class Client(BaseClient):
         
           response = client.get_discovered_resource_counts(
               resourceTypes=[
-                  'string',
+                  \'string\',
               ],
               limit=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type resourceTypes: list
         :param resourceTypes: 
         
-          The comma-separated list that specifies the resource types that you want AWS Config to return (for example, ``"AWS::EC2::Instance"`` , ``"AWS::IAM::User"`` ).
+          The comma-separated list that specifies the resource types that you want AWS Config to return (for example, ``\"AWS::EC2::Instance\"`` , ``\"AWS::IAM::User\"`` ).
         
           If a value for ``resourceTypes`` is not specified, AWS Config returns all resource types that AWS Config is recording in the region for your account.
         
@@ -2931,14 +2931,14 @@ class Client(BaseClient):
           ::
         
             {
-                'totalDiscoveredResources': 123,
-                'resourceCounts': [
+                \'totalDiscoveredResources\': 123,
+                \'resourceCounts\': [
                     {
-                        'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-                        'count': 123
+                        \'resourceType\': \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+                        \'count\': 123
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2952,7 +2952,7 @@ class Client(BaseClient):
         
               * AWS Config is recording three resource types in the US East (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3 buckets, for a total of 60 resources. 
                
-              * You make a call to the ``GetDiscoveredResourceCounts`` action and specify the resource type, ``"AWS::EC2::Instances"`` , in the request. 
+              * You make a call to the ``GetDiscoveredResourceCounts`` action and specify the resource type, ``\"AWS::EC2::Instances\"`` , in the request. 
                
               * AWS Config returns 25 for ``totalDiscoveredResources`` . 
                
@@ -2966,7 +2966,7 @@ class Client(BaseClient):
         
                 - **resourceType** *(string) --* 
         
-                  The resource type (for example, ``"AWS::EC2::Instance"`` ).
+                  The resource type (for example, ``\"AWS::EC2::Instance\"`` ).
         
                 - **count** *(integer) --* 
         
@@ -2985,10 +2985,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3014,13 +3014,13 @@ class Client(BaseClient):
         ::
         
           response = client.get_resource_config_history(
-              resourceType='AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-              resourceId='string',
+              resourceType=\'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+              resourceId=\'string\',
               laterTime=datetime(2015, 1, 1),
               earlierTime=datetime(2015, 1, 1),
-              chronologicalOrder='Reverse'|'Forward',
+              chronologicalOrder=\'Reverse\'|\'Forward\',
               limit=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type resourceType: string
         :param resourceType: **[REQUIRED]** 
@@ -3065,42 +3065,42 @@ class Client(BaseClient):
           ::
         
             {
-                'configurationItems': [
+                \'configurationItems\': [
                     {
-                        'version': 'string',
-                        'accountId': 'string',
-                        'configurationItemCaptureTime': datetime(2015, 1, 1),
-                        'configurationItemStatus': 'OK'|'ResourceDiscovered'|'ResourceNotRecorded'|'ResourceDeleted'|'ResourceDeletedNotRecorded',
-                        'configurationStateId': 'string',
-                        'configurationItemMD5Hash': 'string',
-                        'arn': 'string',
-                        'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-                        'resourceId': 'string',
-                        'resourceName': 'string',
-                        'awsRegion': 'string',
-                        'availabilityZone': 'string',
-                        'resourceCreationTime': datetime(2015, 1, 1),
-                        'tags': {
-                            'string': 'string'
+                        \'version\': \'string\',
+                        \'accountId\': \'string\',
+                        \'configurationItemCaptureTime\': datetime(2015, 1, 1),
+                        \'configurationItemStatus\': \'OK\'|\'ResourceDiscovered\'|\'ResourceNotRecorded\'|\'ResourceDeleted\'|\'ResourceDeletedNotRecorded\',
+                        \'configurationStateId\': \'string\',
+                        \'configurationItemMD5Hash\': \'string\',
+                        \'arn\': \'string\',
+                        \'resourceType\': \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+                        \'resourceId\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'awsRegion\': \'string\',
+                        \'availabilityZone\': \'string\',
+                        \'resourceCreationTime\': datetime(2015, 1, 1),
+                        \'tags\': {
+                            \'string\': \'string\'
                         },
-                        'relatedEvents': [
-                            'string',
+                        \'relatedEvents\': [
+                            \'string\',
                         ],
-                        'relationships': [
+                        \'relationships\': [
                             {
-                                'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-                                'resourceId': 'string',
-                                'resourceName': 'string',
-                                'relationshipName': 'string'
+                                \'resourceType\': \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+                                \'resourceId\': \'string\',
+                                \'resourceName\': \'string\',
+                                \'relationshipName\': \'string\'
                             },
                         ],
-                        'configuration': 'string',
-                        'supplementaryConfiguration': {
-                            'string': 'string'
+                        \'configuration\': \'string\',
+                        \'supplementaryConfiguration\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3138,7 +3138,7 @@ class Client(BaseClient):
         
                 - **configurationItemMD5Hash** *(string) --* 
         
-                  Unique MD5 hash that represents the configuration item's state.
+                  Unique MD5 hash that represents the configuration item\'s state.
         
                   You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
         
@@ -3258,14 +3258,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_discovered_resources(
-              resourceType='AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
+              resourceType=\'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
               resourceIds=[
-                  'string',
+                  \'string\',
               ],
-              resourceName='string',
+              resourceName=\'string\',
               limit=123,
               includeDeletedResources=True|False,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type resourceType: string
         :param resourceType: **[REQUIRED]** 
@@ -3307,15 +3307,15 @@ class Client(BaseClient):
           ::
         
             {
-                'resourceIdentifiers': [
+                \'resourceIdentifiers\': [
                     {
-                        'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-                        'resourceId': 'string',
-                        'resourceName': 'string',
-                        'resourceDeletionTime': datetime(2015, 1, 1)
+                        \'resourceType\': \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+                        \'resourceId\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceDeletionTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3361,8 +3361,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_aggregation_authorization(
-              AuthorizedAccountId='string',
-              AuthorizedAwsRegion='string'
+              AuthorizedAccountId=\'string\',
+              AuthorizedAwsRegion=\'string\'
           )
         :type AuthorizedAccountId: string
         :param AuthorizedAccountId: **[REQUIRED]** 
@@ -3382,11 +3382,11 @@ class Client(BaseClient):
           ::
         
             {
-                'AggregationAuthorization': {
-                    'AggregationAuthorizationArn': 'string',
-                    'AuthorizedAccountId': 'string',
-                    'AuthorizedAwsRegion': 'string',
-                    'CreationTime': datetime(2015, 1, 1)
+                \'AggregationAuthorization\': {
+                    \'AggregationAuthorizationArn\': \'string\',
+                    \'AuthorizedAccountId\': \'string\',
+                    \'AuthorizedAwsRegion\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -3423,7 +3423,7 @@ class Client(BaseClient):
         
         If you are adding a new custom AWS Config rule, you must first create the AWS Lambda function that the rule invokes to evaluate your resources. When you use the ``PutConfigRule`` action to add the rule to AWS Config, you must specify the Amazon Resource Name (ARN) that AWS Lambda assigns to the function. Specify the ARN for the ``SourceIdentifier`` key. This key is part of the ``Source`` object, which is part of the ``ConfigRule`` object. 
         
-        If you are adding an AWS managed Config rule, specify the rule's identifier for the ``SourceIdentifier`` key. To reference AWS managed Config rule identifiers, see `About AWS Managed Config Rules <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
+        If you are adding an AWS managed Config rule, specify the rule\'s identifier for the ``SourceIdentifier`` key. To reference AWS managed Config rule identifiers, see `About AWS Managed Config Rules <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
         
         For any new rule that you add, specify the ``ConfigRuleName`` in the ``ConfigRule`` object. Do not specify the ``ConfigRuleArn`` or the ``ConfigRuleId`` . These values are generated by AWS Config for new rules.
         
@@ -3442,33 +3442,33 @@ class Client(BaseClient):
         
           response = client.put_config_rule(
               ConfigRule={
-                  'ConfigRuleName': 'string',
-                  'ConfigRuleArn': 'string',
-                  'ConfigRuleId': 'string',
-                  'Description': 'string',
-                  'Scope': {
-                      'ComplianceResourceTypes': [
-                          'string',
+                  \'ConfigRuleName\': \'string\',
+                  \'ConfigRuleArn\': \'string\',
+                  \'ConfigRuleId\': \'string\',
+                  \'Description\': \'string\',
+                  \'Scope\': {
+                      \'ComplianceResourceTypes\': [
+                          \'string\',
                       ],
-                      'TagKey': 'string',
-                      'TagValue': 'string',
-                      'ComplianceResourceId': 'string'
+                      \'TagKey\': \'string\',
+                      \'TagValue\': \'string\',
+                      \'ComplianceResourceId\': \'string\'
                   },
-                  'Source': {
-                      'Owner': 'CUSTOM_LAMBDA'|'AWS',
-                      'SourceIdentifier': 'string',
-                      'SourceDetails': [
+                  \'Source\': {
+                      \'Owner\': \'CUSTOM_LAMBDA\'|\'AWS\',
+                      \'SourceIdentifier\': \'string\',
+                      \'SourceDetails\': [
                           {
-                              'EventSource': 'aws.config',
-                              'MessageType': 'ConfigurationItemChangeNotification'|'ConfigurationSnapshotDeliveryCompleted'|'ScheduledNotification'|'OversizedConfigurationItemChangeNotification',
-                              'MaximumExecutionFrequency': 'One_Hour'|'Three_Hours'|'Six_Hours'|'Twelve_Hours'|'TwentyFour_Hours'
+                              \'EventSource\': \'aws.config\',
+                              \'MessageType\': \'ConfigurationItemChangeNotification\'|\'ConfigurationSnapshotDeliveryCompleted\'|\'ScheduledNotification\'|\'OversizedConfigurationItemChangeNotification\',
+                              \'MaximumExecutionFrequency\': \'One_Hour\'|\'Three_Hours\'|\'Six_Hours\'|\'Twelve_Hours\'|\'TwentyFour_Hours\'
                           },
                       ]
                   },
-                  'InputParameters': 'string',
-                  'MaximumExecutionFrequency': 'One_Hour'|'Three_Hours'|'Six_Hours'|'Twelve_Hours'|'TwentyFour_Hours',
-                  'ConfigRuleState': 'ACTIVE'|'DELETING'|'DELETING_RESULTS'|'EVALUATING',
-                  'CreatedBy': 'string'
+                  \'InputParameters\': \'string\',
+                  \'MaximumExecutionFrequency\': \'One_Hour\'|\'Three_Hours\'|\'Six_Hours\'|\'Twelve_Hours\'|\'TwentyFour_Hours\',
+                  \'ConfigRuleState\': \'ACTIVE\'|\'DELETING\'|\'DELETING_RESULTS\'|\'EVALUATING\',
+                  \'CreatedBy\': \'string\'
               }
           )
         :type ConfigRule: dict
@@ -3526,7 +3526,7 @@ class Client(BaseClient):
         
               For AWS Config managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see `Using AWS Managed Config Rules <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
         
-              For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name`` .
+              For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule\'s AWS Lambda function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name`` .
         
             - **SourceDetails** *(list) --* 
         
@@ -3617,24 +3617,24 @@ class Client(BaseClient):
         ::
         
           response = client.put_configuration_aggregator(
-              ConfigurationAggregatorName='string',
+              ConfigurationAggregatorName=\'string\',
               AccountAggregationSources=[
                   {
-                      'AccountIds': [
-                          'string',
+                      \'AccountIds\': [
+                          \'string\',
                       ],
-                      'AllAwsRegions': True|False,
-                      'AwsRegions': [
-                          'string',
+                      \'AllAwsRegions\': True|False,
+                      \'AwsRegions\': [
+                          \'string\',
                       ]
                   },
               ],
               OrganizationAggregationSource={
-                  'RoleArn': 'string',
-                  'AwsRegions': [
-                      'string',
+                  \'RoleArn\': \'string\',
+                  \'AwsRegions\': [
+                      \'string\',
                   ],
-                  'AllAwsRegions': True|False
+                  \'AllAwsRegions\': True|False
               }
           )
         :type ConfigurationAggregatorName: string
@@ -3694,29 +3694,29 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigurationAggregator': {
-                    'ConfigurationAggregatorName': 'string',
-                    'ConfigurationAggregatorArn': 'string',
-                    'AccountAggregationSources': [
+                \'ConfigurationAggregator\': {
+                    \'ConfigurationAggregatorName\': \'string\',
+                    \'ConfigurationAggregatorArn\': \'string\',
+                    \'AccountAggregationSources\': [
                         {
-                            'AccountIds': [
-                                'string',
+                            \'AccountIds\': [
+                                \'string\',
                             ],
-                            'AllAwsRegions': True|False,
-                            'AwsRegions': [
-                                'string',
+                            \'AllAwsRegions\': True|False,
+                            \'AwsRegions\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'OrganizationAggregationSource': {
-                        'RoleArn': 'string',
-                        'AwsRegions': [
-                            'string',
+                    \'OrganizationAggregationSource\': {
+                        \'RoleArn\': \'string\',
+                        \'AwsRegions\': [
+                            \'string\',
                         ],
-                        'AllAwsRegions': True|False
+                        \'AllAwsRegions\': True|False
                     },
-                    'CreationTime': datetime(2015, 1, 1),
-                    'LastUpdatedTime': datetime(2015, 1, 1)
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'LastUpdatedTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -3806,13 +3806,13 @@ class Client(BaseClient):
         
           response = client.put_configuration_recorder(
               ConfigurationRecorder={
-                  'name': 'string',
-                  'roleARN': 'string',
-                  'recordingGroup': {
-                      'allSupported': True|False,
-                      'includeGlobalResourceTypes': True|False,
-                      'resourceTypes': [
-                          'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
+                  \'name\': \'string\',
+                  \'roleARN\': \'string\',
+                  \'recordingGroup\': {
+                      \'allSupported\': True|False,
+                      \'includeGlobalResourceTypes\': True|False,
+                      \'resourceTypes\': [
+                          \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
                       ]
                   }
               }
@@ -3824,7 +3824,7 @@ class Client(BaseClient):
         
           - **name** *(string) --* 
         
-            The name of the recorder. By default, AWS Config automatically assigns the name "default" when creating the configuration recorder. You cannot change the assigned name.
+            The name of the recorder. By default, AWS Config automatically assigns the name \"default\" when creating the configuration recorder. You cannot change the assigned name.
         
           - **roleARN** *(string) --* 
         
@@ -3886,12 +3886,12 @@ class Client(BaseClient):
         
           response = client.put_delivery_channel(
               DeliveryChannel={
-                  'name': 'string',
-                  's3BucketName': 'string',
-                  's3KeyPrefix': 'string',
-                  'snsTopicARN': 'string',
-                  'configSnapshotDeliveryProperties': {
-                      'deliveryFrequency': 'One_Hour'|'Three_Hours'|'Six_Hours'|'Twelve_Hours'|'TwentyFour_Hours'
+                  \'name\': \'string\',
+                  \'s3BucketName\': \'string\',
+                  \'s3KeyPrefix\': \'string\',
+                  \'snsTopicARN\': \'string\',
+                  \'configSnapshotDeliveryProperties\': {
+                      \'deliveryFrequency\': \'One_Hour\'|\'Three_Hours\'|\'Six_Hours\'|\'Twelve_Hours\'|\'TwentyFour_Hours\'
                   }
               }
           )
@@ -3902,7 +3902,7 @@ class Client(BaseClient):
         
           - **name** *(string) --* 
         
-            The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+            The name of the delivery channel. By default, AWS Config assigns the name \"default\" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
         
           - **s3BucketName** *(string) --* 
         
@@ -3943,14 +3943,14 @@ class Client(BaseClient):
           response = client.put_evaluations(
               Evaluations=[
                   {
-                      'ComplianceResourceType': 'string',
-                      'ComplianceResourceId': 'string',
-                      'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                      'Annotation': 'string',
-                      'OrderingTimestamp': datetime(2015, 1, 1)
+                      \'ComplianceResourceType\': \'string\',
+                      \'ComplianceResourceId\': \'string\',
+                      \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                      \'Annotation\': \'string\',
+                      \'OrderingTimestamp\': datetime(2015, 1, 1)
                   },
               ],
-              ResultToken='string',
+              ResultToken=\'string\',
               TestMode=True|False
           )
         :type Evaluations: list
@@ -3998,7 +3998,7 @@ class Client(BaseClient):
         
           .. note::
         
-            When ``TestMode`` is ``true`` , ``PutEvaluations`` doesn't require a valid value for the ``ResultToken`` parameter, but the value cannot be null.
+            When ``TestMode`` is ``true`` , ``PutEvaluations`` doesn\'t require a valid value for the ``ResultToken`` parameter, but the value cannot be null.
         
         :rtype: dict
         :returns: 
@@ -4008,13 +4008,13 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedEvaluations': [
+                \'FailedEvaluations\': [
                     {
-                        'ComplianceResourceType': 'string',
-                        'ComplianceResourceId': 'string',
-                        'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                        'Annotation': 'string',
-                        'OrderingTimestamp': datetime(2015, 1, 1)
+                        \'ComplianceResourceType\': \'string\',
+                        \'ComplianceResourceId\': \'string\',
+                        \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                        \'Annotation\': \'string\',
+                        \'OrderingTimestamp\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -4089,9 +4089,9 @@ class Client(BaseClient):
           ::
         
             {
-                'RetentionConfiguration': {
-                    'Name': 'string',
-                    'RetentionPeriodInDays': 123
+                \'RetentionConfiguration\': {
+                    \'Name\': \'string\',
+                    \'RetentionPeriodInDays\': 123
                 }
             }
           **Response Structure** 
@@ -4126,7 +4126,7 @@ class Client(BaseClient):
         
         .. note::
         
-          You don't need to call the ``StartConfigRulesEvaluation`` API to run an evaluation for a new rule. When you create a rule, AWS Config evaluates your resources against the rule automatically. 
+          You don\'t need to call the ``StartConfigRulesEvaluation`` API to run an evaluation for a new rule. When you create a rule, AWS Config evaluates your resources against the rule automatically. 
         
         The ``StartConfigRulesEvaluation`` API is useful if you want to run on-demand evaluations, such as the following example:
         
@@ -4147,7 +4147,7 @@ class Client(BaseClient):
         
           response = client.start_config_rules_evaluation(
               ConfigRuleNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ConfigRuleNames: list
@@ -4185,7 +4185,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_configuration_recorder(
-              ConfigurationRecorderName='string'
+              ConfigurationRecorderName=\'string\'
           )
         :type ConfigurationRecorderName: string
         :param ConfigurationRecorderName: **[REQUIRED]** 
@@ -4205,7 +4205,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_configuration_recorder(
-              ConfigurationRecorderName='string'
+              ConfigurationRecorderName=\'string\'
           )
         :type ConfigurationRecorderName: string
         :param ConfigurationRecorderName: **[REQUIRED]** 

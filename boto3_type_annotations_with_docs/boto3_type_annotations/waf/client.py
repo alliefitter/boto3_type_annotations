@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -45,13 +45,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_byte_match_set(
-              Name='string',
-              ChangeToken='string'
+              Name=\'string\',
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description of the  ByteMatchSet . You can't change ``Name`` after you create a ``ByteMatchSet`` .
+          A friendly name or description of the  ByteMatchSet . You can\'t change ``Name`` after you create a ``ByteMatchSet`` .
         
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -66,22 +66,22 @@ class Client(BaseClient):
           ::
         
             {
-                'ByteMatchSet': {
-                    'ByteMatchSetId': 'string',
-                    'Name': 'string',
-                    'ByteMatchTuples': [
+                \'ByteMatchSet\': {
+                    \'ByteMatchSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'ByteMatchTuples\': [
                         {
-                            'FieldToMatch': {
-                                'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                                'Data': 'string'
+                            \'FieldToMatch\': {
+                                \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                                \'Data\': \'string\'
                             },
-                            'TargetString': b'bytes',
-                            'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE',
-                            'PositionalConstraint': 'EXACTLY'|'STARTS_WITH'|'ENDS_WITH'|'CONTAINS'|'CONTAINS_WORD'
+                            \'TargetString\': b\'bytes\',
+                            \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\',
+                            \'PositionalConstraint\': \'EXACTLY\'|\'STARTS_WITH\'|\'ENDS_WITH\'|\'CONTAINS\'|\'CONTAINS_WORD\'
                         },
                     ]
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -99,7 +99,7 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the  ByteMatchSet . You can't change ``Name`` after you create a ``ByteMatchSet`` .
+                A friendly name or description of the  ByteMatchSet . You can\'t change ``Name`` after you create a ``ByteMatchSet`` .
         
               - **ByteMatchTuples** *(list) --* 
         
@@ -161,13 +161,13 @@ class Client(BaseClient):
                      
                     If ``TargetString`` includes alphabetic characters A-Z and a-z, note that the value is case sensitive.
         
-                     **If you're using the AWS WAF API**  
+                     **If you\'re using the AWS WAF API**  
         
                     Specify a base64-encoded version of the value. The maximum length of the value before you base64-encode it is 50 bytes.
         
                     For example, suppose the value of ``Type`` is ``HEADER`` and the value of ``Data`` is ``User-Agent`` . If you want to search the ``User-Agent`` header for the value ``BadBot`` , you base64-encode ``BadBot`` using MIME base64 encoding and include the resulting value, ``QmFkQm90`` , in the value of ``TargetString`` .
         
-                     **If you're using the AWS CLI or one of the AWS SDKs**  
+                     **If you\'re using the AWS CLI or one of the AWS SDKs**  
         
                     The value that you want AWS WAF to search for. The SDK automatically base64 encodes the value.
         
@@ -179,9 +179,9 @@ class Client(BaseClient):
         
                      **CMD_LINE**  
         
-                    When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                    When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                    * Delete the following characters: \ " ' ^ 
+                    * Delete the following characters: \ \" \' ^ 
                      
                     * Delete spaces before the following characters: / ( 
                      
@@ -213,11 +213,11 @@ class Client(BaseClient):
         
                     Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                    * Replaces ``(ampersand)quot;`` with ``"``   
+                    * Replaces ``(ampersand)quot;`` with ``\"``   
                      
                     * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                      
-                    * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                    * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                      
                     * Replaces ``(ampersand)gt;`` with ``>``   
                      
@@ -235,7 +235,7 @@ class Client(BaseClient):
         
                      **NONE**  
         
-                    Specify ``NONE`` if you don't want to perform any text transformations.
+                    Specify ``NONE`` if you don\'t want to perform any text transformations.
         
                   - **PositionalConstraint** *(string) --* 
         
@@ -243,7 +243,7 @@ class Client(BaseClient):
         
                      **CONTAINS**  
         
-                    The specified part of the web request must include the value of ``TargetString`` , but the location doesn't matter.
+                    The specified part of the web request must include the value of ``TargetString`` , but the location doesn\'t matter.
         
                      **CONTAINS_WORD**  
         
@@ -297,13 +297,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_geo_match_set(
-              Name='string',
-              ChangeToken='string'
+              Name=\'string\',
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description of the  GeoMatchSet . You can't change ``Name`` after you create the ``GeoMatchSet`` .
+          A friendly name or description of the  GeoMatchSet . You can\'t change ``Name`` after you create the ``GeoMatchSet`` .
         
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -318,17 +318,17 @@ class Client(BaseClient):
           ::
         
             {
-                'GeoMatchSet': {
-                    'GeoMatchSetId': 'string',
-                    'Name': 'string',
-                    'GeoMatchConstraints': [
+                \'GeoMatchSet\': {
+                    \'GeoMatchSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'GeoMatchConstraints\': [
                         {
-                            'Type': 'Country',
-                            'Value': 'AF'|'AX'|'AL'|'DZ'|'AS'|'AD'|'AO'|'AI'|'AQ'|'AG'|'AR'|'AM'|'AW'|'AU'|'AT'|'AZ'|'BS'|'BH'|'BD'|'BB'|'BY'|'BE'|'BZ'|'BJ'|'BM'|'BT'|'BO'|'BQ'|'BA'|'BW'|'BV'|'BR'|'IO'|'BN'|'BG'|'BF'|'BI'|'KH'|'CM'|'CA'|'CV'|'KY'|'CF'|'TD'|'CL'|'CN'|'CX'|'CC'|'CO'|'KM'|'CG'|'CD'|'CK'|'CR'|'CI'|'HR'|'CU'|'CW'|'CY'|'CZ'|'DK'|'DJ'|'DM'|'DO'|'EC'|'EG'|'SV'|'GQ'|'ER'|'EE'|'ET'|'FK'|'FO'|'FJ'|'FI'|'FR'|'GF'|'PF'|'TF'|'GA'|'GM'|'GE'|'DE'|'GH'|'GI'|'GR'|'GL'|'GD'|'GP'|'GU'|'GT'|'GG'|'GN'|'GW'|'GY'|'HT'|'HM'|'VA'|'HN'|'HK'|'HU'|'IS'|'IN'|'ID'|'IR'|'IQ'|'IE'|'IM'|'IL'|'IT'|'JM'|'JP'|'JE'|'JO'|'KZ'|'KE'|'KI'|'KP'|'KR'|'KW'|'KG'|'LA'|'LV'|'LB'|'LS'|'LR'|'LY'|'LI'|'LT'|'LU'|'MO'|'MK'|'MG'|'MW'|'MY'|'MV'|'ML'|'MT'|'MH'|'MQ'|'MR'|'MU'|'YT'|'MX'|'FM'|'MD'|'MC'|'MN'|'ME'|'MS'|'MA'|'MZ'|'MM'|'NA'|'NR'|'NP'|'NL'|'NC'|'NZ'|'NI'|'NE'|'NG'|'NU'|'NF'|'MP'|'NO'|'OM'|'PK'|'PW'|'PS'|'PA'|'PG'|'PY'|'PE'|'PH'|'PN'|'PL'|'PT'|'PR'|'QA'|'RE'|'RO'|'RU'|'RW'|'BL'|'SH'|'KN'|'LC'|'MF'|'PM'|'VC'|'WS'|'SM'|'ST'|'SA'|'SN'|'RS'|'SC'|'SL'|'SG'|'SX'|'SK'|'SI'|'SB'|'SO'|'ZA'|'GS'|'SS'|'ES'|'LK'|'SD'|'SR'|'SJ'|'SZ'|'SE'|'CH'|'SY'|'TW'|'TJ'|'TZ'|'TH'|'TL'|'TG'|'TK'|'TO'|'TT'|'TN'|'TR'|'TM'|'TC'|'TV'|'UG'|'UA'|'AE'|'GB'|'US'|'UM'|'UY'|'UZ'|'VU'|'VE'|'VN'|'VG'|'VI'|'WF'|'EH'|'YE'|'ZM'|'ZW'
+                            \'Type\': \'Country\',
+                            \'Value\': \'AF\'|\'AX\'|\'AL\'|\'DZ\'|\'AS\'|\'AD\'|\'AO\'|\'AI\'|\'AQ\'|\'AG\'|\'AR\'|\'AM\'|\'AW\'|\'AU\'|\'AT\'|\'AZ\'|\'BS\'|\'BH\'|\'BD\'|\'BB\'|\'BY\'|\'BE\'|\'BZ\'|\'BJ\'|\'BM\'|\'BT\'|\'BO\'|\'BQ\'|\'BA\'|\'BW\'|\'BV\'|\'BR\'|\'IO\'|\'BN\'|\'BG\'|\'BF\'|\'BI\'|\'KH\'|\'CM\'|\'CA\'|\'CV\'|\'KY\'|\'CF\'|\'TD\'|\'CL\'|\'CN\'|\'CX\'|\'CC\'|\'CO\'|\'KM\'|\'CG\'|\'CD\'|\'CK\'|\'CR\'|\'CI\'|\'HR\'|\'CU\'|\'CW\'|\'CY\'|\'CZ\'|\'DK\'|\'DJ\'|\'DM\'|\'DO\'|\'EC\'|\'EG\'|\'SV\'|\'GQ\'|\'ER\'|\'EE\'|\'ET\'|\'FK\'|\'FO\'|\'FJ\'|\'FI\'|\'FR\'|\'GF\'|\'PF\'|\'TF\'|\'GA\'|\'GM\'|\'GE\'|\'DE\'|\'GH\'|\'GI\'|\'GR\'|\'GL\'|\'GD\'|\'GP\'|\'GU\'|\'GT\'|\'GG\'|\'GN\'|\'GW\'|\'GY\'|\'HT\'|\'HM\'|\'VA\'|\'HN\'|\'HK\'|\'HU\'|\'IS\'|\'IN\'|\'ID\'|\'IR\'|\'IQ\'|\'IE\'|\'IM\'|\'IL\'|\'IT\'|\'JM\'|\'JP\'|\'JE\'|\'JO\'|\'KZ\'|\'KE\'|\'KI\'|\'KP\'|\'KR\'|\'KW\'|\'KG\'|\'LA\'|\'LV\'|\'LB\'|\'LS\'|\'LR\'|\'LY\'|\'LI\'|\'LT\'|\'LU\'|\'MO\'|\'MK\'|\'MG\'|\'MW\'|\'MY\'|\'MV\'|\'ML\'|\'MT\'|\'MH\'|\'MQ\'|\'MR\'|\'MU\'|\'YT\'|\'MX\'|\'FM\'|\'MD\'|\'MC\'|\'MN\'|\'ME\'|\'MS\'|\'MA\'|\'MZ\'|\'MM\'|\'NA\'|\'NR\'|\'NP\'|\'NL\'|\'NC\'|\'NZ\'|\'NI\'|\'NE\'|\'NG\'|\'NU\'|\'NF\'|\'MP\'|\'NO\'|\'OM\'|\'PK\'|\'PW\'|\'PS\'|\'PA\'|\'PG\'|\'PY\'|\'PE\'|\'PH\'|\'PN\'|\'PL\'|\'PT\'|\'PR\'|\'QA\'|\'RE\'|\'RO\'|\'RU\'|\'RW\'|\'BL\'|\'SH\'|\'KN\'|\'LC\'|\'MF\'|\'PM\'|\'VC\'|\'WS\'|\'SM\'|\'ST\'|\'SA\'|\'SN\'|\'RS\'|\'SC\'|\'SL\'|\'SG\'|\'SX\'|\'SK\'|\'SI\'|\'SB\'|\'SO\'|\'ZA\'|\'GS\'|\'SS\'|\'ES\'|\'LK\'|\'SD\'|\'SR\'|\'SJ\'|\'SZ\'|\'SE\'|\'CH\'|\'SY\'|\'TW\'|\'TJ\'|\'TZ\'|\'TH\'|\'TL\'|\'TG\'|\'TK\'|\'TO\'|\'TT\'|\'TN\'|\'TR\'|\'TM\'|\'TC\'|\'TV\'|\'UG\'|\'UA\'|\'AE\'|\'GB\'|\'US\'|\'UM\'|\'UY\'|\'UZ\'|\'VU\'|\'VE\'|\'VN\'|\'VG\'|\'VI\'|\'WF\'|\'EH\'|\'YE\'|\'ZM\'|\'ZW\'
                         },
                     ]
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -346,7 +346,7 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the  GeoMatchSet . You can't change the name of an ``GeoMatchSet`` after you create it.
+                A friendly name or description of the  GeoMatchSet . You can\'t change the name of an ``GeoMatchSet`` after you create it.
         
               - **GeoMatchConstraints** *(list) --* 
         
@@ -392,13 +392,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_ip_set(
-              Name='string',
-              ChangeToken='string'
+              Name=\'string\',
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description of the  IPSet . You can't change ``Name`` after you create the ``IPSet`` .
+          A friendly name or description of the  IPSet . You can\'t change ``Name`` after you create the ``IPSet`` .
         
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -413,17 +413,17 @@ class Client(BaseClient):
           ::
         
             {
-                'IPSet': {
-                    'IPSetId': 'string',
-                    'Name': 'string',
-                    'IPSetDescriptors': [
+                \'IPSet\': {
+                    \'IPSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'IPSetDescriptors\': [
                         {
-                            'Type': 'IPV4'|'IPV6',
-                            'Value': 'string'
+                            \'Type\': \'IPV4\'|\'IPV6\',
+                            \'Value\': \'string\'
                         },
                     ]
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -441,7 +441,7 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the  IPSet . You can't change the name of an ``IPSet`` after you create it.
+                A friendly name or description of the  IPSet . You can\'t change the name of an ``IPSet`` after you create it.
         
               - **IPSetDescriptors** *(list) --* 
         
@@ -525,21 +525,21 @@ class Client(BaseClient):
         ::
         
           response = client.create_rate_based_rule(
-              Name='string',
-              MetricName='string',
-              RateKey='IP',
+              Name=\'string\',
+              MetricName=\'string\',
+              RateKey=\'IP\',
               RateLimit=123,
-              ChangeToken='string'
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description of the  RateBasedRule . You can't change the name of a ``RateBasedRule`` after you create it.
+          A friendly name or description of the  RateBasedRule . You can\'t change the name of a ``RateBasedRule`` after you create it.
         
         :type MetricName: string
         :param MetricName: **[REQUIRED]** 
         
-          A friendly name or description for the metrics for this ``RateBasedRule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the ``RateBasedRule`` .
+          A friendly name or description for the metrics for this ``RateBasedRule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change the name of the metric after you create the ``RateBasedRule`` .
         
         :type RateKey: string
         :param RateKey: **[REQUIRED]** 
@@ -564,21 +564,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Rule': {
-                    'RuleId': 'string',
-                    'Name': 'string',
-                    'MetricName': 'string',
-                    'MatchPredicates': [
+                \'Rule\': {
+                    \'RuleId\': \'string\',
+                    \'Name\': \'string\',
+                    \'MetricName\': \'string\',
+                    \'MatchPredicates\': [
                         {
-                            'Negated': True|False,
-                            'Type': 'IPMatch'|'ByteMatch'|'SqlInjectionMatch'|'GeoMatch'|'SizeConstraint'|'XssMatch'|'RegexMatch',
-                            'DataId': 'string'
+                            \'Negated\': True|False,
+                            \'Type\': \'IPMatch\'|\'ByteMatch\'|\'SqlInjectionMatch\'|\'GeoMatch\'|\'SizeConstraint\'|\'XssMatch\'|\'RegexMatch\',
+                            \'DataId\': \'string\'
                         },
                     ],
-                    'RateKey': 'IP',
-                    'RateLimit': 123
+                    \'RateKey\': \'IP\',
+                    \'RateLimit\': 123
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -594,11 +594,11 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description for a ``RateBasedRule`` . You can't change the name of a ``RateBasedRule`` after you create it.
+                A friendly name or description for a ``RateBasedRule`` . You can\'t change the name of a ``RateBasedRule`` after you create it.
         
               - **MetricName** *(string) --* 
         
-                A friendly name or description for the metrics for a ``RateBasedRule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the ``RateBasedRule`` .
+                A friendly name or description for the metrics for a ``RateBasedRule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change the name of the metric after you create the ``RateBasedRule`` .
         
               - **MatchPredicates** *(list) --* 
         
@@ -658,13 +658,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_regex_match_set(
-              Name='string',
-              ChangeToken='string'
+              Name=\'string\',
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description of the  RegexMatchSet . You can't change ``Name`` after you create a ``RegexMatchSet`` .
+          A friendly name or description of the  RegexMatchSet . You can\'t change ``Name`` after you create a ``RegexMatchSet`` .
         
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -679,21 +679,21 @@ class Client(BaseClient):
           ::
         
             {
-                'RegexMatchSet': {
-                    'RegexMatchSetId': 'string',
-                    'Name': 'string',
-                    'RegexMatchTuples': [
+                \'RegexMatchSet\': {
+                    \'RegexMatchSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'RegexMatchTuples\': [
                         {
-                            'FieldToMatch': {
-                                'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                                'Data': 'string'
+                            \'FieldToMatch\': {
+                                \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                                \'Data\': \'string\'
                             },
-                            'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE',
-                            'RegexPatternSetId': 'string'
+                            \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\',
+                            \'RegexPatternSetId\': \'string\'
                         },
                     ]
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -711,7 +711,7 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the  RegexMatchSet . You can't change ``Name`` after you create a ``RegexMatchSet`` .
+                A friendly name or description of the  RegexMatchSet . You can\'t change ``Name`` after you create a ``RegexMatchSet`` .
         
               - **RegexMatchTuples** *(list) --* 
         
@@ -771,9 +771,9 @@ class Client(BaseClient):
         
                      **CMD_LINE**  
         
-                    When you're concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                    When you\'re concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                    * Delete the following characters: \ " ' ^ 
+                    * Delete the following characters: \ \" \' ^ 
                      
                     * Delete spaces before the following characters: / ( 
                      
@@ -805,11 +805,11 @@ class Client(BaseClient):
         
                     Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                    * Replaces ``(ampersand)quot;`` with ``"``   
+                    * Replaces ``(ampersand)quot;`` with ``\"``   
                      
                     * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                      
-                    * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                    * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                      
                     * Replaces ``(ampersand)gt;`` with ``>``   
                      
@@ -827,7 +827,7 @@ class Client(BaseClient):
         
                      **NONE**  
         
-                    Specify ``NONE`` if you don't want to perform any text transformations.
+                    Specify ``NONE`` if you don\'t want to perform any text transformations.
         
                   - **RegexPatternSetId** *(string) --* 
         
@@ -863,13 +863,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_regex_pattern_set(
-              Name='string',
-              ChangeToken='string'
+              Name=\'string\',
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description of the  RegexPatternSet . You can't change ``Name`` after you create a ``RegexPatternSet`` .
+          A friendly name or description of the  RegexPatternSet . You can\'t change ``Name`` after you create a ``RegexPatternSet`` .
         
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -884,14 +884,14 @@ class Client(BaseClient):
           ::
         
             {
-                'RegexPatternSet': {
-                    'RegexPatternSetId': 'string',
-                    'Name': 'string',
-                    'RegexPatternStrings': [
-                        'string',
+                \'RegexPatternSet\': {
+                    \'RegexPatternSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'RegexPatternStrings\': [
+                        \'string\',
                     ]
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -909,7 +909,7 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the  RegexPatternSet . You can't change ``Name`` after you create a ``RegexPatternSet`` .
+                A friendly name or description of the  RegexPatternSet . You can\'t change ``Name`` after you create a ``RegexPatternSet`` .
         
               - **RegexPatternStrings** *(list) --* 
         
@@ -956,19 +956,19 @@ class Client(BaseClient):
         ::
         
           response = client.create_rule(
-              Name='string',
-              MetricName='string',
-              ChangeToken='string'
+              Name=\'string\',
+              MetricName=\'string\',
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description of the  Rule . You can't change the name of a ``Rule`` after you create it.
+          A friendly name or description of the  Rule . You can\'t change the name of a ``Rule`` after you create it.
         
         :type MetricName: string
         :param MetricName: **[REQUIRED]** 
         
-          A friendly name or description for the metrics for this ``Rule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the ``Rule`` .
+          A friendly name or description for the metrics for this ``Rule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change the name of the metric after you create the ``Rule`` .
         
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -983,19 +983,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Rule': {
-                    'RuleId': 'string',
-                    'Name': 'string',
-                    'MetricName': 'string',
-                    'Predicates': [
+                \'Rule\': {
+                    \'RuleId\': \'string\',
+                    \'Name\': \'string\',
+                    \'MetricName\': \'string\',
+                    \'Predicates\': [
                         {
-                            'Negated': True|False,
-                            'Type': 'IPMatch'|'ByteMatch'|'SqlInjectionMatch'|'GeoMatch'|'SizeConstraint'|'XssMatch'|'RegexMatch',
-                            'DataId': 'string'
+                            \'Negated\': True|False,
+                            \'Type\': \'IPMatch\'|\'ByteMatch\'|\'SqlInjectionMatch\'|\'GeoMatch\'|\'SizeConstraint\'|\'XssMatch\'|\'RegexMatch\',
+                            \'DataId\': \'string\'
                         },
                     ]
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1013,11 +1013,11 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                The friendly name or description for the ``Rule`` . You can't change the name of a ``Rule`` after you create it.
+                The friendly name or description for the ``Rule`` . You can\'t change the name of a ``Rule`` after you create it.
         
               - **MetricName** *(string) --* 
         
-                A friendly name or description for the metrics for this ``Rule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change ``MetricName`` after you create the ``Rule`` .
+                A friendly name or description for the metrics for this ``Rule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change ``MetricName`` after you create the ``Rule`` .
         
               - **Predicates** *(list) --* 
         
@@ -1067,19 +1067,19 @@ class Client(BaseClient):
         ::
         
           response = client.create_rule_group(
-              Name='string',
-              MetricName='string',
-              ChangeToken='string'
+              Name=\'string\',
+              MetricName=\'string\',
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description of the  RuleGroup . You can't change ``Name`` after you create a ``RuleGroup`` .
+          A friendly name or description of the  RuleGroup . You can\'t change ``Name`` after you create a ``RuleGroup`` .
         
         :type MetricName: string
         :param MetricName: **[REQUIRED]** 
         
-          A friendly name or description for the metrics for this ``RuleGroup`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the ``RuleGroup`` .
+          A friendly name or description for the metrics for this ``RuleGroup`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change the name of the metric after you create the ``RuleGroup`` .
         
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -1094,12 +1094,12 @@ class Client(BaseClient):
           ::
         
             {
-                'RuleGroup': {
-                    'RuleGroupId': 'string',
-                    'Name': 'string',
-                    'MetricName': 'string'
+                \'RuleGroup\': {
+                    \'RuleGroupId\': \'string\',
+                    \'Name\': \'string\',
+                    \'MetricName\': \'string\'
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1117,11 +1117,11 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                The friendly name or description for the ``RuleGroup`` . You can't change the name of a ``RuleGroup`` after you create it.
+                The friendly name or description for the ``RuleGroup`` . You can\'t change the name of a ``RuleGroup`` after you create it.
         
               - **MetricName** *(string) --* 
         
-                A friendly name or description for the metrics for this ``RuleGroup`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the ``RuleGroup`` .
+                A friendly name or description for the metrics for this ``RuleGroup`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change the name of the metric after you create the ``RuleGroup`` .
         
             - **ChangeToken** *(string) --* 
         
@@ -1151,13 +1151,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_size_constraint_set(
-              Name='string',
-              ChangeToken='string'
+              Name=\'string\',
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description of the  SizeConstraintSet . You can't change ``Name`` after you create a ``SizeConstraintSet`` .
+          A friendly name or description of the  SizeConstraintSet . You can\'t change ``Name`` after you create a ``SizeConstraintSet`` .
         
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -1172,22 +1172,22 @@ class Client(BaseClient):
           ::
         
             {
-                'SizeConstraintSet': {
-                    'SizeConstraintSetId': 'string',
-                    'Name': 'string',
-                    'SizeConstraints': [
+                \'SizeConstraintSet\': {
+                    \'SizeConstraintSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'SizeConstraints\': [
                         {
-                            'FieldToMatch': {
-                                'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                                'Data': 'string'
+                            \'FieldToMatch\': {
+                                \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                                \'Data\': \'string\'
                             },
-                            'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE',
-                            'ComparisonOperator': 'EQ'|'NE'|'LE'|'LT'|'GE'|'GT',
-                            'Size': 123
+                            \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\',
+                            \'ComparisonOperator\': \'EQ\'|\'NE\'|\'LE\'|\'LT\'|\'GE\'|\'GT\',
+                            \'Size\': 123
                         },
                     ]
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1213,7 +1213,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Specifies a constraint on the size of a part of the web request. AWS WAF uses the ``Size`` , ``ComparisonOperator`` , and ``FieldToMatch`` to build an expression in the form of "``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` ". If that expression is true, the ``SizeConstraint`` is considered to match.
+                  Specifies a constraint on the size of a part of the web request. AWS WAF uses the ``Size`` , ``ComparisonOperator`` , and ``FieldToMatch`` to build an expression in the form of \"``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` \". If that expression is true, the ``SizeConstraint`` is considered to match.
         
                   - **FieldToMatch** *(dict) --* 
         
@@ -1255,13 +1255,13 @@ class Client(BaseClient):
         
                      **NONE**  
         
-                    Specify ``NONE`` if you don't want to perform any text transformations.
+                    Specify ``NONE`` if you don\'t want to perform any text transformations.
         
                      **CMD_LINE**  
         
-                    When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                    When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                    * Delete the following characters: \ " ' ^ 
+                    * Delete the following characters: \ \" \' ^ 
                      
                     * Delete spaces before the following characters: / ( 
                      
@@ -1293,11 +1293,11 @@ class Client(BaseClient):
         
                     Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                    * Replaces ``(ampersand)quot;`` with ``"``   
+                    * Replaces ``(ampersand)quot;`` with ``\"``   
                      
                     * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                      
-                    * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                    * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                      
                     * Replaces ``(ampersand)gt;`` with ``>``   
                      
@@ -1315,7 +1315,7 @@ class Client(BaseClient):
         
                   - **ComparisonOperator** *(string) --* 
         
-                    The type of comparison you want AWS WAF to perform. AWS WAF uses this in combination with the provided ``Size`` and ``FieldToMatch`` to build an expression in the form of "``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` ". If that expression is true, the ``SizeConstraint`` is considered to match.
+                    The type of comparison you want AWS WAF to perform. AWS WAF uses this in combination with the provided ``Size`` and ``FieldToMatch`` to build an expression in the form of \"``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` \". If that expression is true, the ``SizeConstraint`` is considered to match.
         
                      **EQ** : Used to test if the ``Size`` is equal to the size of the ``FieldToMatch``  
         
@@ -1331,7 +1331,7 @@ class Client(BaseClient):
         
                   - **Size** *(integer) --* 
         
-                    The size in bytes that you want AWS WAF to compare against the size of the specified ``FieldToMatch`` . AWS WAF uses this in combination with ``ComparisonOperator`` and ``FieldToMatch`` to build an expression in the form of "``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` ". If that expression is true, the ``SizeConstraint`` is considered to match.
+                    The size in bytes that you want AWS WAF to compare against the size of the specified ``FieldToMatch`` . AWS WAF uses this in combination with ``ComparisonOperator`` and ``FieldToMatch`` to build an expression in the form of \"``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` \". If that expression is true, the ``SizeConstraint`` is considered to match.
         
                     Valid values for size are 0 - 21474836480 bytes (0 - 20 GB).
         
@@ -1365,13 +1365,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_sql_injection_match_set(
-              Name='string',
-              ChangeToken='string'
+              Name=\'string\',
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description for the  SqlInjectionMatchSet that you're creating. You can't change ``Name`` after you create the ``SqlInjectionMatchSet`` .
+          A friendly name or description for the  SqlInjectionMatchSet that you\'re creating. You can\'t change ``Name`` after you create the ``SqlInjectionMatchSet`` .
         
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -1386,20 +1386,20 @@ class Client(BaseClient):
           ::
         
             {
-                'SqlInjectionMatchSet': {
-                    'SqlInjectionMatchSetId': 'string',
-                    'Name': 'string',
-                    'SqlInjectionMatchTuples': [
+                \'SqlInjectionMatchSet\': {
+                    \'SqlInjectionMatchSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'SqlInjectionMatchTuples\': [
                         {
-                            'FieldToMatch': {
-                                'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                                'Data': 'string'
+                            \'FieldToMatch\': {
+                                \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                                \'Data\': \'string\'
                             },
-                            'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE'
+                            \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\'
                         },
                     ]
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1467,9 +1467,9 @@ class Client(BaseClient):
         
                      **CMD_LINE**  
         
-                    When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                    When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                    * Delete the following characters: \ " ' ^ 
+                    * Delete the following characters: \ \" \' ^ 
                      
                     * Delete spaces before the following characters: / ( 
                      
@@ -1501,11 +1501,11 @@ class Client(BaseClient):
         
                     Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                    * Replaces ``(ampersand)quot;`` with ``"``   
+                    * Replaces ``(ampersand)quot;`` with ``\"``   
                      
                     * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                      
-                    * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                    * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                      
                     * Replaces ``(ampersand)gt;`` with ``>``   
                      
@@ -1523,7 +1523,7 @@ class Client(BaseClient):
         
                      **NONE**  
         
-                    Specify ``NONE`` if you don't want to perform any text transformations.
+                    Specify ``NONE`` if you don\'t want to perform any text transformations.
         
             - **ChangeToken** *(string) --* 
         
@@ -1535,7 +1535,7 @@ class Client(BaseClient):
     def create_web_acl(self, Name: str, MetricName: str, DefaultAction: Dict, ChangeToken: str) -> Dict:
         """
         
-        You also specify a default action, either ``ALLOW`` or ``BLOCK`` . If a web request doesn't match any of the ``Rules`` in a ``WebACL`` , AWS WAF responds to the request with the default action. 
+        You also specify a default action, either ``ALLOW`` or ``BLOCK`` . If a web request doesn\'t match any of the ``Rules`` in a ``WebACL`` , AWS WAF responds to the request with the default action. 
         
         To create and configure a ``WebACL`` , perform the following steps:
         
@@ -1559,27 +1559,27 @@ class Client(BaseClient):
         ::
         
           response = client.create_web_acl(
-              Name='string',
-              MetricName='string',
+              Name=\'string\',
+              MetricName=\'string\',
               DefaultAction={
-                  'Type': 'BLOCK'|'ALLOW'|'COUNT'
+                  \'Type\': \'BLOCK\'|\'ALLOW\'|\'COUNT\'
               },
-              ChangeToken='string'
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description of the  WebACL . You can't change ``Name`` after you create the ``WebACL`` .
+          A friendly name or description of the  WebACL . You can\'t change ``Name`` after you create the ``WebACL`` .
         
         :type MetricName: string
         :param MetricName: **[REQUIRED]** 
         
-          A friendly name or description for the metrics for this ``WebACL`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change ``MetricName`` after you create the ``WebACL`` .
+          A friendly name or description for the metrics for this ``WebACL`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change ``MetricName`` after you create the ``WebACL`` .
         
         :type DefaultAction: dict
         :param DefaultAction: **[REQUIRED]** 
         
-          The action that you want AWS WAF to take when a request doesn't match the criteria specified in any of the ``Rule`` objects that are associated with the ``WebACL`` .
+          The action that you want AWS WAF to take when a request doesn\'t match the criteria specified in any of the ``Rule`` objects that are associated with the ``WebACL`` .
         
           - **Type** *(string) --* **[REQUIRED]** 
         
@@ -1589,7 +1589,7 @@ class Client(BaseClient):
              
             * ``BLOCK`` : AWS WAF blocks requests 
              
-            * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify ``COUNT`` for the default action for a ``WebACL`` . 
+            * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can\'t specify ``COUNT`` for the default action for a ``WebACL`` . 
              
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -1604,28 +1604,28 @@ class Client(BaseClient):
           ::
         
             {
-                'WebACL': {
-                    'WebACLId': 'string',
-                    'Name': 'string',
-                    'MetricName': 'string',
-                    'DefaultAction': {
-                        'Type': 'BLOCK'|'ALLOW'|'COUNT'
+                \'WebACL\': {
+                    \'WebACLId\': \'string\',
+                    \'Name\': \'string\',
+                    \'MetricName\': \'string\',
+                    \'DefaultAction\': {
+                        \'Type\': \'BLOCK\'|\'ALLOW\'|\'COUNT\'
                     },
-                    'Rules': [
+                    \'Rules\': [
                         {
-                            'Priority': 123,
-                            'RuleId': 'string',
-                            'Action': {
-                                'Type': 'BLOCK'|'ALLOW'|'COUNT'
+                            \'Priority\': 123,
+                            \'RuleId\': \'string\',
+                            \'Action\': {
+                                \'Type\': \'BLOCK\'|\'ALLOW\'|\'COUNT\'
                             },
-                            'OverrideAction': {
-                                'Type': 'NONE'|'COUNT'
+                            \'OverrideAction\': {
+                                \'Type\': \'NONE\'|\'COUNT\'
                             },
-                            'Type': 'REGULAR'|'RATE_BASED'|'GROUP'
+                            \'Type\': \'REGULAR\'|\'RATE_BASED\'|\'GROUP\'
                         },
                     ]
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1643,11 +1643,11 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the ``WebACL`` . You can't change the name of a ``WebACL`` after you create it.
+                A friendly name or description of the ``WebACL`` . You can\'t change the name of a ``WebACL`` after you create it.
         
               - **MetricName** *(string) --* 
         
-                A friendly name or description for the metrics for this ``WebACL`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change ``MetricName`` after you create the ``WebACL`` .
+                A friendly name or description for the metrics for this ``WebACL`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change ``MetricName`` after you create the ``WebACL`` .
         
               - **DefaultAction** *(dict) --* 
         
@@ -1661,7 +1661,7 @@ class Client(BaseClient):
                    
                   * ``BLOCK`` : AWS WAF blocks requests 
                    
-                  * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify ``COUNT`` for the default action for a ``WebACL`` . 
+                  * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can\'t specify ``COUNT`` for the default action for a ``WebACL`` . 
                    
               - **Rules** *(list) --* 
         
@@ -1675,7 +1675,7 @@ class Client(BaseClient):
         
                   - **Priority** *(integer) --* 
         
-                    Specifies the order in which the ``Rules`` in a ``WebACL`` are evaluated. Rules with a lower value for ``Priority`` are evaluated before ``Rules`` with a higher value. The value must be a unique integer. If you add multiple ``Rules`` to a ``WebACL`` , the values don't need to be consecutive.
+                    Specifies the order in which the ``Rules`` in a ``WebACL`` are evaluated. Rules with a lower value for ``Priority`` are evaluated before ``Rules`` with a higher value. The value must be a unique integer. If you add multiple ``Rules`` to a ``WebACL`` , the values don\'t need to be consecutive.
         
                   - **RuleId** *(string) --* 
         
@@ -1703,7 +1703,7 @@ class Client(BaseClient):
                        
                       * ``BLOCK`` : AWS WAF blocks requests 
                        
-                      * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify ``COUNT`` for the default action for a ``WebACL`` . 
+                      * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can\'t specify ``COUNT`` for the default action for a ``WebACL`` . 
                        
                   - **OverrideAction** *(dict) --* 
         
@@ -1715,7 +1715,7 @@ class Client(BaseClient):
         
                     - **Type** *(string) --* 
         
-                       ``COUNT`` overrides the action specified by the individual rule within a ``RuleGroup`` . If set to ``NONE`` , the rule's action will take place.
+                       ``COUNT`` overrides the action specified by the individual rule within a ``RuleGroup`` . If set to ``NONE`` , the rule\'s action will take place.
         
                   - **Type** *(string) --* 
         
@@ -1749,13 +1749,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_xss_match_set(
-              Name='string',
-              ChangeToken='string'
+              Name=\'string\',
+              ChangeToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
-          A friendly name or description for the  XssMatchSet that you're creating. You can't change ``Name`` after you create the ``XssMatchSet`` .
+          A friendly name or description for the  XssMatchSet that you\'re creating. You can\'t change ``Name`` after you create the ``XssMatchSet`` .
         
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -1770,20 +1770,20 @@ class Client(BaseClient):
           ::
         
             {
-                'XssMatchSet': {
-                    'XssMatchSetId': 'string',
-                    'Name': 'string',
-                    'XssMatchTuples': [
+                \'XssMatchSet\': {
+                    \'XssMatchSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'XssMatchTuples\': [
                         {
-                            'FieldToMatch': {
-                                'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                                'Data': 'string'
+                            \'FieldToMatch\': {
+                                \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                                \'Data\': \'string\'
                             },
-                            'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE'
+                            \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\'
                         },
                     ]
                 },
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1851,9 +1851,9 @@ class Client(BaseClient):
         
                      **CMD_LINE**  
         
-                    When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                    When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                    * Delete the following characters: \ " ' ^ 
+                    * Delete the following characters: \ \" \' ^ 
                      
                     * Delete spaces before the following characters: / ( 
                      
@@ -1885,11 +1885,11 @@ class Client(BaseClient):
         
                     Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                    * Replaces ``(ampersand)quot;`` with ``"``   
+                    * Replaces ``(ampersand)quot;`` with ``\"``   
                      
                     * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                      
-                    * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                    * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                      
                     * Replaces ``(ampersand)gt;`` with ``>``   
                      
@@ -1907,7 +1907,7 @@ class Client(BaseClient):
         
                      **NONE**  
         
-                    Specify ``NONE`` if you don't want to perform any text transformations.
+                    Specify ``NONE`` if you don\'t want to perform any text transformations.
         
             - **ChangeToken** *(string) --* 
         
@@ -1935,8 +1935,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_byte_match_set(
-              ByteMatchSetId='string',
-              ChangeToken='string'
+              ByteMatchSetId=\'string\',
+              ChangeToken=\'string\'
           )
         :type ByteMatchSetId: string
         :param ByteMatchSetId: **[REQUIRED]** 
@@ -1956,7 +1956,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1988,8 +1988,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_geo_match_set(
-              GeoMatchSetId='string',
-              ChangeToken='string'
+              GeoMatchSetId=\'string\',
+              ChangeToken=\'string\'
           )
         :type GeoMatchSetId: string
         :param GeoMatchSetId: **[REQUIRED]** 
@@ -2009,7 +2009,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2041,8 +2041,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_ip_set(
-              IPSetId='string',
-              ChangeToken='string'
+              IPSetId=\'string\',
+              ChangeToken=\'string\'
           )
         :type IPSetId: string
         :param IPSetId: **[REQUIRED]** 
@@ -2062,7 +2062,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2084,7 +2084,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_logging_configuration(
-              ResourceArn='string'
+              ResourceArn=\'string\'
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
@@ -2116,7 +2116,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_permission_policy(
-              ResourceArn='string'
+              ResourceArn=\'string\'
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
@@ -2158,8 +2158,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_rate_based_rule(
-              RuleId='string',
-              ChangeToken='string'
+              RuleId=\'string\',
+              ChangeToken=\'string\'
           )
         :type RuleId: string
         :param RuleId: **[REQUIRED]** 
@@ -2179,7 +2179,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2211,8 +2211,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_regex_match_set(
-              RegexMatchSetId='string',
-              ChangeToken='string'
+              RegexMatchSetId=\'string\',
+              ChangeToken=\'string\'
           )
         :type RegexMatchSetId: string
         :param RegexMatchSetId: **[REQUIRED]** 
@@ -2232,7 +2232,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2254,8 +2254,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_regex_pattern_set(
-              RegexPatternSetId='string',
-              ChangeToken='string'
+              RegexPatternSetId=\'string\',
+              ChangeToken=\'string\'
           )
         :type RegexPatternSetId: string
         :param RegexPatternSetId: **[REQUIRED]** 
@@ -2275,7 +2275,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2307,8 +2307,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_rule(
-              RuleId='string',
-              ChangeToken='string'
+              RuleId=\'string\',
+              ChangeToken=\'string\'
           )
         :type RuleId: string
         :param RuleId: **[REQUIRED]** 
@@ -2328,7 +2328,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2360,8 +2360,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_rule_group(
-              RuleGroupId='string',
-              ChangeToken='string'
+              RuleGroupId=\'string\',
+              ChangeToken=\'string\'
           )
         :type RuleGroupId: string
         :param RuleGroupId: **[REQUIRED]** 
@@ -2381,7 +2381,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2413,8 +2413,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_size_constraint_set(
-              SizeConstraintSetId='string',
-              ChangeToken='string'
+              SizeConstraintSetId=\'string\',
+              ChangeToken=\'string\'
           )
         :type SizeConstraintSetId: string
         :param SizeConstraintSetId: **[REQUIRED]** 
@@ -2434,7 +2434,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2466,8 +2466,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_sql_injection_match_set(
-              SqlInjectionMatchSetId='string',
-              ChangeToken='string'
+              SqlInjectionMatchSetId=\'string\',
+              ChangeToken=\'string\'
           )
         :type SqlInjectionMatchSetId: string
         :param SqlInjectionMatchSetId: **[REQUIRED]** 
@@ -2487,7 +2487,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2519,8 +2519,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_web_acl(
-              WebACLId='string',
-              ChangeToken='string'
+              WebACLId=\'string\',
+              ChangeToken=\'string\'
           )
         :type WebACLId: string
         :param WebACLId: **[REQUIRED]** 
@@ -2540,7 +2540,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2572,8 +2572,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_xss_match_set(
-              XssMatchSetId='string',
-              ChangeToken='string'
+              XssMatchSetId=\'string\',
+              ChangeToken=\'string\'
           )
         :type XssMatchSetId: string
         :param XssMatchSetId: **[REQUIRED]** 
@@ -2593,7 +2593,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2624,7 +2624,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2639,7 +2639,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_byte_match_set(
-              ByteMatchSetId='string'
+              ByteMatchSetId=\'string\'
           )
         :type ByteMatchSetId: string
         :param ByteMatchSetId: **[REQUIRED]** 
@@ -2654,18 +2654,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ByteMatchSet': {
-                    'ByteMatchSetId': 'string',
-                    'Name': 'string',
-                    'ByteMatchTuples': [
+                \'ByteMatchSet\': {
+                    \'ByteMatchSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'ByteMatchTuples\': [
                         {
-                            'FieldToMatch': {
-                                'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                                'Data': 'string'
+                            \'FieldToMatch\': {
+                                \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                                \'Data\': \'string\'
                             },
-                            'TargetString': b'bytes',
-                            'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE',
-                            'PositionalConstraint': 'EXACTLY'|'STARTS_WITH'|'ENDS_WITH'|'CONTAINS'|'CONTAINS_WORD'
+                            \'TargetString\': b\'bytes\',
+                            \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\',
+                            \'PositionalConstraint\': \'EXACTLY\'|\'STARTS_WITH\'|\'ENDS_WITH\'|\'CONTAINS\'|\'CONTAINS_WORD\'
                         },
                     ]
                 }
@@ -2692,7 +2692,7 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the  ByteMatchSet . You can't change ``Name`` after you create a ``ByteMatchSet`` .
+                A friendly name or description of the  ByteMatchSet . You can\'t change ``Name`` after you create a ``ByteMatchSet`` .
         
               - **ByteMatchTuples** *(list) --* 
         
@@ -2754,13 +2754,13 @@ class Client(BaseClient):
                      
                     If ``TargetString`` includes alphabetic characters A-Z and a-z, note that the value is case sensitive.
         
-                     **If you're using the AWS WAF API**  
+                     **If you\'re using the AWS WAF API**  
         
                     Specify a base64-encoded version of the value. The maximum length of the value before you base64-encode it is 50 bytes.
         
                     For example, suppose the value of ``Type`` is ``HEADER`` and the value of ``Data`` is ``User-Agent`` . If you want to search the ``User-Agent`` header for the value ``BadBot`` , you base64-encode ``BadBot`` using MIME base64 encoding and include the resulting value, ``QmFkQm90`` , in the value of ``TargetString`` .
         
-                     **If you're using the AWS CLI or one of the AWS SDKs**  
+                     **If you\'re using the AWS CLI or one of the AWS SDKs**  
         
                     The value that you want AWS WAF to search for. The SDK automatically base64 encodes the value.
         
@@ -2772,9 +2772,9 @@ class Client(BaseClient):
         
                      **CMD_LINE**  
         
-                    When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                    When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                    * Delete the following characters: \ " ' ^ 
+                    * Delete the following characters: \ \" \' ^ 
                      
                     * Delete spaces before the following characters: / ( 
                      
@@ -2806,11 +2806,11 @@ class Client(BaseClient):
         
                     Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                    * Replaces ``(ampersand)quot;`` with ``"``   
+                    * Replaces ``(ampersand)quot;`` with ``\"``   
                      
                     * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                      
-                    * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                    * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                      
                     * Replaces ``(ampersand)gt;`` with ``>``   
                      
@@ -2828,7 +2828,7 @@ class Client(BaseClient):
         
                      **NONE**  
         
-                    Specify ``NONE`` if you don't want to perform any text transformations.
+                    Specify ``NONE`` if you don\'t want to perform any text transformations.
         
                   - **PositionalConstraint** *(string) --* 
         
@@ -2836,7 +2836,7 @@ class Client(BaseClient):
         
                      **CONTAINS**  
         
-                    The specified part of the web request must include the value of ``TargetString`` , but the location doesn't matter.
+                    The specified part of the web request must include the value of ``TargetString`` , but the location doesn\'t matter.
         
                      **CONTAINS_WORD**  
         
@@ -2887,7 +2887,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2904,7 +2904,7 @@ class Client(BaseClient):
         """
         Returns the status of a ``ChangeToken`` that you got by calling  GetChangeToken . ``ChangeTokenStatus`` is one of the following values:
         
-        * ``PROVISIONED`` : You requested the change token by calling ``GetChangeToken`` , but you haven't used it yet in a call to create, update, or delete an AWS WAF object. 
+        * ``PROVISIONED`` : You requested the change token by calling ``GetChangeToken`` , but you haven\'t used it yet in a call to create, update, or delete an AWS WAF object. 
          
         * ``PENDING`` : AWS WAF is propagating the create, update, or delete request to all AWS WAF servers. 
          
@@ -2916,7 +2916,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_change_token_status(
-              ChangeToken='string'
+              ChangeToken=\'string\'
           )
         :type ChangeToken: string
         :param ChangeToken: **[REQUIRED]** 
@@ -2931,7 +2931,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeTokenStatus': 'PROVISIONED'|'PENDING'|'INSYNC'
+                \'ChangeTokenStatus\': \'PROVISIONED\'|\'PENDING\'|\'INSYNC\'
             }
           **Response Structure** 
         
@@ -2953,7 +2953,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_geo_match_set(
-              GeoMatchSetId='string'
+              GeoMatchSetId=\'string\'
           )
         :type GeoMatchSetId: string
         :param GeoMatchSetId: **[REQUIRED]** 
@@ -2968,13 +2968,13 @@ class Client(BaseClient):
           ::
         
             {
-                'GeoMatchSet': {
-                    'GeoMatchSetId': 'string',
-                    'Name': 'string',
-                    'GeoMatchConstraints': [
+                \'GeoMatchSet\': {
+                    \'GeoMatchSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'GeoMatchConstraints\': [
                         {
-                            'Type': 'Country',
-                            'Value': 'AF'|'AX'|'AL'|'DZ'|'AS'|'AD'|'AO'|'AI'|'AQ'|'AG'|'AR'|'AM'|'AW'|'AU'|'AT'|'AZ'|'BS'|'BH'|'BD'|'BB'|'BY'|'BE'|'BZ'|'BJ'|'BM'|'BT'|'BO'|'BQ'|'BA'|'BW'|'BV'|'BR'|'IO'|'BN'|'BG'|'BF'|'BI'|'KH'|'CM'|'CA'|'CV'|'KY'|'CF'|'TD'|'CL'|'CN'|'CX'|'CC'|'CO'|'KM'|'CG'|'CD'|'CK'|'CR'|'CI'|'HR'|'CU'|'CW'|'CY'|'CZ'|'DK'|'DJ'|'DM'|'DO'|'EC'|'EG'|'SV'|'GQ'|'ER'|'EE'|'ET'|'FK'|'FO'|'FJ'|'FI'|'FR'|'GF'|'PF'|'TF'|'GA'|'GM'|'GE'|'DE'|'GH'|'GI'|'GR'|'GL'|'GD'|'GP'|'GU'|'GT'|'GG'|'GN'|'GW'|'GY'|'HT'|'HM'|'VA'|'HN'|'HK'|'HU'|'IS'|'IN'|'ID'|'IR'|'IQ'|'IE'|'IM'|'IL'|'IT'|'JM'|'JP'|'JE'|'JO'|'KZ'|'KE'|'KI'|'KP'|'KR'|'KW'|'KG'|'LA'|'LV'|'LB'|'LS'|'LR'|'LY'|'LI'|'LT'|'LU'|'MO'|'MK'|'MG'|'MW'|'MY'|'MV'|'ML'|'MT'|'MH'|'MQ'|'MR'|'MU'|'YT'|'MX'|'FM'|'MD'|'MC'|'MN'|'ME'|'MS'|'MA'|'MZ'|'MM'|'NA'|'NR'|'NP'|'NL'|'NC'|'NZ'|'NI'|'NE'|'NG'|'NU'|'NF'|'MP'|'NO'|'OM'|'PK'|'PW'|'PS'|'PA'|'PG'|'PY'|'PE'|'PH'|'PN'|'PL'|'PT'|'PR'|'QA'|'RE'|'RO'|'RU'|'RW'|'BL'|'SH'|'KN'|'LC'|'MF'|'PM'|'VC'|'WS'|'SM'|'ST'|'SA'|'SN'|'RS'|'SC'|'SL'|'SG'|'SX'|'SK'|'SI'|'SB'|'SO'|'ZA'|'GS'|'SS'|'ES'|'LK'|'SD'|'SR'|'SJ'|'SZ'|'SE'|'CH'|'SY'|'TW'|'TJ'|'TZ'|'TH'|'TL'|'TG'|'TK'|'TO'|'TT'|'TN'|'TR'|'TM'|'TC'|'TV'|'UG'|'UA'|'AE'|'GB'|'US'|'UM'|'UY'|'UZ'|'VU'|'VE'|'VN'|'VG'|'VI'|'WF'|'EH'|'YE'|'ZM'|'ZW'
+                            \'Type\': \'Country\',
+                            \'Value\': \'AF\'|\'AX\'|\'AL\'|\'DZ\'|\'AS\'|\'AD\'|\'AO\'|\'AI\'|\'AQ\'|\'AG\'|\'AR\'|\'AM\'|\'AW\'|\'AU\'|\'AT\'|\'AZ\'|\'BS\'|\'BH\'|\'BD\'|\'BB\'|\'BY\'|\'BE\'|\'BZ\'|\'BJ\'|\'BM\'|\'BT\'|\'BO\'|\'BQ\'|\'BA\'|\'BW\'|\'BV\'|\'BR\'|\'IO\'|\'BN\'|\'BG\'|\'BF\'|\'BI\'|\'KH\'|\'CM\'|\'CA\'|\'CV\'|\'KY\'|\'CF\'|\'TD\'|\'CL\'|\'CN\'|\'CX\'|\'CC\'|\'CO\'|\'KM\'|\'CG\'|\'CD\'|\'CK\'|\'CR\'|\'CI\'|\'HR\'|\'CU\'|\'CW\'|\'CY\'|\'CZ\'|\'DK\'|\'DJ\'|\'DM\'|\'DO\'|\'EC\'|\'EG\'|\'SV\'|\'GQ\'|\'ER\'|\'EE\'|\'ET\'|\'FK\'|\'FO\'|\'FJ\'|\'FI\'|\'FR\'|\'GF\'|\'PF\'|\'TF\'|\'GA\'|\'GM\'|\'GE\'|\'DE\'|\'GH\'|\'GI\'|\'GR\'|\'GL\'|\'GD\'|\'GP\'|\'GU\'|\'GT\'|\'GG\'|\'GN\'|\'GW\'|\'GY\'|\'HT\'|\'HM\'|\'VA\'|\'HN\'|\'HK\'|\'HU\'|\'IS\'|\'IN\'|\'ID\'|\'IR\'|\'IQ\'|\'IE\'|\'IM\'|\'IL\'|\'IT\'|\'JM\'|\'JP\'|\'JE\'|\'JO\'|\'KZ\'|\'KE\'|\'KI\'|\'KP\'|\'KR\'|\'KW\'|\'KG\'|\'LA\'|\'LV\'|\'LB\'|\'LS\'|\'LR\'|\'LY\'|\'LI\'|\'LT\'|\'LU\'|\'MO\'|\'MK\'|\'MG\'|\'MW\'|\'MY\'|\'MV\'|\'ML\'|\'MT\'|\'MH\'|\'MQ\'|\'MR\'|\'MU\'|\'YT\'|\'MX\'|\'FM\'|\'MD\'|\'MC\'|\'MN\'|\'ME\'|\'MS\'|\'MA\'|\'MZ\'|\'MM\'|\'NA\'|\'NR\'|\'NP\'|\'NL\'|\'NC\'|\'NZ\'|\'NI\'|\'NE\'|\'NG\'|\'NU\'|\'NF\'|\'MP\'|\'NO\'|\'OM\'|\'PK\'|\'PW\'|\'PS\'|\'PA\'|\'PG\'|\'PY\'|\'PE\'|\'PH\'|\'PN\'|\'PL\'|\'PT\'|\'PR\'|\'QA\'|\'RE\'|\'RO\'|\'RU\'|\'RW\'|\'BL\'|\'SH\'|\'KN\'|\'LC\'|\'MF\'|\'PM\'|\'VC\'|\'WS\'|\'SM\'|\'ST\'|\'SA\'|\'SN\'|\'RS\'|\'SC\'|\'SL\'|\'SG\'|\'SX\'|\'SK\'|\'SI\'|\'SB\'|\'SO\'|\'ZA\'|\'GS\'|\'SS\'|\'ES\'|\'LK\'|\'SD\'|\'SR\'|\'SJ\'|\'SZ\'|\'SE\'|\'CH\'|\'SY\'|\'TW\'|\'TJ\'|\'TZ\'|\'TH\'|\'TL\'|\'TG\'|\'TK\'|\'TO\'|\'TT\'|\'TN\'|\'TR\'|\'TM\'|\'TC\'|\'TV\'|\'UG\'|\'UA\'|\'AE\'|\'GB\'|\'US\'|\'UM\'|\'UY\'|\'UZ\'|\'VU\'|\'VE\'|\'VN\'|\'VG\'|\'VI\'|\'WF\'|\'EH\'|\'YE\'|\'ZM\'|\'ZW\'
                         },
                     ]
                 }
@@ -2995,7 +2995,7 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the  GeoMatchSet . You can't change the name of an ``GeoMatchSet`` after you create it.
+                A friendly name or description of the  GeoMatchSet . You can\'t change the name of an ``GeoMatchSet`` after you create it.
         
               - **GeoMatchConstraints** *(list) --* 
         
@@ -3025,7 +3025,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_ip_set(
-              IPSetId='string'
+              IPSetId=\'string\'
           )
         :type IPSetId: string
         :param IPSetId: **[REQUIRED]** 
@@ -3040,13 +3040,13 @@ class Client(BaseClient):
           ::
         
             {
-                'IPSet': {
-                    'IPSetId': 'string',
-                    'Name': 'string',
-                    'IPSetDescriptors': [
+                \'IPSet\': {
+                    \'IPSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'IPSetDescriptors\': [
                         {
-                            'Type': 'IPV4'|'IPV6',
-                            'Value': 'string'
+                            \'Type\': \'IPV4\'|\'IPV6\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -3071,7 +3071,7 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the  IPSet . You can't change the name of an ``IPSet`` after you create it.
+                A friendly name or description of the  IPSet . You can\'t change the name of an ``IPSet`` after you create it.
         
               - **IPSetDescriptors** *(list) --* 
         
@@ -3113,7 +3113,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_logging_configuration(
-              ResourceArn='string'
+              ResourceArn=\'string\'
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
@@ -3128,15 +3128,15 @@ class Client(BaseClient):
           ::
         
             {
-                'LoggingConfiguration': {
-                    'ResourceArn': 'string',
-                    'LogDestinationConfigs': [
-                        'string',
+                \'LoggingConfiguration\': {
+                    \'ResourceArn\': \'string\',
+                    \'LogDestinationConfigs\': [
+                        \'string\',
                     ],
-                    'RedactedFields': [
+                    \'RedactedFields\': [
                         {
-                            'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                            'Data': 'string'
+                            \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                            \'Data\': \'string\'
                         },
                     ]
                 }
@@ -3202,10 +3202,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3225,7 +3225,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_permission_policy(
-              ResourceArn='string'
+              ResourceArn=\'string\'
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
@@ -3240,7 +3240,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': 'string'
+                \'Policy\': \'string\'
             }
           **Response Structure** 
         
@@ -3262,7 +3262,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_rate_based_rule(
-              RuleId='string'
+              RuleId=\'string\'
           )
         :type RuleId: string
         :param RuleId: **[REQUIRED]** 
@@ -3277,19 +3277,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Rule': {
-                    'RuleId': 'string',
-                    'Name': 'string',
-                    'MetricName': 'string',
-                    'MatchPredicates': [
+                \'Rule\': {
+                    \'RuleId\': \'string\',
+                    \'Name\': \'string\',
+                    \'MetricName\': \'string\',
+                    \'MatchPredicates\': [
                         {
-                            'Negated': True|False,
-                            'Type': 'IPMatch'|'ByteMatch'|'SqlInjectionMatch'|'GeoMatch'|'SizeConstraint'|'XssMatch'|'RegexMatch',
-                            'DataId': 'string'
+                            \'Negated\': True|False,
+                            \'Type\': \'IPMatch\'|\'ByteMatch\'|\'SqlInjectionMatch\'|\'GeoMatch\'|\'SizeConstraint\'|\'XssMatch\'|\'RegexMatch\',
+                            \'DataId\': \'string\'
                         },
                     ],
-                    'RateKey': 'IP',
-                    'RateLimit': 123
+                    \'RateKey\': \'IP\',
+                    \'RateLimit\': 123
                 }
             }
           **Response Structure** 
@@ -3306,11 +3306,11 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description for a ``RateBasedRule`` . You can't change the name of a ``RateBasedRule`` after you create it.
+                A friendly name or description for a ``RateBasedRule`` . You can\'t change the name of a ``RateBasedRule`` after you create it.
         
               - **MetricName** *(string) --* 
         
-                A friendly name or description for the metrics for a ``RateBasedRule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the ``RateBasedRule`` .
+                A friendly name or description for the metrics for a ``RateBasedRule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change the name of the metric after you create the ``RateBasedRule`` .
         
               - **MatchPredicates** *(list) --* 
         
@@ -3354,8 +3354,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_rate_based_rule_managed_keys(
-              RuleId='string',
-              NextMarker='string'
+              RuleId=\'string\',
+              NextMarker=\'string\'
           )
         :type RuleId: string
         :param RuleId: **[REQUIRED]** 
@@ -3375,10 +3375,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ManagedKeys': [
-                    'string',
+                \'ManagedKeys\': [
+                    \'string\',
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -3406,7 +3406,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_regex_match_set(
-              RegexMatchSetId='string'
+              RegexMatchSetId=\'string\'
           )
         :type RegexMatchSetId: string
         :param RegexMatchSetId: **[REQUIRED]** 
@@ -3421,17 +3421,17 @@ class Client(BaseClient):
           ::
         
             {
-                'RegexMatchSet': {
-                    'RegexMatchSetId': 'string',
-                    'Name': 'string',
-                    'RegexMatchTuples': [
+                \'RegexMatchSet\': {
+                    \'RegexMatchSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'RegexMatchTuples\': [
                         {
-                            'FieldToMatch': {
-                                'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                                'Data': 'string'
+                            \'FieldToMatch\': {
+                                \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                                \'Data\': \'string\'
                             },
-                            'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE',
-                            'RegexPatternSetId': 'string'
+                            \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\',
+                            \'RegexPatternSetId\': \'string\'
                         },
                     ]
                 }
@@ -3452,7 +3452,7 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the  RegexMatchSet . You can't change ``Name`` after you create a ``RegexMatchSet`` .
+                A friendly name or description of the  RegexMatchSet . You can\'t change ``Name`` after you create a ``RegexMatchSet`` .
         
               - **RegexMatchTuples** *(list) --* 
         
@@ -3512,9 +3512,9 @@ class Client(BaseClient):
         
                      **CMD_LINE**  
         
-                    When you're concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                    When you\'re concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                    * Delete the following characters: \ " ' ^ 
+                    * Delete the following characters: \ \" \' ^ 
                      
                     * Delete spaces before the following characters: / ( 
                      
@@ -3546,11 +3546,11 @@ class Client(BaseClient):
         
                     Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                    * Replaces ``(ampersand)quot;`` with ``"``   
+                    * Replaces ``(ampersand)quot;`` with ``\"``   
                      
                     * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                      
-                    * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                    * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                      
                     * Replaces ``(ampersand)gt;`` with ``>``   
                      
@@ -3568,7 +3568,7 @@ class Client(BaseClient):
         
                      **NONE**  
         
-                    Specify ``NONE`` if you don't want to perform any text transformations.
+                    Specify ``NONE`` if you don\'t want to perform any text transformations.
         
                   - **RegexPatternSetId** *(string) --* 
         
@@ -3588,7 +3588,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_regex_pattern_set(
-              RegexPatternSetId='string'
+              RegexPatternSetId=\'string\'
           )
         :type RegexPatternSetId: string
         :param RegexPatternSetId: **[REQUIRED]** 
@@ -3603,11 +3603,11 @@ class Client(BaseClient):
           ::
         
             {
-                'RegexPatternSet': {
-                    'RegexPatternSetId': 'string',
-                    'Name': 'string',
-                    'RegexPatternStrings': [
-                        'string',
+                \'RegexPatternSet\': {
+                    \'RegexPatternSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'RegexPatternStrings\': [
+                        \'string\',
                     ]
                 }
             }
@@ -3627,7 +3627,7 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the  RegexPatternSet . You can't change ``Name`` after you create a ``RegexPatternSet`` .
+                A friendly name or description of the  RegexPatternSet . You can\'t change ``Name`` after you create a ``RegexPatternSet`` .
         
               - **RegexPatternStrings** *(list) --* 
         
@@ -3647,7 +3647,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_rule(
-              RuleId='string'
+              RuleId=\'string\'
           )
         :type RuleId: string
         :param RuleId: **[REQUIRED]** 
@@ -3662,15 +3662,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Rule': {
-                    'RuleId': 'string',
-                    'Name': 'string',
-                    'MetricName': 'string',
-                    'Predicates': [
+                \'Rule\': {
+                    \'RuleId\': \'string\',
+                    \'Name\': \'string\',
+                    \'MetricName\': \'string\',
+                    \'Predicates\': [
                         {
-                            'Negated': True|False,
-                            'Type': 'IPMatch'|'ByteMatch'|'SqlInjectionMatch'|'GeoMatch'|'SizeConstraint'|'XssMatch'|'RegexMatch',
-                            'DataId': 'string'
+                            \'Negated\': True|False,
+                            \'Type\': \'IPMatch\'|\'ByteMatch\'|\'SqlInjectionMatch\'|\'GeoMatch\'|\'SizeConstraint\'|\'XssMatch\'|\'RegexMatch\',
+                            \'DataId\': \'string\'
                         },
                     ]
                 }
@@ -3695,11 +3695,11 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                The friendly name or description for the ``Rule`` . You can't change the name of a ``Rule`` after you create it.
+                The friendly name or description for the ``Rule`` . You can\'t change the name of a ``Rule`` after you create it.
         
               - **MetricName** *(string) --* 
         
-                A friendly name or description for the metrics for this ``Rule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change ``MetricName`` after you create the ``Rule`` .
+                A friendly name or description for the metrics for this ``Rule`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change ``MetricName`` after you create the ``Rule`` .
         
               - **Predicates** *(list) --* 
         
@@ -3737,7 +3737,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_rule_group(
-              RuleGroupId='string'
+              RuleGroupId=\'string\'
           )
         :type RuleGroupId: string
         :param RuleGroupId: **[REQUIRED]** 
@@ -3752,10 +3752,10 @@ class Client(BaseClient):
           ::
         
             {
-                'RuleGroup': {
-                    'RuleGroupId': 'string',
-                    'Name': 'string',
-                    'MetricName': 'string'
+                \'RuleGroup\': {
+                    \'RuleGroupId\': \'string\',
+                    \'Name\': \'string\',
+                    \'MetricName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3774,11 +3774,11 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                The friendly name or description for the ``RuleGroup`` . You can't change the name of a ``RuleGroup`` after you create it.
+                The friendly name or description for the ``RuleGroup`` . You can\'t change the name of a ``RuleGroup`` after you create it.
         
               - **MetricName** *(string) --* 
         
-                A friendly name or description for the metrics for this ``RuleGroup`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the ``RuleGroup`` .
+                A friendly name or description for the metrics for this ``RuleGroup`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change the name of the metric after you create the ``RuleGroup`` .
         
         """
         pass
@@ -3794,11 +3794,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_sampled_requests(
-              WebAclId='string',
-              RuleId='string',
+              WebAclId=\'string\',
+              RuleId=\'string\',
               TimeWindow={
-                  'StartTime': datetime(2015, 1, 1),
-                  'EndTime': datetime(2015, 1, 1)
+                  \'StartTime\': datetime(2015, 1, 1),
+                  \'EndTime\': datetime(2015, 1, 1)
               },
               MaxItems=123
           )
@@ -3814,20 +3814,20 @@ class Client(BaseClient):
         
           * The ``RuleId`` of the ``Rule`` or the ``RuleGroupId`` of the ``RuleGroup`` for which you want ``GetSampledRequests`` to return a sample of requests. 
            
-          * ``Default_Action`` , which causes ``GetSampledRequests`` to return a sample of the requests that didn't match any of the rules in the specified ``WebACL`` . 
+          * ``Default_Action`` , which causes ``GetSampledRequests`` to return a sample of the requests that didn\'t match any of the rules in the specified ``WebACL`` . 
            
         :type TimeWindow: dict
         :param TimeWindow: **[REQUIRED]** 
         
-          The start date and time and the end date and time of the range for which you want ``GetSampledRequests`` to return a sample of requests. Specify the date and time in the following format: ``"2016-09-27T14:50Z"`` . You can specify any time range in the previous three hours.
+          The start date and time and the end date and time of the range for which you want ``GetSampledRequests`` to return a sample of requests. Specify the date and time in the following format: ``\"2016-09-27T14:50Z\"`` . You can specify any time range in the previous three hours.
         
           - **StartTime** *(datetime) --* **[REQUIRED]** 
         
-            The beginning of the time range from which you want ``GetSampledRequests`` to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: ``"2016-09-27T14:50Z"`` . You can specify any time range in the previous three hours.
+            The beginning of the time range from which you want ``GetSampledRequests`` to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: ``\"2016-09-27T14:50Z\"`` . You can specify any time range in the previous three hours.
         
           - **EndTime** *(datetime) --* **[REQUIRED]** 
         
-            The end of the time range from which you want ``GetSampledRequests`` to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: ``"2016-09-27T14:50Z"`` . You can specify any time range in the previous three hours.
+            The end of the time range from which you want ``GetSampledRequests`` to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: ``\"2016-09-27T14:50Z\"`` . You can specify any time range in the previous three hours.
         
         :type MaxItems: integer
         :param MaxItems: **[REQUIRED]** 
@@ -3842,31 +3842,31 @@ class Client(BaseClient):
           ::
         
             {
-                'SampledRequests': [
+                \'SampledRequests\': [
                     {
-                        'Request': {
-                            'ClientIP': 'string',
-                            'Country': 'string',
-                            'URI': 'string',
-                            'Method': 'string',
-                            'HTTPVersion': 'string',
-                            'Headers': [
+                        \'Request\': {
+                            \'ClientIP\': \'string\',
+                            \'Country\': \'string\',
+                            \'URI\': \'string\',
+                            \'Method\': \'string\',
+                            \'HTTPVersion\': \'string\',
+                            \'Headers\': [
                                 {
-                                    'Name': 'string',
-                                    'Value': 'string'
+                                    \'Name\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         },
-                        'Weight': 123,
-                        'Timestamp': datetime(2015, 1, 1),
-                        'Action': 'string',
-                        'RuleWithinRuleGroup': 'string'
+                        \'Weight\': 123,
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'Action\': \'string\',
+                        \'RuleWithinRuleGroup\': \'string\'
                     },
                 ],
-                'PopulationSize': 123,
-                'TimeWindow': {
-                    'StartTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1)
+                \'PopulationSize\': 123,
+                \'TimeWindow\': {
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -3951,11 +3951,11 @@ class Client(BaseClient):
         
               - **StartTime** *(datetime) --* 
         
-                The beginning of the time range from which you want ``GetSampledRequests`` to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: ``"2016-09-27T14:50Z"`` . You can specify any time range in the previous three hours.
+                The beginning of the time range from which you want ``GetSampledRequests`` to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: ``\"2016-09-27T14:50Z\"`` . You can specify any time range in the previous three hours.
         
               - **EndTime** *(datetime) --* 
         
-                The end of the time range from which you want ``GetSampledRequests`` to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: ``"2016-09-27T14:50Z"`` . You can specify any time range in the previous three hours.
+                The end of the time range from which you want ``GetSampledRequests`` to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: ``\"2016-09-27T14:50Z\"`` . You can specify any time range in the previous three hours.
         
         """
         pass
@@ -3969,7 +3969,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_size_constraint_set(
-              SizeConstraintSetId='string'
+              SizeConstraintSetId=\'string\'
           )
         :type SizeConstraintSetId: string
         :param SizeConstraintSetId: **[REQUIRED]** 
@@ -3984,18 +3984,18 @@ class Client(BaseClient):
           ::
         
             {
-                'SizeConstraintSet': {
-                    'SizeConstraintSetId': 'string',
-                    'Name': 'string',
-                    'SizeConstraints': [
+                \'SizeConstraintSet\': {
+                    \'SizeConstraintSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'SizeConstraints\': [
                         {
-                            'FieldToMatch': {
-                                'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                                'Data': 'string'
+                            \'FieldToMatch\': {
+                                \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                                \'Data\': \'string\'
                             },
-                            'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE',
-                            'ComparisonOperator': 'EQ'|'NE'|'LE'|'LT'|'GE'|'GT',
-                            'Size': 123
+                            \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\',
+                            \'ComparisonOperator\': \'EQ\'|\'NE\'|\'LE\'|\'LT\'|\'GE\'|\'GT\',
+                            \'Size\': 123
                         },
                     ]
                 }
@@ -4030,7 +4030,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Specifies a constraint on the size of a part of the web request. AWS WAF uses the ``Size`` , ``ComparisonOperator`` , and ``FieldToMatch`` to build an expression in the form of "``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` ". If that expression is true, the ``SizeConstraint`` is considered to match.
+                  Specifies a constraint on the size of a part of the web request. AWS WAF uses the ``Size`` , ``ComparisonOperator`` , and ``FieldToMatch`` to build an expression in the form of \"``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` \". If that expression is true, the ``SizeConstraint`` is considered to match.
         
                   - **FieldToMatch** *(dict) --* 
         
@@ -4072,13 +4072,13 @@ class Client(BaseClient):
         
                      **NONE**  
         
-                    Specify ``NONE`` if you don't want to perform any text transformations.
+                    Specify ``NONE`` if you don\'t want to perform any text transformations.
         
                      **CMD_LINE**  
         
-                    When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                    When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                    * Delete the following characters: \ " ' ^ 
+                    * Delete the following characters: \ \" \' ^ 
                      
                     * Delete spaces before the following characters: / ( 
                      
@@ -4110,11 +4110,11 @@ class Client(BaseClient):
         
                     Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                    * Replaces ``(ampersand)quot;`` with ``"``   
+                    * Replaces ``(ampersand)quot;`` with ``\"``   
                      
                     * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                      
-                    * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                    * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                      
                     * Replaces ``(ampersand)gt;`` with ``>``   
                      
@@ -4132,7 +4132,7 @@ class Client(BaseClient):
         
                   - **ComparisonOperator** *(string) --* 
         
-                    The type of comparison you want AWS WAF to perform. AWS WAF uses this in combination with the provided ``Size`` and ``FieldToMatch`` to build an expression in the form of "``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` ". If that expression is true, the ``SizeConstraint`` is considered to match.
+                    The type of comparison you want AWS WAF to perform. AWS WAF uses this in combination with the provided ``Size`` and ``FieldToMatch`` to build an expression in the form of \"``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` \". If that expression is true, the ``SizeConstraint`` is considered to match.
         
                      **EQ** : Used to test if the ``Size`` is equal to the size of the ``FieldToMatch``  
         
@@ -4148,7 +4148,7 @@ class Client(BaseClient):
         
                   - **Size** *(integer) --* 
         
-                    The size in bytes that you want AWS WAF to compare against the size of the specified ``FieldToMatch`` . AWS WAF uses this in combination with ``ComparisonOperator`` and ``FieldToMatch`` to build an expression in the form of "``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` ". If that expression is true, the ``SizeConstraint`` is considered to match.
+                    The size in bytes that you want AWS WAF to compare against the size of the specified ``FieldToMatch`` . AWS WAF uses this in combination with ``ComparisonOperator`` and ``FieldToMatch`` to build an expression in the form of \"``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` \". If that expression is true, the ``SizeConstraint`` is considered to match.
         
                     Valid values for size are 0 - 21474836480 bytes (0 - 20 GB).
         
@@ -4166,7 +4166,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_sql_injection_match_set(
-              SqlInjectionMatchSetId='string'
+              SqlInjectionMatchSetId=\'string\'
           )
         :type SqlInjectionMatchSetId: string
         :param SqlInjectionMatchSetId: **[REQUIRED]** 
@@ -4181,16 +4181,16 @@ class Client(BaseClient):
           ::
         
             {
-                'SqlInjectionMatchSet': {
-                    'SqlInjectionMatchSetId': 'string',
-                    'Name': 'string',
-                    'SqlInjectionMatchTuples': [
+                \'SqlInjectionMatchSet\': {
+                    \'SqlInjectionMatchSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'SqlInjectionMatchTuples\': [
                         {
-                            'FieldToMatch': {
-                                'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                                'Data': 'string'
+                            \'FieldToMatch\': {
+                                \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                                \'Data\': \'string\'
                             },
-                            'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE'
+                            \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\'
                         },
                     ]
                 }
@@ -4267,9 +4267,9 @@ class Client(BaseClient):
         
                      **CMD_LINE**  
         
-                    When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                    When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                    * Delete the following characters: \ " ' ^ 
+                    * Delete the following characters: \ \" \' ^ 
                      
                     * Delete spaces before the following characters: / ( 
                      
@@ -4301,11 +4301,11 @@ class Client(BaseClient):
         
                     Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                    * Replaces ``(ampersand)quot;`` with ``"``   
+                    * Replaces ``(ampersand)quot;`` with ``\"``   
                      
                     * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                      
-                    * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                    * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                      
                     * Replaces ``(ampersand)gt;`` with ``>``   
                      
@@ -4323,7 +4323,7 @@ class Client(BaseClient):
         
                      **NONE**  
         
-                    Specify ``NONE`` if you don't want to perform any text transformations.
+                    Specify ``NONE`` if you don\'t want to perform any text transformations.
         
         """
         pass
@@ -4349,7 +4349,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_web_acl(
-              WebACLId='string'
+              WebACLId=\'string\'
           )
         :type WebACLId: string
         :param WebACLId: **[REQUIRED]** 
@@ -4364,24 +4364,24 @@ class Client(BaseClient):
           ::
         
             {
-                'WebACL': {
-                    'WebACLId': 'string',
-                    'Name': 'string',
-                    'MetricName': 'string',
-                    'DefaultAction': {
-                        'Type': 'BLOCK'|'ALLOW'|'COUNT'
+                \'WebACL\': {
+                    \'WebACLId\': \'string\',
+                    \'Name\': \'string\',
+                    \'MetricName\': \'string\',
+                    \'DefaultAction\': {
+                        \'Type\': \'BLOCK\'|\'ALLOW\'|\'COUNT\'
                     },
-                    'Rules': [
+                    \'Rules\': [
                         {
-                            'Priority': 123,
-                            'RuleId': 'string',
-                            'Action': {
-                                'Type': 'BLOCK'|'ALLOW'|'COUNT'
+                            \'Priority\': 123,
+                            \'RuleId\': \'string\',
+                            \'Action\': {
+                                \'Type\': \'BLOCK\'|\'ALLOW\'|\'COUNT\'
                             },
-                            'OverrideAction': {
-                                'Type': 'NONE'|'COUNT'
+                            \'OverrideAction\': {
+                                \'Type\': \'NONE\'|\'COUNT\'
                             },
-                            'Type': 'REGULAR'|'RATE_BASED'|'GROUP'
+                            \'Type\': \'REGULAR\'|\'RATE_BASED\'|\'GROUP\'
                         },
                     ]
                 }
@@ -4410,11 +4410,11 @@ class Client(BaseClient):
         
               - **Name** *(string) --* 
         
-                A friendly name or description of the ``WebACL`` . You can't change the name of a ``WebACL`` after you create it.
+                A friendly name or description of the ``WebACL`` . You can\'t change the name of a ``WebACL`` after you create it.
         
               - **MetricName** *(string) --* 
         
-                A friendly name or description for the metrics for this ``WebACL`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change ``MetricName`` after you create the ``WebACL`` .
+                A friendly name or description for the metrics for this ``WebACL`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change ``MetricName`` after you create the ``WebACL`` .
         
               - **DefaultAction** *(dict) --* 
         
@@ -4428,7 +4428,7 @@ class Client(BaseClient):
                    
                   * ``BLOCK`` : AWS WAF blocks requests 
                    
-                  * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify ``COUNT`` for the default action for a ``WebACL`` . 
+                  * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can\'t specify ``COUNT`` for the default action for a ``WebACL`` . 
                    
               - **Rules** *(list) --* 
         
@@ -4442,7 +4442,7 @@ class Client(BaseClient):
         
                   - **Priority** *(integer) --* 
         
-                    Specifies the order in which the ``Rules`` in a ``WebACL`` are evaluated. Rules with a lower value for ``Priority`` are evaluated before ``Rules`` with a higher value. The value must be a unique integer. If you add multiple ``Rules`` to a ``WebACL`` , the values don't need to be consecutive.
+                    Specifies the order in which the ``Rules`` in a ``WebACL`` are evaluated. Rules with a lower value for ``Priority`` are evaluated before ``Rules`` with a higher value. The value must be a unique integer. If you add multiple ``Rules`` to a ``WebACL`` , the values don\'t need to be consecutive.
         
                   - **RuleId** *(string) --* 
         
@@ -4470,7 +4470,7 @@ class Client(BaseClient):
                        
                       * ``BLOCK`` : AWS WAF blocks requests 
                        
-                      * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify ``COUNT`` for the default action for a ``WebACL`` . 
+                      * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can\'t specify ``COUNT`` for the default action for a ``WebACL`` . 
                        
                   - **OverrideAction** *(dict) --* 
         
@@ -4482,7 +4482,7 @@ class Client(BaseClient):
         
                     - **Type** *(string) --* 
         
-                       ``COUNT`` overrides the action specified by the individual rule within a ``RuleGroup`` . If set to ``NONE`` , the rule's action will take place.
+                       ``COUNT`` overrides the action specified by the individual rule within a ``RuleGroup`` . If set to ``NONE`` , the rule\'s action will take place.
         
                   - **Type** *(string) --* 
         
@@ -4500,7 +4500,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_xss_match_set(
-              XssMatchSetId='string'
+              XssMatchSetId=\'string\'
           )
         :type XssMatchSetId: string
         :param XssMatchSetId: **[REQUIRED]** 
@@ -4515,16 +4515,16 @@ class Client(BaseClient):
           ::
         
             {
-                'XssMatchSet': {
-                    'XssMatchSetId': 'string',
-                    'Name': 'string',
-                    'XssMatchTuples': [
+                \'XssMatchSet\': {
+                    \'XssMatchSetId\': \'string\',
+                    \'Name\': \'string\',
+                    \'XssMatchTuples\': [
                         {
-                            'FieldToMatch': {
-                                'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                                'Data': 'string'
+                            \'FieldToMatch\': {
+                                \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                                \'Data\': \'string\'
                             },
-                            'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE'
+                            \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\'
                         },
                     ]
                 }
@@ -4601,9 +4601,9 @@ class Client(BaseClient):
         
                      **CMD_LINE**  
         
-                    When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                    When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                    * Delete the following characters: \ " ' ^ 
+                    * Delete the following characters: \ \" \' ^ 
                      
                     * Delete spaces before the following characters: / ( 
                      
@@ -4635,11 +4635,11 @@ class Client(BaseClient):
         
                     Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                    * Replaces ``(ampersand)quot;`` with ``"``   
+                    * Replaces ``(ampersand)quot;`` with ``\"``   
                      
                     * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                      
-                    * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                    * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                      
                     * Replaces ``(ampersand)gt;`` with ``>``   
                      
@@ -4657,7 +4657,7 @@ class Client(BaseClient):
         
                      **NONE**  
         
-                    Specify ``NONE`` if you don't want to perform any text transformations.
+                    Specify ``NONE`` if you don\'t want to perform any text transformations.
         
         """
         pass
@@ -4671,8 +4671,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_activated_rules_in_rule_group(
-              RuleGroupId='string',
-              NextMarker='string',
+              RuleGroupId=\'string\',
+              NextMarker=\'string\',
               Limit=123
           )
         :type RuleGroupId: string
@@ -4698,18 +4698,18 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'ActivatedRules': [
+                \'NextMarker\': \'string\',
+                \'ActivatedRules\': [
                     {
-                        'Priority': 123,
-                        'RuleId': 'string',
-                        'Action': {
-                            'Type': 'BLOCK'|'ALLOW'|'COUNT'
+                        \'Priority\': 123,
+                        \'RuleId\': \'string\',
+                        \'Action\': {
+                            \'Type\': \'BLOCK\'|\'ALLOW\'|\'COUNT\'
                         },
-                        'OverrideAction': {
-                            'Type': 'NONE'|'COUNT'
+                        \'OverrideAction\': {
+                            \'Type\': \'NONE\'|\'COUNT\'
                         },
-                        'Type': 'REGULAR'|'RATE_BASED'|'GROUP'
+                        \'Type\': \'REGULAR\'|\'RATE_BASED\'|\'GROUP\'
                     },
                 ]
             }
@@ -4733,7 +4733,7 @@ class Client(BaseClient):
         
                 - **Priority** *(integer) --* 
         
-                  Specifies the order in which the ``Rules`` in a ``WebACL`` are evaluated. Rules with a lower value for ``Priority`` are evaluated before ``Rules`` with a higher value. The value must be a unique integer. If you add multiple ``Rules`` to a ``WebACL`` , the values don't need to be consecutive.
+                  Specifies the order in which the ``Rules`` in a ``WebACL`` are evaluated. Rules with a lower value for ``Priority`` are evaluated before ``Rules`` with a higher value. The value must be a unique integer. If you add multiple ``Rules`` to a ``WebACL`` , the values don\'t need to be consecutive.
         
                 - **RuleId** *(string) --* 
         
@@ -4761,7 +4761,7 @@ class Client(BaseClient):
                      
                     * ``BLOCK`` : AWS WAF blocks requests 
                      
-                    * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify ``COUNT`` for the default action for a ``WebACL`` . 
+                    * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can\'t specify ``COUNT`` for the default action for a ``WebACL`` . 
                      
                 - **OverrideAction** *(dict) --* 
         
@@ -4773,7 +4773,7 @@ class Client(BaseClient):
         
                   - **Type** *(string) --* 
         
-                     ``COUNT`` overrides the action specified by the individual rule within a ``RuleGroup`` . If set to ``NONE`` , the rule's action will take place.
+                     ``COUNT`` overrides the action specified by the individual rule within a ``RuleGroup`` . If set to ``NONE`` , the rule\'s action will take place.
         
                 - **Type** *(string) --* 
         
@@ -4791,7 +4791,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_byte_match_sets(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -4812,11 +4812,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'ByteMatchSets': [
+                \'NextMarker\': \'string\',
+                \'ByteMatchSets\': [
                     {
-                        'ByteMatchSetId': 'string',
-                        'Name': 'string'
+                        \'ByteMatchSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -4844,7 +4844,7 @@ class Client(BaseClient):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  ByteMatchSet . You can't change ``Name`` after you create a ``ByteMatchSet`` .
+                  A friendly name or description of the  ByteMatchSet . You can\'t change ``Name`` after you create a ``ByteMatchSet`` .
         
         """
         pass
@@ -4858,7 +4858,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_geo_match_sets(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -4879,11 +4879,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'GeoMatchSets': [
+                \'NextMarker\': \'string\',
+                \'GeoMatchSets\': [
                     {
-                        'GeoMatchSetId': 'string',
-                        'Name': 'string'
+                        \'GeoMatchSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -4909,7 +4909,7 @@ class Client(BaseClient):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  GeoMatchSet . You can't change the name of an ``GeoMatchSet`` after you create it.
+                  A friendly name or description of the  GeoMatchSet . You can\'t change the name of an ``GeoMatchSet`` after you create it.
         
         """
         pass
@@ -4923,7 +4923,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_ip_sets(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -4944,11 +4944,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'IPSets': [
+                \'NextMarker\': \'string\',
+                \'IPSets\': [
                     {
-                        'IPSetId': 'string',
-                        'Name': 'string'
+                        \'IPSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -4974,7 +4974,7 @@ class Client(BaseClient):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  IPSet . You can't change the name of an ``IPSet`` after you create it.
+                  A friendly name or description of the  IPSet . You can\'t change the name of an ``IPSet`` after you create it.
         
         """
         pass
@@ -4988,7 +4988,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_logging_configurations(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -5009,21 +5009,21 @@ class Client(BaseClient):
           ::
         
             {
-                'LoggingConfigurations': [
+                \'LoggingConfigurations\': [
                     {
-                        'ResourceArn': 'string',
-                        'LogDestinationConfigs': [
-                            'string',
+                        \'ResourceArn\': \'string\',
+                        \'LogDestinationConfigs\': [
+                            \'string\',
                         ],
-                        'RedactedFields': [
+                        \'RedactedFields\': [
                             {
-                                'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                                'Data': 'string'
+                                \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                                \'Data\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -5097,7 +5097,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_rate_based_rules(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -5118,11 +5118,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'Rules': [
+                \'NextMarker\': \'string\',
+                \'Rules\': [
                     {
-                        'RuleId': 'string',
-                        'Name': 'string'
+                        \'RuleId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -5150,7 +5150,7 @@ class Client(BaseClient):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  Rule . You can't change the name of a ``Rule`` after you create it.
+                  A friendly name or description of the  Rule . You can\'t change the name of a ``Rule`` after you create it.
         
         """
         pass
@@ -5164,7 +5164,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_regex_match_sets(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -5185,11 +5185,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'RegexMatchSets': [
+                \'NextMarker\': \'string\',
+                \'RegexMatchSets\': [
                     {
-                        'RegexMatchSetId': 'string',
-                        'Name': 'string'
+                        \'RegexMatchSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -5217,7 +5217,7 @@ class Client(BaseClient):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  RegexMatchSet . You can't change ``Name`` after you create a ``RegexMatchSet`` .
+                  A friendly name or description of the  RegexMatchSet . You can\'t change ``Name`` after you create a ``RegexMatchSet`` .
         
         """
         pass
@@ -5231,7 +5231,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_regex_pattern_sets(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -5252,11 +5252,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'RegexPatternSets': [
+                \'NextMarker\': \'string\',
+                \'RegexPatternSets\': [
                     {
-                        'RegexPatternSetId': 'string',
-                        'Name': 'string'
+                        \'RegexPatternSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -5284,7 +5284,7 @@ class Client(BaseClient):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  RegexPatternSet . You can't change ``Name`` after you create a ``RegexPatternSet`` .
+                  A friendly name or description of the  RegexPatternSet . You can\'t change ``Name`` after you create a ``RegexPatternSet`` .
         
         """
         pass
@@ -5298,7 +5298,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_rule_groups(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -5319,11 +5319,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'RuleGroups': [
+                \'NextMarker\': \'string\',
+                \'RuleGroups\': [
                     {
-                        'RuleGroupId': 'string',
-                        'Name': 'string'
+                        \'RuleGroupId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -5351,7 +5351,7 @@ class Client(BaseClient):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  RuleGroup . You can't change the name of a ``RuleGroup`` after you create it.
+                  A friendly name or description of the  RuleGroup . You can\'t change the name of a ``RuleGroup`` after you create it.
         
         """
         pass
@@ -5365,7 +5365,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_rules(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -5386,11 +5386,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'Rules': [
+                \'NextMarker\': \'string\',
+                \'Rules\': [
                     {
-                        'RuleId': 'string',
-                        'Name': 'string'
+                        \'RuleId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -5418,7 +5418,7 @@ class Client(BaseClient):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  Rule . You can't change the name of a ``Rule`` after you create it.
+                  A friendly name or description of the  Rule . You can\'t change the name of a ``Rule`` after you create it.
         
         """
         pass
@@ -5432,7 +5432,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_size_constraint_sets(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -5453,11 +5453,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'SizeConstraintSets': [
+                \'NextMarker\': \'string\',
+                \'SizeConstraintSets\': [
                     {
-                        'SizeConstraintSetId': 'string',
-                        'Name': 'string'
+                        \'SizeConstraintSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -5499,7 +5499,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_sql_injection_match_sets(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -5520,11 +5520,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'SqlInjectionMatchSets': [
+                \'NextMarker\': \'string\',
+                \'SqlInjectionMatchSets\': [
                     {
-                        'SqlInjectionMatchSetId': 'string',
-                        'Name': 'string'
+                        \'SqlInjectionMatchSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -5568,7 +5568,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_subscribed_rule_groups(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -5589,12 +5589,12 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'RuleGroups': [
+                \'NextMarker\': \'string\',
+                \'RuleGroups\': [
                     {
-                        'RuleGroupId': 'string',
-                        'Name': 'string',
-                        'MetricName': 'string'
+                        \'RuleGroupId\': \'string\',
+                        \'Name\': \'string\',
+                        \'MetricName\': \'string\'
                     },
                 ]
             }
@@ -5620,11 +5620,11 @@ class Client(BaseClient):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the ``RuleGroup`` . You can't change the name of a ``RuleGroup`` after you create it.
+                  A friendly name or description of the ``RuleGroup`` . You can\'t change the name of a ``RuleGroup`` after you create it.
         
                 - **MetricName** *(string) --* 
         
-                  A friendly name or description for the metrics for this ``RuleGroup`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the ``RuleGroup`` .
+                  A friendly name or description for the metrics for this ``RuleGroup`` . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change the name of the metric after you create the ``RuleGroup`` .
         
         """
         pass
@@ -5638,7 +5638,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_web_acls(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -5659,11 +5659,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'WebACLs': [
+                \'NextMarker\': \'string\',
+                \'WebACLs\': [
                     {
-                        'WebACLId': 'string',
-                        'Name': 'string'
+                        \'WebACLId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -5691,7 +5691,7 @@ class Client(BaseClient):
         
                 - **Name** *(string) --* 
         
-                  A friendly name or description of the  WebACL . You can't change the name of a ``WebACL`` after you create it.
+                  A friendly name or description of the  WebACL . You can\'t change the name of a ``WebACL`` after you create it.
         
         """
         pass
@@ -5705,7 +5705,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_xss_match_sets(
-              NextMarker='string',
+              NextMarker=\'string\',
               Limit=123
           )
         :type NextMarker: string
@@ -5726,11 +5726,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'XssMatchSets': [
+                \'NextMarker\': \'string\',
+                \'XssMatchSets\': [
                     {
-                        'XssMatchSetId': 'string',
-                        'Name': 'string'
+                        \'XssMatchSetId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -5783,14 +5783,14 @@ class Client(BaseClient):
         
           response = client.put_logging_configuration(
               LoggingConfiguration={
-                  'ResourceArn': 'string',
-                  'LogDestinationConfigs': [
-                      'string',
+                  \'ResourceArn\': \'string\',
+                  \'LogDestinationConfigs\': [
+                      \'string\',
                   ],
-                  'RedactedFields': [
+                  \'RedactedFields\': [
                       {
-                          'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                          'Data': 'string'
+                          \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                          \'Data\': \'string\'
                       },
                   ]
               }
@@ -5852,15 +5852,15 @@ class Client(BaseClient):
           ::
         
             {
-                'LoggingConfiguration': {
-                    'ResourceArn': 'string',
-                    'LogDestinationConfigs': [
-                        'string',
+                \'LoggingConfiguration\': {
+                    \'ResourceArn\': \'string\',
+                    \'LogDestinationConfigs\': [
+                        \'string\',
                     ],
-                    'RedactedFields': [
+                    \'RedactedFields\': [
                         {
-                            'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                            'Data': 'string'
+                            \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                            \'Data\': \'string\'
                         },
                     ]
                 }
@@ -5951,8 +5951,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_permission_policy(
-              ResourceArn='string',
-              Policy='string'
+              ResourceArn=\'string\',
+              Policy=\'string\'
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
@@ -6009,19 +6009,19 @@ class Client(BaseClient):
         ::
         
           response = client.update_byte_match_set(
-              ByteMatchSetId='string',
-              ChangeToken='string',
+              ByteMatchSetId=\'string\',
+              ChangeToken=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'ByteMatchTuple': {
-                          'FieldToMatch': {
-                              'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                              'Data': 'string'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'ByteMatchTuple\': {
+                          \'FieldToMatch\': {
+                              \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                              \'Data\': \'string\'
                           },
-                          'TargetString': b'bytes',
-                          'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE',
-                          'PositionalConstraint': 'EXACTLY'|'STARTS_WITH'|'ENDS_WITH'|'CONTAINS'|'CONTAINS_WORD'
+                          \'TargetString\': b\'bytes\',
+                          \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\',
+                          \'PositionalConstraint\': \'EXACTLY\'|\'STARTS_WITH\'|\'ENDS_WITH\'|\'CONTAINS\'|\'CONTAINS_WORD\'
                       }
                   },
               ]
@@ -6111,13 +6111,13 @@ class Client(BaseClient):
                  
                 If ``TargetString`` includes alphabetic characters A-Z and a-z, note that the value is case sensitive.
         
-                 **If you're using the AWS WAF API**  
+                 **If you\'re using the AWS WAF API**  
         
                 Specify a base64-encoded version of the value. The maximum length of the value before you base64-encode it is 50 bytes.
         
                 For example, suppose the value of ``Type`` is ``HEADER`` and the value of ``Data`` is ``User-Agent`` . If you want to search the ``User-Agent`` header for the value ``BadBot`` , you base64-encode ``BadBot`` using MIME base64 encoding and include the resulting value, ``QmFkQm90`` , in the value of ``TargetString`` .
         
-                 **If you're using the AWS CLI or one of the AWS SDKs**  
+                 **If you\'re using the AWS CLI or one of the AWS SDKs**  
         
                 The value that you want AWS WAF to search for. The SDK automatically base64 encodes the value.
         
@@ -6129,9 +6129,9 @@ class Client(BaseClient):
         
                  **CMD_LINE**  
         
-                When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                * Delete the following characters: \ " ' ^ 
+                * Delete the following characters: \ \" \' ^ 
                  
                 * Delete spaces before the following characters: / ( 
                  
@@ -6163,11 +6163,11 @@ class Client(BaseClient):
         
                 Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                * Replaces ``(ampersand)quot;`` with ``"``   
+                * Replaces ``(ampersand)quot;`` with ``\"``   
                  
                 * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                  
-                * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                  
                 * Replaces ``(ampersand)gt;`` with ``>``   
                  
@@ -6185,7 +6185,7 @@ class Client(BaseClient):
         
                  **NONE**  
         
-                Specify ``NONE`` if you don't want to perform any text transformations.
+                Specify ``NONE`` if you don\'t want to perform any text transformations.
         
               - **PositionalConstraint** *(string) --* **[REQUIRED]** 
         
@@ -6193,7 +6193,7 @@ class Client(BaseClient):
         
                  **CONTAINS**  
         
-                The specified part of the web request must include the value of ``TargetString`` , but the location doesn't matter.
+                The specified part of the web request must include the value of ``TargetString`` , but the location doesn\'t matter.
         
                  **CONTAINS_WORD**  
         
@@ -6227,7 +6227,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6267,14 +6267,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_geo_match_set(
-              GeoMatchSetId='string',
-              ChangeToken='string',
+              GeoMatchSetId=\'string\',
+              ChangeToken=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'GeoMatchConstraint': {
-                          'Type': 'Country',
-                          'Value': 'AF'|'AX'|'AL'|'DZ'|'AS'|'AD'|'AO'|'AI'|'AQ'|'AG'|'AR'|'AM'|'AW'|'AU'|'AT'|'AZ'|'BS'|'BH'|'BD'|'BB'|'BY'|'BE'|'BZ'|'BJ'|'BM'|'BT'|'BO'|'BQ'|'BA'|'BW'|'BV'|'BR'|'IO'|'BN'|'BG'|'BF'|'BI'|'KH'|'CM'|'CA'|'CV'|'KY'|'CF'|'TD'|'CL'|'CN'|'CX'|'CC'|'CO'|'KM'|'CG'|'CD'|'CK'|'CR'|'CI'|'HR'|'CU'|'CW'|'CY'|'CZ'|'DK'|'DJ'|'DM'|'DO'|'EC'|'EG'|'SV'|'GQ'|'ER'|'EE'|'ET'|'FK'|'FO'|'FJ'|'FI'|'FR'|'GF'|'PF'|'TF'|'GA'|'GM'|'GE'|'DE'|'GH'|'GI'|'GR'|'GL'|'GD'|'GP'|'GU'|'GT'|'GG'|'GN'|'GW'|'GY'|'HT'|'HM'|'VA'|'HN'|'HK'|'HU'|'IS'|'IN'|'ID'|'IR'|'IQ'|'IE'|'IM'|'IL'|'IT'|'JM'|'JP'|'JE'|'JO'|'KZ'|'KE'|'KI'|'KP'|'KR'|'KW'|'KG'|'LA'|'LV'|'LB'|'LS'|'LR'|'LY'|'LI'|'LT'|'LU'|'MO'|'MK'|'MG'|'MW'|'MY'|'MV'|'ML'|'MT'|'MH'|'MQ'|'MR'|'MU'|'YT'|'MX'|'FM'|'MD'|'MC'|'MN'|'ME'|'MS'|'MA'|'MZ'|'MM'|'NA'|'NR'|'NP'|'NL'|'NC'|'NZ'|'NI'|'NE'|'NG'|'NU'|'NF'|'MP'|'NO'|'OM'|'PK'|'PW'|'PS'|'PA'|'PG'|'PY'|'PE'|'PH'|'PN'|'PL'|'PT'|'PR'|'QA'|'RE'|'RO'|'RU'|'RW'|'BL'|'SH'|'KN'|'LC'|'MF'|'PM'|'VC'|'WS'|'SM'|'ST'|'SA'|'SN'|'RS'|'SC'|'SL'|'SG'|'SX'|'SK'|'SI'|'SB'|'SO'|'ZA'|'GS'|'SS'|'ES'|'LK'|'SD'|'SR'|'SJ'|'SZ'|'SE'|'CH'|'SY'|'TW'|'TJ'|'TZ'|'TH'|'TL'|'TG'|'TK'|'TO'|'TT'|'TN'|'TR'|'TM'|'TC'|'TV'|'UG'|'UA'|'AE'|'GB'|'US'|'UM'|'UY'|'UZ'|'VU'|'VE'|'VN'|'VG'|'VI'|'WF'|'EH'|'YE'|'ZM'|'ZW'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'GeoMatchConstraint\': {
+                          \'Type\': \'Country\',
+                          \'Value\': \'AF\'|\'AX\'|\'AL\'|\'DZ\'|\'AS\'|\'AD\'|\'AO\'|\'AI\'|\'AQ\'|\'AG\'|\'AR\'|\'AM\'|\'AW\'|\'AU\'|\'AT\'|\'AZ\'|\'BS\'|\'BH\'|\'BD\'|\'BB\'|\'BY\'|\'BE\'|\'BZ\'|\'BJ\'|\'BM\'|\'BT\'|\'BO\'|\'BQ\'|\'BA\'|\'BW\'|\'BV\'|\'BR\'|\'IO\'|\'BN\'|\'BG\'|\'BF\'|\'BI\'|\'KH\'|\'CM\'|\'CA\'|\'CV\'|\'KY\'|\'CF\'|\'TD\'|\'CL\'|\'CN\'|\'CX\'|\'CC\'|\'CO\'|\'KM\'|\'CG\'|\'CD\'|\'CK\'|\'CR\'|\'CI\'|\'HR\'|\'CU\'|\'CW\'|\'CY\'|\'CZ\'|\'DK\'|\'DJ\'|\'DM\'|\'DO\'|\'EC\'|\'EG\'|\'SV\'|\'GQ\'|\'ER\'|\'EE\'|\'ET\'|\'FK\'|\'FO\'|\'FJ\'|\'FI\'|\'FR\'|\'GF\'|\'PF\'|\'TF\'|\'GA\'|\'GM\'|\'GE\'|\'DE\'|\'GH\'|\'GI\'|\'GR\'|\'GL\'|\'GD\'|\'GP\'|\'GU\'|\'GT\'|\'GG\'|\'GN\'|\'GW\'|\'GY\'|\'HT\'|\'HM\'|\'VA\'|\'HN\'|\'HK\'|\'HU\'|\'IS\'|\'IN\'|\'ID\'|\'IR\'|\'IQ\'|\'IE\'|\'IM\'|\'IL\'|\'IT\'|\'JM\'|\'JP\'|\'JE\'|\'JO\'|\'KZ\'|\'KE\'|\'KI\'|\'KP\'|\'KR\'|\'KW\'|\'KG\'|\'LA\'|\'LV\'|\'LB\'|\'LS\'|\'LR\'|\'LY\'|\'LI\'|\'LT\'|\'LU\'|\'MO\'|\'MK\'|\'MG\'|\'MW\'|\'MY\'|\'MV\'|\'ML\'|\'MT\'|\'MH\'|\'MQ\'|\'MR\'|\'MU\'|\'YT\'|\'MX\'|\'FM\'|\'MD\'|\'MC\'|\'MN\'|\'ME\'|\'MS\'|\'MA\'|\'MZ\'|\'MM\'|\'NA\'|\'NR\'|\'NP\'|\'NL\'|\'NC\'|\'NZ\'|\'NI\'|\'NE\'|\'NG\'|\'NU\'|\'NF\'|\'MP\'|\'NO\'|\'OM\'|\'PK\'|\'PW\'|\'PS\'|\'PA\'|\'PG\'|\'PY\'|\'PE\'|\'PH\'|\'PN\'|\'PL\'|\'PT\'|\'PR\'|\'QA\'|\'RE\'|\'RO\'|\'RU\'|\'RW\'|\'BL\'|\'SH\'|\'KN\'|\'LC\'|\'MF\'|\'PM\'|\'VC\'|\'WS\'|\'SM\'|\'ST\'|\'SA\'|\'SN\'|\'RS\'|\'SC\'|\'SL\'|\'SG\'|\'SX\'|\'SK\'|\'SI\'|\'SB\'|\'SO\'|\'ZA\'|\'GS\'|\'SS\'|\'ES\'|\'LK\'|\'SD\'|\'SR\'|\'SJ\'|\'SZ\'|\'SE\'|\'CH\'|\'SY\'|\'TW\'|\'TJ\'|\'TZ\'|\'TH\'|\'TL\'|\'TG\'|\'TK\'|\'TO\'|\'TT\'|\'TN\'|\'TR\'|\'TM\'|\'TC\'|\'TV\'|\'UG\'|\'UA\'|\'AE\'|\'GB\'|\'US\'|\'UM\'|\'UY\'|\'UZ\'|\'VU\'|\'VE\'|\'VN\'|\'VG\'|\'VI\'|\'WF\'|\'EH\'|\'YE\'|\'ZM\'|\'ZW\'
                       }
                   },
               ]
@@ -6326,7 +6326,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6360,7 +6360,7 @@ class Client(BaseClient):
          
         * 1111::111/128 
          
-        You use an ``IPSet`` to specify which web requests you want to allow or block based on the IP addresses that the requests originated from. For example, if you're receiving a lot of requests from one or a small number of IP addresses and you want to block the requests, you can create an ``IPSet`` that specifies those IP addresses, and then configure AWS WAF to block the requests. 
+        You use an ``IPSet`` to specify which web requests you want to allow or block based on the IP addresses that the requests originated from. For example, if you\'re receiving a lot of requests from one or a small number of IP addresses and you want to block the requests, you can create an ``IPSet`` that specifies those IP addresses, and then configure AWS WAF to block the requests. 
         
         To create and configure an ``IPSet`` , perform the following steps:
         
@@ -6382,14 +6382,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_ip_set(
-              IPSetId='string',
-              ChangeToken='string',
+              IPSetId=\'string\',
+              ChangeToken=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'IPSetDescriptor': {
-                          'Type': 'IPV4'|'IPV6',
-                          'Value': 'string'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'IPSetDescriptor\': {
+                          \'Type\': \'IPV4\'|\'IPV6\',
+                          \'Value\': \'string\'
                       }
                   },
               ]
@@ -6455,7 +6455,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6501,15 +6501,15 @@ class Client(BaseClient):
         ::
         
           response = client.update_rate_based_rule(
-              RuleId='string',
-              ChangeToken='string',
+              RuleId=\'string\',
+              ChangeToken=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'Predicate': {
-                          'Negated': True|False,
-                          'Type': 'IPMatch'|'ByteMatch'|'SqlInjectionMatch'|'GeoMatch'|'SizeConstraint'|'XssMatch'|'RegexMatch',
-                          'DataId': 'string'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'Predicate\': {
+                          \'Negated\': True|False,
+                          \'Type\': \'IPMatch\'|\'ByteMatch\'|\'SqlInjectionMatch\'|\'GeoMatch\'|\'SizeConstraint\'|\'XssMatch\'|\'RegexMatch\',
+                          \'DataId\': \'string\'
                       }
                   },
               ],
@@ -6569,7 +6569,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6611,21 +6611,21 @@ class Client(BaseClient):
         ::
         
           response = client.update_regex_match_set(
-              RegexMatchSetId='string',
+              RegexMatchSetId=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'RegexMatchTuple': {
-                          'FieldToMatch': {
-                              'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                              'Data': 'string'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'RegexMatchTuple\': {
+                          \'FieldToMatch\': {
+                              \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                              \'Data\': \'string\'
                           },
-                          'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE',
-                          'RegexPatternSetId': 'string'
+                          \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\',
+                          \'RegexPatternSetId\': \'string\'
                       }
                   },
               ],
-              ChangeToken='string'
+              ChangeToken=\'string\'
           )
         :type RegexMatchSetId: string
         :param RegexMatchSetId: **[REQUIRED]** 
@@ -6687,9 +6687,9 @@ class Client(BaseClient):
         
                  **CMD_LINE**  
         
-                When you're concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                When you\'re concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                * Delete the following characters: \ " ' ^ 
+                * Delete the following characters: \ \" \' ^ 
                  
                 * Delete spaces before the following characters: / ( 
                  
@@ -6721,11 +6721,11 @@ class Client(BaseClient):
         
                 Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                * Replaces ``(ampersand)quot;`` with ``"``   
+                * Replaces ``(ampersand)quot;`` with ``\"``   
                  
                 * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                  
-                * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                  
                 * Replaces ``(ampersand)gt;`` with ``>``   
                  
@@ -6743,7 +6743,7 @@ class Client(BaseClient):
         
                  **NONE**  
         
-                Specify ``NONE`` if you don't want to perform any text transformations.
+                Specify ``NONE`` if you don\'t want to perform any text transformations.
         
               - **RegexPatternSetId** *(string) --* **[REQUIRED]** 
         
@@ -6764,7 +6764,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6810,14 +6810,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_regex_pattern_set(
-              RegexPatternSetId='string',
+              RegexPatternSetId=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'RegexPatternString': 'string'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'RegexPatternString\': \'string\'
                   },
               ],
-              ChangeToken='string'
+              ChangeToken=\'string\'
           )
         :type RegexPatternSetId: string
         :param RegexPatternSetId: **[REQUIRED]** 
@@ -6854,7 +6854,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6898,15 +6898,15 @@ class Client(BaseClient):
         ::
         
           response = client.update_rule(
-              RuleId='string',
-              ChangeToken='string',
+              RuleId=\'string\',
+              ChangeToken=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'Predicate': {
-                          'Negated': True|False,
-                          'Type': 'IPMatch'|'ByteMatch'|'SqlInjectionMatch'|'GeoMatch'|'SizeConstraint'|'XssMatch'|'RegexMatch',
-                          'DataId': 'string'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'Predicate\': {
+                          \'Negated\': True|False,
+                          \'Type\': \'IPMatch\'|\'ByteMatch\'|\'SqlInjectionMatch\'|\'GeoMatch\'|\'SizeConstraint\'|\'XssMatch\'|\'RegexMatch\',
+                          \'DataId\': \'string\'
                       }
                   },
               ]
@@ -6966,7 +6966,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7006,24 +7006,24 @@ class Client(BaseClient):
         ::
         
           response = client.update_rule_group(
-              RuleGroupId='string',
+              RuleGroupId=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'ActivatedRule': {
-                          'Priority': 123,
-                          'RuleId': 'string',
-                          'Action': {
-                              'Type': 'BLOCK'|'ALLOW'|'COUNT'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'ActivatedRule\': {
+                          \'Priority\': 123,
+                          \'RuleId\': \'string\',
+                          \'Action\': {
+                              \'Type\': \'BLOCK\'|\'ALLOW\'|\'COUNT\'
                           },
-                          'OverrideAction': {
-                              'Type': 'NONE'|'COUNT'
+                          \'OverrideAction\': {
+                              \'Type\': \'NONE\'|\'COUNT\'
                           },
-                          'Type': 'REGULAR'|'RATE_BASED'|'GROUP'
+                          \'Type\': \'REGULAR\'|\'RATE_BASED\'|\'GROUP\'
                       }
                   },
               ],
-              ChangeToken='string'
+              ChangeToken=\'string\'
           )
         :type RuleGroupId: string
         :param RuleGroupId: **[REQUIRED]** 
@@ -7053,7 +7053,7 @@ class Client(BaseClient):
         
               - **Priority** *(integer) --* **[REQUIRED]** 
         
-                Specifies the order in which the ``Rules`` in a ``WebACL`` are evaluated. Rules with a lower value for ``Priority`` are evaluated before ``Rules`` with a higher value. The value must be a unique integer. If you add multiple ``Rules`` to a ``WebACL`` , the values don't need to be consecutive.
+                Specifies the order in which the ``Rules`` in a ``WebACL`` are evaluated. Rules with a lower value for ``Priority`` are evaluated before ``Rules`` with a higher value. The value must be a unique integer. If you add multiple ``Rules`` to a ``WebACL`` , the values don\'t need to be consecutive.
         
               - **RuleId** *(string) --* **[REQUIRED]** 
         
@@ -7081,7 +7081,7 @@ class Client(BaseClient):
                    
                   * ``BLOCK`` : AWS WAF blocks requests 
                    
-                  * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify ``COUNT`` for the default action for a ``WebACL`` . 
+                  * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can\'t specify ``COUNT`` for the default action for a ``WebACL`` . 
                    
               - **OverrideAction** *(dict) --* 
         
@@ -7093,7 +7093,7 @@ class Client(BaseClient):
         
                 - **Type** *(string) --* **[REQUIRED]** 
         
-                   ``COUNT`` overrides the action specified by the individual rule within a ``RuleGroup`` . If set to ``NONE`` , the rule's action will take place.
+                   ``COUNT`` overrides the action specified by the individual rule within a ``RuleGroup`` . If set to ``NONE`` , the rule\'s action will take place.
         
               - **Type** *(string) --* 
         
@@ -7112,7 +7112,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7156,19 +7156,19 @@ class Client(BaseClient):
         ::
         
           response = client.update_size_constraint_set(
-              SizeConstraintSetId='string',
-              ChangeToken='string',
+              SizeConstraintSetId=\'string\',
+              ChangeToken=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'SizeConstraint': {
-                          'FieldToMatch': {
-                              'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                              'Data': 'string'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'SizeConstraint\': {
+                          \'FieldToMatch\': {
+                              \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                              \'Data\': \'string\'
                           },
-                          'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE',
-                          'ComparisonOperator': 'EQ'|'NE'|'LE'|'LT'|'GE'|'GT',
-                          'Size': 123
+                          \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\',
+                          \'ComparisonOperator\': \'EQ\'|\'NE\'|\'LE\'|\'LT\'|\'GE\'|\'GT\',
+                          \'Size\': 123
                       }
                   },
               ]
@@ -7204,7 +7204,7 @@ class Client(BaseClient):
         
             - **SizeConstraint** *(dict) --* **[REQUIRED]** 
         
-              Specifies a constraint on the size of a part of the web request. AWS WAF uses the ``Size`` , ``ComparisonOperator`` , and ``FieldToMatch`` to build an expression in the form of "``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` ". If that expression is true, the ``SizeConstraint`` is considered to match.
+              Specifies a constraint on the size of a part of the web request. AWS WAF uses the ``Size`` , ``ComparisonOperator`` , and ``FieldToMatch`` to build an expression in the form of \"``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` \". If that expression is true, the ``SizeConstraint`` is considered to match.
         
               - **FieldToMatch** *(dict) --* **[REQUIRED]** 
         
@@ -7246,13 +7246,13 @@ class Client(BaseClient):
         
                  **NONE**  
         
-                Specify ``NONE`` if you don't want to perform any text transformations.
+                Specify ``NONE`` if you don\'t want to perform any text transformations.
         
                  **CMD_LINE**  
         
-                When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                * Delete the following characters: \ " ' ^ 
+                * Delete the following characters: \ \" \' ^ 
                  
                 * Delete spaces before the following characters: / ( 
                  
@@ -7284,11 +7284,11 @@ class Client(BaseClient):
         
                 Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                * Replaces ``(ampersand)quot;`` with ``"``   
+                * Replaces ``(ampersand)quot;`` with ``\"``   
                  
                 * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                  
-                * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                  
                 * Replaces ``(ampersand)gt;`` with ``>``   
                  
@@ -7306,7 +7306,7 @@ class Client(BaseClient):
         
               - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
-                The type of comparison you want AWS WAF to perform. AWS WAF uses this in combination with the provided ``Size`` and ``FieldToMatch`` to build an expression in the form of "``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` ". If that expression is true, the ``SizeConstraint`` is considered to match.
+                The type of comparison you want AWS WAF to perform. AWS WAF uses this in combination with the provided ``Size`` and ``FieldToMatch`` to build an expression in the form of \"``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` \". If that expression is true, the ``SizeConstraint`` is considered to match.
         
                  **EQ** : Used to test if the ``Size`` is equal to the size of the ``FieldToMatch``  
         
@@ -7322,7 +7322,7 @@ class Client(BaseClient):
         
               - **Size** *(integer) --* **[REQUIRED]** 
         
-                The size in bytes that you want AWS WAF to compare against the size of the specified ``FieldToMatch`` . AWS WAF uses this in combination with ``ComparisonOperator`` and ``FieldToMatch`` to build an expression in the form of "``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` ". If that expression is true, the ``SizeConstraint`` is considered to match.
+                The size in bytes that you want AWS WAF to compare against the size of the specified ``FieldToMatch`` . AWS WAF uses this in combination with ``ComparisonOperator`` and ``FieldToMatch`` to build an expression in the form of \"``Size``  ``ComparisonOperator`` size in bytes of ``FieldToMatch`` \". If that expression is true, the ``SizeConstraint`` is considered to match.
         
                 Valid values for size are 0 - 21474836480 bytes (0 - 20 GB).
         
@@ -7336,7 +7336,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7359,7 +7359,7 @@ class Client(BaseClient):
          
         * ``TextTransformation`` : Which text transformation, if any, to perform on the web request before inspecting the request for snippets of malicious SQL code. You can only specify a single type of TextTransformation. 
          
-        You use ``SqlInjectionMatchSet`` objects to specify which CloudFront requests you want to allow, block, or count. For example, if you're receiving requests that contain snippets of SQL code in the query string and you want to block the requests, you can create a ``SqlInjectionMatchSet`` with the applicable settings, and then configure AWS WAF to block the requests. 
+        You use ``SqlInjectionMatchSet`` objects to specify which CloudFront requests you want to allow, block, or count. For example, if you\'re receiving requests that contain snippets of SQL code in the query string and you want to block the requests, you can create a ``SqlInjectionMatchSet`` with the applicable settings, and then configure AWS WAF to block the requests. 
         
         To create and configure a ``SqlInjectionMatchSet`` , perform the following steps:
         
@@ -7377,17 +7377,17 @@ class Client(BaseClient):
         ::
         
           response = client.update_sql_injection_match_set(
-              SqlInjectionMatchSetId='string',
-              ChangeToken='string',
+              SqlInjectionMatchSetId=\'string\',
+              ChangeToken=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'SqlInjectionMatchTuple': {
-                          'FieldToMatch': {
-                              'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                              'Data': 'string'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'SqlInjectionMatchTuple\': {
+                          \'FieldToMatch\': {
+                              \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                              \'Data\': \'string\'
                           },
-                          'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE'
+                          \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\'
                       }
                   },
               ]
@@ -7463,9 +7463,9 @@ class Client(BaseClient):
         
                  **CMD_LINE**  
         
-                When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                * Delete the following characters: \ " ' ^ 
+                * Delete the following characters: \ \" \' ^ 
                  
                 * Delete spaces before the following characters: / ( 
                  
@@ -7497,11 +7497,11 @@ class Client(BaseClient):
         
                 Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                * Replaces ``(ampersand)quot;`` with ``"``   
+                * Replaces ``(ampersand)quot;`` with ``\"``   
                  
                 * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                  
-                * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                  
                 * Replaces ``(ampersand)gt;`` with ``>``   
                  
@@ -7519,7 +7519,7 @@ class Client(BaseClient):
         
                  **NONE**  
         
-                Specify ``NONE`` if you don't want to perform any text transformations.
+                Specify ``NONE`` if you don\'t want to perform any text transformations.
         
         :rtype: dict
         :returns: 
@@ -7529,7 +7529,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7548,13 +7548,13 @@ class Client(BaseClient):
         """
         Inserts or deletes  ActivatedRule objects in a ``WebACL`` . Each ``Rule`` identifies web requests that you want to allow, block, or count. When you update a ``WebACL`` , you specify the following values:
         
-        * A default action for the ``WebACL`` , either ``ALLOW`` or ``BLOCK`` . AWS WAF performs the default action if a request doesn't match the criteria in any of the ``Rules`` in a ``WebACL`` . 
+        * A default action for the ``WebACL`` , either ``ALLOW`` or ``BLOCK`` . AWS WAF performs the default action if a request doesn\'t match the criteria in any of the ``Rules`` in a ``WebACL`` . 
          
         * The ``Rules`` that you want to add and/or delete. If you want to replace one ``Rule`` with another, you delete the existing ``Rule`` and add the new one. 
          
         * For each ``Rule`` , whether you want AWS WAF to allow requests, block requests, or count requests that match the conditions in the ``Rule`` . 
          
-        * The order in which you want AWS WAF to evaluate the ``Rules`` in a ``WebACL`` . If you add more than one ``Rule`` to a ``WebACL`` , AWS WAF evaluates each request against the ``Rules`` in order based on the value of ``Priority`` . (The ``Rule`` that has the lowest value for ``Priority`` is evaluated first.) When a web request matches all of the predicates (such as ``ByteMatchSets`` and ``IPSets`` ) in a ``Rule`` , AWS WAF immediately takes the corresponding action, allow or block, and doesn't evaluate the request against the remaining ``Rules`` in the ``WebACL`` , if any.  
+        * The order in which you want AWS WAF to evaluate the ``Rules`` in a ``WebACL`` . If you add more than one ``Rule`` to a ``WebACL`` , AWS WAF evaluates each request against the ``Rules`` in order based on the value of ``Priority`` . (The ``Rule`` that has the lowest value for ``Priority`` is evaluated first.) When a web request matches all of the predicates (such as ``ByteMatchSets`` and ``IPSets`` ) in a ``Rule`` , AWS WAF immediately takes the corresponding action, allow or block, and doesn\'t evaluate the request against the remaining ``Rules`` in the ``WebACL`` , if any.  
          
         To create and configure a ``WebACL`` , perform the following steps:
         
@@ -7578,26 +7578,26 @@ class Client(BaseClient):
         ::
         
           response = client.update_web_acl(
-              WebACLId='string',
-              ChangeToken='string',
+              WebACLId=\'string\',
+              ChangeToken=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'ActivatedRule': {
-                          'Priority': 123,
-                          'RuleId': 'string',
-                          'Action': {
-                              'Type': 'BLOCK'|'ALLOW'|'COUNT'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'ActivatedRule\': {
+                          \'Priority\': 123,
+                          \'RuleId\': \'string\',
+                          \'Action\': {
+                              \'Type\': \'BLOCK\'|\'ALLOW\'|\'COUNT\'
                           },
-                          'OverrideAction': {
-                              'Type': 'NONE'|'COUNT'
+                          \'OverrideAction\': {
+                              \'Type\': \'NONE\'|\'COUNT\'
                           },
-                          'Type': 'REGULAR'|'RATE_BASED'|'GROUP'
+                          \'Type\': \'REGULAR\'|\'RATE_BASED\'|\'GROUP\'
                       }
                   },
               ],
               DefaultAction={
-                  'Type': 'BLOCK'|'ALLOW'|'COUNT'
+                  \'Type\': \'BLOCK\'|\'ALLOW\'|\'COUNT\'
               }
           )
         :type WebACLId: string
@@ -7637,7 +7637,7 @@ class Client(BaseClient):
         
               - **Priority** *(integer) --* **[REQUIRED]** 
         
-                Specifies the order in which the ``Rules`` in a ``WebACL`` are evaluated. Rules with a lower value for ``Priority`` are evaluated before ``Rules`` with a higher value. The value must be a unique integer. If you add multiple ``Rules`` to a ``WebACL`` , the values don't need to be consecutive.
+                Specifies the order in which the ``Rules`` in a ``WebACL`` are evaluated. Rules with a lower value for ``Priority`` are evaluated before ``Rules`` with a higher value. The value must be a unique integer. If you add multiple ``Rules`` to a ``WebACL`` , the values don\'t need to be consecutive.
         
               - **RuleId** *(string) --* **[REQUIRED]** 
         
@@ -7665,7 +7665,7 @@ class Client(BaseClient):
                    
                   * ``BLOCK`` : AWS WAF blocks requests 
                    
-                  * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify ``COUNT`` for the default action for a ``WebACL`` . 
+                  * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can\'t specify ``COUNT`` for the default action for a ``WebACL`` . 
                    
               - **OverrideAction** *(dict) --* 
         
@@ -7677,7 +7677,7 @@ class Client(BaseClient):
         
                 - **Type** *(string) --* **[REQUIRED]** 
         
-                   ``COUNT`` overrides the action specified by the individual rule within a ``RuleGroup`` . If set to ``NONE`` , the rule's action will take place.
+                   ``COUNT`` overrides the action specified by the individual rule within a ``RuleGroup`` . If set to ``NONE`` , the rule\'s action will take place.
         
               - **Type** *(string) --* 
         
@@ -7686,7 +7686,7 @@ class Client(BaseClient):
         :type DefaultAction: dict
         :param DefaultAction: 
         
-          A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn't match the criteria in any of the rules in a web ACL.
+          A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn\'t match the criteria in any of the rules in a web ACL.
         
           - **Type** *(string) --* **[REQUIRED]** 
         
@@ -7696,7 +7696,7 @@ class Client(BaseClient):
              
             * ``BLOCK`` : AWS WAF blocks requests 
              
-            * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify ``COUNT`` for the default action for a ``WebACL`` . 
+            * ``COUNT`` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can\'t specify ``COUNT`` for the default action for a ``WebACL`` . 
              
         :rtype: dict
         :returns: 
@@ -7706,7 +7706,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7729,7 +7729,7 @@ class Client(BaseClient):
          
         * ``TextTransformation`` : Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks. You can only specify a single type of TextTransformation. 
          
-        You use ``XssMatchSet`` objects to specify which CloudFront requests you want to allow, block, or count. For example, if you're receiving requests that contain cross-site scripting attacks in the request body and you want to block the requests, you can create an ``XssMatchSet`` with the applicable settings, and then configure AWS WAF to block the requests. 
+        You use ``XssMatchSet`` objects to specify which CloudFront requests you want to allow, block, or count. For example, if you\'re receiving requests that contain cross-site scripting attacks in the request body and you want to block the requests, you can create an ``XssMatchSet`` with the applicable settings, and then configure AWS WAF to block the requests. 
         
         To create and configure an ``XssMatchSet`` , perform the following steps:
         
@@ -7747,17 +7747,17 @@ class Client(BaseClient):
         ::
         
           response = client.update_xss_match_set(
-              XssMatchSetId='string',
-              ChangeToken='string',
+              XssMatchSetId=\'string\',
+              ChangeToken=\'string\',
               Updates=[
                   {
-                      'Action': 'INSERT'|'DELETE',
-                      'XssMatchTuple': {
-                          'FieldToMatch': {
-                              'Type': 'URI'|'QUERY_STRING'|'HEADER'|'METHOD'|'BODY'|'SINGLE_QUERY_ARG'|'ALL_QUERY_ARGS',
-                              'Data': 'string'
+                      \'Action\': \'INSERT\'|\'DELETE\',
+                      \'XssMatchTuple\': {
+                          \'FieldToMatch\': {
+                              \'Type\': \'URI\'|\'QUERY_STRING\'|\'HEADER\'|\'METHOD\'|\'BODY\'|\'SINGLE_QUERY_ARG\'|\'ALL_QUERY_ARGS\',
+                              \'Data\': \'string\'
                           },
-                          'TextTransformation': 'NONE'|'COMPRESS_WHITE_SPACE'|'HTML_ENTITY_DECODE'|'LOWERCASE'|'CMD_LINE'|'URL_DECODE'
+                          \'TextTransformation\': \'NONE\'|\'COMPRESS_WHITE_SPACE\'|\'HTML_ENTITY_DECODE\'|\'LOWERCASE\'|\'CMD_LINE\'|\'URL_DECODE\'
                       }
                   },
               ]
@@ -7833,9 +7833,9 @@ class Client(BaseClient):
         
                  **CMD_LINE**  
         
-                When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
+                When you\'re concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
         
-                * Delete the following characters: \ " ' ^ 
+                * Delete the following characters: \ \" \' ^ 
                  
                 * Delete spaces before the following characters: / ( 
                  
@@ -7867,11 +7867,11 @@ class Client(BaseClient):
         
                 Use this option to replace HTML-encoded characters with unencoded characters. ``HTML_ENTITY_DECODE`` performs the following operations:
         
-                * Replaces ``(ampersand)quot;`` with ``"``   
+                * Replaces ``(ampersand)quot;`` with ``\"``   
                  
                 * Replaces ``(ampersand)nbsp;`` with a non-breaking space, decimal 160 
                  
-                * Replaces ``(ampersand)lt;`` with a "less than" symbol 
+                * Replaces ``(ampersand)lt;`` with a \"less than\" symbol 
                  
                 * Replaces ``(ampersand)gt;`` with ``>``   
                  
@@ -7889,7 +7889,7 @@ class Client(BaseClient):
         
                  **NONE**  
         
-                Specify ``NONE`` if you don't want to perform any text transformations.
+                Specify ``NONE`` if you don\'t want to perform any text transformations.
         
         :rtype: dict
         :returns: 
@@ -7899,7 +7899,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeToken': 'string'
+                \'ChangeToken\': \'string\'
             }
           **Response Structure** 
         

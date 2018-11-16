@@ -14,14 +14,14 @@ class DescribeDBEngineVersions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Engine='string',
-              EngineVersion='string',
-              DBParameterGroupFamily='string',
+              Engine=\'string\',
+              EngineVersion=\'string\',
+              DBParameterGroupFamily=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -29,9 +29,9 @@ class DescribeDBEngineVersions(Paginator):
               ListSupportedCharacterSets=True|False,
               ListSupportedTimezones=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Engine: string
@@ -114,45 +114,45 @@ class DescribeDBEngineVersions(Paginator):
           ::
         
             {
-                'DBEngineVersions': [
+                \'DBEngineVersions\': [
                     {
-                        'Engine': 'string',
-                        'EngineVersion': 'string',
-                        'DBParameterGroupFamily': 'string',
-                        'DBEngineDescription': 'string',
-                        'DBEngineVersionDescription': 'string',
-                        'DefaultCharacterSet': {
-                            'CharacterSetName': 'string',
-                            'CharacterSetDescription': 'string'
+                        \'Engine\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'DBParameterGroupFamily\': \'string\',
+                        \'DBEngineDescription\': \'string\',
+                        \'DBEngineVersionDescription\': \'string\',
+                        \'DefaultCharacterSet\': {
+                            \'CharacterSetName\': \'string\',
+                            \'CharacterSetDescription\': \'string\'
                         },
-                        'SupportedCharacterSets': [
+                        \'SupportedCharacterSets\': [
                             {
-                                'CharacterSetName': 'string',
-                                'CharacterSetDescription': 'string'
+                                \'CharacterSetName\': \'string\',
+                                \'CharacterSetDescription\': \'string\'
                             },
                         ],
-                        'ValidUpgradeTarget': [
+                        \'ValidUpgradeTarget\': [
                             {
-                                'Engine': 'string',
-                                'EngineVersion': 'string',
-                                'Description': 'string',
-                                'AutoUpgrade': True|False,
-                                'IsMajorVersionUpgrade': True|False
+                                \'Engine\': \'string\',
+                                \'EngineVersion\': \'string\',
+                                \'Description\': \'string\',
+                                \'AutoUpgrade\': True|False,
+                                \'IsMajorVersionUpgrade\': True|False
                             },
                         ],
-                        'SupportedTimezones': [
+                        \'SupportedTimezones\': [
                             {
-                                'TimezoneName': 'string'
+                                \'TimezoneName\': \'string\'
                             },
                         ],
-                        'ExportableLogTypes': [
-                            'string',
+                        \'ExportableLogTypes\': [
+                            \'string\',
                         ],
-                        'SupportsLogExportsToCloudwatchLogs': True|False,
-                        'SupportsReadReplica': True|False
+                        \'SupportsLogExportsToCloudwatchLogs\': True|False,
+                        \'SupportsReadReplica\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -288,25 +288,25 @@ class DescribeDBInstances(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DBInstanceIdentifier='string',
+              DBInstanceIdentifier=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DBInstanceIdentifier: string
         :param DBInstanceIdentifier: 
         
-          The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.
+          The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn\'t case-sensitive.
         
           Constraints:
         
@@ -362,144 +362,144 @@ class DescribeDBInstances(Paginator):
           ::
         
             {
-                'DBInstances': [
+                \'DBInstances\': [
                     {
-                        'DBInstanceIdentifier': 'string',
-                        'DBInstanceClass': 'string',
-                        'Engine': 'string',
-                        'DBInstanceStatus': 'string',
-                        'MasterUsername': 'string',
-                        'DBName': 'string',
-                        'Endpoint': {
-                            'Address': 'string',
-                            'Port': 123,
-                            'HostedZoneId': 'string'
+                        \'DBInstanceIdentifier\': \'string\',
+                        \'DBInstanceClass\': \'string\',
+                        \'Engine\': \'string\',
+                        \'DBInstanceStatus\': \'string\',
+                        \'MasterUsername\': \'string\',
+                        \'DBName\': \'string\',
+                        \'Endpoint\': {
+                            \'Address\': \'string\',
+                            \'Port\': 123,
+                            \'HostedZoneId\': \'string\'
                         },
-                        'AllocatedStorage': 123,
-                        'InstanceCreateTime': datetime(2015, 1, 1),
-                        'PreferredBackupWindow': 'string',
-                        'BackupRetentionPeriod': 123,
-                        'DBSecurityGroups': [
+                        \'AllocatedStorage\': 123,
+                        \'InstanceCreateTime\': datetime(2015, 1, 1),
+                        \'PreferredBackupWindow\': \'string\',
+                        \'BackupRetentionPeriod\': 123,
+                        \'DBSecurityGroups\': [
                             {
-                                'DBSecurityGroupName': 'string',
-                                'Status': 'string'
+                                \'DBSecurityGroupName\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'VpcSecurityGroups': [
+                        \'VpcSecurityGroups\': [
                             {
-                                'VpcSecurityGroupId': 'string',
-                                'Status': 'string'
+                                \'VpcSecurityGroupId\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'DBParameterGroups': [
+                        \'DBParameterGroups\': [
                             {
-                                'DBParameterGroupName': 'string',
-                                'ParameterApplyStatus': 'string'
+                                \'DBParameterGroupName\': \'string\',
+                                \'ParameterApplyStatus\': \'string\'
                             },
                         ],
-                        'AvailabilityZone': 'string',
-                        'DBSubnetGroup': {
-                            'DBSubnetGroupName': 'string',
-                            'DBSubnetGroupDescription': 'string',
-                            'VpcId': 'string',
-                            'SubnetGroupStatus': 'string',
-                            'Subnets': [
+                        \'AvailabilityZone\': \'string\',
+                        \'DBSubnetGroup\': {
+                            \'DBSubnetGroupName\': \'string\',
+                            \'DBSubnetGroupDescription\': \'string\',
+                            \'VpcId\': \'string\',
+                            \'SubnetGroupStatus\': \'string\',
+                            \'Subnets\': [
                                 {
-                                    'SubnetIdentifier': 'string',
-                                    'SubnetAvailabilityZone': {
-                                        'Name': 'string'
+                                    \'SubnetIdentifier\': \'string\',
+                                    \'SubnetAvailabilityZone\': {
+                                        \'Name\': \'string\'
                                     },
-                                    'SubnetStatus': 'string'
+                                    \'SubnetStatus\': \'string\'
                                 },
                             ],
-                            'DBSubnetGroupArn': 'string'
+                            \'DBSubnetGroupArn\': \'string\'
                         },
-                        'PreferredMaintenanceWindow': 'string',
-                        'PendingModifiedValues': {
-                            'DBInstanceClass': 'string',
-                            'AllocatedStorage': 123,
-                            'MasterUserPassword': 'string',
-                            'Port': 123,
-                            'BackupRetentionPeriod': 123,
-                            'MultiAZ': True|False,
-                            'EngineVersion': 'string',
-                            'LicenseModel': 'string',
-                            'Iops': 123,
-                            'DBInstanceIdentifier': 'string',
-                            'StorageType': 'string',
-                            'CACertificateIdentifier': 'string',
-                            'DBSubnetGroupName': 'string',
-                            'PendingCloudwatchLogsExports': {
-                                'LogTypesToEnable': [
-                                    'string',
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'PendingModifiedValues\': {
+                            \'DBInstanceClass\': \'string\',
+                            \'AllocatedStorage\': 123,
+                            \'MasterUserPassword\': \'string\',
+                            \'Port\': 123,
+                            \'BackupRetentionPeriod\': 123,
+                            \'MultiAZ\': True|False,
+                            \'EngineVersion\': \'string\',
+                            \'LicenseModel\': \'string\',
+                            \'Iops\': 123,
+                            \'DBInstanceIdentifier\': \'string\',
+                            \'StorageType\': \'string\',
+                            \'CACertificateIdentifier\': \'string\',
+                            \'DBSubnetGroupName\': \'string\',
+                            \'PendingCloudwatchLogsExports\': {
+                                \'LogTypesToEnable\': [
+                                    \'string\',
                                 ],
-                                'LogTypesToDisable': [
-                                    'string',
+                                \'LogTypesToDisable\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'LatestRestorableTime': datetime(2015, 1, 1),
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string',
-                        'AutoMinorVersionUpgrade': True|False,
-                        'ReadReplicaSourceDBInstanceIdentifier': 'string',
-                        'ReadReplicaDBInstanceIdentifiers': [
-                            'string',
+                        \'LatestRestorableTime\': datetime(2015, 1, 1),
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\',
+                        \'AutoMinorVersionUpgrade\': True|False,
+                        \'ReadReplicaSourceDBInstanceIdentifier\': \'string\',
+                        \'ReadReplicaDBInstanceIdentifiers\': [
+                            \'string\',
                         ],
-                        'ReadReplicaDBClusterIdentifiers': [
-                            'string',
+                        \'ReadReplicaDBClusterIdentifiers\': [
+                            \'string\',
                         ],
-                        'LicenseModel': 'string',
-                        'Iops': 123,
-                        'OptionGroupMemberships': [
+                        \'LicenseModel\': \'string\',
+                        \'Iops\': 123,
+                        \'OptionGroupMemberships\': [
                             {
-                                'OptionGroupName': 'string',
-                                'Status': 'string'
+                                \'OptionGroupName\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'CharacterSetName': 'string',
-                        'SecondaryAvailabilityZone': 'string',
-                        'PubliclyAccessible': True|False,
-                        'StatusInfos': [
+                        \'CharacterSetName\': \'string\',
+                        \'SecondaryAvailabilityZone\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'StatusInfos\': [
                             {
-                                'StatusType': 'string',
-                                'Normal': True|False,
-                                'Status': 'string',
-                                'Message': 'string'
+                                \'StatusType\': \'string\',
+                                \'Normal\': True|False,
+                                \'Status\': \'string\',
+                                \'Message\': \'string\'
                             },
                         ],
-                        'StorageType': 'string',
-                        'TdeCredentialArn': 'string',
-                        'DbInstancePort': 123,
-                        'DBClusterIdentifier': 'string',
-                        'StorageEncrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'DbiResourceId': 'string',
-                        'CACertificateIdentifier': 'string',
-                        'DomainMemberships': [
+                        \'StorageType\': \'string\',
+                        \'TdeCredentialArn\': \'string\',
+                        \'DbInstancePort\': 123,
+                        \'DBClusterIdentifier\': \'string\',
+                        \'StorageEncrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'DbiResourceId\': \'string\',
+                        \'CACertificateIdentifier\': \'string\',
+                        \'DomainMemberships\': [
                             {
-                                'Domain': 'string',
-                                'Status': 'string',
-                                'FQDN': 'string',
-                                'IAMRoleName': 'string'
+                                \'Domain\': \'string\',
+                                \'Status\': \'string\',
+                                \'FQDN\': \'string\',
+                                \'IAMRoleName\': \'string\'
                             },
                         ],
-                        'CopyTagsToSnapshot': True|False,
-                        'MonitoringInterval': 123,
-                        'EnhancedMonitoringResourceArn': 'string',
-                        'MonitoringRoleArn': 'string',
-                        'PromotionTier': 123,
-                        'DBInstanceArn': 'string',
-                        'Timezone': 'string',
-                        'IAMDatabaseAuthenticationEnabled': True|False,
-                        'PerformanceInsightsEnabled': True|False,
-                        'PerformanceInsightsKMSKeyId': 'string',
-                        'EnabledCloudwatchLogsExports': [
-                            'string',
+                        \'CopyTagsToSnapshot\': True|False,
+                        \'MonitoringInterval\': 123,
+                        \'EnhancedMonitoringResourceArn\': \'string\',
+                        \'MonitoringRoleArn\': \'string\',
+                        \'PromotionTier\': 123,
+                        \'DBInstanceArn\': \'string\',
+                        \'Timezone\': \'string\',
+                        \'IAMDatabaseAuthenticationEnabled\': True|False,
+                        \'PerformanceInsightsEnabled\': True|False,
+                        \'PerformanceInsightsKMSKeyId\': \'string\',
+                        \'EnabledCloudwatchLogsExports\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -759,7 +759,7 @@ class DescribeDBInstances(Paginator):
         
                     - **LogTypesToEnable** *(list) --* 
         
-                      Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
+                      Log types that are in the process of being deactivated. After they are deactivated, these log types aren\'t exported to CloudWatch Logs.
         
                       - *(string) --* 
                   
@@ -823,7 +823,7 @@ class DescribeDBInstances(Paginator):
         
                     - **Status** *(string) --* 
         
-                      The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                      The status of the DB instance\'s option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
         
                 - **CharacterSetName** *(string) --* 
         
@@ -847,7 +847,7 @@ class DescribeDBInstances(Paginator):
         
                     - **StatusType** *(string) --* 
         
-                      This value is currently "read replication."
+                      This value is currently \"read replication.\"
         
                     - **Normal** *(boolean) --* 
         
@@ -907,7 +907,7 @@ class DescribeDBInstances(Paginator):
         
                     - **Status** *(string) --* 
         
-                      The status of the DB instance's Active Directory Domain membership, such as joined, pending-join, failed etc).
+                      The status of the DB instance\'s Active Directory Domain membership, such as joined, pending-join, failed etc).
         
                     - **FQDN** *(string) --* 
         
@@ -981,19 +981,19 @@ class DescribeDBParameterGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DBParameterGroupName='string',
+              DBParameterGroupName=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DBParameterGroupName: string
@@ -1049,15 +1049,15 @@ class DescribeDBParameterGroups(Paginator):
           ::
         
             {
-                'DBParameterGroups': [
+                \'DBParameterGroups\': [
                     {
-                        'DBParameterGroupName': 'string',
-                        'DBParameterGroupFamily': 'string',
-                        'Description': 'string',
-                        'DBParameterGroupArn': 'string'
+                        \'DBParameterGroupName\': \'string\',
+                        \'DBParameterGroupFamily\': \'string\',
+                        \'Description\': \'string\',
+                        \'DBParameterGroupArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1109,20 +1109,20 @@ class DescribeDBParameters(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DBParameterGroupName='string',
-              Source='string',
+              DBParameterGroupName=\'string\',
+              Source=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DBParameterGroupName: string
@@ -1187,21 +1187,21 @@ class DescribeDBParameters(Paginator):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'ParameterName': 'string',
-                        'ParameterValue': 'string',
-                        'Description': 'string',
-                        'Source': 'string',
-                        'ApplyType': 'string',
-                        'DataType': 'string',
-                        'AllowedValues': 'string',
-                        'IsModifiable': True|False,
-                        'MinimumEngineVersion': 'string',
-                        'ApplyMethod': 'immediate'|'pending-reboot'
+                        \'ParameterName\': \'string\',
+                        \'ParameterValue\': \'string\',
+                        \'Description\': \'string\',
+                        \'Source\': \'string\',
+                        \'ApplyType\': \'string\',
+                        \'DataType\': \'string\',
+                        \'AllowedValues\': \'string\',
+                        \'IsModifiable\': True|False,
+                        \'MinimumEngineVersion\': \'string\',
+                        \'ApplyMethod\': \'immediate\'|\'pending-reboot\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1277,19 +1277,19 @@ class DescribeDBSubnetGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DBSubnetGroupName='string',
+              DBSubnetGroupName=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DBSubnetGroupName: string
@@ -1341,25 +1341,25 @@ class DescribeDBSubnetGroups(Paginator):
           ::
         
             {
-                'DBSubnetGroups': [
+                \'DBSubnetGroups\': [
                     {
-                        'DBSubnetGroupName': 'string',
-                        'DBSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                        \'DBSubnetGroupName\': \'string\',
+                        \'DBSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ],
-                        'DBSubnetGroupArn': 'string'
+                        \'DBSubnetGroupArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1443,19 +1443,19 @@ class DescribeEngineDefaultParameters(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DBParameterGroupFamily='string',
+              DBParameterGroupFamily=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DBParameterGroupFamily: string
@@ -1507,25 +1507,25 @@ class DescribeEngineDefaultParameters(Paginator):
           ::
         
             {
-                'EngineDefaults': {
-                    'DBParameterGroupFamily': 'string',
-                    'Marker': 'string',
-                    'Parameters': [
+                \'EngineDefaults\': {
+                    \'DBParameterGroupFamily\': \'string\',
+                    \'Marker\': \'string\',
+                    \'Parameters\': [
                         {
-                            'ParameterName': 'string',
-                            'ParameterValue': 'string',
-                            'Description': 'string',
-                            'Source': 'string',
-                            'ApplyType': 'string',
-                            'DataType': 'string',
-                            'AllowedValues': 'string',
-                            'IsModifiable': True|False,
-                            'MinimumEngineVersion': 'string',
-                            'ApplyMethod': 'immediate'|'pending-reboot'
+                            \'ParameterName\': \'string\',
+                            \'ParameterValue\': \'string\',
+                            \'Description\': \'string\',
+                            \'Source\': \'string\',
+                            \'ApplyType\': \'string\',
+                            \'DataType\': \'string\',
+                            \'AllowedValues\': \'string\',
+                            \'IsModifiable\': True|False,
+                            \'MinimumEngineVersion\': \'string\',
+                            \'ApplyMethod\': \'immediate\'|\'pending-reboot\'
                         },
                     ]
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1611,19 +1611,19 @@ class DescribeEventSubscriptions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SubscriptionName='string',
+              SubscriptionName=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SubscriptionName: string
@@ -1675,25 +1675,25 @@ class DescribeEventSubscriptions(Paginator):
           ::
         
             {
-                'EventSubscriptionsList': [
+                \'EventSubscriptionsList\': [
                     {
-                        'CustomerAwsId': 'string',
-                        'CustSubscriptionId': 'string',
-                        'SnsTopicArn': 'string',
-                        'Status': 'string',
-                        'SubscriptionCreationTime': 'string',
-                        'SourceType': 'string',
-                        'SourceIdsList': [
-                            'string',
+                        \'CustomerAwsId\': \'string\',
+                        \'CustSubscriptionId\': \'string\',
+                        \'SnsTopicArn\': \'string\',
+                        \'Status\': \'string\',
+                        \'SubscriptionCreationTime\': \'string\',
+                        \'SourceType\': \'string\',
+                        \'SourceIdsList\': [
+                            \'string\',
                         ],
-                        'EventCategoriesList': [
-                            'string',
+                        \'EventCategoriesList\': [
+                            \'string\',
                         ],
-                        'Enabled': True|False,
-                        'EventSubscriptionArn': 'string'
+                        \'Enabled\': True|False,
+                        \'EventSubscriptionArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1729,7 +1729,7 @@ class DescribeEventSubscriptions(Paginator):
         
                   Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                  The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                  The status \"no-permission\" indicates that Neptune no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
                 - **SubscriptionCreationTime** *(string) --* 
         
@@ -1777,26 +1777,26 @@ class DescribeEvents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SourceIdentifier='string',
-              SourceType='db-instance'|'db-parameter-group'|'db-security-group'|'db-snapshot'|'db-cluster'|'db-cluster-snapshot',
+              SourceIdentifier=\'string\',
+              SourceType=\'db-instance\'|\'db-parameter-group\'|\'db-security-group\'|\'db-snapshot\'|\'db-cluster\'|\'db-cluster-snapshot\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Duration=123,
               EventCategories=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SourceIdentifier: string
@@ -1895,19 +1895,19 @@ class DescribeEvents(Paginator):
           ::
         
             {
-                'Events': [
+                \'Events\': [
                     {
-                        'SourceIdentifier': 'string',
-                        'SourceType': 'db-instance'|'db-parameter-group'|'db-security-group'|'db-snapshot'|'db-cluster'|'db-cluster-snapshot',
-                        'Message': 'string',
-                        'EventCategories': [
-                            'string',
+                        \'SourceIdentifier\': \'string\',
+                        \'SourceType\': \'db-instance\'|\'db-parameter-group\'|\'db-security-group\'|\'db-snapshot\'|\'db-cluster\'|\'db-cluster-snapshot\',
+                        \'Message\': \'string\',
+                        \'EventCategories\': [
+                            \'string\',
                         ],
-                        'Date': datetime(2015, 1, 1),
-                        'SourceArn': 'string'
+                        \'Date\': datetime(2015, 1, 1),
+                        \'SourceArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1967,23 +1967,23 @@ class DescribeOrderableDBInstanceOptions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Engine='string',
-              EngineVersion='string',
-              DBInstanceClass='string',
-              LicenseModel='string',
+              Engine=\'string\',
+              EngineVersion=\'string\',
+              DBInstanceClass=\'string\',
+              LicenseModel=\'string\',
               Vpc=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Engine: string
@@ -2055,35 +2055,35 @@ class DescribeOrderableDBInstanceOptions(Paginator):
           ::
         
             {
-                'OrderableDBInstanceOptions': [
+                \'OrderableDBInstanceOptions\': [
                     {
-                        'Engine': 'string',
-                        'EngineVersion': 'string',
-                        'DBInstanceClass': 'string',
-                        'LicenseModel': 'string',
-                        'AvailabilityZones': [
+                        \'Engine\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'DBInstanceClass\': \'string\',
+                        \'LicenseModel\': \'string\',
+                        \'AvailabilityZones\': [
                             {
-                                'Name': 'string'
+                                \'Name\': \'string\'
                             },
                         ],
-                        'MultiAZCapable': True|False,
-                        'ReadReplicaCapable': True|False,
-                        'Vpc': True|False,
-                        'SupportsStorageEncryption': True|False,
-                        'StorageType': 'string',
-                        'SupportsIops': True|False,
-                        'SupportsEnhancedMonitoring': True|False,
-                        'SupportsIAMDatabaseAuthentication': True|False,
-                        'SupportsPerformanceInsights': True|False,
-                        'MinStorageSize': 123,
-                        'MaxStorageSize': 123,
-                        'MinIopsPerDbInstance': 123,
-                        'MaxIopsPerDbInstance': 123,
-                        'MinIopsPerGib': 123.0,
-                        'MaxIopsPerGib': 123.0
+                        \'MultiAZCapable\': True|False,
+                        \'ReadReplicaCapable\': True|False,
+                        \'Vpc\': True|False,
+                        \'SupportsStorageEncryption\': True|False,
+                        \'StorageType\': \'string\',
+                        \'SupportsIops\': True|False,
+                        \'SupportsEnhancedMonitoring\': True|False,
+                        \'SupportsIAMDatabaseAuthentication\': True|False,
+                        \'SupportsPerformanceInsights\': True|False,
+                        \'MinStorageSize\': 123,
+                        \'MaxStorageSize\': 123,
+                        \'MinIopsPerDbInstance\': 123,
+                        \'MaxIopsPerDbInstance\': 123,
+                        \'MinIopsPerGib\': 123.0,
+                        \'MaxIopsPerGib\': 123.0
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

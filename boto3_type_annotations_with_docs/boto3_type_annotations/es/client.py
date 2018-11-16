@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -17,11 +17,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags(
-              ARN='string',
+              ARN=\'string\',
               TagList=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -57,10 +57,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -76,7 +76,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_elasticsearch_service_software_update(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -91,14 +91,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceSoftwareOptions': {
-                    'CurrentVersion': 'string',
-                    'NewVersion': 'string',
-                    'UpdateAvailable': True|False,
-                    'Cancellable': True|False,
-                    'UpdateStatus': 'PENDING_UPDATE'|'IN_PROGRESS'|'COMPLETED'|'NOT_ELIGIBLE'|'ELIGIBLE',
-                    'Description': 'string',
-                    'AutomatedUpdateDate': datetime(2015, 1, 1)
+                \'ServiceSoftwareOptions\': {
+                    \'CurrentVersion\': \'string\',
+                    \'NewVersion\': \'string\',
+                    \'UpdateAvailable\': True|False,
+                    \'Cancellable\': True|False,
+                    \'UpdateStatus\': \'PENDING_UPDATE\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'NOT_ELIGIBLE\'|\'ELIGIBLE\',
+                    \'Description\': \'string\',
+                    \'AutomatedUpdateDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -151,54 +151,54 @@ class Client(BaseClient):
         ::
         
           response = client.create_elasticsearch_domain(
-              DomainName='string',
-              ElasticsearchVersion='string',
+              DomainName=\'string\',
+              ElasticsearchVersion=\'string\',
               ElasticsearchClusterConfig={
-                  'InstanceType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                  'InstanceCount': 123,
-                  'DedicatedMasterEnabled': True|False,
-                  'ZoneAwarenessEnabled': True|False,
-                  'DedicatedMasterType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                  'DedicatedMasterCount': 123
+                  \'InstanceType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                  \'InstanceCount\': 123,
+                  \'DedicatedMasterEnabled\': True|False,
+                  \'ZoneAwarenessEnabled\': True|False,
+                  \'DedicatedMasterType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                  \'DedicatedMasterCount\': 123
               },
               EBSOptions={
-                  'EBSEnabled': True|False,
-                  'VolumeType': 'standard'|'gp2'|'io1',
-                  'VolumeSize': 123,
-                  'Iops': 123
+                  \'EBSEnabled\': True|False,
+                  \'VolumeType\': \'standard\'|\'gp2\'|\'io1\',
+                  \'VolumeSize\': 123,
+                  \'Iops\': 123
               },
-              AccessPolicies='string',
+              AccessPolicies=\'string\',
               SnapshotOptions={
-                  'AutomatedSnapshotStartHour': 123
+                  \'AutomatedSnapshotStartHour\': 123
               },
               VPCOptions={
-                  'SubnetIds': [
-                      'string',
+                  \'SubnetIds\': [
+                      \'string\',
                   ],
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ]
               },
               CognitoOptions={
-                  'Enabled': True|False,
-                  'UserPoolId': 'string',
-                  'IdentityPoolId': 'string',
-                  'RoleArn': 'string'
+                  \'Enabled\': True|False,
+                  \'UserPoolId\': \'string\',
+                  \'IdentityPoolId\': \'string\',
+                  \'RoleArn\': \'string\'
               },
               EncryptionAtRestOptions={
-                  'Enabled': True|False,
-                  'KmsKeyId': 'string'
+                  \'Enabled\': True|False,
+                  \'KmsKeyId\': \'string\'
               },
               NodeToNodeEncryptionOptions={
-                  'Enabled': True|False
+                  \'Enabled\': True|False
               },
               AdvancedOptions={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               LogPublishingOptions={
-                  'string': {
-                      'CloudWatchLogsLogGroupArn': 'string',
-                      'Enabled': True|False
+                  \'string\': {
+                      \'CloudWatchLogsLogGroupArn\': \'string\',
+                      \'Enabled\': True|False
                   }
               }
           )
@@ -210,7 +210,7 @@ class Client(BaseClient):
         :type ElasticsearchVersion: string
         :param ElasticsearchVersion: 
         
-          String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information, see `Creating Elasticsearch Domains <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains>`__ in the *Amazon Elasticsearch Service Developer Guide* .
+          String of format X.Y to specify version for the Elasticsearch domain eg. \"1.5\" or \"2.3\". For more information, see `Creating Elasticsearch Domains <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains>`__ in the *Amazon Elasticsearch Service Developer Guide* .
         
         :type ElasticsearchClusterConfig: dict
         :param ElasticsearchClusterConfig: 
@@ -384,79 +384,79 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainStatus': {
-                    'DomainId': 'string',
-                    'DomainName': 'string',
-                    'ARN': 'string',
-                    'Created': True|False,
-                    'Deleted': True|False,
-                    'Endpoint': 'string',
-                    'Endpoints': {
-                        'string': 'string'
+                \'DomainStatus\': {
+                    \'DomainId\': \'string\',
+                    \'DomainName\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Created\': True|False,
+                    \'Deleted\': True|False,
+                    \'Endpoint\': \'string\',
+                    \'Endpoints\': {
+                        \'string\': \'string\'
                     },
-                    'Processing': True|False,
-                    'UpgradeProcessing': True|False,
-                    'ElasticsearchVersion': 'string',
-                    'ElasticsearchClusterConfig': {
-                        'InstanceType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                        'InstanceCount': 123,
-                        'DedicatedMasterEnabled': True|False,
-                        'ZoneAwarenessEnabled': True|False,
-                        'DedicatedMasterType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                        'DedicatedMasterCount': 123
+                    \'Processing\': True|False,
+                    \'UpgradeProcessing\': True|False,
+                    \'ElasticsearchVersion\': \'string\',
+                    \'ElasticsearchClusterConfig\': {
+                        \'InstanceType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                        \'InstanceCount\': 123,
+                        \'DedicatedMasterEnabled\': True|False,
+                        \'ZoneAwarenessEnabled\': True|False,
+                        \'DedicatedMasterType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                        \'DedicatedMasterCount\': 123
                     },
-                    'EBSOptions': {
-                        'EBSEnabled': True|False,
-                        'VolumeType': 'standard'|'gp2'|'io1',
-                        'VolumeSize': 123,
-                        'Iops': 123
+                    \'EBSOptions\': {
+                        \'EBSEnabled\': True|False,
+                        \'VolumeType\': \'standard\'|\'gp2\'|\'io1\',
+                        \'VolumeSize\': 123,
+                        \'Iops\': 123
                     },
-                    'AccessPolicies': 'string',
-                    'SnapshotOptions': {
-                        'AutomatedSnapshotStartHour': 123
+                    \'AccessPolicies\': \'string\',
+                    \'SnapshotOptions\': {
+                        \'AutomatedSnapshotStartHour\': 123
                     },
-                    'VPCOptions': {
-                        'VPCId': 'string',
-                        'SubnetIds': [
-                            'string',
+                    \'VPCOptions\': {
+                        \'VPCId\': \'string\',
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'AvailabilityZones': [
-                            'string',
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'SecurityGroupIds': [
-                            'string',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'CognitoOptions': {
-                        'Enabled': True|False,
-                        'UserPoolId': 'string',
-                        'IdentityPoolId': 'string',
-                        'RoleArn': 'string'
+                    \'CognitoOptions\': {
+                        \'Enabled\': True|False,
+                        \'UserPoolId\': \'string\',
+                        \'IdentityPoolId\': \'string\',
+                        \'RoleArn\': \'string\'
                     },
-                    'EncryptionAtRestOptions': {
-                        'Enabled': True|False,
-                        'KmsKeyId': 'string'
+                    \'EncryptionAtRestOptions\': {
+                        \'Enabled\': True|False,
+                        \'KmsKeyId\': \'string\'
                     },
-                    'NodeToNodeEncryptionOptions': {
-                        'Enabled': True|False
+                    \'NodeToNodeEncryptionOptions\': {
+                        \'Enabled\': True|False
                     },
-                    'AdvancedOptions': {
-                        'string': 'string'
+                    \'AdvancedOptions\': {
+                        \'string\': \'string\'
                     },
-                    'LogPublishingOptions': {
-                        'string': {
-                            'CloudWatchLogsLogGroupArn': 'string',
-                            'Enabled': True|False
+                    \'LogPublishingOptions\': {
+                        \'string\': {
+                            \'CloudWatchLogsLogGroupArn\': \'string\',
+                            \'Enabled\': True|False
                         }
                     },
-                    'ServiceSoftwareOptions': {
-                        'CurrentVersion': 'string',
-                        'NewVersion': 'string',
-                        'UpdateAvailable': True|False,
-                        'Cancellable': True|False,
-                        'UpdateStatus': 'PENDING_UPDATE'|'IN_PROGRESS'|'COMPLETED'|'NOT_ELIGIBLE'|'ELIGIBLE',
-                        'Description': 'string',
-                        'AutomatedUpdateDate': datetime(2015, 1, 1)
+                    \'ServiceSoftwareOptions\': {
+                        \'CurrentVersion\': \'string\',
+                        \'NewVersion\': \'string\',
+                        \'UpdateAvailable\': True|False,
+                        \'Cancellable\': True|False,
+                        \'UpdateStatus\': \'PENDING_UPDATE\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'NOT_ELIGIBLE\'|\'ELIGIBLE\',
+                        \'Description\': \'string\',
+                        \'AutomatedUpdateDate\': datetime(2015, 1, 1)
                     }
                 }
             }
@@ -496,7 +496,7 @@ class Client(BaseClient):
         
               - **Endpoints** *(dict) --* 
         
-                Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example ``key, value`` : ``'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'`` .
+                Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example ``key, value`` : ``\'vpc\',\'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com\'`` .
         
                 - *(string) --* 
                   
@@ -680,7 +680,7 @@ class Client(BaseClient):
         
               - **ServiceSoftwareOptions** *(dict) --* 
         
-                The current status of the Elasticsearch domain's service software.
+                The current status of the Elasticsearch domain\'s service software.
         
                 - **CurrentVersion** *(string) --* 
         
@@ -722,7 +722,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_elasticsearch_domain(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -737,79 +737,79 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainStatus': {
-                    'DomainId': 'string',
-                    'DomainName': 'string',
-                    'ARN': 'string',
-                    'Created': True|False,
-                    'Deleted': True|False,
-                    'Endpoint': 'string',
-                    'Endpoints': {
-                        'string': 'string'
+                \'DomainStatus\': {
+                    \'DomainId\': \'string\',
+                    \'DomainName\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Created\': True|False,
+                    \'Deleted\': True|False,
+                    \'Endpoint\': \'string\',
+                    \'Endpoints\': {
+                        \'string\': \'string\'
                     },
-                    'Processing': True|False,
-                    'UpgradeProcessing': True|False,
-                    'ElasticsearchVersion': 'string',
-                    'ElasticsearchClusterConfig': {
-                        'InstanceType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                        'InstanceCount': 123,
-                        'DedicatedMasterEnabled': True|False,
-                        'ZoneAwarenessEnabled': True|False,
-                        'DedicatedMasterType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                        'DedicatedMasterCount': 123
+                    \'Processing\': True|False,
+                    \'UpgradeProcessing\': True|False,
+                    \'ElasticsearchVersion\': \'string\',
+                    \'ElasticsearchClusterConfig\': {
+                        \'InstanceType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                        \'InstanceCount\': 123,
+                        \'DedicatedMasterEnabled\': True|False,
+                        \'ZoneAwarenessEnabled\': True|False,
+                        \'DedicatedMasterType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                        \'DedicatedMasterCount\': 123
                     },
-                    'EBSOptions': {
-                        'EBSEnabled': True|False,
-                        'VolumeType': 'standard'|'gp2'|'io1',
-                        'VolumeSize': 123,
-                        'Iops': 123
+                    \'EBSOptions\': {
+                        \'EBSEnabled\': True|False,
+                        \'VolumeType\': \'standard\'|\'gp2\'|\'io1\',
+                        \'VolumeSize\': 123,
+                        \'Iops\': 123
                     },
-                    'AccessPolicies': 'string',
-                    'SnapshotOptions': {
-                        'AutomatedSnapshotStartHour': 123
+                    \'AccessPolicies\': \'string\',
+                    \'SnapshotOptions\': {
+                        \'AutomatedSnapshotStartHour\': 123
                     },
-                    'VPCOptions': {
-                        'VPCId': 'string',
-                        'SubnetIds': [
-                            'string',
+                    \'VPCOptions\': {
+                        \'VPCId\': \'string\',
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'AvailabilityZones': [
-                            'string',
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'SecurityGroupIds': [
-                            'string',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'CognitoOptions': {
-                        'Enabled': True|False,
-                        'UserPoolId': 'string',
-                        'IdentityPoolId': 'string',
-                        'RoleArn': 'string'
+                    \'CognitoOptions\': {
+                        \'Enabled\': True|False,
+                        \'UserPoolId\': \'string\',
+                        \'IdentityPoolId\': \'string\',
+                        \'RoleArn\': \'string\'
                     },
-                    'EncryptionAtRestOptions': {
-                        'Enabled': True|False,
-                        'KmsKeyId': 'string'
+                    \'EncryptionAtRestOptions\': {
+                        \'Enabled\': True|False,
+                        \'KmsKeyId\': \'string\'
                     },
-                    'NodeToNodeEncryptionOptions': {
-                        'Enabled': True|False
+                    \'NodeToNodeEncryptionOptions\': {
+                        \'Enabled\': True|False
                     },
-                    'AdvancedOptions': {
-                        'string': 'string'
+                    \'AdvancedOptions\': {
+                        \'string\': \'string\'
                     },
-                    'LogPublishingOptions': {
-                        'string': {
-                            'CloudWatchLogsLogGroupArn': 'string',
-                            'Enabled': True|False
+                    \'LogPublishingOptions\': {
+                        \'string\': {
+                            \'CloudWatchLogsLogGroupArn\': \'string\',
+                            \'Enabled\': True|False
                         }
                     },
-                    'ServiceSoftwareOptions': {
-                        'CurrentVersion': 'string',
-                        'NewVersion': 'string',
-                        'UpdateAvailable': True|False,
-                        'Cancellable': True|False,
-                        'UpdateStatus': 'PENDING_UPDATE'|'IN_PROGRESS'|'COMPLETED'|'NOT_ELIGIBLE'|'ELIGIBLE',
-                        'Description': 'string',
-                        'AutomatedUpdateDate': datetime(2015, 1, 1)
+                    \'ServiceSoftwareOptions\': {
+                        \'CurrentVersion\': \'string\',
+                        \'NewVersion\': \'string\',
+                        \'UpdateAvailable\': True|False,
+                        \'Cancellable\': True|False,
+                        \'UpdateStatus\': \'PENDING_UPDATE\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'NOT_ELIGIBLE\'|\'ELIGIBLE\',
+                        \'Description\': \'string\',
+                        \'AutomatedUpdateDate\': datetime(2015, 1, 1)
                     }
                 }
             }
@@ -849,7 +849,7 @@ class Client(BaseClient):
         
               - **Endpoints** *(dict) --* 
         
-                Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example ``key, value`` : ``'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'`` .
+                Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example ``key, value`` : ``\'vpc\',\'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com\'`` .
         
                 - *(string) --* 
                   
@@ -1033,7 +1033,7 @@ class Client(BaseClient):
         
               - **ServiceSoftwareOptions** *(dict) --* 
         
-                The current status of the Elasticsearch domain's service software.
+                The current status of the Elasticsearch domain\'s service software.
         
                 - **CurrentVersion** *(string) --* 
         
@@ -1089,7 +1089,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_elasticsearch_domain(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -1104,79 +1104,79 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainStatus': {
-                    'DomainId': 'string',
-                    'DomainName': 'string',
-                    'ARN': 'string',
-                    'Created': True|False,
-                    'Deleted': True|False,
-                    'Endpoint': 'string',
-                    'Endpoints': {
-                        'string': 'string'
+                \'DomainStatus\': {
+                    \'DomainId\': \'string\',
+                    \'DomainName\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Created\': True|False,
+                    \'Deleted\': True|False,
+                    \'Endpoint\': \'string\',
+                    \'Endpoints\': {
+                        \'string\': \'string\'
                     },
-                    'Processing': True|False,
-                    'UpgradeProcessing': True|False,
-                    'ElasticsearchVersion': 'string',
-                    'ElasticsearchClusterConfig': {
-                        'InstanceType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                        'InstanceCount': 123,
-                        'DedicatedMasterEnabled': True|False,
-                        'ZoneAwarenessEnabled': True|False,
-                        'DedicatedMasterType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                        'DedicatedMasterCount': 123
+                    \'Processing\': True|False,
+                    \'UpgradeProcessing\': True|False,
+                    \'ElasticsearchVersion\': \'string\',
+                    \'ElasticsearchClusterConfig\': {
+                        \'InstanceType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                        \'InstanceCount\': 123,
+                        \'DedicatedMasterEnabled\': True|False,
+                        \'ZoneAwarenessEnabled\': True|False,
+                        \'DedicatedMasterType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                        \'DedicatedMasterCount\': 123
                     },
-                    'EBSOptions': {
-                        'EBSEnabled': True|False,
-                        'VolumeType': 'standard'|'gp2'|'io1',
-                        'VolumeSize': 123,
-                        'Iops': 123
+                    \'EBSOptions\': {
+                        \'EBSEnabled\': True|False,
+                        \'VolumeType\': \'standard\'|\'gp2\'|\'io1\',
+                        \'VolumeSize\': 123,
+                        \'Iops\': 123
                     },
-                    'AccessPolicies': 'string',
-                    'SnapshotOptions': {
-                        'AutomatedSnapshotStartHour': 123
+                    \'AccessPolicies\': \'string\',
+                    \'SnapshotOptions\': {
+                        \'AutomatedSnapshotStartHour\': 123
                     },
-                    'VPCOptions': {
-                        'VPCId': 'string',
-                        'SubnetIds': [
-                            'string',
+                    \'VPCOptions\': {
+                        \'VPCId\': \'string\',
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'AvailabilityZones': [
-                            'string',
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'SecurityGroupIds': [
-                            'string',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'CognitoOptions': {
-                        'Enabled': True|False,
-                        'UserPoolId': 'string',
-                        'IdentityPoolId': 'string',
-                        'RoleArn': 'string'
+                    \'CognitoOptions\': {
+                        \'Enabled\': True|False,
+                        \'UserPoolId\': \'string\',
+                        \'IdentityPoolId\': \'string\',
+                        \'RoleArn\': \'string\'
                     },
-                    'EncryptionAtRestOptions': {
-                        'Enabled': True|False,
-                        'KmsKeyId': 'string'
+                    \'EncryptionAtRestOptions\': {
+                        \'Enabled\': True|False,
+                        \'KmsKeyId\': \'string\'
                     },
-                    'NodeToNodeEncryptionOptions': {
-                        'Enabled': True|False
+                    \'NodeToNodeEncryptionOptions\': {
+                        \'Enabled\': True|False
                     },
-                    'AdvancedOptions': {
-                        'string': 'string'
+                    \'AdvancedOptions\': {
+                        \'string\': \'string\'
                     },
-                    'LogPublishingOptions': {
-                        'string': {
-                            'CloudWatchLogsLogGroupArn': 'string',
-                            'Enabled': True|False
+                    \'LogPublishingOptions\': {
+                        \'string\': {
+                            \'CloudWatchLogsLogGroupArn\': \'string\',
+                            \'Enabled\': True|False
                         }
                     },
-                    'ServiceSoftwareOptions': {
-                        'CurrentVersion': 'string',
-                        'NewVersion': 'string',
-                        'UpdateAvailable': True|False,
-                        'Cancellable': True|False,
-                        'UpdateStatus': 'PENDING_UPDATE'|'IN_PROGRESS'|'COMPLETED'|'NOT_ELIGIBLE'|'ELIGIBLE',
-                        'Description': 'string',
-                        'AutomatedUpdateDate': datetime(2015, 1, 1)
+                    \'ServiceSoftwareOptions\': {
+                        \'CurrentVersion\': \'string\',
+                        \'NewVersion\': \'string\',
+                        \'UpdateAvailable\': True|False,
+                        \'Cancellable\': True|False,
+                        \'UpdateStatus\': \'PENDING_UPDATE\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'NOT_ELIGIBLE\'|\'ELIGIBLE\',
+                        \'Description\': \'string\',
+                        \'AutomatedUpdateDate\': datetime(2015, 1, 1)
                     }
                 }
             }
@@ -1216,7 +1216,7 @@ class Client(BaseClient):
         
               - **Endpoints** *(dict) --* 
         
-                Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example ``key, value`` : ``'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'`` .
+                Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example ``key, value`` : ``\'vpc\',\'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com\'`` .
         
                 - *(string) --* 
                   
@@ -1400,7 +1400,7 @@ class Client(BaseClient):
         
               - **ServiceSoftwareOptions** *(dict) --* 
         
-                The current status of the Elasticsearch domain's service software.
+                The current status of the Elasticsearch domain\'s service software.
         
                 - **CurrentVersion** *(string) --* 
         
@@ -1442,7 +1442,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_elasticsearch_domain_config(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -1457,157 +1457,157 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainConfig': {
-                    'ElasticsearchVersion': {
-                        'Options': 'string',
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                \'DomainConfig\': {
+                    \'ElasticsearchVersion\': {
+                        \'Options\': \'string\',
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'ElasticsearchClusterConfig': {
-                        'Options': {
-                            'InstanceType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                            'InstanceCount': 123,
-                            'DedicatedMasterEnabled': True|False,
-                            'ZoneAwarenessEnabled': True|False,
-                            'DedicatedMasterType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                            'DedicatedMasterCount': 123
+                    \'ElasticsearchClusterConfig\': {
+                        \'Options\': {
+                            \'InstanceType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                            \'InstanceCount\': 123,
+                            \'DedicatedMasterEnabled\': True|False,
+                            \'ZoneAwarenessEnabled\': True|False,
+                            \'DedicatedMasterType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                            \'DedicatedMasterCount\': 123
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'EBSOptions': {
-                        'Options': {
-                            'EBSEnabled': True|False,
-                            'VolumeType': 'standard'|'gp2'|'io1',
-                            'VolumeSize': 123,
-                            'Iops': 123
+                    \'EBSOptions\': {
+                        \'Options\': {
+                            \'EBSEnabled\': True|False,
+                            \'VolumeType\': \'standard\'|\'gp2\'|\'io1\',
+                            \'VolumeSize\': 123,
+                            \'Iops\': 123
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'AccessPolicies': {
-                        'Options': 'string',
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                    \'AccessPolicies\': {
+                        \'Options\': \'string\',
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'SnapshotOptions': {
-                        'Options': {
-                            'AutomatedSnapshotStartHour': 123
+                    \'SnapshotOptions\': {
+                        \'Options\': {
+                            \'AutomatedSnapshotStartHour\': 123
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'VPCOptions': {
-                        'Options': {
-                            'VPCId': 'string',
-                            'SubnetIds': [
-                                'string',
+                    \'VPCOptions\': {
+                        \'Options\': {
+                            \'VPCId\': \'string\',
+                            \'SubnetIds\': [
+                                \'string\',
                             ],
-                            'AvailabilityZones': [
-                                'string',
+                            \'AvailabilityZones\': [
+                                \'string\',
                             ],
-                            'SecurityGroupIds': [
-                                'string',
+                            \'SecurityGroupIds\': [
+                                \'string\',
                             ]
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'CognitoOptions': {
-                        'Options': {
-                            'Enabled': True|False,
-                            'UserPoolId': 'string',
-                            'IdentityPoolId': 'string',
-                            'RoleArn': 'string'
+                    \'CognitoOptions\': {
+                        \'Options\': {
+                            \'Enabled\': True|False,
+                            \'UserPoolId\': \'string\',
+                            \'IdentityPoolId\': \'string\',
+                            \'RoleArn\': \'string\'
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'EncryptionAtRestOptions': {
-                        'Options': {
-                            'Enabled': True|False,
-                            'KmsKeyId': 'string'
+                    \'EncryptionAtRestOptions\': {
+                        \'Options\': {
+                            \'Enabled\': True|False,
+                            \'KmsKeyId\': \'string\'
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'NodeToNodeEncryptionOptions': {
-                        'Options': {
-                            'Enabled': True|False
+                    \'NodeToNodeEncryptionOptions\': {
+                        \'Options\': {
+                            \'Enabled\': True|False
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'AdvancedOptions': {
-                        'Options': {
-                            'string': 'string'
+                    \'AdvancedOptions\': {
+                        \'Options\': {
+                            \'string\': \'string\'
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'LogPublishingOptions': {
-                        'Options': {
-                            'string': {
-                                'CloudWatchLogsLogGroupArn': 'string',
-                                'Enabled': True|False
+                    \'LogPublishingOptions\': {
+                        \'Options\': {
+                            \'string\': {
+                                \'CloudWatchLogsLogGroupArn\': \'string\',
+                                \'Enabled\': True|False
                             }
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     }
                 }
@@ -1768,7 +1768,7 @@ class Client(BaseClient):
         
                 - **Status** *(dict) --* 
         
-                  The status of the access policy for the Elasticsearch domain. See ``OptionStatus`` for the status information that's included. 
+                  The status of the access policy for the Elasticsearch domain. See ``OptionStatus`` for the status information that\'s included. 
         
                   - **CreationDate** *(datetime) --* 
         
@@ -2076,7 +2076,7 @@ class Client(BaseClient):
         
                 - **Status** *(dict) --* 
         
-                  The status of the log publishing options for the Elasticsearch domain. See ``OptionStatus`` for the status information that's included. 
+                  The status of the log publishing options for the Elasticsearch domain. See ``OptionStatus`` for the status information that\'s included. 
         
                   - **CreationDate** *(datetime) --* 
         
@@ -2111,7 +2111,7 @@ class Client(BaseClient):
         
           response = client.describe_elasticsearch_domains(
               DomainNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DomainNames: list
@@ -2131,80 +2131,80 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainStatusList': [
+                \'DomainStatusList\': [
                     {
-                        'DomainId': 'string',
-                        'DomainName': 'string',
-                        'ARN': 'string',
-                        'Created': True|False,
-                        'Deleted': True|False,
-                        'Endpoint': 'string',
-                        'Endpoints': {
-                            'string': 'string'
+                        \'DomainId\': \'string\',
+                        \'DomainName\': \'string\',
+                        \'ARN\': \'string\',
+                        \'Created\': True|False,
+                        \'Deleted\': True|False,
+                        \'Endpoint\': \'string\',
+                        \'Endpoints\': {
+                            \'string\': \'string\'
                         },
-                        'Processing': True|False,
-                        'UpgradeProcessing': True|False,
-                        'ElasticsearchVersion': 'string',
-                        'ElasticsearchClusterConfig': {
-                            'InstanceType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                            'InstanceCount': 123,
-                            'DedicatedMasterEnabled': True|False,
-                            'ZoneAwarenessEnabled': True|False,
-                            'DedicatedMasterType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                            'DedicatedMasterCount': 123
+                        \'Processing\': True|False,
+                        \'UpgradeProcessing\': True|False,
+                        \'ElasticsearchVersion\': \'string\',
+                        \'ElasticsearchClusterConfig\': {
+                            \'InstanceType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                            \'InstanceCount\': 123,
+                            \'DedicatedMasterEnabled\': True|False,
+                            \'ZoneAwarenessEnabled\': True|False,
+                            \'DedicatedMasterType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                            \'DedicatedMasterCount\': 123
                         },
-                        'EBSOptions': {
-                            'EBSEnabled': True|False,
-                            'VolumeType': 'standard'|'gp2'|'io1',
-                            'VolumeSize': 123,
-                            'Iops': 123
+                        \'EBSOptions\': {
+                            \'EBSEnabled\': True|False,
+                            \'VolumeType\': \'standard\'|\'gp2\'|\'io1\',
+                            \'VolumeSize\': 123,
+                            \'Iops\': 123
                         },
-                        'AccessPolicies': 'string',
-                        'SnapshotOptions': {
-                            'AutomatedSnapshotStartHour': 123
+                        \'AccessPolicies\': \'string\',
+                        \'SnapshotOptions\': {
+                            \'AutomatedSnapshotStartHour\': 123
                         },
-                        'VPCOptions': {
-                            'VPCId': 'string',
-                            'SubnetIds': [
-                                'string',
+                        \'VPCOptions\': {
+                            \'VPCId\': \'string\',
+                            \'SubnetIds\': [
+                                \'string\',
                             ],
-                            'AvailabilityZones': [
-                                'string',
+                            \'AvailabilityZones\': [
+                                \'string\',
                             ],
-                            'SecurityGroupIds': [
-                                'string',
+                            \'SecurityGroupIds\': [
+                                \'string\',
                             ]
                         },
-                        'CognitoOptions': {
-                            'Enabled': True|False,
-                            'UserPoolId': 'string',
-                            'IdentityPoolId': 'string',
-                            'RoleArn': 'string'
+                        \'CognitoOptions\': {
+                            \'Enabled\': True|False,
+                            \'UserPoolId\': \'string\',
+                            \'IdentityPoolId\': \'string\',
+                            \'RoleArn\': \'string\'
                         },
-                        'EncryptionAtRestOptions': {
-                            'Enabled': True|False,
-                            'KmsKeyId': 'string'
+                        \'EncryptionAtRestOptions\': {
+                            \'Enabled\': True|False,
+                            \'KmsKeyId\': \'string\'
                         },
-                        'NodeToNodeEncryptionOptions': {
-                            'Enabled': True|False
+                        \'NodeToNodeEncryptionOptions\': {
+                            \'Enabled\': True|False
                         },
-                        'AdvancedOptions': {
-                            'string': 'string'
+                        \'AdvancedOptions\': {
+                            \'string\': \'string\'
                         },
-                        'LogPublishingOptions': {
-                            'string': {
-                                'CloudWatchLogsLogGroupArn': 'string',
-                                'Enabled': True|False
+                        \'LogPublishingOptions\': {
+                            \'string\': {
+                                \'CloudWatchLogsLogGroupArn\': \'string\',
+                                \'Enabled\': True|False
                             }
                         },
-                        'ServiceSoftwareOptions': {
-                            'CurrentVersion': 'string',
-                            'NewVersion': 'string',
-                            'UpdateAvailable': True|False,
-                            'Cancellable': True|False,
-                            'UpdateStatus': 'PENDING_UPDATE'|'IN_PROGRESS'|'COMPLETED'|'NOT_ELIGIBLE'|'ELIGIBLE',
-                            'Description': 'string',
-                            'AutomatedUpdateDate': datetime(2015, 1, 1)
+                        \'ServiceSoftwareOptions\': {
+                            \'CurrentVersion\': \'string\',
+                            \'NewVersion\': \'string\',
+                            \'UpdateAvailable\': True|False,
+                            \'Cancellable\': True|False,
+                            \'UpdateStatus\': \'PENDING_UPDATE\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'NOT_ELIGIBLE\'|\'ELIGIBLE\',
+                            \'Description\': \'string\',
+                            \'AutomatedUpdateDate\': datetime(2015, 1, 1)
                         }
                     },
                 ]
@@ -2249,7 +2249,7 @@ class Client(BaseClient):
         
                 - **Endpoints** *(dict) --* 
         
-                  Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example ``key, value`` : ``'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'`` .
+                  Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example ``key, value`` : ``\'vpc\',\'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com\'`` .
         
                   - *(string) --* 
                     
@@ -2433,7 +2433,7 @@ class Client(BaseClient):
         
                 - **ServiceSoftwareOptions** *(dict) --* 
         
-                  The current status of the Elasticsearch domain's service software.
+                  The current status of the Elasticsearch domain\'s service software.
         
                   - **CurrentVersion** *(string) --* 
         
@@ -2475,9 +2475,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_elasticsearch_instance_type_limits(
-              DomainName='string',
-              InstanceType='m3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-              ElasticsearchVersion='string'
+              DomainName=\'string\',
+              InstanceType=\'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+              ElasticsearchVersion=\'string\'
           )
         :type DomainName: string
         :param DomainName: 
@@ -2502,33 +2502,33 @@ class Client(BaseClient):
           ::
         
             {
-                'LimitsByRole': {
-                    'string': {
-                        'StorageTypes': [
+                \'LimitsByRole\': {
+                    \'string\': {
+                        \'StorageTypes\': [
                             {
-                                'StorageTypeName': 'string',
-                                'StorageSubTypeName': 'string',
-                                'StorageTypeLimits': [
+                                \'StorageTypeName\': \'string\',
+                                \'StorageSubTypeName\': \'string\',
+                                \'StorageTypeLimits\': [
                                     {
-                                        'LimitName': 'string',
-                                        'LimitValues': [
-                                            'string',
+                                        \'LimitName\': \'string\',
+                                        \'LimitValues\': [
+                                            \'string\',
                                         ]
                                     },
                                 ]
                             },
                         ],
-                        'InstanceLimits': {
-                            'InstanceCountLimits': {
-                                'MinimumInstanceCount': 123,
-                                'MaximumInstanceCount': 123
+                        \'InstanceLimits\': {
+                            \'InstanceCountLimits\': {
+                                \'MinimumInstanceCount\': 123,
+                                \'MaximumInstanceCount\': 123
                             }
                         },
-                        'AdditionalLimits': [
+                        \'AdditionalLimits\': [
                             {
-                                'LimitName': 'string',
-                                'LimitValues': [
-                                    'string',
+                                \'LimitName\': \'string\',
+                                \'LimitValues\': [
+                                    \'string\',
                                 ]
                             },
                         ]
@@ -2553,7 +2553,7 @@ class Client(BaseClient):
                 
                 - *(dict) --* 
         
-                  Limits for given InstanceType and for each of it's role. Limits contains following ``  StorageTypes, ``  ``  InstanceLimits `` and ``  AdditionalLimits ``  
+                  Limits for given InstanceType and for each of it\'s role. Limits contains following ``  StorageTypes, ``  ``  InstanceLimits `` and ``  AdditionalLimits ``  
         
                   - **StorageTypes** *(list) --* 
         
@@ -2574,7 +2574,7 @@ class Client(BaseClient):
         
                       - **StorageSubTypeName** *(string) --* 
         
-                        SubType of the given storage type. List of available sub-storage options: For "instance" storageType we wont have any storageSubType, in case of "ebs" storageType we will have following valid storageSubTypes 
+                        SubType of the given storage type. List of available sub-storage options: For \"instance\" storageType we wont have any storageSubType, in case of \"ebs\" storageType we will have following valid storageSubTypes 
         
                         * standard
                          
@@ -2629,20 +2629,20 @@ class Client(BaseClient):
         
                   - **AdditionalLimits** *(list) --* 
         
-                    List of additional limits that are specific to a given InstanceType and for each of it's ``  InstanceRole `` . 
+                    List of additional limits that are specific to a given InstanceType and for each of it\'s ``  InstanceRole `` . 
         
                     - *(dict) --* 
         
-                      List of limits that are specific to a given InstanceType and for each of it's ``  InstanceRole `` . 
+                      List of limits that are specific to a given InstanceType and for each of it\'s ``  InstanceRole `` . 
         
                       - **LimitName** *(string) --* 
         
-                        Name of Additional Limit is specific to a given InstanceType and for each of it's ``  InstanceRole `` etc. Attributes and their details:  
+                        Name of Additional Limit is specific to a given InstanceType and for each of it\'s ``  InstanceRole `` etc. Attributes and their details:  
         
                         * MaximumNumberOfDataNodesSupported
                         This attribute will be present in Master node only to specify how much data nodes upto which given ``  ESPartitionInstanceType `` can support as master node. 
                         * MaximumNumberOfDataNodesWithoutMasterNode
-                        This attribute will be present in Data node only to specify how much data nodes of given ``  ESPartitionInstanceType `` upto which you don't need any master nodes to govern them. 
+                        This attribute will be present in Data node only to specify how much data nodes of given ``  ESPartitionInstanceType `` upto which you don\'t need any master nodes to govern them. 
         
                       - **LimitValues** *(list) --* 
         
@@ -2662,9 +2662,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_reserved_elasticsearch_instance_offerings(
-              ReservedElasticsearchInstanceOfferingId='string',
+              ReservedElasticsearchInstanceOfferingId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ReservedElasticsearchInstanceOfferingId: string
         :param ReservedElasticsearchInstanceOfferingId: 
@@ -2689,20 +2689,20 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'ReservedElasticsearchInstanceOfferings': [
+                \'NextToken\': \'string\',
+                \'ReservedElasticsearchInstanceOfferings\': [
                     {
-                        'ReservedElasticsearchInstanceOfferingId': 'string',
-                        'ElasticsearchInstanceType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                        'Duration': 123,
-                        'FixedPrice': 123.0,
-                        'UsagePrice': 123.0,
-                        'CurrencyCode': 'string',
-                        'PaymentOption': 'ALL_UPFRONT'|'PARTIAL_UPFRONT'|'NO_UPFRONT',
-                        'RecurringCharges': [
+                        \'ReservedElasticsearchInstanceOfferingId\': \'string\',
+                        \'ElasticsearchInstanceType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                        \'Duration\': 123,
+                        \'FixedPrice\': 123.0,
+                        \'UsagePrice\': 123.0,
+                        \'CurrencyCode\': \'string\',
+                        \'PaymentOption\': \'ALL_UPFRONT\'|\'PARTIAL_UPFRONT\'|\'NO_UPFRONT\',
+                        \'RecurringCharges\': [
                             {
-                                'RecurringChargeAmount': 123.0,
-                                'RecurringChargeFrequency': 'string'
+                                \'RecurringChargeAmount\': 123.0,
+                                \'RecurringChargeFrequency\': \'string\'
                             },
                         ]
                     },
@@ -2782,9 +2782,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_reserved_elasticsearch_instances(
-              ReservedElasticsearchInstanceId='string',
+              ReservedElasticsearchInstanceId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ReservedElasticsearchInstanceId: string
         :param ReservedElasticsearchInstanceId: 
@@ -2809,25 +2809,25 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'ReservedElasticsearchInstances': [
+                \'NextToken\': \'string\',
+                \'ReservedElasticsearchInstances\': [
                     {
-                        'ReservationName': 'string',
-                        'ReservedElasticsearchInstanceId': 'string',
-                        'ReservedElasticsearchInstanceOfferingId': 'string',
-                        'ElasticsearchInstanceType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                        'StartTime': datetime(2015, 1, 1),
-                        'Duration': 123,
-                        'FixedPrice': 123.0,
-                        'UsagePrice': 123.0,
-                        'CurrencyCode': 'string',
-                        'ElasticsearchInstanceCount': 123,
-                        'State': 'string',
-                        'PaymentOption': 'ALL_UPFRONT'|'PARTIAL_UPFRONT'|'NO_UPFRONT',
-                        'RecurringCharges': [
+                        \'ReservationName\': \'string\',
+                        \'ReservedElasticsearchInstanceId\': \'string\',
+                        \'ReservedElasticsearchInstanceOfferingId\': \'string\',
+                        \'ElasticsearchInstanceType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'Duration\': 123,
+                        \'FixedPrice\': 123.0,
+                        \'UsagePrice\': 123.0,
+                        \'CurrencyCode\': \'string\',
+                        \'ElasticsearchInstanceCount\': 123,
+                        \'State\': \'string\',
+                        \'PaymentOption\': \'ALL_UPFRONT\'|\'PARTIAL_UPFRONT\'|\'NO_UPFRONT\',
+                        \'RecurringCharges\': [
                             {
-                                'RecurringChargeAmount': 123.0,
-                                'RecurringChargeFrequency': 'string'
+                                \'RecurringChargeAmount\': 123.0,
+                                \'RecurringChargeFrequency\': \'string\'
                             },
                         ]
                     },
@@ -2934,7 +2934,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2949,7 +2949,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_compatible_elasticsearch_versions(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: 
@@ -2964,11 +2964,11 @@ class Client(BaseClient):
           ::
         
             {
-                'CompatibleElasticsearchVersions': [
+                \'CompatibleElasticsearchVersions\': [
                     {
-                        'SourceVersion': 'string',
-                        'TargetVersions': [
-                            'string',
+                        \'SourceVersion\': \'string\',
+                        \'TargetVersions\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -3006,10 +3006,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3029,9 +3029,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_upgrade_history(
-              DomainName='string',
+              DomainName=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -3056,24 +3056,24 @@ class Client(BaseClient):
           ::
         
             {
-                'UpgradeHistories': [
+                \'UpgradeHistories\': [
                     {
-                        'UpgradeName': 'string',
-                        'StartTimestamp': datetime(2015, 1, 1),
-                        'UpgradeStatus': 'IN_PROGRESS'|'SUCCEEDED'|'SUCCEEDED_WITH_ISSUES'|'FAILED',
-                        'StepsList': [
+                        \'UpgradeName\': \'string\',
+                        \'StartTimestamp\': datetime(2015, 1, 1),
+                        \'UpgradeStatus\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'SUCCEEDED_WITH_ISSUES\'|\'FAILED\',
+                        \'StepsList\': [
                             {
-                                'UpgradeStep': 'PRE_UPGRADE_CHECK'|'SNAPSHOT'|'UPGRADE',
-                                'UpgradeStepStatus': 'IN_PROGRESS'|'SUCCEEDED'|'SUCCEEDED_WITH_ISSUES'|'FAILED',
-                                'Issues': [
-                                    'string',
+                                \'UpgradeStep\': \'PRE_UPGRADE_CHECK\'|\'SNAPSHOT\'|\'UPGRADE\',
+                                \'UpgradeStepStatus\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'SUCCEEDED_WITH_ISSUES\'|\'FAILED\',
+                                \'Issues\': [
+                                    \'string\',
                                 ],
-                                'ProgressPercent': 123.0
+                                \'ProgressPercent\': 123.0
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3095,7 +3095,7 @@ class Client(BaseClient):
         
                 - **StartTimestamp** *(datetime) --* 
         
-                  UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
+                  UTC Timestamp at which the Upgrade API call was made in \"yyyy-MM-ddTHH:mm:ssZ\" format.
         
                 - **UpgradeStatus** *(string) --* 
         
@@ -3165,7 +3165,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_upgrade_status(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -3180,9 +3180,9 @@ class Client(BaseClient):
           ::
         
             {
-                'UpgradeStep': 'PRE_UPGRADE_CHECK'|'SNAPSHOT'|'UPGRADE',
-                'StepStatus': 'IN_PROGRESS'|'SUCCEEDED'|'SUCCEEDED_WITH_ISSUES'|'FAILED',
-                'UpgradeName': 'string'
+                \'UpgradeStep\': \'PRE_UPGRADE_CHECK\'|\'SNAPSHOT\'|\'UPGRADE\',
+                \'StepStatus\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'SUCCEEDED_WITH_ISSUES\'|\'FAILED\',
+                \'UpgradeName\': \'string\'
             }
           **Response Structure** 
         
@@ -3249,9 +3249,9 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainNames': [
+                \'DomainNames\': [
                     {
-                        'DomainName': 'string'
+                        \'DomainName\': \'string\'
                     },
                 ]
             }
@@ -3283,10 +3283,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_elasticsearch_instance_types(
-              ElasticsearchVersion='string',
-              DomainName='string',
+              ElasticsearchVersion=\'string\',
+              DomainName=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ElasticsearchVersion: string
         :param ElasticsearchVersion: **[REQUIRED]** 
@@ -3316,10 +3316,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ElasticsearchInstanceTypes': [
-                    'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
+                \'ElasticsearchInstanceTypes\': [
+                    \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3350,7 +3350,7 @@ class Client(BaseClient):
         
           response = client.list_elasticsearch_versions(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -3370,10 +3370,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ElasticsearchVersions': [
-                    'string',
+                \'ElasticsearchVersions\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3403,7 +3403,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags(
-              ARN='string'
+              ARN=\'string\'
           )
         :type ARN: string
         :param ARN: **[REQUIRED]** 
@@ -3418,10 +3418,10 @@ class Client(BaseClient):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -3459,8 +3459,8 @@ class Client(BaseClient):
         ::
         
           response = client.purchase_reserved_elasticsearch_instance_offering(
-              ReservedElasticsearchInstanceOfferingId='string',
-              ReservationName='string',
+              ReservedElasticsearchInstanceOfferingId=\'string\',
+              ReservationName=\'string\',
               InstanceCount=123
           )
         :type ReservedElasticsearchInstanceOfferingId: string
@@ -3486,8 +3486,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ReservedElasticsearchInstanceId': 'string',
-                'ReservationName': 'string'
+                \'ReservedElasticsearchInstanceId\': \'string\',
+                \'ReservationName\': \'string\'
             }
           **Response Structure** 
         
@@ -3515,9 +3515,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags(
-              ARN='string',
+              ARN=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ARN: string
@@ -3545,7 +3545,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_elasticsearch_service_software_update(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -3560,14 +3560,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceSoftwareOptions': {
-                    'CurrentVersion': 'string',
-                    'NewVersion': 'string',
-                    'UpdateAvailable': True|False,
-                    'Cancellable': True|False,
-                    'UpdateStatus': 'PENDING_UPDATE'|'IN_PROGRESS'|'COMPLETED'|'NOT_ELIGIBLE'|'ELIGIBLE',
-                    'Description': 'string',
-                    'AutomatedUpdateDate': datetime(2015, 1, 1)
+                \'ServiceSoftwareOptions\': {
+                    \'CurrentVersion\': \'string\',
+                    \'NewVersion\': \'string\',
+                    \'UpdateAvailable\': True|False,
+                    \'Cancellable\': True|False,
+                    \'UpdateStatus\': \'PENDING_UPDATE\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'NOT_ELIGIBLE\'|\'ELIGIBLE\',
+                    \'Description\': \'string\',
+                    \'AutomatedUpdateDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -3620,46 +3620,46 @@ class Client(BaseClient):
         ::
         
           response = client.update_elasticsearch_domain_config(
-              DomainName='string',
+              DomainName=\'string\',
               ElasticsearchClusterConfig={
-                  'InstanceType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                  'InstanceCount': 123,
-                  'DedicatedMasterEnabled': True|False,
-                  'ZoneAwarenessEnabled': True|False,
-                  'DedicatedMasterType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                  'DedicatedMasterCount': 123
+                  \'InstanceType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                  \'InstanceCount\': 123,
+                  \'DedicatedMasterEnabled\': True|False,
+                  \'ZoneAwarenessEnabled\': True|False,
+                  \'DedicatedMasterType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                  \'DedicatedMasterCount\': 123
               },
               EBSOptions={
-                  'EBSEnabled': True|False,
-                  'VolumeType': 'standard'|'gp2'|'io1',
-                  'VolumeSize': 123,
-                  'Iops': 123
+                  \'EBSEnabled\': True|False,
+                  \'VolumeType\': \'standard\'|\'gp2\'|\'io1\',
+                  \'VolumeSize\': 123,
+                  \'Iops\': 123
               },
               SnapshotOptions={
-                  'AutomatedSnapshotStartHour': 123
+                  \'AutomatedSnapshotStartHour\': 123
               },
               VPCOptions={
-                  'SubnetIds': [
-                      'string',
+                  \'SubnetIds\': [
+                      \'string\',
                   ],
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ]
               },
               CognitoOptions={
-                  'Enabled': True|False,
-                  'UserPoolId': 'string',
-                  'IdentityPoolId': 'string',
-                  'RoleArn': 'string'
+                  \'Enabled\': True|False,
+                  \'UserPoolId\': \'string\',
+                  \'IdentityPoolId\': \'string\',
+                  \'RoleArn\': \'string\'
               },
               AdvancedOptions={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              AccessPolicies='string',
+              AccessPolicies=\'string\',
               LogPublishingOptions={
-                  'string': {
-                      'CloudWatchLogsLogGroupArn': 'string',
-                      'Enabled': True|False
+                  \'string\': {
+                      \'CloudWatchLogsLogGroupArn\': \'string\',
+                      \'Enabled\': True|False
                   }
               }
           )
@@ -3818,157 +3818,157 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainConfig': {
-                    'ElasticsearchVersion': {
-                        'Options': 'string',
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                \'DomainConfig\': {
+                    \'ElasticsearchVersion\': {
+                        \'Options\': \'string\',
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'ElasticsearchClusterConfig': {
-                        'Options': {
-                            'InstanceType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                            'InstanceCount': 123,
-                            'DedicatedMasterEnabled': True|False,
-                            'ZoneAwarenessEnabled': True|False,
-                            'DedicatedMasterType': 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch',
-                            'DedicatedMasterCount': 123
+                    \'ElasticsearchClusterConfig\': {
+                        \'Options\': {
+                            \'InstanceType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                            \'InstanceCount\': 123,
+                            \'DedicatedMasterEnabled\': True|False,
+                            \'ZoneAwarenessEnabled\': True|False,
+                            \'DedicatedMasterType\': \'m3.medium.elasticsearch\'|\'m3.large.elasticsearch\'|\'m3.xlarge.elasticsearch\'|\'m3.2xlarge.elasticsearch\'|\'m4.large.elasticsearch\'|\'m4.xlarge.elasticsearch\'|\'m4.2xlarge.elasticsearch\'|\'m4.4xlarge.elasticsearch\'|\'m4.10xlarge.elasticsearch\'|\'t2.micro.elasticsearch\'|\'t2.small.elasticsearch\'|\'t2.medium.elasticsearch\'|\'r3.large.elasticsearch\'|\'r3.xlarge.elasticsearch\'|\'r3.2xlarge.elasticsearch\'|\'r3.4xlarge.elasticsearch\'|\'r3.8xlarge.elasticsearch\'|\'i2.xlarge.elasticsearch\'|\'i2.2xlarge.elasticsearch\'|\'d2.xlarge.elasticsearch\'|\'d2.2xlarge.elasticsearch\'|\'d2.4xlarge.elasticsearch\'|\'d2.8xlarge.elasticsearch\'|\'c4.large.elasticsearch\'|\'c4.xlarge.elasticsearch\'|\'c4.2xlarge.elasticsearch\'|\'c4.4xlarge.elasticsearch\'|\'c4.8xlarge.elasticsearch\'|\'r4.large.elasticsearch\'|\'r4.xlarge.elasticsearch\'|\'r4.2xlarge.elasticsearch\'|\'r4.4xlarge.elasticsearch\'|\'r4.8xlarge.elasticsearch\'|\'r4.16xlarge.elasticsearch\'|\'i3.large.elasticsearch\'|\'i3.xlarge.elasticsearch\'|\'i3.2xlarge.elasticsearch\'|\'i3.4xlarge.elasticsearch\'|\'i3.8xlarge.elasticsearch\'|\'i3.16xlarge.elasticsearch\',
+                            \'DedicatedMasterCount\': 123
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'EBSOptions': {
-                        'Options': {
-                            'EBSEnabled': True|False,
-                            'VolumeType': 'standard'|'gp2'|'io1',
-                            'VolumeSize': 123,
-                            'Iops': 123
+                    \'EBSOptions\': {
+                        \'Options\': {
+                            \'EBSEnabled\': True|False,
+                            \'VolumeType\': \'standard\'|\'gp2\'|\'io1\',
+                            \'VolumeSize\': 123,
+                            \'Iops\': 123
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'AccessPolicies': {
-                        'Options': 'string',
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                    \'AccessPolicies\': {
+                        \'Options\': \'string\',
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'SnapshotOptions': {
-                        'Options': {
-                            'AutomatedSnapshotStartHour': 123
+                    \'SnapshotOptions\': {
+                        \'Options\': {
+                            \'AutomatedSnapshotStartHour\': 123
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'VPCOptions': {
-                        'Options': {
-                            'VPCId': 'string',
-                            'SubnetIds': [
-                                'string',
+                    \'VPCOptions\': {
+                        \'Options\': {
+                            \'VPCId\': \'string\',
+                            \'SubnetIds\': [
+                                \'string\',
                             ],
-                            'AvailabilityZones': [
-                                'string',
+                            \'AvailabilityZones\': [
+                                \'string\',
                             ],
-                            'SecurityGroupIds': [
-                                'string',
+                            \'SecurityGroupIds\': [
+                                \'string\',
                             ]
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'CognitoOptions': {
-                        'Options': {
-                            'Enabled': True|False,
-                            'UserPoolId': 'string',
-                            'IdentityPoolId': 'string',
-                            'RoleArn': 'string'
+                    \'CognitoOptions\': {
+                        \'Options\': {
+                            \'Enabled\': True|False,
+                            \'UserPoolId\': \'string\',
+                            \'IdentityPoolId\': \'string\',
+                            \'RoleArn\': \'string\'
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'EncryptionAtRestOptions': {
-                        'Options': {
-                            'Enabled': True|False,
-                            'KmsKeyId': 'string'
+                    \'EncryptionAtRestOptions\': {
+                        \'Options\': {
+                            \'Enabled\': True|False,
+                            \'KmsKeyId\': \'string\'
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'NodeToNodeEncryptionOptions': {
-                        'Options': {
-                            'Enabled': True|False
+                    \'NodeToNodeEncryptionOptions\': {
+                        \'Options\': {
+                            \'Enabled\': True|False
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'AdvancedOptions': {
-                        'Options': {
-                            'string': 'string'
+                    \'AdvancedOptions\': {
+                        \'Options\': {
+                            \'string\': \'string\'
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     },
-                    'LogPublishingOptions': {
-                        'Options': {
-                            'string': {
-                                'CloudWatchLogsLogGroupArn': 'string',
-                                'Enabled': True|False
+                    \'LogPublishingOptions\': {
+                        \'Options\': {
+                            \'string\': {
+                                \'CloudWatchLogsLogGroupArn\': \'string\',
+                                \'Enabled\': True|False
                             }
                         },
-                        'Status': {
-                            'CreationDate': datetime(2015, 1, 1),
-                            'UpdateDate': datetime(2015, 1, 1),
-                            'UpdateVersion': 123,
-                            'State': 'RequiresIndexDocuments'|'Processing'|'Active',
-                            'PendingDeletion': True|False
+                        \'Status\': {
+                            \'CreationDate\': datetime(2015, 1, 1),
+                            \'UpdateDate\': datetime(2015, 1, 1),
+                            \'UpdateVersion\': 123,
+                            \'State\': \'RequiresIndexDocuments\'|\'Processing\'|\'Active\',
+                            \'PendingDeletion\': True|False
                         }
                     }
                 }
@@ -4129,7 +4129,7 @@ class Client(BaseClient):
         
                 - **Status** *(dict) --* 
         
-                  The status of the access policy for the Elasticsearch domain. See ``OptionStatus`` for the status information that's included. 
+                  The status of the access policy for the Elasticsearch domain. See ``OptionStatus`` for the status information that\'s included. 
         
                   - **CreationDate** *(datetime) --* 
         
@@ -4437,7 +4437,7 @@ class Client(BaseClient):
         
                 - **Status** *(dict) --* 
         
-                  The status of the log publishing options for the Elasticsearch domain. See ``OptionStatus`` for the status information that's included. 
+                  The status of the log publishing options for the Elasticsearch domain. See ``OptionStatus`` for the status information that\'s included. 
         
                   - **CreationDate** *(datetime) --* 
         
@@ -4471,8 +4471,8 @@ class Client(BaseClient):
         ::
         
           response = client.upgrade_elasticsearch_domain(
-              DomainName='string',
-              TargetVersion='string',
+              DomainName=\'string\',
+              TargetVersion=\'string\',
               PerformCheckOnly=True|False
           )
         :type DomainName: string
@@ -4498,9 +4498,9 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainName': 'string',
-                'TargetVersion': 'string',
-                'PerformCheckOnly': True|False
+                \'DomainName\': \'string\',
+                \'TargetVersion\': \'string\',
+                \'PerformCheckOnly\': True|False
             }
           **Response Structure** 
         

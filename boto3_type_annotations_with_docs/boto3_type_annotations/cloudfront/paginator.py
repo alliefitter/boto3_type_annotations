@@ -13,9 +13,9 @@ class ListCloudFrontOriginAccessIdentities(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,21 +43,21 @@ class ListCloudFrontOriginAccessIdentities(Paginator):
           ::
         
             {
-                'CloudFrontOriginAccessIdentityList': {
-                    'Marker': 'string',
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'IsTruncated': True|False,
-                    'Quantity': 123,
-                    'Items': [
+                \'CloudFrontOriginAccessIdentityList\': {
+                    \'Marker\': \'string\',
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'IsTruncated\': True|False,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'S3CanonicalUserId': 'string',
-                            'Comment': 'string'
+                            \'Id\': \'string\',
+                            \'S3CanonicalUserId\': \'string\',
+                            \'Comment\': \'string\'
                         },
                     ]
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -71,7 +71,7 @@ class ListCloudFrontOriginAccessIdentities(Paginator):
         
               - **Marker** *(string) --* 
         
-                Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page's response (which is also the ID of the last identity on that page). 
+                Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page\'s response (which is also the ID of the last identity on that page). 
         
               - **NextMarker** *(string) --* 
         
@@ -128,9 +128,9 @@ class ListDistributions(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -158,231 +158,231 @@ class ListDistributions(Paginator):
           ::
         
             {
-                'DistributionList': {
-                    'Marker': 'string',
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'IsTruncated': True|False,
-                    'Quantity': 123,
-                    'Items': [
+                \'DistributionList\': {
+                    \'Marker\': \'string\',
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'IsTruncated\': True|False,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'ARN': 'string',
-                            'Status': 'string',
-                            'LastModifiedTime': datetime(2015, 1, 1),
-                            'DomainName': 'string',
-                            'Aliases': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'Id\': \'string\',
+                            \'ARN\': \'string\',
+                            \'Status\': \'string\',
+                            \'LastModifiedTime\': datetime(2015, 1, 1),
+                            \'DomainName\': \'string\',
+                            \'Aliases\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'Origins': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'Origins\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'Id': 'string',
-                                        'DomainName': 'string',
-                                        'OriginPath': 'string',
-                                        'CustomHeaders': {
-                                            'Quantity': 123,
-                                            'Items': [
+                                        \'Id\': \'string\',
+                                        \'DomainName\': \'string\',
+                                        \'OriginPath\': \'string\',
+                                        \'CustomHeaders\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
                                                 {
-                                                    'HeaderName': 'string',
-                                                    'HeaderValue': 'string'
+                                                    \'HeaderName\': \'string\',
+                                                    \'HeaderValue\': \'string\'
                                                 },
                                             ]
                                         },
-                                        'S3OriginConfig': {
-                                            'OriginAccessIdentity': 'string'
+                                        \'S3OriginConfig\': {
+                                            \'OriginAccessIdentity\': \'string\'
                                         },
-                                        'CustomOriginConfig': {
-                                            'HTTPPort': 123,
-                                            'HTTPSPort': 123,
-                                            'OriginProtocolPolicy': 'http-only'|'match-viewer'|'https-only',
-                                            'OriginSslProtocols': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'SSLv3'|'TLSv1'|'TLSv1.1'|'TLSv1.2',
+                                        \'CustomOriginConfig\': {
+                                            \'HTTPPort\': 123,
+                                            \'HTTPSPort\': 123,
+                                            \'OriginProtocolPolicy\': \'http-only\'|\'match-viewer\'|\'https-only\',
+                                            \'OriginSslProtocols\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'SSLv3\'|\'TLSv1\'|\'TLSv1.1\'|\'TLSv1.2\',
                                                 ]
                                             },
-                                            'OriginReadTimeout': 123,
-                                            'OriginKeepaliveTimeout': 123
+                                            \'OriginReadTimeout\': 123,
+                                            \'OriginKeepaliveTimeout\': 123
                                         }
                                     },
                                 ]
                             },
-                            'DefaultCacheBehavior': {
-                                'TargetOriginId': 'string',
-                                'ForwardedValues': {
-                                    'QueryString': True|False,
-                                    'Cookies': {
-                                        'Forward': 'none'|'whitelist'|'all',
-                                        'WhitelistedNames': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                            \'DefaultCacheBehavior\': {
+                                \'TargetOriginId\': \'string\',
+                                \'ForwardedValues\': {
+                                    \'QueryString\': True|False,
+                                    \'Cookies\': {
+                                        \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                        \'WhitelistedNames\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         }
                                     },
-                                    'Headers': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'Headers\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'QueryStringCacheKeys': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'QueryStringCacheKeys\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'TrustedSigners': {
-                                    'Enabled': True|False,
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'TrustedSigners\': {
+                                    \'Enabled\': True|False,
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 },
-                                'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                'MinTTL': 123,
-                                'AllowedMethods': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                \'MinTTL\': 123,
+                                \'AllowedMethods\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                     ],
-                                    'CachedMethods': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                    \'CachedMethods\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                         ]
                                     }
                                 },
-                                'SmoothStreaming': True|False,
-                                'DefaultTTL': 123,
-                                'MaxTTL': 123,
-                                'Compress': True|False,
-                                'LambdaFunctionAssociations': {
-                                    'Quantity': 123,
-                                    'Items': [
+                                \'SmoothStreaming\': True|False,
+                                \'DefaultTTL\': 123,
+                                \'MaxTTL\': 123,
+                                \'Compress\': True|False,
+                                \'LambdaFunctionAssociations\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
                                         {
-                                            'LambdaFunctionARN': 'string',
-                                            'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                            'IncludeBody': True|False
+                                            \'LambdaFunctionARN\': \'string\',
+                                            \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                            \'IncludeBody\': True|False
                                         },
                                     ]
                                 },
-                                'FieldLevelEncryptionId': 'string'
+                                \'FieldLevelEncryptionId\': \'string\'
                             },
-                            'CacheBehaviors': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'CacheBehaviors\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'PathPattern': 'string',
-                                        'TargetOriginId': 'string',
-                                        'ForwardedValues': {
-                                            'QueryString': True|False,
-                                            'Cookies': {
-                                                'Forward': 'none'|'whitelist'|'all',
-                                                'WhitelistedNames': {
-                                                    'Quantity': 123,
-                                                    'Items': [
-                                                        'string',
+                                        \'PathPattern\': \'string\',
+                                        \'TargetOriginId\': \'string\',
+                                        \'ForwardedValues\': {
+                                            \'QueryString\': True|False,
+                                            \'Cookies\': {
+                                                \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                                \'WhitelistedNames\': {
+                                                    \'Quantity\': 123,
+                                                    \'Items\': [
+                                                        \'string\',
                                                     ]
                                                 }
                                             },
-                                            'Headers': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'string',
+                                            \'Headers\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'QueryStringCacheKeys': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'string',
+                                            \'QueryStringCacheKeys\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'TrustedSigners': {
-                                            'Enabled': True|False,
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'TrustedSigners\': {
+                                            \'Enabled\': True|False,
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         },
-                                        'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                        'MinTTL': 123,
-                                        'AllowedMethods': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                        \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                        \'MinTTL\': 123,
+                                        \'AllowedMethods\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                             ],
-                                            'CachedMethods': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                            \'CachedMethods\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                                 ]
                                             }
                                         },
-                                        'SmoothStreaming': True|False,
-                                        'DefaultTTL': 123,
-                                        'MaxTTL': 123,
-                                        'Compress': True|False,
-                                        'LambdaFunctionAssociations': {
-                                            'Quantity': 123,
-                                            'Items': [
+                                        \'SmoothStreaming\': True|False,
+                                        \'DefaultTTL\': 123,
+                                        \'MaxTTL\': 123,
+                                        \'Compress\': True|False,
+                                        \'LambdaFunctionAssociations\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
                                                 {
-                                                    'LambdaFunctionARN': 'string',
-                                                    'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                                    'IncludeBody': True|False
+                                                    \'LambdaFunctionARN\': \'string\',
+                                                    \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                                    \'IncludeBody\': True|False
                                                 },
                                             ]
                                         },
-                                        'FieldLevelEncryptionId': 'string'
+                                        \'FieldLevelEncryptionId\': \'string\'
                                     },
                                 ]
                             },
-                            'CustomErrorResponses': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'CustomErrorResponses\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'ErrorCode': 123,
-                                        'ResponsePagePath': 'string',
-                                        'ResponseCode': 'string',
-                                        'ErrorCachingMinTTL': 123
+                                        \'ErrorCode\': 123,
+                                        \'ResponsePagePath\': \'string\',
+                                        \'ResponseCode\': \'string\',
+                                        \'ErrorCachingMinTTL\': 123
                                     },
                                 ]
                             },
-                            'Comment': 'string',
-                            'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                            'Enabled': True|False,
-                            'ViewerCertificate': {
-                                'CloudFrontDefaultCertificate': True|False,
-                                'IAMCertificateId': 'string',
-                                'ACMCertificateArn': 'string',
-                                'SSLSupportMethod': 'sni-only'|'vip',
-                                'MinimumProtocolVersion': 'SSLv3'|'TLSv1'|'TLSv1_2016'|'TLSv1.1_2016'|'TLSv1.2_2018',
-                                'Certificate': 'string',
-                                'CertificateSource': 'cloudfront'|'iam'|'acm'
+                            \'Comment\': \'string\',
+                            \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                            \'Enabled\': True|False,
+                            \'ViewerCertificate\': {
+                                \'CloudFrontDefaultCertificate\': True|False,
+                                \'IAMCertificateId\': \'string\',
+                                \'ACMCertificateArn\': \'string\',
+                                \'SSLSupportMethod\': \'sni-only\'|\'vip\',
+                                \'MinimumProtocolVersion\': \'SSLv3\'|\'TLSv1\'|\'TLSv1_2016\'|\'TLSv1.1_2016\'|\'TLSv1.2_2018\',
+                                \'Certificate\': \'string\',
+                                \'CertificateSource\': \'cloudfront\'|\'iam\'|\'acm\'
                             },
-                            'Restrictions': {
-                                'GeoRestriction': {
-                                    'RestrictionType': 'blacklist'|'whitelist'|'none',
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                            \'Restrictions\': {
+                                \'GeoRestriction\': {
+                                    \'RestrictionType\': \'blacklist\'|\'whitelist\'|\'none\',
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
-                            'WebACLId': 'string',
-                            'HttpVersion': 'http1.1'|'http2',
-                            'IsIPV6Enabled': True|False
+                            \'WebACLId\': \'string\',
+                            \'HttpVersion\': \'http1.1\'|\'http2\',
+                            \'IsIPV6Enabled\': True|False
                         },
                     ]
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -432,7 +432,7 @@ class ListDistributions(Paginator):
         
                   - **Status** *(string) --* 
         
-                    The current status of the distribution. When the status is ``Deployed`` , the distribution's information is propagated to all CloudFront edge locations.
+                    The current status of the distribution. When the status is ``Deployed`` , the distribution\'s information is propagated to all CloudFront edge locations.
         
                   - **LastModifiedTime** *(datetime) --* 
         
@@ -486,7 +486,7 @@ class ListDistributions(Paginator):
         
                           Constraints for Amazon S3 origins: 
         
-                          * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
+                          * If you configured Amazon S3 Transfer Acceleration for your bucket, don\'t specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
                            
                           * The bucket name must be between 3 and 63 characters long (inclusive). 
                            
@@ -506,7 +506,7 @@ class ListDistributions(Paginator):
         
                           An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the ``OriginPath`` element, specify the directory name, beginning with a ``/`` . CloudFront appends the directory name to the value of ``DomainName`` , for example, ``example.com/production`` . Do not include a ``/`` at the end of the directory name.
         
-                          For example, suppose you've specified the following values for your distribution:
+                          For example, suppose you\'ve specified the following values for your distribution:
         
                           * ``DomainName`` : An Amazon S3 bucket named ``myawsbucket`` . 
                            
@@ -606,7 +606,7 @@ class ListDistributions(Paginator):
         
                   - **DefaultCacheBehavior** *(dict) --* 
         
-                    A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+                    A complex type that describes the default cache behavior if you don\'t specify a ``CacheBehavior`` element or if files don\'t match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         
                     - **TargetOriginId** *(string) --* 
         
@@ -620,11 +620,11 @@ class ListDistributions(Paginator):
         
                         Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                        If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                        If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                         If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                        If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                        If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                         For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -636,13 +636,13 @@ class ListDistributions(Paginator):
         
                           Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                          Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                          Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                         - **WhitelistedNames** *(dict) --* 
         
                           Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                          If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                          If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                           For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -668,11 +668,11 @@ class ListDistributions(Paginator):
         
                           .. warning::
         
-                             CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                             CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                           * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                            
-                          * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                          * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                            
                           Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -706,9 +706,9 @@ class ListDistributions(Paginator):
         
                       If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                      If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                      If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                      To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                      To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                       - **Enabled** *(boolean) --* 
         
@@ -738,7 +738,7 @@ class ListDistributions(Paginator):
         
                       .. note::
         
-                        The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                        The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                     - **MinTTL** *(integer) --* 
         
@@ -756,7 +756,7 @@ class ListDistributions(Paginator):
                        
                       * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                        
-                      If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                      If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                       - **Quantity** *(integer) --* 
         
@@ -820,7 +820,7 @@ class ListDistributions(Paginator):
         
                           - **LambdaFunctionARN** *(string) --* 
         
-                            The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                            The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                           - **EventType** *(string) --* 
         
@@ -828,11 +828,11 @@ class ListDistributions(Paginator):
         
                             * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                              
-                            * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                            * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                              
-                            * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                            * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                              
-                            * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                            * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                              
                           - **IncludeBody** *(boolean) --* 
         
@@ -862,7 +862,7 @@ class ListDistributions(Paginator):
         
                         For the current limit on the number of cache behaviors that you can add to a distribution, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
-                        If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
+                        If you don\'t want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don\'t include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
         
                         To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
         
@@ -894,11 +894,11 @@ class ListDistributions(Paginator):
         
                             Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                            If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                            If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                             If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                            If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                            If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                             For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -910,13 +910,13 @@ class ListDistributions(Paginator):
         
                               Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                              Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                              Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                             - **WhitelistedNames** *(dict) --* 
         
                               Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                              If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                              If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                               For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -942,11 +942,11 @@ class ListDistributions(Paginator):
         
                               .. warning::
         
-                                 CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                                 CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                               * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                                
-                              * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                              * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                                
                               Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -980,9 +980,9 @@ class ListDistributions(Paginator):
         
                           If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                          If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                          If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                          To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                          To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                           - **Enabled** *(boolean) --* 
         
@@ -1012,7 +1012,7 @@ class ListDistributions(Paginator):
         
                           .. note::
         
-                            The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                            The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                         - **MinTTL** *(integer) --* 
         
@@ -1030,7 +1030,7 @@ class ListDistributions(Paginator):
                            
                           * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                            
-                          If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                          If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                           - **Quantity** *(integer) --* 
         
@@ -1096,7 +1096,7 @@ class ListDistributions(Paginator):
         
                               - **LambdaFunctionARN** *(string) --* 
         
-                                The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                                The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                               - **EventType** *(string) --* 
         
@@ -1104,11 +1104,11 @@ class ListDistributions(Paginator):
         
                                 * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                                  
-                                * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                                * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                                  
-                                * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                                * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                  
-                                * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                                * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                  
                               - **IncludeBody** *(boolean) --* 
         
@@ -1152,27 +1152,27 @@ class ListDistributions(Paginator):
                            
                           * The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages. 
                            
-                          If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don't want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
+                          If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don\'t want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
         
-                          We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+                          We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can\'t get the files that you want to return to viewers because the origin server is unavailable.
         
                         - **ResponseCode** *(string) --* 
         
                           The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
         
-                          * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won't be intercepted. 
+                          * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won\'t be intercepted. 
                            
-                          * If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
+                          * If you don\'t care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
                            
-                          * You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down. 
+                          * You might want to return a ``200`` status code (OK) and static website so your customers don\'t know that your website is down. 
                            
-                          If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don't want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
+                          If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don\'t want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
         
                         - **ErrorCachingMinTTL** *(integer) --* 
         
                           The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode`` . When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
         
-                          If you don't want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
+                          If you don\'t want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
         
                           For more information, see `Customizing Error Responses <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -1192,9 +1192,9 @@ class ListDistributions(Paginator):
         
                     * Whether you want viewers to use HTTP or HTTPS to request your objects. 
                      
-                    * If you want viewers to use HTTPS, whether you're using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
+                    * If you want viewers to use HTTPS, whether you\'re using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
                      
-                    * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
+                    * If you\'re using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
                      
                     You must specify only one of the following values: 
         
@@ -1204,7 +1204,7 @@ class ListDistributions(Paginator):
                      
                     *  ViewerCertificate$CloudFrontDefaultCertificate   
                      
-                    Don't specify ``false`` for ``CloudFrontDefaultCertificate`` .
+                    Don\'t specify ``false`` for ``CloudFrontDefaultCertificate`` .
         
                      **If you want viewers to use HTTP instead of HTTPS to request your objects** : Specify the following value:
         
@@ -1212,9 +1212,9 @@ class ListDistributions(Paginator):
         
                     In addition, specify ``allow-all`` for ``ViewerProtocolPolicy`` for all of your cache behaviors.
         
-                     **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:
+                     **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you\'re using an alternate domain name for your objects or the CloudFront domain name:
         
-                    * **If you're using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
+                    * **If you\'re using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
         
                       * ``<ACMCertificateArn>*ARN for ACM SSL/TLS certificate* <ACMCertificateArn>`` where `` *ARN for ACM SSL/TLS certificate* `` is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution. 
                        
@@ -1222,13 +1222,13 @@ class ListDistributions(Paginator):
                        
                     If you specify ``ACMCertificateArn`` or ``IAMCertificateId`` , you must also specify a value for ``SSLSupportMethod`` .
         
-                    If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for ``SSLSupportMethod`` :
+                    If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user\'s experience depends on the value that you choose for ``SSLSupportMethod`` :
         
                       * ``vip`` : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate. 
                        
                       * ``sni-only`` : CloudFront drops the connection with the browser without returning the object. 
                        
-                    * **If you're using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
+                    * **If you\'re using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
                      
                     If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:
         
@@ -1262,7 +1262,7 @@ class ListDistributions(Paginator):
         
                       * ``vip`` : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges. 
                        
-                      * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following: 
+                      * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. If some of your users\' browsers don\'t support SNI, we recommend that you do one of the following: 
         
                         * Use the ``vip`` option (dedicated IP addresses) instead of ``sni-only`` . 
                          
@@ -1272,7 +1272,7 @@ class ListDistributions(Paginator):
                          
                         * Use HTTP instead of HTTPS. 
                          
-                      Don't specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
+                      Don\'t specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
         
                       For more information, see `Using Alternate Domain Names and HTTPS <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -1292,9 +1292,9 @@ class ListDistributions(Paginator):
         
                       When both of the following are true, you must specify ``TLSv1`` or later for the security policy: 
         
-                      * You're using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
+                      * You\'re using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
                        
-                      * You're using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
+                      * You\'re using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
                        
                       If you specify ``true`` for ``CloudFrontDefaultCertificate`` , CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you specify for ``MinimumProtocolVersion`` .
         
@@ -1334,7 +1334,7 @@ class ListDistributions(Paginator):
         
                         * ``none`` : No geo restriction is enabled, meaning access to content is not restricted by client geo location. 
                          
-                        * ``blacklist`` : The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content. 
+                        * ``blacklist`` : The ``Location`` elements specify the countries in which you don\'t want CloudFront to distribute your content. 
                          
                         * ``whitelist`` : The ``Location`` elements specify the countries in which you want CloudFront to distribute your content. 
                          
@@ -1358,7 +1358,7 @@ class ListDistributions(Paginator):
         
                   - **HttpVersion** *(string) --* 
         
-                    Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is ``http2`` . Viewers that don't support ``HTTP/2`` will automatically use an earlier version.
+                    Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is ``http2`` . Viewers that don\'t support ``HTTP/2`` will automatically use an earlier version.
         
                   - **IsIPV6Enabled** *(boolean) --* 
         
@@ -1382,17 +1382,17 @@ class ListInvalidations(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DistributionId='string',
+              DistributionId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DistributionId: string
         :param DistributionId: **[REQUIRED]** 
         
-          The distribution's ID.
+          The distribution\'s ID.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -1419,21 +1419,21 @@ class ListInvalidations(Paginator):
           ::
         
             {
-                'InvalidationList': {
-                    'Marker': 'string',
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'IsTruncated': True|False,
-                    'Quantity': 123,
-                    'Items': [
+                \'InvalidationList\': {
+                    \'Marker\': \'string\',
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'IsTruncated\': True|False,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'CreateTime': datetime(2015, 1, 1),
-                            'Status': 'string'
+                            \'Id\': \'string\',
+                            \'CreateTime\': datetime(2015, 1, 1),
+                            \'Status\': \'string\'
                         },
                     ]
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1502,9 +1502,9 @@ class ListStreamingDistributions(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -1532,43 +1532,43 @@ class ListStreamingDistributions(Paginator):
           ::
         
             {
-                'StreamingDistributionList': {
-                    'Marker': 'string',
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'IsTruncated': True|False,
-                    'Quantity': 123,
-                    'Items': [
+                \'StreamingDistributionList\': {
+                    \'Marker\': \'string\',
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'IsTruncated\': True|False,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'ARN': 'string',
-                            'Status': 'string',
-                            'LastModifiedTime': datetime(2015, 1, 1),
-                            'DomainName': 'string',
-                            'S3Origin': {
-                                'DomainName': 'string',
-                                'OriginAccessIdentity': 'string'
+                            \'Id\': \'string\',
+                            \'ARN\': \'string\',
+                            \'Status\': \'string\',
+                            \'LastModifiedTime\': datetime(2015, 1, 1),
+                            \'DomainName\': \'string\',
+                            \'S3Origin\': {
+                                \'DomainName\': \'string\',
+                                \'OriginAccessIdentity\': \'string\'
                             },
-                            'Aliases': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'Aliases\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'TrustedSigners': {
-                                'Enabled': True|False,
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'TrustedSigners\': {
+                                \'Enabled\': True|False,
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'Comment': 'string',
-                            'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                            'Enabled': True|False
+                            \'Comment\': \'string\',
+                            \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                            \'Enabled\': True|False
                         },
                     ]
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1618,7 +1618,7 @@ class ListStreamingDistributions(Paginator):
         
                   - **Status** *(string) --* 
         
-                    Indicates the current status of the distribution. When the status is ``Deployed`` , the distribution's information is fully propagated throughout the Amazon CloudFront system.
+                    Indicates the current status of the distribution. When the status is ``Deployed`` , the distribution\'s information is fully propagated throughout the Amazon CloudFront system.
         
                   - **LastModifiedTime** *(datetime) --* 
         
@@ -1664,7 +1664,7 @@ class ListStreamingDistributions(Paginator):
                   
                   - **TrustedSigners** *(dict) --* 
         
-                    A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` .If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` . To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                    A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` .If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` . To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                     - **Enabled** *(boolean) --* 
         

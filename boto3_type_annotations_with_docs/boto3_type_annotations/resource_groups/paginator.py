@@ -13,19 +13,19 @@ class ListGroupResources(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              GroupName='string',
+              GroupName=\'string\',
               Filters=[
                   {
-                      'Name': 'resource-type',
-                      'Values': [
-                          'string',
+                      \'Name\': \'resource-type\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type GroupName: string
@@ -79,10 +79,10 @@ class ListGroupResources(Paginator):
           ::
         
             {
-                'ResourceIdentifiers': [
+                \'ResourceIdentifiers\': [
                     {
-                        'ResourceArn': 'string',
-                        'ResourceType': 'string'
+                        \'ResourceArn\': \'string\',
+                        \'ResourceType\': \'string\'
                     },
                 ],
                 
@@ -123,16 +123,16 @@ class ListGroups(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'resource-type',
-                      'Values': [
-                          'string',
+                      \'Name\': \'resource-type\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -181,17 +181,17 @@ class ListGroups(Paginator):
           ::
         
             {
-                'GroupIdentifiers': [
+                \'GroupIdentifiers\': [
                     {
-                        'GroupName': 'string',
-                        'GroupArn': 'string'
+                        \'GroupName\': \'string\',
+                        \'GroupArn\': \'string\'
                     },
                 ],
-                'Groups': [
+                \'Groups\': [
                     {
-                        'GroupArn': 'string',
-                        'Name': 'string',
-                        'Description': 'string'
+                        \'GroupArn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
                 
@@ -251,13 +251,13 @@ class SearchResources(Paginator):
         
           response_iterator = paginator.paginate(
               ResourceQuery={
-                  'Type': 'TAG_FILTERS_1_0',
-                  'Query': 'string'
+                  \'Type\': \'TAG_FILTERS_1_0\',
+                  \'Query\': \'string\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ResourceQuery: dict
@@ -300,10 +300,10 @@ class SearchResources(Paginator):
           ::
         
             {
-                'ResourceIdentifiers': [
+                \'ResourceIdentifiers\': [
                     {
-                        'ResourceArn': 'string',
-                        'ResourceType': 'string'
+                        \'ResourceArn\': \'string\',
+                        \'ResourceType\': \'string\'
                     },
                 ],
                 

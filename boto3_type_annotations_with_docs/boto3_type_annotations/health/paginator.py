@@ -13,35 +13,35 @@ class DescribeAffectedEntities(Paginator):
         
           response_iterator = paginator.paginate(
               filter={
-                  'eventArns': [
-                      'string',
+                  \'eventArns\': [
+                      \'string\',
                   ],
-                  'entityArns': [
-                      'string',
+                  \'entityArns\': [
+                      \'string\',
                   ],
-                  'entityValues': [
-                      'string',
+                  \'entityValues\': [
+                      \'string\',
                   ],
-                  'lastUpdatedTimes': [
+                  \'lastUpdatedTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'tags': [
+                  \'tags\': [
                       {
-                          'string': 'string'
+                          \'string\': \'string\'
                       },
                   ],
-                  'statusCodes': [
-                      'IMPAIRED'|'UNIMPAIRED'|'UNKNOWN',
+                  \'statusCodes\': [
+                      \'IMPAIRED\'|\'UNIMPAIRED\'|\'UNKNOWN\',
                   ]
               },
-              locale='string',
+              locale=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type filter: dict
@@ -51,7 +51,7 @@ class DescribeAffectedEntities(Paginator):
         
           - **eventArns** *(list) --* **[REQUIRED]** 
         
-            A list of event ARNs (unique identifiers). For example: ``"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"``  
+            A list of event ARNs (unique identifiers). For example: ``\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"``  
         
             - *(string) --* 
         
@@ -129,20 +129,20 @@ class DescribeAffectedEntities(Paginator):
           ::
         
             {
-                'entities': [
+                \'entities\': [
                     {
-                        'entityArn': 'string',
-                        'eventArn': 'string',
-                        'entityValue': 'string',
-                        'awsAccountId': 'string',
-                        'lastUpdatedTime': datetime(2015, 1, 1),
-                        'statusCode': 'IMPAIRED'|'UNIMPAIRED'|'UNKNOWN',
-                        'tags': {
-                            'string': 'string'
+                        \'entityArn\': \'string\',
+                        \'eventArn\': \'string\',
+                        \'entityValue\': \'string\',
+                        \'awsAccountId\': \'string\',
+                        \'lastUpdatedTime\': datetime(2015, 1, 1),
+                        \'statusCode\': \'IMPAIRED\'|\'UNIMPAIRED\'|\'UNKNOWN\',
+                        \'tags\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -207,62 +207,62 @@ class DescribeEventAggregates(Paginator):
         
           response_iterator = paginator.paginate(
               filter={
-                  'eventArns': [
-                      'string',
+                  \'eventArns\': [
+                      \'string\',
                   ],
-                  'eventTypeCodes': [
-                      'string',
+                  \'eventTypeCodes\': [
+                      \'string\',
                   ],
-                  'services': [
-                      'string',
+                  \'services\': [
+                      \'string\',
                   ],
-                  'regions': [
-                      'string',
+                  \'regions\': [
+                      \'string\',
                   ],
-                  'availabilityZones': [
-                      'string',
+                  \'availabilityZones\': [
+                      \'string\',
                   ],
-                  'startTimes': [
+                  \'startTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'endTimes': [
+                  \'endTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'lastUpdatedTimes': [
+                  \'lastUpdatedTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'entityArns': [
-                      'string',
+                  \'entityArns\': [
+                      \'string\',
                   ],
-                  'entityValues': [
-                      'string',
+                  \'entityValues\': [
+                      \'string\',
                   ],
-                  'eventTypeCategories': [
-                      'issue'|'accountNotification'|'scheduledChange',
+                  \'eventTypeCategories\': [
+                      \'issue\'|\'accountNotification\'|\'scheduledChange\',
                   ],
-                  'tags': [
+                  \'tags\': [
                       {
-                          'string': 'string'
+                          \'string\': \'string\'
                       },
                   ],
-                  'eventStatusCodes': [
-                      'open'|'closed'|'upcoming',
+                  \'eventStatusCodes\': [
+                      \'open\'|\'closed\'|\'upcoming\',
                   ]
               },
-              aggregateField='eventTypeCategory',
+              aggregateField=\'eventTypeCategory\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type filter: dict
@@ -272,13 +272,13 @@ class DescribeEventAggregates(Paginator):
         
           - **eventArns** *(list) --* 
         
-            A list of event ARNs (unique identifiers). For example: ``"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"``  
+            A list of event ARNs (unique identifiers). For example: ``\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"``  
         
             - *(string) --* 
         
           - **eventTypeCodes** *(list) --* 
         
-            A list of unique identifiers for event types. For example, ``"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED"``  
+            A list of unique identifiers for event types. For example, ``\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\"``  
         
             - *(string) --* 
         
@@ -412,13 +412,13 @@ class DescribeEventAggregates(Paginator):
           ::
         
             {
-                'eventAggregates': [
+                \'eventAggregates\': [
                     {
-                        'aggregateValue': 'string',
-                        'count': 123
+                        \'aggregateValue\': \'string\',
+                        \'count\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -459,21 +459,21 @@ class DescribeEventTypes(Paginator):
         
           response_iterator = paginator.paginate(
               filter={
-                  'eventTypeCodes': [
-                      'string',
+                  \'eventTypeCodes\': [
+                      \'string\',
                   ],
-                  'services': [
-                      'string',
+                  \'services\': [
+                      \'string\',
                   ],
-                  'eventTypeCategories': [
-                      'issue'|'accountNotification'|'scheduledChange',
+                  \'eventTypeCategories\': [
+                      \'issue\'|\'accountNotification\'|\'scheduledChange\',
                   ]
               },
-              locale='string',
+              locale=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type filter: dict
@@ -529,14 +529,14 @@ class DescribeEventTypes(Paginator):
           ::
         
             {
-                'eventTypes': [
+                \'eventTypes\': [
                     {
-                        'service': 'string',
-                        'code': 'string',
-                        'category': 'issue'|'accountNotification'|'scheduledChange'
+                        \'service\': \'string\',
+                        \'code\': \'string\',
+                        \'category\': \'issue\'|\'accountNotification\'|\'scheduledChange\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -581,62 +581,62 @@ class DescribeEvents(Paginator):
         
           response_iterator = paginator.paginate(
               filter={
-                  'eventArns': [
-                      'string',
+                  \'eventArns\': [
+                      \'string\',
                   ],
-                  'eventTypeCodes': [
-                      'string',
+                  \'eventTypeCodes\': [
+                      \'string\',
                   ],
-                  'services': [
-                      'string',
+                  \'services\': [
+                      \'string\',
                   ],
-                  'regions': [
-                      'string',
+                  \'regions\': [
+                      \'string\',
                   ],
-                  'availabilityZones': [
-                      'string',
+                  \'availabilityZones\': [
+                      \'string\',
                   ],
-                  'startTimes': [
+                  \'startTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'endTimes': [
+                  \'endTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'lastUpdatedTimes': [
+                  \'lastUpdatedTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'entityArns': [
-                      'string',
+                  \'entityArns\': [
+                      \'string\',
                   ],
-                  'entityValues': [
-                      'string',
+                  \'entityValues\': [
+                      \'string\',
                   ],
-                  'eventTypeCategories': [
-                      'issue'|'accountNotification'|'scheduledChange',
+                  \'eventTypeCategories\': [
+                      \'issue\'|\'accountNotification\'|\'scheduledChange\',
                   ],
-                  'tags': [
+                  \'tags\': [
                       {
-                          'string': 'string'
+                          \'string\': \'string\'
                       },
                   ],
-                  'eventStatusCodes': [
-                      'open'|'closed'|'upcoming',
+                  \'eventStatusCodes\': [
+                      \'open\'|\'closed\'|\'upcoming\',
                   ]
               },
-              locale='string',
+              locale=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type filter: dict
@@ -646,13 +646,13 @@ class DescribeEvents(Paginator):
         
           - **eventArns** *(list) --* 
         
-            A list of event ARNs (unique identifiers). For example: ``"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"``  
+            A list of event ARNs (unique identifiers). For example: ``\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"``  
         
             - *(string) --* 
         
           - **eventTypeCodes** *(list) --* 
         
-            A list of unique identifiers for event types. For example, ``"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED"``  
+            A list of unique identifiers for event types. For example, ``\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\"``  
         
             - *(string) --* 
         
@@ -786,21 +786,21 @@ class DescribeEvents(Paginator):
           ::
         
             {
-                'events': [
+                \'events\': [
                     {
-                        'arn': 'string',
-                        'service': 'string',
-                        'eventTypeCode': 'string',
-                        'eventTypeCategory': 'issue'|'accountNotification'|'scheduledChange',
-                        'region': 'string',
-                        'availabilityZone': 'string',
-                        'startTime': datetime(2015, 1, 1),
-                        'endTime': datetime(2015, 1, 1),
-                        'lastUpdatedTime': datetime(2015, 1, 1),
-                        'statusCode': 'open'|'closed'|'upcoming'
+                        \'arn\': \'string\',
+                        \'service\': \'string\',
+                        \'eventTypeCode\': \'string\',
+                        \'eventTypeCategory\': \'issue\'|\'accountNotification\'|\'scheduledChange\',
+                        \'region\': \'string\',
+                        \'availabilityZone\': \'string\',
+                        \'startTime\': datetime(2015, 1, 1),
+                        \'endTime\': datetime(2015, 1, 1),
+                        \'lastUpdatedTime\': datetime(2015, 1, 1),
+                        \'statusCode\': \'open\'|\'closed\'|\'upcoming\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

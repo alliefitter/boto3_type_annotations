@@ -1,8 +1,8 @@
 from datetime import datetime
-from boto3.resources.collection import ResourceCollection
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
+from boto3.resources.collection import ResourceCollection
 from typing import Dict
 from boto3.resources import base
 
@@ -14,10 +14,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Table resource.::
         
-          table = dynamodb.Table('name')
+          table = dynamodb.Table(\'name\')
         
         :type name: string
-        :param name: The Table's name identifier. This **must** be set.
+        :param name: The Table\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`DynamoDB.Table`
         :returns: A Table resource
@@ -27,11 +27,11 @@ class ServiceResource(base.ServiceResource):
     def batch_get_item(self, RequestItems: Dict, ReturnConsumedCapacity: str = None) -> Dict:
         """
         
-        A single operation can retrieve up to 16 MB of data, which can contain as many as 100 items. ``BatchGetItem`` will return a partial result if the response size limit is exceeded, the table's provisioned throughput is exceeded, or an internal processing failure occurs. If a partial result is returned, the operation returns a value for ``UnprocessedKeys`` . You can use this value to retry the operation starting with the next item to get.
+        A single operation can retrieve up to 16 MB of data, which can contain as many as 100 items. ``BatchGetItem`` will return a partial result if the response size limit is exceeded, the table\'s provisioned throughput is exceeded, or an internal processing failure occurs. If a partial result is returned, the operation returns a value for ``UnprocessedKeys`` . You can use this value to retry the operation starting with the next item to get.
         
         .. warning::
         
-          If you request more than 100 items ``BatchGetItem`` will return a ``ValidationException`` with the message "Too many items requested for the BatchGetItem call".
+          If you request more than 100 items ``BatchGetItem`` will return a ``ValidationException`` with the message \"Too many items requested for the BatchGetItem call\".
         
         For example, if you ask to retrieve 100 items, but each individual item is 300 KB in size, the system returns 52 items (so as not to exceed the 16 MB limit). It also returns an appropriate ``UnprocessedKeys`` value so you can get the next page of results. If desired, your application can include its own logic to assemble the pages of results into one data set.
         
@@ -58,44 +58,44 @@ class ServiceResource(base.ServiceResource):
         
           response = dynamodb.batch_get_item(
               RequestItems={
-                  'string': {
-                      'Keys': [
+                  \'string\': {
+                      \'Keys\': [
                           {
-                              'string': {
-                                  'S': 'string',
-                                  'N': 'string',
-                                  'B': b'bytes',
-                                  'SS': [
-                                      'string',
+                              \'string\': {
+                                  \'S\': \'string\',
+                                  \'N\': \'string\',
+                                  \'B\': b\'bytes\',
+                                  \'SS\': [
+                                      \'string\',
                                   ],
-                                  'NS': [
-                                      'string',
+                                  \'NS\': [
+                                      \'string\',
                                   ],
-                                  'BS': [
-                                      b'bytes',
+                                  \'BS\': [
+                                      b\'bytes\',
                                   ],
-                                  'M': {
-                                      'string': {'... recursive ...'}
+                                  \'M\': {
+                                      \'string\': {\'... recursive ...\'}
                                   },
-                                  'L': [
-                                      {'... recursive ...'},
+                                  \'L\': [
+                                      {\'... recursive ...\'},
                                   ],
-                                  'NULL': True|False,
-                                  'BOOL': True|False
+                                  \'NULL\': True|False,
+                                  \'BOOL\': True|False
                               }
                           },
                       ],
-                      'AttributesToGet': [
-                          'string',
+                      \'AttributesToGet\': [
+                          \'string\',
                       ],
-                      'ConsistentRead': True|False,
-                      'ProjectionExpression': 'string',
-                      'ExpressionAttributeNames': {
-                          'string': 'string'
+                      \'ConsistentRead\': True|False,
+                      \'ProjectionExpression\': \'string\',
+                      \'ExpressionAttributeNames\': {
+                          \'string\': \'string\'
                       }
                   }
               },
-              ReturnConsumedCapacity='INDEXES'|'TOTAL'|'NONE'
+              ReturnConsumedCapacity=\'INDEXES\'|\'TOTAL\'|\'NONE\'
           )
         :type RequestItems: dict
         :param RequestItems: **[REQUIRED]** 
@@ -120,7 +120,7 @@ class ServiceResource(base.ServiceResource):
              
           The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
         
-            * ``{"#P":"Percentile"}``   
+            * ``{\"#P\":\"Percentile\"}``   
              
           You could then use this substitution in an expression, as in this example:
         
@@ -166,13 +166,13 @@ class ServiceResource(base.ServiceResource):
         
                         An attribute of type String. For example:
         
-                         ``"S": "Hello"``  
+                         ``\"S\": \"Hello\"``  
         
                       - **N** *(string) --* 
         
                         An attribute of type Number. For example:
         
-                         ``"N": "123.45"``  
+                         ``\"N\": \"123.45\"``  
         
                         Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -180,13 +180,13 @@ class ServiceResource(base.ServiceResource):
         
                         An attribute of type Binary. For example:
         
-                         ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                         ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                       - **SS** *(list) --* 
         
                         An attribute of type String Set. For example:
         
-                         ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                         ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                         - *(string) --* 
         
@@ -194,7 +194,7 @@ class ServiceResource(base.ServiceResource):
         
                         An attribute of type Number Set. For example:
         
-                         ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                         ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                         Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -204,7 +204,7 @@ class ServiceResource(base.ServiceResource):
         
                         An attribute of type Binary Set. For example:
         
-                         ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                         ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                         - *(bytes) --* 
         
@@ -212,7 +212,7 @@ class ServiceResource(base.ServiceResource):
         
                         An attribute of type Map. For example:
         
-                         ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                         ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                         - *(string) --* 
         
@@ -228,7 +228,7 @@ class ServiceResource(base.ServiceResource):
         
                         An attribute of type List. For example:
         
-                         ``"L": ["Cookies", "Coffee", 3.14159]``  
+                         ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                         - *(dict) --* 
         
@@ -242,13 +242,13 @@ class ServiceResource(base.ServiceResource):
         
                         An attribute of type Null. For example:
         
-                         ``"NULL": true``  
+                         ``\"NULL\": true``  
         
                       - **BOOL** *(boolean) --* 
         
                         An attribute of type Boolean. For example:
         
-                         ``"BOOL": true``  
+                         ``\"BOOL\": true``  
         
               - **AttributesToGet** *(list) --* 
         
@@ -284,7 +284,7 @@ class ServiceResource(base.ServiceResource):
                  
                 The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
         
-                * ``{"#P":"Percentile"}``   
+                * ``{\"#P\":\"Percentile\"}``   
                  
                 You could then use this substitution in an expression, as in this example:
         
@@ -319,87 +319,87 @@ class ServiceResource(base.ServiceResource):
           ::
         
             {
-                'Responses': {
-                    'string': [
+                \'Responses\': {
+                    \'string\': [
                         {
-                            'string': {
-                                'S': 'string',
-                                'N': 'string',
-                                'B': b'bytes',
-                                'SS': [
-                                    'string',
+                            \'string\': {
+                                \'S\': \'string\',
+                                \'N\': \'string\',
+                                \'B\': b\'bytes\',
+                                \'SS\': [
+                                    \'string\',
                                 ],
-                                'NS': [
-                                    'string',
+                                \'NS\': [
+                                    \'string\',
                                 ],
-                                'BS': [
-                                    b'bytes',
+                                \'BS\': [
+                                    b\'bytes\',
                                 ],
-                                'M': {
-                                    'string': {'... recursive ...'}
+                                \'M\': {
+                                    \'string\': {\'... recursive ...\'}
                                 },
-                                'L': [
-                                    {'... recursive ...'},
+                                \'L\': [
+                                    {\'... recursive ...\'},
                                 ],
-                                'NULL': True|False,
-                                'BOOL': True|False
+                                \'NULL\': True|False,
+                                \'BOOL\': True|False
                             }
                         },
                     ]
                 },
-                'UnprocessedKeys': {
-                    'string': {
-                        'Keys': [
+                \'UnprocessedKeys\': {
+                    \'string\': {
+                        \'Keys\': [
                             {
-                                'string': {
-                                    'S': 'string',
-                                    'N': 'string',
-                                    'B': b'bytes',
-                                    'SS': [
-                                        'string',
+                                \'string\': {
+                                    \'S\': \'string\',
+                                    \'N\': \'string\',
+                                    \'B\': b\'bytes\',
+                                    \'SS\': [
+                                        \'string\',
                                     ],
-                                    'NS': [
-                                        'string',
+                                    \'NS\': [
+                                        \'string\',
                                     ],
-                                    'BS': [
-                                        b'bytes',
+                                    \'BS\': [
+                                        b\'bytes\',
                                     ],
-                                    'M': {
-                                        'string': {'... recursive ...'}
+                                    \'M\': {
+                                        \'string\': {\'... recursive ...\'}
                                     },
-                                    'L': [
-                                        {'... recursive ...'},
+                                    \'L\': [
+                                        {\'... recursive ...\'},
                                     ],
-                                    'NULL': True|False,
-                                    'BOOL': True|False
+                                    \'NULL\': True|False,
+                                    \'BOOL\': True|False
                                 }
                             },
                         ],
-                        'AttributesToGet': [
-                            'string',
+                        \'AttributesToGet\': [
+                            \'string\',
                         ],
-                        'ConsistentRead': True|False,
-                        'ProjectionExpression': 'string',
-                        'ExpressionAttributeNames': {
-                            'string': 'string'
+                        \'ConsistentRead\': True|False,
+                        \'ProjectionExpression\': \'string\',
+                        \'ExpressionAttributeNames\': {
+                            \'string\': \'string\'
                         }
                     }
                 },
-                'ConsumedCapacity': [
+                \'ConsumedCapacity\': [
                     {
-                        'TableName': 'string',
-                        'CapacityUnits': 123.0,
-                        'Table': {
-                            'CapacityUnits': 123.0
+                        \'TableName\': \'string\',
+                        \'CapacityUnits\': 123.0,
+                        \'Table\': {
+                            \'CapacityUnits\': 123.0
                         },
-                        'LocalSecondaryIndexes': {
-                            'string': {
-                                'CapacityUnits': 123.0
+                        \'LocalSecondaryIndexes\': {
+                            \'string\': {
+                                \'CapacityUnits\': 123.0
                             }
                         },
-                        'GlobalSecondaryIndexes': {
-                            'string': {
-                                'CapacityUnits': 123.0
+                        \'GlobalSecondaryIndexes\': {
+                            \'string\': {
+                                \'CapacityUnits\': 123.0
                             }
                         }
                     },
@@ -435,13 +435,13 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type String. For example:
         
-                           ``"S": "Hello"``  
+                           ``\"S\": \"Hello\"``  
         
                         - **N** *(string) --* 
         
                           An attribute of type Number. For example:
         
-                           ``"N": "123.45"``  
+                           ``\"N\": \"123.45\"``  
         
                           Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -449,13 +449,13 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Binary. For example:
         
-                           ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                           ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                         - **SS** *(list) --* 
         
                           An attribute of type String Set. For example:
         
-                           ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                           ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                           - *(string) --* 
                       
@@ -463,7 +463,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Number Set. For example:
         
-                           ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                           ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                           Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -473,7 +473,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Binary Set. For example:
         
-                           ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                           ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                           - *(bytes) --* 
                       
@@ -481,7 +481,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Map. For example:
         
-                           ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                           ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                           - *(string) --* 
                             
@@ -497,7 +497,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type List. For example:
         
-                           ``"L": ["Cookies", "Coffee", 3.14159]``  
+                           ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                           - *(dict) --* 
         
@@ -511,13 +511,13 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Null. For example:
         
-                           ``"NULL": true``  
+                           ``\"NULL\": true``  
         
                         - **BOOL** *(boolean) --* 
         
                           An attribute of type Boolean. For example:
         
-                           ``"BOOL": true``  
+                           ``\"BOOL\": true``  
         
             - **UnprocessedKeys** *(dict) --* 
         
@@ -561,13 +561,13 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type String. For example:
         
-                             ``"S": "Hello"``  
+                             ``\"S\": \"Hello\"``  
         
                           - **N** *(string) --* 
         
                             An attribute of type Number. For example:
         
-                             ``"N": "123.45"``  
+                             ``\"N\": \"123.45\"``  
         
                             Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -575,13 +575,13 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type Binary. For example:
         
-                             ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                             ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                           - **SS** *(list) --* 
         
                             An attribute of type String Set. For example:
         
-                             ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                             ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                             - *(string) --* 
                         
@@ -589,7 +589,7 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type Number Set. For example:
         
-                             ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                             ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                             Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -599,7 +599,7 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type Binary Set. For example:
         
-                             ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                             ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                             - *(bytes) --* 
                         
@@ -607,7 +607,7 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type Map. For example:
         
-                             ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                             ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                             - *(string) --* 
                               
@@ -623,7 +623,7 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type List. For example:
         
-                             ``"L": ["Cookies", "Coffee", 3.14159]``  
+                             ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                             - *(dict) --* 
         
@@ -637,13 +637,13 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type Null. For example:
         
-                             ``"NULL": true``  
+                             ``\"NULL\": true``  
         
                           - **BOOL** *(boolean) --* 
         
                             An attribute of type Boolean. For example:
         
-                             ``"BOOL": true``  
+                             ``\"BOOL\": true``  
         
                   - **AttributesToGet** *(list) --* 
         
@@ -679,7 +679,7 @@ class ServiceResource(base.ServiceResource):
                      
                     The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
         
-                    * ``{"#P":"Percentile"}``   
+                    * ``{\"#P\":\"Percentile\"}``   
                      
                     You could then use this substitution in an expression, as in this example:
         
@@ -763,7 +763,7 @@ class ServiceResource(base.ServiceResource):
         
            ``BatchWriteItem`` cannot update items. To update items, use the ``UpdateItem`` action.
         
-        The individual ``PutItem`` and ``DeleteItem`` operations specified in ``BatchWriteItem`` are atomic; however ``BatchWriteItem`` as a whole is not. If any requested operations fail because the table's provisioned throughput is exceeded or an internal processing failure occurs, the failed operations are returned in the ``UnprocessedItems`` response parameter. You can investigate and optionally resend the requests. Typically, you would call ``BatchWriteItem`` in a loop. Each iteration would check for unprocessed items and submit a new ``BatchWriteItem`` request with those unprocessed items until all items have been processed.
+        The individual ``PutItem`` and ``DeleteItem`` operations specified in ``BatchWriteItem`` are atomic; however ``BatchWriteItem`` as a whole is not. If any requested operations fail because the table\'s provisioned throughput is exceeded or an internal processing failure occurs, the failed operations are returned in the ``UnprocessedItems`` response parameter. You can investigate and optionally resend the requests. Typically, you would call ``BatchWriteItem`` in a loop. Each iteration would check for unprocessed items and submit a new ``BatchWriteItem`` request with those unprocessed items until all items have been processed.
         
         Note that if *none* of the items can be processed due to insufficient provisioned throughput on all of the tables in the request, then ``BatchWriteItem`` will return a ``ProvisionedThroughputExceededException`` .
         
@@ -775,7 +775,7 @@ class ServiceResource(base.ServiceResource):
         
         With ``BatchWriteItem`` , you can efficiently write or delete large amounts of data, such as from Amazon Elastic MapReduce (EMR), or copy data from another database into DynamoDB. In order to improve performance with these large-scale operations, ``BatchWriteItem`` does not behave in the same way as individual ``PutItem`` and ``DeleteItem`` calls would. For example, you cannot specify conditions on individual put and delete requests, and ``BatchWriteItem`` does not return deleted items in the response.
         
-        If you use a programming language that supports concurrency, you can use threads to write items in parallel. Your application must include the necessary logic to manage the threads. With languages that don't support threading, you must update or delete the specified items one at a time. In both situations, ``BatchWriteItem`` performs the specified put and delete operations in parallel, giving you the power of the thread pool approach without having to introduce complexity into your application.
+        If you use a programming language that supports concurrency, you can use threads to write items in parallel. Your application must include the necessary logic to manage the threads. With languages that don\'t support threading, you must update or delete the specified items one at a time. In both situations, ``BatchWriteItem`` performs the specified put and delete operations in parallel, giving you the power of the thread pool approach without having to introduce complexity into your application.
         
         Parallel processing reduces latency, but each specified put and delete request consumes the same number of write capacity units whether it is processed in parallel or not. Delete operations on nonexistent items consume one write capacity unit.
         
@@ -783,7 +783,7 @@ class ServiceResource(base.ServiceResource):
         
         * One or more tables specified in the ``BatchWriteItem`` request does not exist. 
          
-        * Primary key attributes specified on an item in the request do not match those in the corresponding table's primary key schema. 
+        * Primary key attributes specified on an item in the request do not match those in the corresponding table\'s primary key schema. 
          
         * You try to perform multiple operations on the same item in the same ``BatchWriteItem`` request. For example, you cannot put and delete the same item in the same ``BatchWriteItem`` request.  
          
@@ -802,65 +802,65 @@ class ServiceResource(base.ServiceResource):
         
           response = dynamodb.batch_write_item(
               RequestItems={
-                  'string': [
+                  \'string\': [
                       {
-                          'PutRequest': {
-                              'Item': {
-                                  'string': {
-                                      'S': 'string',
-                                      'N': 'string',
-                                      'B': b'bytes',
-                                      'SS': [
-                                          'string',
+                          \'PutRequest\': {
+                              \'Item\': {
+                                  \'string\': {
+                                      \'S\': \'string\',
+                                      \'N\': \'string\',
+                                      \'B\': b\'bytes\',
+                                      \'SS\': [
+                                          \'string\',
                                       ],
-                                      'NS': [
-                                          'string',
+                                      \'NS\': [
+                                          \'string\',
                                       ],
-                                      'BS': [
-                                          b'bytes',
+                                      \'BS\': [
+                                          b\'bytes\',
                                       ],
-                                      'M': {
-                                          'string': {'... recursive ...'}
+                                      \'M\': {
+                                          \'string\': {\'... recursive ...\'}
                                       },
-                                      'L': [
-                                          {'... recursive ...'},
+                                      \'L\': [
+                                          {\'... recursive ...\'},
                                       ],
-                                      'NULL': True|False,
-                                      'BOOL': True|False
+                                      \'NULL\': True|False,
+                                      \'BOOL\': True|False
                                   }
                               }
                           },
-                          'DeleteRequest': {
-                              'Key': {
-                                  'string': {
-                                      'S': 'string',
-                                      'N': 'string',
-                                      'B': b'bytes',
-                                      'SS': [
-                                          'string',
+                          \'DeleteRequest\': {
+                              \'Key\': {
+                                  \'string\': {
+                                      \'S\': \'string\',
+                                      \'N\': \'string\',
+                                      \'B\': b\'bytes\',
+                                      \'SS\': [
+                                          \'string\',
                                       ],
-                                      'NS': [
-                                          'string',
+                                      \'NS\': [
+                                          \'string\',
                                       ],
-                                      'BS': [
-                                          b'bytes',
+                                      \'BS\': [
+                                          b\'bytes\',
                                       ],
-                                      'M': {
-                                          'string': {'... recursive ...'}
+                                      \'M\': {
+                                          \'string\': {\'... recursive ...\'}
                                       },
-                                      'L': [
-                                          {'... recursive ...'},
+                                      \'L\': [
+                                          {\'... recursive ...\'},
                                       ],
-                                      'NULL': True|False,
-                                      'BOOL': True|False
+                                      \'NULL\': True|False,
+                                      \'BOOL\': True|False
                                   }
                               }
                           }
                       },
                   ]
               },
-              ReturnConsumedCapacity='INDEXES'|'TOTAL'|'NONE',
-              ReturnItemCollectionMetrics='SIZE'|'NONE'
+              ReturnConsumedCapacity=\'INDEXES\'|\'TOTAL\'|\'NONE\',
+              ReturnItemCollectionMetrics=\'SIZE\'|\'NONE\'
           )
         :type RequestItems: dict
         :param RequestItems: **[REQUIRED]** 
@@ -873,7 +873,7 @@ class ServiceResource(base.ServiceResource):
              
           * ``PutRequest`` - Perform a ``PutItem`` operation on the specified item. The item to be put is identified by an ``Item`` subelement: 
         
-            * ``Item`` - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a ``ValidationException`` exception. If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition. 
+            * ``Item`` - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a ``ValidationException`` exception. If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table\'s attribute definition. 
              
           - *(string) --* 
         
@@ -889,7 +889,7 @@ class ServiceResource(base.ServiceResource):
         
                   - **Item** *(dict) --* **[REQUIRED]** 
         
-                    A map of attribute name to attribute values, representing the primary key of an item to be processed by ``PutItem`` . All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.
+                    A map of attribute name to attribute values, representing the primary key of an item to be processed by ``PutItem`` . All of the table\'s primary key attributes must be specified, and their data types must match those of the table\'s key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.
         
                     - *(string) --* 
         
@@ -905,13 +905,13 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type String. For example:
         
-                           ``"S": "Hello"``  
+                           ``\"S\": \"Hello\"``  
         
                         - **N** *(string) --* 
         
                           An attribute of type Number. For example:
         
-                           ``"N": "123.45"``  
+                           ``\"N\": \"123.45\"``  
         
                           Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -919,13 +919,13 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Binary. For example:
         
-                           ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                           ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                         - **SS** *(list) --* 
         
                           An attribute of type String Set. For example:
         
-                           ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                           ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                           - *(string) --* 
         
@@ -933,7 +933,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Number Set. For example:
         
-                           ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                           ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                           Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -943,7 +943,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Binary Set. For example:
         
-                           ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                           ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                           - *(bytes) --* 
         
@@ -951,7 +951,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Map. For example:
         
-                           ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                           ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                           - *(string) --* 
         
@@ -967,7 +967,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type List. For example:
         
-                           ``"L": ["Cookies", "Coffee", 3.14159]``  
+                           ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                           - *(dict) --* 
         
@@ -981,13 +981,13 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Null. For example:
         
-                           ``"NULL": true``  
+                           ``\"NULL\": true``  
         
                         - **BOOL** *(boolean) --* 
         
                           An attribute of type Boolean. For example:
         
-                           ``"BOOL": true``  
+                           ``\"BOOL\": true``  
         
                 - **DeleteRequest** *(dict) --* 
         
@@ -995,7 +995,7 @@ class ServiceResource(base.ServiceResource):
         
                   - **Key** *(dict) --* **[REQUIRED]** 
         
-                    A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.
+                    A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table\'s primary key attributes must be specified, and their data types must match those of the table\'s key schema.
         
                     - *(string) --* 
         
@@ -1011,13 +1011,13 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type String. For example:
         
-                           ``"S": "Hello"``  
+                           ``\"S\": \"Hello\"``  
         
                         - **N** *(string) --* 
         
                           An attribute of type Number. For example:
         
-                           ``"N": "123.45"``  
+                           ``\"N\": \"123.45\"``  
         
                           Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1025,13 +1025,13 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Binary. For example:
         
-                           ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                           ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                         - **SS** *(list) --* 
         
                           An attribute of type String Set. For example:
         
-                           ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                           ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                           - *(string) --* 
         
@@ -1039,7 +1039,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Number Set. For example:
         
-                           ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                           ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                           Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1049,7 +1049,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Binary Set. For example:
         
-                           ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                           ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                           - *(bytes) --* 
         
@@ -1057,7 +1057,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Map. For example:
         
-                           ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                           ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                           - *(string) --* 
         
@@ -1073,7 +1073,7 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type List. For example:
         
-                           ``"L": ["Cookies", "Coffee", 3.14159]``  
+                           ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                           - *(dict) --* 
         
@@ -1087,13 +1087,13 @@ class ServiceResource(base.ServiceResource):
         
                           An attribute of type Null. For example:
         
-                           ``"NULL": true``  
+                           ``\"NULL\": true``  
         
                         - **BOOL** *(boolean) --* 
         
                           An attribute of type Boolean. For example:
         
-                           ``"BOOL": true``  
+                           ``\"BOOL\": true``  
         
         :type ReturnConsumedCapacity: string
         :param ReturnConsumedCapacity: 
@@ -1119,112 +1119,112 @@ class ServiceResource(base.ServiceResource):
           ::
         
             {
-                'UnprocessedItems': {
-                    'string': [
+                \'UnprocessedItems\': {
+                    \'string\': [
                         {
-                            'PutRequest': {
-                                'Item': {
-                                    'string': {
-                                        'S': 'string',
-                                        'N': 'string',
-                                        'B': b'bytes',
-                                        'SS': [
-                                            'string',
+                            \'PutRequest\': {
+                                \'Item\': {
+                                    \'string\': {
+                                        \'S\': \'string\',
+                                        \'N\': \'string\',
+                                        \'B\': b\'bytes\',
+                                        \'SS\': [
+                                            \'string\',
                                         ],
-                                        'NS': [
-                                            'string',
+                                        \'NS\': [
+                                            \'string\',
                                         ],
-                                        'BS': [
-                                            b'bytes',
+                                        \'BS\': [
+                                            b\'bytes\',
                                         ],
-                                        'M': {
-                                            'string': {'... recursive ...'}
+                                        \'M\': {
+                                            \'string\': {\'... recursive ...\'}
                                         },
-                                        'L': [
-                                            {'... recursive ...'},
+                                        \'L\': [
+                                            {\'... recursive ...\'},
                                         ],
-                                        'NULL': True|False,
-                                        'BOOL': True|False
+                                        \'NULL\': True|False,
+                                        \'BOOL\': True|False
                                     }
                                 }
                             },
-                            'DeleteRequest': {
-                                'Key': {
-                                    'string': {
-                                        'S': 'string',
-                                        'N': 'string',
-                                        'B': b'bytes',
-                                        'SS': [
-                                            'string',
+                            \'DeleteRequest\': {
+                                \'Key\': {
+                                    \'string\': {
+                                        \'S\': \'string\',
+                                        \'N\': \'string\',
+                                        \'B\': b\'bytes\',
+                                        \'SS\': [
+                                            \'string\',
                                         ],
-                                        'NS': [
-                                            'string',
+                                        \'NS\': [
+                                            \'string\',
                                         ],
-                                        'BS': [
-                                            b'bytes',
+                                        \'BS\': [
+                                            b\'bytes\',
                                         ],
-                                        'M': {
-                                            'string': {'... recursive ...'}
+                                        \'M\': {
+                                            \'string\': {\'... recursive ...\'}
                                         },
-                                        'L': [
-                                            {'... recursive ...'},
+                                        \'L\': [
+                                            {\'... recursive ...\'},
                                         ],
-                                        'NULL': True|False,
-                                        'BOOL': True|False
+                                        \'NULL\': True|False,
+                                        \'BOOL\': True|False
                                     }
                                 }
                             }
                         },
                     ]
                 },
-                'ItemCollectionMetrics': {
-                    'string': [
+                \'ItemCollectionMetrics\': {
+                    \'string\': [
                         {
-                            'ItemCollectionKey': {
-                                'string': {
-                                    'S': 'string',
-                                    'N': 'string',
-                                    'B': b'bytes',
-                                    'SS': [
-                                        'string',
+                            \'ItemCollectionKey\': {
+                                \'string\': {
+                                    \'S\': \'string\',
+                                    \'N\': \'string\',
+                                    \'B\': b\'bytes\',
+                                    \'SS\': [
+                                        \'string\',
                                     ],
-                                    'NS': [
-                                        'string',
+                                    \'NS\': [
+                                        \'string\',
                                     ],
-                                    'BS': [
-                                        b'bytes',
+                                    \'BS\': [
+                                        b\'bytes\',
                                     ],
-                                    'M': {
-                                        'string': {'... recursive ...'}
+                                    \'M\': {
+                                        \'string\': {\'... recursive ...\'}
                                     },
-                                    'L': [
-                                        {'... recursive ...'},
+                                    \'L\': [
+                                        {\'... recursive ...\'},
                                     ],
-                                    'NULL': True|False,
-                                    'BOOL': True|False
+                                    \'NULL\': True|False,
+                                    \'BOOL\': True|False
                                 }
                             },
-                            'SizeEstimateRangeGB': [
+                            \'SizeEstimateRangeGB\': [
                                 123.0,
                             ]
                         },
                     ]
                 },
-                'ConsumedCapacity': [
+                \'ConsumedCapacity\': [
                     {
-                        'TableName': 'string',
-                        'CapacityUnits': 123.0,
-                        'Table': {
-                            'CapacityUnits': 123.0
+                        \'TableName\': \'string\',
+                        \'CapacityUnits\': 123.0,
+                        \'Table\': {
+                            \'CapacityUnits\': 123.0
                         },
-                        'LocalSecondaryIndexes': {
-                            'string': {
-                                'CapacityUnits': 123.0
+                        \'LocalSecondaryIndexes\': {
+                            \'string\': {
+                                \'CapacityUnits\': 123.0
                             }
                         },
-                        'GlobalSecondaryIndexes': {
-                            'string': {
-                                'CapacityUnits': 123.0
+                        \'GlobalSecondaryIndexes\': {
+                            \'string\': {
+                                \'CapacityUnits\': 123.0
                             }
                         }
                     },
@@ -1248,7 +1248,7 @@ class ServiceResource(base.ServiceResource):
                  
               * ``PutRequest`` - Perform a ``PutItem`` operation on the specified item. The item to be put is identified by an ``Item`` subelement: 
         
-                * ``Item`` - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a ``ValidationException`` exception. If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition. 
+                * ``Item`` - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a ``ValidationException`` exception. If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table\'s attribute definition. 
                  
               If there are no unprocessed items remaining, the response contains an empty ``UnprocessedItems`` map.
         
@@ -1266,7 +1266,7 @@ class ServiceResource(base.ServiceResource):
         
                       - **Item** *(dict) --* 
         
-                        A map of attribute name to attribute values, representing the primary key of an item to be processed by ``PutItem`` . All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.
+                        A map of attribute name to attribute values, representing the primary key of an item to be processed by ``PutItem`` . All of the table\'s primary key attributes must be specified, and their data types must match those of the table\'s key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.
         
                         - *(string) --* 
                           
@@ -1282,13 +1282,13 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type String. For example:
         
-                               ``"S": "Hello"``  
+                               ``\"S\": \"Hello\"``  
         
                             - **N** *(string) --* 
         
                               An attribute of type Number. For example:
         
-                               ``"N": "123.45"``  
+                               ``\"N\": \"123.45\"``  
         
                               Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1296,13 +1296,13 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type Binary. For example:
         
-                               ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                               ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                             - **SS** *(list) --* 
         
                               An attribute of type String Set. For example:
         
-                               ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                               ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                               - *(string) --* 
                           
@@ -1310,7 +1310,7 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type Number Set. For example:
         
-                               ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                               ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                               Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1320,7 +1320,7 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type Binary Set. For example:
         
-                               ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                               ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                               - *(bytes) --* 
                           
@@ -1328,7 +1328,7 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type Map. For example:
         
-                               ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                               ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                               - *(string) --* 
                                 
@@ -1344,7 +1344,7 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type List. For example:
         
-                               ``"L": ["Cookies", "Coffee", 3.14159]``  
+                               ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                               - *(dict) --* 
         
@@ -1358,13 +1358,13 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type Null. For example:
         
-                               ``"NULL": true``  
+                               ``\"NULL\": true``  
         
                             - **BOOL** *(boolean) --* 
         
                               An attribute of type Boolean. For example:
         
-                               ``"BOOL": true``  
+                               ``\"BOOL\": true``  
         
                     - **DeleteRequest** *(dict) --* 
         
@@ -1372,7 +1372,7 @@ class ServiceResource(base.ServiceResource):
         
                       - **Key** *(dict) --* 
         
-                        A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.
+                        A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table\'s primary key attributes must be specified, and their data types must match those of the table\'s key schema.
         
                         - *(string) --* 
                           
@@ -1388,13 +1388,13 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type String. For example:
         
-                               ``"S": "Hello"``  
+                               ``\"S\": \"Hello\"``  
         
                             - **N** *(string) --* 
         
                               An attribute of type Number. For example:
         
-                               ``"N": "123.45"``  
+                               ``\"N\": \"123.45\"``  
         
                               Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1402,13 +1402,13 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type Binary. For example:
         
-                               ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                               ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                             - **SS** *(list) --* 
         
                               An attribute of type String Set. For example:
         
-                               ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                               ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                               - *(string) --* 
                           
@@ -1416,7 +1416,7 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type Number Set. For example:
         
-                               ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                               ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                               Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1426,7 +1426,7 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type Binary Set. For example:
         
-                               ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                               ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                               - *(bytes) --* 
                           
@@ -1434,7 +1434,7 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type Map. For example:
         
-                               ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                               ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                               - *(string) --* 
                                 
@@ -1450,7 +1450,7 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type List. For example:
         
-                               ``"L": ["Cookies", "Coffee", 3.14159]``  
+                               ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                               - *(dict) --* 
         
@@ -1464,13 +1464,13 @@ class ServiceResource(base.ServiceResource):
         
                               An attribute of type Null. For example:
         
-                               ``"NULL": true``  
+                               ``\"NULL\": true``  
         
                             - **BOOL** *(boolean) --* 
         
                               An attribute of type Boolean. For example:
         
-                               ``"BOOL": true``  
+                               ``\"BOOL\": true``  
         
             - **ItemCollectionMetrics** *(dict) --* 
         
@@ -1508,13 +1508,13 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type String. For example:
         
-                             ``"S": "Hello"``  
+                             ``\"S\": \"Hello\"``  
         
                           - **N** *(string) --* 
         
                             An attribute of type Number. For example:
         
-                             ``"N": "123.45"``  
+                             ``\"N\": \"123.45\"``  
         
                             Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1522,13 +1522,13 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type Binary. For example:
         
-                             ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                             ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                           - **SS** *(list) --* 
         
                             An attribute of type String Set. For example:
         
-                             ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                             ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                             - *(string) --* 
                         
@@ -1536,7 +1536,7 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type Number Set. For example:
         
-                             ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                             ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                             Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -1546,7 +1546,7 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type Binary Set. For example:
         
-                             ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                             ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                             - *(bytes) --* 
                         
@@ -1554,7 +1554,7 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type Map. For example:
         
-                             ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                             ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                             - *(string) --* 
                               
@@ -1570,7 +1570,7 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type List. For example:
         
-                             ``"L": ["Cookies", "Coffee", 3.14159]``  
+                             ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                             - *(dict) --* 
         
@@ -1584,13 +1584,13 @@ class ServiceResource(base.ServiceResource):
         
                             An attribute of type Null. For example:
         
-                             ``"NULL": true``  
+                             ``\"NULL\": true``  
         
                           - **BOOL** *(boolean) --* 
         
                             An attribute of type Boolean. For example:
         
-                             ``"BOOL": true``  
+                             ``\"BOOL\": true``  
         
                     - **SizeEstimateRangeGB** *(list) --* 
         
@@ -1678,67 +1678,67 @@ class ServiceResource(base.ServiceResource):
           table = dynamodb.create_table(
               AttributeDefinitions=[
                   {
-                      'AttributeName': 'string',
-                      'AttributeType': 'S'|'N'|'B'
+                      \'AttributeName\': \'string\',
+                      \'AttributeType\': \'S\'|\'N\'|\'B\'
                   },
               ],
-              TableName='string',
+              TableName=\'string\',
               KeySchema=[
                   {
-                      'AttributeName': 'string',
-                      'KeyType': 'HASH'|'RANGE'
+                      \'AttributeName\': \'string\',
+                      \'KeyType\': \'HASH\'|\'RANGE\'
                   },
               ],
               LocalSecondaryIndexes=[
                   {
-                      'IndexName': 'string',
-                      'KeySchema': [
+                      \'IndexName\': \'string\',
+                      \'KeySchema\': [
                           {
-                              'AttributeName': 'string',
-                              'KeyType': 'HASH'|'RANGE'
+                              \'AttributeName\': \'string\',
+                              \'KeyType\': \'HASH\'|\'RANGE\'
                           },
                       ],
-                      'Projection': {
-                          'ProjectionType': 'ALL'|'KEYS_ONLY'|'INCLUDE',
-                          'NonKeyAttributes': [
-                              'string',
+                      \'Projection\': {
+                          \'ProjectionType\': \'ALL\'|\'KEYS_ONLY\'|\'INCLUDE\',
+                          \'NonKeyAttributes\': [
+                              \'string\',
                           ]
                       }
                   },
               ],
               GlobalSecondaryIndexes=[
                   {
-                      'IndexName': 'string',
-                      'KeySchema': [
+                      \'IndexName\': \'string\',
+                      \'KeySchema\': [
                           {
-                              'AttributeName': 'string',
-                              'KeyType': 'HASH'|'RANGE'
+                              \'AttributeName\': \'string\',
+                              \'KeyType\': \'HASH\'|\'RANGE\'
                           },
                       ],
-                      'Projection': {
-                          'ProjectionType': 'ALL'|'KEYS_ONLY'|'INCLUDE',
-                          'NonKeyAttributes': [
-                              'string',
+                      \'Projection\': {
+                          \'ProjectionType\': \'ALL\'|\'KEYS_ONLY\'|\'INCLUDE\',
+                          \'NonKeyAttributes\': [
+                              \'string\',
                           ]
                       },
-                      'ProvisionedThroughput': {
-                          'ReadCapacityUnits': 123,
-                          'WriteCapacityUnits': 123
+                      \'ProvisionedThroughput\': {
+                          \'ReadCapacityUnits\': 123,
+                          \'WriteCapacityUnits\': 123
                       }
                   },
               ],
               ProvisionedThroughput={
-                  'ReadCapacityUnits': 123,
-                  'WriteCapacityUnits': 123
+                  \'ReadCapacityUnits\': 123,
+                  \'WriteCapacityUnits\': 123
               },
               StreamSpecification={
-                  'StreamEnabled': True|False,
-                  'StreamViewType': 'NEW_IMAGE'|'OLD_IMAGE'|'NEW_AND_OLD_IMAGES'|'KEYS_ONLY'
+                  \'StreamEnabled\': True|False,
+                  \'StreamViewType\': \'NEW_IMAGE\'|\'OLD_IMAGE\'|\'NEW_AND_OLD_IMAGES\'|\'KEYS_ONLY\'
               },
               SSESpecification={
-                  'Enabled': True|False,
-                  'SSEType': 'AES256'|'KMS',
-                  'KMSMasterKeyId': 'string'
+                  \'Enabled\': True|False,
+                  \'SSEType\': \'AES256\'|\'KMS\',
+                  \'KMSMasterKeyId\': \'string\'
               }
           )
         :type AttributeDefinitions: list
@@ -1786,9 +1786,9 @@ class ServiceResource(base.ServiceResource):
              
           .. note::
         
-            The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+            The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-            The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+            The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
           For a simple primary key (partition key), you must provide exactly one element with a ``KeyType`` of ``HASH`` .
         
@@ -1818,9 +1818,9 @@ class ServiceResource(base.ServiceResource):
                
               .. note::
         
-                The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
         :type LocalSecondaryIndexes: list
         :param LocalSecondaryIndexes: 
@@ -1863,9 +1863,9 @@ class ServiceResource(base.ServiceResource):
                
               .. note::
         
-                The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
               - *(dict) --* 
         
@@ -1889,9 +1889,9 @@ class ServiceResource(base.ServiceResource):
                    
                   .. note::
         
-                    The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                    The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                    The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                    The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
             - **Projection** *(dict) --* **[REQUIRED]** 
         
@@ -1956,9 +1956,9 @@ class ServiceResource(base.ServiceResource):
                
               .. note::
         
-                The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
               - *(dict) --* 
         
@@ -1982,9 +1982,9 @@ class ServiceResource(base.ServiceResource):
                    
                   .. note::
         
-                    The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                    The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                    The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                    The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
             - **Projection** *(dict) --* **[REQUIRED]** 
         
@@ -2044,7 +2044,7 @@ class ServiceResource(base.ServiceResource):
         
           * ``StreamEnabled`` - Indicates whether Streams is to be enabled (true) or disabled (false). 
            
-          * ``StreamViewType`` - When an item in the table is modified, ``StreamViewType`` determines what information is written to the table's stream. Valid values for ``StreamViewType`` are: 
+          * ``StreamViewType`` - When an item in the table is modified, ``StreamViewType`` determines what information is written to the table\'s stream. Valid values for ``StreamViewType`` are: 
         
             * ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream. 
              
@@ -2144,15 +2144,15 @@ class Table(base.ServiceResource):
             with table.batch_writer() as batch:
                 for _ in xrange(1000000):
                 for _ in xrange(1000000):
-                    batch.put_item(Item={'HashKey': '...',
-                                         'Otherstuff': '...'})
+                    batch.put_item(Item={\'HashKey\': \'...\',
+                                         \'Otherstuff\': \'...\'})
                 # You can also delete_items in a batch.
-                batch.delete_item(Key={'HashKey': 'SomeHashKey'})
+                batch.delete_item(Key={\'HashKey\': \'SomeHashKey\'})
         
         :type overwrite_by_pkeys: list(string)
         :param overwrite_by_pkeys: De-duplicate request items in buffer
             if match new request item on specified primary keys. i.e
-            ``["partition_key1", "sort_key2", "sort_key3"]``
+            ``[\"partition_key1\", \"sort_key2\", \"sort_key3\"]``
         """
         pass
 
@@ -2184,98 +2184,98 @@ class Table(base.ServiceResource):
           ::
         
             {
-                'TableDescription': {
-                    'AttributeDefinitions': [
+                \'TableDescription\': {
+                    \'AttributeDefinitions\': [
                         {
-                            'AttributeName': 'string',
-                            'AttributeType': 'S'|'N'|'B'
+                            \'AttributeName\': \'string\',
+                            \'AttributeType\': \'S\'|\'N\'|\'B\'
                         },
                     ],
-                    'TableName': 'string',
-                    'KeySchema': [
+                    \'TableName\': \'string\',
+                    \'KeySchema\': [
                         {
-                            'AttributeName': 'string',
-                            'KeyType': 'HASH'|'RANGE'
+                            \'AttributeName\': \'string\',
+                            \'KeyType\': \'HASH\'|\'RANGE\'
                         },
                     ],
-                    'TableStatus': 'CREATING'|'UPDATING'|'DELETING'|'ACTIVE',
-                    'CreationDateTime': datetime(2015, 1, 1),
-                    'ProvisionedThroughput': {
-                        'LastIncreaseDateTime': datetime(2015, 1, 1),
-                        'LastDecreaseDateTime': datetime(2015, 1, 1),
-                        'NumberOfDecreasesToday': 123,
-                        'ReadCapacityUnits': 123,
-                        'WriteCapacityUnits': 123
+                    \'TableStatus\': \'CREATING\'|\'UPDATING\'|\'DELETING\'|\'ACTIVE\',
+                    \'CreationDateTime\': datetime(2015, 1, 1),
+                    \'ProvisionedThroughput\': {
+                        \'LastIncreaseDateTime\': datetime(2015, 1, 1),
+                        \'LastDecreaseDateTime\': datetime(2015, 1, 1),
+                        \'NumberOfDecreasesToday\': 123,
+                        \'ReadCapacityUnits\': 123,
+                        \'WriteCapacityUnits\': 123
                     },
-                    'TableSizeBytes': 123,
-                    'ItemCount': 123,
-                    'TableArn': 'string',
-                    'TableId': 'string',
-                    'LocalSecondaryIndexes': [
+                    \'TableSizeBytes\': 123,
+                    \'ItemCount\': 123,
+                    \'TableArn\': \'string\',
+                    \'TableId\': \'string\',
+                    \'LocalSecondaryIndexes\': [
                         {
-                            'IndexName': 'string',
-                            'KeySchema': [
+                            \'IndexName\': \'string\',
+                            \'KeySchema\': [
                                 {
-                                    'AttributeName': 'string',
-                                    'KeyType': 'HASH'|'RANGE'
+                                    \'AttributeName\': \'string\',
+                                    \'KeyType\': \'HASH\'|\'RANGE\'
                                 },
                             ],
-                            'Projection': {
-                                'ProjectionType': 'ALL'|'KEYS_ONLY'|'INCLUDE',
-                                'NonKeyAttributes': [
-                                    'string',
+                            \'Projection\': {
+                                \'ProjectionType\': \'ALL\'|\'KEYS_ONLY\'|\'INCLUDE\',
+                                \'NonKeyAttributes\': [
+                                    \'string\',
                                 ]
                             },
-                            'IndexSizeBytes': 123,
-                            'ItemCount': 123,
-                            'IndexArn': 'string'
+                            \'IndexSizeBytes\': 123,
+                            \'ItemCount\': 123,
+                            \'IndexArn\': \'string\'
                         },
                     ],
-                    'GlobalSecondaryIndexes': [
+                    \'GlobalSecondaryIndexes\': [
                         {
-                            'IndexName': 'string',
-                            'KeySchema': [
+                            \'IndexName\': \'string\',
+                            \'KeySchema\': [
                                 {
-                                    'AttributeName': 'string',
-                                    'KeyType': 'HASH'|'RANGE'
+                                    \'AttributeName\': \'string\',
+                                    \'KeyType\': \'HASH\'|\'RANGE\'
                                 },
                             ],
-                            'Projection': {
-                                'ProjectionType': 'ALL'|'KEYS_ONLY'|'INCLUDE',
-                                'NonKeyAttributes': [
-                                    'string',
+                            \'Projection\': {
+                                \'ProjectionType\': \'ALL\'|\'KEYS_ONLY\'|\'INCLUDE\',
+                                \'NonKeyAttributes\': [
+                                    \'string\',
                                 ]
                             },
-                            'IndexStatus': 'CREATING'|'UPDATING'|'DELETING'|'ACTIVE',
-                            'Backfilling': True|False,
-                            'ProvisionedThroughput': {
-                                'LastIncreaseDateTime': datetime(2015, 1, 1),
-                                'LastDecreaseDateTime': datetime(2015, 1, 1),
-                                'NumberOfDecreasesToday': 123,
-                                'ReadCapacityUnits': 123,
-                                'WriteCapacityUnits': 123
+                            \'IndexStatus\': \'CREATING\'|\'UPDATING\'|\'DELETING\'|\'ACTIVE\',
+                            \'Backfilling\': True|False,
+                            \'ProvisionedThroughput\': {
+                                \'LastIncreaseDateTime\': datetime(2015, 1, 1),
+                                \'LastDecreaseDateTime\': datetime(2015, 1, 1),
+                                \'NumberOfDecreasesToday\': 123,
+                                \'ReadCapacityUnits\': 123,
+                                \'WriteCapacityUnits\': 123
                             },
-                            'IndexSizeBytes': 123,
-                            'ItemCount': 123,
-                            'IndexArn': 'string'
+                            \'IndexSizeBytes\': 123,
+                            \'ItemCount\': 123,
+                            \'IndexArn\': \'string\'
                         },
                     ],
-                    'StreamSpecification': {
-                        'StreamEnabled': True|False,
-                        'StreamViewType': 'NEW_IMAGE'|'OLD_IMAGE'|'NEW_AND_OLD_IMAGES'|'KEYS_ONLY'
+                    \'StreamSpecification\': {
+                        \'StreamEnabled\': True|False,
+                        \'StreamViewType\': \'NEW_IMAGE\'|\'OLD_IMAGE\'|\'NEW_AND_OLD_IMAGES\'|\'KEYS_ONLY\'
                     },
-                    'LatestStreamLabel': 'string',
-                    'LatestStreamArn': 'string',
-                    'RestoreSummary': {
-                        'SourceBackupArn': 'string',
-                        'SourceTableArn': 'string',
-                        'RestoreDateTime': datetime(2015, 1, 1),
-                        'RestoreInProgress': True|False
+                    \'LatestStreamLabel\': \'string\',
+                    \'LatestStreamArn\': \'string\',
+                    \'RestoreSummary\': {
+                        \'SourceBackupArn\': \'string\',
+                        \'SourceTableArn\': \'string\',
+                        \'RestoreDateTime\': datetime(2015, 1, 1),
+                        \'RestoreInProgress\': True|False
                     },
-                    'SSEDescription': {
-                        'Status': 'ENABLING'|'ENABLED'|'DISABLING'|'DISABLED'|'UPDATING',
-                        'SSEType': 'AES256'|'KMS',
-                        'KMSMasterKeyArn': 'string'
+                    \'SSEDescription\': {
+                        \'Status\': \'ENABLING\'|\'ENABLED\'|\'DISABLING\'|\'DISABLED\'|\'UPDATING\',
+                        \'SSEType\': \'AES256\'|\'KMS\',
+                        \'KMSMasterKeyArn\': \'string\'
                     }
                 }
             }
@@ -2335,9 +2335,9 @@ class Table(base.ServiceResource):
                    
                 .. note::
         
-                  The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                  The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                  The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                  The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
                 For more information about primary keys, see `Primary Key <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey>`__ in the *Amazon DynamoDB Developer Guide* .
         
@@ -2363,9 +2363,9 @@ class Table(base.ServiceResource):
                      
                     .. note::
         
-                      The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                      The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                      The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                      The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
               - **TableStatus** *(string) --* 
         
@@ -2467,9 +2467,9 @@ class Table(base.ServiceResource):
                      
                     .. note::
         
-                      The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                      The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                      The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                      The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
                     - *(dict) --* 
         
@@ -2493,9 +2493,9 @@ class Table(base.ServiceResource):
                          
                         .. note::
         
-                          The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                          The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                          The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                          The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
                   - **Projection** *(dict) --* 
         
@@ -2589,9 +2589,9 @@ class Table(base.ServiceResource):
                      
                     .. note::
         
-                      The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                      The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                      The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                      The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
                     - *(dict) --* 
         
@@ -2615,9 +2615,9 @@ class Table(base.ServiceResource):
                          
                         .. note::
         
-                          The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                          The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                          The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                          The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
                   - **Projection** *(dict) --* 
         
@@ -2791,7 +2791,7 @@ class Table(base.ServiceResource):
     def delete_item(self, Key: Dict, Expected: Dict = None, ConditionalOperator: str = None, ReturnValues: str = None, ReturnConsumedCapacity: str = None, ReturnItemCollectionMetrics: str = None, ConditionExpression: str = None, ExpressionAttributeNames: Dict = None, ExpressionAttributeValues: Dict = None) -> Dict:
         """
         
-        In addition to deleting an item, you can also return the item's attribute values in the same operation, using the ``ReturnValues`` parameter.
+        In addition to deleting an item, you can also return the item\'s attribute values in the same operation, using the ``ReturnValues`` parameter.
         
         Unless you specify conditions, the ``DeleteItem`` is an idempotent operation; running it multiple times on the same item or attribute does *not* result in an error response.
         
@@ -2804,111 +2804,111 @@ class Table(base.ServiceResource):
         
           response = table.delete_item(
               Key={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               },
               Expected={
-                  'string': {
-                      'Value': {
-                          'S': 'string',
-                          'N': 'string',
-                          'B': b'bytes',
-                          'SS': [
-                              'string',
+                  \'string\': {
+                      \'Value\': {
+                          \'S\': \'string\',
+                          \'N\': \'string\',
+                          \'B\': b\'bytes\',
+                          \'SS\': [
+                              \'string\',
                           ],
-                          'NS': [
-                              'string',
+                          \'NS\': [
+                              \'string\',
                           ],
-                          'BS': [
-                              b'bytes',
+                          \'BS\': [
+                              b\'bytes\',
                           ],
-                          'M': {
-                              'string': {'... recursive ...'}
+                          \'M\': {
+                              \'string\': {\'... recursive ...\'}
                           },
-                          'L': [
-                              {'... recursive ...'},
+                          \'L\': [
+                              {\'... recursive ...\'},
                           ],
-                          'NULL': True|False,
-                          'BOOL': True|False
+                          \'NULL\': True|False,
+                          \'BOOL\': True|False
                       },
-                      'Exists': True|False,
-                      'ComparisonOperator': 'EQ'|'NE'|'IN'|'LE'|'LT'|'GE'|'GT'|'BETWEEN'|'NOT_NULL'|'NULL'|'CONTAINS'|'NOT_CONTAINS'|'BEGINS_WITH',
-                      'AttributeValueList': [
+                      \'Exists\': True|False,
+                      \'ComparisonOperator\': \'EQ\'|\'NE\'|\'IN\'|\'LE\'|\'LT\'|\'GE\'|\'GT\'|\'BETWEEN\'|\'NOT_NULL\'|\'NULL\'|\'CONTAINS\'|\'NOT_CONTAINS\'|\'BEGINS_WITH\',
+                      \'AttributeValueList\': [
                           {
-                              'S': 'string',
-                              'N': 'string',
-                              'B': b'bytes',
-                              'SS': [
-                                  'string',
+                              \'S\': \'string\',
+                              \'N\': \'string\',
+                              \'B\': b\'bytes\',
+                              \'SS\': [
+                                  \'string\',
                               ],
-                              'NS': [
-                                  'string',
+                              \'NS\': [
+                                  \'string\',
                               ],
-                              'BS': [
-                                  b'bytes',
+                              \'BS\': [
+                                  b\'bytes\',
                               ],
-                              'M': {
-                                  'string': {'... recursive ...'}
+                              \'M\': {
+                                  \'string\': {\'... recursive ...\'}
                               },
-                              'L': [
-                                  {'... recursive ...'},
+                              \'L\': [
+                                  {\'... recursive ...\'},
                               ],
-                              'NULL': True|False,
-                              'BOOL': True|False
+                              \'NULL\': True|False,
+                              \'BOOL\': True|False
                           },
                       ]
                   }
               },
-              ConditionalOperator='AND'|'OR',
-              ReturnValues='NONE'|'ALL_OLD'|'UPDATED_OLD'|'ALL_NEW'|'UPDATED_NEW',
-              ReturnConsumedCapacity='INDEXES'|'TOTAL'|'NONE',
-              ReturnItemCollectionMetrics='SIZE'|'NONE',
-              ConditionExpression='string',
+              ConditionalOperator=\'AND\'|\'OR\',
+              ReturnValues=\'NONE\'|\'ALL_OLD\'|\'UPDATED_OLD\'|\'ALL_NEW\'|\'UPDATED_NEW\',
+              ReturnConsumedCapacity=\'INDEXES\'|\'TOTAL\'|\'NONE\',
+              ReturnItemCollectionMetrics=\'SIZE\'|\'NONE\',
+              ConditionExpression=\'string\',
               ExpressionAttributeNames={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               ExpressionAttributeValues={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               }
           )
@@ -2933,13 +2933,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -2947,13 +2947,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -2961,7 +2961,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -2971,7 +2971,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -2979,7 +2979,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -2995,7 +2995,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -3009,13 +3009,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :type Expected: dict
         :param Expected: 
@@ -3046,13 +3046,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type String. For example:
         
-                   ``"S": "Hello"``  
+                   ``\"S\": \"Hello\"``  
         
                 - **N** *(string) --* 
         
                   An attribute of type Number. For example:
         
-                   ``"N": "123.45"``  
+                   ``\"N\": \"123.45\"``  
         
                   Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3060,13 +3060,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type Binary. For example:
         
-                   ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                   ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                 - **SS** *(list) --* 
         
                   An attribute of type String Set. For example:
         
-                   ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                   ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                   - *(string) --* 
         
@@ -3074,7 +3074,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Number Set. For example:
         
-                   ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                   ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                   Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3084,7 +3084,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Binary Set. For example:
         
-                   ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                   ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                   - *(bytes) --* 
         
@@ -3092,7 +3092,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Map. For example:
         
-                   ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                   ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                   - *(string) --* 
         
@@ -3108,7 +3108,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type List. For example:
         
-                   ``"L": ["Cookies", "Coffee", 3.14159]``  
+                   ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                   - *(dict) --* 
         
@@ -3122,13 +3122,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type Null. For example:
         
-                   ``"NULL": true``  
+                   ``\"NULL\": true``  
         
                 - **BOOL** *(boolean) --* 
         
                   An attribute of type Boolean. For example:
         
-                   ``"BOOL": true``  
+                   ``\"BOOL\": true``  
         
               - **Exists** *(boolean) --* 
         
@@ -3138,11 +3138,11 @@ class Table(base.ServiceResource):
                  
                 * If ``Exists`` is ``false`` , DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a ``ConditionalCheckFailedException`` . 
                  
-                The default setting for ``Exists`` is ``true`` . If you supply a ``Value`` all by itself, DynamoDB assumes the attribute exists: You don't have to set ``Exists`` to ``true`` , because it is implied.
+                The default setting for ``Exists`` is ``true`` . If you supply a ``Value`` all by itself, DynamoDB assumes the attribute exists: You don\'t have to set ``Exists`` to ``true`` , because it is implied.
         
                 DynamoDB returns a ``ValidationException`` if:
         
-                * ``Exists`` is ``true`` but there is no ``Value`` to check. (You expect a value to exist, but don't specify what that value is.) 
+                * ``Exists`` is ``true`` but there is no ``Value`` to check. (You expect a value to exist, but don\'t specify what that value is.) 
                  
                 * ``Exists`` is ``false`` but you also provide a ``Value`` . (You cannot expect an attribute to have a value, while also expecting it not to exist.) 
                  
@@ -3156,39 +3156,39 @@ class Table(base.ServiceResource):
         
                 The following are descriptions of each comparison operator.
         
-                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
                 * ``NOT_NULL`` : The attribute exists. ``NOT_NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute "``a`` " exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
+                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
         
                 * ``NULL`` : The attribute does not exist. ``NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute "``a`` " exists; its data type is not relevant to the ``NULL`` comparison operator. 
+                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NULL`` comparison operator. 
         
-                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating "``a CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating \"``a CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
-                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating "``a NOT CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating \"``a NOT CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).  
                  
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true. 
                  
-                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not compare to ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}``   
+                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``   
                  
               - **AttributeValueList** *(list) --* 
         
@@ -3214,13 +3214,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3228,13 +3228,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
         
@@ -3242,7 +3242,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3252,7 +3252,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
         
@@ -3260,7 +3260,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
         
@@ -3276,7 +3276,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -3290,13 +3290,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
         :type ConditionalOperator: string
         :param ConditionalOperator: 
@@ -3364,7 +3364,7 @@ class Table(base.ServiceResource):
            
           The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
         
-          * ``{"#P":"Percentile"}``   
+          * ``{\"#P\":\"Percentile\"}``   
            
           You could then use this substitution in an expression, as in this example:
         
@@ -3391,7 +3391,7 @@ class Table(base.ServiceResource):
         
           You would first need to specify ``ExpressionAttributeValues`` as follows:
         
-           ``{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }``  
+           ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``  
         
           You could then use these values in an expression, such as this:
         
@@ -3413,13 +3413,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3427,13 +3427,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -3441,7 +3441,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3451,7 +3451,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -3459,7 +3459,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -3475,7 +3475,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -3489,13 +3489,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :rtype: dict
         :returns: 
@@ -3505,73 +3505,73 @@ class Table(base.ServiceResource):
           ::
         
             {
-                'Attributes': {
-                    'string': {
-                        'S': 'string',
-                        'N': 'string',
-                        'B': b'bytes',
-                        'SS': [
-                            'string',
+                \'Attributes\': {
+                    \'string\': {
+                        \'S\': \'string\',
+                        \'N\': \'string\',
+                        \'B\': b\'bytes\',
+                        \'SS\': [
+                            \'string\',
                         ],
-                        'NS': [
-                            'string',
+                        \'NS\': [
+                            \'string\',
                         ],
-                        'BS': [
-                            b'bytes',
+                        \'BS\': [
+                            b\'bytes\',
                         ],
-                        'M': {
-                            'string': {'... recursive ...'}
+                        \'M\': {
+                            \'string\': {\'... recursive ...\'}
                         },
-                        'L': [
-                            {'... recursive ...'},
+                        \'L\': [
+                            {\'... recursive ...\'},
                         ],
-                        'NULL': True|False,
-                        'BOOL': True|False
+                        \'NULL\': True|False,
+                        \'BOOL\': True|False
                     }
                 },
-                'ConsumedCapacity': {
-                    'TableName': 'string',
-                    'CapacityUnits': 123.0,
-                    'Table': {
-                        'CapacityUnits': 123.0
+                \'ConsumedCapacity\': {
+                    \'TableName\': \'string\',
+                    \'CapacityUnits\': 123.0,
+                    \'Table\': {
+                        \'CapacityUnits\': 123.0
                     },
-                    'LocalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'LocalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     },
-                    'GlobalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'GlobalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     }
                 },
-                'ItemCollectionMetrics': {
-                    'ItemCollectionKey': {
-                        'string': {
-                            'S': 'string',
-                            'N': 'string',
-                            'B': b'bytes',
-                            'SS': [
-                                'string',
+                \'ItemCollectionMetrics\': {
+                    \'ItemCollectionKey\': {
+                        \'string\': {
+                            \'S\': \'string\',
+                            \'N\': \'string\',
+                            \'B\': b\'bytes\',
+                            \'SS\': [
+                                \'string\',
                             ],
-                            'NS': [
-                                'string',
+                            \'NS\': [
+                                \'string\',
                             ],
-                            'BS': [
-                                b'bytes',
+                            \'BS\': [
+                                b\'bytes\',
                             ],
-                            'M': {
-                                'string': {'... recursive ...'}
+                            \'M\': {
+                                \'string\': {\'... recursive ...\'}
                             },
-                            'L': [
-                                {'... recursive ...'},
+                            \'L\': [
+                                {\'... recursive ...\'},
                             ],
-                            'NULL': True|False,
-                            'BOOL': True|False
+                            \'NULL\': True|False,
+                            \'BOOL\': True|False
                         }
                     },
-                    'SizeEstimateRangeGB': [
+                    \'SizeEstimateRangeGB\': [
                         123.0,
                     ]
                 }
@@ -3600,13 +3600,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3614,13 +3614,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
                 
@@ -3628,7 +3628,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3638,7 +3638,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
                 
@@ -3646,7 +3646,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
                       
@@ -3662,7 +3662,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -3676,13 +3676,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
             - **ConsumedCapacity** *(dict) --* 
         
@@ -3760,13 +3760,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type String. For example:
         
-                       ``"S": "Hello"``  
+                       ``\"S\": \"Hello\"``  
         
                     - **N** *(string) --* 
         
                       An attribute of type Number. For example:
         
-                       ``"N": "123.45"``  
+                       ``\"N\": \"123.45\"``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3774,13 +3774,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type Binary. For example:
         
-                       ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                       ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                     - **SS** *(list) --* 
         
                       An attribute of type String Set. For example:
         
-                       ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                       ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                       - *(string) --* 
                   
@@ -3788,7 +3788,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Number Set. For example:
         
-                       ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                       ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3798,7 +3798,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Binary Set. For example:
         
-                       ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                       ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                       - *(bytes) --* 
                   
@@ -3806,7 +3806,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Map. For example:
         
-                       ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                       ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                       - *(string) --* 
                         
@@ -3822,7 +3822,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type List. For example:
         
-                       ``"L": ["Cookies", "Coffee", 3.14159]``  
+                       ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                       - *(dict) --* 
         
@@ -3836,13 +3836,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type Null. For example:
         
-                       ``"NULL": true``  
+                       ``\"NULL\": true``  
         
                     - **BOOL** *(boolean) --* 
         
                       An attribute of type Boolean. For example:
         
-                       ``"BOOL": true``  
+                       ``\"BOOL\": true``  
         
               - **SizeEstimateRangeGB** *(list) --* 
         
@@ -3877,37 +3877,37 @@ class Table(base.ServiceResource):
         
           response = table.get_item(
               Key={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               },
               AttributesToGet=[
-                  'string',
+                  \'string\',
               ],
               ConsistentRead=True|False,
-              ReturnConsumedCapacity='INDEXES'|'TOTAL'|'NONE',
-              ProjectionExpression='string',
+              ReturnConsumedCapacity=\'INDEXES\'|\'TOTAL\'|\'NONE\',
+              ProjectionExpression=\'string\',
               ExpressionAttributeNames={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type Key: dict
@@ -3931,13 +3931,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3945,13 +3945,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -3959,7 +3959,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -3969,7 +3969,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -3977,7 +3977,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -3993,7 +3993,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -4007,13 +4007,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :type AttributesToGet: list
         :param AttributesToGet: 
@@ -4064,7 +4064,7 @@ class Table(base.ServiceResource):
            
           The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
         
-          * ``{"#P":"Percentile"}``   
+          * ``{\"#P\":\"Percentile\"}``   
            
           You could then use this substitution in an expression, as in this example:
         
@@ -4088,44 +4088,44 @@ class Table(base.ServiceResource):
           ::
         
             {
-                'Item': {
-                    'string': {
-                        'S': 'string',
-                        'N': 'string',
-                        'B': b'bytes',
-                        'SS': [
-                            'string',
+                \'Item\': {
+                    \'string\': {
+                        \'S\': \'string\',
+                        \'N\': \'string\',
+                        \'B\': b\'bytes\',
+                        \'SS\': [
+                            \'string\',
                         ],
-                        'NS': [
-                            'string',
+                        \'NS\': [
+                            \'string\',
                         ],
-                        'BS': [
-                            b'bytes',
+                        \'BS\': [
+                            b\'bytes\',
                         ],
-                        'M': {
-                            'string': {'... recursive ...'}
+                        \'M\': {
+                            \'string\': {\'... recursive ...\'}
                         },
-                        'L': [
-                            {'... recursive ...'},
+                        \'L\': [
+                            {\'... recursive ...\'},
                         ],
-                        'NULL': True|False,
-                        'BOOL': True|False
+                        \'NULL\': True|False,
+                        \'BOOL\': True|False
                     }
                 },
-                'ConsumedCapacity': {
-                    'TableName': 'string',
-                    'CapacityUnits': 123.0,
-                    'Table': {
-                        'CapacityUnits': 123.0
+                \'ConsumedCapacity\': {
+                    \'TableName\': \'string\',
+                    \'CapacityUnits\': 123.0,
+                    \'Table\': {
+                        \'CapacityUnits\': 123.0
                     },
-                    'LocalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'LocalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     },
-                    'GlobalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'GlobalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     }
                 }
@@ -4154,13 +4154,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -4168,13 +4168,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
                 
@@ -4182,7 +4182,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -4192,7 +4192,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
                 
@@ -4200,7 +4200,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
                       
@@ -4216,7 +4216,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -4230,13 +4230,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
             - **ConsumedCapacity** *(dict) --* 
         
@@ -4345,111 +4345,111 @@ class Table(base.ServiceResource):
         
           response = table.put_item(
               Item={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               },
               Expected={
-                  'string': {
-                      'Value': {
-                          'S': 'string',
-                          'N': 'string',
-                          'B': b'bytes',
-                          'SS': [
-                              'string',
+                  \'string\': {
+                      \'Value\': {
+                          \'S\': \'string\',
+                          \'N\': \'string\',
+                          \'B\': b\'bytes\',
+                          \'SS\': [
+                              \'string\',
                           ],
-                          'NS': [
-                              'string',
+                          \'NS\': [
+                              \'string\',
                           ],
-                          'BS': [
-                              b'bytes',
+                          \'BS\': [
+                              b\'bytes\',
                           ],
-                          'M': {
-                              'string': {'... recursive ...'}
+                          \'M\': {
+                              \'string\': {\'... recursive ...\'}
                           },
-                          'L': [
-                              {'... recursive ...'},
+                          \'L\': [
+                              {\'... recursive ...\'},
                           ],
-                          'NULL': True|False,
-                          'BOOL': True|False
+                          \'NULL\': True|False,
+                          \'BOOL\': True|False
                       },
-                      'Exists': True|False,
-                      'ComparisonOperator': 'EQ'|'NE'|'IN'|'LE'|'LT'|'GE'|'GT'|'BETWEEN'|'NOT_NULL'|'NULL'|'CONTAINS'|'NOT_CONTAINS'|'BEGINS_WITH',
-                      'AttributeValueList': [
+                      \'Exists\': True|False,
+                      \'ComparisonOperator\': \'EQ\'|\'NE\'|\'IN\'|\'LE\'|\'LT\'|\'GE\'|\'GT\'|\'BETWEEN\'|\'NOT_NULL\'|\'NULL\'|\'CONTAINS\'|\'NOT_CONTAINS\'|\'BEGINS_WITH\',
+                      \'AttributeValueList\': [
                           {
-                              'S': 'string',
-                              'N': 'string',
-                              'B': b'bytes',
-                              'SS': [
-                                  'string',
+                              \'S\': \'string\',
+                              \'N\': \'string\',
+                              \'B\': b\'bytes\',
+                              \'SS\': [
+                                  \'string\',
                               ],
-                              'NS': [
-                                  'string',
+                              \'NS\': [
+                                  \'string\',
                               ],
-                              'BS': [
-                                  b'bytes',
+                              \'BS\': [
+                                  b\'bytes\',
                               ],
-                              'M': {
-                                  'string': {'... recursive ...'}
+                              \'M\': {
+                                  \'string\': {\'... recursive ...\'}
                               },
-                              'L': [
-                                  {'... recursive ...'},
+                              \'L\': [
+                                  {\'... recursive ...\'},
                               ],
-                              'NULL': True|False,
-                              'BOOL': True|False
+                              \'NULL\': True|False,
+                              \'BOOL\': True|False
                           },
                       ]
                   }
               },
-              ReturnValues='NONE'|'ALL_OLD'|'UPDATED_OLD'|'ALL_NEW'|'UPDATED_NEW',
-              ReturnConsumedCapacity='INDEXES'|'TOTAL'|'NONE',
-              ReturnItemCollectionMetrics='SIZE'|'NONE',
-              ConditionalOperator='AND'|'OR',
-              ConditionExpression='string',
+              ReturnValues=\'NONE\'|\'ALL_OLD\'|\'UPDATED_OLD\'|\'ALL_NEW\'|\'UPDATED_NEW\',
+              ReturnConsumedCapacity=\'INDEXES\'|\'TOTAL\'|\'NONE\',
+              ReturnItemCollectionMetrics=\'SIZE\'|\'NONE\',
+              ConditionalOperator=\'AND\'|\'OR\',
+              ConditionExpression=\'string\',
               ExpressionAttributeNames={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               ExpressionAttributeValues={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               }
           )
@@ -4460,7 +4460,7 @@ class Table(base.ServiceResource):
         
           You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.
         
-          If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.
+          If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table\'s attribute definition.
         
           For more information about primary keys, see `Primary Key <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey>`__ in the *Amazon DynamoDB Developer Guide* .
         
@@ -4480,13 +4480,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -4494,13 +4494,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -4508,7 +4508,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -4518,7 +4518,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -4526,7 +4526,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -4542,7 +4542,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -4556,13 +4556,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :type Expected: dict
         :param Expected: 
@@ -4593,13 +4593,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type String. For example:
         
-                   ``"S": "Hello"``  
+                   ``\"S\": \"Hello\"``  
         
                 - **N** *(string) --* 
         
                   An attribute of type Number. For example:
         
-                   ``"N": "123.45"``  
+                   ``\"N\": \"123.45\"``  
         
                   Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -4607,13 +4607,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type Binary. For example:
         
-                   ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                   ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                 - **SS** *(list) --* 
         
                   An attribute of type String Set. For example:
         
-                   ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                   ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                   - *(string) --* 
         
@@ -4621,7 +4621,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Number Set. For example:
         
-                   ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                   ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                   Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -4631,7 +4631,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Binary Set. For example:
         
-                   ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                   ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                   - *(bytes) --* 
         
@@ -4639,7 +4639,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Map. For example:
         
-                   ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                   ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                   - *(string) --* 
         
@@ -4655,7 +4655,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type List. For example:
         
-                   ``"L": ["Cookies", "Coffee", 3.14159]``  
+                   ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                   - *(dict) --* 
         
@@ -4669,13 +4669,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type Null. For example:
         
-                   ``"NULL": true``  
+                   ``\"NULL\": true``  
         
                 - **BOOL** *(boolean) --* 
         
                   An attribute of type Boolean. For example:
         
-                   ``"BOOL": true``  
+                   ``\"BOOL\": true``  
         
               - **Exists** *(boolean) --* 
         
@@ -4685,11 +4685,11 @@ class Table(base.ServiceResource):
                  
                 * If ``Exists`` is ``false`` , DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a ``ConditionalCheckFailedException`` . 
                  
-                The default setting for ``Exists`` is ``true`` . If you supply a ``Value`` all by itself, DynamoDB assumes the attribute exists: You don't have to set ``Exists`` to ``true`` , because it is implied.
+                The default setting for ``Exists`` is ``true`` . If you supply a ``Value`` all by itself, DynamoDB assumes the attribute exists: You don\'t have to set ``Exists`` to ``true`` , because it is implied.
         
                 DynamoDB returns a ``ValidationException`` if:
         
-                * ``Exists`` is ``true`` but there is no ``Value`` to check. (You expect a value to exist, but don't specify what that value is.) 
+                * ``Exists`` is ``true`` but there is no ``Value`` to check. (You expect a value to exist, but don\'t specify what that value is.) 
                  
                 * ``Exists`` is ``false`` but you also provide a ``Value`` . (You cannot expect an attribute to have a value, while also expecting it not to exist.) 
                  
@@ -4703,39 +4703,39 @@ class Table(base.ServiceResource):
         
                 The following are descriptions of each comparison operator.
         
-                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
                 * ``NOT_NULL`` : The attribute exists. ``NOT_NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute "``a`` " exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
+                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
         
                 * ``NULL`` : The attribute does not exist. ``NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute "``a`` " exists; its data type is not relevant to the ``NULL`` comparison operator. 
+                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NULL`` comparison operator. 
         
-                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating "``a CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating \"``a CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
-                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating "``a NOT CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating \"``a NOT CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).  
                  
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true. 
                  
-                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not compare to ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}``   
+                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``   
                  
               - **AttributeValueList** *(list) --* 
         
@@ -4761,13 +4761,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -4775,13 +4775,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
         
@@ -4789,7 +4789,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -4799,7 +4799,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
         
@@ -4807,7 +4807,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
         
@@ -4823,7 +4823,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -4837,13 +4837,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
         :type ReturnValues: string
         :param ReturnValues: 
@@ -4911,7 +4911,7 @@ class Table(base.ServiceResource):
            
           The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
         
-          * ``{"#P":"Percentile"}``   
+          * ``{\"#P\":\"Percentile\"}``   
            
           You could then use this substitution in an expression, as in this example:
         
@@ -4938,7 +4938,7 @@ class Table(base.ServiceResource):
         
           You would first need to specify ``ExpressionAttributeValues`` as follows:
         
-           ``{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }``  
+           ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``  
         
           You could then use these values in an expression, such as this:
         
@@ -4960,13 +4960,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -4974,13 +4974,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -4988,7 +4988,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -4998,7 +4998,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -5006,7 +5006,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -5022,7 +5022,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -5036,13 +5036,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :rtype: dict
         :returns: 
@@ -5052,73 +5052,73 @@ class Table(base.ServiceResource):
           ::
         
             {
-                'Attributes': {
-                    'string': {
-                        'S': 'string',
-                        'N': 'string',
-                        'B': b'bytes',
-                        'SS': [
-                            'string',
+                \'Attributes\': {
+                    \'string\': {
+                        \'S\': \'string\',
+                        \'N\': \'string\',
+                        \'B\': b\'bytes\',
+                        \'SS\': [
+                            \'string\',
                         ],
-                        'NS': [
-                            'string',
+                        \'NS\': [
+                            \'string\',
                         ],
-                        'BS': [
-                            b'bytes',
+                        \'BS\': [
+                            b\'bytes\',
                         ],
-                        'M': {
-                            'string': {'... recursive ...'}
+                        \'M\': {
+                            \'string\': {\'... recursive ...\'}
                         },
-                        'L': [
-                            {'... recursive ...'},
+                        \'L\': [
+                            {\'... recursive ...\'},
                         ],
-                        'NULL': True|False,
-                        'BOOL': True|False
+                        \'NULL\': True|False,
+                        \'BOOL\': True|False
                     }
                 },
-                'ConsumedCapacity': {
-                    'TableName': 'string',
-                    'CapacityUnits': 123.0,
-                    'Table': {
-                        'CapacityUnits': 123.0
+                \'ConsumedCapacity\': {
+                    \'TableName\': \'string\',
+                    \'CapacityUnits\': 123.0,
+                    \'Table\': {
+                        \'CapacityUnits\': 123.0
                     },
-                    'LocalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'LocalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     },
-                    'GlobalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'GlobalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     }
                 },
-                'ItemCollectionMetrics': {
-                    'ItemCollectionKey': {
-                        'string': {
-                            'S': 'string',
-                            'N': 'string',
-                            'B': b'bytes',
-                            'SS': [
-                                'string',
+                \'ItemCollectionMetrics\': {
+                    \'ItemCollectionKey\': {
+                        \'string\': {
+                            \'S\': \'string\',
+                            \'N\': \'string\',
+                            \'B\': b\'bytes\',
+                            \'SS\': [
+                                \'string\',
                             ],
-                            'NS': [
-                                'string',
+                            \'NS\': [
+                                \'string\',
                             ],
-                            'BS': [
-                                b'bytes',
+                            \'BS\': [
+                                b\'bytes\',
                             ],
-                            'M': {
-                                'string': {'... recursive ...'}
+                            \'M\': {
+                                \'string\': {\'... recursive ...\'}
                             },
-                            'L': [
-                                {'... recursive ...'},
+                            \'L\': [
+                                {\'... recursive ...\'},
                             ],
-                            'NULL': True|False,
-                            'BOOL': True|False
+                            \'NULL\': True|False,
+                            \'BOOL\': True|False
                         }
                     },
-                    'SizeEstimateRangeGB': [
+                    \'SizeEstimateRangeGB\': [
                         123.0,
                     ]
                 }
@@ -5147,13 +5147,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -5161,13 +5161,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
                 
@@ -5175,7 +5175,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -5185,7 +5185,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
                 
@@ -5193,7 +5193,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
                       
@@ -5209,7 +5209,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -5223,13 +5223,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
             - **ConsumedCapacity** *(dict) --* 
         
@@ -5307,13 +5307,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type String. For example:
         
-                       ``"S": "Hello"``  
+                       ``\"S\": \"Hello\"``  
         
                     - **N** *(string) --* 
         
                       An attribute of type Number. For example:
         
-                       ``"N": "123.45"``  
+                       ``\"N\": \"123.45\"``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -5321,13 +5321,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type Binary. For example:
         
-                       ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                       ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                     - **SS** *(list) --* 
         
                       An attribute of type String Set. For example:
         
-                       ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                       ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                       - *(string) --* 
                   
@@ -5335,7 +5335,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Number Set. For example:
         
-                       ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                       ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -5345,7 +5345,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Binary Set. For example:
         
-                       ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                       ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                       - *(bytes) --* 
                   
@@ -5353,7 +5353,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Map. For example:
         
-                       ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                       ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                       - *(string) --* 
                         
@@ -5369,7 +5369,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type List. For example:
         
-                       ``"L": ["Cookies", "Coffee", 3.14159]``  
+                       ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                       - *(dict) --* 
         
@@ -5383,13 +5383,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type Null. For example:
         
-                       ``"NULL": true``  
+                       ``\"NULL\": true``  
         
                     - **BOOL** *(boolean) --* 
         
                       An attribute of type Boolean. For example:
         
-                       ``"BOOL": true``  
+                       ``\"BOOL\": true``  
         
               - **SizeEstimateRangeGB** *(list) --* 
         
@@ -5431,126 +5431,126 @@ class Table(base.ServiceResource):
         ::
         
           response = table.query(
-              IndexName='string',
-              Select='ALL_ATTRIBUTES'|'ALL_PROJECTED_ATTRIBUTES'|'SPECIFIC_ATTRIBUTES'|'COUNT',
+              IndexName=\'string\',
+              Select=\'ALL_ATTRIBUTES\'|\'ALL_PROJECTED_ATTRIBUTES\'|\'SPECIFIC_ATTRIBUTES\'|\'COUNT\',
               AttributesToGet=[
-                  'string',
+                  \'string\',
               ],
               Limit=123,
               ConsistentRead=True|False,
               KeyConditions={
-                  'string': {
-                      'AttributeValueList': [
+                  \'string\': {
+                      \'AttributeValueList\': [
                           {
-                              'S': 'string',
-                              'N': 'string',
-                              'B': b'bytes',
-                              'SS': [
-                                  'string',
+                              \'S\': \'string\',
+                              \'N\': \'string\',
+                              \'B\': b\'bytes\',
+                              \'SS\': [
+                                  \'string\',
                               ],
-                              'NS': [
-                                  'string',
+                              \'NS\': [
+                                  \'string\',
                               ],
-                              'BS': [
-                                  b'bytes',
+                              \'BS\': [
+                                  b\'bytes\',
                               ],
-                              'M': {
-                                  'string': {'... recursive ...'}
+                              \'M\': {
+                                  \'string\': {\'... recursive ...\'}
                               },
-                              'L': [
-                                  {'... recursive ...'},
+                              \'L\': [
+                                  {\'... recursive ...\'},
                               ],
-                              'NULL': True|False,
-                              'BOOL': True|False
+                              \'NULL\': True|False,
+                              \'BOOL\': True|False
                           },
                       ],
-                      'ComparisonOperator': 'EQ'|'NE'|'IN'|'LE'|'LT'|'GE'|'GT'|'BETWEEN'|'NOT_NULL'|'NULL'|'CONTAINS'|'NOT_CONTAINS'|'BEGINS_WITH'
+                      \'ComparisonOperator\': \'EQ\'|\'NE\'|\'IN\'|\'LE\'|\'LT\'|\'GE\'|\'GT\'|\'BETWEEN\'|\'NOT_NULL\'|\'NULL\'|\'CONTAINS\'|\'NOT_CONTAINS\'|\'BEGINS_WITH\'
                   }
               },
               QueryFilter={
-                  'string': {
-                      'AttributeValueList': [
+                  \'string\': {
+                      \'AttributeValueList\': [
                           {
-                              'S': 'string',
-                              'N': 'string',
-                              'B': b'bytes',
-                              'SS': [
-                                  'string',
+                              \'S\': \'string\',
+                              \'N\': \'string\',
+                              \'B\': b\'bytes\',
+                              \'SS\': [
+                                  \'string\',
                               ],
-                              'NS': [
-                                  'string',
+                              \'NS\': [
+                                  \'string\',
                               ],
-                              'BS': [
-                                  b'bytes',
+                              \'BS\': [
+                                  b\'bytes\',
                               ],
-                              'M': {
-                                  'string': {'... recursive ...'}
+                              \'M\': {
+                                  \'string\': {\'... recursive ...\'}
                               },
-                              'L': [
-                                  {'... recursive ...'},
+                              \'L\': [
+                                  {\'... recursive ...\'},
                               ],
-                              'NULL': True|False,
-                              'BOOL': True|False
+                              \'NULL\': True|False,
+                              \'BOOL\': True|False
                           },
                       ],
-                      'ComparisonOperator': 'EQ'|'NE'|'IN'|'LE'|'LT'|'GE'|'GT'|'BETWEEN'|'NOT_NULL'|'NULL'|'CONTAINS'|'NOT_CONTAINS'|'BEGINS_WITH'
+                      \'ComparisonOperator\': \'EQ\'|\'NE\'|\'IN\'|\'LE\'|\'LT\'|\'GE\'|\'GT\'|\'BETWEEN\'|\'NOT_NULL\'|\'NULL\'|\'CONTAINS\'|\'NOT_CONTAINS\'|\'BEGINS_WITH\'
                   }
               },
-              ConditionalOperator='AND'|'OR',
+              ConditionalOperator=\'AND\'|\'OR\',
               ScanIndexForward=True|False,
               ExclusiveStartKey={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               },
-              ReturnConsumedCapacity='INDEXES'|'TOTAL'|'NONE',
-              ProjectionExpression='string',
-              FilterExpression='string',
-              KeyConditionExpression='string',
+              ReturnConsumedCapacity=\'INDEXES\'|\'TOTAL\'|\'NONE\',
+              ProjectionExpression=\'string\',
+              FilterExpression=\'string\',
+              KeyConditionExpression=\'string\',
               ExpressionAttributeNames={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               ExpressionAttributeValues={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               }
           )
@@ -5634,13 +5634,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -5648,13 +5648,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
         
@@ -5662,7 +5662,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -5672,7 +5672,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
         
@@ -5680,7 +5680,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
         
@@ -5696,7 +5696,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -5710,13 +5710,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
               - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -5728,39 +5728,39 @@ class Table(base.ServiceResource):
         
                 The following are descriptions of each comparison operator.
         
-                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
                 * ``NOT_NULL`` : The attribute exists. ``NOT_NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute "``a`` " exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
+                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
         
                 * ``NULL`` : The attribute does not exist. ``NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute "``a`` " exists; its data type is not relevant to the ``NULL`` comparison operator. 
+                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NULL`` comparison operator. 
         
-                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating "``a CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating \"``a CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
-                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating "``a NOT CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating \"``a NOT CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).  
                  
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true. 
                  
-                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not compare to ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}``   
+                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``   
                  
                 For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         
@@ -5801,13 +5801,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -5815,13 +5815,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
         
@@ -5829,7 +5829,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -5839,7 +5839,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
         
@@ -5847,7 +5847,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
         
@@ -5863,7 +5863,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -5877,13 +5877,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
               - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -5895,39 +5895,39 @@ class Table(base.ServiceResource):
         
                 The following are descriptions of each comparison operator.
         
-                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
                 * ``NOT_NULL`` : The attribute exists. ``NOT_NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute "``a`` " exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
+                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
         
                 * ``NULL`` : The attribute does not exist. ``NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute "``a`` " exists; its data type is not relevant to the ``NULL`` comparison operator. 
+                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NULL`` comparison operator. 
         
-                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating "``a CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating \"``a CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
-                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating "``a NOT CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating \"``a NOT CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).  
                  
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true. 
                  
-                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not compare to ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}``   
+                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``   
                  
                 For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         
@@ -5966,13 +5966,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -5980,13 +5980,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -5994,7 +5994,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -6004,7 +6004,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -6012,7 +6012,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -6028,7 +6028,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -6042,13 +6042,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :type ReturnConsumedCapacity: string
         :param ReturnConsumedCapacity: 
@@ -6147,7 +6147,7 @@ class Table(base.ServiceResource):
            
           The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
         
-          * ``{"#P":"Percentile"}``   
+          * ``{\"#P\":\"Percentile\"}``   
            
           You could then use this substitution in an expression, as in this example:
         
@@ -6174,7 +6174,7 @@ class Table(base.ServiceResource):
         
           You would first need to specify ``ExpressionAttributeValues`` as follows:
         
-           ``{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }``  
+           ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``  
         
           You could then use these values in an expression, such as this:
         
@@ -6196,13 +6196,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -6210,13 +6210,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -6224,7 +6224,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -6234,7 +6234,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -6242,7 +6242,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -6258,7 +6258,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -6272,13 +6272,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :rtype: dict
         :returns: 
@@ -6288,72 +6288,72 @@ class Table(base.ServiceResource):
           ::
         
             {
-                'Items': [
+                \'Items\': [
                     {
-                        'string': {
-                            'S': 'string',
-                            'N': 'string',
-                            'B': b'bytes',
-                            'SS': [
-                                'string',
+                        \'string\': {
+                            \'S\': \'string\',
+                            \'N\': \'string\',
+                            \'B\': b\'bytes\',
+                            \'SS\': [
+                                \'string\',
                             ],
-                            'NS': [
-                                'string',
+                            \'NS\': [
+                                \'string\',
                             ],
-                            'BS': [
-                                b'bytes',
+                            \'BS\': [
+                                b\'bytes\',
                             ],
-                            'M': {
-                                'string': {'... recursive ...'}
+                            \'M\': {
+                                \'string\': {\'... recursive ...\'}
                             },
-                            'L': [
-                                {'... recursive ...'},
+                            \'L\': [
+                                {\'... recursive ...\'},
                             ],
-                            'NULL': True|False,
-                            'BOOL': True|False
+                            \'NULL\': True|False,
+                            \'BOOL\': True|False
                         }
                     },
                 ],
-                'Count': 123,
-                'ScannedCount': 123,
-                'LastEvaluatedKey': {
-                    'string': {
-                        'S': 'string',
-                        'N': 'string',
-                        'B': b'bytes',
-                        'SS': [
-                            'string',
+                \'Count\': 123,
+                \'ScannedCount\': 123,
+                \'LastEvaluatedKey\': {
+                    \'string\': {
+                        \'S\': \'string\',
+                        \'N\': \'string\',
+                        \'B\': b\'bytes\',
+                        \'SS\': [
+                            \'string\',
                         ],
-                        'NS': [
-                            'string',
+                        \'NS\': [
+                            \'string\',
                         ],
-                        'BS': [
-                            b'bytes',
+                        \'BS\': [
+                            b\'bytes\',
                         ],
-                        'M': {
-                            'string': {'... recursive ...'}
+                        \'M\': {
+                            \'string\': {\'... recursive ...\'}
                         },
-                        'L': [
-                            {'... recursive ...'},
+                        \'L\': [
+                            {\'... recursive ...\'},
                         ],
-                        'NULL': True|False,
-                        'BOOL': True|False
+                        \'NULL\': True|False,
+                        \'BOOL\': True|False
                     }
                 },
-                'ConsumedCapacity': {
-                    'TableName': 'string',
-                    'CapacityUnits': 123.0,
-                    'Table': {
-                        'CapacityUnits': 123.0
+                \'ConsumedCapacity\': {
+                    \'TableName\': \'string\',
+                    \'CapacityUnits\': 123.0,
+                    \'Table\': {
+                        \'CapacityUnits\': 123.0
                     },
-                    'LocalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'LocalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     },
-                    'GlobalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'GlobalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     }
                 }
@@ -6384,13 +6384,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type String. For example:
         
-                       ``"S": "Hello"``  
+                       ``\"S\": \"Hello\"``  
         
                     - **N** *(string) --* 
         
                       An attribute of type Number. For example:
         
-                       ``"N": "123.45"``  
+                       ``\"N\": \"123.45\"``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -6398,13 +6398,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type Binary. For example:
         
-                       ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                       ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                     - **SS** *(list) --* 
         
                       An attribute of type String Set. For example:
         
-                       ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                       ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                       - *(string) --* 
                   
@@ -6412,7 +6412,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Number Set. For example:
         
-                       ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                       ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -6422,7 +6422,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Binary Set. For example:
         
-                       ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                       ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                       - *(bytes) --* 
                   
@@ -6430,7 +6430,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Map. For example:
         
-                       ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                       ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                       - *(string) --* 
                         
@@ -6446,7 +6446,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type List. For example:
         
-                       ``"L": ["Cookies", "Coffee", 3.14159]``  
+                       ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                       - *(dict) --* 
         
@@ -6460,13 +6460,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type Null. For example:
         
-                       ``"NULL": true``  
+                       ``\"NULL\": true``  
         
                     - **BOOL** *(boolean) --* 
         
                       An attribute of type Boolean. For example:
         
-                       ``"BOOL": true``  
+                       ``\"BOOL\": true``  
         
             - **Count** *(integer) --* 
         
@@ -6486,7 +6486,7 @@ class Table(base.ServiceResource):
         
               The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
         
-              If ``LastEvaluatedKey`` is empty, then the "last page" of results has been processed and there is no more data to be retrieved.
+              If ``LastEvaluatedKey`` is empty, then the \"last page\" of results has been processed and there is no more data to be retrieved.
         
               If ``LastEvaluatedKey`` is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when ``LastEvaluatedKey`` is empty.
         
@@ -6504,13 +6504,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -6518,13 +6518,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
                 
@@ -6532,7 +6532,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -6542,7 +6542,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
                 
@@ -6550,7 +6550,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
                       
@@ -6566,7 +6566,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -6580,13 +6580,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
             - **ConsumedCapacity** *(dict) --* 
         
@@ -6670,96 +6670,96 @@ class Table(base.ServiceResource):
         ::
         
           response = table.scan(
-              IndexName='string',
+              IndexName=\'string\',
               AttributesToGet=[
-                  'string',
+                  \'string\',
               ],
               Limit=123,
-              Select='ALL_ATTRIBUTES'|'ALL_PROJECTED_ATTRIBUTES'|'SPECIFIC_ATTRIBUTES'|'COUNT',
+              Select=\'ALL_ATTRIBUTES\'|\'ALL_PROJECTED_ATTRIBUTES\'|\'SPECIFIC_ATTRIBUTES\'|\'COUNT\',
               ScanFilter={
-                  'string': {
-                      'AttributeValueList': [
+                  \'string\': {
+                      \'AttributeValueList\': [
                           {
-                              'S': 'string',
-                              'N': 'string',
-                              'B': b'bytes',
-                              'SS': [
-                                  'string',
+                              \'S\': \'string\',
+                              \'N\': \'string\',
+                              \'B\': b\'bytes\',
+                              \'SS\': [
+                                  \'string\',
                               ],
-                              'NS': [
-                                  'string',
+                              \'NS\': [
+                                  \'string\',
                               ],
-                              'BS': [
-                                  b'bytes',
+                              \'BS\': [
+                                  b\'bytes\',
                               ],
-                              'M': {
-                                  'string': {'... recursive ...'}
+                              \'M\': {
+                                  \'string\': {\'... recursive ...\'}
                               },
-                              'L': [
-                                  {'... recursive ...'},
+                              \'L\': [
+                                  {\'... recursive ...\'},
                               ],
-                              'NULL': True|False,
-                              'BOOL': True|False
+                              \'NULL\': True|False,
+                              \'BOOL\': True|False
                           },
                       ],
-                      'ComparisonOperator': 'EQ'|'NE'|'IN'|'LE'|'LT'|'GE'|'GT'|'BETWEEN'|'NOT_NULL'|'NULL'|'CONTAINS'|'NOT_CONTAINS'|'BEGINS_WITH'
+                      \'ComparisonOperator\': \'EQ\'|\'NE\'|\'IN\'|\'LE\'|\'LT\'|\'GE\'|\'GT\'|\'BETWEEN\'|\'NOT_NULL\'|\'NULL\'|\'CONTAINS\'|\'NOT_CONTAINS\'|\'BEGINS_WITH\'
                   }
               },
-              ConditionalOperator='AND'|'OR',
+              ConditionalOperator=\'AND\'|\'OR\',
               ExclusiveStartKey={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               },
-              ReturnConsumedCapacity='INDEXES'|'TOTAL'|'NONE',
+              ReturnConsumedCapacity=\'INDEXES\'|\'TOTAL\'|\'NONE\',
               TotalSegments=123,
               Segment=123,
-              ProjectionExpression='string',
-              FilterExpression='string',
+              ProjectionExpression=\'string\',
+              FilterExpression=\'string\',
               ExpressionAttributeNames={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               ExpressionAttributeValues={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               },
               ConsistentRead=True|False
@@ -6837,13 +6837,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -6851,13 +6851,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
         
@@ -6865,7 +6865,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -6875,7 +6875,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
         
@@ -6883,7 +6883,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
         
@@ -6899,7 +6899,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -6913,13 +6913,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
               - **ComparisonOperator** *(string) --* **[REQUIRED]** 
         
@@ -6931,39 +6931,39 @@ class Table(base.ServiceResource):
         
                 The following are descriptions of each comparison operator.
         
-                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
                 * ``NOT_NULL`` : The attribute exists. ``NOT_NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute "``a`` " exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
+                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
         
                 * ``NULL`` : The attribute does not exist. ``NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute "``a`` " exists; its data type is not relevant to the ``NULL`` comparison operator. 
+                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NULL`` comparison operator. 
         
-                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating "``a CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating \"``a CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
-                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating "``a NOT CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating \"``a NOT CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).  
                  
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true. 
                  
-                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not compare to ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}``   
+                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``   
                  
                 For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         
@@ -6995,13 +6995,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -7009,13 +7009,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -7023,7 +7023,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -7033,7 +7033,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -7041,7 +7041,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -7057,7 +7057,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -7071,13 +7071,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :type ReturnConsumedCapacity: string
         :param ReturnConsumedCapacity: 
@@ -7149,7 +7149,7 @@ class Table(base.ServiceResource):
            
           The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
         
-          * ``{"#P":"Percentile"}``   
+          * ``{\"#P\":\"Percentile\"}``   
            
           You could then use this substitution in an expression, as in this example:
         
@@ -7176,7 +7176,7 @@ class Table(base.ServiceResource):
         
           You would first need to specify ``ExpressionAttributeValues`` as follows:
         
-           ``{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }``  
+           ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``  
         
           You could then use these values in an expression, such as this:
         
@@ -7198,13 +7198,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -7212,13 +7212,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -7226,7 +7226,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -7236,7 +7236,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -7244,7 +7244,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -7260,7 +7260,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -7274,13 +7274,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :type ConsistentRead: boolean
         :param ConsistentRead: 
@@ -7303,72 +7303,72 @@ class Table(base.ServiceResource):
           ::
         
             {
-                'Items': [
+                \'Items\': [
                     {
-                        'string': {
-                            'S': 'string',
-                            'N': 'string',
-                            'B': b'bytes',
-                            'SS': [
-                                'string',
+                        \'string\': {
+                            \'S\': \'string\',
+                            \'N\': \'string\',
+                            \'B\': b\'bytes\',
+                            \'SS\': [
+                                \'string\',
                             ],
-                            'NS': [
-                                'string',
+                            \'NS\': [
+                                \'string\',
                             ],
-                            'BS': [
-                                b'bytes',
+                            \'BS\': [
+                                b\'bytes\',
                             ],
-                            'M': {
-                                'string': {'... recursive ...'}
+                            \'M\': {
+                                \'string\': {\'... recursive ...\'}
                             },
-                            'L': [
-                                {'... recursive ...'},
+                            \'L\': [
+                                {\'... recursive ...\'},
                             ],
-                            'NULL': True|False,
-                            'BOOL': True|False
+                            \'NULL\': True|False,
+                            \'BOOL\': True|False
                         }
                     },
                 ],
-                'Count': 123,
-                'ScannedCount': 123,
-                'LastEvaluatedKey': {
-                    'string': {
-                        'S': 'string',
-                        'N': 'string',
-                        'B': b'bytes',
-                        'SS': [
-                            'string',
+                \'Count\': 123,
+                \'ScannedCount\': 123,
+                \'LastEvaluatedKey\': {
+                    \'string\': {
+                        \'S\': \'string\',
+                        \'N\': \'string\',
+                        \'B\': b\'bytes\',
+                        \'SS\': [
+                            \'string\',
                         ],
-                        'NS': [
-                            'string',
+                        \'NS\': [
+                            \'string\',
                         ],
-                        'BS': [
-                            b'bytes',
+                        \'BS\': [
+                            b\'bytes\',
                         ],
-                        'M': {
-                            'string': {'... recursive ...'}
+                        \'M\': {
+                            \'string\': {\'... recursive ...\'}
                         },
-                        'L': [
-                            {'... recursive ...'},
+                        \'L\': [
+                            {\'... recursive ...\'},
                         ],
-                        'NULL': True|False,
-                        'BOOL': True|False
+                        \'NULL\': True|False,
+                        \'BOOL\': True|False
                     }
                 },
-                'ConsumedCapacity': {
-                    'TableName': 'string',
-                    'CapacityUnits': 123.0,
-                    'Table': {
-                        'CapacityUnits': 123.0
+                \'ConsumedCapacity\': {
+                    \'TableName\': \'string\',
+                    \'CapacityUnits\': 123.0,
+                    \'Table\': {
+                        \'CapacityUnits\': 123.0
                     },
-                    'LocalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'LocalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     },
-                    'GlobalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'GlobalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     }
                 }
@@ -7399,13 +7399,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type String. For example:
         
-                       ``"S": "Hello"``  
+                       ``\"S\": \"Hello\"``  
         
                     - **N** *(string) --* 
         
                       An attribute of type Number. For example:
         
-                       ``"N": "123.45"``  
+                       ``\"N\": \"123.45\"``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -7413,13 +7413,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type Binary. For example:
         
-                       ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                       ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                     - **SS** *(list) --* 
         
                       An attribute of type String Set. For example:
         
-                       ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                       ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                       - *(string) --* 
                   
@@ -7427,7 +7427,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Number Set. For example:
         
-                       ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                       ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -7437,7 +7437,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Binary Set. For example:
         
-                       ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                       ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                       - *(bytes) --* 
                   
@@ -7445,7 +7445,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Map. For example:
         
-                       ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                       ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                       - *(string) --* 
                         
@@ -7461,7 +7461,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type List. For example:
         
-                       ``"L": ["Cookies", "Coffee", 3.14159]``  
+                       ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                       - *(dict) --* 
         
@@ -7475,13 +7475,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type Null. For example:
         
-                       ``"NULL": true``  
+                       ``\"NULL\": true``  
         
                     - **BOOL** *(boolean) --* 
         
                       An attribute of type Boolean. For example:
         
-                       ``"BOOL": true``  
+                       ``\"BOOL\": true``  
         
             - **Count** *(integer) --* 
         
@@ -7501,7 +7501,7 @@ class Table(base.ServiceResource):
         
               The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
         
-              If ``LastEvaluatedKey`` is empty, then the "last page" of results has been processed and there is no more data to be retrieved.
+              If ``LastEvaluatedKey`` is empty, then the \"last page\" of results has been processed and there is no more data to be retrieved.
         
               If ``LastEvaluatedKey`` is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when ``LastEvaluatedKey`` is empty.
         
@@ -7519,13 +7519,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -7533,13 +7533,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
                 
@@ -7547,7 +7547,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -7557,7 +7557,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
                 
@@ -7565,7 +7565,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
                       
@@ -7581,7 +7581,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -7595,13 +7595,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
             - **ConsumedCapacity** *(dict) --* 
         
@@ -7677,55 +7677,55 @@ class Table(base.ServiceResource):
           table = table.update(
               AttributeDefinitions=[
                   {
-                      'AttributeName': 'string',
-                      'AttributeType': 'S'|'N'|'B'
+                      \'AttributeName\': \'string\',
+                      \'AttributeType\': \'S\'|\'N\'|\'B\'
                   },
               ],
               ProvisionedThroughput={
-                  'ReadCapacityUnits': 123,
-                  'WriteCapacityUnits': 123
+                  \'ReadCapacityUnits\': 123,
+                  \'WriteCapacityUnits\': 123
               },
               GlobalSecondaryIndexUpdates=[
                   {
-                      'Update': {
-                          'IndexName': 'string',
-                          'ProvisionedThroughput': {
-                              'ReadCapacityUnits': 123,
-                              'WriteCapacityUnits': 123
+                      \'Update\': {
+                          \'IndexName\': \'string\',
+                          \'ProvisionedThroughput\': {
+                              \'ReadCapacityUnits\': 123,
+                              \'WriteCapacityUnits\': 123
                           }
                       },
-                      'Create': {
-                          'IndexName': 'string',
-                          'KeySchema': [
+                      \'Create\': {
+                          \'IndexName\': \'string\',
+                          \'KeySchema\': [
                               {
-                                  'AttributeName': 'string',
-                                  'KeyType': 'HASH'|'RANGE'
+                                  \'AttributeName\': \'string\',
+                                  \'KeyType\': \'HASH\'|\'RANGE\'
                               },
                           ],
-                          'Projection': {
-                              'ProjectionType': 'ALL'|'KEYS_ONLY'|'INCLUDE',
-                              'NonKeyAttributes': [
-                                  'string',
+                          \'Projection\': {
+                              \'ProjectionType\': \'ALL\'|\'KEYS_ONLY\'|\'INCLUDE\',
+                              \'NonKeyAttributes\': [
+                                  \'string\',
                               ]
                           },
-                          'ProvisionedThroughput': {
-                              'ReadCapacityUnits': 123,
-                              'WriteCapacityUnits': 123
+                          \'ProvisionedThroughput\': {
+                              \'ReadCapacityUnits\': 123,
+                              \'WriteCapacityUnits\': 123
                           }
                       },
-                      'Delete': {
-                          'IndexName': 'string'
+                      \'Delete\': {
+                          \'IndexName\': \'string\'
                       }
                   },
               ],
               StreamSpecification={
-                  'StreamEnabled': True|False,
-                  'StreamViewType': 'NEW_IMAGE'|'OLD_IMAGE'|'NEW_AND_OLD_IMAGES'|'KEYS_ONLY'
+                  \'StreamEnabled\': True|False,
+                  \'StreamViewType\': \'NEW_IMAGE\'|\'OLD_IMAGE\'|\'NEW_AND_OLD_IMAGES\'|\'KEYS_ONLY\'
               },
               SSESpecification={
-                  'Enabled': True|False,
-                  'SSEType': 'AES256'|'KMS',
-                  'KMSMasterKeyId': 'string'
+                  \'Enabled\': True|False,
+                  \'SSEType\': \'AES256\'|\'KMS\',
+                  \'KMSMasterKeyId\': \'string\'
               }
           )
         :type AttributeDefinitions: list
@@ -7853,9 +7853,9 @@ class Table(base.ServiceResource):
                      
                     .. note::
         
-                      The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                      The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                      The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                      The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
               - **Projection** *(dict) --* **[REQUIRED]** 
         
@@ -7955,7 +7955,7 @@ class Table(base.ServiceResource):
     def update_item(self, Key: Dict, AttributeUpdates: Dict = None, Expected: Dict = None, ConditionalOperator: str = None, ReturnValues: str = None, ReturnConsumedCapacity: str = None, ReturnItemCollectionMetrics: str = None, UpdateExpression: str = None, ConditionExpression: str = None, ExpressionAttributeNames: Dict = None, ExpressionAttributeValues: Dict = None) -> Dict:
         """
         
-        You can also return the item's attribute values in the same ``UpdateItem`` operation using the ``ReturnValues`` parameter.
+        You can also return the item\'s attribute values in the same ``UpdateItem`` operation using the ``ReturnValues`` parameter.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/UpdateItem>`_
         
@@ -7964,139 +7964,139 @@ class Table(base.ServiceResource):
         
           response = table.update_item(
               Key={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               },
               AttributeUpdates={
-                  'string': {
-                      'Value': {
-                          'S': 'string',
-                          'N': 'string',
-                          'B': b'bytes',
-                          'SS': [
-                              'string',
+                  \'string\': {
+                      \'Value\': {
+                          \'S\': \'string\',
+                          \'N\': \'string\',
+                          \'B\': b\'bytes\',
+                          \'SS\': [
+                              \'string\',
                           ],
-                          'NS': [
-                              'string',
+                          \'NS\': [
+                              \'string\',
                           ],
-                          'BS': [
-                              b'bytes',
+                          \'BS\': [
+                              b\'bytes\',
                           ],
-                          'M': {
-                              'string': {'... recursive ...'}
+                          \'M\': {
+                              \'string\': {\'... recursive ...\'}
                           },
-                          'L': [
-                              {'... recursive ...'},
+                          \'L\': [
+                              {\'... recursive ...\'},
                           ],
-                          'NULL': True|False,
-                          'BOOL': True|False
+                          \'NULL\': True|False,
+                          \'BOOL\': True|False
                       },
-                      'Action': 'ADD'|'PUT'|'DELETE'
+                      \'Action\': \'ADD\'|\'PUT\'|\'DELETE\'
                   }
               },
               Expected={
-                  'string': {
-                      'Value': {
-                          'S': 'string',
-                          'N': 'string',
-                          'B': b'bytes',
-                          'SS': [
-                              'string',
+                  \'string\': {
+                      \'Value\': {
+                          \'S\': \'string\',
+                          \'N\': \'string\',
+                          \'B\': b\'bytes\',
+                          \'SS\': [
+                              \'string\',
                           ],
-                          'NS': [
-                              'string',
+                          \'NS\': [
+                              \'string\',
                           ],
-                          'BS': [
-                              b'bytes',
+                          \'BS\': [
+                              b\'bytes\',
                           ],
-                          'M': {
-                              'string': {'... recursive ...'}
+                          \'M\': {
+                              \'string\': {\'... recursive ...\'}
                           },
-                          'L': [
-                              {'... recursive ...'},
+                          \'L\': [
+                              {\'... recursive ...\'},
                           ],
-                          'NULL': True|False,
-                          'BOOL': True|False
+                          \'NULL\': True|False,
+                          \'BOOL\': True|False
                       },
-                      'Exists': True|False,
-                      'ComparisonOperator': 'EQ'|'NE'|'IN'|'LE'|'LT'|'GE'|'GT'|'BETWEEN'|'NOT_NULL'|'NULL'|'CONTAINS'|'NOT_CONTAINS'|'BEGINS_WITH',
-                      'AttributeValueList': [
+                      \'Exists\': True|False,
+                      \'ComparisonOperator\': \'EQ\'|\'NE\'|\'IN\'|\'LE\'|\'LT\'|\'GE\'|\'GT\'|\'BETWEEN\'|\'NOT_NULL\'|\'NULL\'|\'CONTAINS\'|\'NOT_CONTAINS\'|\'BEGINS_WITH\',
+                      \'AttributeValueList\': [
                           {
-                              'S': 'string',
-                              'N': 'string',
-                              'B': b'bytes',
-                              'SS': [
-                                  'string',
+                              \'S\': \'string\',
+                              \'N\': \'string\',
+                              \'B\': b\'bytes\',
+                              \'SS\': [
+                                  \'string\',
                               ],
-                              'NS': [
-                                  'string',
+                              \'NS\': [
+                                  \'string\',
                               ],
-                              'BS': [
-                                  b'bytes',
+                              \'BS\': [
+                                  b\'bytes\',
                               ],
-                              'M': {
-                                  'string': {'... recursive ...'}
+                              \'M\': {
+                                  \'string\': {\'... recursive ...\'}
                               },
-                              'L': [
-                                  {'... recursive ...'},
+                              \'L\': [
+                                  {\'... recursive ...\'},
                               ],
-                              'NULL': True|False,
-                              'BOOL': True|False
+                              \'NULL\': True|False,
+                              \'BOOL\': True|False
                           },
                       ]
                   }
               },
-              ConditionalOperator='AND'|'OR',
-              ReturnValues='NONE'|'ALL_OLD'|'UPDATED_OLD'|'ALL_NEW'|'UPDATED_NEW',
-              ReturnConsumedCapacity='INDEXES'|'TOTAL'|'NONE',
-              ReturnItemCollectionMetrics='SIZE'|'NONE',
-              UpdateExpression='string',
-              ConditionExpression='string',
+              ConditionalOperator=\'AND\'|\'OR\',
+              ReturnValues=\'NONE\'|\'ALL_OLD\'|\'UPDATED_OLD\'|\'ALL_NEW\'|\'UPDATED_NEW\',
+              ReturnConsumedCapacity=\'INDEXES\'|\'TOTAL\'|\'NONE\',
+              ReturnItemCollectionMetrics=\'SIZE\'|\'NONE\',
+              UpdateExpression=\'string\',
+              ConditionExpression=\'string\',
               ExpressionAttributeNames={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               ExpressionAttributeValues={
-                  'string': {
-                      'S': 'string',
-                      'N': 'string',
-                      'B': b'bytes',
-                      'SS': [
-                          'string',
+                  \'string\': {
+                      \'S\': \'string\',
+                      \'N\': \'string\',
+                      \'B\': b\'bytes\',
+                      \'SS\': [
+                          \'string\',
                       ],
-                      'NS': [
-                          'string',
+                      \'NS\': [
+                          \'string\',
                       ],
-                      'BS': [
-                          b'bytes',
+                      \'BS\': [
+                          b\'bytes\',
                       ],
-                      'M': {
-                          'string': {'... recursive ...'}
+                      \'M\': {
+                          \'string\': {\'... recursive ...\'}
                       },
-                      'L': [
-                          {'... recursive ...'},
+                      \'L\': [
+                          {\'... recursive ...\'},
                       ],
-                      'NULL': True|False,
-                      'BOOL': True|False
+                      \'NULL\': True|False,
+                      \'BOOL\': True|False
                   }
               }
           )
@@ -8121,13 +8121,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -8135,13 +8135,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -8149,7 +8149,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -8159,7 +8159,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -8167,7 +8167,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -8183,7 +8183,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -8197,13 +8197,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :type AttributeUpdates: dict
         :param AttributeUpdates: 
@@ -8234,13 +8234,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type String. For example:
         
-                   ``"S": "Hello"``  
+                   ``\"S\": \"Hello\"``  
         
                 - **N** *(string) --* 
         
                   An attribute of type Number. For example:
         
-                   ``"N": "123.45"``  
+                   ``\"N\": \"123.45\"``  
         
                   Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -8248,13 +8248,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type Binary. For example:
         
-                   ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                   ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                 - **SS** *(list) --* 
         
                   An attribute of type String Set. For example:
         
-                   ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                   ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                   - *(string) --* 
         
@@ -8262,7 +8262,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Number Set. For example:
         
-                   ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                   ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                   Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -8272,7 +8272,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Binary Set. For example:
         
-                   ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                   ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                   - *(bytes) --* 
         
@@ -8280,7 +8280,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Map. For example:
         
-                   ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                   ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                   - *(string) --* 
         
@@ -8296,7 +8296,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type List. For example:
         
-                   ``"L": ["Cookies", "Coffee", 3.14159]``  
+                   ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                   - *(dict) --* 
         
@@ -8310,13 +8310,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type Null. For example:
         
-                   ``"NULL": true``  
+                   ``\"NULL\": true``  
         
                 - **BOOL** *(boolean) --* 
         
                   An attribute of type Boolean. For example:
         
-                   ``"BOOL": true``  
+                   ``\"BOOL\": true``  
         
               - **Action** *(string) --* 
         
@@ -8326,7 +8326,7 @@ class Table(base.ServiceResource):
         
                 * ``PUT`` - Adds the specified attribute to the item. If the attribute already exists, it is replaced by the new value.  
                  
-                * ``DELETE`` - If no value is specified, the attribute and its value are removed from the item. The data type of the specified value must match the existing value's data type. If a *set* of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set ``[a,b,c]`` and the ``DELETE`` action specified ``[a,c]`` , then the final attribute value would be ``[b]`` . Specifying an empty set is an error. 
+                * ``DELETE`` - If no value is specified, the attribute and its value are removed from the item. The data type of the specified value must match the existing value\'s data type. If a *set* of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set ``[a,b,c]`` and the ``DELETE`` action specified ``[a,c]`` , then the final attribute value would be ``[b]`` . Specifying an empty set is an error. 
                  
                 * ``ADD`` - If the attribute does not already exist, then the attribute and its values are added to the item. If the attribute does exist, then the behavior of ``ADD`` depends on the data type of the attribute: 
         
@@ -8334,7 +8334,7 @@ class Table(base.ServiceResource):
         
                   .. note::
         
-                     If you use ``ADD`` to increment or decrement a number value for an item that doesn't exist before the update, DynamoDB uses 0 as the initial value. In addition, if you use ``ADD`` to update an existing item, and intend to increment or decrement an attribute value which does not yet exist, DynamoDB uses ``0`` as the initial value. For example, suppose that the item you want to update does not yet have an attribute named *itemcount* , but you decide to ``ADD`` the number ``3`` to this attribute anyway, even though it currently does not exist. DynamoDB will create the *itemcount* attribute, set its initial value to ``0`` , and finally add ``3`` to it. The result will be a new *itemcount* attribute in the item, with a value of ``3`` . 
+                     If you use ``ADD`` to increment or decrement a number value for an item that doesn\'t exist before the update, DynamoDB uses 0 as the initial value. In addition, if you use ``ADD`` to update an existing item, and intend to increment or decrement an attribute value which does not yet exist, DynamoDB uses ``0`` as the initial value. For example, suppose that the item you want to update does not yet have an attribute named *itemcount* , but you decide to ``ADD`` the number ``3`` to this attribute anyway, even though it currently does not exist. DynamoDB will create the *itemcount* attribute, set its initial value to ``0`` , and finally add ``3`` to it. The result will be a new *itemcount* attribute in the item, with a value of ``3`` . 
         
                   * If the existing data type is a set, and if the ``Value`` is also a set, then the ``Value`` is added to the existing set. (This is a *set* operation, not mathematical addition.) For example, if the attribute value was the set ``[1,2]`` , and the ``ADD`` action specified ``[3]`` , then the final attribute value would be ``[1,2,3]`` . An error occurs if an Add action is specified for a set attribute and the attribute type specified does not match the existing set type.  Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the ``Value`` must also be a set of strings. The same holds true for number sets and binary sets. 
                    
@@ -8377,13 +8377,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type String. For example:
         
-                   ``"S": "Hello"``  
+                   ``\"S\": \"Hello\"``  
         
                 - **N** *(string) --* 
         
                   An attribute of type Number. For example:
         
-                   ``"N": "123.45"``  
+                   ``\"N\": \"123.45\"``  
         
                   Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -8391,13 +8391,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type Binary. For example:
         
-                   ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                   ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                 - **SS** *(list) --* 
         
                   An attribute of type String Set. For example:
         
-                   ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                   ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                   - *(string) --* 
         
@@ -8405,7 +8405,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Number Set. For example:
         
-                   ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                   ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                   Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -8415,7 +8415,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Binary Set. For example:
         
-                   ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                   ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                   - *(bytes) --* 
         
@@ -8423,7 +8423,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type Map. For example:
         
-                   ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                   ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                   - *(string) --* 
         
@@ -8439,7 +8439,7 @@ class Table(base.ServiceResource):
         
                   An attribute of type List. For example:
         
-                   ``"L": ["Cookies", "Coffee", 3.14159]``  
+                   ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                   - *(dict) --* 
         
@@ -8453,13 +8453,13 @@ class Table(base.ServiceResource):
         
                   An attribute of type Null. For example:
         
-                   ``"NULL": true``  
+                   ``\"NULL\": true``  
         
                 - **BOOL** *(boolean) --* 
         
                   An attribute of type Boolean. For example:
         
-                   ``"BOOL": true``  
+                   ``\"BOOL\": true``  
         
               - **Exists** *(boolean) --* 
         
@@ -8469,11 +8469,11 @@ class Table(base.ServiceResource):
                  
                 * If ``Exists`` is ``false`` , DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a ``ConditionalCheckFailedException`` . 
                  
-                The default setting for ``Exists`` is ``true`` . If you supply a ``Value`` all by itself, DynamoDB assumes the attribute exists: You don't have to set ``Exists`` to ``true`` , because it is implied.
+                The default setting for ``Exists`` is ``true`` . If you supply a ``Value`` all by itself, DynamoDB assumes the attribute exists: You don\'t have to set ``Exists`` to ``true`` , because it is implied.
         
                 DynamoDB returns a ``ValidationException`` if:
         
-                * ``Exists`` is ``true`` but there is no ``Value`` to check. (You expect a value to exist, but don't specify what that value is.) 
+                * ``Exists`` is ``true`` but there is no ``Value`` to check. (You expect a value to exist, but don\'t specify what that value is.) 
                  
                 * ``Exists`` is ``false`` but you also provide a ``Value`` . (You cannot expect an attribute to have a value, while also expecting it not to exist.) 
                  
@@ -8487,39 +8487,39 @@ class Table(base.ServiceResource):
         
                 The following are descriptions of each comparison operator.
         
-                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``EQ`` : Equal. ``EQ`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not equal ``{"NS":["6", "2", "1"]}`` .  
+                * ``NE`` : Not equal. ``NE`` is supported for all data types, including lists and maps.  ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an ``AttributeValue`` of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not equal ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LE`` : Less than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``LT`` : Less than.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GE`` : Greater than or equal.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
-                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not equal ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}`` .  
+                * ``GT`` : Greater than.   ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not equal ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}`` .  
                  
                 * ``NOT_NULL`` : The attribute exists. ``NOT_NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute "``a`` " exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
+                   This operator tests for the existence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NOT_NULL`` , the result is a Boolean ``true`` . This result is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NOT_NULL`` comparison operator. 
         
                 * ``NULL`` : The attribute does not exist. ``NULL`` is supported for all data types, including lists and maps. 
         
                 .. note::
         
-                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "``a`` " is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute "``a`` " exists; its data type is not relevant to the ``NULL`` comparison operator. 
+                   This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute \"``a`` \" is null, and you evaluate it using ``NULL`` , the result is a Boolean ``false`` . This is because the attribute \"``a`` \" exists; its data type is not relevant to the ``NULL`` comparison operator. 
         
-                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating "``a CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``CONTAINS`` : Checks for a subsequence, or value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it finds an exact match with any member of the set. CONTAINS is supported for lists: When evaluating \"``a CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
-                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("``SS`` ", "``NS`` ", or "``BS`` "), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating "``a NOT CONTAINS b`` ", "``a`` " can be a list; however, "``b`` " cannot be a set, a map, or a list. 
+                * ``NOT_CONTAINS`` : Checks for absence of a subsequence, or absence of a value in a set.  ``AttributeValueList`` can contain only one ``AttributeValue`` element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"``SS`` \", \"``NS`` \", or \"``BS`` \"), then the operator evaluates to true if it *does not* find an exact match with any member of the set. NOT_CONTAINS is supported for lists: When evaluating \"``a NOT CONTAINS b`` \", \"``a`` \" can be a list; however, \"``b`` \" cannot be a set, a map, or a list. 
                  
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).  
                  
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true. 
                  
-                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{"S":"6"}`` does not compare to ``{"N":"6"}`` . Also, ``{"N":"6"}`` does not compare to ``{"NS":["6", "2", "1"]}``   
+                * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``   
                  
               - **AttributeValueList** *(list) --* 
         
@@ -8545,13 +8545,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -8559,13 +8559,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
         
@@ -8573,7 +8573,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -8583,7 +8583,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
         
@@ -8591,7 +8591,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
         
@@ -8607,7 +8607,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -8621,13 +8621,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
         :type ConditionalOperator: string
         :param ConditionalOperator: 
@@ -8692,7 +8692,7 @@ class Table(base.ServiceResource):
         
             .. note::
         
-               If you use ``ADD`` to increment or decrement a number value for an item that doesn't exist before the update, DynamoDB uses ``0`` as the initial value. Similarly, if you use ``ADD`` for an existing item to increment or decrement an attribute value that doesn't exist before the update, DynamoDB uses ``0`` as the initial value. For example, suppose that the item you want to update doesn't have an attribute named *itemcount* , but you decide to ``ADD`` the number ``3`` to this attribute anyway. DynamoDB will create the *itemcount* attribute, set its initial value to ``0`` , and finally add ``3`` to it. The result will be a new *itemcount* attribute in the item, with a value of ``3`` . 
+               If you use ``ADD`` to increment or decrement a number value for an item that doesn\'t exist before the update, DynamoDB uses ``0`` as the initial value. Similarly, if you use ``ADD`` for an existing item to increment or decrement an attribute value that doesn\'t exist before the update, DynamoDB uses ``0`` as the initial value. For example, suppose that the item you want to update doesn\'t have an attribute named *itemcount* , but you decide to ``ADD`` the number ``3`` to this attribute anyway. DynamoDB will create the *itemcount* attribute, set its initial value to ``0`` , and finally add ``3`` to it. The result will be a new *itemcount* attribute in the item, with a value of ``3`` . 
         
             * If the existing data type is a set and if ``Value`` is also a set, then ``Value`` is added to the existing set. For example, if the attribute value is the set ``[1,2]`` , and the ``ADD`` action specified ``[3]`` , then the final attribute value is ``[1,2,3]`` . An error occurs if an ``ADD`` action is specified for a set attribute and the attribute type specified does not match the existing set type.  Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the ``Value`` must also be a set of strings. 
              
@@ -8742,7 +8742,7 @@ class Table(base.ServiceResource):
            
           The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
         
-          * ``{"#P":"Percentile"}``   
+          * ``{\"#P\":\"Percentile\"}``   
            
           You could then use this substitution in an expression, as in this example:
         
@@ -8769,7 +8769,7 @@ class Table(base.ServiceResource):
         
           You would first need to specify ``ExpressionAttributeValues`` as follows:
         
-           ``{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }``  
+           ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``  
         
           You could then use these values in an expression, such as this:
         
@@ -8791,13 +8791,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type String. For example:
         
-                 ``"S": "Hello"``  
+                 ``\"S\": \"Hello\"``  
         
               - **N** *(string) --* 
         
                 An attribute of type Number. For example:
         
-                 ``"N": "123.45"``  
+                 ``\"N\": \"123.45\"``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -8805,13 +8805,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary. For example:
         
-                 ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                 ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
               - **SS** *(list) --* 
         
                 An attribute of type String Set. For example:
         
-                 ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                 ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                 - *(string) --* 
         
@@ -8819,7 +8819,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Number Set. For example:
         
-                 ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                 ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                 Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -8829,7 +8829,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Binary Set. For example:
         
-                 ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                 ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                 - *(bytes) --* 
         
@@ -8837,7 +8837,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type Map. For example:
         
-                 ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                 ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                 - *(string) --* 
         
@@ -8853,7 +8853,7 @@ class Table(base.ServiceResource):
         
                 An attribute of type List. For example:
         
-                 ``"L": ["Cookies", "Coffee", 3.14159]``  
+                 ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                 - *(dict) --* 
         
@@ -8867,13 +8867,13 @@ class Table(base.ServiceResource):
         
                 An attribute of type Null. For example:
         
-                 ``"NULL": true``  
+                 ``\"NULL\": true``  
         
               - **BOOL** *(boolean) --* 
         
                 An attribute of type Boolean. For example:
         
-                 ``"BOOL": true``  
+                 ``\"BOOL\": true``  
         
         :rtype: dict
         :returns: 
@@ -8883,73 +8883,73 @@ class Table(base.ServiceResource):
           ::
         
             {
-                'Attributes': {
-                    'string': {
-                        'S': 'string',
-                        'N': 'string',
-                        'B': b'bytes',
-                        'SS': [
-                            'string',
+                \'Attributes\': {
+                    \'string\': {
+                        \'S\': \'string\',
+                        \'N\': \'string\',
+                        \'B\': b\'bytes\',
+                        \'SS\': [
+                            \'string\',
                         ],
-                        'NS': [
-                            'string',
+                        \'NS\': [
+                            \'string\',
                         ],
-                        'BS': [
-                            b'bytes',
+                        \'BS\': [
+                            b\'bytes\',
                         ],
-                        'M': {
-                            'string': {'... recursive ...'}
+                        \'M\': {
+                            \'string\': {\'... recursive ...\'}
                         },
-                        'L': [
-                            {'... recursive ...'},
+                        \'L\': [
+                            {\'... recursive ...\'},
                         ],
-                        'NULL': True|False,
-                        'BOOL': True|False
+                        \'NULL\': True|False,
+                        \'BOOL\': True|False
                     }
                 },
-                'ConsumedCapacity': {
-                    'TableName': 'string',
-                    'CapacityUnits': 123.0,
-                    'Table': {
-                        'CapacityUnits': 123.0
+                \'ConsumedCapacity\': {
+                    \'TableName\': \'string\',
+                    \'CapacityUnits\': 123.0,
+                    \'Table\': {
+                        \'CapacityUnits\': 123.0
                     },
-                    'LocalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'LocalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     },
-                    'GlobalSecondaryIndexes': {
-                        'string': {
-                            'CapacityUnits': 123.0
+                    \'GlobalSecondaryIndexes\': {
+                        \'string\': {
+                            \'CapacityUnits\': 123.0
                         }
                     }
                 },
-                'ItemCollectionMetrics': {
-                    'ItemCollectionKey': {
-                        'string': {
-                            'S': 'string',
-                            'N': 'string',
-                            'B': b'bytes',
-                            'SS': [
-                                'string',
+                \'ItemCollectionMetrics\': {
+                    \'ItemCollectionKey\': {
+                        \'string\': {
+                            \'S\': \'string\',
+                            \'N\': \'string\',
+                            \'B\': b\'bytes\',
+                            \'SS\': [
+                                \'string\',
                             ],
-                            'NS': [
-                                'string',
+                            \'NS\': [
+                                \'string\',
                             ],
-                            'BS': [
-                                b'bytes',
+                            \'BS\': [
+                                b\'bytes\',
                             ],
-                            'M': {
-                                'string': {'... recursive ...'}
+                            \'M\': {
+                                \'string\': {\'... recursive ...\'}
                             },
-                            'L': [
-                                {'... recursive ...'},
+                            \'L\': [
+                                {\'... recursive ...\'},
                             ],
-                            'NULL': True|False,
-                            'BOOL': True|False
+                            \'NULL\': True|False,
+                            \'BOOL\': True|False
                         }
                     },
-                    'SizeEstimateRangeGB': [
+                    \'SizeEstimateRangeGB\': [
                         123.0,
                     ]
                 }
@@ -8980,13 +8980,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type String. For example:
         
-                     ``"S": "Hello"``  
+                     ``\"S\": \"Hello\"``  
         
                   - **N** *(string) --* 
         
                     An attribute of type Number. For example:
         
-                     ``"N": "123.45"``  
+                     ``\"N\": \"123.45\"``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -8994,13 +8994,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary. For example:
         
-                     ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                     ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                   - **SS** *(list) --* 
         
                     An attribute of type String Set. For example:
         
-                     ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                     ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                     - *(string) --* 
                 
@@ -9008,7 +9008,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Number Set. For example:
         
-                     ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                     ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                     Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -9018,7 +9018,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Binary Set. For example:
         
-                     ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                     ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                     - *(bytes) --* 
                 
@@ -9026,7 +9026,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type Map. For example:
         
-                     ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                     ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                     - *(string) --* 
                       
@@ -9042,7 +9042,7 @@ class Table(base.ServiceResource):
         
                     An attribute of type List. For example:
         
-                     ``"L": ["Cookies", "Coffee", 3.14159]``  
+                     ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                     - *(dict) --* 
         
@@ -9056,13 +9056,13 @@ class Table(base.ServiceResource):
         
                     An attribute of type Null. For example:
         
-                     ``"NULL": true``  
+                     ``\"NULL\": true``  
         
                   - **BOOL** *(boolean) --* 
         
                     An attribute of type Boolean. For example:
         
-                     ``"BOOL": true``  
+                     ``\"BOOL\": true``  
         
             - **ConsumedCapacity** *(dict) --* 
         
@@ -9140,13 +9140,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type String. For example:
         
-                       ``"S": "Hello"``  
+                       ``\"S\": \"Hello\"``  
         
                     - **N** *(string) --* 
         
                       An attribute of type Number. For example:
         
-                       ``"N": "123.45"``  
+                       ``\"N\": \"123.45\"``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -9154,13 +9154,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type Binary. For example:
         
-                       ``"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"``  
+                       ``\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"``  
         
                     - **SS** *(list) --* 
         
                       An attribute of type String Set. For example:
         
-                       ``"SS": ["Giraffe", "Hippo" ,"Zebra"]``  
+                       ``\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]``  
         
                       - *(string) --* 
                   
@@ -9168,7 +9168,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Number Set. For example:
         
-                       ``"NS": ["42.2", "-19", "7.5", "3.14"]``  
+                       ``\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]``  
         
                       Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
         
@@ -9178,7 +9178,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Binary Set. For example:
         
-                       ``"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]``  
+                       ``\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]``  
         
                       - *(bytes) --* 
                   
@@ -9186,7 +9186,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type Map. For example:
         
-                       ``"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}``  
+                       ``\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}``  
         
                       - *(string) --* 
                         
@@ -9202,7 +9202,7 @@ class Table(base.ServiceResource):
         
                       An attribute of type List. For example:
         
-                       ``"L": ["Cookies", "Coffee", 3.14159]``  
+                       ``\"L\": [\"Cookies\", \"Coffee\", 3.14159]``  
         
                       - *(dict) --* 
         
@@ -9216,13 +9216,13 @@ class Table(base.ServiceResource):
         
                       An attribute of type Null. For example:
         
-                       ``"NULL": true``  
+                       ``\"NULL\": true``  
         
                     - **BOOL** *(boolean) --* 
         
                       An attribute of type Boolean. For example:
         
-                       ``"BOOL": true``  
+                       ``\"BOOL\": true``  
         
               - **SizeEstimateRangeGB** *(list) --* 
         
@@ -9293,7 +9293,7 @@ class tables(ResourceCollection):
         ::
         
           table_iterator = dynamodb.tables.filter(
-              ExclusiveStartTableName='string',
+              ExclusiveStartTableName=\'string\',
               Limit=123
           )
         :type ExclusiveStartTableName: string
@@ -9374,13 +9374,13 @@ class tables(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances

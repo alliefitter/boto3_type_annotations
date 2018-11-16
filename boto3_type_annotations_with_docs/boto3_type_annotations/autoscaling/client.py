@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -25,9 +25,9 @@ class Client(BaseClient):
         
           response = client.attach_instances(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
-              AutoScalingGroupName='string'
+              AutoScalingGroupName=\'string\'
           )
         :type InstanceIds: list
         :param InstanceIds: 
@@ -58,9 +58,9 @@ class Client(BaseClient):
         ::
         
           response = client.attach_load_balancer_target_groups(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               TargetGroupARNs=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AutoScalingGroupName: string
@@ -104,9 +104,9 @@ class Client(BaseClient):
         ::
         
           response = client.attach_load_balancers(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               LoadBalancerNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AutoScalingGroupName: string
@@ -144,9 +144,9 @@ class Client(BaseClient):
         ::
         
           response = client.batch_delete_scheduled_action(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               ScheduledActionNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AutoScalingGroupName: string
@@ -169,11 +169,11 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedScheduledActions': [
+                \'FailedScheduledActions\': [
                     {
-                        'ScheduledActionName': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'ScheduledActionName\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -213,16 +213,16 @@ class Client(BaseClient):
         ::
         
           response = client.batch_put_scheduled_update_group_action(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               ScheduledUpdateGroupActions=[
                   {
-                      'ScheduledActionName': 'string',
-                      'StartTime': datetime(2015, 1, 1),
-                      'EndTime': datetime(2015, 1, 1),
-                      'Recurrence': 'string',
-                      'MinSize': 123,
-                      'MaxSize': 123,
-                      'DesiredCapacity': 123
+                      \'ScheduledActionName\': \'string\',
+                      \'StartTime\': datetime(2015, 1, 1),
+                      \'EndTime\': datetime(2015, 1, 1),
+                      \'Recurrence\': \'string\',
+                      \'MinSize\': 123,
+                      \'MaxSize\': 123,
+                      \'DesiredCapacity\': 123
                   },
               ]
           )
@@ -248,7 +248,7 @@ class Client(BaseClient):
         
             - **StartTime** *(datetime) --* 
         
-              The time for the action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, ``2014-06-01T00:00:00Z`` ).
+              The time for the action to start, in \"YYYY-MM-DDThh:mm:ssZ\" format in UTC/GMT only (for example, ``2014-06-01T00:00:00Z`` ).
         
               If you specify ``Recurrence`` and ``StartTime`` , Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence.
         
@@ -282,11 +282,11 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedScheduledUpdateGroupActions': [
+                \'FailedScheduledUpdateGroupActions\': [
                     {
-                        'ScheduledActionName': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'ScheduledActionName\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -323,10 +323,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -356,11 +356,11 @@ class Client(BaseClient):
         ::
         
           response = client.complete_lifecycle_action(
-              LifecycleHookName='string',
-              AutoScalingGroupName='string',
-              LifecycleActionToken='string',
-              LifecycleActionResult='string',
-              InstanceId='string'
+              LifecycleHookName=\'string\',
+              AutoScalingGroupName=\'string\',
+              LifecycleActionToken=\'string\',
+              LifecycleActionResult=\'string\',
+              InstanceId=\'string\'
           )
         :type LifecycleHookName: string
         :param LifecycleHookName: **[REQUIRED]** 
@@ -414,56 +414,56 @@ class Client(BaseClient):
         ::
         
           response = client.create_auto_scaling_group(
-              AutoScalingGroupName='string',
-              LaunchConfigurationName='string',
+              AutoScalingGroupName=\'string\',
+              LaunchConfigurationName=\'string\',
               LaunchTemplate={
-                  'LaunchTemplateId': 'string',
-                  'LaunchTemplateName': 'string',
-                  'Version': 'string'
+                  \'LaunchTemplateId\': \'string\',
+                  \'LaunchTemplateName\': \'string\',
+                  \'Version\': \'string\'
               },
-              InstanceId='string',
+              InstanceId=\'string\',
               MinSize=123,
               MaxSize=123,
               DesiredCapacity=123,
               DefaultCooldown=123,
               AvailabilityZones=[
-                  'string',
+                  \'string\',
               ],
               LoadBalancerNames=[
-                  'string',
+                  \'string\',
               ],
               TargetGroupARNs=[
-                  'string',
+                  \'string\',
               ],
-              HealthCheckType='string',
+              HealthCheckType=\'string\',
               HealthCheckGracePeriod=123,
-              PlacementGroup='string',
-              VPCZoneIdentifier='string',
+              PlacementGroup=\'string\',
+              VPCZoneIdentifier=\'string\',
               TerminationPolicies=[
-                  'string',
+                  \'string\',
               ],
               NewInstancesProtectedFromScaleIn=True|False,
               LifecycleHookSpecificationList=[
                   {
-                      'LifecycleHookName': 'string',
-                      'LifecycleTransition': 'string',
-                      'NotificationMetadata': 'string',
-                      'HeartbeatTimeout': 123,
-                      'DefaultResult': 'string',
-                      'NotificationTargetARN': 'string',
-                      'RoleARN': 'string'
+                      \'LifecycleHookName\': \'string\',
+                      \'LifecycleTransition\': \'string\',
+                      \'NotificationMetadata\': \'string\',
+                      \'HeartbeatTimeout\': 123,
+                      \'DefaultResult\': \'string\',
+                      \'NotificationTargetARN\': \'string\',
+                      \'RoleARN\': \'string\'
                   },
               ],
               Tags=[
                   {
-                      'ResourceId': 'string',
-                      'ResourceType': 'string',
-                      'Key': 'string',
-                      'Value': 'string',
-                      'PropagateAtLaunch': True|False
+                      \'ResourceId\': \'string\',
+                      \'ResourceType\': \'string\',
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'PropagateAtLaunch\': True|False
                   },
               ],
-              ServiceLinkedRoleARN='string'
+              ServiceLinkedRoleARN=\'string\'
           )
         :type AutoScalingGroupName: string
         :param AutoScalingGroupName: **[REQUIRED]** 
@@ -565,14 +565,14 @@ class Client(BaseClient):
         :type PlacementGroup: string
         :param PlacementGroup: 
         
-          The name of the placement group into which you'll launch your instances, if any. For more information, see `Placement Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+          The name of the placement group into which you\'ll launch your instances, if any. For more information, see `Placement Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         :type VPCZoneIdentifier: string
         :param VPCZoneIdentifier: 
         
           A comma-separated list of subnet identifiers for your virtual private cloud (VPC).
         
-          If you specify subnets and Availability Zones with this call, ensure that the subnets' Availability Zones match the Availability Zones specified.
+          If you specify subnets and Availability Zones with this call, ensure that the subnets\' Availability Zones match the Availability Zones specified.
         
           For more information, see `Launching Auto Scaling Instances in a VPC <http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html>`__ in the *Amazon EC2 Auto Scaling User Guide* .
         
@@ -686,44 +686,44 @@ class Client(BaseClient):
         ::
         
           response = client.create_launch_configuration(
-              LaunchConfigurationName='string',
-              ImageId='string',
-              KeyName='string',
+              LaunchConfigurationName=\'string\',
+              ImageId=\'string\',
+              KeyName=\'string\',
               SecurityGroups=[
-                  'string',
+                  \'string\',
               ],
-              ClassicLinkVPCId='string',
+              ClassicLinkVPCId=\'string\',
               ClassicLinkVPCSecurityGroups=[
-                  'string',
+                  \'string\',
               ],
-              UserData='string',
-              InstanceId='string',
-              InstanceType='string',
-              KernelId='string',
-              RamdiskId='string',
+              UserData=\'string\',
+              InstanceId=\'string\',
+              InstanceType=\'string\',
+              KernelId=\'string\',
+              RamdiskId=\'string\',
               BlockDeviceMappings=[
                   {
-                      'VirtualName': 'string',
-                      'DeviceName': 'string',
-                      'Ebs': {
-                          'SnapshotId': 'string',
-                          'VolumeSize': 123,
-                          'VolumeType': 'string',
-                          'DeleteOnTermination': True|False,
-                          'Iops': 123,
-                          'Encrypted': True|False
+                      \'VirtualName\': \'string\',
+                      \'DeviceName\': \'string\',
+                      \'Ebs\': {
+                          \'SnapshotId\': \'string\',
+                          \'VolumeSize\': 123,
+                          \'VolumeType\': \'string\',
+                          \'DeleteOnTermination\': True|False,
+                          \'Iops\': 123,
+                          \'Encrypted\': True|False
                       },
-                      'NoDevice': True|False
+                      \'NoDevice\': True|False
                   },
               ],
               InstanceMonitoring={
-                  'Enabled': True|False
+                  \'Enabled\': True|False
               },
-              SpotPrice='string',
-              IamInstanceProfile='string',
+              SpotPrice=\'string\',
+              IamInstanceProfile=\'string\',
               EbsOptimized=True|False,
               AssociatePublicIpAddress=True|False,
-              PlacementTenancy='string'
+              PlacementTenancy=\'string\'
           )
         :type LaunchConfigurationName: string
         :param LaunchConfigurationName: **[REQUIRED]** 
@@ -833,7 +833,7 @@ class Client(BaseClient):
         
                 The volume size, in GiB. For ``standard`` volumes, specify a value from 1 to 1,024. For ``io1`` volumes, specify a value from 4 to 16,384. For ``gp2`` volumes, specify a value from 1 to 16,384. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                Default: If you create a volume from a snapshot and you don't specify a volume size, the default is the snapshot size.
+                Default: If you create a volume from a snapshot and you don\'t specify a volume size, the default is the snapshot size.
         
               - **VolumeType** *(string) --* 
         
@@ -928,11 +928,11 @@ class Client(BaseClient):
           response = client.create_or_update_tags(
               Tags=[
                   {
-                      'ResourceId': 'string',
-                      'ResourceType': 'string',
-                      'Key': 'string',
-                      'Value': 'string',
-                      'PropagateAtLaunch': True|False
+                      \'ResourceId\': \'string\',
+                      \'ResourceType\': \'string\',
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'PropagateAtLaunch\': True|False
                   },
               ]
           )
@@ -986,7 +986,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_auto_scaling_group(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               ForceDelete=True|False
           )
         :type AutoScalingGroupName: string
@@ -1014,7 +1014,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_launch_configuration(
-              LaunchConfigurationName='string'
+              LaunchConfigurationName=\'string\'
           )
         :type LaunchConfigurationName: string
         :param LaunchConfigurationName: **[REQUIRED]** 
@@ -1036,8 +1036,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_lifecycle_hook(
-              LifecycleHookName='string',
-              AutoScalingGroupName='string'
+              LifecycleHookName=\'string\',
+              AutoScalingGroupName=\'string\'
           )
         :type LifecycleHookName: string
         :param LifecycleHookName: **[REQUIRED]** 
@@ -1072,8 +1072,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_notification_configuration(
-              AutoScalingGroupName='string',
-              TopicARN='string'
+              AutoScalingGroupName=\'string\',
+              TopicARN=\'string\'
           )
         :type AutoScalingGroupName: string
         :param AutoScalingGroupName: **[REQUIRED]** 
@@ -1100,8 +1100,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_policy(
-              AutoScalingGroupName='string',
-              PolicyName='string'
+              AutoScalingGroupName=\'string\',
+              PolicyName=\'string\'
           )
         :type AutoScalingGroupName: string
         :param AutoScalingGroupName: 
@@ -1126,8 +1126,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_scheduled_action(
-              AutoScalingGroupName='string',
-              ScheduledActionName='string'
+              AutoScalingGroupName=\'string\',
+              ScheduledActionName=\'string\'
           )
         :type AutoScalingGroupName: string
         :param AutoScalingGroupName: **[REQUIRED]** 
@@ -1154,11 +1154,11 @@ class Client(BaseClient):
           response = client.delete_tags(
               Tags=[
                   {
-                      'ResourceId': 'string',
-                      'ResourceType': 'string',
-                      'Key': 'string',
-                      'Value': 'string',
-                      'PropagateAtLaunch': True|False
+                      \'ResourceId\': \'string\',
+                      \'ResourceType\': \'string\',
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'PropagateAtLaunch\': True|False
                   },
               ]
           )
@@ -1215,10 +1215,10 @@ class Client(BaseClient):
           ::
         
             {
-                'MaxNumberOfAutoScalingGroups': 123,
-                'MaxNumberOfLaunchConfigurations': 123,
-                'NumberOfAutoScalingGroups': 123,
-                'NumberOfLaunchConfigurations': 123
+                \'MaxNumberOfAutoScalingGroups\': 123,
+                \'MaxNumberOfLaunchConfigurations\': 123,
+                \'NumberOfAutoScalingGroups\': 123,
+                \'NumberOfLaunchConfigurations\': 123
             }
           **Response Structure** 
         
@@ -1261,9 +1261,9 @@ class Client(BaseClient):
           ::
         
             {
-                'AdjustmentTypes': [
+                \'AdjustmentTypes\': [
                     {
-                        'AdjustmentType': 'string'
+                        \'AdjustmentType\': \'string\'
                     },
                 ]
             }
@@ -1298,9 +1298,9 @@ class Client(BaseClient):
         
           response = client.describe_auto_scaling_groups(
               AutoScalingGroupNames=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxRecords=123
           )
         :type AutoScalingGroupNames: list
@@ -1328,79 +1328,79 @@ class Client(BaseClient):
           ::
         
             {
-                'AutoScalingGroups': [
+                \'AutoScalingGroups\': [
                     {
-                        'AutoScalingGroupName': 'string',
-                        'AutoScalingGroupARN': 'string',
-                        'LaunchConfigurationName': 'string',
-                        'LaunchTemplate': {
-                            'LaunchTemplateId': 'string',
-                            'LaunchTemplateName': 'string',
-                            'Version': 'string'
+                        \'AutoScalingGroupName\': \'string\',
+                        \'AutoScalingGroupARN\': \'string\',
+                        \'LaunchConfigurationName\': \'string\',
+                        \'LaunchTemplate\': {
+                            \'LaunchTemplateId\': \'string\',
+                            \'LaunchTemplateName\': \'string\',
+                            \'Version\': \'string\'
                         },
-                        'MinSize': 123,
-                        'MaxSize': 123,
-                        'DesiredCapacity': 123,
-                        'DefaultCooldown': 123,
-                        'AvailabilityZones': [
-                            'string',
+                        \'MinSize\': 123,
+                        \'MaxSize\': 123,
+                        \'DesiredCapacity\': 123,
+                        \'DefaultCooldown\': 123,
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'LoadBalancerNames': [
-                            'string',
+                        \'LoadBalancerNames\': [
+                            \'string\',
                         ],
-                        'TargetGroupARNs': [
-                            'string',
+                        \'TargetGroupARNs\': [
+                            \'string\',
                         ],
-                        'HealthCheckType': 'string',
-                        'HealthCheckGracePeriod': 123,
-                        'Instances': [
+                        \'HealthCheckType\': \'string\',
+                        \'HealthCheckGracePeriod\': 123,
+                        \'Instances\': [
                             {
-                                'InstanceId': 'string',
-                                'AvailabilityZone': 'string',
-                                'LifecycleState': 'Pending'|'Pending:Wait'|'Pending:Proceed'|'Quarantined'|'InService'|'Terminating'|'Terminating:Wait'|'Terminating:Proceed'|'Terminated'|'Detaching'|'Detached'|'EnteringStandby'|'Standby',
-                                'HealthStatus': 'string',
-                                'LaunchConfigurationName': 'string',
-                                'LaunchTemplate': {
-                                    'LaunchTemplateId': 'string',
-                                    'LaunchTemplateName': 'string',
-                                    'Version': 'string'
+                                \'InstanceId\': \'string\',
+                                \'AvailabilityZone\': \'string\',
+                                \'LifecycleState\': \'Pending\'|\'Pending:Wait\'|\'Pending:Proceed\'|\'Quarantined\'|\'InService\'|\'Terminating\'|\'Terminating:Wait\'|\'Terminating:Proceed\'|\'Terminated\'|\'Detaching\'|\'Detached\'|\'EnteringStandby\'|\'Standby\',
+                                \'HealthStatus\': \'string\',
+                                \'LaunchConfigurationName\': \'string\',
+                                \'LaunchTemplate\': {
+                                    \'LaunchTemplateId\': \'string\',
+                                    \'LaunchTemplateName\': \'string\',
+                                    \'Version\': \'string\'
                                 },
-                                'ProtectedFromScaleIn': True|False
+                                \'ProtectedFromScaleIn\': True|False
                             },
                         ],
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'SuspendedProcesses': [
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'SuspendedProcesses\': [
                             {
-                                'ProcessName': 'string',
-                                'SuspensionReason': 'string'
+                                \'ProcessName\': \'string\',
+                                \'SuspensionReason\': \'string\'
                             },
                         ],
-                        'PlacementGroup': 'string',
-                        'VPCZoneIdentifier': 'string',
-                        'EnabledMetrics': [
+                        \'PlacementGroup\': \'string\',
+                        \'VPCZoneIdentifier\': \'string\',
+                        \'EnabledMetrics\': [
                             {
-                                'Metric': 'string',
-                                'Granularity': 'string'
+                                \'Metric\': \'string\',
+                                \'Granularity\': \'string\'
                             },
                         ],
-                        'Status': 'string',
-                        'Tags': [
+                        \'Status\': \'string\',
+                        \'Tags\': [
                             {
-                                'ResourceId': 'string',
-                                'ResourceType': 'string',
-                                'Key': 'string',
-                                'Value': 'string',
-                                'PropagateAtLaunch': True|False
+                                \'ResourceId\': \'string\',
+                                \'ResourceType\': \'string\',
+                                \'Key\': \'string\',
+                                \'Value\': \'string\',
+                                \'PropagateAtLaunch\': True|False
                             },
                         ],
-                        'TerminationPolicies': [
-                            'string',
+                        \'TerminationPolicies\': [
+                            \'string\',
                         ],
-                        'NewInstancesProtectedFromScaleIn': True|False,
-                        'ServiceLinkedRoleARN': 'string'
+                        \'NewInstancesProtectedFromScaleIn\': True|False,
+                        \'ServiceLinkedRoleARN\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1506,7 +1506,7 @@ class Client(BaseClient):
         
                     - **HealthStatus** *(string) --* 
         
-                      The last reported health status of the instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
+                      The last reported health status of the instance. \"Healthy\" means that the instance is healthy and should remain in service. \"Unhealthy\" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
         
                     - **LaunchConfigurationName** *(string) --* 
         
@@ -1554,7 +1554,7 @@ class Client(BaseClient):
         
                 - **PlacementGroup** *(string) --* 
         
-                  The name of the placement group into which you'll launch your instances, if any. For more information, see `Placement Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                  The name of the placement group into which you\'ll launch your instances, if any. For more information, see `Placement Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
                 - **VPCZoneIdentifier** *(string) --* 
         
@@ -1657,10 +1657,10 @@ class Client(BaseClient):
         
           response = client.describe_auto_scaling_instances(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               MaxRecords=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type InstanceIds: list
         :param InstanceIds: 
@@ -1687,23 +1687,23 @@ class Client(BaseClient):
           ::
         
             {
-                'AutoScalingInstances': [
+                \'AutoScalingInstances\': [
                     {
-                        'InstanceId': 'string',
-                        'AutoScalingGroupName': 'string',
-                        'AvailabilityZone': 'string',
-                        'LifecycleState': 'string',
-                        'HealthStatus': 'string',
-                        'LaunchConfigurationName': 'string',
-                        'LaunchTemplate': {
-                            'LaunchTemplateId': 'string',
-                            'LaunchTemplateName': 'string',
-                            'Version': 'string'
+                        \'InstanceId\': \'string\',
+                        \'AutoScalingGroupName\': \'string\',
+                        \'AvailabilityZone\': \'string\',
+                        \'LifecycleState\': \'string\',
+                        \'HealthStatus\': \'string\',
+                        \'LaunchConfigurationName\': \'string\',
+                        \'LaunchTemplate\': {
+                            \'LaunchTemplateId\': \'string\',
+                            \'LaunchTemplateName\': \'string\',
+                            \'Version\': \'string\'
                         },
-                        'ProtectedFromScaleIn': True|False
+                        \'ProtectedFromScaleIn\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1735,7 +1735,7 @@ class Client(BaseClient):
         
                 - **HealthStatus** *(string) --* 
         
-                  The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
+                  The last reported health status of this instance. \"Healthy\" means that the instance is healthy and should remain in service. \"Unhealthy\" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
         
                 - **LaunchConfigurationName** *(string) --* 
         
@@ -1786,8 +1786,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AutoScalingNotificationTypes': [
-                    'string',
+                \'AutoScalingNotificationTypes\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -1813,9 +1813,9 @@ class Client(BaseClient):
         
           response = client.describe_launch_configurations(
               LaunchConfigurationNames=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxRecords=123
           )
         :type LaunchConfigurationNames: list
@@ -1843,50 +1843,50 @@ class Client(BaseClient):
           ::
         
             {
-                'LaunchConfigurations': [
+                \'LaunchConfigurations\': [
                     {
-                        'LaunchConfigurationName': 'string',
-                        'LaunchConfigurationARN': 'string',
-                        'ImageId': 'string',
-                        'KeyName': 'string',
-                        'SecurityGroups': [
-                            'string',
+                        \'LaunchConfigurationName\': \'string\',
+                        \'LaunchConfigurationARN\': \'string\',
+                        \'ImageId\': \'string\',
+                        \'KeyName\': \'string\',
+                        \'SecurityGroups\': [
+                            \'string\',
                         ],
-                        'ClassicLinkVPCId': 'string',
-                        'ClassicLinkVPCSecurityGroups': [
-                            'string',
+                        \'ClassicLinkVPCId\': \'string\',
+                        \'ClassicLinkVPCSecurityGroups\': [
+                            \'string\',
                         ],
-                        'UserData': 'string',
-                        'InstanceType': 'string',
-                        'KernelId': 'string',
-                        'RamdiskId': 'string',
-                        'BlockDeviceMappings': [
+                        \'UserData\': \'string\',
+                        \'InstanceType\': \'string\',
+                        \'KernelId\': \'string\',
+                        \'RamdiskId\': \'string\',
+                        \'BlockDeviceMappings\': [
                             {
-                                'VirtualName': 'string',
-                                'DeviceName': 'string',
-                                'Ebs': {
-                                    'SnapshotId': 'string',
-                                    'VolumeSize': 123,
-                                    'VolumeType': 'string',
-                                    'DeleteOnTermination': True|False,
-                                    'Iops': 123,
-                                    'Encrypted': True|False
+                                \'VirtualName\': \'string\',
+                                \'DeviceName\': \'string\',
+                                \'Ebs\': {
+                                    \'SnapshotId\': \'string\',
+                                    \'VolumeSize\': 123,
+                                    \'VolumeType\': \'string\',
+                                    \'DeleteOnTermination\': True|False,
+                                    \'Iops\': 123,
+                                    \'Encrypted\': True|False
                                 },
-                                'NoDevice': True|False
+                                \'NoDevice\': True|False
                             },
                         ],
-                        'InstanceMonitoring': {
-                            'Enabled': True|False
+                        \'InstanceMonitoring\': {
+                            \'Enabled\': True|False
                         },
-                        'SpotPrice': 'string',
-                        'IamInstanceProfile': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'EbsOptimized': True|False,
-                        'AssociatePublicIpAddress': True|False,
-                        'PlacementTenancy': 'string'
+                        \'SpotPrice\': \'string\',
+                        \'IamInstanceProfile\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'EbsOptimized\': True|False,
+                        \'AssociatePublicIpAddress\': True|False,
+                        \'PlacementTenancy\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1976,7 +1976,7 @@ class Client(BaseClient):
         
                         The volume size, in GiB. For ``standard`` volumes, specify a value from 1 to 1,024. For ``io1`` volumes, specify a value from 4 to 16,384. For ``gp2`` volumes, specify a value from 1 to 16,384. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                        Default: If you create a volume from a snapshot and you don't specify a volume size, the default is the snapshot size.
+                        Default: If you create a volume from a snapshot and you don\'t specify a volume size, the default is the snapshot size.
         
                       - **VolumeType** *(string) --* 
         
@@ -2067,8 +2067,8 @@ class Client(BaseClient):
           ::
         
             {
-                'LifecycleHookTypes': [
-                    'string',
+                \'LifecycleHookTypes\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -2093,9 +2093,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_lifecycle_hooks(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               LifecycleHookNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AutoScalingGroupName: string
@@ -2118,17 +2118,17 @@ class Client(BaseClient):
           ::
         
             {
-                'LifecycleHooks': [
+                \'LifecycleHooks\': [
                     {
-                        'LifecycleHookName': 'string',
-                        'AutoScalingGroupName': 'string',
-                        'LifecycleTransition': 'string',
-                        'NotificationTargetARN': 'string',
-                        'RoleARN': 'string',
-                        'NotificationMetadata': 'string',
-                        'HeartbeatTimeout': 123,
-                        'GlobalTimeout': 123,
-                        'DefaultResult': 'string'
+                        \'LifecycleHookName\': \'string\',
+                        \'AutoScalingGroupName\': \'string\',
+                        \'LifecycleTransition\': \'string\',
+                        \'NotificationTargetARN\': \'string\',
+                        \'RoleARN\': \'string\',
+                        \'NotificationMetadata\': \'string\',
+                        \'HeartbeatTimeout\': 123,
+                        \'GlobalTimeout\': 123,
+                        \'DefaultResult\': \'string\'
                     },
                 ]
             }
@@ -2198,8 +2198,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_load_balancer_target_groups(
-              AutoScalingGroupName='string',
-              NextToken='string',
+              AutoScalingGroupName=\'string\',
+              NextToken=\'string\',
               MaxRecords=123
           )
         :type AutoScalingGroupName: string
@@ -2225,13 +2225,13 @@ class Client(BaseClient):
           ::
         
             {
-                'LoadBalancerTargetGroups': [
+                \'LoadBalancerTargetGroups\': [
                     {
-                        'LoadBalancerTargetGroupARN': 'string',
-                        'State': 'string'
+                        \'LoadBalancerTargetGroupARN\': \'string\',
+                        \'State\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2283,8 +2283,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_load_balancers(
-              AutoScalingGroupName='string',
-              NextToken='string',
+              AutoScalingGroupName=\'string\',
+              NextToken=\'string\',
               MaxRecords=123
           )
         :type AutoScalingGroupName: string
@@ -2310,13 +2310,13 @@ class Client(BaseClient):
           ::
         
             {
-                'LoadBalancers': [
+                \'LoadBalancers\': [
                     {
-                        'LoadBalancerName': 'string',
-                        'State': 'string'
+                        \'LoadBalancerName\': \'string\',
+                        \'State\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2379,14 +2379,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Metrics': [
+                \'Metrics\': [
                     {
-                        'Metric': 'string'
+                        \'Metric\': \'string\'
                     },
                 ],
-                'Granularities': [
+                \'Granularities\': [
                     {
-                        'Granularity': 'string'
+                        \'Granularity\': \'string\'
                     },
                 ]
             }
@@ -2447,9 +2447,9 @@ class Client(BaseClient):
         
           response = client.describe_notification_configurations(
               AutoScalingGroupNames=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxRecords=123
           )
         :type AutoScalingGroupNames: list
@@ -2477,14 +2477,14 @@ class Client(BaseClient):
           ::
         
             {
-                'NotificationConfigurations': [
+                \'NotificationConfigurations\': [
                     {
-                        'AutoScalingGroupName': 'string',
-                        'TopicARN': 'string',
-                        'NotificationType': 'string'
+                        \'AutoScalingGroupName\': \'string\',
+                        \'TopicARN\': \'string\',
+                        \'NotificationType\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2536,14 +2536,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_policies(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               PolicyNames=[
-                  'string',
+                  \'string\',
               ],
               PolicyTypes=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxRecords=123
           )
         :type AutoScalingGroupName: string
@@ -2583,55 +2583,55 @@ class Client(BaseClient):
           ::
         
             {
-                'ScalingPolicies': [
+                \'ScalingPolicies\': [
                     {
-                        'AutoScalingGroupName': 'string',
-                        'PolicyName': 'string',
-                        'PolicyARN': 'string',
-                        'PolicyType': 'string',
-                        'AdjustmentType': 'string',
-                        'MinAdjustmentStep': 123,
-                        'MinAdjustmentMagnitude': 123,
-                        'ScalingAdjustment': 123,
-                        'Cooldown': 123,
-                        'StepAdjustments': [
+                        \'AutoScalingGroupName\': \'string\',
+                        \'PolicyName\': \'string\',
+                        \'PolicyARN\': \'string\',
+                        \'PolicyType\': \'string\',
+                        \'AdjustmentType\': \'string\',
+                        \'MinAdjustmentStep\': 123,
+                        \'MinAdjustmentMagnitude\': 123,
+                        \'ScalingAdjustment\': 123,
+                        \'Cooldown\': 123,
+                        \'StepAdjustments\': [
                             {
-                                'MetricIntervalLowerBound': 123.0,
-                                'MetricIntervalUpperBound': 123.0,
-                                'ScalingAdjustment': 123
+                                \'MetricIntervalLowerBound\': 123.0,
+                                \'MetricIntervalUpperBound\': 123.0,
+                                \'ScalingAdjustment\': 123
                             },
                         ],
-                        'MetricAggregationType': 'string',
-                        'EstimatedInstanceWarmup': 123,
-                        'Alarms': [
+                        \'MetricAggregationType\': \'string\',
+                        \'EstimatedInstanceWarmup\': 123,
+                        \'Alarms\': [
                             {
-                                'AlarmName': 'string',
-                                'AlarmARN': 'string'
+                                \'AlarmName\': \'string\',
+                                \'AlarmARN\': \'string\'
                             },
                         ],
-                        'TargetTrackingConfiguration': {
-                            'PredefinedMetricSpecification': {
-                                'PredefinedMetricType': 'ASGAverageCPUUtilization'|'ASGAverageNetworkIn'|'ASGAverageNetworkOut'|'ALBRequestCountPerTarget',
-                                'ResourceLabel': 'string'
+                        \'TargetTrackingConfiguration\': {
+                            \'PredefinedMetricSpecification\': {
+                                \'PredefinedMetricType\': \'ASGAverageCPUUtilization\'|\'ASGAverageNetworkIn\'|\'ASGAverageNetworkOut\'|\'ALBRequestCountPerTarget\',
+                                \'ResourceLabel\': \'string\'
                             },
-                            'CustomizedMetricSpecification': {
-                                'MetricName': 'string',
-                                'Namespace': 'string',
-                                'Dimensions': [
+                            \'CustomizedMetricSpecification\': {
+                                \'MetricName\': \'string\',
+                                \'Namespace\': \'string\',
+                                \'Dimensions\': [
                                     {
-                                        'Name': 'string',
-                                        'Value': 'string'
+                                        \'Name\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ],
-                                'Statistic': 'Average'|'Minimum'|'Maximum'|'SampleCount'|'Sum',
-                                'Unit': 'string'
+                                \'Statistic\': \'Average\'|\'Minimum\'|\'Maximum\'|\'SampleCount\'|\'Sum\',
+                                \'Unit\': \'string\'
                             },
-                            'TargetValue': 123.0,
-                            'DisableScaleIn': True|False
+                            \'TargetValue\': 123.0,
+                            \'DisableScaleIn\': True|False
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2687,7 +2687,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
+                    Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you\'ve defined for the alarm.
         
                     For the following examples, suppose that you have an alarm with a breach threshold of 50:
         
@@ -2697,13 +2697,13 @@ class Client(BaseClient):
                      
                     There are a few rules for the step adjustments for your step policy:
         
-                    * The ranges of your step adjustments can't overlap or have a gap. 
+                    * The ranges of your step adjustments can\'t overlap or have a gap. 
                      
                     * At most one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then there must be a step adjustment with a null lower bound. 
                      
                     * At most one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then there must be a step adjustment with a null upper bound. 
                      
-                    * The upper and lower bound can't be null in the same step adjustment. 
+                    * The upper and lower bound can\'t be null in the same step adjustment. 
                      
                     - **MetricIntervalLowerBound** *(float) --* 
         
@@ -2811,7 +2811,7 @@ class Client(BaseClient):
         
                   - **DisableScaleIn** *(boolean) --* 
         
-                    Indicates whether scale in by the target tracking policy is disabled. If scale in is disabled, the target tracking policy won't remove instances from the Auto Scaling group. Otherwise, the target tracking policy can remove instances from the Auto Scaling group. The default is disabled.
+                    Indicates whether scale in by the target tracking policy is disabled. If scale in is disabled, the target tracking policy won\'t remove instances from the Auto Scaling group. Otherwise, the target tracking policy can remove instances from the Auto Scaling group. The default is disabled.
         
             - **NextToken** *(string) --* 
         
@@ -2830,11 +2830,11 @@ class Client(BaseClient):
         
           response = client.describe_scaling_activities(
               ActivityIds=[
-                  'string',
+                  \'string\',
               ],
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               MaxRecords=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ActivityIds: list
         :param ActivityIds: 
@@ -2866,21 +2866,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Activities': [
+                \'Activities\': [
                     {
-                        'ActivityId': 'string',
-                        'AutoScalingGroupName': 'string',
-                        'Description': 'string',
-                        'Cause': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'StatusCode': 'PendingSpotBidPlacement'|'WaitingForSpotInstanceRequestId'|'WaitingForSpotInstanceId'|'WaitingForInstanceId'|'PreInService'|'InProgress'|'WaitingForELBConnectionDraining'|'MidLifecycleAction'|'WaitingForInstanceWarmup'|'Successful'|'Failed'|'Cancelled',
-                        'StatusMessage': 'string',
-                        'Progress': 123,
-                        'Details': 'string'
+                        \'ActivityId\': \'string\',
+                        \'AutoScalingGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Cause\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'StatusCode\': \'PendingSpotBidPlacement\'|\'WaitingForSpotInstanceRequestId\'|\'WaitingForSpotInstanceId\'|\'WaitingForInstanceId\'|\'PreInService\'|\'InProgress\'|\'WaitingForELBConnectionDraining\'|\'MidLifecycleAction\'|\'WaitingForInstanceWarmup\'|\'Successful\'|\'Failed\'|\'Cancelled\',
+                        \'StatusMessage\': \'string\',
+                        \'Progress\': 123,
+                        \'Details\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2959,9 +2959,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Processes': [
+                \'Processes\': [
                     {
-                        'ProcessName': 'string'
+                        \'ProcessName\': \'string\'
                     },
                 ]
             }
@@ -3011,13 +3011,13 @@ class Client(BaseClient):
         ::
         
           response = client.describe_scheduled_actions(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               ScheduledActionNames=[
-                  'string',
+                  \'string\',
               ],
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
-              NextToken='string',
+              NextToken=\'string\',
               MaxRecords=123
           )
         :type AutoScalingGroupName: string
@@ -3060,21 +3060,21 @@ class Client(BaseClient):
           ::
         
             {
-                'ScheduledUpdateGroupActions': [
+                \'ScheduledUpdateGroupActions\': [
                     {
-                        'AutoScalingGroupName': 'string',
-                        'ScheduledActionName': 'string',
-                        'ScheduledActionARN': 'string',
-                        'Time': datetime(2015, 1, 1),
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'Recurrence': 'string',
-                        'MinSize': 123,
-                        'MaxSize': 123,
-                        'DesiredCapacity': 123
+                        \'AutoScalingGroupName\': \'string\',
+                        \'ScheduledActionName\': \'string\',
+                        \'ScheduledActionARN\': \'string\',
+                        \'Time\': datetime(2015, 1, 1),
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'Recurrence\': \'string\',
+                        \'MinSize\': 123,
+                        \'MaxSize\': 123,
+                        \'DesiredCapacity\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3142,7 +3142,7 @@ class Client(BaseClient):
         
         You can use filters to limit the results. For example, you can query for the tags for a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results.
         
-        You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there's no match, no special message is returned.
+        You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there\'s no match, no special message is returned.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DescribeTags>`_
         
@@ -3152,13 +3152,13 @@ class Client(BaseClient):
           response = client.describe_tags(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxRecords=123
           )
         :type Filters: list
@@ -3172,7 +3172,7 @@ class Client(BaseClient):
         
             - **Name** *(string) --* 
         
-              The name of the filter. The valid values are: ``"auto-scaling-group"`` , ``"key"`` , ``"value"`` , and ``"propagate-at-launch"`` .
+              The name of the filter. The valid values are: ``\"auto-scaling-group\"`` , ``\"key\"`` , ``\"value\"`` , and ``\"propagate-at-launch\"`` .
         
             - **Values** *(list) --* 
         
@@ -3198,16 +3198,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'ResourceId': 'string',
-                        'ResourceType': 'string',
-                        'Key': 'string',
-                        'Value': 'string',
-                        'PropagateAtLaunch': True|False
+                        \'ResourceId\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'Key\': \'string\',
+                        \'Value\': \'string\',
+                        \'PropagateAtLaunch\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3266,8 +3266,8 @@ class Client(BaseClient):
           ::
         
             {
-                'TerminationPolicyTypes': [
-                    'string',
+                \'TerminationPolicyTypes\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -3301,9 +3301,9 @@ class Client(BaseClient):
         
           response = client.detach_instances(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               ShouldDecrementDesiredCapacity=True|False
           )
         :type InstanceIds: list
@@ -3331,18 +3331,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Activities': [
+                \'Activities\': [
                     {
-                        'ActivityId': 'string',
-                        'AutoScalingGroupName': 'string',
-                        'Description': 'string',
-                        'Cause': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'StatusCode': 'PendingSpotBidPlacement'|'WaitingForSpotInstanceRequestId'|'WaitingForSpotInstanceId'|'WaitingForInstanceId'|'PreInService'|'InProgress'|'WaitingForELBConnectionDraining'|'MidLifecycleAction'|'WaitingForInstanceWarmup'|'Successful'|'Failed'|'Cancelled',
-                        'StatusMessage': 'string',
-                        'Progress': 123,
-                        'Details': 'string'
+                        \'ActivityId\': \'string\',
+                        \'AutoScalingGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Cause\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'StatusCode\': \'PendingSpotBidPlacement\'|\'WaitingForSpotInstanceRequestId\'|\'WaitingForSpotInstanceId\'|\'WaitingForInstanceId\'|\'PreInService\'|\'InProgress\'|\'WaitingForELBConnectionDraining\'|\'MidLifecycleAction\'|\'WaitingForInstanceWarmup\'|\'Successful\'|\'Failed\'|\'Cancelled\',
+                        \'StatusMessage\': \'string\',
+                        \'Progress\': 123,
+                        \'Details\': \'string\'
                     },
                 ]
             }
@@ -3410,9 +3410,9 @@ class Client(BaseClient):
         ::
         
           response = client.detach_load_balancer_target_groups(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               TargetGroupARNs=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AutoScalingGroupName: string
@@ -3454,9 +3454,9 @@ class Client(BaseClient):
         ::
         
           response = client.detach_load_balancers(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               LoadBalancerNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AutoScalingGroupName: string
@@ -3494,9 +3494,9 @@ class Client(BaseClient):
         ::
         
           response = client.disable_metrics_collection(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               Metrics=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AutoScalingGroupName: string
@@ -3540,11 +3540,11 @@ class Client(BaseClient):
         ::
         
           response = client.enable_metrics_collection(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               Metrics=[
-                  'string',
+                  \'string\',
               ],
-              Granularity='string'
+              Granularity=\'string\'
           )
         :type AutoScalingGroupName: string
         :param AutoScalingGroupName: **[REQUIRED]** 
@@ -3595,9 +3595,9 @@ class Client(BaseClient):
         
           response = client.enter_standby(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               ShouldDecrementDesiredCapacity=True|False
           )
         :type InstanceIds: list
@@ -3625,18 +3625,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Activities': [
+                \'Activities\': [
                     {
-                        'ActivityId': 'string',
-                        'AutoScalingGroupName': 'string',
-                        'Description': 'string',
-                        'Cause': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'StatusCode': 'PendingSpotBidPlacement'|'WaitingForSpotInstanceRequestId'|'WaitingForSpotInstanceId'|'WaitingForInstanceId'|'PreInService'|'InProgress'|'WaitingForELBConnectionDraining'|'MidLifecycleAction'|'WaitingForInstanceWarmup'|'Successful'|'Failed'|'Cancelled',
-                        'StatusMessage': 'string',
-                        'Progress': 123,
-                        'Details': 'string'
+                        \'ActivityId\': \'string\',
+                        \'AutoScalingGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Cause\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'StatusCode\': \'PendingSpotBidPlacement\'|\'WaitingForSpotInstanceRequestId\'|\'WaitingForSpotInstanceId\'|\'WaitingForInstanceId\'|\'PreInService\'|\'InProgress\'|\'WaitingForELBConnectionDraining\'|\'MidLifecycleAction\'|\'WaitingForInstanceWarmup\'|\'Successful\'|\'Failed\'|\'Cancelled\',
+                        \'StatusMessage\': \'string\',
+                        \'Progress\': 123,
+                        \'Details\': \'string\'
                     },
                 ]
             }
@@ -3704,8 +3704,8 @@ class Client(BaseClient):
         ::
         
           response = client.execute_policy(
-              AutoScalingGroupName='string',
-              PolicyName='string',
+              AutoScalingGroupName=\'string\',
+              PolicyName=\'string\',
               HonorCooldown=True|False,
               MetricValue=123.0,
               BreachThreshold=123.0
@@ -3734,7 +3734,7 @@ class Client(BaseClient):
         
           The metric value to compare to ``BreachThreshold`` . This enables you to execute a policy of type ``StepScaling`` and determine which step adjustment to use. For example, if the breach threshold is 50 and you want to use a step adjustment with a lower bound of 0 and an upper bound of 10, you can set the metric value to 59.
         
-          If you specify a metric value that doesn't correspond to a step adjustment for the policy, the call returns an error.
+          If you specify a metric value that doesn\'t correspond to a step adjustment for the policy, the call returns an error.
         
           This parameter is required if the policy type is ``StepScaling`` and not supported otherwise.
         
@@ -3761,9 +3761,9 @@ class Client(BaseClient):
         
           response = client.exit_standby(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
-              AutoScalingGroupName='string'
+              AutoScalingGroupName=\'string\'
           )
         :type InstanceIds: list
         :param InstanceIds: 
@@ -3785,18 +3785,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Activities': [
+                \'Activities\': [
                     {
-                        'ActivityId': 'string',
-                        'AutoScalingGroupName': 'string',
-                        'Description': 'string',
-                        'Cause': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'StatusCode': 'PendingSpotBidPlacement'|'WaitingForSpotInstanceRequestId'|'WaitingForSpotInstanceId'|'WaitingForInstanceId'|'PreInService'|'InProgress'|'WaitingForELBConnectionDraining'|'MidLifecycleAction'|'WaitingForInstanceWarmup'|'Successful'|'Failed'|'Cancelled',
-                        'StatusMessage': 'string',
-                        'Progress': 123,
-                        'Details': 'string'
+                        \'ActivityId\': \'string\',
+                        \'AutoScalingGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Cause\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'StatusCode\': \'PendingSpotBidPlacement\'|\'WaitingForSpotInstanceRequestId\'|\'WaitingForSpotInstanceId\'|\'WaitingForInstanceId\'|\'PreInService\'|\'InProgress\'|\'WaitingForELBConnectionDraining\'|\'MidLifecycleAction\'|\'WaitingForInstanceWarmup\'|\'Successful\'|\'Failed\'|\'Cancelled\',
+                        \'StatusMessage\': \'string\',
+                        \'Progress\': 123,
+                        \'Details\': \'string\'
                     },
                 ]
             }
@@ -3871,7 +3871,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3883,10 +3883,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3936,14 +3936,14 @@ class Client(BaseClient):
         ::
         
           response = client.put_lifecycle_hook(
-              LifecycleHookName='string',
-              AutoScalingGroupName='string',
-              LifecycleTransition='string',
-              RoleARN='string',
-              NotificationTargetARN='string',
-              NotificationMetadata='string',
+              LifecycleHookName=\'string\',
+              AutoScalingGroupName=\'string\',
+              LifecycleTransition=\'string\',
+              RoleARN=\'string\',
+              NotificationTargetARN=\'string\',
+              NotificationMetadata=\'string\',
               HeartbeatTimeout=123,
-              DefaultResult='string'
+              DefaultResult=\'string\'
           )
         :type LifecycleHookName: string
         :param LifecycleHookName: **[REQUIRED]** 
@@ -3980,7 +3980,7 @@ class Client(BaseClient):
         
           This operation uses the JSON format when sending notifications to an Amazon SQS queue, and an email key/value pair format when sending notifications to an Amazon SNS topic.
         
-          When you specify a notification target, Amazon EC2 Auto Scaling sends it a test message. Test messages contains the following additional key/value pair: ``"Event": "autoscaling:TEST_NOTIFICATION"`` .
+          When you specify a notification target, Amazon EC2 Auto Scaling sends it a test message. Test messages contains the following additional key/value pair: ``\"Event\": \"autoscaling:TEST_NOTIFICATION\"`` .
         
         :type NotificationMetadata: string
         :param NotificationMetadata: 
@@ -4026,10 +4026,10 @@ class Client(BaseClient):
         ::
         
           response = client.put_notification_configuration(
-              AutoScalingGroupName='string',
-              TopicARN='string',
+              AutoScalingGroupName=\'string\',
+              TopicARN=\'string\',
               NotificationTypes=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AutoScalingGroupName: string
@@ -4064,42 +4064,42 @@ class Client(BaseClient):
         ::
         
           response = client.put_scaling_policy(
-              AutoScalingGroupName='string',
-              PolicyName='string',
-              PolicyType='string',
-              AdjustmentType='string',
+              AutoScalingGroupName=\'string\',
+              PolicyName=\'string\',
+              PolicyType=\'string\',
+              AdjustmentType=\'string\',
               MinAdjustmentStep=123,
               MinAdjustmentMagnitude=123,
               ScalingAdjustment=123,
               Cooldown=123,
-              MetricAggregationType='string',
+              MetricAggregationType=\'string\',
               StepAdjustments=[
                   {
-                      'MetricIntervalLowerBound': 123.0,
-                      'MetricIntervalUpperBound': 123.0,
-                      'ScalingAdjustment': 123
+                      \'MetricIntervalLowerBound\': 123.0,
+                      \'MetricIntervalUpperBound\': 123.0,
+                      \'ScalingAdjustment\': 123
                   },
               ],
               EstimatedInstanceWarmup=123,
               TargetTrackingConfiguration={
-                  'PredefinedMetricSpecification': {
-                      'PredefinedMetricType': 'ASGAverageCPUUtilization'|'ASGAverageNetworkIn'|'ASGAverageNetworkOut'|'ALBRequestCountPerTarget',
-                      'ResourceLabel': 'string'
+                  \'PredefinedMetricSpecification\': {
+                      \'PredefinedMetricType\': \'ASGAverageCPUUtilization\'|\'ASGAverageNetworkIn\'|\'ASGAverageNetworkOut\'|\'ALBRequestCountPerTarget\',
+                      \'ResourceLabel\': \'string\'
                   },
-                  'CustomizedMetricSpecification': {
-                      'MetricName': 'string',
-                      'Namespace': 'string',
-                      'Dimensions': [
+                  \'CustomizedMetricSpecification\': {
+                      \'MetricName\': \'string\',
+                      \'Namespace\': \'string\',
+                      \'Dimensions\': [
                           {
-                              'Name': 'string',
-                              'Value': 'string'
+                              \'Name\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ],
-                      'Statistic': 'Average'|'Minimum'|'Maximum'|'SampleCount'|'Sum',
-                      'Unit': 'string'
+                      \'Statistic\': \'Average\'|\'Minimum\'|\'Maximum\'|\'SampleCount\'|\'Sum\',
+                      \'Unit\': \'string\'
                   },
-                  'TargetValue': 123.0,
-                  'DisableScaleIn': True|False
+                  \'TargetValue\': 123.0,
+                  \'DisableScaleIn\': True|False
               }
           )
         :type AutoScalingGroupName: string
@@ -4170,7 +4170,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
+            Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you\'ve defined for the alarm.
         
             For the following examples, suppose that you have an alarm with a breach threshold of 50:
         
@@ -4180,13 +4180,13 @@ class Client(BaseClient):
              
             There are a few rules for the step adjustments for your step policy:
         
-            * The ranges of your step adjustments can't overlap or have a gap. 
+            * The ranges of your step adjustments can\'t overlap or have a gap. 
              
             * At most one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then there must be a step adjustment with a null lower bound. 
              
             * At most one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then there must be a step adjustment with a null upper bound. 
              
-            * The upper and lower bound can't be null in the same step adjustment. 
+            * The upper and lower bound can\'t be null in the same step adjustment. 
              
             - **MetricIntervalLowerBound** *(float) --* 
         
@@ -4280,7 +4280,7 @@ class Client(BaseClient):
         
           - **DisableScaleIn** *(boolean) --* 
         
-            Indicates whether scale in by the target tracking policy is disabled. If scale in is disabled, the target tracking policy won't remove instances from the Auto Scaling group. Otherwise, the target tracking policy can remove instances from the Auto Scaling group. The default is disabled.
+            Indicates whether scale in by the target tracking policy is disabled. If scale in is disabled, the target tracking policy won\'t remove instances from the Auto Scaling group. Otherwise, the target tracking policy can remove instances from the Auto Scaling group. The default is disabled.
         
         :rtype: dict
         :returns: 
@@ -4290,11 +4290,11 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyARN': 'string',
-                'Alarms': [
+                \'PolicyARN\': \'string\',
+                \'Alarms\': [
                     {
-                        'AlarmName': 'string',
-                        'AlarmARN': 'string'
+                        \'AlarmName\': \'string\',
+                        \'AlarmARN\': \'string\'
                     },
                 ]
             }
@@ -4338,12 +4338,12 @@ class Client(BaseClient):
         ::
         
           response = client.put_scheduled_update_group_action(
-              AutoScalingGroupName='string',
-              ScheduledActionName='string',
+              AutoScalingGroupName=\'string\',
+              ScheduledActionName=\'string\',
               Time=datetime(2015, 1, 1),
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
-              Recurrence='string',
+              Recurrence=\'string\',
               MinSize=123,
               MaxSize=123,
               DesiredCapacity=123
@@ -4366,7 +4366,7 @@ class Client(BaseClient):
         :type StartTime: datetime
         :param StartTime: 
         
-          The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, ``2014-06-01T00:00:00Z`` ).
+          The time for this action to start, in \"YYYY-MM-DDThh:mm:ssZ\" format in UTC/GMT only (for example, ``2014-06-01T00:00:00Z`` ).
         
           If you specify ``Recurrence`` and ``StartTime`` , Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence.
         
@@ -4424,10 +4424,10 @@ class Client(BaseClient):
         ::
         
           response = client.record_lifecycle_action_heartbeat(
-              LifecycleHookName='string',
-              AutoScalingGroupName='string',
-              LifecycleActionToken='string',
-              InstanceId='string'
+              LifecycleHookName=\'string\',
+              AutoScalingGroupName=\'string\',
+              LifecycleActionToken=\'string\',
+              InstanceId=\'string\'
           )
         :type LifecycleHookName: string
         :param LifecycleHookName: **[REQUIRED]** 
@@ -4474,9 +4474,9 @@ class Client(BaseClient):
         ::
         
           response = client.resume_processes(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               ScalingProcesses=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AutoScalingGroupName: string
@@ -4522,7 +4522,7 @@ class Client(BaseClient):
         ::
         
           response = client.set_desired_capacity(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               DesiredCapacity=123,
               HonorCooldown=True|False
           )
@@ -4556,8 +4556,8 @@ class Client(BaseClient):
         ::
         
           response = client.set_instance_health(
-              InstanceId='string',
-              HealthStatus='string',
+              InstanceId=\'string\',
+              HealthStatus=\'string\',
               ShouldRespectGracePeriod=True|False
           )
         :type InstanceId: string
@@ -4593,9 +4593,9 @@ class Client(BaseClient):
         
           response = client.set_instance_protection(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               ProtectedFromScaleIn=True|False
           )
         :type InstanceIds: list
@@ -4644,9 +4644,9 @@ class Client(BaseClient):
         ::
         
           response = client.suspend_processes(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               ScalingProcesses=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AutoScalingGroupName: string
@@ -4692,7 +4692,7 @@ class Client(BaseClient):
         ::
         
           response = client.terminate_instance_in_auto_scaling_group(
-              InstanceId='string',
+              InstanceId=\'string\',
               ShouldDecrementDesiredCapacity=True|False
           )
         :type InstanceId: string
@@ -4713,17 +4713,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Activity': {
-                    'ActivityId': 'string',
-                    'AutoScalingGroupName': 'string',
-                    'Description': 'string',
-                    'Cause': 'string',
-                    'StartTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'StatusCode': 'PendingSpotBidPlacement'|'WaitingForSpotInstanceRequestId'|'WaitingForSpotInstanceId'|'WaitingForInstanceId'|'PreInService'|'InProgress'|'WaitingForELBConnectionDraining'|'MidLifecycleAction'|'WaitingForInstanceWarmup'|'Successful'|'Failed'|'Cancelled',
-                    'StatusMessage': 'string',
-                    'Progress': 123,
-                    'Details': 'string'
+                \'Activity\': {
+                    \'ActivityId\': \'string\',
+                    \'AutoScalingGroupName\': \'string\',
+                    \'Description\': \'string\',
+                    \'Cause\': \'string\',
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'StatusCode\': \'PendingSpotBidPlacement\'|\'WaitingForSpotInstanceRequestId\'|\'WaitingForSpotInstanceId\'|\'WaitingForInstanceId\'|\'PreInService\'|\'InProgress\'|\'WaitingForELBConnectionDraining\'|\'MidLifecycleAction\'|\'WaitingForInstanceWarmup\'|\'Successful\'|\'Failed\'|\'Cancelled\',
+                    \'StatusMessage\': \'string\',
+                    \'Progress\': 123,
+                    \'Details\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4780,7 +4780,7 @@ class Client(BaseClient):
     def update_auto_scaling_group(self, AutoScalingGroupName: str, LaunchConfigurationName: str = None, LaunchTemplate: Dict = None, MinSize: int = None, MaxSize: int = None, DesiredCapacity: int = None, DefaultCooldown: int = None, AvailabilityZones: List = None, HealthCheckType: str = None, HealthCheckGracePeriod: int = None, PlacementGroup: str = None, VPCZoneIdentifier: str = None, TerminationPolicies: List = None, NewInstancesProtectedFromScaleIn: bool = None, ServiceLinkedRoleARN: str = None):
         """
         
-        The new settings take effect on any scaling activities after this call returns. Scaling activities that are currently in progress aren't affected.
+        The new settings take effect on any scaling activities after this call returns. Scaling activities that are currently in progress aren\'t affected.
         
         To update an Auto Scaling group with a launch configuration with ``InstanceMonitoring`` set to ``false`` , you must first disable the collection of group metrics. Otherwise, you will get an error. If you have previously enabled the collection of group metrics, you can disable it using  DisableMetricsCollection .
         
@@ -4798,29 +4798,29 @@ class Client(BaseClient):
         ::
         
           response = client.update_auto_scaling_group(
-              AutoScalingGroupName='string',
-              LaunchConfigurationName='string',
+              AutoScalingGroupName=\'string\',
+              LaunchConfigurationName=\'string\',
               LaunchTemplate={
-                  'LaunchTemplateId': 'string',
-                  'LaunchTemplateName': 'string',
-                  'Version': 'string'
+                  \'LaunchTemplateId\': \'string\',
+                  \'LaunchTemplateName\': \'string\',
+                  \'Version\': \'string\'
               },
               MinSize=123,
               MaxSize=123,
               DesiredCapacity=123,
               DefaultCooldown=123,
               AvailabilityZones=[
-                  'string',
+                  \'string\',
               ],
-              HealthCheckType='string',
+              HealthCheckType=\'string\',
               HealthCheckGracePeriod=123,
-              PlacementGroup='string',
-              VPCZoneIdentifier='string',
+              PlacementGroup=\'string\',
+              VPCZoneIdentifier=\'string\',
               TerminationPolicies=[
-                  'string',
+                  \'string\',
               ],
               NewInstancesProtectedFromScaleIn=True|False,
-              ServiceLinkedRoleARN='string'
+              ServiceLinkedRoleARN=\'string\'
           )
         :type AutoScalingGroupName: string
         :param AutoScalingGroupName: **[REQUIRED]** 
@@ -4830,12 +4830,12 @@ class Client(BaseClient):
         :type LaunchConfigurationName: string
         :param LaunchConfigurationName: 
         
-          The name of the launch configuration. If you specify a launch configuration, you can't specify a launch template.
+          The name of the launch configuration. If you specify a launch configuration, you can\'t specify a launch template.
         
         :type LaunchTemplate: dict
         :param LaunchTemplate: 
         
-          The launch template to use to specify the updates. If you specify a launch template, you can't specify a launch configuration.
+          The launch template to use to specify the updates. If you specify a launch template, you can\'t specify a launch configuration.
         
           - **LaunchTemplateId** *(string) --* 
         
@@ -4893,14 +4893,14 @@ class Client(BaseClient):
         :type PlacementGroup: string
         :param PlacementGroup: 
         
-          The name of the placement group into which you'll launch your instances, if any. For more information, see `Placement Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+          The name of the placement group into which you\'ll launch your instances, if any. For more information, see `Placement Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         :type VPCZoneIdentifier: string
         :param VPCZoneIdentifier: 
         
           The ID of the subnet, if you are launching into a VPC. You can specify several subnets in a comma-separated list.
         
-          When you specify ``VPCZoneIdentifier`` with ``AvailabilityZones`` , ensure that the subnets' Availability Zones match the values you specify for ``AvailabilityZones`` .
+          When you specify ``VPCZoneIdentifier`` with ``AvailabilityZones`` , ensure that the subnets\' Availability Zones match the values you specify for ``AvailabilityZones`` .
         
           For more information, see `Launching Auto Scaling Instances in a VPC <http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html>`__ in the *Amazon EC2 Auto Scaling User Guide* .
         

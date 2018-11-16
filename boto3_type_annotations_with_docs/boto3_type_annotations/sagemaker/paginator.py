@@ -13,15 +13,15 @@ class ListEndpointConfigs(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SortBy='Name'|'CreationTime',
-              SortOrder='Ascending'|'Descending',
-              NameContains='string',
+              SortBy=\'Name\'|\'CreationTime\',
+              SortOrder=\'Ascending\'|\'Descending\',
+              NameContains=\'string\',
               CreationTimeBefore=datetime(2015, 1, 1),
               CreationTimeAfter=datetime(2015, 1, 1),
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SortBy: string
@@ -74,11 +74,11 @@ class ListEndpointConfigs(Paginator):
           ::
         
             {
-                'EndpointConfigs': [
+                \'EndpointConfigs\': [
                     {
-                        'EndpointConfigName': 'string',
-                        'EndpointConfigArn': 'string',
-                        'CreationTime': datetime(2015, 1, 1)
+                        \'EndpointConfigName\': \'string\',
+                        \'EndpointConfigArn\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -121,18 +121,18 @@ class ListEndpoints(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SortBy='Name'|'CreationTime'|'Status',
-              SortOrder='Ascending'|'Descending',
-              NameContains='string',
+              SortBy=\'Name\'|\'CreationTime\'|\'Status\',
+              SortOrder=\'Ascending\'|\'Descending\',
+              NameContains=\'string\',
               CreationTimeBefore=datetime(2015, 1, 1),
               CreationTimeAfter=datetime(2015, 1, 1),
               LastModifiedTimeBefore=datetime(2015, 1, 1),
               LastModifiedTimeAfter=datetime(2015, 1, 1),
-              StatusEquals='OutOfService'|'Creating'|'Updating'|'SystemUpdating'|'RollingBack'|'InService'|'Deleting'|'Failed',
+              StatusEquals=\'OutOfService\'|\'Creating\'|\'Updating\'|\'SystemUpdating\'|\'RollingBack\'|\'InService\'|\'Deleting\'|\'Failed\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SortBy: string
@@ -200,13 +200,13 @@ class ListEndpoints(Paginator):
           ::
         
             {
-                'Endpoints': [
+                \'Endpoints\': [
                     {
-                        'EndpointName': 'string',
-                        'EndpointArn': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastModifiedTime': datetime(2015, 1, 1),
-                        'EndpointStatus': 'OutOfService'|'Creating'|'Updating'|'SystemUpdating'|'RollingBack'|'InService'|'Deleting'|'Failed'
+                        \'EndpointName\': \'string\',
+                        \'EndpointArn\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastModifiedTime\': datetime(2015, 1, 1),
+                        \'EndpointStatus\': \'OutOfService\'|\'Creating\'|\'Updating\'|\'SystemUpdating\'|\'RollingBack\'|\'InService\'|\'Deleting\'|\'Failed\'
                     },
                 ],
                 
@@ -275,15 +275,15 @@ class ListModels(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SortBy='Name'|'CreationTime',
-              SortOrder='Ascending'|'Descending',
-              NameContains='string',
+              SortBy=\'Name\'|\'CreationTime\',
+              SortOrder=\'Ascending\'|\'Descending\',
+              NameContains=\'string\',
               CreationTimeBefore=datetime(2015, 1, 1),
               CreationTimeAfter=datetime(2015, 1, 1),
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SortBy: string
@@ -336,11 +336,11 @@ class ListModels(Paginator):
           ::
         
             {
-                'Models': [
+                \'Models\': [
                     {
-                        'ModelName': 'string',
-                        'ModelArn': 'string',
-                        'CreationTime': datetime(2015, 1, 1)
+                        \'ModelName\': \'string\',
+                        \'ModelArn\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -383,19 +383,19 @@ class ListNotebookInstances(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SortBy='Name'|'CreationTime'|'Status',
-              SortOrder='Ascending'|'Descending',
-              NameContains='string',
+              SortBy=\'Name\'|\'CreationTime\'|\'Status\',
+              SortOrder=\'Ascending\'|\'Descending\',
+              NameContains=\'string\',
               CreationTimeBefore=datetime(2015, 1, 1),
               CreationTimeAfter=datetime(2015, 1, 1),
               LastModifiedTimeBefore=datetime(2015, 1, 1),
               LastModifiedTimeAfter=datetime(2015, 1, 1),
-              StatusEquals='Pending'|'InService'|'Stopping'|'Stopped'|'Failed'|'Deleting'|'Updating',
-              NotebookInstanceLifecycleConfigNameContains='string',
+              StatusEquals=\'Pending\'|\'InService\'|\'Stopping\'|\'Stopped\'|\'Failed\'|\'Deleting\'|\'Updating\',
+              NotebookInstanceLifecycleConfigNameContains=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SortBy: string
@@ -411,7 +411,7 @@ class ListNotebookInstances(Paginator):
         :type NameContains: string
         :param NameContains: 
         
-          A string in the notebook instances' name. This filter returns only notebook instances whose name contains the specified string.
+          A string in the notebook instances\' name. This filter returns only notebook instances whose name contains the specified string.
         
         :type CreationTimeBefore: datetime
         :param CreationTimeBefore: 
@@ -468,16 +468,16 @@ class ListNotebookInstances(Paginator):
           ::
         
             {
-                'NotebookInstances': [
+                \'NotebookInstances\': [
                     {
-                        'NotebookInstanceName': 'string',
-                        'NotebookInstanceArn': 'string',
-                        'NotebookInstanceStatus': 'Pending'|'InService'|'Stopping'|'Stopped'|'Failed'|'Deleting'|'Updating',
-                        'Url': 'string',
-                        'InstanceType': 'ml.t2.medium'|'ml.t2.large'|'ml.t2.xlarge'|'ml.t2.2xlarge'|'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastModifiedTime': datetime(2015, 1, 1),
-                        'NotebookInstanceLifecycleConfigName': 'string'
+                        \'NotebookInstanceName\': \'string\',
+                        \'NotebookInstanceArn\': \'string\',
+                        \'NotebookInstanceStatus\': \'Pending\'|\'InService\'|\'Stopping\'|\'Stopped\'|\'Failed\'|\'Deleting\'|\'Updating\',
+                        \'Url\': \'string\',
+                        \'InstanceType\': \'ml.t2.medium\'|\'ml.t2.large\'|\'ml.t2.xlarge\'|\'ml.t2.2xlarge\'|\'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastModifiedTime\': datetime(2015, 1, 1),
+                        \'NotebookInstanceLifecycleConfigName\': \'string\'
                     },
                 ]
             }
@@ -541,11 +541,11 @@ class ListTags(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ResourceArn: string
@@ -578,10 +578,10 @@ class ListTags(Paginator):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
                 
@@ -624,14 +624,14 @@ class ListTrainingJobs(Paginator):
               CreationTimeBefore=datetime(2015, 1, 1),
               LastModifiedTimeAfter=datetime(2015, 1, 1),
               LastModifiedTimeBefore=datetime(2015, 1, 1),
-              NameContains='string',
-              StatusEquals='InProgress'|'Completed'|'Failed'|'Stopping'|'Stopped',
-              SortBy='Name'|'CreationTime'|'Status',
-              SortOrder='Ascending'|'Descending',
+              NameContains=\'string\',
+              StatusEquals=\'InProgress\'|\'Completed\'|\'Failed\'|\'Stopping\'|\'Stopped\',
+              SortBy=\'Name\'|\'CreationTime\'|\'Status\',
+              SortOrder=\'Ascending\'|\'Descending\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CreationTimeAfter: datetime
@@ -699,14 +699,14 @@ class ListTrainingJobs(Paginator):
           ::
         
             {
-                'TrainingJobSummaries': [
+                \'TrainingJobSummaries\': [
                     {
-                        'TrainingJobName': 'string',
-                        'TrainingJobArn': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'TrainingEndTime': datetime(2015, 1, 1),
-                        'LastModifiedTime': datetime(2015, 1, 1),
-                        'TrainingJobStatus': 'InProgress'|'Completed'|'Failed'|'Stopping'|'Stopped'
+                        \'TrainingJobName\': \'string\',
+                        \'TrainingJobArn\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'TrainingEndTime\': datetime(2015, 1, 1),
+                        \'LastModifiedTime\': datetime(2015, 1, 1),
+                        \'TrainingJobStatus\': \'InProgress\'|\'Completed\'|\'Failed\'|\'Stopping\'|\'Stopped\'
                     },
                 ],
                 

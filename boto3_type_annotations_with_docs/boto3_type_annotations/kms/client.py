@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -38,7 +38,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_key_deletion(
-              KeyId='string'
+              KeyId=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
@@ -63,7 +63,7 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyId': 'string'
+                \'KeyId\': \'string\'
             }
           **Response Structure** 
         
@@ -97,8 +97,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_alias(
-              AliasName='string',
-              TargetKeyId='string'
+              AliasName=\'string\',
+              TargetKeyId=\'string\'
           )
         :type AliasName: string
         :param AliasName: **[REQUIRED]** 
@@ -137,24 +137,24 @@ class Client(BaseClient):
         ::
         
           response = client.create_grant(
-              KeyId='string',
-              GranteePrincipal='string',
-              RetiringPrincipal='string',
+              KeyId=\'string\',
+              GranteePrincipal=\'string\',
+              RetiringPrincipal=\'string\',
               Operations=[
-                  'Decrypt'|'Encrypt'|'GenerateDataKey'|'GenerateDataKeyWithoutPlaintext'|'ReEncryptFrom'|'ReEncryptTo'|'CreateGrant'|'RetireGrant'|'DescribeKey',
+                  \'Decrypt\'|\'Encrypt\'|\'GenerateDataKey\'|\'GenerateDataKeyWithoutPlaintext\'|\'ReEncryptFrom\'|\'ReEncryptTo\'|\'CreateGrant\'|\'RetireGrant\'|\'DescribeKey\',
               ],
               Constraints={
-                  'EncryptionContextSubset': {
-                      'string': 'string'
+                  \'EncryptionContextSubset\': {
+                      \'string\': \'string\'
                   },
-                  'EncryptionContextEquals': {
-                      'string': 'string'
+                  \'EncryptionContextEquals\': {
+                      \'string\': \'string\'
                   }
               },
               GrantTokens=[
-                  'string',
+                  \'string\',
               ],
-              Name='string'
+              Name=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
@@ -239,8 +239,8 @@ class Client(BaseClient):
           ::
         
             {
-                'GrantToken': 'string',
-                'GrantId': 'string'
+                \'GrantToken\': \'string\',
+                \'GrantId\': \'string\'
             }
           **Response Structure** 
         
@@ -278,15 +278,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_key(
-              Policy='string',
-              Description='string',
-              KeyUsage='ENCRYPT_DECRYPT',
-              Origin='AWS_KMS'|'EXTERNAL',
+              Policy=\'string\',
+              Description=\'string\',
+              KeyUsage=\'ENCRYPT_DECRYPT\',
+              Origin=\'AWS_KMS\'|\'EXTERNAL\',
               BypassPolicyLockoutSafetyCheck=True|False,
               Tags=[
                   {
-                      'TagKey': 'string',
-                      'TagValue': 'string'
+                      \'TagKey\': \'string\',
+                      \'TagValue\': \'string\'
                   },
               ]
           )
@@ -297,7 +297,7 @@ class Client(BaseClient):
         
           If you provide a key policy, it must meet the following criteria:
         
-          * If you don't set ``BypassPolicyLockoutSafetyCheck`` to true, the key policy must allow the principal that is making the ``CreateKey`` request to make a subsequent  PutKeyPolicy request on the CMK. This reduces the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the `Default Key Policy <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam>`__ section of the *AWS Key Management Service Developer Guide* . 
+          * If you don\'t set ``BypassPolicyLockoutSafetyCheck`` to true, the key policy must allow the principal that is making the ``CreateKey`` request to make a subsequent  PutKeyPolicy request on the CMK. This reduces the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the `Default Key Policy <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam>`__ section of the *AWS Key Management Service Developer Guide* . 
            
           * Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy. The reason for this is that the new principal might not be immediately visible to AWS KMS. For more information, see `Changes that I make are not always immediately visible <http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency>`__ in the *AWS Identity and Access Management User Guide* . 
            
@@ -322,11 +322,11 @@ class Client(BaseClient):
         :type Origin: string
         :param Origin: 
         
-          The source of the CMK's key material.
+          The source of the CMK\'s key material.
         
           The default is ``AWS_KMS`` , which means AWS KMS creates the key material. When this parameter is set to ``EXTERNAL`` , the request creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see `Importing Key Material <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html>`__ in the *AWS Key Management Service Developer Guide* .
         
-          The CMK's ``Origin`` is immutable and is set when the CMK is created.
+          The CMK\'s ``Origin`` is immutable and is set when the CMK is created.
         
         :type BypassPolicyLockoutSafetyCheck: boolean
         :param BypassPolicyLockoutSafetyCheck: 
@@ -372,20 +372,20 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyMetadata': {
-                    'AWSAccountId': 'string',
-                    'KeyId': 'string',
-                    'Arn': 'string',
-                    'CreationDate': datetime(2015, 1, 1),
-                    'Enabled': True|False,
-                    'Description': 'string',
-                    'KeyUsage': 'ENCRYPT_DECRYPT',
-                    'KeyState': 'Enabled'|'Disabled'|'PendingDeletion'|'PendingImport',
-                    'DeletionDate': datetime(2015, 1, 1),
-                    'ValidTo': datetime(2015, 1, 1),
-                    'Origin': 'AWS_KMS'|'EXTERNAL',
-                    'ExpirationModel': 'KEY_MATERIAL_EXPIRES'|'KEY_MATERIAL_DOES_NOT_EXPIRE',
-                    'KeyManager': 'AWS'|'CUSTOMER'
+                \'KeyMetadata\': {
+                    \'AWSAccountId\': \'string\',
+                    \'KeyId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'Enabled\': True|False,
+                    \'Description\': \'string\',
+                    \'KeyUsage\': \'ENCRYPT_DECRYPT\',
+                    \'KeyState\': \'Enabled\'|\'Disabled\'|\'PendingDeletion\'|\'PendingImport\',
+                    \'DeletionDate\': datetime(2015, 1, 1),
+                    \'ValidTo\': datetime(2015, 1, 1),
+                    \'Origin\': \'AWS_KMS\'|\'EXTERNAL\',
+                    \'ExpirationModel\': \'KEY_MATERIAL_EXPIRES\'|\'KEY_MATERIAL_DOES_NOT_EXPIRE\',
+                    \'KeyManager\': \'AWS\'|\'CUSTOMER\'
                 }
             }
           **Response Structure** 
@@ -440,15 +440,15 @@ class Client(BaseClient):
         
               - **Origin** *(string) --* 
         
-                The source of the CMK's key material. When this value is ``AWS_KMS`` , AWS KMS created the key material. When this value is ``EXTERNAL`` , the key material was imported from your existing key management infrastructure or the CMK lacks key material.
+                The source of the CMK\'s key material. When this value is ``AWS_KMS`` , AWS KMS created the key material. When this value is ``EXTERNAL`` , the key material was imported from your existing key management infrastructure or the CMK lacks key material.
         
               - **ExpirationModel** *(string) --* 
         
-                Specifies whether the CMK's key material expires. This value is present only when ``Origin`` is ``EXTERNAL`` , otherwise this value is omitted.
+                Specifies whether the CMK\'s key material expires. This value is present only when ``Origin`` is ``EXTERNAL`` , otherwise this value is omitted.
         
               - **KeyManager** *(string) --* 
         
-                The CMK's manager. CMKs are either customer managed or AWS managed. For more information about the difference, see `Customer Master Keys <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys>`__ in the *AWS Key Management Service Developer Guide* .
+                The CMK\'s manager. CMKs are either customer managed or AWS managed. For more information about the difference, see `Customer Master Keys <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys>`__ in the *AWS Key Management Service Developer Guide* .
         
         """
         pass
@@ -473,12 +473,12 @@ class Client(BaseClient):
         ::
         
           response = client.decrypt(
-              CiphertextBlob=b'bytes',
+              CiphertextBlob=b\'bytes\',
               EncryptionContext={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               GrantTokens=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CiphertextBlob: bytes
@@ -512,8 +512,8 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyId': 'string',
-                'Plaintext': b'bytes'
+                \'KeyId\': \'string\',
+                \'Plaintext\': b\'bytes\'
             }
           **Response Structure** 
         
@@ -543,12 +543,12 @@ class Client(BaseClient):
         ::
         
           response = client.delete_alias(
-              AliasName='string'
+              AliasName=\'string\'
           )
         :type AliasName: string
         :param AliasName: **[REQUIRED]** 
         
-          The alias to be deleted. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws" are reserved.
+          The alias to be deleted. The name must start with the word \"alias\" followed by a forward slash (alias/). Aliases that begin with \"alias/aws\" are reserved.
         
         :returns: None
         """
@@ -557,7 +557,7 @@ class Client(BaseClient):
     def delete_imported_key_material(self, KeyId: str):
         """
         
-        When the specified CMK is in the ``PendingDeletion`` state, this operation does not change the CMK's state. Otherwise, it changes the CMK's state to ``PendingImport`` .
+        When the specified CMK is in the ``PendingDeletion`` state, this operation does not change the CMK\'s state. Otherwise, it changes the CMK\'s state to ``PendingImport`` .
         
         After you delete key material, you can use  ImportKeyMaterial to reimport the same key material into the CMK.
         
@@ -569,12 +569,12 @@ class Client(BaseClient):
         ::
         
           response = client.delete_imported_key_material(
-              KeyId='string'
+              KeyId=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
         
-          The identifier of the CMK whose key material to delete. The CMK's ``Origin`` must be ``EXTERNAL`` .
+          The identifier of the CMK whose key material to delete. The CMK\'s ``Origin`` must be ``EXTERNAL`` .
         
           Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
         
@@ -603,9 +603,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_key(
-              KeyId='string',
+              KeyId=\'string\',
               GrantTokens=[
-                  'string',
+                  \'string\',
               ]
           )
         :type KeyId: string
@@ -615,7 +615,7 @@ class Client(BaseClient):
         
           If you specify a predefined AWS alias (an AWS alias with no key ID), KMS associates the alias with an `AWS managed CMK <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys>`__ and returns its ``KeyId`` and ``Arn`` in the response.
         
-          To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with ``"alias/"`` . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
+          To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with ``\"alias/\"`` . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
         
           For example:
         
@@ -646,20 +646,20 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyMetadata': {
-                    'AWSAccountId': 'string',
-                    'KeyId': 'string',
-                    'Arn': 'string',
-                    'CreationDate': datetime(2015, 1, 1),
-                    'Enabled': True|False,
-                    'Description': 'string',
-                    'KeyUsage': 'ENCRYPT_DECRYPT',
-                    'KeyState': 'Enabled'|'Disabled'|'PendingDeletion'|'PendingImport',
-                    'DeletionDate': datetime(2015, 1, 1),
-                    'ValidTo': datetime(2015, 1, 1),
-                    'Origin': 'AWS_KMS'|'EXTERNAL',
-                    'ExpirationModel': 'KEY_MATERIAL_EXPIRES'|'KEY_MATERIAL_DOES_NOT_EXPIRE',
-                    'KeyManager': 'AWS'|'CUSTOMER'
+                \'KeyMetadata\': {
+                    \'AWSAccountId\': \'string\',
+                    \'KeyId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'Enabled\': True|False,
+                    \'Description\': \'string\',
+                    \'KeyUsage\': \'ENCRYPT_DECRYPT\',
+                    \'KeyState\': \'Enabled\'|\'Disabled\'|\'PendingDeletion\'|\'PendingImport\',
+                    \'DeletionDate\': datetime(2015, 1, 1),
+                    \'ValidTo\': datetime(2015, 1, 1),
+                    \'Origin\': \'AWS_KMS\'|\'EXTERNAL\',
+                    \'ExpirationModel\': \'KEY_MATERIAL_EXPIRES\'|\'KEY_MATERIAL_DOES_NOT_EXPIRE\',
+                    \'KeyManager\': \'AWS\'|\'CUSTOMER\'
                 }
             }
           **Response Structure** 
@@ -714,15 +714,15 @@ class Client(BaseClient):
         
               - **Origin** *(string) --* 
         
-                The source of the CMK's key material. When this value is ``AWS_KMS`` , AWS KMS created the key material. When this value is ``EXTERNAL`` , the key material was imported from your existing key management infrastructure or the CMK lacks key material.
+                The source of the CMK\'s key material. When this value is ``AWS_KMS`` , AWS KMS created the key material. When this value is ``EXTERNAL`` , the key material was imported from your existing key management infrastructure or the CMK lacks key material.
         
               - **ExpirationModel** *(string) --* 
         
-                Specifies whether the CMK's key material expires. This value is present only when ``Origin`` is ``EXTERNAL`` , otherwise this value is omitted.
+                Specifies whether the CMK\'s key material expires. This value is present only when ``Origin`` is ``EXTERNAL`` , otherwise this value is omitted.
         
               - **KeyManager** *(string) --* 
         
-                The CMK's manager. CMKs are either customer managed or AWS managed. For more information about the difference, see `Customer Master Keys <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys>`__ in the *AWS Key Management Service Developer Guide* .
+                The CMK\'s manager. CMKs are either customer managed or AWS managed. For more information about the difference, see `Customer Master Keys <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys>`__ in the *AWS Key Management Service Developer Guide* .
         
         """
         pass
@@ -740,7 +740,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_key(
-              KeyId='string'
+              KeyId=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
@@ -772,7 +772,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_key_rotation(
-              KeyId='string'
+              KeyId=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
@@ -804,7 +804,7 @@ class Client(BaseClient):
         ::
         
           response = client.enable_key(
-              KeyId='string'
+              KeyId=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
@@ -836,7 +836,7 @@ class Client(BaseClient):
         ::
         
           response = client.enable_key_rotation(
-              KeyId='string'
+              KeyId=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
@@ -865,9 +865,9 @@ class Client(BaseClient):
          
         * You can use the ``Encrypt`` operation to move encrypted data from one AWS region to another. In the first region, generate a data key and use the plaintext key to encrypt the data. Then, in the new region, call the ``Encrypt`` method on same plaintext data key. Now, you can safely move the encrypted data and encrypted data key to the new region, and decrypt in the new region when necessary. 
          
-        You don't need use this operation to encrypt a data key within a region. The  GenerateDataKey and  GenerateDataKeyWithoutPlaintext operations return an encrypted data key.
+        You don\'t need use this operation to encrypt a data key within a region. The  GenerateDataKey and  GenerateDataKeyWithoutPlaintext operations return an encrypted data key.
         
-        Also, you don't need to use this operation to encrypt data in your application. You can use the plaintext and encrypted data keys that the ``GenerateDataKey`` operation returns.
+        Also, you don\'t need to use this operation to encrypt data in your application. You can use the plaintext and encrypted data keys that the ``GenerateDataKey`` operation returns.
         
         The result of this operation varies with the key state of the CMK. For details, see `How Key State Affects Use of a Customer Master Key <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html>`__ in the *AWS Key Management Service Developer Guide* .
         
@@ -879,13 +879,13 @@ class Client(BaseClient):
         ::
         
           response = client.encrypt(
-              KeyId='string',
-              Plaintext=b'bytes',
+              KeyId=\'string\',
+              Plaintext=b\'bytes\',
               EncryptionContext={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               GrantTokens=[
-                  'string',
+                  \'string\',
               ]
           )
         :type KeyId: string
@@ -893,7 +893,7 @@ class Client(BaseClient):
         
           A unique identifier for the customer master key (CMK).
         
-          To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with ``"alias/"`` . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
+          To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with ``\"alias/\"`` . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
         
           For example:
         
@@ -938,8 +938,8 @@ class Client(BaseClient):
           ::
         
             {
-                'CiphertextBlob': b'bytes',
-                'KeyId': 'string'
+                \'CiphertextBlob\': b\'bytes\',
+                \'KeyId\': \'string\'
             }
           **Response Structure** 
         
@@ -989,14 +989,14 @@ class Client(BaseClient):
         ::
         
           response = client.generate_data_key(
-              KeyId='string',
+              KeyId=\'string\',
               EncryptionContext={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               NumberOfBytes=123,
-              KeySpec='AES_256'|'AES_128',
+              KeySpec=\'AES_256\'|\'AES_128\',
               GrantTokens=[
-                  'string',
+                  \'string\',
               ]
           )
         :type KeyId: string
@@ -1004,7 +1004,7 @@ class Client(BaseClient):
         
           The identifier of the CMK under which to generate and encrypt the data encryption key.
         
-          To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with ``"alias/"`` . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
+          To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with ``\"alias/\"`` . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
         
           For example:
         
@@ -1056,9 +1056,9 @@ class Client(BaseClient):
           ::
         
             {
-                'CiphertextBlob': b'bytes',
-                'Plaintext': b'bytes',
-                'KeyId': 'string'
+                \'CiphertextBlob\': b\'bytes\',
+                \'Plaintext\': b\'bytes\',
+                \'KeyId\': \'string\'
             }
           **Response Structure** 
         
@@ -1094,14 +1094,14 @@ class Client(BaseClient):
         ::
         
           response = client.generate_data_key_without_plaintext(
-              KeyId='string',
+              KeyId=\'string\',
               EncryptionContext={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              KeySpec='AES_256'|'AES_128',
+              KeySpec=\'AES_256\'|\'AES_128\',
               NumberOfBytes=123,
               GrantTokens=[
-                  'string',
+                  \'string\',
               ]
           )
         :type KeyId: string
@@ -1109,7 +1109,7 @@ class Client(BaseClient):
         
           The identifier of the customer master key (CMK) under which to generate and encrypt the data encryption key.
         
-          To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with ``"alias/"`` . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
+          To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with ``\"alias/\"`` . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
         
           For example:
         
@@ -1161,8 +1161,8 @@ class Client(BaseClient):
           ::
         
             {
-                'CiphertextBlob': b'bytes',
-                'KeyId': 'string'
+                \'CiphertextBlob\': b\'bytes\',
+                \'KeyId\': \'string\'
             }
           **Response Structure** 
         
@@ -1195,7 +1195,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1227,7 +1227,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Plaintext': b'bytes'
+                \'Plaintext\': b\'bytes\'
             }
           **Response Structure** 
         
@@ -1249,8 +1249,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_key_policy(
-              KeyId='string',
-              PolicyName='string'
+              KeyId=\'string\',
+              PolicyName=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
@@ -1280,7 +1280,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': 'string'
+                \'Policy\': \'string\'
             }
           **Response Structure** 
         
@@ -1310,7 +1310,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_key_rotation_status(
-              KeyId='string'
+              KeyId=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
@@ -1335,7 +1335,7 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyRotationEnabled': True|False
+                \'KeyRotationEnabled\': True|False
             }
           **Response Structure** 
         
@@ -1354,10 +1354,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1371,7 +1371,7 @@ class Client(BaseClient):
     def get_parameters_for_import(self, KeyId: str, WrappingAlgorithm: str, WrappingKeySpec: str) -> Dict:
         """
         
-        You must specify the key ID of the customer master key (CMK) into which you will import key material. This CMK's ``Origin`` must be ``EXTERNAL`` . You must also specify the wrapping algorithm and type of wrapping key (public key) that you will use to encrypt the key material. You cannot perform this operation on a CMK in a different AWS account.
+        You must specify the key ID of the customer master key (CMK) into which you will import key material. This CMK\'s ``Origin`` must be ``EXTERNAL`` . You must also specify the wrapping algorithm and type of wrapping key (public key) that you will use to encrypt the key material. You cannot perform this operation on a CMK in a different AWS account.
         
         This operation returns a public key and an import token. Use the public key to encrypt the key material. Store the import token to send with a subsequent  ImportKeyMaterial request. The public key and import token from the same response must be used together. These items are valid for 24 hours. When they expire, they cannot be used for a subsequent  ImportKeyMaterial request. To get new ones, send another ``GetParametersForImport`` request.
         
@@ -1383,14 +1383,14 @@ class Client(BaseClient):
         ::
         
           response = client.get_parameters_for_import(
-              KeyId='string',
-              WrappingAlgorithm='RSAES_PKCS1_V1_5'|'RSAES_OAEP_SHA_1'|'RSAES_OAEP_SHA_256',
-              WrappingKeySpec='RSA_2048'
+              KeyId=\'string\',
+              WrappingAlgorithm=\'RSAES_PKCS1_V1_5\'|\'RSAES_OAEP_SHA_1\'|\'RSAES_OAEP_SHA_256\',
+              WrappingKeySpec=\'RSA_2048\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
         
-          The identifier of the CMK into which you will import key material. The CMK's ``Origin`` must be ``EXTERNAL`` .
+          The identifier of the CMK into which you will import key material. The CMK\'s ``Origin`` must be ``EXTERNAL`` .
         
           Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
         
@@ -1420,10 +1420,10 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyId': 'string',
-                'ImportToken': b'bytes',
-                'PublicKey': b'bytes',
-                'ParametersValidTo': datetime(2015, 1, 1)
+                \'KeyId\': \'string\',
+                \'ImportToken\': b\'bytes\',
+                \'PublicKey\': b\'bytes\',
+                \'ParametersValidTo\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1475,7 +1475,7 @@ class Client(BaseClient):
          
         * Whether the key material expires and if so, when. If you set an expiration date, you can change it only by reimporting the same key material and specifying a new expiration date. If the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. To use the CMK again, you must reimport the same key material. 
          
-        When this operation is successful, the CMK's key state changes from ``PendingImport`` to ``Enabled`` , and you can use the CMK. After you successfully import key material into a CMK, you can reimport the same key material into that CMK, but you cannot import different key material.
+        When this operation is successful, the CMK\'s key state changes from ``PendingImport`` to ``Enabled`` , and you can use the CMK. After you successfully import key material into a CMK, you can reimport the same key material into that CMK, but you cannot import different key material.
         
         The result of this operation varies with the key state of the CMK. For details, see `How Key State Affects Use of a Customer Master Key <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html>`__ in the *AWS Key Management Service Developer Guide* .
         
@@ -1485,16 +1485,16 @@ class Client(BaseClient):
         ::
         
           response = client.import_key_material(
-              KeyId='string',
-              ImportToken=b'bytes',
-              EncryptedKeyMaterial=b'bytes',
+              KeyId=\'string\',
+              ImportToken=b\'bytes\',
+              EncryptedKeyMaterial=b\'bytes\',
               ValidTo=datetime(2015, 1, 1),
-              ExpirationModel='KEY_MATERIAL_EXPIRES'|'KEY_MATERIAL_DOES_NOT_EXPIRE'
+              ExpirationModel=\'KEY_MATERIAL_EXPIRES\'|\'KEY_MATERIAL_DOES_NOT_EXPIRE\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
         
-          The identifier of the CMK to import the key material into. The CMK's ``Origin`` must be ``EXTERNAL`` .
+          The identifier of the CMK to import the key material into. The CMK\'s ``Origin`` must be ``EXTERNAL`` .
         
           Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
         
@@ -1555,14 +1555,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_aliases(
-              KeyId='string',
+              KeyId=\'string\',
               Limit=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type KeyId: string
         :param KeyId: 
         
-          Lists only aliases that refer to the specified CMK. The value of this parameter can be the ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region. You cannot use an alias name or alias ARN in this value.
+          Lists only aliases that refer to the specified CMK. The value of this parameter can be the ID or Amazon Resource Name (ARN) of a CMK in the caller\'s account and region. You cannot use an alias name or alias ARN in this value.
         
           This parameter is optional. If you omit it, ``ListAliases`` returns all aliases in the account and region.
         
@@ -1586,15 +1586,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Aliases': [
+                \'Aliases\': [
                     {
-                        'AliasName': 'string',
-                        'AliasArn': 'string',
-                        'TargetKeyId': 'string'
+                        \'AliasName\': \'string\',
+                        \'AliasArn\': \'string\',
+                        \'TargetKeyId\': \'string\'
                     },
                 ],
-                'NextMarker': 'string',
-                'Truncated': True|False
+                \'NextMarker\': \'string\',
+                \'Truncated\': True|False
             }
           **Response Structure** 
         
@@ -1643,8 +1643,8 @@ class Client(BaseClient):
         
           response = client.list_grants(
               Limit=123,
-              Marker='string',
-              KeyId='string'
+              Marker=\'string\',
+              KeyId=\'string\'
           )
         :type Limit: integer
         :param Limit: 
@@ -1681,30 +1681,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Grants': [
+                \'Grants\': [
                     {
-                        'KeyId': 'string',
-                        'GrantId': 'string',
-                        'Name': 'string',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'GranteePrincipal': 'string',
-                        'RetiringPrincipal': 'string',
-                        'IssuingAccount': 'string',
-                        'Operations': [
-                            'Decrypt'|'Encrypt'|'GenerateDataKey'|'GenerateDataKeyWithoutPlaintext'|'ReEncryptFrom'|'ReEncryptTo'|'CreateGrant'|'RetireGrant'|'DescribeKey',
+                        \'KeyId\': \'string\',
+                        \'GrantId\': \'string\',
+                        \'Name\': \'string\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'GranteePrincipal\': \'string\',
+                        \'RetiringPrincipal\': \'string\',
+                        \'IssuingAccount\': \'string\',
+                        \'Operations\': [
+                            \'Decrypt\'|\'Encrypt\'|\'GenerateDataKey\'|\'GenerateDataKeyWithoutPlaintext\'|\'ReEncryptFrom\'|\'ReEncryptTo\'|\'CreateGrant\'|\'RetireGrant\'|\'DescribeKey\',
                         ],
-                        'Constraints': {
-                            'EncryptionContextSubset': {
-                                'string': 'string'
+                        \'Constraints\': {
+                            \'EncryptionContextSubset\': {
+                                \'string\': \'string\'
                             },
-                            'EncryptionContextEquals': {
-                                'string': 'string'
+                            \'EncryptionContextEquals\': {
+                                \'string\': \'string\'
                             }
                         }
                     },
                 ],
-                'NextMarker': 'string',
-                'Truncated': True|False
+                \'NextMarker\': \'string\',
+                \'Truncated\': True|False
             }
           **Response Structure** 
         
@@ -1736,7 +1736,7 @@ class Client(BaseClient):
         
                 - **GranteePrincipal** *(string) --* 
         
-                  The principal that receives the grant's permissions.
+                  The principal that receives the grant\'s permissions.
         
                 - **RetiringPrincipal** *(string) --* 
         
@@ -1792,9 +1792,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_key_policies(
-              KeyId='string',
+              KeyId=\'string\',
               Limit=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
@@ -1833,11 +1833,11 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyNames': [
-                    'string',
+                \'PolicyNames\': [
+                    \'string\',
                 ],
-                'NextMarker': 'string',
-                'Truncated': True|False
+                \'NextMarker\': \'string\',
+                \'Truncated\': True|False
             }
           **Response Structure** 
         
@@ -1870,7 +1870,7 @@ class Client(BaseClient):
         
           response = client.list_keys(
               Limit=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type Limit: integer
         :param Limit: 
@@ -1892,14 +1892,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Keys': [
+                \'Keys\': [
                     {
-                        'KeyId': 'string',
-                        'KeyArn': 'string'
+                        \'KeyId\': \'string\',
+                        \'KeyArn\': \'string\'
                     },
                 ],
-                'NextMarker': 'string',
-                'Truncated': True|False
+                \'NextMarker\': \'string\',
+                \'Truncated\': True|False
             }
           **Response Structure** 
         
@@ -1943,9 +1943,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_resource_tags(
-              KeyId='string',
+              KeyId=\'string\',
               Limit=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
@@ -1984,14 +1984,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'TagKey': 'string',
-                        'TagValue': 'string'
+                        \'TagKey\': \'string\',
+                        \'TagValue\': \'string\'
                     },
                 ],
-                'NextMarker': 'string',
-                'Truncated': True|False
+                \'NextMarker\': \'string\',
+                \'Truncated\': True|False
             }
           **Response Structure** 
         
@@ -2040,8 +2040,8 @@ class Client(BaseClient):
         
           response = client.list_retirable_grants(
               Limit=123,
-              Marker='string',
-              RetiringPrincipal='string'
+              Marker=\'string\',
+              RetiringPrincipal=\'string\'
           )
         :type Limit: integer
         :param Limit: 
@@ -2070,30 +2070,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Grants': [
+                \'Grants\': [
                     {
-                        'KeyId': 'string',
-                        'GrantId': 'string',
-                        'Name': 'string',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'GranteePrincipal': 'string',
-                        'RetiringPrincipal': 'string',
-                        'IssuingAccount': 'string',
-                        'Operations': [
-                            'Decrypt'|'Encrypt'|'GenerateDataKey'|'GenerateDataKeyWithoutPlaintext'|'ReEncryptFrom'|'ReEncryptTo'|'CreateGrant'|'RetireGrant'|'DescribeKey',
+                        \'KeyId\': \'string\',
+                        \'GrantId\': \'string\',
+                        \'Name\': \'string\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'GranteePrincipal\': \'string\',
+                        \'RetiringPrincipal\': \'string\',
+                        \'IssuingAccount\': \'string\',
+                        \'Operations\': [
+                            \'Decrypt\'|\'Encrypt\'|\'GenerateDataKey\'|\'GenerateDataKeyWithoutPlaintext\'|\'ReEncryptFrom\'|\'ReEncryptTo\'|\'CreateGrant\'|\'RetireGrant\'|\'DescribeKey\',
                         ],
-                        'Constraints': {
-                            'EncryptionContextSubset': {
-                                'string': 'string'
+                        \'Constraints\': {
+                            \'EncryptionContextSubset\': {
+                                \'string\': \'string\'
                             },
-                            'EncryptionContextEquals': {
-                                'string': 'string'
+                            \'EncryptionContextEquals\': {
+                                \'string\': \'string\'
                             }
                         }
                     },
                 ],
-                'NextMarker': 'string',
-                'Truncated': True|False
+                \'NextMarker\': \'string\',
+                \'Truncated\': True|False
             }
           **Response Structure** 
         
@@ -2125,7 +2125,7 @@ class Client(BaseClient):
         
                 - **GranteePrincipal** *(string) --* 
         
-                  The principal that receives the grant's permissions.
+                  The principal that receives the grant\'s permissions.
         
                 - **RetiringPrincipal** *(string) --* 
         
@@ -2183,9 +2183,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_key_policy(
-              KeyId='string',
-              PolicyName='string',
-              Policy='string',
+              KeyId=\'string\',
+              PolicyName=\'string\',
+              Policy=\'string\',
               BypassPolicyLockoutSafetyCheck=True|False
           )
         :type KeyId: string
@@ -2215,7 +2215,7 @@ class Client(BaseClient):
         
           The key policy must meet the following criteria:
         
-          * If you don't set ``BypassPolicyLockoutSafetyCheck`` to true, the key policy must allow the principal that is making the ``PutKeyPolicy`` request to make a subsequent ``PutKeyPolicy`` request on the CMK. This reduces the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the `Default Key Policy <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam>`__ section of the *AWS Key Management Service Developer Guide* . 
+          * If you don\'t set ``BypassPolicyLockoutSafetyCheck`` to true, the key policy must allow the principal that is making the ``PutKeyPolicy`` request to make a subsequent ``PutKeyPolicy`` request on the CMK. This reduces the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the `Default Key Policy <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam>`__ section of the *AWS Key Management Service Developer Guide* . 
            
           * Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy. The reason for this is that the new principal might not be immediately visible to AWS KMS. For more information, see `Changes that I make are not always immediately visible <http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency>`__ in the *AWS Identity and Access Management User Guide* . 
            
@@ -2245,7 +2245,7 @@ class Client(BaseClient):
         
         You can reencrypt data using CMKs in different AWS accounts.
         
-        Unlike other operations, ``ReEncrypt`` is authorized twice, once as ``ReEncryptFrom`` on the source CMK and once as ``ReEncryptTo`` on the destination CMK. We recommend that you include the ``"kms:ReEncrypt*"`` permission in your `key policies <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`__ to permit reencryption from or to the CMK. This permission is automatically included in the key policy when you create a CMK through the console. But you must include it manually when you create a CMK programmatically or when you set a key policy with the  PutKeyPolicy operation.
+        Unlike other operations, ``ReEncrypt`` is authorized twice, once as ``ReEncryptFrom`` on the source CMK and once as ``ReEncryptTo`` on the destination CMK. We recommend that you include the ``\"kms:ReEncrypt*\"`` permission in your `key policies <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`__ to permit reencryption from or to the CMK. This permission is automatically included in the key policy when you create a CMK through the console. But you must include it manually when you create a CMK programmatically or when you set a key policy with the  PutKeyPolicy operation.
         
         The result of this operation varies with the key state of the CMK. For details, see `How Key State Affects Use of a Customer Master Key <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html>`__ in the *AWS Key Management Service Developer Guide* .
         
@@ -2255,16 +2255,16 @@ class Client(BaseClient):
         ::
         
           response = client.re_encrypt(
-              CiphertextBlob=b'bytes',
+              CiphertextBlob=b\'bytes\',
               SourceEncryptionContext={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              DestinationKeyId='string',
+              DestinationKeyId=\'string\',
               DestinationEncryptionContext={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               GrantTokens=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CiphertextBlob: bytes
@@ -2286,7 +2286,7 @@ class Client(BaseClient):
         
           A unique identifier for the CMK that is used to reencrypt the data.
         
-          To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with ``"alias/"`` . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
+          To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with ``\"alias/\"`` . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
         
           For example:
         
@@ -2326,9 +2326,9 @@ class Client(BaseClient):
           ::
         
             {
-                'CiphertextBlob': b'bytes',
-                'SourceKeyId': 'string',
-                'KeyId': 'string'
+                \'CiphertextBlob\': b\'bytes\',
+                \'SourceKeyId\': \'string\',
+                \'KeyId\': \'string\'
             }
           **Response Structure** 
         
@@ -2351,7 +2351,7 @@ class Client(BaseClient):
 
     def retire_grant(self, GrantToken: str = None, KeyId: str = None, GrantId: str = None):
         """
-        Retires a grant. To clean up, you can retire a grant when you're done using it. You should revoke a grant when you intend to actively deny operations that depend on it. The following are permitted to call this API:
+        Retires a grant. To clean up, you can retire a grant when you\'re done using it. You should revoke a grant when you intend to actively deny operations that depend on it. The following are permitted to call this API:
         
         * The AWS account (root user) under which the grant was created 
          
@@ -2367,9 +2367,9 @@ class Client(BaseClient):
         ::
         
           response = client.retire_grant(
-              GrantToken='string',
-              KeyId='string',
-              GrantId='string'
+              GrantToken=\'string\',
+              KeyId=\'string\',
+              GrantId=\'string\'
           )
         :type GrantToken: string
         :param GrantToken: 
@@ -2405,8 +2405,8 @@ class Client(BaseClient):
         ::
         
           response = client.revoke_grant(
-              KeyId='string',
-              GrantId='string'
+              KeyId=\'string\',
+              GrantId=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
@@ -2451,7 +2451,7 @@ class Client(BaseClient):
         ::
         
           response = client.schedule_key_deletion(
-              KeyId='string',
+              KeyId=\'string\',
               PendingWindowInDays=123
           )
         :type KeyId: string
@@ -2484,8 +2484,8 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyId': 'string',
-                'DeletionDate': datetime(2015, 1, 1)
+                \'KeyId\': \'string\',
+                \'DeletionDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -2519,11 +2519,11 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              KeyId='string',
+              KeyId=\'string\',
               Tags=[
                   {
-                      'TagKey': 'string',
-                      'TagValue': 'string'
+                      \'TagKey\': \'string\',
+                      \'TagValue\': \'string\'
                   },
               ]
           )
@@ -2578,9 +2578,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              KeyId='string',
+              KeyId=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type KeyId: string
@@ -2626,13 +2626,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_alias(
-              AliasName='string',
-              TargetKeyId='string'
+              AliasName=\'string\',
+              TargetKeyId=\'string\'
           )
         :type AliasName: string
         :param AliasName: **[REQUIRED]** 
         
-          String that contains the name of the alias to be modified. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws" are reserved.
+          String that contains the name of the alias to be modified. The name must start with the word \"alias\" followed by a forward slash (alias/). Aliases that begin with \"alias/aws\" are reserved.
         
         :type TargetKeyId: string
         :param TargetKeyId: **[REQUIRED]** 
@@ -2668,8 +2668,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_key_description(
-              KeyId='string',
-              Description='string'
+              KeyId=\'string\',
+              Description=\'string\'
           )
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 

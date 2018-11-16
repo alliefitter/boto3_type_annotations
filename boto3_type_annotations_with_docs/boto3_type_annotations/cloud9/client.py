@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,13 +33,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_environment_ec2(
-              name='string',
-              description='string',
-              clientRequestToken='string',
-              instanceType='string',
-              subnetId='string',
+              name=\'string\',
+              description=\'string\',
+              clientRequestToken=\'string\',
+              instanceType=\'string\',
+              subnetId=\'string\',
               automaticStopTimeMinutes=123,
-              ownerArn='string'
+              ownerArn=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -78,7 +78,7 @@ class Client(BaseClient):
         :type ownerArn: string
         :param ownerArn: 
         
-          The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.
+          The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment\'s creator.
         
         :rtype: dict
         :returns: 
@@ -88,7 +88,7 @@ class Client(BaseClient):
           ::
         
             {
-                'environmentId': 'string'
+                \'environmentId\': \'string\'
             }
           **Response Structure** 
         
@@ -110,9 +110,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_environment_membership(
-              environmentId='string',
-              userArn='string',
-              permissions='read-write'|'read-only'
+              environmentId=\'string\',
+              userArn=\'string\',
+              permissions=\'read-write\'|\'read-only\'
           )
         :type environmentId: string
         :param environmentId: **[REQUIRED]** 
@@ -141,12 +141,12 @@ class Client(BaseClient):
           ::
         
             {
-                'membership': {
-                    'permissions': 'owner'|'read-write'|'read-only',
-                    'userId': 'string',
-                    'userArn': 'string',
-                    'environmentId': 'string',
-                    'lastAccess': datetime(2015, 1, 1)
+                \'membership\': {
+                    \'permissions\': \'owner\'|\'read-write\'|\'read-only\',
+                    \'userId\': \'string\',
+                    \'userArn\': \'string\',
+                    \'environmentId\': \'string\',
+                    \'lastAccess\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -195,7 +195,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_environment(
-              environmentId='string'
+              environmentId=\'string\'
           )
         :type environmentId: string
         :param environmentId: **[REQUIRED]** 
@@ -225,8 +225,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_environment_membership(
-              environmentId='string',
-              userArn='string'
+              environmentId=\'string\',
+              userArn=\'string\'
           )
         :type environmentId: string
         :param environmentId: **[REQUIRED]** 
@@ -261,12 +261,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_environment_memberships(
-              userArn='string',
-              environmentId='string',
+              userArn=\'string\',
+              environmentId=\'string\',
               permissions=[
-                  'owner'|'read-write'|'read-only',
+                  \'owner\'|\'read-write\'|\'read-only\',
               ],
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type userArn: string
@@ -312,16 +312,16 @@ class Client(BaseClient):
           ::
         
             {
-                'memberships': [
+                \'memberships\': [
                     {
-                        'permissions': 'owner'|'read-write'|'read-only',
-                        'userId': 'string',
-                        'userArn': 'string',
-                        'environmentId': 'string',
-                        'lastAccess': datetime(2015, 1, 1)
+                        \'permissions\': \'owner\'|\'read-write\'|\'read-only\',
+                        \'userId\': \'string\',
+                        \'userArn\': \'string\',
+                        \'environmentId\': \'string\',
+                        \'lastAccess\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -377,7 +377,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_environment_status(
-              environmentId='string'
+              environmentId=\'string\'
           )
         :type environmentId: string
         :param environmentId: **[REQUIRED]** 
@@ -392,8 +392,8 @@ class Client(BaseClient):
           ::
         
             {
-                'status': 'error'|'creating'|'connecting'|'ready'|'stopping'|'stopped'|'deleting',
-                'message': 'string'
+                \'status\': \'error\'|\'creating\'|\'connecting\'|\'ready\'|\'stopping\'|\'stopped\'|\'deleting\',
+                \'message\': \'string\'
             }
           **Response Structure** 
         
@@ -434,7 +434,7 @@ class Client(BaseClient):
         
           response = client.describe_environments(
               environmentIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type environmentIds: list
@@ -452,14 +452,14 @@ class Client(BaseClient):
           ::
         
             {
-                'environments': [
+                \'environments\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'type': 'ssh'|'ec2',
-                        'arn': 'string',
-                        'ownerArn': 'string'
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'type\': \'ssh\'|\'ec2\',
+                        \'arn\': \'string\',
+                        \'ownerArn\': \'string\'
                     },
                 ]
             }
@@ -522,7 +522,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -534,10 +534,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -569,7 +569,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_environments(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -590,9 +590,9 @@ class Client(BaseClient):
           ::
         
             {
-                'nextToken': 'string',
-                'environmentIds': [
-                    'string',
+                \'nextToken\': \'string\',
+                \'environmentIds\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -621,9 +621,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_environment(
-              environmentId='string',
-              name='string',
-              description='string'
+              environmentId=\'string\',
+              name=\'string\',
+              description=\'string\'
           )
         :type environmentId: string
         :param environmentId: **[REQUIRED]** 
@@ -663,9 +663,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_environment_membership(
-              environmentId='string',
-              userArn='string',
-              permissions='read-write'|'read-only'
+              environmentId=\'string\',
+              userArn=\'string\',
+              permissions=\'read-write\'|\'read-only\'
           )
         :type environmentId: string
         :param environmentId: **[REQUIRED]** 
@@ -694,12 +694,12 @@ class Client(BaseClient):
           ::
         
             {
-                'membership': {
-                    'permissions': 'owner'|'read-write'|'read-only',
-                    'userId': 'string',
-                    'userArn': 'string',
-                    'environmentId': 'string',
-                    'lastAccess': datetime(2015, 1, 1)
+                \'membership\': {
+                    \'permissions\': \'owner\'|\'read-write\'|\'read-only\',
+                    \'userId\': \'string\',
+                    \'userArn\': \'string\',
+                    \'environmentId\': \'string\',
+                    \'lastAccess\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 

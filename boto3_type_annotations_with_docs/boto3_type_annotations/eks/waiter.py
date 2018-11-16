@@ -12,10 +12,10 @@ class ClusterActive(Waiter):
         ::
         
           waiter.wait(
-              name='string',
+              name=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type name: string
@@ -51,10 +51,10 @@ class ClusterDeleted(Waiter):
         ::
         
           waiter.wait(
-              name='string',
+              name=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type name: string

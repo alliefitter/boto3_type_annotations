@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -18,8 +18,8 @@ class Client(BaseClient):
         ::
         
           response = client.abort_environment_update(
-              EnvironmentId='string',
-              EnvironmentName='string'
+              EnvironmentId=\'string\',
+              EnvironmentName=\'string\'
           )
         :type EnvironmentId: string
         :param EnvironmentId: 
@@ -44,9 +44,9 @@ class Client(BaseClient):
         ::
         
           response = client.apply_environment_managed_action(
-              EnvironmentName='string',
-              EnvironmentId='string',
-              ActionId='string'
+              EnvironmentName=\'string\',
+              EnvironmentId=\'string\',
+              ActionId=\'string\'
           )
         :type EnvironmentName: string
         :param EnvironmentName: 
@@ -71,10 +71,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ActionId': 'string',
-                'ActionDescription': 'string',
-                'ActionType': 'InstanceRefresh'|'PlatformUpdate'|'Unknown',
-                'Status': 'string'
+                \'ActionId\': \'string\',
+                \'ActionDescription\': \'string\',
+                \'ActionType\': \'InstanceRefresh\'|\'PlatformUpdate\'|\'Unknown\',
+                \'Status\': \'string\'
             }
           **Response Structure** 
         
@@ -107,10 +107,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -126,7 +126,7 @@ class Client(BaseClient):
         ::
         
           response = client.check_dns_availability(
-              CNAMEPrefix='string'
+              CNAMEPrefix=\'string\'
           )
         :type CNAMEPrefix: string
         :param CNAMEPrefix: **[REQUIRED]** 
@@ -141,8 +141,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Available': True|False,
-                'FullyQualifiedCNAME': 'string'
+                \'Available\': True|False,
+                \'FullyQualifiedCNAME\': \'string\'
             }
           **Response Structure** 
         
@@ -174,10 +174,10 @@ class Client(BaseClient):
         ::
         
           response = client.compose_environments(
-              ApplicationName='string',
-              GroupName='string',
+              ApplicationName=\'string\',
+              GroupName=\'string\',
               VersionLabels=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ApplicationName: string
@@ -188,7 +188,7 @@ class Client(BaseClient):
         :type GroupName: string
         :param GroupName: 
         
-          The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment's manifest ends with a + (plus) character. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+          The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment\'s manifest ends with a + (plus) character. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
         
         :type VersionLabels: list
         :param VersionLabels: 
@@ -205,51 +205,51 @@ class Client(BaseClient):
           ::
         
             {
-                'Environments': [
+                \'Environments\': [
                     {
-                        'EnvironmentName': 'string',
-                        'EnvironmentId': 'string',
-                        'ApplicationName': 'string',
-                        'VersionLabel': 'string',
-                        'SolutionStackName': 'string',
-                        'PlatformArn': 'string',
-                        'TemplateName': 'string',
-                        'Description': 'string',
-                        'EndpointURL': 'string',
-                        'CNAME': 'string',
-                        'DateCreated': datetime(2015, 1, 1),
-                        'DateUpdated': datetime(2015, 1, 1),
-                        'Status': 'Launching'|'Updating'|'Ready'|'Terminating'|'Terminated',
-                        'AbortableOperationInProgress': True|False,
-                        'Health': 'Green'|'Yellow'|'Red'|'Grey',
-                        'HealthStatus': 'NoData'|'Unknown'|'Pending'|'Ok'|'Info'|'Warning'|'Degraded'|'Severe'|'Suspended',
-                        'Resources': {
-                            'LoadBalancer': {
-                                'LoadBalancerName': 'string',
-                                'Domain': 'string',
-                                'Listeners': [
+                        \'EnvironmentName\': \'string\',
+                        \'EnvironmentId\': \'string\',
+                        \'ApplicationName\': \'string\',
+                        \'VersionLabel\': \'string\',
+                        \'SolutionStackName\': \'string\',
+                        \'PlatformArn\': \'string\',
+                        \'TemplateName\': \'string\',
+                        \'Description\': \'string\',
+                        \'EndpointURL\': \'string\',
+                        \'CNAME\': \'string\',
+                        \'DateCreated\': datetime(2015, 1, 1),
+                        \'DateUpdated\': datetime(2015, 1, 1),
+                        \'Status\': \'Launching\'|\'Updating\'|\'Ready\'|\'Terminating\'|\'Terminated\',
+                        \'AbortableOperationInProgress\': True|False,
+                        \'Health\': \'Green\'|\'Yellow\'|\'Red\'|\'Grey\',
+                        \'HealthStatus\': \'NoData\'|\'Unknown\'|\'Pending\'|\'Ok\'|\'Info\'|\'Warning\'|\'Degraded\'|\'Severe\'|\'Suspended\',
+                        \'Resources\': {
+                            \'LoadBalancer\': {
+                                \'LoadBalancerName\': \'string\',
+                                \'Domain\': \'string\',
+                                \'Listeners\': [
                                     {
-                                        'Protocol': 'string',
-                                        'Port': 123
+                                        \'Protocol\': \'string\',
+                                        \'Port\': 123
                                     },
                                 ]
                             }
                         },
-                        'Tier': {
-                            'Name': 'string',
-                            'Type': 'string',
-                            'Version': 'string'
+                        \'Tier\': {
+                            \'Name\': \'string\',
+                            \'Type\': \'string\',
+                            \'Version\': \'string\'
                         },
-                        'EnvironmentLinks': [
+                        \'EnvironmentLinks\': [
                             {
-                                'LinkName': 'string',
-                                'EnvironmentName': 'string'
+                                \'LinkName\': \'string\',
+                                \'EnvironmentName\': \'string\'
                             },
                         ],
-                        'EnvironmentArn': 'string'
+                        \'EnvironmentArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -399,7 +399,7 @@ class Client(BaseClient):
         
                   - **Version** *(string) --* 
         
-                    The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+                    The version of this environment tier. When you don\'t set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
         
                     .. note::
         
@@ -411,7 +411,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+                    A link to another environment, defined in the environment\'s manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
         
                     - **LinkName** *(string) --* 
         
@@ -423,7 +423,7 @@ class Client(BaseClient):
         
                 - **EnvironmentArn** *(string) --* 
         
-                  The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
+                  The environment\'s Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
         
             - **NextToken** *(string) --* 
         
@@ -441,20 +441,20 @@ class Client(BaseClient):
         ::
         
           response = client.create_application(
-              ApplicationName='string',
-              Description='string',
+              ApplicationName=\'string\',
+              Description=\'string\',
               ResourceLifecycleConfig={
-                  'ServiceRole': 'string',
-                  'VersionLifecycleConfig': {
-                      'MaxCountRule': {
-                          'Enabled': True|False,
-                          'MaxCount': 123,
-                          'DeleteSourceFromS3': True|False
+                  \'ServiceRole\': \'string\',
+                  \'VersionLifecycleConfig\': {
+                      \'MaxCountRule\': {
+                          \'Enabled\': True|False,
+                          \'MaxCount\': 123,
+                          \'DeleteSourceFromS3\': True|False
                       },
-                      'MaxAgeRule': {
-                          'Enabled': True|False,
-                          'MaxAgeInDays': 123,
-                          'DeleteSourceFromS3': True|False
+                      \'MaxAgeRule\': {
+                          \'Enabled\': True|False,
+                          \'MaxAgeInDays\': 123,
+                          \'DeleteSourceFromS3\': True|False
                       }
                   }
               }
@@ -480,7 +480,7 @@ class Client(BaseClient):
         
             The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
         
-            The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
+            The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don\'t need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
         
           - **VersionLifecycleConfig** *(dict) --* 
         
@@ -500,7 +500,7 @@ class Client(BaseClient):
         
               - **DeleteSourceFromS3** *(boolean) --* 
         
-                Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
             - **MaxAgeRule** *(dict) --* 
         
@@ -516,7 +516,7 @@ class Client(BaseClient):
         
               - **DeleteSourceFromS3** *(boolean) --* 
         
-                Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
         :rtype: dict
         :returns: 
@@ -526,30 +526,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Application': {
-                    'ApplicationArn': 'string',
-                    'ApplicationName': 'string',
-                    'Description': 'string',
-                    'DateCreated': datetime(2015, 1, 1),
-                    'DateUpdated': datetime(2015, 1, 1),
-                    'Versions': [
-                        'string',
+                \'Application\': {
+                    \'ApplicationArn\': \'string\',
+                    \'ApplicationName\': \'string\',
+                    \'Description\': \'string\',
+                    \'DateCreated\': datetime(2015, 1, 1),
+                    \'DateUpdated\': datetime(2015, 1, 1),
+                    \'Versions\': [
+                        \'string\',
                     ],
-                    'ConfigurationTemplates': [
-                        'string',
+                    \'ConfigurationTemplates\': [
+                        \'string\',
                     ],
-                    'ResourceLifecycleConfig': {
-                        'ServiceRole': 'string',
-                        'VersionLifecycleConfig': {
-                            'MaxCountRule': {
-                                'Enabled': True|False,
-                                'MaxCount': 123,
-                                'DeleteSourceFromS3': True|False
+                    \'ResourceLifecycleConfig\': {
+                        \'ServiceRole\': \'string\',
+                        \'VersionLifecycleConfig\': {
+                            \'MaxCountRule\': {
+                                \'Enabled\': True|False,
+                                \'MaxCount\': 123,
+                                \'DeleteSourceFromS3\': True|False
                             },
-                            'MaxAgeRule': {
-                                'Enabled': True|False,
-                                'MaxAgeInDays': 123,
-                                'DeleteSourceFromS3': True|False
+                            \'MaxAgeRule\': {
+                                \'Enabled\': True|False,
+                                \'MaxAgeInDays\': 123,
+                                \'DeleteSourceFromS3\': True|False
                             }
                         }
                     }
@@ -605,7 +605,7 @@ class Client(BaseClient):
         
                   The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
         
-                  The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
+                  The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don\'t need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
         
                 - **VersionLifecycleConfig** *(dict) --* 
         
@@ -625,7 +625,7 @@ class Client(BaseClient):
         
                     - **DeleteSourceFromS3** *(boolean) --* 
         
-                      Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                      Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
                   - **MaxAgeRule** *(dict) --* 
         
@@ -641,7 +641,7 @@ class Client(BaseClient):
         
                     - **DeleteSourceFromS3** *(boolean) --* 
         
-                      Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                      Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
         """
         pass
@@ -668,24 +668,24 @@ class Client(BaseClient):
         ::
         
           response = client.create_application_version(
-              ApplicationName='string',
-              VersionLabel='string',
-              Description='string',
+              ApplicationName=\'string\',
+              VersionLabel=\'string\',
+              Description=\'string\',
               SourceBuildInformation={
-                  'SourceType': 'Git'|'Zip',
-                  'SourceRepository': 'CodeCommit'|'S3',
-                  'SourceLocation': 'string'
+                  \'SourceType\': \'Git\'|\'Zip\',
+                  \'SourceRepository\': \'CodeCommit\'|\'S3\',
+                  \'SourceLocation\': \'string\'
               },
               SourceBundle={
-                  'S3Bucket': 'string',
-                  'S3Key': 'string'
+                  \'S3Bucket\': \'string\',
+                  \'S3Key\': \'string\'
               },
               BuildConfiguration={
-                  'ArtifactName': 'string',
-                  'CodeBuildServiceRole': 'string',
-                  'ComputeType': 'BUILD_GENERAL1_SMALL'|'BUILD_GENERAL1_MEDIUM'|'BUILD_GENERAL1_LARGE',
-                  'Image': 'string',
-                  'TimeoutInMinutes': 123
+                  \'ArtifactName\': \'string\',
+                  \'CodeBuildServiceRole\': \'string\',
+                  \'ComputeType\': \'BUILD_GENERAL1_SMALL\'|\'BUILD_GENERAL1_MEDIUM\'|\'BUILD_GENERAL1_LARGE\',
+                  \'Image\': \'string\',
+                  \'TimeoutInMinutes\': 123
               },
               AutoCreateApplication=True|False,
               Process=True|False
@@ -789,7 +789,7 @@ class Client(BaseClient):
         :type AutoCreateApplication: boolean
         :param AutoCreateApplication: 
         
-          Set to ``true`` to create an application with the specified name if it doesn't already exist.
+          Set to ``true`` to create an application with the specified name if it doesn\'t already exist.
         
         :type Process: boolean
         :param Process: 
@@ -800,7 +800,7 @@ class Client(BaseClient):
         
           .. note::
         
-            The ``Process`` option validates Elastic Beanstalk configuration files. It doesn't validate your application's configuration files, like proxy server or Docker configuration.
+            The ``Process`` option validates Elastic Beanstalk configuration files. It doesn\'t validate your application\'s configuration files, like proxy server or Docker configuration.
         
         :rtype: dict
         :returns: 
@@ -810,24 +810,24 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationVersion': {
-                    'ApplicationVersionArn': 'string',
-                    'ApplicationName': 'string',
-                    'Description': 'string',
-                    'VersionLabel': 'string',
-                    'SourceBuildInformation': {
-                        'SourceType': 'Git'|'Zip',
-                        'SourceRepository': 'CodeCommit'|'S3',
-                        'SourceLocation': 'string'
+                \'ApplicationVersion\': {
+                    \'ApplicationVersionArn\': \'string\',
+                    \'ApplicationName\': \'string\',
+                    \'Description\': \'string\',
+                    \'VersionLabel\': \'string\',
+                    \'SourceBuildInformation\': {
+                        \'SourceType\': \'Git\'|\'Zip\',
+                        \'SourceRepository\': \'CodeCommit\'|\'S3\',
+                        \'SourceLocation\': \'string\'
                     },
-                    'BuildArn': 'string',
-                    'SourceBundle': {
-                        'S3Bucket': 'string',
-                        'S3Key': 'string'
+                    \'BuildArn\': \'string\',
+                    \'SourceBundle\': {
+                        \'S3Bucket\': \'string\',
+                        \'S3Key\': \'string\'
                     },
-                    'DateCreated': datetime(2015, 1, 1),
-                    'DateUpdated': datetime(2015, 1, 1),
-                    'Status': 'Processed'|'Unprocessed'|'Failed'|'Processing'|'Building'
+                    \'DateCreated\': datetime(2015, 1, 1),
+                    \'DateUpdated\': datetime(2015, 1, 1),
+                    \'Status\': \'Processed\'|\'Unprocessed\'|\'Failed\'|\'Processing\'|\'Building\'
                 }
             }
           **Response Structure** 
@@ -858,7 +858,7 @@ class Client(BaseClient):
         
               - **SourceBuildInformation** *(dict) --* 
         
-                If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
+                If the version\'s source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
         
                 - **SourceType** *(string) --* 
         
@@ -890,7 +890,7 @@ class Client(BaseClient):
         
               - **SourceBundle** *(dict) --* 
         
-                The storage location of the application version's source bundle in Amazon S3.
+                The storage location of the application version\'s source bundle in Amazon S3.
         
                 - **S3Bucket** *(string) --* 
         
@@ -912,7 +912,7 @@ class Client(BaseClient):
         
                 The processing status of the application version. Reflects the state of the application version during its creation. Many of the values are only applicable if you specified ``True`` for the ``Process`` parameter of the ``CreateApplicationVersion`` action. The following list describes the possible values.
         
-                * ``Unprocessed`` – Application version wasn't pre-processed or validated. Elastic Beanstalk will validate configuration files during deployment of the application version to an environment. 
+                * ``Unprocessed`` – Application version wasn\'t pre-processed or validated. Elastic Beanstalk will validate configuration files during deployment of the application version to an environment. 
                  
                 * ``Processing`` – Elastic Beanstalk is currently processing the application version. 
                  
@@ -920,7 +920,7 @@ class Client(BaseClient):
                  
                 * ``Processed`` – Elastic Beanstalk was successfully pre-processed and validated. 
                  
-                * ``Failed`` – Either the AWS CodeBuild build failed or configuration files didn't pass validation. This application version isn't usable. 
+                * ``Failed`` – Either the AWS CodeBuild build failed or configuration files didn\'t pass validation. This application version isn\'t usable. 
                  
         """
         pass
@@ -928,7 +928,7 @@ class Client(BaseClient):
     def create_configuration_template(self, ApplicationName: str, TemplateName: str, SolutionStackName: str = None, PlatformArn: str = None, SourceConfiguration: Dict = None, EnvironmentId: str = None, Description: str = None, OptionSettings: List = None) -> Dict:
         """
         
-        Templates aren't associated with any environment. The ``EnvironmentName`` response element is always ``null`` .
+        Templates aren\'t associated with any environment. The ``EnvironmentName`` response element is always ``null`` .
         
         Related Topics
         
@@ -944,22 +944,22 @@ class Client(BaseClient):
         ::
         
           response = client.create_configuration_template(
-              ApplicationName='string',
-              TemplateName='string',
-              SolutionStackName='string',
-              PlatformArn='string',
+              ApplicationName=\'string\',
+              TemplateName=\'string\',
+              SolutionStackName=\'string\',
+              PlatformArn=\'string\',
               SourceConfiguration={
-                  'ApplicationName': 'string',
-                  'TemplateName': 'string'
+                  \'ApplicationName\': \'string\',
+                  \'TemplateName\': \'string\'
               },
-              EnvironmentId='string',
-              Description='string',
+              EnvironmentId=\'string\',
+              Description=\'string\',
               OptionSettings=[
                   {
-                      'ResourceName': 'string',
-                      'Namespace': 'string',
-                      'OptionName': 'string',
-                      'Value': 'string'
+                      \'ResourceName\': \'string\',
+                      \'Namespace\': \'string\',
+                      \'OptionName\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1037,7 +1037,7 @@ class Client(BaseClient):
         
             - **Namespace** *(string) --* 
         
-              A unique namespace identifying the option's associated AWS resource.
+              A unique namespace identifying the option\'s associated AWS resource.
         
             - **OptionName** *(string) --* 
         
@@ -1055,21 +1055,21 @@ class Client(BaseClient):
           ::
         
             {
-                'SolutionStackName': 'string',
-                'PlatformArn': 'string',
-                'ApplicationName': 'string',
-                'TemplateName': 'string',
-                'Description': 'string',
-                'EnvironmentName': 'string',
-                'DeploymentStatus': 'deployed'|'pending'|'failed',
-                'DateCreated': datetime(2015, 1, 1),
-                'DateUpdated': datetime(2015, 1, 1),
-                'OptionSettings': [
+                \'SolutionStackName\': \'string\',
+                \'PlatformArn\': \'string\',
+                \'ApplicationName\': \'string\',
+                \'TemplateName\': \'string\',
+                \'Description\': \'string\',
+                \'EnvironmentName\': \'string\',
+                \'DeploymentStatus\': \'deployed\'|\'pending\'|\'failed\',
+                \'DateCreated\': datetime(2015, 1, 1),
+                \'DateUpdated\': datetime(2015, 1, 1),
+                \'OptionSettings\': [
                     {
-                        'ResourceName': 'string',
-                        'Namespace': 'string',
-                        'OptionName': 'string',
-                        'Value': 'string'
+                        \'ResourceName\': \'string\',
+                        \'Namespace\': \'string\',
+                        \'OptionName\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -1137,7 +1137,7 @@ class Client(BaseClient):
         
                 - **Namespace** *(string) --* 
         
-                  A unique namespace identifying the option's associated AWS resource.
+                  A unique namespace identifying the option\'s associated AWS resource.
         
                 - **OptionName** *(string) --* 
         
@@ -1159,39 +1159,39 @@ class Client(BaseClient):
         ::
         
           response = client.create_environment(
-              ApplicationName='string',
-              EnvironmentName='string',
-              GroupName='string',
-              Description='string',
-              CNAMEPrefix='string',
+              ApplicationName=\'string\',
+              EnvironmentName=\'string\',
+              GroupName=\'string\',
+              Description=\'string\',
+              CNAMEPrefix=\'string\',
               Tier={
-                  'Name': 'string',
-                  'Type': 'string',
-                  'Version': 'string'
+                  \'Name\': \'string\',
+                  \'Type\': \'string\',
+                  \'Version\': \'string\'
               },
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              VersionLabel='string',
-              TemplateName='string',
-              SolutionStackName='string',
-              PlatformArn='string',
+              VersionLabel=\'string\',
+              TemplateName=\'string\',
+              SolutionStackName=\'string\',
+              PlatformArn=\'string\',
               OptionSettings=[
                   {
-                      'ResourceName': 'string',
-                      'Namespace': 'string',
-                      'OptionName': 'string',
-                      'Value': 'string'
+                      \'ResourceName\': \'string\',
+                      \'Namespace\': \'string\',
+                      \'OptionName\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               OptionsToRemove=[
                   {
-                      'ResourceName': 'string',
-                      'Namespace': 'string',
-                      'OptionName': 'string'
+                      \'ResourceName\': \'string\',
+                      \'Namespace\': \'string\',
+                      \'OptionName\': \'string\'
                   },
               ]
           )
@@ -1214,7 +1214,7 @@ class Client(BaseClient):
         :type GroupName: string
         :param GroupName: 
         
-          The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name parameter. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+          The name of the group to which the target environment belongs. Specify a group name only if the environment\'s name is specified in an environment manifest and not with the environment name parameter. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
         
         :type Description: string
         :param Description: 
@@ -1241,7 +1241,7 @@ class Client(BaseClient):
         
           - **Version** *(string) --* 
         
-            The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+            The version of this environment tier. When you don\'t set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
         
             .. note::
         
@@ -1305,7 +1305,7 @@ class Client(BaseClient):
         
             - **Namespace** *(string) --* 
         
-              A unique namespace identifying the option's associated AWS resource.
+              A unique namespace identifying the option\'s associated AWS resource.
         
             - **OptionName** *(string) --* 
         
@@ -1330,7 +1330,7 @@ class Client(BaseClient):
         
             - **Namespace** *(string) --* 
         
-              A unique namespace identifying the option's associated AWS resource.
+              A unique namespace identifying the option\'s associated AWS resource.
         
             - **OptionName** *(string) --* 
         
@@ -1344,46 +1344,46 @@ class Client(BaseClient):
           ::
         
             {
-                'EnvironmentName': 'string',
-                'EnvironmentId': 'string',
-                'ApplicationName': 'string',
-                'VersionLabel': 'string',
-                'SolutionStackName': 'string',
-                'PlatformArn': 'string',
-                'TemplateName': 'string',
-                'Description': 'string',
-                'EndpointURL': 'string',
-                'CNAME': 'string',
-                'DateCreated': datetime(2015, 1, 1),
-                'DateUpdated': datetime(2015, 1, 1),
-                'Status': 'Launching'|'Updating'|'Ready'|'Terminating'|'Terminated',
-                'AbortableOperationInProgress': True|False,
-                'Health': 'Green'|'Yellow'|'Red'|'Grey',
-                'HealthStatus': 'NoData'|'Unknown'|'Pending'|'Ok'|'Info'|'Warning'|'Degraded'|'Severe'|'Suspended',
-                'Resources': {
-                    'LoadBalancer': {
-                        'LoadBalancerName': 'string',
-                        'Domain': 'string',
-                        'Listeners': [
+                \'EnvironmentName\': \'string\',
+                \'EnvironmentId\': \'string\',
+                \'ApplicationName\': \'string\',
+                \'VersionLabel\': \'string\',
+                \'SolutionStackName\': \'string\',
+                \'PlatformArn\': \'string\',
+                \'TemplateName\': \'string\',
+                \'Description\': \'string\',
+                \'EndpointURL\': \'string\',
+                \'CNAME\': \'string\',
+                \'DateCreated\': datetime(2015, 1, 1),
+                \'DateUpdated\': datetime(2015, 1, 1),
+                \'Status\': \'Launching\'|\'Updating\'|\'Ready\'|\'Terminating\'|\'Terminated\',
+                \'AbortableOperationInProgress\': True|False,
+                \'Health\': \'Green\'|\'Yellow\'|\'Red\'|\'Grey\',
+                \'HealthStatus\': \'NoData\'|\'Unknown\'|\'Pending\'|\'Ok\'|\'Info\'|\'Warning\'|\'Degraded\'|\'Severe\'|\'Suspended\',
+                \'Resources\': {
+                    \'LoadBalancer\': {
+                        \'LoadBalancerName\': \'string\',
+                        \'Domain\': \'string\',
+                        \'Listeners\': [
                             {
-                                'Protocol': 'string',
-                                'Port': 123
+                                \'Protocol\': \'string\',
+                                \'Port\': 123
                             },
                         ]
                     }
                 },
-                'Tier': {
-                    'Name': 'string',
-                    'Type': 'string',
-                    'Version': 'string'
+                \'Tier\': {
+                    \'Name\': \'string\',
+                    \'Type\': \'string\',
+                    \'Version\': \'string\'
                 },
-                'EnvironmentLinks': [
+                \'EnvironmentLinks\': [
                     {
-                        'LinkName': 'string',
-                        'EnvironmentName': 'string'
+                        \'LinkName\': \'string\',
+                        \'EnvironmentName\': \'string\'
                     },
                 ],
-                'EnvironmentArn': 'string'
+                \'EnvironmentArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1525,7 +1525,7 @@ class Client(BaseClient):
         
               - **Version** *(string) --* 
         
-                The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+                The version of this environment tier. When you don\'t set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
         
                 .. note::
         
@@ -1537,7 +1537,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+                A link to another environment, defined in the environment\'s manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
         
                 - **LinkName** *(string) --* 
         
@@ -1549,7 +1549,7 @@ class Client(BaseClient):
         
             - **EnvironmentArn** *(string) --* 
         
-              The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
+              The environment\'s Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
         
         """
         pass
@@ -1563,19 +1563,19 @@ class Client(BaseClient):
         ::
         
           response = client.create_platform_version(
-              PlatformName='string',
-              PlatformVersion='string',
+              PlatformName=\'string\',
+              PlatformVersion=\'string\',
               PlatformDefinitionBundle={
-                  'S3Bucket': 'string',
-                  'S3Key': 'string'
+                  \'S3Bucket\': \'string\',
+                  \'S3Key\': \'string\'
               },
-              EnvironmentName='string',
+              EnvironmentName=\'string\',
               OptionSettings=[
                   {
-                      'ResourceName': 'string',
-                      'Namespace': 'string',
-                      'OptionName': 'string',
-                      'Value': 'string'
+                      \'ResourceName\': \'string\',
+                      \'Namespace\': \'string\',
+                      \'OptionName\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1622,7 +1622,7 @@ class Client(BaseClient):
         
             - **Namespace** *(string) --* 
         
-              A unique namespace identifying the option's associated AWS resource.
+              A unique namespace identifying the option\'s associated AWS resource.
         
             - **OptionName** *(string) --* 
         
@@ -1640,22 +1640,22 @@ class Client(BaseClient):
           ::
         
             {
-                'PlatformSummary': {
-                    'PlatformArn': 'string',
-                    'PlatformOwner': 'string',
-                    'PlatformStatus': 'Creating'|'Failed'|'Ready'|'Deleting'|'Deleted',
-                    'PlatformCategory': 'string',
-                    'OperatingSystemName': 'string',
-                    'OperatingSystemVersion': 'string',
-                    'SupportedTierList': [
-                        'string',
+                \'PlatformSummary\': {
+                    \'PlatformArn\': \'string\',
+                    \'PlatformOwner\': \'string\',
+                    \'PlatformStatus\': \'Creating\'|\'Failed\'|\'Ready\'|\'Deleting\'|\'Deleted\',
+                    \'PlatformCategory\': \'string\',
+                    \'OperatingSystemName\': \'string\',
+                    \'OperatingSystemVersion\': \'string\',
+                    \'SupportedTierList\': [
+                        \'string\',
                     ],
-                    'SupportedAddonList': [
-                        'string',
+                    \'SupportedAddonList\': [
+                        \'string\',
                     ]
                 },
-                'Builder': {
-                    'ARN': 'string'
+                \'Builder\': {
+                    \'ARN\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1731,7 +1731,7 @@ class Client(BaseClient):
           ::
         
             {
-                'S3Bucket': 'string'
+                \'S3Bucket\': \'string\'
             }
           **Response Structure** 
         
@@ -1759,7 +1759,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_application(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               TerminateEnvByForce=True|False
           )
         :type ApplicationName: string
@@ -1789,8 +1789,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_application_version(
-              ApplicationName='string',
-              VersionLabel='string',
+              ApplicationName=\'string\',
+              VersionLabel=\'string\',
               DeleteSourceBundle=True|False
           )
         :type ApplicationName: string
@@ -1817,7 +1817,7 @@ class Client(BaseClient):
         
         .. note::
         
-          When you launch an environment using a configuration template, the environment gets a copy of the template. You can delete or modify the environment's copy of the template without affecting the running environment.
+          When you launch an environment using a configuration template, the environment gets a copy of the template. You can delete or modify the environment\'s copy of the template without affecting the running environment.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticbeanstalk-2010-12-01/DeleteConfigurationTemplate>`_
         
@@ -1825,8 +1825,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_configuration_template(
-              ApplicationName='string',
-              TemplateName='string'
+              ApplicationName=\'string\',
+              TemplateName=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -1853,8 +1853,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_environment_configuration(
-              ApplicationName='string',
-              EnvironmentName='string'
+              ApplicationName=\'string\',
+              EnvironmentName=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -1879,7 +1879,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_platform_version(
-              PlatformArn='string'
+              PlatformArn=\'string\'
           )
         :type PlatformArn: string
         :param PlatformArn: 
@@ -1894,18 +1894,18 @@ class Client(BaseClient):
           ::
         
             {
-                'PlatformSummary': {
-                    'PlatformArn': 'string',
-                    'PlatformOwner': 'string',
-                    'PlatformStatus': 'Creating'|'Failed'|'Ready'|'Deleting'|'Deleted',
-                    'PlatformCategory': 'string',
-                    'OperatingSystemName': 'string',
-                    'OperatingSystemVersion': 'string',
-                    'SupportedTierList': [
-                        'string',
+                \'PlatformSummary\': {
+                    \'PlatformArn\': \'string\',
+                    \'PlatformOwner\': \'string\',
+                    \'PlatformStatus\': \'Creating\'|\'Failed\'|\'Ready\'|\'Deleting\'|\'Deleted\',
+                    \'PlatformCategory\': \'string\',
+                    \'OperatingSystemName\': \'string\',
+                    \'OperatingSystemVersion\': \'string\',
+                    \'SupportedTierList\': [
+                        \'string\',
                     ],
-                    'SupportedAddonList': [
-                        'string',
+                    \'SupportedAddonList\': [
+                        \'string\',
                     ]
                 }
             }
@@ -1976,21 +1976,21 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceQuotas': {
-                    'ApplicationQuota': {
-                        'Maximum': 123
+                \'ResourceQuotas\': {
+                    \'ApplicationQuota\': {
+                        \'Maximum\': 123
                     },
-                    'ApplicationVersionQuota': {
-                        'Maximum': 123
+                    \'ApplicationVersionQuota\': {
+                        \'Maximum\': 123
                     },
-                    'EnvironmentQuota': {
-                        'Maximum': 123
+                    \'EnvironmentQuota\': {
+                        \'Maximum\': 123
                     },
-                    'ConfigurationTemplateQuota': {
-                        'Maximum': 123
+                    \'ConfigurationTemplateQuota\': {
+                        \'Maximum\': 123
                     },
-                    'CustomPlatformQuota': {
-                        'Maximum': 123
+                    \'CustomPlatformQuota\': {
+                        \'Maximum\': 123
                     }
                 }
             }
@@ -2054,12 +2054,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_application_versions(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               VersionLabels=[
-                  'string',
+                  \'string\',
               ],
               MaxRecords=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: 
@@ -2095,28 +2095,28 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationVersions': [
+                \'ApplicationVersions\': [
                     {
-                        'ApplicationVersionArn': 'string',
-                        'ApplicationName': 'string',
-                        'Description': 'string',
-                        'VersionLabel': 'string',
-                        'SourceBuildInformation': {
-                            'SourceType': 'Git'|'Zip',
-                            'SourceRepository': 'CodeCommit'|'S3',
-                            'SourceLocation': 'string'
+                        \'ApplicationVersionArn\': \'string\',
+                        \'ApplicationName\': \'string\',
+                        \'Description\': \'string\',
+                        \'VersionLabel\': \'string\',
+                        \'SourceBuildInformation\': {
+                            \'SourceType\': \'Git\'|\'Zip\',
+                            \'SourceRepository\': \'CodeCommit\'|\'S3\',
+                            \'SourceLocation\': \'string\'
                         },
-                        'BuildArn': 'string',
-                        'SourceBundle': {
-                            'S3Bucket': 'string',
-                            'S3Key': 'string'
+                        \'BuildArn\': \'string\',
+                        \'SourceBundle\': {
+                            \'S3Bucket\': \'string\',
+                            \'S3Key\': \'string\'
                         },
-                        'DateCreated': datetime(2015, 1, 1),
-                        'DateUpdated': datetime(2015, 1, 1),
-                        'Status': 'Processed'|'Unprocessed'|'Failed'|'Processing'|'Building'
+                        \'DateCreated\': datetime(2015, 1, 1),
+                        \'DateUpdated\': datetime(2015, 1, 1),
+                        \'Status\': \'Processed\'|\'Unprocessed\'|\'Failed\'|\'Processing\'|\'Building\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2150,7 +2150,7 @@ class Client(BaseClient):
         
                 - **SourceBuildInformation** *(dict) --* 
         
-                  If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
+                  If the version\'s source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
         
                   - **SourceType** *(string) --* 
         
@@ -2182,7 +2182,7 @@ class Client(BaseClient):
         
                 - **SourceBundle** *(dict) --* 
         
-                  The storage location of the application version's source bundle in Amazon S3.
+                  The storage location of the application version\'s source bundle in Amazon S3.
         
                   - **S3Bucket** *(string) --* 
         
@@ -2204,7 +2204,7 @@ class Client(BaseClient):
         
                   The processing status of the application version. Reflects the state of the application version during its creation. Many of the values are only applicable if you specified ``True`` for the ``Process`` parameter of the ``CreateApplicationVersion`` action. The following list describes the possible values.
         
-                  * ``Unprocessed`` – Application version wasn't pre-processed or validated. Elastic Beanstalk will validate configuration files during deployment of the application version to an environment. 
+                  * ``Unprocessed`` – Application version wasn\'t pre-processed or validated. Elastic Beanstalk will validate configuration files during deployment of the application version to an environment. 
                    
                   * ``Processing`` – Elastic Beanstalk is currently processing the application version. 
                    
@@ -2212,7 +2212,7 @@ class Client(BaseClient):
                    
                   * ``Processed`` – Elastic Beanstalk was successfully pre-processed and validated. 
                    
-                  * ``Failed`` – Either the AWS CodeBuild build failed or configuration files didn't pass validation. This application version isn't usable. 
+                  * ``Failed`` – Either the AWS CodeBuild build failed or configuration files didn\'t pass validation. This application version isn\'t usable. 
                    
             - **NextToken** *(string) --* 
         
@@ -2231,7 +2231,7 @@ class Client(BaseClient):
         
           response = client.describe_applications(
               ApplicationNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ApplicationNames: list
@@ -2249,31 +2249,31 @@ class Client(BaseClient):
           ::
         
             {
-                'Applications': [
+                \'Applications\': [
                     {
-                        'ApplicationArn': 'string',
-                        'ApplicationName': 'string',
-                        'Description': 'string',
-                        'DateCreated': datetime(2015, 1, 1),
-                        'DateUpdated': datetime(2015, 1, 1),
-                        'Versions': [
-                            'string',
+                        \'ApplicationArn\': \'string\',
+                        \'ApplicationName\': \'string\',
+                        \'Description\': \'string\',
+                        \'DateCreated\': datetime(2015, 1, 1),
+                        \'DateUpdated\': datetime(2015, 1, 1),
+                        \'Versions\': [
+                            \'string\',
                         ],
-                        'ConfigurationTemplates': [
-                            'string',
+                        \'ConfigurationTemplates\': [
+                            \'string\',
                         ],
-                        'ResourceLifecycleConfig': {
-                            'ServiceRole': 'string',
-                            'VersionLifecycleConfig': {
-                                'MaxCountRule': {
-                                    'Enabled': True|False,
-                                    'MaxCount': 123,
-                                    'DeleteSourceFromS3': True|False
+                        \'ResourceLifecycleConfig\': {
+                            \'ServiceRole\': \'string\',
+                            \'VersionLifecycleConfig\': {
+                                \'MaxCountRule\': {
+                                    \'Enabled\': True|False,
+                                    \'MaxCount\': 123,
+                                    \'DeleteSourceFromS3\': True|False
                                 },
-                                'MaxAgeRule': {
-                                    'Enabled': True|False,
-                                    'MaxAgeInDays': 123,
-                                    'DeleteSourceFromS3': True|False
+                                \'MaxAgeRule\': {
+                                    \'Enabled\': True|False,
+                                    \'MaxAgeInDays\': 123,
+                                    \'DeleteSourceFromS3\': True|False
                                 }
                             }
                         }
@@ -2334,7 +2334,7 @@ class Client(BaseClient):
         
                     The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
         
-                    The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
+                    The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don\'t need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
         
                   - **VersionLifecycleConfig** *(dict) --* 
         
@@ -2354,7 +2354,7 @@ class Client(BaseClient):
         
                       - **DeleteSourceFromS3** *(boolean) --* 
         
-                        Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                        Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
                     - **MaxAgeRule** *(dict) --* 
         
@@ -2370,7 +2370,7 @@ class Client(BaseClient):
         
                       - **DeleteSourceFromS3** *(boolean) --* 
         
-                        Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                        Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
         """
         pass
@@ -2384,16 +2384,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_configuration_options(
-              ApplicationName='string',
-              TemplateName='string',
-              EnvironmentName='string',
-              SolutionStackName='string',
-              PlatformArn='string',
+              ApplicationName=\'string\',
+              TemplateName=\'string\',
+              EnvironmentName=\'string\',
+              SolutionStackName=\'string\',
+              PlatformArn=\'string\',
               Options=[
                   {
-                      'ResourceName': 'string',
-                      'Namespace': 'string',
-                      'OptionName': 'string'
+                      \'ResourceName\': \'string\',
+                      \'Namespace\': \'string\',
+                      \'OptionName\': \'string\'
                   },
               ]
           )
@@ -2437,7 +2437,7 @@ class Client(BaseClient):
         
             - **Namespace** *(string) --* 
         
-              A unique namespace identifying the option's associated AWS resource.
+              A unique namespace identifying the option\'s associated AWS resource.
         
             - **OptionName** *(string) --* 
         
@@ -2451,25 +2451,25 @@ class Client(BaseClient):
           ::
         
             {
-                'SolutionStackName': 'string',
-                'PlatformArn': 'string',
-                'Options': [
+                \'SolutionStackName\': \'string\',
+                \'PlatformArn\': \'string\',
+                \'Options\': [
                     {
-                        'Namespace': 'string',
-                        'Name': 'string',
-                        'DefaultValue': 'string',
-                        'ChangeSeverity': 'string',
-                        'UserDefined': True|False,
-                        'ValueType': 'Scalar'|'List',
-                        'ValueOptions': [
-                            'string',
+                        \'Namespace\': \'string\',
+                        \'Name\': \'string\',
+                        \'DefaultValue\': \'string\',
+                        \'ChangeSeverity\': \'string\',
+                        \'UserDefined\': True|False,
+                        \'ValueType\': \'Scalar\'|\'List\',
+                        \'ValueOptions\': [
+                            \'string\',
                         ],
-                        'MinValue': 123,
-                        'MaxValue': 123,
-                        'MaxLength': 123,
-                        'Regex': {
-                            'Pattern': 'string',
-                            'Label': 'string'
+                        \'MinValue\': 123,
+                        \'MaxValue\': 123,
+                        \'MaxLength\': 123,
+                        \'Regex\': {
+                            \'Pattern\': \'string\',
+                            \'Label\': \'string\'
                         }
                     },
                 ]
@@ -2498,7 +2498,7 @@ class Client(BaseClient):
         
                 - **Namespace** *(string) --* 
         
-                  A unique namespace identifying the option's associated AWS resource.
+                  A unique namespace identifying the option\'s associated AWS resource.
         
                 - **Name** *(string) --* 
         
@@ -2590,9 +2590,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_configuration_settings(
-              ApplicationName='string',
-              TemplateName='string',
-              EnvironmentName='string'
+              ApplicationName=\'string\',
+              TemplateName=\'string\',
+              EnvironmentName=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -2621,23 +2621,23 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigurationSettings': [
+                \'ConfigurationSettings\': [
                     {
-                        'SolutionStackName': 'string',
-                        'PlatformArn': 'string',
-                        'ApplicationName': 'string',
-                        'TemplateName': 'string',
-                        'Description': 'string',
-                        'EnvironmentName': 'string',
-                        'DeploymentStatus': 'deployed'|'pending'|'failed',
-                        'DateCreated': datetime(2015, 1, 1),
-                        'DateUpdated': datetime(2015, 1, 1),
-                        'OptionSettings': [
+                        \'SolutionStackName\': \'string\',
+                        \'PlatformArn\': \'string\',
+                        \'ApplicationName\': \'string\',
+                        \'TemplateName\': \'string\',
+                        \'Description\': \'string\',
+                        \'EnvironmentName\': \'string\',
+                        \'DeploymentStatus\': \'deployed\'|\'pending\'|\'failed\',
+                        \'DateCreated\': datetime(2015, 1, 1),
+                        \'DateUpdated\': datetime(2015, 1, 1),
+                        \'OptionSettings\': [
                             {
-                                'ResourceName': 'string',
-                                'Namespace': 'string',
-                                'OptionName': 'string',
-                                'Value': 'string'
+                                \'ResourceName\': \'string\',
+                                \'Namespace\': \'string\',
+                                \'OptionName\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -2715,7 +2715,7 @@ class Client(BaseClient):
         
                     - **Namespace** *(string) --* 
         
-                      A unique namespace identifying the option's associated AWS resource.
+                      A unique namespace identifying the option\'s associated AWS resource.
         
                     - **OptionName** *(string) --* 
         
@@ -2737,10 +2737,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_environment_health(
-              EnvironmentName='string',
-              EnvironmentId='string',
+              EnvironmentName=\'string\',
+              EnvironmentId=\'string\',
               AttributeNames=[
-                  'Status'|'Color'|'Causes'|'ApplicationMetrics'|'InstancesHealth'|'All'|'HealthStatus'|'RefreshedAt',
+                  \'Status\'|\'Color\'|\'Causes\'|\'ApplicationMetrics\'|\'InstancesHealth\'|\'All\'|\'HealthStatus\'|\'RefreshedAt\',
               ]
           )
         :type EnvironmentName: string
@@ -2772,44 +2772,44 @@ class Client(BaseClient):
           ::
         
             {
-                'EnvironmentName': 'string',
-                'HealthStatus': 'string',
-                'Status': 'Green'|'Yellow'|'Red'|'Grey',
-                'Color': 'string',
-                'Causes': [
-                    'string',
+                \'EnvironmentName\': \'string\',
+                \'HealthStatus\': \'string\',
+                \'Status\': \'Green\'|\'Yellow\'|\'Red\'|\'Grey\',
+                \'Color\': \'string\',
+                \'Causes\': [
+                    \'string\',
                 ],
-                'ApplicationMetrics': {
-                    'Duration': 123,
-                    'RequestCount': 123,
-                    'StatusCodes': {
-                        'Status2xx': 123,
-                        'Status3xx': 123,
-                        'Status4xx': 123,
-                        'Status5xx': 123
+                \'ApplicationMetrics\': {
+                    \'Duration\': 123,
+                    \'RequestCount\': 123,
+                    \'StatusCodes\': {
+                        \'Status2xx\': 123,
+                        \'Status3xx\': 123,
+                        \'Status4xx\': 123,
+                        \'Status5xx\': 123
                     },
-                    'Latency': {
-                        'P999': 123.0,
-                        'P99': 123.0,
-                        'P95': 123.0,
-                        'P90': 123.0,
-                        'P85': 123.0,
-                        'P75': 123.0,
-                        'P50': 123.0,
-                        'P10': 123.0
+                    \'Latency\': {
+                        \'P999\': 123.0,
+                        \'P99\': 123.0,
+                        \'P95\': 123.0,
+                        \'P90\': 123.0,
+                        \'P85\': 123.0,
+                        \'P75\': 123.0,
+                        \'P50\': 123.0,
+                        \'P10\': 123.0
                     }
                 },
-                'InstancesHealth': {
-                    'NoData': 123,
-                    'Unknown': 123,
-                    'Pending': 123,
-                    'Ok': 123,
-                    'Info': 123,
-                    'Warning': 123,
-                    'Degraded': 123,
-                    'Severe': 123
+                \'InstancesHealth\': {
+                    \'NoData\': 123,
+                    \'Unknown\': 123,
+                    \'Pending\': 123,
+                    \'Ok\': 123,
+                    \'Info\': 123,
+                    \'Warning\': 123,
+                    \'Degraded\': 123,
+                    \'Severe\': 123
                 },
-                'RefreshedAt': datetime(2015, 1, 1)
+                \'RefreshedAt\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -2819,7 +2819,7 @@ class Client(BaseClient):
         
             - **EnvironmentName** *(string) --* 
         
-              The environment's name.
+              The environment\'s name.
         
             - **HealthStatus** *(string) --* 
         
@@ -2827,7 +2827,7 @@ class Client(BaseClient):
         
             - **Status** *(string) --* 
         
-              The environment's operational status. ``Ready`` , ``Launching`` , ``Updating`` , ``Terminating`` , or ``Terminated`` .
+              The environment\'s operational status. ``Ready`` , ``Launching`` , ``Updating`` , ``Terminating`` , or ``Terminated`` .
         
             - **Color** *(string) --* 
         
@@ -2835,7 +2835,7 @@ class Client(BaseClient):
         
             - **Causes** *(list) --* 
         
-              Descriptions of the data that contributed to the environment's current health status.
+              Descriptions of the data that contributed to the environment\'s current health status.
         
               - *(string) --* 
           
@@ -2959,9 +2959,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_environment_managed_action_history(
-              EnvironmentId='string',
-              EnvironmentName='string',
-              NextToken='string',
+              EnvironmentId=\'string\',
+              EnvironmentName=\'string\',
+              NextToken=\'string\',
               MaxItems=123
           )
         :type EnvironmentId: string
@@ -2992,19 +2992,19 @@ class Client(BaseClient):
           ::
         
             {
-                'ManagedActionHistoryItems': [
+                \'ManagedActionHistoryItems\': [
                     {
-                        'ActionId': 'string',
-                        'ActionType': 'InstanceRefresh'|'PlatformUpdate'|'Unknown',
-                        'ActionDescription': 'string',
-                        'FailureType': 'UpdateCancelled'|'CancellationFailed'|'RollbackFailed'|'RollbackSuccessful'|'InternalFailure'|'InvalidEnvironmentState'|'PermissionsError',
-                        'Status': 'Completed'|'Failed'|'Unknown',
-                        'FailureDescription': 'string',
-                        'ExecutedTime': datetime(2015, 1, 1),
-                        'FinishedTime': datetime(2015, 1, 1)
+                        \'ActionId\': \'string\',
+                        \'ActionType\': \'InstanceRefresh\'|\'PlatformUpdate\'|\'Unknown\',
+                        \'ActionDescription\': \'string\',
+                        \'FailureType\': \'UpdateCancelled\'|\'CancellationFailed\'|\'RollbackFailed\'|\'RollbackSuccessful\'|\'InternalFailure\'|\'InvalidEnvironmentState\'|\'PermissionsError\',
+                        \'Status\': \'Completed\'|\'Failed\'|\'Unknown\',
+                        \'FailureDescription\': \'string\',
+                        \'ExecutedTime\': datetime(2015, 1, 1),
+                        \'FinishedTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3068,9 +3068,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_environment_managed_actions(
-              EnvironmentName='string',
-              EnvironmentId='string',
-              Status='Scheduled'|'Pending'|'Running'|'Unknown'
+              EnvironmentName=\'string\',
+              EnvironmentId=\'string\',
+              Status=\'Scheduled\'|\'Pending\'|\'Running\'|\'Unknown\'
           )
         :type EnvironmentName: string
         :param EnvironmentName: 
@@ -3095,13 +3095,13 @@ class Client(BaseClient):
           ::
         
             {
-                'ManagedActions': [
+                \'ManagedActions\': [
                     {
-                        'ActionId': 'string',
-                        'ActionDescription': 'string',
-                        'ActionType': 'InstanceRefresh'|'PlatformUpdate'|'Unknown',
-                        'Status': 'Scheduled'|'Pending'|'Running'|'Unknown',
-                        'WindowStartTime': datetime(2015, 1, 1)
+                        \'ActionId\': \'string\',
+                        \'ActionDescription\': \'string\',
+                        \'ActionType\': \'InstanceRefresh\'|\'PlatformUpdate\'|\'Unknown\',
+                        \'Status\': \'Scheduled\'|\'Pending\'|\'Running\'|\'Unknown\',
+                        \'WindowStartTime\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -3151,8 +3151,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_environment_resources(
-              EnvironmentId='string',
-              EnvironmentName='string'
+              EnvironmentId=\'string\',
+              EnvironmentName=\'string\'
           )
         :type EnvironmentId: string
         :param EnvironmentId: 
@@ -3176,37 +3176,37 @@ class Client(BaseClient):
           ::
         
             {
-                'EnvironmentResources': {
-                    'EnvironmentName': 'string',
-                    'AutoScalingGroups': [
+                \'EnvironmentResources\': {
+                    \'EnvironmentName\': \'string\',
+                    \'AutoScalingGroups\': [
                         {
-                            'Name': 'string'
+                            \'Name\': \'string\'
                         },
                     ],
-                    'Instances': [
+                    \'Instances\': [
                         {
-                            'Id': 'string'
+                            \'Id\': \'string\'
                         },
                     ],
-                    'LaunchConfigurations': [
+                    \'LaunchConfigurations\': [
                         {
-                            'Name': 'string'
+                            \'Name\': \'string\'
                         },
                     ],
-                    'LoadBalancers': [
+                    \'LoadBalancers\': [
                         {
-                            'Name': 'string'
+                            \'Name\': \'string\'
                         },
                     ],
-                    'Triggers': [
+                    \'Triggers\': [
                         {
-                            'Name': 'string'
+                            \'Name\': \'string\'
                         },
                     ],
-                    'Queues': [
+                    \'Queues\': [
                         {
-                            'Name': 'string',
-                            'URL': 'string'
+                            \'Name\': \'string\',
+                            \'URL\': \'string\'
                         },
                     ]
                 }
@@ -3313,18 +3313,18 @@ class Client(BaseClient):
         ::
         
           response = client.describe_environments(
-              ApplicationName='string',
-              VersionLabel='string',
+              ApplicationName=\'string\',
+              VersionLabel=\'string\',
               EnvironmentIds=[
-                  'string',
+                  \'string\',
               ],
               EnvironmentNames=[
-                  'string',
+                  \'string\',
               ],
               IncludeDeleted=True|False,
               IncludedDeletedBackTo=datetime(2015, 1, 1),
               MaxRecords=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: 
@@ -3386,51 +3386,51 @@ class Client(BaseClient):
           ::
         
             {
-                'Environments': [
+                \'Environments\': [
                     {
-                        'EnvironmentName': 'string',
-                        'EnvironmentId': 'string',
-                        'ApplicationName': 'string',
-                        'VersionLabel': 'string',
-                        'SolutionStackName': 'string',
-                        'PlatformArn': 'string',
-                        'TemplateName': 'string',
-                        'Description': 'string',
-                        'EndpointURL': 'string',
-                        'CNAME': 'string',
-                        'DateCreated': datetime(2015, 1, 1),
-                        'DateUpdated': datetime(2015, 1, 1),
-                        'Status': 'Launching'|'Updating'|'Ready'|'Terminating'|'Terminated',
-                        'AbortableOperationInProgress': True|False,
-                        'Health': 'Green'|'Yellow'|'Red'|'Grey',
-                        'HealthStatus': 'NoData'|'Unknown'|'Pending'|'Ok'|'Info'|'Warning'|'Degraded'|'Severe'|'Suspended',
-                        'Resources': {
-                            'LoadBalancer': {
-                                'LoadBalancerName': 'string',
-                                'Domain': 'string',
-                                'Listeners': [
+                        \'EnvironmentName\': \'string\',
+                        \'EnvironmentId\': \'string\',
+                        \'ApplicationName\': \'string\',
+                        \'VersionLabel\': \'string\',
+                        \'SolutionStackName\': \'string\',
+                        \'PlatformArn\': \'string\',
+                        \'TemplateName\': \'string\',
+                        \'Description\': \'string\',
+                        \'EndpointURL\': \'string\',
+                        \'CNAME\': \'string\',
+                        \'DateCreated\': datetime(2015, 1, 1),
+                        \'DateUpdated\': datetime(2015, 1, 1),
+                        \'Status\': \'Launching\'|\'Updating\'|\'Ready\'|\'Terminating\'|\'Terminated\',
+                        \'AbortableOperationInProgress\': True|False,
+                        \'Health\': \'Green\'|\'Yellow\'|\'Red\'|\'Grey\',
+                        \'HealthStatus\': \'NoData\'|\'Unknown\'|\'Pending\'|\'Ok\'|\'Info\'|\'Warning\'|\'Degraded\'|\'Severe\'|\'Suspended\',
+                        \'Resources\': {
+                            \'LoadBalancer\': {
+                                \'LoadBalancerName\': \'string\',
+                                \'Domain\': \'string\',
+                                \'Listeners\': [
                                     {
-                                        'Protocol': 'string',
-                                        'Port': 123
+                                        \'Protocol\': \'string\',
+                                        \'Port\': 123
                                     },
                                 ]
                             }
                         },
-                        'Tier': {
-                            'Name': 'string',
-                            'Type': 'string',
-                            'Version': 'string'
+                        \'Tier\': {
+                            \'Name\': \'string\',
+                            \'Type\': \'string\',
+                            \'Version\': \'string\'
                         },
-                        'EnvironmentLinks': [
+                        \'EnvironmentLinks\': [
                             {
-                                'LinkName': 'string',
-                                'EnvironmentName': 'string'
+                                \'LinkName\': \'string\',
+                                \'EnvironmentName\': \'string\'
                             },
                         ],
-                        'EnvironmentArn': 'string'
+                        \'EnvironmentArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3580,7 +3580,7 @@ class Client(BaseClient):
         
                   - **Version** *(string) --* 
         
-                    The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+                    The version of this environment tier. When you don\'t set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
         
                     .. note::
         
@@ -3592,7 +3592,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+                    A link to another environment, defined in the environment\'s manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
         
                     - **LinkName** *(string) --* 
         
@@ -3604,7 +3604,7 @@ class Client(BaseClient):
         
                 - **EnvironmentArn** *(string) --* 
         
-                  The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
+                  The environment\'s Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
         
             - **NextToken** *(string) --* 
         
@@ -3626,18 +3626,18 @@ class Client(BaseClient):
         ::
         
           response = client.describe_events(
-              ApplicationName='string',
-              VersionLabel='string',
-              TemplateName='string',
-              EnvironmentId='string',
-              EnvironmentName='string',
-              PlatformArn='string',
-              RequestId='string',
-              Severity='TRACE'|'DEBUG'|'INFO'|'WARN'|'ERROR'|'FATAL',
+              ApplicationName=\'string\',
+              VersionLabel=\'string\',
+              TemplateName=\'string\',
+              EnvironmentId=\'string\',
+              EnvironmentName=\'string\',
+              PlatformArn=\'string\',
+              RequestId=\'string\',
+              Severity=\'TRACE\'|\'DEBUG\'|\'INFO\'|\'WARN\'|\'ERROR\'|\'FATAL\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               MaxRecords=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: 
@@ -3707,20 +3707,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Events': [
+                \'Events\': [
                     {
-                        'EventDate': datetime(2015, 1, 1),
-                        'Message': 'string',
-                        'ApplicationName': 'string',
-                        'VersionLabel': 'string',
-                        'TemplateName': 'string',
-                        'EnvironmentName': 'string',
-                        'PlatformArn': 'string',
-                        'RequestId': 'string',
-                        'Severity': 'TRACE'|'DEBUG'|'INFO'|'WARN'|'ERROR'|'FATAL'
+                        \'EventDate\': datetime(2015, 1, 1),
+                        \'Message\': \'string\',
+                        \'ApplicationName\': \'string\',
+                        \'VersionLabel\': \'string\',
+                        \'TemplateName\': \'string\',
+                        \'EnvironmentName\': \'string\',
+                        \'PlatformArn\': \'string\',
+                        \'RequestId\': \'string\',
+                        \'Severity\': \'TRACE\'|\'DEBUG\'|\'INFO\'|\'WARN\'|\'ERROR\'|\'FATAL\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3788,12 +3788,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_instances_health(
-              EnvironmentName='string',
-              EnvironmentId='string',
+              EnvironmentName=\'string\',
+              EnvironmentId=\'string\',
               AttributeNames=[
-                  'HealthStatus'|'Color'|'Causes'|'ApplicationMetrics'|'RefreshedAt'|'LaunchedAt'|'System'|'Deployment'|'AvailabilityZone'|'InstanceType'|'All',
+                  \'HealthStatus\'|\'Color\'|\'Causes\'|\'ApplicationMetrics\'|\'RefreshedAt\'|\'LaunchedAt\'|\'System\'|\'Deployment\'|\'AvailabilityZone\'|\'InstanceType\'|\'All\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type EnvironmentName: string
         :param EnvironmentName: 
@@ -3825,62 +3825,62 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceHealthList': [
+                \'InstanceHealthList\': [
                     {
-                        'InstanceId': 'string',
-                        'HealthStatus': 'string',
-                        'Color': 'string',
-                        'Causes': [
-                            'string',
+                        \'InstanceId\': \'string\',
+                        \'HealthStatus\': \'string\',
+                        \'Color\': \'string\',
+                        \'Causes\': [
+                            \'string\',
                         ],
-                        'LaunchedAt': datetime(2015, 1, 1),
-                        'ApplicationMetrics': {
-                            'Duration': 123,
-                            'RequestCount': 123,
-                            'StatusCodes': {
-                                'Status2xx': 123,
-                                'Status3xx': 123,
-                                'Status4xx': 123,
-                                'Status5xx': 123
+                        \'LaunchedAt\': datetime(2015, 1, 1),
+                        \'ApplicationMetrics\': {
+                            \'Duration\': 123,
+                            \'RequestCount\': 123,
+                            \'StatusCodes\': {
+                                \'Status2xx\': 123,
+                                \'Status3xx\': 123,
+                                \'Status4xx\': 123,
+                                \'Status5xx\': 123
                             },
-                            'Latency': {
-                                'P999': 123.0,
-                                'P99': 123.0,
-                                'P95': 123.0,
-                                'P90': 123.0,
-                                'P85': 123.0,
-                                'P75': 123.0,
-                                'P50': 123.0,
-                                'P10': 123.0
+                            \'Latency\': {
+                                \'P999\': 123.0,
+                                \'P99\': 123.0,
+                                \'P95\': 123.0,
+                                \'P90\': 123.0,
+                                \'P85\': 123.0,
+                                \'P75\': 123.0,
+                                \'P50\': 123.0,
+                                \'P10\': 123.0
                             }
                         },
-                        'System': {
-                            'CPUUtilization': {
-                                'User': 123.0,
-                                'Nice': 123.0,
-                                'System': 123.0,
-                                'Idle': 123.0,
-                                'IOWait': 123.0,
-                                'IRQ': 123.0,
-                                'SoftIRQ': 123.0,
-                                'Privileged': 123.0
+                        \'System\': {
+                            \'CPUUtilization\': {
+                                \'User\': 123.0,
+                                \'Nice\': 123.0,
+                                \'System\': 123.0,
+                                \'Idle\': 123.0,
+                                \'IOWait\': 123.0,
+                                \'IRQ\': 123.0,
+                                \'SoftIRQ\': 123.0,
+                                \'Privileged\': 123.0
                             },
-                            'LoadAverage': [
+                            \'LoadAverage\': [
                                 123.0,
                             ]
                         },
-                        'Deployment': {
-                            'VersionLabel': 'string',
-                            'DeploymentId': 123,
-                            'Status': 'string',
-                            'DeploymentTime': datetime(2015, 1, 1)
+                        \'Deployment\': {
+                            \'VersionLabel\': \'string\',
+                            \'DeploymentId\': 123,
+                            \'Status\': \'string\',
+                            \'DeploymentTime\': datetime(2015, 1, 1)
                         },
-                        'AvailabilityZone': 'string',
-                        'InstanceType': 'string'
+                        \'AvailabilityZone\': \'string\',
+                        \'InstanceType\': \'string\'
                     },
                 ],
-                'RefreshedAt': datetime(2015, 1, 1),
-                'NextToken': 'string'
+                \'RefreshedAt\': datetime(2015, 1, 1),
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4080,7 +4080,7 @@ class Client(BaseClient):
         
                 - **InstanceType** *(string) --* 
         
-                  The instance's type.
+                  The instance\'s type.
         
             - **RefreshedAt** *(datetime) --* 
         
@@ -4102,7 +4102,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_platform_version(
-              PlatformArn='string'
+              PlatformArn=\'string\'
           )
         :type PlatformArn: string
         :param PlatformArn: 
@@ -4117,43 +4117,43 @@ class Client(BaseClient):
           ::
         
             {
-                'PlatformDescription': {
-                    'PlatformArn': 'string',
-                    'PlatformOwner': 'string',
-                    'PlatformName': 'string',
-                    'PlatformVersion': 'string',
-                    'SolutionStackName': 'string',
-                    'PlatformStatus': 'Creating'|'Failed'|'Ready'|'Deleting'|'Deleted',
-                    'DateCreated': datetime(2015, 1, 1),
-                    'DateUpdated': datetime(2015, 1, 1),
-                    'PlatformCategory': 'string',
-                    'Description': 'string',
-                    'Maintainer': 'string',
-                    'OperatingSystemName': 'string',
-                    'OperatingSystemVersion': 'string',
-                    'ProgrammingLanguages': [
+                \'PlatformDescription\': {
+                    \'PlatformArn\': \'string\',
+                    \'PlatformOwner\': \'string\',
+                    \'PlatformName\': \'string\',
+                    \'PlatformVersion\': \'string\',
+                    \'SolutionStackName\': \'string\',
+                    \'PlatformStatus\': \'Creating\'|\'Failed\'|\'Ready\'|\'Deleting\'|\'Deleted\',
+                    \'DateCreated\': datetime(2015, 1, 1),
+                    \'DateUpdated\': datetime(2015, 1, 1),
+                    \'PlatformCategory\': \'string\',
+                    \'Description\': \'string\',
+                    \'Maintainer\': \'string\',
+                    \'OperatingSystemName\': \'string\',
+                    \'OperatingSystemVersion\': \'string\',
+                    \'ProgrammingLanguages\': [
                         {
-                            'Name': 'string',
-                            'Version': 'string'
+                            \'Name\': \'string\',
+                            \'Version\': \'string\'
                         },
                     ],
-                    'Frameworks': [
+                    \'Frameworks\': [
                         {
-                            'Name': 'string',
-                            'Version': 'string'
+                            \'Name\': \'string\',
+                            \'Version\': \'string\'
                         },
                     ],
-                    'CustomAmiList': [
+                    \'CustomAmiList\': [
                         {
-                            'VirtualizationType': 'string',
-                            'ImageId': 'string'
+                            \'VirtualizationType\': \'string\',
+                            \'ImageId\': \'string\'
                         },
                     ],
-                    'SupportedTierList': [
-                        'string',
+                    \'SupportedTierList\': [
+                        \'string\',
                     ],
-                    'SupportedAddonList': [
-                        'string',
+                    \'SupportedAddonList\': [
+                        \'string\',
                     ]
                 }
             }
@@ -4296,7 +4296,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -4308,10 +4308,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -4352,14 +4352,14 @@ class Client(BaseClient):
           ::
         
             {
-                'SolutionStacks': [
-                    'string',
+                \'SolutionStacks\': [
+                    \'string\',
                 ],
-                'SolutionStackDetails': [
+                \'SolutionStackDetails\': [
                     {
-                        'SolutionStackName': 'string',
-                        'PermittedFileTypes': [
-                            'string',
+                        \'SolutionStackName\': \'string\',
+                        \'PermittedFileTypes\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -4408,15 +4408,15 @@ class Client(BaseClient):
           response = client.list_platform_versions(
               Filters=[
                   {
-                      'Type': 'string',
-                      'Operator': 'string',
-                      'Values': [
-                          'string',
+                      \'Type\': \'string\',
+                      \'Operator\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -4467,23 +4467,23 @@ class Client(BaseClient):
           ::
         
             {
-                'PlatformSummaryList': [
+                \'PlatformSummaryList\': [
                     {
-                        'PlatformArn': 'string',
-                        'PlatformOwner': 'string',
-                        'PlatformStatus': 'Creating'|'Failed'|'Ready'|'Deleting'|'Deleted',
-                        'PlatformCategory': 'string',
-                        'OperatingSystemName': 'string',
-                        'OperatingSystemVersion': 'string',
-                        'SupportedTierList': [
-                            'string',
+                        \'PlatformArn\': \'string\',
+                        \'PlatformOwner\': \'string\',
+                        \'PlatformStatus\': \'Creating\'|\'Failed\'|\'Ready\'|\'Deleting\'|\'Deleted\',
+                        \'PlatformCategory\': \'string\',
+                        \'OperatingSystemName\': \'string\',
+                        \'OperatingSystemVersion\': \'string\',
+                        \'SupportedTierList\': [
+                            \'string\',
                         ],
-                        'SupportedAddonList': [
-                            'string',
+                        \'SupportedAddonList\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4551,7 +4551,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              ResourceArn='string'
+              ResourceArn=\'string\'
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
@@ -4568,11 +4568,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceArn': 'string',
-                'ResourceTags': [
+                \'ResourceArn\': \'string\',
+                \'ResourceTags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -4612,8 +4612,8 @@ class Client(BaseClient):
         ::
         
           response = client.rebuild_environment(
-              EnvironmentId='string',
-              EnvironmentName='string'
+              EnvironmentId=\'string\',
+              EnvironmentName=\'string\'
           )
         :type EnvironmentId: string
         :param EnvironmentId: 
@@ -4652,9 +4652,9 @@ class Client(BaseClient):
         ::
         
           response = client.request_environment_info(
-              EnvironmentId='string',
-              EnvironmentName='string',
-              InfoType='tail'|'bundle'
+              EnvironmentId=\'string\',
+              EnvironmentName=\'string\',
+              InfoType=\'tail\'|\'bundle\'
           )
         :type EnvironmentId: string
         :param EnvironmentId: 
@@ -4692,8 +4692,8 @@ class Client(BaseClient):
         ::
         
           response = client.restart_app_server(
-              EnvironmentId='string',
-              EnvironmentName='string'
+              EnvironmentId=\'string\',
+              EnvironmentName=\'string\'
           )
         :type EnvironmentId: string
         :param EnvironmentId: 
@@ -4726,14 +4726,14 @@ class Client(BaseClient):
         ::
         
           response = client.retrieve_environment_info(
-              EnvironmentId='string',
-              EnvironmentName='string',
-              InfoType='tail'|'bundle'
+              EnvironmentId=\'string\',
+              EnvironmentName=\'string\',
+              InfoType=\'tail\'|\'bundle\'
           )
         :type EnvironmentId: string
         :param EnvironmentId: 
         
-          The ID of the data's environment.
+          The ID of the data\'s environment.
         
           If no such environment is found, returns an ``InvalidParameterValue`` error.
         
@@ -4742,7 +4742,7 @@ class Client(BaseClient):
         :type EnvironmentName: string
         :param EnvironmentName: 
         
-          The name of the data's environment.
+          The name of the data\'s environment.
         
           If no such environment is found, returns an ``InvalidParameterValue`` error. 
         
@@ -4761,12 +4761,12 @@ class Client(BaseClient):
           ::
         
             {
-                'EnvironmentInfo': [
+                \'EnvironmentInfo\': [
                     {
-                        'InfoType': 'tail'|'bundle',
-                        'Ec2InstanceId': 'string',
-                        'SampleTimestamp': datetime(2015, 1, 1),
-                        'Message': 'string'
+                        \'InfoType\': \'tail\'|\'bundle\',
+                        \'Ec2InstanceId\': \'string\',
+                        \'SampleTimestamp\': datetime(2015, 1, 1),
+                        \'Message\': \'string\'
                     },
                 ]
             }
@@ -4812,10 +4812,10 @@ class Client(BaseClient):
         ::
         
           response = client.swap_environment_cnames(
-              SourceEnvironmentId='string',
-              SourceEnvironmentName='string',
-              DestinationEnvironmentId='string',
-              DestinationEnvironmentName='string'
+              SourceEnvironmentId=\'string\',
+              SourceEnvironmentName=\'string\',
+              DestinationEnvironmentId=\'string\',
+              DestinationEnvironmentName=\'string\'
           )
         :type SourceEnvironmentId: string
         :param SourceEnvironmentId: 
@@ -4858,8 +4858,8 @@ class Client(BaseClient):
         ::
         
           response = client.terminate_environment(
-              EnvironmentId='string',
-              EnvironmentName='string',
+              EnvironmentId=\'string\',
+              EnvironmentName=\'string\',
               TerminateResources=True|False,
               ForceTerminate=True|False
           )
@@ -4905,46 +4905,46 @@ class Client(BaseClient):
           ::
         
             {
-                'EnvironmentName': 'string',
-                'EnvironmentId': 'string',
-                'ApplicationName': 'string',
-                'VersionLabel': 'string',
-                'SolutionStackName': 'string',
-                'PlatformArn': 'string',
-                'TemplateName': 'string',
-                'Description': 'string',
-                'EndpointURL': 'string',
-                'CNAME': 'string',
-                'DateCreated': datetime(2015, 1, 1),
-                'DateUpdated': datetime(2015, 1, 1),
-                'Status': 'Launching'|'Updating'|'Ready'|'Terminating'|'Terminated',
-                'AbortableOperationInProgress': True|False,
-                'Health': 'Green'|'Yellow'|'Red'|'Grey',
-                'HealthStatus': 'NoData'|'Unknown'|'Pending'|'Ok'|'Info'|'Warning'|'Degraded'|'Severe'|'Suspended',
-                'Resources': {
-                    'LoadBalancer': {
-                        'LoadBalancerName': 'string',
-                        'Domain': 'string',
-                        'Listeners': [
+                \'EnvironmentName\': \'string\',
+                \'EnvironmentId\': \'string\',
+                \'ApplicationName\': \'string\',
+                \'VersionLabel\': \'string\',
+                \'SolutionStackName\': \'string\',
+                \'PlatformArn\': \'string\',
+                \'TemplateName\': \'string\',
+                \'Description\': \'string\',
+                \'EndpointURL\': \'string\',
+                \'CNAME\': \'string\',
+                \'DateCreated\': datetime(2015, 1, 1),
+                \'DateUpdated\': datetime(2015, 1, 1),
+                \'Status\': \'Launching\'|\'Updating\'|\'Ready\'|\'Terminating\'|\'Terminated\',
+                \'AbortableOperationInProgress\': True|False,
+                \'Health\': \'Green\'|\'Yellow\'|\'Red\'|\'Grey\',
+                \'HealthStatus\': \'NoData\'|\'Unknown\'|\'Pending\'|\'Ok\'|\'Info\'|\'Warning\'|\'Degraded\'|\'Severe\'|\'Suspended\',
+                \'Resources\': {
+                    \'LoadBalancer\': {
+                        \'LoadBalancerName\': \'string\',
+                        \'Domain\': \'string\',
+                        \'Listeners\': [
                             {
-                                'Protocol': 'string',
-                                'Port': 123
+                                \'Protocol\': \'string\',
+                                \'Port\': 123
                             },
                         ]
                     }
                 },
-                'Tier': {
-                    'Name': 'string',
-                    'Type': 'string',
-                    'Version': 'string'
+                \'Tier\': {
+                    \'Name\': \'string\',
+                    \'Type\': \'string\',
+                    \'Version\': \'string\'
                 },
-                'EnvironmentLinks': [
+                \'EnvironmentLinks\': [
                     {
-                        'LinkName': 'string',
-                        'EnvironmentName': 'string'
+                        \'LinkName\': \'string\',
+                        \'EnvironmentName\': \'string\'
                     },
                 ],
-                'EnvironmentArn': 'string'
+                \'EnvironmentArn\': \'string\'
             }
           **Response Structure** 
         
@@ -5086,7 +5086,7 @@ class Client(BaseClient):
         
               - **Version** *(string) --* 
         
-                The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+                The version of this environment tier. When you don\'t set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
         
                 .. note::
         
@@ -5098,7 +5098,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+                A link to another environment, defined in the environment\'s manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
         
                 - **LinkName** *(string) --* 
         
@@ -5110,7 +5110,7 @@ class Client(BaseClient):
         
             - **EnvironmentArn** *(string) --* 
         
-              The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
+              The environment\'s Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
         
         """
         pass
@@ -5128,8 +5128,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_application(
-              ApplicationName='string',
-              Description='string'
+              ApplicationName=\'string\',
+              Description=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -5151,30 +5151,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Application': {
-                    'ApplicationArn': 'string',
-                    'ApplicationName': 'string',
-                    'Description': 'string',
-                    'DateCreated': datetime(2015, 1, 1),
-                    'DateUpdated': datetime(2015, 1, 1),
-                    'Versions': [
-                        'string',
+                \'Application\': {
+                    \'ApplicationArn\': \'string\',
+                    \'ApplicationName\': \'string\',
+                    \'Description\': \'string\',
+                    \'DateCreated\': datetime(2015, 1, 1),
+                    \'DateUpdated\': datetime(2015, 1, 1),
+                    \'Versions\': [
+                        \'string\',
                     ],
-                    'ConfigurationTemplates': [
-                        'string',
+                    \'ConfigurationTemplates\': [
+                        \'string\',
                     ],
-                    'ResourceLifecycleConfig': {
-                        'ServiceRole': 'string',
-                        'VersionLifecycleConfig': {
-                            'MaxCountRule': {
-                                'Enabled': True|False,
-                                'MaxCount': 123,
-                                'DeleteSourceFromS3': True|False
+                    \'ResourceLifecycleConfig\': {
+                        \'ServiceRole\': \'string\',
+                        \'VersionLifecycleConfig\': {
+                            \'MaxCountRule\': {
+                                \'Enabled\': True|False,
+                                \'MaxCount\': 123,
+                                \'DeleteSourceFromS3\': True|False
                             },
-                            'MaxAgeRule': {
-                                'Enabled': True|False,
-                                'MaxAgeInDays': 123,
-                                'DeleteSourceFromS3': True|False
+                            \'MaxAgeRule\': {
+                                \'Enabled\': True|False,
+                                \'MaxAgeInDays\': 123,
+                                \'DeleteSourceFromS3\': True|False
                             }
                         }
                     }
@@ -5230,7 +5230,7 @@ class Client(BaseClient):
         
                   The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
         
-                  The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
+                  The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don\'t need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
         
                 - **VersionLifecycleConfig** *(dict) --* 
         
@@ -5250,7 +5250,7 @@ class Client(BaseClient):
         
                     - **DeleteSourceFromS3** *(boolean) --* 
         
-                      Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                      Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
                   - **MaxAgeRule** *(dict) --* 
         
@@ -5266,7 +5266,7 @@ class Client(BaseClient):
         
                     - **DeleteSourceFromS3** *(boolean) --* 
         
-                      Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                      Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
         """
         pass
@@ -5280,19 +5280,19 @@ class Client(BaseClient):
         ::
         
           response = client.update_application_resource_lifecycle(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               ResourceLifecycleConfig={
-                  'ServiceRole': 'string',
-                  'VersionLifecycleConfig': {
-                      'MaxCountRule': {
-                          'Enabled': True|False,
-                          'MaxCount': 123,
-                          'DeleteSourceFromS3': True|False
+                  \'ServiceRole\': \'string\',
+                  \'VersionLifecycleConfig\': {
+                      \'MaxCountRule\': {
+                          \'Enabled\': True|False,
+                          \'MaxCount\': 123,
+                          \'DeleteSourceFromS3\': True|False
                       },
-                      'MaxAgeRule': {
-                          'Enabled': True|False,
-                          'MaxAgeInDays': 123,
-                          'DeleteSourceFromS3': True|False
+                      \'MaxAgeRule\': {
+                          \'Enabled\': True|False,
+                          \'MaxAgeInDays\': 123,
+                          \'DeleteSourceFromS3\': True|False
                       }
                   }
               }
@@ -5311,7 +5311,7 @@ class Client(BaseClient):
         
             The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
         
-            The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
+            The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don\'t need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
         
           - **VersionLifecycleConfig** *(dict) --* 
         
@@ -5331,7 +5331,7 @@ class Client(BaseClient):
         
               - **DeleteSourceFromS3** *(boolean) --* 
         
-                Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
             - **MaxAgeRule** *(dict) --* 
         
@@ -5347,7 +5347,7 @@ class Client(BaseClient):
         
               - **DeleteSourceFromS3** *(boolean) --* 
         
-                Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
         :rtype: dict
         :returns: 
@@ -5357,19 +5357,19 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationName': 'string',
-                'ResourceLifecycleConfig': {
-                    'ServiceRole': 'string',
-                    'VersionLifecycleConfig': {
-                        'MaxCountRule': {
-                            'Enabled': True|False,
-                            'MaxCount': 123,
-                            'DeleteSourceFromS3': True|False
+                \'ApplicationName\': \'string\',
+                \'ResourceLifecycleConfig\': {
+                    \'ServiceRole\': \'string\',
+                    \'VersionLifecycleConfig\': {
+                        \'MaxCountRule\': {
+                            \'Enabled\': True|False,
+                            \'MaxCount\': 123,
+                            \'DeleteSourceFromS3\': True|False
                         },
-                        'MaxAgeRule': {
-                            'Enabled': True|False,
-                            'MaxAgeInDays': 123,
-                            'DeleteSourceFromS3': True|False
+                        \'MaxAgeRule\': {
+                            \'Enabled\': True|False,
+                            \'MaxAgeInDays\': 123,
+                            \'DeleteSourceFromS3\': True|False
                         }
                     }
                 }
@@ -5390,7 +5390,7 @@ class Client(BaseClient):
         
                 The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
         
-                The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
+                The ``ServiceRole`` property is required the first time that you provide a ``VersionLifecycleConfig`` for the application in one of the supporting calls (``CreateApplication`` or ``UpdateApplicationResourceLifecycle`` ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don\'t need to specify it again in subsequent ``UpdateApplicationResourceLifecycle`` calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
         
               - **VersionLifecycleConfig** *(dict) --* 
         
@@ -5410,7 +5410,7 @@ class Client(BaseClient):
         
                   - **DeleteSourceFromS3** *(boolean) --* 
         
-                    Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                    Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
                 - **MaxAgeRule** *(dict) --* 
         
@@ -5426,7 +5426,7 @@ class Client(BaseClient):
         
                   - **DeleteSourceFromS3** *(boolean) --* 
         
-                    Set to ``true`` to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+                    Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         
         """
         pass
@@ -5444,9 +5444,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_application_version(
-              ApplicationName='string',
-              VersionLabel='string',
-              Description='string'
+              ApplicationName=\'string\',
+              VersionLabel=\'string\',
+              Description=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -5475,24 +5475,24 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationVersion': {
-                    'ApplicationVersionArn': 'string',
-                    'ApplicationName': 'string',
-                    'Description': 'string',
-                    'VersionLabel': 'string',
-                    'SourceBuildInformation': {
-                        'SourceType': 'Git'|'Zip',
-                        'SourceRepository': 'CodeCommit'|'S3',
-                        'SourceLocation': 'string'
+                \'ApplicationVersion\': {
+                    \'ApplicationVersionArn\': \'string\',
+                    \'ApplicationName\': \'string\',
+                    \'Description\': \'string\',
+                    \'VersionLabel\': \'string\',
+                    \'SourceBuildInformation\': {
+                        \'SourceType\': \'Git\'|\'Zip\',
+                        \'SourceRepository\': \'CodeCommit\'|\'S3\',
+                        \'SourceLocation\': \'string\'
                     },
-                    'BuildArn': 'string',
-                    'SourceBundle': {
-                        'S3Bucket': 'string',
-                        'S3Key': 'string'
+                    \'BuildArn\': \'string\',
+                    \'SourceBundle\': {
+                        \'S3Bucket\': \'string\',
+                        \'S3Key\': \'string\'
                     },
-                    'DateCreated': datetime(2015, 1, 1),
-                    'DateUpdated': datetime(2015, 1, 1),
-                    'Status': 'Processed'|'Unprocessed'|'Failed'|'Processing'|'Building'
+                    \'DateCreated\': datetime(2015, 1, 1),
+                    \'DateUpdated\': datetime(2015, 1, 1),
+                    \'Status\': \'Processed\'|\'Unprocessed\'|\'Failed\'|\'Processing\'|\'Building\'
                 }
             }
           **Response Structure** 
@@ -5523,7 +5523,7 @@ class Client(BaseClient):
         
               - **SourceBuildInformation** *(dict) --* 
         
-                If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
+                If the version\'s source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
         
                 - **SourceType** *(string) --* 
         
@@ -5555,7 +5555,7 @@ class Client(BaseClient):
         
               - **SourceBundle** *(dict) --* 
         
-                The storage location of the application version's source bundle in Amazon S3.
+                The storage location of the application version\'s source bundle in Amazon S3.
         
                 - **S3Bucket** *(string) --* 
         
@@ -5577,7 +5577,7 @@ class Client(BaseClient):
         
                 The processing status of the application version. Reflects the state of the application version during its creation. Many of the values are only applicable if you specified ``True`` for the ``Process`` parameter of the ``CreateApplicationVersion`` action. The following list describes the possible values.
         
-                * ``Unprocessed`` – Application version wasn't pre-processed or validated. Elastic Beanstalk will validate configuration files during deployment of the application version to an environment. 
+                * ``Unprocessed`` – Application version wasn\'t pre-processed or validated. Elastic Beanstalk will validate configuration files during deployment of the application version to an environment. 
                  
                 * ``Processing`` – Elastic Beanstalk is currently processing the application version. 
                  
@@ -5585,7 +5585,7 @@ class Client(BaseClient):
                  
                 * ``Processed`` – Elastic Beanstalk was successfully pre-processed and validated. 
                  
-                * ``Failed`` – Either the AWS CodeBuild build failed or configuration files didn't pass validation. This application version isn't usable. 
+                * ``Failed`` – Either the AWS CodeBuild build failed or configuration files didn\'t pass validation. This application version isn\'t usable. 
                  
         """
         pass
@@ -5607,22 +5607,22 @@ class Client(BaseClient):
         ::
         
           response = client.update_configuration_template(
-              ApplicationName='string',
-              TemplateName='string',
-              Description='string',
+              ApplicationName=\'string\',
+              TemplateName=\'string\',
+              Description=\'string\',
               OptionSettings=[
                   {
-                      'ResourceName': 'string',
-                      'Namespace': 'string',
-                      'OptionName': 'string',
-                      'Value': 'string'
+                      \'ResourceName\': \'string\',
+                      \'Namespace\': \'string\',
+                      \'OptionName\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               OptionsToRemove=[
                   {
-                      'ResourceName': 'string',
-                      'Namespace': 'string',
-                      'OptionName': 'string'
+                      \'ResourceName\': \'string\',
+                      \'Namespace\': \'string\',
+                      \'OptionName\': \'string\'
                   },
               ]
           )
@@ -5660,7 +5660,7 @@ class Client(BaseClient):
         
             - **Namespace** *(string) --* 
         
-              A unique namespace identifying the option's associated AWS resource.
+              A unique namespace identifying the option\'s associated AWS resource.
         
             - **OptionName** *(string) --* 
         
@@ -5687,7 +5687,7 @@ class Client(BaseClient):
         
             - **Namespace** *(string) --* 
         
-              A unique namespace identifying the option's associated AWS resource.
+              A unique namespace identifying the option\'s associated AWS resource.
         
             - **OptionName** *(string) --* 
         
@@ -5701,21 +5701,21 @@ class Client(BaseClient):
           ::
         
             {
-                'SolutionStackName': 'string',
-                'PlatformArn': 'string',
-                'ApplicationName': 'string',
-                'TemplateName': 'string',
-                'Description': 'string',
-                'EnvironmentName': 'string',
-                'DeploymentStatus': 'deployed'|'pending'|'failed',
-                'DateCreated': datetime(2015, 1, 1),
-                'DateUpdated': datetime(2015, 1, 1),
-                'OptionSettings': [
+                \'SolutionStackName\': \'string\',
+                \'PlatformArn\': \'string\',
+                \'ApplicationName\': \'string\',
+                \'TemplateName\': \'string\',
+                \'Description\': \'string\',
+                \'EnvironmentName\': \'string\',
+                \'DeploymentStatus\': \'deployed\'|\'pending\'|\'failed\',
+                \'DateCreated\': datetime(2015, 1, 1),
+                \'DateUpdated\': datetime(2015, 1, 1),
+                \'OptionSettings\': [
                     {
-                        'ResourceName': 'string',
-                        'Namespace': 'string',
-                        'OptionName': 'string',
-                        'Value': 'string'
+                        \'ResourceName\': \'string\',
+                        \'Namespace\': \'string\',
+                        \'OptionName\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -5783,7 +5783,7 @@ class Client(BaseClient):
         
                 - **Namespace** *(string) --* 
         
-                  A unique namespace identifying the option's associated AWS resource.
+                  A unique namespace identifying the option\'s associated AWS resource.
         
                 - **OptionName** *(string) --* 
         
@@ -5809,33 +5809,33 @@ class Client(BaseClient):
         ::
         
           response = client.update_environment(
-              ApplicationName='string',
-              EnvironmentId='string',
-              EnvironmentName='string',
-              GroupName='string',
-              Description='string',
+              ApplicationName=\'string\',
+              EnvironmentId=\'string\',
+              EnvironmentName=\'string\',
+              GroupName=\'string\',
+              Description=\'string\',
               Tier={
-                  'Name': 'string',
-                  'Type': 'string',
-                  'Version': 'string'
+                  \'Name\': \'string\',
+                  \'Type\': \'string\',
+                  \'Version\': \'string\'
               },
-              VersionLabel='string',
-              TemplateName='string',
-              SolutionStackName='string',
-              PlatformArn='string',
+              VersionLabel=\'string\',
+              TemplateName=\'string\',
+              SolutionStackName=\'string\',
+              PlatformArn=\'string\',
               OptionSettings=[
                   {
-                      'ResourceName': 'string',
-                      'Namespace': 'string',
-                      'OptionName': 'string',
-                      'Value': 'string'
+                      \'ResourceName\': \'string\',
+                      \'Namespace\': \'string\',
+                      \'OptionName\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               OptionsToRemove=[
                   {
-                      'ResourceName': 'string',
-                      'Namespace': 'string',
-                      'OptionName': 'string'
+                      \'ResourceName\': \'string\',
+                      \'Namespace\': \'string\',
+                      \'OptionName\': \'string\'
                   },
               ]
           )
@@ -5863,7 +5863,7 @@ class Client(BaseClient):
         :type GroupName: string
         :param GroupName: 
         
-          The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name or environment ID parameters. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+          The name of the group to which the target environment belongs. Specify a group name only if the environment\'s name is specified in an environment manifest and not with the environment name or environment ID parameters. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
         
         :type Description: string
         :param Description: 
@@ -5887,7 +5887,7 @@ class Client(BaseClient):
         
           - **Version** *(string) --* 
         
-            The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+            The version of this environment tier. When you don\'t set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
         
             .. note::
         
@@ -5928,7 +5928,7 @@ class Client(BaseClient):
         
             - **Namespace** *(string) --* 
         
-              A unique namespace identifying the option's associated AWS resource.
+              A unique namespace identifying the option\'s associated AWS resource.
         
             - **OptionName** *(string) --* 
         
@@ -5953,7 +5953,7 @@ class Client(BaseClient):
         
             - **Namespace** *(string) --* 
         
-              A unique namespace identifying the option's associated AWS resource.
+              A unique namespace identifying the option\'s associated AWS resource.
         
             - **OptionName** *(string) --* 
         
@@ -5967,46 +5967,46 @@ class Client(BaseClient):
           ::
         
             {
-                'EnvironmentName': 'string',
-                'EnvironmentId': 'string',
-                'ApplicationName': 'string',
-                'VersionLabel': 'string',
-                'SolutionStackName': 'string',
-                'PlatformArn': 'string',
-                'TemplateName': 'string',
-                'Description': 'string',
-                'EndpointURL': 'string',
-                'CNAME': 'string',
-                'DateCreated': datetime(2015, 1, 1),
-                'DateUpdated': datetime(2015, 1, 1),
-                'Status': 'Launching'|'Updating'|'Ready'|'Terminating'|'Terminated',
-                'AbortableOperationInProgress': True|False,
-                'Health': 'Green'|'Yellow'|'Red'|'Grey',
-                'HealthStatus': 'NoData'|'Unknown'|'Pending'|'Ok'|'Info'|'Warning'|'Degraded'|'Severe'|'Suspended',
-                'Resources': {
-                    'LoadBalancer': {
-                        'LoadBalancerName': 'string',
-                        'Domain': 'string',
-                        'Listeners': [
+                \'EnvironmentName\': \'string\',
+                \'EnvironmentId\': \'string\',
+                \'ApplicationName\': \'string\',
+                \'VersionLabel\': \'string\',
+                \'SolutionStackName\': \'string\',
+                \'PlatformArn\': \'string\',
+                \'TemplateName\': \'string\',
+                \'Description\': \'string\',
+                \'EndpointURL\': \'string\',
+                \'CNAME\': \'string\',
+                \'DateCreated\': datetime(2015, 1, 1),
+                \'DateUpdated\': datetime(2015, 1, 1),
+                \'Status\': \'Launching\'|\'Updating\'|\'Ready\'|\'Terminating\'|\'Terminated\',
+                \'AbortableOperationInProgress\': True|False,
+                \'Health\': \'Green\'|\'Yellow\'|\'Red\'|\'Grey\',
+                \'HealthStatus\': \'NoData\'|\'Unknown\'|\'Pending\'|\'Ok\'|\'Info\'|\'Warning\'|\'Degraded\'|\'Severe\'|\'Suspended\',
+                \'Resources\': {
+                    \'LoadBalancer\': {
+                        \'LoadBalancerName\': \'string\',
+                        \'Domain\': \'string\',
+                        \'Listeners\': [
                             {
-                                'Protocol': 'string',
-                                'Port': 123
+                                \'Protocol\': \'string\',
+                                \'Port\': 123
                             },
                         ]
                     }
                 },
-                'Tier': {
-                    'Name': 'string',
-                    'Type': 'string',
-                    'Version': 'string'
+                \'Tier\': {
+                    \'Name\': \'string\',
+                    \'Type\': \'string\',
+                    \'Version\': \'string\'
                 },
-                'EnvironmentLinks': [
+                \'EnvironmentLinks\': [
                     {
-                        'LinkName': 'string',
-                        'EnvironmentName': 'string'
+                        \'LinkName\': \'string\',
+                        \'EnvironmentName\': \'string\'
                     },
                 ],
-                'EnvironmentArn': 'string'
+                \'EnvironmentArn\': \'string\'
             }
           **Response Structure** 
         
@@ -6148,7 +6148,7 @@ class Client(BaseClient):
         
               - **Version** *(string) --* 
         
-                The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+                The version of this environment tier. When you don\'t set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
         
                 .. note::
         
@@ -6160,7 +6160,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+                A link to another environment, defined in the environment\'s manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
         
                 - **LinkName** *(string) --* 
         
@@ -6172,7 +6172,7 @@ class Client(BaseClient):
         
             - **EnvironmentArn** *(string) --* 
         
-              The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
+              The environment\'s Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
         
         """
         pass
@@ -6200,15 +6200,15 @@ class Client(BaseClient):
         ::
         
           response = client.update_tags_for_resource(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               TagsToAdd=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               TagsToRemove=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceArn: string
@@ -6223,7 +6223,7 @@ class Client(BaseClient):
         
           A list of tags to add or update.
         
-          If a key of an existing tag is added, the tag's value is updated.
+          If a key of an existing tag is added, the tag\'s value is updated.
         
           - *(dict) --* 
         
@@ -6242,7 +6242,7 @@ class Client(BaseClient):
         
           A list of tag keys to remove.
         
-          If a tag key doesn't exist, it is silently ignored.
+          If a tag key doesn\'t exist, it is silently ignored.
         
           - *(string) --* 
         
@@ -6261,15 +6261,15 @@ class Client(BaseClient):
         ::
         
           response = client.validate_configuration_settings(
-              ApplicationName='string',
-              TemplateName='string',
-              EnvironmentName='string',
+              ApplicationName=\'string\',
+              TemplateName=\'string\',
+              EnvironmentName=\'string\',
               OptionSettings=[
                   {
-                      'ResourceName': 'string',
-                      'Namespace': 'string',
-                      'OptionName': 'string',
-                      'Value': 'string'
+                      \'ResourceName\': \'string\',
+                      \'Namespace\': \'string\',
+                      \'OptionName\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -6307,7 +6307,7 @@ class Client(BaseClient):
         
             - **Namespace** *(string) --* 
         
-              A unique namespace identifying the option's associated AWS resource.
+              A unique namespace identifying the option\'s associated AWS resource.
         
             - **OptionName** *(string) --* 
         
@@ -6325,12 +6325,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Messages': [
+                \'Messages\': [
                     {
-                        'Message': 'string',
-                        'Severity': 'error'|'warning',
-                        'Namespace': 'string',
-                        'OptionName': 'string'
+                        \'Message\': \'string\',
+                        \'Severity\': \'error\'|\'warning\',
+                        \'Namespace\': \'string\',
+                        \'OptionName\': \'string\'
                     },
                 ]
             }

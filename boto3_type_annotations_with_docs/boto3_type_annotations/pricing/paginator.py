@@ -13,12 +13,12 @@ class DescribeServices(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ServiceCode='string',
-              FormatVersion='string',
+              ServiceCode=\'string\',
+              FormatVersion=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ServiceCode: string
@@ -58,15 +58,15 @@ class DescribeServices(Paginator):
           ::
         
             {
-                'Services': [
+                \'Services\': [
                     {
-                        'ServiceCode': 'string',
-                        'AttributeNames': [
-                            'string',
+                        \'ServiceCode\': \'string\',
+                        \'AttributeNames\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'FormatVersion': 'string',
+                \'FormatVersion\': \'string\',
                 
             }
           **Response Structure** 
@@ -109,12 +109,12 @@ class GetAttributeValues(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ServiceCode='string',
-              AttributeName='string',
+              ServiceCode=\'string\',
+              AttributeName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ServiceCode: string
@@ -152,9 +152,9 @@ class GetAttributeValues(Paginator):
           ::
         
             {
-                'AttributeValues': [
+                \'AttributeValues\': [
                     {
-                        'Value': 'string'
+                        \'Value\': \'string\'
                     },
                 ],
                 
@@ -189,19 +189,19 @@ class GetProducts(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ServiceCode='string',
+              ServiceCode=\'string\',
               Filters=[
                   {
-                      'Type': 'TERM_MATCH',
-                      'Field': 'string',
-                      'Value': 'string'
+                      \'Type\': \'TERM_MATCH\',
+                      \'Field\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              FormatVersion='string',
+              FormatVersion=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ServiceCode: string
@@ -268,9 +268,9 @@ class GetProducts(Paginator):
           ::
         
             {
-                'FormatVersion': 'string',
-                'PriceList': [
-                    'string',
+                \'FormatVersion\': \'string\',
+                \'PriceList\': [
+                    \'string\',
                 ],
                 
             }

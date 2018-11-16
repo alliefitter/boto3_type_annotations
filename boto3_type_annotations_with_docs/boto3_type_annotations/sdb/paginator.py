@@ -13,9 +13,9 @@ class ListDomains(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,8 +43,8 @@ class ListDomains(Paginator):
           ::
         
             {
-                'DomainNames': [
-                    'string',
+                \'DomainNames\': [
+                    \'string\',
                 ],
                 
             }
@@ -70,12 +70,12 @@ class Select(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SelectExpression='string',
+              SelectExpression=\'string\',
               ConsistentRead=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SelectExpression: string
@@ -109,16 +109,16 @@ class Select(Paginator):
           ::
         
             {
-                'Items': [
+                \'Items\': [
                     {
-                        'Name': 'string',
-                        'AlternateNameEncoding': 'string',
-                        'Attributes': [
+                        \'Name\': \'string\',
+                        \'AlternateNameEncoding\': \'string\',
+                        \'Attributes\': [
                             {
-                                'Name': 'string',
-                                'AlternateNameEncoding': 'string',
-                                'Value': 'string',
-                                'AlternateValueEncoding': 'string'
+                                \'Name\': \'string\',
+                                \'AlternateNameEncoding\': \'string\',
+                                \'Value\': \'string\',
+                                \'AlternateValueEncoding\': \'string\'
                             },
                         ]
                     },

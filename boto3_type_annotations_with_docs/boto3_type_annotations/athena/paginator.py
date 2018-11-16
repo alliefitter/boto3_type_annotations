@@ -12,11 +12,11 @@ class GetQueryResults(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              QueryExecutionId='string',
+              QueryExecutionId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type QueryExecutionId: string
@@ -49,30 +49,30 @@ class GetQueryResults(Paginator):
           ::
         
             {
-                'UpdateCount': 123,
-                'ResultSet': {
-                    'Rows': [
+                \'UpdateCount\': 123,
+                \'ResultSet\': {
+                    \'Rows\': [
                         {
-                            'Data': [
+                            \'Data\': [
                                 {
-                                    'VarCharValue': 'string'
+                                    \'VarCharValue\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ResultSetMetadata': {
-                        'ColumnInfo': [
+                    \'ResultSetMetadata\': {
+                        \'ColumnInfo\': [
                             {
-                                'CatalogName': 'string',
-                                'SchemaName': 'string',
-                                'TableName': 'string',
-                                'Name': 'string',
-                                'Label': 'string',
-                                'Type': 'string',
-                                'Precision': 123,
-                                'Scale': 123,
-                                'Nullable': 'NOT_NULL'|'NULLABLE'|'UNKNOWN',
-                                'CaseSensitive': True|False
+                                \'CatalogName\': \'string\',
+                                \'SchemaName\': \'string\',
+                                \'TableName\': \'string\',
+                                \'Name\': \'string\',
+                                \'Label\': \'string\',
+                                \'Type\': \'string\',
+                                \'Precision\': 123,
+                                \'Scale\': 123,
+                                \'Nullable\': \'NOT_NULL\'|\'NULLABLE\'|\'UNKNOWN\',
+                                \'CaseSensitive\': True|False
                             },
                         ]
                     }
@@ -157,7 +157,7 @@ class GetQueryResults(Paginator):
         
                     - **Nullable** *(string) --* 
         
-                      Indicates the column's nullable status.
+                      Indicates the column\'s nullable status.
         
                     - **CaseSensitive** *(boolean) --* 
         
@@ -178,9 +178,9 @@ class ListNamedQueries(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -208,8 +208,8 @@ class ListNamedQueries(Paginator):
           ::
         
             {
-                'NamedQueryIds': [
-                    'string',
+                \'NamedQueryIds\': [
+                    \'string\',
                 ],
                 
             }
@@ -238,9 +238,9 @@ class ListQueryExecutions(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -268,8 +268,8 @@ class ListQueryExecutions(Paginator):
           ::
         
             {
-                'QueryExecutionIds': [
-                    'string',
+                \'QueryExecutionIds\': [
+                    \'string\',
                 ],
                 
             }

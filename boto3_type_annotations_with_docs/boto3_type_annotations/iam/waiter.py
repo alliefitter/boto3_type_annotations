@@ -12,10 +12,10 @@ class InstanceProfileExists(Waiter):
         ::
         
           waiter.wait(
-              InstanceProfileName='string',
+              InstanceProfileName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type InstanceProfileName: string
@@ -53,10 +53,10 @@ class UserExists(Waiter):
         ::
         
           waiter.wait(
-              UserName='string',
+              UserName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type UserName: string

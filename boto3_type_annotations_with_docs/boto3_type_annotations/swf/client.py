@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
+from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,7 +33,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -47,7 +47,7 @@ class Client(BaseClient):
            
           * ``typeFilter.version`` : String constraint. The key is ``swf:typeFilter.version`` . 
            
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/CountClosedWorkflowExecutions>`_
         
@@ -55,27 +55,27 @@ class Client(BaseClient):
         ::
         
           response = client.count_closed_workflow_executions(
-              domain='string',
+              domain=\'string\',
               startTimeFilter={
-                  'oldestDate': datetime(2015, 1, 1),
-                  'latestDate': datetime(2015, 1, 1)
+                  \'oldestDate\': datetime(2015, 1, 1),
+                  \'latestDate\': datetime(2015, 1, 1)
               },
               closeTimeFilter={
-                  'oldestDate': datetime(2015, 1, 1),
-                  'latestDate': datetime(2015, 1, 1)
+                  \'oldestDate\': datetime(2015, 1, 1),
+                  \'latestDate\': datetime(2015, 1, 1)
               },
               executionFilter={
-                  'workflowId': 'string'
+                  \'workflowId\': \'string\'
               },
               typeFilter={
-                  'name': 'string',
-                  'version': 'string'
+                  \'name\': \'string\',
+                  \'version\': \'string\'
               },
               tagFilter={
-                  'tag': 'string'
+                  \'tag\': \'string\'
               },
               closeStatusFilter={
-                  'status': 'COMPLETED'|'FAILED'|'CANCELED'|'TERMINATED'|'CONTINUED_AS_NEW'|'TIMED_OUT'
+                  \'status\': \'COMPLETED\'|\'FAILED\'|\'CANCELED\'|\'TERMINATED\'|\'CONTINUED_AS_NEW\'|\'TIMED_OUT\'
               }
           )
         :type domain: string
@@ -181,8 +181,8 @@ class Client(BaseClient):
           ::
         
             {
-                'count': 123,
-                'truncated': True|False
+                \'count\': 123,
+                \'truncated\': True|False
             }
           **Response Structure** 
         
@@ -210,7 +210,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -224,7 +224,7 @@ class Client(BaseClient):
            
           * ``typeFilter.version`` : String constraint. The key is ``swf:typeFilter.version`` . 
            
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/CountOpenWorkflowExecutions>`_
         
@@ -232,20 +232,20 @@ class Client(BaseClient):
         ::
         
           response = client.count_open_workflow_executions(
-              domain='string',
+              domain=\'string\',
               startTimeFilter={
-                  'oldestDate': datetime(2015, 1, 1),
-                  'latestDate': datetime(2015, 1, 1)
+                  \'oldestDate\': datetime(2015, 1, 1),
+                  \'latestDate\': datetime(2015, 1, 1)
               },
               typeFilter={
-                  'name': 'string',
-                  'version': 'string'
+                  \'name\': \'string\',
+                  \'version\': \'string\'
               },
               tagFilter={
-                  'tag': 'string'
+                  \'tag\': \'string\'
               },
               executionFilter={
-                  'workflowId': 'string'
+                  \'workflowId\': \'string\'
               }
           )
         :type domain: string
@@ -317,8 +317,8 @@ class Client(BaseClient):
           ::
         
             {
-                'count': 123,
-                'truncated': True|False
+                \'count\': 123,
+                \'truncated\': True|False
             }
           **Response Structure** 
         
@@ -342,7 +342,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -350,7 +350,7 @@ class Client(BaseClient):
          
         * Constrain the ``taskList.name`` parameter by using a ``Condition`` element with the ``swf:taskList.name`` key to allow the action to access only certain task lists. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/CountPendingActivityTasks>`_
         
@@ -358,9 +358,9 @@ class Client(BaseClient):
         ::
         
           response = client.count_pending_activity_tasks(
-              domain='string',
+              domain=\'string\',
               taskList={
-                  'name': 'string'
+                  \'name\': \'string\'
               }
           )
         :type domain: string
@@ -385,8 +385,8 @@ class Client(BaseClient):
           ::
         
             {
-                'count': 123,
-                'truncated': True|False
+                \'count\': 123,
+                \'truncated\': True|False
             }
           **Response Structure** 
         
@@ -410,7 +410,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -418,7 +418,7 @@ class Client(BaseClient):
          
         * Constrain the ``taskList.name`` parameter by using a ``Condition`` element with the ``swf:taskList.name`` key to allow the action to access only certain task lists. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/CountPendingDecisionTasks>`_
         
@@ -426,9 +426,9 @@ class Client(BaseClient):
         ::
         
           response = client.count_pending_decision_tasks(
-              domain='string',
+              domain=\'string\',
               taskList={
-                  'name': 'string'
+                  \'name\': \'string\'
               }
           )
         :type domain: string
@@ -453,8 +453,8 @@ class Client(BaseClient):
           ::
         
             {
-                'count': 123,
-                'truncated': True|False
+                \'count\': 123,
+                \'truncated\': True|False
             }
           **Response Structure** 
         
@@ -482,7 +482,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -494,7 +494,7 @@ class Client(BaseClient):
            
           * ``activityType.version`` : String constraint. The key is ``swf:activityType.version`` . 
            
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/DeprecateActivityType>`_
         
@@ -502,10 +502,10 @@ class Client(BaseClient):
         ::
         
           response = client.deprecate_activity_type(
-              domain='string',
+              domain=\'string\',
               activityType={
-                  'name': 'string',
-                  'version': 'string'
+                  \'name\': \'string\',
+                  \'version\': \'string\'
               }
           )
         :type domain: string
@@ -547,15 +547,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/DeprecateDomain>`_
         
@@ -563,7 +563,7 @@ class Client(BaseClient):
         ::
         
           response = client.deprecate_domain(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -583,7 +583,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -595,7 +595,7 @@ class Client(BaseClient):
            
           * ``workflowType.version`` : String constraint. The key is ``swf:workflowType.version`` . 
            
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/DeprecateWorkflowType>`_
         
@@ -603,10 +603,10 @@ class Client(BaseClient):
         ::
         
           response = client.deprecate_workflow_type(
-              domain='string',
+              domain=\'string\',
               workflowType={
-                  'name': 'string',
-                  'version': 'string'
+                  \'name\': \'string\',
+                  \'version\': \'string\'
               }
           )
         :type domain: string
@@ -644,7 +644,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -656,7 +656,7 @@ class Client(BaseClient):
            
           * ``activityType.version`` : String constraint. The key is ``swf:activityType.version`` . 
            
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/DescribeActivityType>`_
         
@@ -664,10 +664,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_activity_type(
-              domain='string',
+              domain=\'string\',
               activityType={
-                  'name': 'string',
-                  'version': 'string'
+                  \'name\': \'string\',
+                  \'version\': \'string\'
               }
           )
         :type domain: string
@@ -704,25 +704,25 @@ class Client(BaseClient):
           ::
         
             {
-                'typeInfo': {
-                    'activityType': {
-                        'name': 'string',
-                        'version': 'string'
+                \'typeInfo\': {
+                    \'activityType\': {
+                        \'name\': \'string\',
+                        \'version\': \'string\'
                     },
-                    'status': 'REGISTERED'|'DEPRECATED',
-                    'description': 'string',
-                    'creationDate': datetime(2015, 1, 1),
-                    'deprecationDate': datetime(2015, 1, 1)
+                    \'status\': \'REGISTERED\'|\'DEPRECATED\',
+                    \'description\': \'string\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'deprecationDate\': datetime(2015, 1, 1)
                 },
-                'configuration': {
-                    'defaultTaskStartToCloseTimeout': 'string',
-                    'defaultTaskHeartbeatTimeout': 'string',
-                    'defaultTaskList': {
-                        'name': 'string'
+                \'configuration\': {
+                    \'defaultTaskStartToCloseTimeout\': \'string\',
+                    \'defaultTaskHeartbeatTimeout\': \'string\',
+                    \'defaultTaskList\': {
+                        \'name\': \'string\'
                     },
-                    'defaultTaskPriority': 'string',
-                    'defaultTaskScheduleToStartTimeout': 'string',
-                    'defaultTaskScheduleToCloseTimeout': 'string'
+                    \'defaultTaskPriority\': \'string\',
+                    \'defaultTaskScheduleToStartTimeout\': \'string\',
+                    \'defaultTaskScheduleToCloseTimeout\': \'string\'
                 }
             }
           **Response Structure** 
@@ -797,7 +797,7 @@ class Client(BaseClient):
         
               - **defaultTaskList** *(dict) --* 
         
-                The default task list specified for this activity type at registration. This default is used if a task list isn't provided when a task is scheduled through the ``ScheduleActivityTask``   Decision . You can override the default registered task list when scheduling a task through the ``ScheduleActivityTask``   Decision .
+                The default task list specified for this activity type at registration. This default is used if a task list isn\'t provided when a task is scheduled through the ``ScheduleActivityTask``   Decision . You can override the default registered task list when scheduling a task through the ``ScheduleActivityTask``   Decision .
         
                 - **name** *(string) --* 
         
@@ -807,7 +807,7 @@ class Client(BaseClient):
         
                 The default task priority for tasks of this activity type, specified at registration. If not set, then ``0`` is used as the default priority. This default can be overridden when scheduling an activity task.
         
-                Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                 For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -831,15 +831,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/DescribeDomain>`_
         
@@ -847,7 +847,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_domain(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -862,13 +862,13 @@ class Client(BaseClient):
           ::
         
             {
-                'domainInfo': {
-                    'name': 'string',
-                    'status': 'REGISTERED'|'DEPRECATED',
-                    'description': 'string'
+                \'domainInfo\': {
+                    \'name\': \'string\',
+                    \'status\': \'REGISTERED\'|\'DEPRECATED\',
+                    \'description\': \'string\'
                 },
-                'configuration': {
-                    'workflowExecutionRetentionPeriodInDays': 'string'
+                \'configuration\': {
+                    \'workflowExecutionRetentionPeriodInDays\': \'string\'
                 }
             }
           **Response Structure** 
@@ -899,7 +899,7 @@ class Client(BaseClient):
         
             - **configuration** *(dict) --* 
         
-              The domain configuration. Currently, this includes only the domain's retention period.
+              The domain configuration. Currently, this includes only the domain\'s retention period.
         
               - **workflowExecutionRetentionPeriodInDays** *(string) --* 
         
@@ -917,15 +917,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/DescribeWorkflowExecution>`_
         
@@ -933,10 +933,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_workflow_execution(
-              domain='string',
+              domain=\'string\',
               execution={
-                  'workflowId': 'string',
-                  'runId': 'string'
+                  \'workflowId\': \'string\',
+                  \'runId\': \'string\'
               }
           )
         :type domain: string
@@ -965,47 +965,47 @@ class Client(BaseClient):
           ::
         
             {
-                'executionInfo': {
-                    'execution': {
-                        'workflowId': 'string',
-                        'runId': 'string'
+                \'executionInfo\': {
+                    \'execution\': {
+                        \'workflowId\': \'string\',
+                        \'runId\': \'string\'
                     },
-                    'workflowType': {
-                        'name': 'string',
-                        'version': 'string'
+                    \'workflowType\': {
+                        \'name\': \'string\',
+                        \'version\': \'string\'
                     },
-                    'startTimestamp': datetime(2015, 1, 1),
-                    'closeTimestamp': datetime(2015, 1, 1),
-                    'executionStatus': 'OPEN'|'CLOSED',
-                    'closeStatus': 'COMPLETED'|'FAILED'|'CANCELED'|'TERMINATED'|'CONTINUED_AS_NEW'|'TIMED_OUT',
-                    'parent': {
-                        'workflowId': 'string',
-                        'runId': 'string'
+                    \'startTimestamp\': datetime(2015, 1, 1),
+                    \'closeTimestamp\': datetime(2015, 1, 1),
+                    \'executionStatus\': \'OPEN\'|\'CLOSED\',
+                    \'closeStatus\': \'COMPLETED\'|\'FAILED\'|\'CANCELED\'|\'TERMINATED\'|\'CONTINUED_AS_NEW\'|\'TIMED_OUT\',
+                    \'parent\': {
+                        \'workflowId\': \'string\',
+                        \'runId\': \'string\'
                     },
-                    'tagList': [
-                        'string',
+                    \'tagList\': [
+                        \'string\',
                     ],
-                    'cancelRequested': True|False
+                    \'cancelRequested\': True|False
                 },
-                'executionConfiguration': {
-                    'taskStartToCloseTimeout': 'string',
-                    'executionStartToCloseTimeout': 'string',
-                    'taskList': {
-                        'name': 'string'
+                \'executionConfiguration\': {
+                    \'taskStartToCloseTimeout\': \'string\',
+                    \'executionStartToCloseTimeout\': \'string\',
+                    \'taskList\': {
+                        \'name\': \'string\'
                     },
-                    'taskPriority': 'string',
-                    'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                    'lambdaRole': 'string'
+                    \'taskPriority\': \'string\',
+                    \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                    \'lambdaRole\': \'string\'
                 },
-                'openCounts': {
-                    'openActivityTasks': 123,
-                    'openDecisionTasks': 123,
-                    'openTimers': 123,
-                    'openChildWorkflowExecutions': 123,
-                    'openLambdaFunctions': 123
+                \'openCounts\': {
+                    \'openActivityTasks\': 123,
+                    \'openDecisionTasks\': 123,
+                    \'openTimers\': 123,
+                    \'openChildWorkflowExecutions\': 123,
+                    \'openLambdaFunctions\': 123
                 },
-                'latestActivityTaskTimestamp': datetime(2015, 1, 1),
-                'latestExecutionContext': 'string'
+                \'latestActivityTaskTimestamp\': datetime(2015, 1, 1),
+                \'latestExecutionContext\': \'string\'
             }
           **Response Structure** 
         
@@ -1125,7 +1125,7 @@ class Client(BaseClient):
         
               - **taskPriority** *(string) --* 
         
-                The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                 For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -1185,7 +1185,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -1197,7 +1197,7 @@ class Client(BaseClient):
            
           * ``workflowType.version`` : String constraint. The key is ``swf:workflowType.version`` . 
            
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/DescribeWorkflowType>`_
         
@@ -1205,10 +1205,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_workflow_type(
-              domain='string',
+              domain=\'string\',
               workflowType={
-                  'name': 'string',
-                  'version': 'string'
+                  \'name\': \'string\',
+                  \'version\': \'string\'
               }
           )
         :type domain: string
@@ -1245,25 +1245,25 @@ class Client(BaseClient):
           ::
         
             {
-                'typeInfo': {
-                    'workflowType': {
-                        'name': 'string',
-                        'version': 'string'
+                \'typeInfo\': {
+                    \'workflowType\': {
+                        \'name\': \'string\',
+                        \'version\': \'string\'
                     },
-                    'status': 'REGISTERED'|'DEPRECATED',
-                    'description': 'string',
-                    'creationDate': datetime(2015, 1, 1),
-                    'deprecationDate': datetime(2015, 1, 1)
+                    \'status\': \'REGISTERED\'|\'DEPRECATED\',
+                    \'description\': \'string\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'deprecationDate\': datetime(2015, 1, 1)
                 },
-                'configuration': {
-                    'defaultTaskStartToCloseTimeout': 'string',
-                    'defaultExecutionStartToCloseTimeout': 'string',
-                    'defaultTaskList': {
-                        'name': 'string'
+                \'configuration\': {
+                    \'defaultTaskStartToCloseTimeout\': \'string\',
+                    \'defaultExecutionStartToCloseTimeout\': \'string\',
+                    \'defaultTaskList\': {
+                        \'name\': \'string\'
                     },
-                    'defaultTaskPriority': 'string',
-                    'defaultChildPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                    'defaultLambdaRole': 'string'
+                    \'defaultTaskPriority\': \'string\',
+                    \'defaultChildPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                    \'defaultLambdaRole\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1324,7 +1324,7 @@ class Client(BaseClient):
         
               - **defaultTaskStartToCloseTimeout** *(string) --* 
         
-                The default maximum duration, specified when registering the workflow type, that a decision task for executions of this workflow type might take before returning completion or failure. If the task doesn'tdo close in the specified time then the task is automatically timed out and rescheduled. If the decider eventually reports a completion or failure, it is ignored. This default can be overridden when starting a workflow execution using the  StartWorkflowExecution action or the ``StartChildWorkflowExecution``   Decision .
+                The default maximum duration, specified when registering the workflow type, that a decision task for executions of this workflow type might take before returning completion or failure. If the task doesn\'tdo close in the specified time then the task is automatically timed out and rescheduled. If the decider eventually reports a completion or failure, it is ignored. This default can be overridden when starting a workflow execution using the  StartWorkflowExecution action or the ``StartChildWorkflowExecution``   Decision .
         
                 The duration is specified in seconds, an integer greater than or equal to ``0`` . You can use ``NONE`` to specify unlimited duration.
         
@@ -1346,7 +1346,7 @@ class Client(BaseClient):
         
                 The default task priority, specified when registering the workflow type, for all decision tasks of this workflow type. This default can be overridden when starting a workflow execution using the  StartWorkflowExecution action or the ``StartChildWorkflowExecution`` decision.
         
-                Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                 For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -1368,7 +1368,7 @@ class Client(BaseClient):
         
                 .. note::
         
-                  Executions of this workflow type need IAM roles to invoke Lambda functions. If you don't specify an IAM role when starting this workflow type, the default Lambda role is attached to the execution. For more information, see `http\://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html <http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>`__ in the *Amazon SWF Developer Guide* .
+                  Executions of this workflow type need IAM roles to invoke Lambda functions. If you don\'t specify an IAM role when starting this workflow type, the default Lambda role is attached to the execution. For more information, see `http\://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html <http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>`__ in the *Amazon SWF Developer Guide* .
         
         """
         pass
@@ -1389,7 +1389,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1401,10 +1401,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1436,15 +1436,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/GetWorkflowExecutionHistory>`_
         
@@ -1452,12 +1452,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_workflow_execution_history(
-              domain='string',
+              domain=\'string\',
               execution={
-                  'workflowId': 'string',
-                  'runId': 'string'
+                  \'workflowId\': \'string\',
+                  \'runId\': \'string\'
               },
-              nextPageToken='string',
+              nextPageToken=\'string\',
               maximumPageSize=123,
               reverseOrder=True|False
           )
@@ -1506,423 +1506,423 @@ class Client(BaseClient):
           ::
         
             {
-                'events': [
+                \'events\': [
                     {
-                        'eventTimestamp': datetime(2015, 1, 1),
-                        'eventType': 'WorkflowExecutionStarted'|'WorkflowExecutionCancelRequested'|'WorkflowExecutionCompleted'|'CompleteWorkflowExecutionFailed'|'WorkflowExecutionFailed'|'FailWorkflowExecutionFailed'|'WorkflowExecutionTimedOut'|'WorkflowExecutionCanceled'|'CancelWorkflowExecutionFailed'|'WorkflowExecutionContinuedAsNew'|'ContinueAsNewWorkflowExecutionFailed'|'WorkflowExecutionTerminated'|'DecisionTaskScheduled'|'DecisionTaskStarted'|'DecisionTaskCompleted'|'DecisionTaskTimedOut'|'ActivityTaskScheduled'|'ScheduleActivityTaskFailed'|'ActivityTaskStarted'|'ActivityTaskCompleted'|'ActivityTaskFailed'|'ActivityTaskTimedOut'|'ActivityTaskCanceled'|'ActivityTaskCancelRequested'|'RequestCancelActivityTaskFailed'|'WorkflowExecutionSignaled'|'MarkerRecorded'|'RecordMarkerFailed'|'TimerStarted'|'StartTimerFailed'|'TimerFired'|'TimerCanceled'|'CancelTimerFailed'|'StartChildWorkflowExecutionInitiated'|'StartChildWorkflowExecutionFailed'|'ChildWorkflowExecutionStarted'|'ChildWorkflowExecutionCompleted'|'ChildWorkflowExecutionFailed'|'ChildWorkflowExecutionTimedOut'|'ChildWorkflowExecutionCanceled'|'ChildWorkflowExecutionTerminated'|'SignalExternalWorkflowExecutionInitiated'|'SignalExternalWorkflowExecutionFailed'|'ExternalWorkflowExecutionSignaled'|'RequestCancelExternalWorkflowExecutionInitiated'|'RequestCancelExternalWorkflowExecutionFailed'|'ExternalWorkflowExecutionCancelRequested'|'LambdaFunctionScheduled'|'LambdaFunctionStarted'|'LambdaFunctionCompleted'|'LambdaFunctionFailed'|'LambdaFunctionTimedOut'|'ScheduleLambdaFunctionFailed'|'StartLambdaFunctionFailed',
-                        'eventId': 123,
-                        'workflowExecutionStartedEventAttributes': {
-                            'input': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskStartToCloseTimeout': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'taskList': {
-                                'name': 'string'
+                        \'eventTimestamp\': datetime(2015, 1, 1),
+                        \'eventType\': \'WorkflowExecutionStarted\'|\'WorkflowExecutionCancelRequested\'|\'WorkflowExecutionCompleted\'|\'CompleteWorkflowExecutionFailed\'|\'WorkflowExecutionFailed\'|\'FailWorkflowExecutionFailed\'|\'WorkflowExecutionTimedOut\'|\'WorkflowExecutionCanceled\'|\'CancelWorkflowExecutionFailed\'|\'WorkflowExecutionContinuedAsNew\'|\'ContinueAsNewWorkflowExecutionFailed\'|\'WorkflowExecutionTerminated\'|\'DecisionTaskScheduled\'|\'DecisionTaskStarted\'|\'DecisionTaskCompleted\'|\'DecisionTaskTimedOut\'|\'ActivityTaskScheduled\'|\'ScheduleActivityTaskFailed\'|\'ActivityTaskStarted\'|\'ActivityTaskCompleted\'|\'ActivityTaskFailed\'|\'ActivityTaskTimedOut\'|\'ActivityTaskCanceled\'|\'ActivityTaskCancelRequested\'|\'RequestCancelActivityTaskFailed\'|\'WorkflowExecutionSignaled\'|\'MarkerRecorded\'|\'RecordMarkerFailed\'|\'TimerStarted\'|\'StartTimerFailed\'|\'TimerFired\'|\'TimerCanceled\'|\'CancelTimerFailed\'|\'StartChildWorkflowExecutionInitiated\'|\'StartChildWorkflowExecutionFailed\'|\'ChildWorkflowExecutionStarted\'|\'ChildWorkflowExecutionCompleted\'|\'ChildWorkflowExecutionFailed\'|\'ChildWorkflowExecutionTimedOut\'|\'ChildWorkflowExecutionCanceled\'|\'ChildWorkflowExecutionTerminated\'|\'SignalExternalWorkflowExecutionInitiated\'|\'SignalExternalWorkflowExecutionFailed\'|\'ExternalWorkflowExecutionSignaled\'|\'RequestCancelExternalWorkflowExecutionInitiated\'|\'RequestCancelExternalWorkflowExecutionFailed\'|\'ExternalWorkflowExecutionCancelRequested\'|\'LambdaFunctionScheduled\'|\'LambdaFunctionStarted\'|\'LambdaFunctionCompleted\'|\'LambdaFunctionFailed\'|\'LambdaFunctionTimedOut\'|\'ScheduleLambdaFunctionFailed\'|\'StartLambdaFunctionFailed\',
+                        \'eventId\': 123,
+                        \'workflowExecutionStartedEventAttributes\': {
+                            \'input\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'taskPriority\': \'string\',
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'tagList': [
-                                'string',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'continuedExecutionRunId': 'string',
-                            'parentWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                            \'continuedExecutionRunId\': \'string\',
+                            \'parentWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'parentInitiatedEventId': 123,
-                            'lambdaRole': 'string'
+                            \'parentInitiatedEventId\': 123,
+                            \'lambdaRole\': \'string\'
                         },
-                        'workflowExecutionCompletedEventAttributes': {
-                            'result': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionCompletedEventAttributes\': {
+                            \'result\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'completeWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'completeWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionFailedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionFailedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'failWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'failWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON'
+                        \'workflowExecutionTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\'
                         },
-                        'workflowExecutionCanceledEventAttributes': {
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionCanceledEventAttributes\': {
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'cancelWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'cancelWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionContinuedAsNewEventAttributes': {
-                            'input': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'newExecutionRunId': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                        \'workflowExecutionContinuedAsNewEventAttributes\': {
+                            \'input\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'newExecutionRunId\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'taskStartToCloseTimeout': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'tagList': [
-                                'string',
+                            \'taskPriority\': \'string\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'lambdaRole': 'string'
+                            \'lambdaRole\': \'string\'
                         },
-                        'continueAsNewWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'WORKFLOW_TYPE_DEPRECATED'|'WORKFLOW_TYPE_DOES_NOT_EXIST'|'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_CHILD_POLICY_UNDEFINED'|'CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'continueAsNewWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'WORKFLOW_TYPE_DEPRECATED\'|\'WORKFLOW_TYPE_DOES_NOT_EXIST\'|\'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_CHILD_POLICY_UNDEFINED\'|\'CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionTerminatedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'cause': 'CHILD_POLICY_APPLIED'|'EVENT_LIMIT_EXCEEDED'|'OPERATOR_INITIATED'
+                        \'workflowExecutionTerminatedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'cause\': \'CHILD_POLICY_APPLIED\'|\'EVENT_LIMIT_EXCEEDED\'|\'OPERATOR_INITIATED\'
                         },
-                        'workflowExecutionCancelRequestedEventAttributes': {
-                            'externalWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'workflowExecutionCancelRequestedEventAttributes\': {
+                            \'externalWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'externalInitiatedEventId': 123,
-                            'cause': 'CHILD_POLICY_APPLIED'
+                            \'externalInitiatedEventId\': 123,
+                            \'cause\': \'CHILD_POLICY_APPLIED\'
                         },
-                        'decisionTaskScheduledEventAttributes': {
-                            'taskList': {
-                                'name': 'string'
+                        \'decisionTaskScheduledEventAttributes\': {
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'startToCloseTimeout': 'string'
+                            \'taskPriority\': \'string\',
+                            \'startToCloseTimeout\': \'string\'
                         },
-                        'decisionTaskStartedEventAttributes': {
-                            'identity': 'string',
-                            'scheduledEventId': 123
+                        \'decisionTaskStartedEventAttributes\': {
+                            \'identity\': \'string\',
+                            \'scheduledEventId\': 123
                         },
-                        'decisionTaskCompletedEventAttributes': {
-                            'executionContext': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'decisionTaskCompletedEventAttributes\': {
+                            \'executionContext\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'decisionTaskTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'decisionTaskTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskScheduledEventAttributes': {
-                            'activityType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'activityTaskScheduledEventAttributes\': {
+                            \'activityType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'activityId': 'string',
-                            'input': 'string',
-                            'control': 'string',
-                            'scheduleToStartTimeout': 'string',
-                            'scheduleToCloseTimeout': 'string',
-                            'startToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                            \'activityId\': \'string\',
+                            \'input\': \'string\',
+                            \'control\': \'string\',
+                            \'scheduleToStartTimeout\': \'string\',
+                            \'scheduleToCloseTimeout\': \'string\',
+                            \'startToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'heartbeatTimeout': 'string'
+                            \'taskPriority\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'heartbeatTimeout\': \'string\'
                         },
-                        'activityTaskStartedEventAttributes': {
-                            'identity': 'string',
-                            'scheduledEventId': 123
+                        \'activityTaskStartedEventAttributes\': {
+                            \'identity\': \'string\',
+                            \'scheduledEventId\': 123
                         },
-                        'activityTaskCompletedEventAttributes': {
-                            'result': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'activityTaskCompletedEventAttributes\': {
+                            \'result\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskFailedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'activityTaskFailedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE'|'SCHEDULE_TO_START'|'SCHEDULE_TO_CLOSE'|'HEARTBEAT',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'details': 'string'
+                        \'activityTaskTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\'|\'SCHEDULE_TO_START\'|\'SCHEDULE_TO_CLOSE\'|\'HEARTBEAT\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'details\': \'string\'
                         },
-                        'activityTaskCanceledEventAttributes': {
-                            'details': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'latestCancelRequestedEventId': 123
+                        \'activityTaskCanceledEventAttributes\': {
+                            \'details\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'latestCancelRequestedEventId\': 123
                         },
-                        'activityTaskCancelRequestedEventAttributes': {
-                            'decisionTaskCompletedEventId': 123,
-                            'activityId': 'string'
+                        \'activityTaskCancelRequestedEventAttributes\': {
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'activityId\': \'string\'
                         },
-                        'workflowExecutionSignaledEventAttributes': {
-                            'signalName': 'string',
-                            'input': 'string',
-                            'externalWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'workflowExecutionSignaledEventAttributes\': {
+                            \'signalName\': \'string\',
+                            \'input\': \'string\',
+                            \'externalWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'externalInitiatedEventId': 123
+                            \'externalInitiatedEventId\': 123
                         },
-                        'markerRecordedEventAttributes': {
-                            'markerName': 'string',
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'markerRecordedEventAttributes\': {
+                            \'markerName\': \'string\',
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'recordMarkerFailedEventAttributes': {
-                            'markerName': 'string',
-                            'cause': 'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'recordMarkerFailedEventAttributes\': {
+                            \'markerName\': \'string\',
+                            \'cause\': \'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'timerStartedEventAttributes': {
-                            'timerId': 'string',
-                            'control': 'string',
-                            'startToFireTimeout': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'timerStartedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'control\': \'string\',
+                            \'startToFireTimeout\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'timerFiredEventAttributes': {
-                            'timerId': 'string',
-                            'startedEventId': 123
+                        \'timerFiredEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'startedEventId\': 123
                         },
-                        'timerCanceledEventAttributes': {
-                            'timerId': 'string',
-                            'startedEventId': 123,
-                            'decisionTaskCompletedEventId': 123
+                        \'timerCanceledEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'startedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startChildWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'startChildWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'control': 'string',
-                            'input': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                            \'control\': \'string\',
+                            \'input\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'taskStartToCloseTimeout': 'string',
-                            'tagList': [
-                                'string',
+                            \'taskPriority\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'lambdaRole': 'string'
+                            \'lambdaRole\': \'string\'
                         },
-                        'childWorkflowExecutionStartedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionStartedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'childWorkflowExecutionCompletedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionCompletedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'result': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'result\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionFailedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'reason': 'string',
-                            'details': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionTimedOutEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionTimedOutEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'timeoutType': 'START_TO_CLOSE',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionCanceledEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionCanceledEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'details': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'details\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionTerminatedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionTerminatedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'signalExternalWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'signalName': 'string',
-                            'input': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'signalExternalWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'signalName\': \'string\',
+                            \'input\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'externalWorkflowExecutionSignaledEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'externalWorkflowExecutionSignaledEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'signalExternalWorkflowExecutionFailedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'cause': 'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION'|'SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'signalExternalWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'cause\': \'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION\'|\'SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'externalWorkflowExecutionCancelRequestedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'externalWorkflowExecutionCancelRequestedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'requestCancelExternalWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'requestCancelExternalWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'requestCancelExternalWorkflowExecutionFailedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'cause': 'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION'|'REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'requestCancelExternalWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'cause\': \'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION\'|\'REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'scheduleActivityTaskFailedEventAttributes': {
-                            'activityType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'scheduleActivityTaskFailedEventAttributes\': {
+                            \'activityType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'activityId': 'string',
-                            'cause': 'ACTIVITY_TYPE_DEPRECATED'|'ACTIVITY_TYPE_DOES_NOT_EXIST'|'ACTIVITY_ID_ALREADY_IN_USE'|'OPEN_ACTIVITIES_LIMIT_EXCEEDED'|'ACTIVITY_CREATION_RATE_EXCEEDED'|'DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED'|'DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                            \'activityId\': \'string\',
+                            \'cause\': \'ACTIVITY_TYPE_DEPRECATED\'|\'ACTIVITY_TYPE_DOES_NOT_EXIST\'|\'ACTIVITY_ID_ALREADY_IN_USE\'|\'OPEN_ACTIVITIES_LIMIT_EXCEEDED\'|\'ACTIVITY_CREATION_RATE_EXCEEDED\'|\'DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED\'|\'DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'requestCancelActivityTaskFailedEventAttributes': {
-                            'activityId': 'string',
-                            'cause': 'ACTIVITY_ID_UNKNOWN'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'requestCancelActivityTaskFailedEventAttributes\': {
+                            \'activityId\': \'string\',
+                            \'cause\': \'ACTIVITY_ID_UNKNOWN\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startTimerFailedEventAttributes': {
-                            'timerId': 'string',
-                            'cause': 'TIMER_ID_ALREADY_IN_USE'|'OPEN_TIMERS_LIMIT_EXCEEDED'|'TIMER_CREATION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'startTimerFailedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'cause\': \'TIMER_ID_ALREADY_IN_USE\'|\'OPEN_TIMERS_LIMIT_EXCEEDED\'|\'TIMER_CREATION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'cancelTimerFailedEventAttributes': {
-                            'timerId': 'string',
-                            'cause': 'TIMER_ID_UNKNOWN'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'cancelTimerFailedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'cause\': \'TIMER_ID_UNKNOWN\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startChildWorkflowExecutionFailedEventAttributes': {
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'startChildWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'cause': 'WORKFLOW_TYPE_DOES_NOT_EXIST'|'WORKFLOW_TYPE_DEPRECATED'|'OPEN_CHILDREN_LIMIT_EXCEEDED'|'OPEN_WORKFLOWS_LIMIT_EXCEEDED'|'CHILD_CREATION_RATE_EXCEEDED'|'WORKFLOW_ALREADY_RUNNING'|'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_CHILD_POLICY_UNDEFINED'|'OPERATION_NOT_PERMITTED',
-                            'workflowId': 'string',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                            \'cause\': \'WORKFLOW_TYPE_DOES_NOT_EXIST\'|\'WORKFLOW_TYPE_DEPRECATED\'|\'OPEN_CHILDREN_LIMIT_EXCEEDED\'|\'OPEN_WORKFLOWS_LIMIT_EXCEEDED\'|\'CHILD_CREATION_RATE_EXCEEDED\'|\'WORKFLOW_ALREADY_RUNNING\'|\'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_CHILD_POLICY_UNDEFINED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'workflowId\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'lambdaFunctionScheduledEventAttributes': {
-                            'id': 'string',
-                            'name': 'string',
-                            'control': 'string',
-                            'input': 'string',
-                            'startToCloseTimeout': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'lambdaFunctionScheduledEventAttributes\': {
+                            \'id\': \'string\',
+                            \'name\': \'string\',
+                            \'control\': \'string\',
+                            \'input\': \'string\',
+                            \'startToCloseTimeout\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'lambdaFunctionStartedEventAttributes': {
-                            'scheduledEventId': 123
+                        \'lambdaFunctionStartedEventAttributes\': {
+                            \'scheduledEventId\': 123
                         },
-                        'lambdaFunctionCompletedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'result': 'string'
+                        \'lambdaFunctionCompletedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'result\': \'string\'
                         },
-                        'lambdaFunctionFailedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'reason': 'string',
-                            'details': 'string'
+                        \'lambdaFunctionFailedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'reason\': \'string\',
+                            \'details\': \'string\'
                         },
-                        'lambdaFunctionTimedOutEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'timeoutType': 'START_TO_CLOSE'
+                        \'lambdaFunctionTimedOutEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'timeoutType\': \'START_TO_CLOSE\'
                         },
-                        'scheduleLambdaFunctionFailedEventAttributes': {
-                            'id': 'string',
-                            'name': 'string',
-                            'cause': 'ID_ALREADY_IN_USE'|'OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED'|'LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED'|'LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION',
-                            'decisionTaskCompletedEventId': 123
+                        \'scheduleLambdaFunctionFailedEventAttributes\': {
+                            \'id\': \'string\',
+                            \'name\': \'string\',
+                            \'cause\': \'ID_ALREADY_IN_USE\'|\'OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED\'|\'LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED\'|\'LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startLambdaFunctionFailedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'cause': 'ASSUME_ROLE_FAILED',
-                            'message': 'string'
+                        \'startLambdaFunctionFailedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'cause\': \'ASSUME_ROLE_FAILED\',
+                            \'message\': \'string\'
                         }
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1952,7 +1952,7 @@ class Client(BaseClient):
                  
                 * ``ActivityTaskTimedOut`` – The activity task timed out. 
                  
-                * ``CancelTimerFailed`` – Failed to process CancelTimer decision. This happens when the decision isn't configured properly, for example no timer exists with the specified timer Id. 
+                * ``CancelTimerFailed`` – Failed to process CancelTimer decision. This happens when the decision isn\'t configured properly, for example no timer exists with the specified timer Id. 
                  
                 * ``CancelWorkflowExecutionFailed`` – A request to cancel a workflow execution failed. 
                  
@@ -1990,13 +1990,13 @@ class Client(BaseClient):
                  
                 * ``RecordMarkerFailed`` – A ``RecordMarker`` decision was returned as failed. 
                  
-                * ``RequestCancelActivityTaskFailed`` – Failed to process RequestCancelActivityTask decision. This happens when the decision isn't configured properly. 
+                * ``RequestCancelActivityTaskFailed`` – Failed to process RequestCancelActivityTask decision. This happens when the decision isn\'t configured properly. 
                  
                 * ``RequestCancelExternalWorkflowExecutionFailed`` – Request to cancel an external workflow execution failed. 
                  
                 * ``RequestCancelExternalWorkflowExecutionInitiated`` – A request was made to request the cancellation of an external workflow execution. 
                  
-                * ``ScheduleActivityTaskFailed`` – Failed to process ScheduleActivityTask decision. This happens when the decision isn't configured properly, for example the activity type specified isn't registered. 
+                * ``ScheduleActivityTaskFailed`` – Failed to process ScheduleActivityTask decision. This happens when the decision isn\'t configured properly, for example the activity type specified isn\'t registered. 
                  
                 * ``SignalExternalWorkflowExecutionFailed`` – The request to signal an external workflow execution failed. 
                  
@@ -2004,11 +2004,11 @@ class Client(BaseClient):
                  
                 * ``StartActivityTaskFailed`` – A scheduled activity task failed to start. 
                  
-                * ``StartChildWorkflowExecutionFailed`` – Failed to process StartChildWorkflowExecution decision. This happens when the decision isn't configured properly, for example the workflow type specified isn't registered. 
+                * ``StartChildWorkflowExecutionFailed`` – Failed to process StartChildWorkflowExecution decision. This happens when the decision isn\'t configured properly, for example the workflow type specified isn\'t registered. 
                  
                 * ``StartChildWorkflowExecutionInitiated`` – A request was made to start a child workflow execution. 
                  
-                * ``StartTimerFailed`` – Failed to process StartTimer decision. This happens when the decision isn't configured properly, for example a timer already exists with the specified timer Id. 
+                * ``StartTimerFailed`` – Failed to process StartTimer decision. This happens when the decision isn\'t configured properly, for example a timer already exists with the specified timer Id. 
                  
                 * ``TimerCanceled`` – A timer, previously started for this workflow execution, was successfully canceled. 
                  
@@ -2048,7 +2048,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **input** *(string) --* 
         
@@ -2122,7 +2122,7 @@ class Client(BaseClient):
         
                   - **parentWorkflowExecution** *(dict) --* 
         
-                    The source workflow execution that started this workflow execution. The member isn't set if the workflow execution was not started by a workflow.
+                    The source workflow execution that started this workflow execution. The member isn\'t set if the workflow execution was not started by a workflow.
         
                     - **workflowId** *(string) --* 
         
@@ -2142,7 +2142,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **result** *(string) --* 
         
@@ -2154,7 +2154,7 @@ class Client(BaseClient):
         
                 - **completeWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CompleteWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CompleteWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -2170,7 +2170,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -2186,7 +2186,7 @@ class Client(BaseClient):
         
                 - **failWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``FailWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``FailWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -2202,7 +2202,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -2222,7 +2222,7 @@ class Client(BaseClient):
                      
                 - **workflowExecutionCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **details** *(string) --* 
         
@@ -2234,7 +2234,7 @@ class Client(BaseClient):
         
                 - **cancelWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CancelWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CancelWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -2250,7 +2250,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionContinuedAsNewEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionContinuedAsNew`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionContinuedAsNew`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **input** *(string) --* 
         
@@ -2332,7 +2332,7 @@ class Client(BaseClient):
         
                 - **continueAsNewWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ContinueAsNewWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ContinueAsNewWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -2348,7 +2348,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionTerminatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -2376,7 +2376,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **externalWorkflowExecution** *(dict) --* 
         
@@ -2400,7 +2400,7 @@ class Client(BaseClient):
         
                 - **decisionTaskScheduledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskScheduled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskScheduled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **taskList** *(dict) --* 
         
@@ -2412,19 +2412,19 @@ class Client(BaseClient):
         
                   - **taskPriority** *(string) --* 
         
-                    A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
                   - **startToCloseTimeout** *(string) --* 
         
-                    The maximum duration for this decision task. The task is considered timed out if it doesn't completed within this duration.
+                    The maximum duration for this decision task. The task is considered timed out if it doesn\'t completed within this duration.
         
                     The duration is specified in seconds, an integer greater than or equal to ``0`` . You can use ``NONE`` to specify unlimited duration.
         
                 - **decisionTaskStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **identity** *(string) --* 
         
@@ -2436,7 +2436,7 @@ class Client(BaseClient):
         
                 - **decisionTaskCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **executionContext** *(string) --* 
         
@@ -2452,7 +2452,7 @@ class Client(BaseClient):
         
                 - **decisionTaskTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -2468,7 +2468,7 @@ class Client(BaseClient):
         
                 - **activityTaskScheduledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskScheduled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskScheduled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityType** *(dict) --* 
         
@@ -2500,7 +2500,7 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.
+                    Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn\'t sent to the activity.
         
                   - **scheduleToStartTimeout** *(string) --* 
         
@@ -2526,7 +2526,7 @@ class Client(BaseClient):
         
                     The priority to assign to the scheduled activity task. If set, this overrides any default priority value that was assigned when the activity type was registered.
         
-                    Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -2540,7 +2540,7 @@ class Client(BaseClient):
         
                 - **activityTaskStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **identity** *(string) --* 
         
@@ -2552,7 +2552,7 @@ class Client(BaseClient):
         
                 - **activityTaskCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **result** *(string) --* 
         
@@ -2568,7 +2568,7 @@ class Client(BaseClient):
         
                 - **activityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -2588,7 +2588,7 @@ class Client(BaseClient):
         
                 - **activityTaskTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -2608,7 +2608,7 @@ class Client(BaseClient):
         
                 - **activityTaskCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **details** *(string) --* 
         
@@ -2628,7 +2628,7 @@ class Client(BaseClient):
         
                 - **activityTaskCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskcancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskcancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **decisionTaskCompletedEventId** *(integer) --* 
         
@@ -2640,7 +2640,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionSignaledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **signalName** *(string) --* 
         
@@ -2668,7 +2668,7 @@ class Client(BaseClient):
         
                 - **markerRecordedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``MarkerRecorded`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``MarkerRecorded`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **markerName** *(string) --* 
         
@@ -2684,11 +2684,11 @@ class Client(BaseClient):
         
                 - **recordMarkerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **markerName** *(string) --* 
         
-                    The marker's name.
+                    The marker\'s name.
         
                   - **cause** *(string) --* 
         
@@ -2704,7 +2704,7 @@ class Client(BaseClient):
         
                 - **timerStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -2726,7 +2726,7 @@ class Client(BaseClient):
         
                 - **timerFiredEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerFired`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerFired`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -2738,7 +2738,7 @@ class Client(BaseClient):
         
                 - **timerCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -2754,7 +2754,7 @@ class Client(BaseClient):
         
                 - **startChildWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartChildWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartChildWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -2782,7 +2782,7 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn't sent to the activity.
+                    Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn\'t sent to the activity.
         
                   - **input** *(string) --* 
         
@@ -2790,7 +2790,7 @@ class Client(BaseClient):
         
                   - **executionStartToCloseTimeout** *(string) --* 
         
-                    The maximum duration for the child workflow execution. If the workflow execution isn't closed within this duration, it is timed out and force-terminated.
+                    The maximum duration for the child workflow execution. If the workflow execution isn\'t closed within this duration, it is timed out and force-terminated.
         
                     The duration is specified in seconds, an integer greater than or equal to ``0`` . You can use ``NONE`` to specify unlimited duration.
         
@@ -2804,7 +2804,7 @@ class Client(BaseClient):
         
                   - **taskPriority** *(string) --* 
         
-                    The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -2842,7 +2842,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -2882,7 +2882,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -2930,7 +2930,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -2982,7 +2982,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -3030,7 +3030,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -3078,7 +3078,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionTerminatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -3122,7 +3122,7 @@ class Client(BaseClient):
         
                 - **signalExternalWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``SignalExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``SignalExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -3150,7 +3150,7 @@ class Client(BaseClient):
         
                 - **externalWorkflowExecutionSignaledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ExternalWorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ExternalWorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -3170,7 +3170,7 @@ class Client(BaseClient):
         
                 - **signalExternalWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``SignalExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``SignalExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -3198,11 +3198,11 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the workflow execution.
         
                 - **externalWorkflowExecutionCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ExternalWorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types. 
+                  If the event is of type ``ExternalWorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types. 
         
                   - **workflowExecution** *(dict) --* 
         
@@ -3222,7 +3222,7 @@ class Client(BaseClient):
         
                 - **requestCancelExternalWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -3242,7 +3242,7 @@ class Client(BaseClient):
         
                 - **requestCancelExternalWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -3270,11 +3270,11 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the workflow execution.
         
                 - **scheduleActivityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ScheduleActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ScheduleActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityType** *(dict) --* 
         
@@ -3314,7 +3314,7 @@ class Client(BaseClient):
         
                 - **requestCancelActivityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityId** *(string) --* 
         
@@ -3334,7 +3334,7 @@ class Client(BaseClient):
         
                 - **startTimerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartTimerFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartTimerFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -3354,7 +3354,7 @@ class Client(BaseClient):
         
                 - **cancelTimerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CancelTimerFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CancelTimerFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -3374,7 +3374,7 @@ class Client(BaseClient):
         
                 - **startChildWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowType** *(dict) --* 
         
@@ -3412,7 +3412,7 @@ class Client(BaseClient):
         
                     When the ``cause`` is ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is the ID of the ``StartChildWorkflowExecutionInitiated`` event that corresponds to the ``StartChildWorkflowExecution``   Decision to start the workflow execution. You can use this information to diagnose problems by tracing back the chain of events leading up to this event.
         
-                    When the ``cause`` isn't ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is set to ``0`` because the ``StartChildWorkflowExecutionInitiated`` event doesn't exist.
+                    When the ``cause`` isn\'t ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is set to ``0`` because the ``StartChildWorkflowExecutionInitiated`` event doesn\'t exist.
         
                   - **decisionTaskCompletedEventId** *(integer) --* 
         
@@ -3420,11 +3420,11 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the child workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the child workflow execution.
         
                 - **lambdaFunctionScheduledEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionScheduled`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionScheduled`` event. It isn\'t set for other event types.
         
                   - **id** *(string) --* 
         
@@ -3436,7 +3436,7 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
+                    Data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the Lambda task.
         
                   - **input** *(string) --* 
         
@@ -3452,7 +3452,7 @@ class Client(BaseClient):
         
                 - **lambdaFunctionStartedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionStarted`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionStarted`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -3460,7 +3460,7 @@ class Client(BaseClient):
         
                 - **lambdaFunctionCompletedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionCompleted`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionCompleted`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -3476,7 +3476,7 @@ class Client(BaseClient):
         
                 - **lambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -3496,7 +3496,7 @@ class Client(BaseClient):
         
                 - **lambdaFunctionTimedOutEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionTimedOut`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionTimedOut`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -3512,7 +3512,7 @@ class Client(BaseClient):
         
                 - **scheduleLambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``ScheduleLambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``ScheduleLambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **id** *(string) --* 
         
@@ -3536,7 +3536,7 @@ class Client(BaseClient):
         
                 - **startLambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``StartLambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``StartLambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -3568,15 +3568,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/ListActivityTypes>`_
         
@@ -3584,10 +3584,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_activity_types(
-              domain='string',
-              name='string',
-              registrationStatus='REGISTERED'|'DEPRECATED',
-              nextPageToken='string',
+              domain=\'string\',
+              name=\'string\',
+              registrationStatus=\'REGISTERED\'|\'DEPRECATED\',
+              nextPageToken=\'string\',
               maximumPageSize=123,
               reverseOrder=True|False
           )
@@ -3633,19 +3633,19 @@ class Client(BaseClient):
           ::
         
             {
-                'typeInfos': [
+                \'typeInfos\': [
                     {
-                        'activityType': {
-                            'name': 'string',
-                            'version': 'string'
+                        \'activityType\': {
+                            \'name\': \'string\',
+                            \'version\': \'string\'
                         },
-                        'status': 'REGISTERED'|'DEPRECATED',
-                        'description': 'string',
-                        'creationDate': datetime(2015, 1, 1),
-                        'deprecationDate': datetime(2015, 1, 1)
+                        \'status\': \'REGISTERED\'|\'DEPRECATED\',
+                        \'description\': \'string\',
+                        \'creationDate\': datetime(2015, 1, 1),
+                        \'deprecationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3715,7 +3715,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -3729,7 +3729,7 @@ class Client(BaseClient):
            
           * ``typeFilter.version`` : String constraint. The key is ``swf:typeFilter.version`` . 
            
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/ListClosedWorkflowExecutions>`_
         
@@ -3737,29 +3737,29 @@ class Client(BaseClient):
         ::
         
           response = client.list_closed_workflow_executions(
-              domain='string',
+              domain=\'string\',
               startTimeFilter={
-                  'oldestDate': datetime(2015, 1, 1),
-                  'latestDate': datetime(2015, 1, 1)
+                  \'oldestDate\': datetime(2015, 1, 1),
+                  \'latestDate\': datetime(2015, 1, 1)
               },
               closeTimeFilter={
-                  'oldestDate': datetime(2015, 1, 1),
-                  'latestDate': datetime(2015, 1, 1)
+                  \'oldestDate\': datetime(2015, 1, 1),
+                  \'latestDate\': datetime(2015, 1, 1)
               },
               executionFilter={
-                  'workflowId': 'string'
+                  \'workflowId\': \'string\'
               },
               closeStatusFilter={
-                  'status': 'COMPLETED'|'FAILED'|'CANCELED'|'TERMINATED'|'CONTINUED_AS_NEW'|'TIMED_OUT'
+                  \'status\': \'COMPLETED\'|\'FAILED\'|\'CANCELED\'|\'TERMINATED\'|\'CONTINUED_AS_NEW\'|\'TIMED_OUT\'
               },
               typeFilter={
-                  'name': 'string',
-                  'version': 'string'
+                  \'name\': \'string\',
+                  \'version\': \'string\'
               },
               tagFilter={
-                  'tag': 'string'
+                  \'tag\': \'string\'
               },
-              nextPageToken='string',
+              nextPageToken=\'string\',
               maximumPageSize=123,
               reverseOrder=True|False
           )
@@ -3885,31 +3885,31 @@ class Client(BaseClient):
           ::
         
             {
-                'executionInfos': [
+                \'executionInfos\': [
                     {
-                        'execution': {
-                            'workflowId': 'string',
-                            'runId': 'string'
+                        \'execution\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\'
                         },
-                        'workflowType': {
-                            'name': 'string',
-                            'version': 'string'
+                        \'workflowType\': {
+                            \'name\': \'string\',
+                            \'version\': \'string\'
                         },
-                        'startTimestamp': datetime(2015, 1, 1),
-                        'closeTimestamp': datetime(2015, 1, 1),
-                        'executionStatus': 'OPEN'|'CLOSED',
-                        'closeStatus': 'COMPLETED'|'FAILED'|'CANCELED'|'TERMINATED'|'CONTINUED_AS_NEW'|'TIMED_OUT',
-                        'parent': {
-                            'workflowId': 'string',
-                            'runId': 'string'
+                        \'startTimestamp\': datetime(2015, 1, 1),
+                        \'closeTimestamp\': datetime(2015, 1, 1),
+                        \'executionStatus\': \'OPEN\'|\'CLOSED\',
+                        \'closeStatus\': \'COMPLETED\'|\'FAILED\'|\'CANCELED\'|\'TERMINATED\'|\'CONTINUED_AS_NEW\'|\'TIMED_OUT\',
+                        \'parent\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\'
                         },
-                        'tagList': [
-                            'string',
+                        \'tagList\': [
+                            \'string\',
                         ],
-                        'cancelRequested': True|False
+                        \'cancelRequested\': True|False
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4025,15 +4025,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. The element must be set to ``arn:aws:swf::AccountID:domain/*`` , where *AccountID* is the account ID, with no dashes. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/ListDomains>`_
         
@@ -4041,8 +4041,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_domains(
-              nextPageToken='string',
-              registrationStatus='REGISTERED'|'DEPRECATED',
+              nextPageToken=\'string\',
+              registrationStatus=\'REGISTERED\'|\'DEPRECATED\',
               maximumPageSize=123,
               reverseOrder=True|False
           )
@@ -4078,14 +4078,14 @@ class Client(BaseClient):
           ::
         
             {
-                'domainInfos': [
+                \'domainInfos\': [
                     {
-                        'name': 'string',
-                        'status': 'REGISTERED'|'DEPRECATED',
-                        'description': 'string'
+                        \'name\': \'string\',
+                        \'status\': \'REGISTERED\'|\'DEPRECATED\',
+                        \'description\': \'string\'
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4135,7 +4135,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -4149,7 +4149,7 @@ class Client(BaseClient):
            
           * ``typeFilter.version`` : String constraint. The key is ``swf:typeFilter.version`` . 
            
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/ListOpenWorkflowExecutions>`_
         
@@ -4157,23 +4157,23 @@ class Client(BaseClient):
         ::
         
           response = client.list_open_workflow_executions(
-              domain='string',
+              domain=\'string\',
               startTimeFilter={
-                  'oldestDate': datetime(2015, 1, 1),
-                  'latestDate': datetime(2015, 1, 1)
+                  \'oldestDate\': datetime(2015, 1, 1),
+                  \'latestDate\': datetime(2015, 1, 1)
               },
               typeFilter={
-                  'name': 'string',
-                  'version': 'string'
+                  \'name\': \'string\',
+                  \'version\': \'string\'
               },
               tagFilter={
-                  'tag': 'string'
+                  \'tag\': \'string\'
               },
-              nextPageToken='string',
+              nextPageToken=\'string\',
               maximumPageSize=123,
               reverseOrder=True|False,
               executionFilter={
-                  'workflowId': 'string'
+                  \'workflowId\': \'string\'
               }
           )
         :type domain: string
@@ -4264,31 +4264,31 @@ class Client(BaseClient):
           ::
         
             {
-                'executionInfos': [
+                \'executionInfos\': [
                     {
-                        'execution': {
-                            'workflowId': 'string',
-                            'runId': 'string'
+                        \'execution\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\'
                         },
-                        'workflowType': {
-                            'name': 'string',
-                            'version': 'string'
+                        \'workflowType\': {
+                            \'name\': \'string\',
+                            \'version\': \'string\'
                         },
-                        'startTimestamp': datetime(2015, 1, 1),
-                        'closeTimestamp': datetime(2015, 1, 1),
-                        'executionStatus': 'OPEN'|'CLOSED',
-                        'closeStatus': 'COMPLETED'|'FAILED'|'CANCELED'|'TERMINATED'|'CONTINUED_AS_NEW'|'TIMED_OUT',
-                        'parent': {
-                            'workflowId': 'string',
-                            'runId': 'string'
+                        \'startTimestamp\': datetime(2015, 1, 1),
+                        \'closeTimestamp\': datetime(2015, 1, 1),
+                        \'executionStatus\': \'OPEN\'|\'CLOSED\',
+                        \'closeStatus\': \'COMPLETED\'|\'FAILED\'|\'CANCELED\'|\'TERMINATED\'|\'CONTINUED_AS_NEW\'|\'TIMED_OUT\',
+                        \'parent\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\'
                         },
-                        'tagList': [
-                            'string',
+                        \'tagList\': [
+                            \'string\',
                         ],
-                        'cancelRequested': True|False
+                        \'cancelRequested\': True|False
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4400,15 +4400,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/ListWorkflowTypes>`_
         
@@ -4416,10 +4416,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_workflow_types(
-              domain='string',
-              name='string',
-              registrationStatus='REGISTERED'|'DEPRECATED',
-              nextPageToken='string',
+              domain=\'string\',
+              name=\'string\',
+              registrationStatus=\'REGISTERED\'|\'DEPRECATED\',
+              nextPageToken=\'string\',
               maximumPageSize=123,
               reverseOrder=True|False
           )
@@ -4465,19 +4465,19 @@ class Client(BaseClient):
           ::
         
             {
-                'typeInfos': [
+                \'typeInfos\': [
                     {
-                        'workflowType': {
-                            'name': 'string',
-                            'version': 'string'
+                        \'workflowType\': {
+                            \'name\': \'string\',
+                            \'version\': \'string\'
                         },
-                        'status': 'REGISTERED'|'DEPRECATED',
-                        'description': 'string',
-                        'creationDate': datetime(2015, 1, 1),
-                        'deprecationDate': datetime(2015, 1, 1)
+                        \'status\': \'REGISTERED\'|\'DEPRECATED\',
+                        \'description\': \'string\',
+                        \'creationDate\': datetime(2015, 1, 1),
+                        \'deprecationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4547,7 +4547,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -4555,7 +4555,7 @@ class Client(BaseClient):
          
         * Constrain the ``taskList.name`` parameter by using a ``Condition`` element with the ``swf:taskList.name`` key to allow the action to access only certain task lists. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/PollForActivityTask>`_
         
@@ -4563,11 +4563,11 @@ class Client(BaseClient):
         ::
         
           response = client.poll_for_activity_task(
-              domain='string',
+              domain=\'string\',
               taskList={
-                  'name': 'string'
+                  \'name\': \'string\'
               },
-              identity='string'
+              identity=\'string\'
           )
         :type domain: string
         :param domain: **[REQUIRED]** 
@@ -4598,18 +4598,18 @@ class Client(BaseClient):
           ::
         
             {
-                'taskToken': 'string',
-                'activityId': 'string',
-                'startedEventId': 123,
-                'workflowExecution': {
-                    'workflowId': 'string',
-                    'runId': 'string'
+                \'taskToken\': \'string\',
+                \'activityId\': \'string\',
+                \'startedEventId\': 123,
+                \'workflowExecution\': {
+                    \'workflowId\': \'string\',
+                    \'runId\': \'string\'
                 },
-                'activityType': {
-                    'name': 'string',
-                    'version': 'string'
+                \'activityType\': {
+                    \'name\': \'string\',
+                    \'version\': \'string\'
                 },
-                'input': 'string'
+                \'input\': \'string\'
             }
           **Response Structure** 
         
@@ -4683,7 +4683,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -4691,7 +4691,7 @@ class Client(BaseClient):
          
         * Constrain the ``taskList.name`` parameter by using a ``Condition`` element with the ``swf:taskList.name`` key to allow the action to access only certain task lists. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/PollForDecisionTask>`_
         
@@ -4699,12 +4699,12 @@ class Client(BaseClient):
         ::
         
           response = client.poll_for_decision_task(
-              domain='string',
+              domain=\'string\',
               taskList={
-                  'name': 'string'
+                  \'name\': \'string\'
               },
-              identity='string',
-              nextPageToken='string',
+              identity=\'string\',
+              nextPageToken=\'string\',
               maximumPageSize=123,
               reverseOrder=True|False
           )
@@ -4738,7 +4738,7 @@ class Client(BaseClient):
         
           .. note::
         
-            The ``nextPageToken`` returned by this action cannot be used with  GetWorkflowExecutionHistory to get the next page. You must call  PollForDecisionTask again (with the ``nextPageToken`` ) to retrieve the next page of history records. Calling  PollForDecisionTask with a ``nextPageToken`` doesn't return a new decision task.
+            The ``nextPageToken`` returned by this action cannot be used with  GetWorkflowExecutionHistory to get the next page. You must call  PollForDecisionTask again (with the ``nextPageToken`` ) to retrieve the next page of history records. Calling  PollForDecisionTask with a ``nextPageToken`` doesn\'t return a new decision task.
         
         :type maximumPageSize: integer
         :param maximumPageSize: 
@@ -4760,434 +4760,434 @@ class Client(BaseClient):
           ::
         
             {
-                'taskToken': 'string',
-                'startedEventId': 123,
-                'workflowExecution': {
-                    'workflowId': 'string',
-                    'runId': 'string'
+                \'taskToken\': \'string\',
+                \'startedEventId\': 123,
+                \'workflowExecution\': {
+                    \'workflowId\': \'string\',
+                    \'runId\': \'string\'
                 },
-                'workflowType': {
-                    'name': 'string',
-                    'version': 'string'
+                \'workflowType\': {
+                    \'name\': \'string\',
+                    \'version\': \'string\'
                 },
-                'events': [
+                \'events\': [
                     {
-                        'eventTimestamp': datetime(2015, 1, 1),
-                        'eventType': 'WorkflowExecutionStarted'|'WorkflowExecutionCancelRequested'|'WorkflowExecutionCompleted'|'CompleteWorkflowExecutionFailed'|'WorkflowExecutionFailed'|'FailWorkflowExecutionFailed'|'WorkflowExecutionTimedOut'|'WorkflowExecutionCanceled'|'CancelWorkflowExecutionFailed'|'WorkflowExecutionContinuedAsNew'|'ContinueAsNewWorkflowExecutionFailed'|'WorkflowExecutionTerminated'|'DecisionTaskScheduled'|'DecisionTaskStarted'|'DecisionTaskCompleted'|'DecisionTaskTimedOut'|'ActivityTaskScheduled'|'ScheduleActivityTaskFailed'|'ActivityTaskStarted'|'ActivityTaskCompleted'|'ActivityTaskFailed'|'ActivityTaskTimedOut'|'ActivityTaskCanceled'|'ActivityTaskCancelRequested'|'RequestCancelActivityTaskFailed'|'WorkflowExecutionSignaled'|'MarkerRecorded'|'RecordMarkerFailed'|'TimerStarted'|'StartTimerFailed'|'TimerFired'|'TimerCanceled'|'CancelTimerFailed'|'StartChildWorkflowExecutionInitiated'|'StartChildWorkflowExecutionFailed'|'ChildWorkflowExecutionStarted'|'ChildWorkflowExecutionCompleted'|'ChildWorkflowExecutionFailed'|'ChildWorkflowExecutionTimedOut'|'ChildWorkflowExecutionCanceled'|'ChildWorkflowExecutionTerminated'|'SignalExternalWorkflowExecutionInitiated'|'SignalExternalWorkflowExecutionFailed'|'ExternalWorkflowExecutionSignaled'|'RequestCancelExternalWorkflowExecutionInitiated'|'RequestCancelExternalWorkflowExecutionFailed'|'ExternalWorkflowExecutionCancelRequested'|'LambdaFunctionScheduled'|'LambdaFunctionStarted'|'LambdaFunctionCompleted'|'LambdaFunctionFailed'|'LambdaFunctionTimedOut'|'ScheduleLambdaFunctionFailed'|'StartLambdaFunctionFailed',
-                        'eventId': 123,
-                        'workflowExecutionStartedEventAttributes': {
-                            'input': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskStartToCloseTimeout': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'taskList': {
-                                'name': 'string'
+                        \'eventTimestamp\': datetime(2015, 1, 1),
+                        \'eventType\': \'WorkflowExecutionStarted\'|\'WorkflowExecutionCancelRequested\'|\'WorkflowExecutionCompleted\'|\'CompleteWorkflowExecutionFailed\'|\'WorkflowExecutionFailed\'|\'FailWorkflowExecutionFailed\'|\'WorkflowExecutionTimedOut\'|\'WorkflowExecutionCanceled\'|\'CancelWorkflowExecutionFailed\'|\'WorkflowExecutionContinuedAsNew\'|\'ContinueAsNewWorkflowExecutionFailed\'|\'WorkflowExecutionTerminated\'|\'DecisionTaskScheduled\'|\'DecisionTaskStarted\'|\'DecisionTaskCompleted\'|\'DecisionTaskTimedOut\'|\'ActivityTaskScheduled\'|\'ScheduleActivityTaskFailed\'|\'ActivityTaskStarted\'|\'ActivityTaskCompleted\'|\'ActivityTaskFailed\'|\'ActivityTaskTimedOut\'|\'ActivityTaskCanceled\'|\'ActivityTaskCancelRequested\'|\'RequestCancelActivityTaskFailed\'|\'WorkflowExecutionSignaled\'|\'MarkerRecorded\'|\'RecordMarkerFailed\'|\'TimerStarted\'|\'StartTimerFailed\'|\'TimerFired\'|\'TimerCanceled\'|\'CancelTimerFailed\'|\'StartChildWorkflowExecutionInitiated\'|\'StartChildWorkflowExecutionFailed\'|\'ChildWorkflowExecutionStarted\'|\'ChildWorkflowExecutionCompleted\'|\'ChildWorkflowExecutionFailed\'|\'ChildWorkflowExecutionTimedOut\'|\'ChildWorkflowExecutionCanceled\'|\'ChildWorkflowExecutionTerminated\'|\'SignalExternalWorkflowExecutionInitiated\'|\'SignalExternalWorkflowExecutionFailed\'|\'ExternalWorkflowExecutionSignaled\'|\'RequestCancelExternalWorkflowExecutionInitiated\'|\'RequestCancelExternalWorkflowExecutionFailed\'|\'ExternalWorkflowExecutionCancelRequested\'|\'LambdaFunctionScheduled\'|\'LambdaFunctionStarted\'|\'LambdaFunctionCompleted\'|\'LambdaFunctionFailed\'|\'LambdaFunctionTimedOut\'|\'ScheduleLambdaFunctionFailed\'|\'StartLambdaFunctionFailed\',
+                        \'eventId\': 123,
+                        \'workflowExecutionStartedEventAttributes\': {
+                            \'input\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'taskPriority\': \'string\',
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'tagList': [
-                                'string',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'continuedExecutionRunId': 'string',
-                            'parentWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                            \'continuedExecutionRunId\': \'string\',
+                            \'parentWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'parentInitiatedEventId': 123,
-                            'lambdaRole': 'string'
+                            \'parentInitiatedEventId\': 123,
+                            \'lambdaRole\': \'string\'
                         },
-                        'workflowExecutionCompletedEventAttributes': {
-                            'result': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionCompletedEventAttributes\': {
+                            \'result\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'completeWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'completeWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionFailedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionFailedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'failWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'failWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON'
+                        \'workflowExecutionTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\'
                         },
-                        'workflowExecutionCanceledEventAttributes': {
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionCanceledEventAttributes\': {
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'cancelWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'cancelWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionContinuedAsNewEventAttributes': {
-                            'input': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'newExecutionRunId': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                        \'workflowExecutionContinuedAsNewEventAttributes\': {
+                            \'input\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'newExecutionRunId\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'taskStartToCloseTimeout': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'tagList': [
-                                'string',
+                            \'taskPriority\': \'string\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'lambdaRole': 'string'
+                            \'lambdaRole\': \'string\'
                         },
-                        'continueAsNewWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'WORKFLOW_TYPE_DEPRECATED'|'WORKFLOW_TYPE_DOES_NOT_EXIST'|'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_CHILD_POLICY_UNDEFINED'|'CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'continueAsNewWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'WORKFLOW_TYPE_DEPRECATED\'|\'WORKFLOW_TYPE_DOES_NOT_EXIST\'|\'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_CHILD_POLICY_UNDEFINED\'|\'CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionTerminatedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'cause': 'CHILD_POLICY_APPLIED'|'EVENT_LIMIT_EXCEEDED'|'OPERATOR_INITIATED'
+                        \'workflowExecutionTerminatedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'cause\': \'CHILD_POLICY_APPLIED\'|\'EVENT_LIMIT_EXCEEDED\'|\'OPERATOR_INITIATED\'
                         },
-                        'workflowExecutionCancelRequestedEventAttributes': {
-                            'externalWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'workflowExecutionCancelRequestedEventAttributes\': {
+                            \'externalWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'externalInitiatedEventId': 123,
-                            'cause': 'CHILD_POLICY_APPLIED'
+                            \'externalInitiatedEventId\': 123,
+                            \'cause\': \'CHILD_POLICY_APPLIED\'
                         },
-                        'decisionTaskScheduledEventAttributes': {
-                            'taskList': {
-                                'name': 'string'
+                        \'decisionTaskScheduledEventAttributes\': {
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'startToCloseTimeout': 'string'
+                            \'taskPriority\': \'string\',
+                            \'startToCloseTimeout\': \'string\'
                         },
-                        'decisionTaskStartedEventAttributes': {
-                            'identity': 'string',
-                            'scheduledEventId': 123
+                        \'decisionTaskStartedEventAttributes\': {
+                            \'identity\': \'string\',
+                            \'scheduledEventId\': 123
                         },
-                        'decisionTaskCompletedEventAttributes': {
-                            'executionContext': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'decisionTaskCompletedEventAttributes\': {
+                            \'executionContext\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'decisionTaskTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'decisionTaskTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskScheduledEventAttributes': {
-                            'activityType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'activityTaskScheduledEventAttributes\': {
+                            \'activityType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'activityId': 'string',
-                            'input': 'string',
-                            'control': 'string',
-                            'scheduleToStartTimeout': 'string',
-                            'scheduleToCloseTimeout': 'string',
-                            'startToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                            \'activityId\': \'string\',
+                            \'input\': \'string\',
+                            \'control\': \'string\',
+                            \'scheduleToStartTimeout\': \'string\',
+                            \'scheduleToCloseTimeout\': \'string\',
+                            \'startToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'heartbeatTimeout': 'string'
+                            \'taskPriority\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'heartbeatTimeout\': \'string\'
                         },
-                        'activityTaskStartedEventAttributes': {
-                            'identity': 'string',
-                            'scheduledEventId': 123
+                        \'activityTaskStartedEventAttributes\': {
+                            \'identity\': \'string\',
+                            \'scheduledEventId\': 123
                         },
-                        'activityTaskCompletedEventAttributes': {
-                            'result': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'activityTaskCompletedEventAttributes\': {
+                            \'result\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskFailedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'activityTaskFailedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE'|'SCHEDULE_TO_START'|'SCHEDULE_TO_CLOSE'|'HEARTBEAT',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'details': 'string'
+                        \'activityTaskTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\'|\'SCHEDULE_TO_START\'|\'SCHEDULE_TO_CLOSE\'|\'HEARTBEAT\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'details\': \'string\'
                         },
-                        'activityTaskCanceledEventAttributes': {
-                            'details': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'latestCancelRequestedEventId': 123
+                        \'activityTaskCanceledEventAttributes\': {
+                            \'details\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'latestCancelRequestedEventId\': 123
                         },
-                        'activityTaskCancelRequestedEventAttributes': {
-                            'decisionTaskCompletedEventId': 123,
-                            'activityId': 'string'
+                        \'activityTaskCancelRequestedEventAttributes\': {
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'activityId\': \'string\'
                         },
-                        'workflowExecutionSignaledEventAttributes': {
-                            'signalName': 'string',
-                            'input': 'string',
-                            'externalWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'workflowExecutionSignaledEventAttributes\': {
+                            \'signalName\': \'string\',
+                            \'input\': \'string\',
+                            \'externalWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'externalInitiatedEventId': 123
+                            \'externalInitiatedEventId\': 123
                         },
-                        'markerRecordedEventAttributes': {
-                            'markerName': 'string',
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'markerRecordedEventAttributes\': {
+                            \'markerName\': \'string\',
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'recordMarkerFailedEventAttributes': {
-                            'markerName': 'string',
-                            'cause': 'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'recordMarkerFailedEventAttributes\': {
+                            \'markerName\': \'string\',
+                            \'cause\': \'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'timerStartedEventAttributes': {
-                            'timerId': 'string',
-                            'control': 'string',
-                            'startToFireTimeout': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'timerStartedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'control\': \'string\',
+                            \'startToFireTimeout\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'timerFiredEventAttributes': {
-                            'timerId': 'string',
-                            'startedEventId': 123
+                        \'timerFiredEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'startedEventId\': 123
                         },
-                        'timerCanceledEventAttributes': {
-                            'timerId': 'string',
-                            'startedEventId': 123,
-                            'decisionTaskCompletedEventId': 123
+                        \'timerCanceledEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'startedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startChildWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'startChildWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'control': 'string',
-                            'input': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                            \'control\': \'string\',
+                            \'input\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'taskStartToCloseTimeout': 'string',
-                            'tagList': [
-                                'string',
+                            \'taskPriority\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'lambdaRole': 'string'
+                            \'lambdaRole\': \'string\'
                         },
-                        'childWorkflowExecutionStartedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionStartedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'childWorkflowExecutionCompletedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionCompletedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'result': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'result\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionFailedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'reason': 'string',
-                            'details': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionTimedOutEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionTimedOutEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'timeoutType': 'START_TO_CLOSE',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionCanceledEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionCanceledEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'details': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'details\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionTerminatedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionTerminatedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'signalExternalWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'signalName': 'string',
-                            'input': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'signalExternalWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'signalName\': \'string\',
+                            \'input\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'externalWorkflowExecutionSignaledEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'externalWorkflowExecutionSignaledEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'signalExternalWorkflowExecutionFailedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'cause': 'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION'|'SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'signalExternalWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'cause\': \'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION\'|\'SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'externalWorkflowExecutionCancelRequestedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'externalWorkflowExecutionCancelRequestedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'requestCancelExternalWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'requestCancelExternalWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'requestCancelExternalWorkflowExecutionFailedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'cause': 'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION'|'REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'requestCancelExternalWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'cause\': \'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION\'|\'REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'scheduleActivityTaskFailedEventAttributes': {
-                            'activityType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'scheduleActivityTaskFailedEventAttributes\': {
+                            \'activityType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'activityId': 'string',
-                            'cause': 'ACTIVITY_TYPE_DEPRECATED'|'ACTIVITY_TYPE_DOES_NOT_EXIST'|'ACTIVITY_ID_ALREADY_IN_USE'|'OPEN_ACTIVITIES_LIMIT_EXCEEDED'|'ACTIVITY_CREATION_RATE_EXCEEDED'|'DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED'|'DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                            \'activityId\': \'string\',
+                            \'cause\': \'ACTIVITY_TYPE_DEPRECATED\'|\'ACTIVITY_TYPE_DOES_NOT_EXIST\'|\'ACTIVITY_ID_ALREADY_IN_USE\'|\'OPEN_ACTIVITIES_LIMIT_EXCEEDED\'|\'ACTIVITY_CREATION_RATE_EXCEEDED\'|\'DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED\'|\'DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'requestCancelActivityTaskFailedEventAttributes': {
-                            'activityId': 'string',
-                            'cause': 'ACTIVITY_ID_UNKNOWN'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'requestCancelActivityTaskFailedEventAttributes\': {
+                            \'activityId\': \'string\',
+                            \'cause\': \'ACTIVITY_ID_UNKNOWN\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startTimerFailedEventAttributes': {
-                            'timerId': 'string',
-                            'cause': 'TIMER_ID_ALREADY_IN_USE'|'OPEN_TIMERS_LIMIT_EXCEEDED'|'TIMER_CREATION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'startTimerFailedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'cause\': \'TIMER_ID_ALREADY_IN_USE\'|\'OPEN_TIMERS_LIMIT_EXCEEDED\'|\'TIMER_CREATION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'cancelTimerFailedEventAttributes': {
-                            'timerId': 'string',
-                            'cause': 'TIMER_ID_UNKNOWN'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'cancelTimerFailedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'cause\': \'TIMER_ID_UNKNOWN\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startChildWorkflowExecutionFailedEventAttributes': {
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'startChildWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'cause': 'WORKFLOW_TYPE_DOES_NOT_EXIST'|'WORKFLOW_TYPE_DEPRECATED'|'OPEN_CHILDREN_LIMIT_EXCEEDED'|'OPEN_WORKFLOWS_LIMIT_EXCEEDED'|'CHILD_CREATION_RATE_EXCEEDED'|'WORKFLOW_ALREADY_RUNNING'|'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_CHILD_POLICY_UNDEFINED'|'OPERATION_NOT_PERMITTED',
-                            'workflowId': 'string',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                            \'cause\': \'WORKFLOW_TYPE_DOES_NOT_EXIST\'|\'WORKFLOW_TYPE_DEPRECATED\'|\'OPEN_CHILDREN_LIMIT_EXCEEDED\'|\'OPEN_WORKFLOWS_LIMIT_EXCEEDED\'|\'CHILD_CREATION_RATE_EXCEEDED\'|\'WORKFLOW_ALREADY_RUNNING\'|\'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_CHILD_POLICY_UNDEFINED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'workflowId\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'lambdaFunctionScheduledEventAttributes': {
-                            'id': 'string',
-                            'name': 'string',
-                            'control': 'string',
-                            'input': 'string',
-                            'startToCloseTimeout': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'lambdaFunctionScheduledEventAttributes\': {
+                            \'id\': \'string\',
+                            \'name\': \'string\',
+                            \'control\': \'string\',
+                            \'input\': \'string\',
+                            \'startToCloseTimeout\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'lambdaFunctionStartedEventAttributes': {
-                            'scheduledEventId': 123
+                        \'lambdaFunctionStartedEventAttributes\': {
+                            \'scheduledEventId\': 123
                         },
-                        'lambdaFunctionCompletedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'result': 'string'
+                        \'lambdaFunctionCompletedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'result\': \'string\'
                         },
-                        'lambdaFunctionFailedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'reason': 'string',
-                            'details': 'string'
+                        \'lambdaFunctionFailedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'reason\': \'string\',
+                            \'details\': \'string\'
                         },
-                        'lambdaFunctionTimedOutEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'timeoutType': 'START_TO_CLOSE'
+                        \'lambdaFunctionTimedOutEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'timeoutType\': \'START_TO_CLOSE\'
                         },
-                        'scheduleLambdaFunctionFailedEventAttributes': {
-                            'id': 'string',
-                            'name': 'string',
-                            'cause': 'ID_ALREADY_IN_USE'|'OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED'|'LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED'|'LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION',
-                            'decisionTaskCompletedEventId': 123
+                        \'scheduleLambdaFunctionFailedEventAttributes\': {
+                            \'id\': \'string\',
+                            \'name\': \'string\',
+                            \'cause\': \'ID_ALREADY_IN_USE\'|\'OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED\'|\'LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED\'|\'LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startLambdaFunctionFailedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'cause': 'ASSUME_ROLE_FAILED',
-                            'message': 'string'
+                        \'startLambdaFunctionFailedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'cause\': \'ASSUME_ROLE_FAILED\',
+                            \'message\': \'string\'
                         }
                     },
                 ],
-                'nextPageToken': 'string',
-                'previousStartedEventId': 123
+                \'nextPageToken\': \'string\',
+                \'previousStartedEventId\': 123
             }
           **Response Structure** 
         
@@ -5257,7 +5257,7 @@ class Client(BaseClient):
                  
                 * ``ActivityTaskTimedOut`` – The activity task timed out. 
                  
-                * ``CancelTimerFailed`` – Failed to process CancelTimer decision. This happens when the decision isn't configured properly, for example no timer exists with the specified timer Id. 
+                * ``CancelTimerFailed`` – Failed to process CancelTimer decision. This happens when the decision isn\'t configured properly, for example no timer exists with the specified timer Id. 
                  
                 * ``CancelWorkflowExecutionFailed`` – A request to cancel a workflow execution failed. 
                  
@@ -5295,13 +5295,13 @@ class Client(BaseClient):
                  
                 * ``RecordMarkerFailed`` – A ``RecordMarker`` decision was returned as failed. 
                  
-                * ``RequestCancelActivityTaskFailed`` – Failed to process RequestCancelActivityTask decision. This happens when the decision isn't configured properly. 
+                * ``RequestCancelActivityTaskFailed`` – Failed to process RequestCancelActivityTask decision. This happens when the decision isn\'t configured properly. 
                  
                 * ``RequestCancelExternalWorkflowExecutionFailed`` – Request to cancel an external workflow execution failed. 
                  
                 * ``RequestCancelExternalWorkflowExecutionInitiated`` – A request was made to request the cancellation of an external workflow execution. 
                  
-                * ``ScheduleActivityTaskFailed`` – Failed to process ScheduleActivityTask decision. This happens when the decision isn't configured properly, for example the activity type specified isn't registered. 
+                * ``ScheduleActivityTaskFailed`` – Failed to process ScheduleActivityTask decision. This happens when the decision isn\'t configured properly, for example the activity type specified isn\'t registered. 
                  
                 * ``SignalExternalWorkflowExecutionFailed`` – The request to signal an external workflow execution failed. 
                  
@@ -5309,11 +5309,11 @@ class Client(BaseClient):
                  
                 * ``StartActivityTaskFailed`` – A scheduled activity task failed to start. 
                  
-                * ``StartChildWorkflowExecutionFailed`` – Failed to process StartChildWorkflowExecution decision. This happens when the decision isn't configured properly, for example the workflow type specified isn't registered. 
+                * ``StartChildWorkflowExecutionFailed`` – Failed to process StartChildWorkflowExecution decision. This happens when the decision isn\'t configured properly, for example the workflow type specified isn\'t registered. 
                  
                 * ``StartChildWorkflowExecutionInitiated`` – A request was made to start a child workflow execution. 
                  
-                * ``StartTimerFailed`` – Failed to process StartTimer decision. This happens when the decision isn't configured properly, for example a timer already exists with the specified timer Id. 
+                * ``StartTimerFailed`` – Failed to process StartTimer decision. This happens when the decision isn\'t configured properly, for example a timer already exists with the specified timer Id. 
                  
                 * ``TimerCanceled`` – A timer, previously started for this workflow execution, was successfully canceled. 
                  
@@ -5353,7 +5353,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **input** *(string) --* 
         
@@ -5427,7 +5427,7 @@ class Client(BaseClient):
         
                   - **parentWorkflowExecution** *(dict) --* 
         
-                    The source workflow execution that started this workflow execution. The member isn't set if the workflow execution was not started by a workflow.
+                    The source workflow execution that started this workflow execution. The member isn\'t set if the workflow execution was not started by a workflow.
         
                     - **workflowId** *(string) --* 
         
@@ -5447,7 +5447,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **result** *(string) --* 
         
@@ -5459,7 +5459,7 @@ class Client(BaseClient):
         
                 - **completeWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CompleteWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CompleteWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -5475,7 +5475,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -5491,7 +5491,7 @@ class Client(BaseClient):
         
                 - **failWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``FailWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``FailWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -5507,7 +5507,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -5527,7 +5527,7 @@ class Client(BaseClient):
                      
                 - **workflowExecutionCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **details** *(string) --* 
         
@@ -5539,7 +5539,7 @@ class Client(BaseClient):
         
                 - **cancelWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CancelWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CancelWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -5555,7 +5555,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionContinuedAsNewEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionContinuedAsNew`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionContinuedAsNew`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **input** *(string) --* 
         
@@ -5637,7 +5637,7 @@ class Client(BaseClient):
         
                 - **continueAsNewWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ContinueAsNewWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ContinueAsNewWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -5653,7 +5653,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionTerminatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -5681,7 +5681,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **externalWorkflowExecution** *(dict) --* 
         
@@ -5705,7 +5705,7 @@ class Client(BaseClient):
         
                 - **decisionTaskScheduledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskScheduled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskScheduled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **taskList** *(dict) --* 
         
@@ -5717,19 +5717,19 @@ class Client(BaseClient):
         
                   - **taskPriority** *(string) --* 
         
-                    A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
                   - **startToCloseTimeout** *(string) --* 
         
-                    The maximum duration for this decision task. The task is considered timed out if it doesn't completed within this duration.
+                    The maximum duration for this decision task. The task is considered timed out if it doesn\'t completed within this duration.
         
                     The duration is specified in seconds, an integer greater than or equal to ``0`` . You can use ``NONE`` to specify unlimited duration.
         
                 - **decisionTaskStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **identity** *(string) --* 
         
@@ -5741,7 +5741,7 @@ class Client(BaseClient):
         
                 - **decisionTaskCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **executionContext** *(string) --* 
         
@@ -5757,7 +5757,7 @@ class Client(BaseClient):
         
                 - **decisionTaskTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -5773,7 +5773,7 @@ class Client(BaseClient):
         
                 - **activityTaskScheduledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskScheduled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskScheduled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityType** *(dict) --* 
         
@@ -5805,7 +5805,7 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.
+                    Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn\'t sent to the activity.
         
                   - **scheduleToStartTimeout** *(string) --* 
         
@@ -5831,7 +5831,7 @@ class Client(BaseClient):
         
                     The priority to assign to the scheduled activity task. If set, this overrides any default priority value that was assigned when the activity type was registered.
         
-                    Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -5845,7 +5845,7 @@ class Client(BaseClient):
         
                 - **activityTaskStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **identity** *(string) --* 
         
@@ -5857,7 +5857,7 @@ class Client(BaseClient):
         
                 - **activityTaskCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **result** *(string) --* 
         
@@ -5873,7 +5873,7 @@ class Client(BaseClient):
         
                 - **activityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -5893,7 +5893,7 @@ class Client(BaseClient):
         
                 - **activityTaskTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -5913,7 +5913,7 @@ class Client(BaseClient):
         
                 - **activityTaskCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **details** *(string) --* 
         
@@ -5933,7 +5933,7 @@ class Client(BaseClient):
         
                 - **activityTaskCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskcancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskcancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **decisionTaskCompletedEventId** *(integer) --* 
         
@@ -5945,7 +5945,7 @@ class Client(BaseClient):
         
                 - **workflowExecutionSignaledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **signalName** *(string) --* 
         
@@ -5973,7 +5973,7 @@ class Client(BaseClient):
         
                 - **markerRecordedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``MarkerRecorded`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``MarkerRecorded`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **markerName** *(string) --* 
         
@@ -5989,11 +5989,11 @@ class Client(BaseClient):
         
                 - **recordMarkerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **markerName** *(string) --* 
         
-                    The marker's name.
+                    The marker\'s name.
         
                   - **cause** *(string) --* 
         
@@ -6009,7 +6009,7 @@ class Client(BaseClient):
         
                 - **timerStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -6031,7 +6031,7 @@ class Client(BaseClient):
         
                 - **timerFiredEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerFired`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerFired`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -6043,7 +6043,7 @@ class Client(BaseClient):
         
                 - **timerCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -6059,7 +6059,7 @@ class Client(BaseClient):
         
                 - **startChildWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartChildWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartChildWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -6087,7 +6087,7 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn't sent to the activity.
+                    Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn\'t sent to the activity.
         
                   - **input** *(string) --* 
         
@@ -6095,7 +6095,7 @@ class Client(BaseClient):
         
                   - **executionStartToCloseTimeout** *(string) --* 
         
-                    The maximum duration for the child workflow execution. If the workflow execution isn't closed within this duration, it is timed out and force-terminated.
+                    The maximum duration for the child workflow execution. If the workflow execution isn\'t closed within this duration, it is timed out and force-terminated.
         
                     The duration is specified in seconds, an integer greater than or equal to ``0`` . You can use ``NONE`` to specify unlimited duration.
         
@@ -6109,7 +6109,7 @@ class Client(BaseClient):
         
                   - **taskPriority** *(string) --* 
         
-                    The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -6147,7 +6147,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -6187,7 +6187,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -6235,7 +6235,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -6287,7 +6287,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -6335,7 +6335,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -6383,7 +6383,7 @@ class Client(BaseClient):
         
                 - **childWorkflowExecutionTerminatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -6427,7 +6427,7 @@ class Client(BaseClient):
         
                 - **signalExternalWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``SignalExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``SignalExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -6455,7 +6455,7 @@ class Client(BaseClient):
         
                 - **externalWorkflowExecutionSignaledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ExternalWorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ExternalWorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -6475,7 +6475,7 @@ class Client(BaseClient):
         
                 - **signalExternalWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``SignalExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``SignalExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -6503,11 +6503,11 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the workflow execution.
         
                 - **externalWorkflowExecutionCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ExternalWorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types. 
+                  If the event is of type ``ExternalWorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types. 
         
                   - **workflowExecution** *(dict) --* 
         
@@ -6527,7 +6527,7 @@ class Client(BaseClient):
         
                 - **requestCancelExternalWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -6547,7 +6547,7 @@ class Client(BaseClient):
         
                 - **requestCancelExternalWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -6575,11 +6575,11 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the workflow execution.
         
                 - **scheduleActivityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ScheduleActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ScheduleActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityType** *(dict) --* 
         
@@ -6619,7 +6619,7 @@ class Client(BaseClient):
         
                 - **requestCancelActivityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityId** *(string) --* 
         
@@ -6639,7 +6639,7 @@ class Client(BaseClient):
         
                 - **startTimerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartTimerFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartTimerFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -6659,7 +6659,7 @@ class Client(BaseClient):
         
                 - **cancelTimerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CancelTimerFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CancelTimerFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -6679,7 +6679,7 @@ class Client(BaseClient):
         
                 - **startChildWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowType** *(dict) --* 
         
@@ -6717,7 +6717,7 @@ class Client(BaseClient):
         
                     When the ``cause`` is ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is the ID of the ``StartChildWorkflowExecutionInitiated`` event that corresponds to the ``StartChildWorkflowExecution``   Decision to start the workflow execution. You can use this information to diagnose problems by tracing back the chain of events leading up to this event.
         
-                    When the ``cause`` isn't ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is set to ``0`` because the ``StartChildWorkflowExecutionInitiated`` event doesn't exist.
+                    When the ``cause`` isn\'t ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is set to ``0`` because the ``StartChildWorkflowExecutionInitiated`` event doesn\'t exist.
         
                   - **decisionTaskCompletedEventId** *(integer) --* 
         
@@ -6725,11 +6725,11 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the child workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the child workflow execution.
         
                 - **lambdaFunctionScheduledEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionScheduled`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionScheduled`` event. It isn\'t set for other event types.
         
                   - **id** *(string) --* 
         
@@ -6741,7 +6741,7 @@ class Client(BaseClient):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
+                    Data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the Lambda task.
         
                   - **input** *(string) --* 
         
@@ -6757,7 +6757,7 @@ class Client(BaseClient):
         
                 - **lambdaFunctionStartedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionStarted`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionStarted`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -6765,7 +6765,7 @@ class Client(BaseClient):
         
                 - **lambdaFunctionCompletedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionCompleted`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionCompleted`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -6781,7 +6781,7 @@ class Client(BaseClient):
         
                 - **lambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -6801,7 +6801,7 @@ class Client(BaseClient):
         
                 - **lambdaFunctionTimedOutEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionTimedOut`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionTimedOut`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -6817,7 +6817,7 @@ class Client(BaseClient):
         
                 - **scheduleLambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``ScheduleLambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``ScheduleLambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **id** *(string) --* 
         
@@ -6841,7 +6841,7 @@ class Client(BaseClient):
         
                 - **startLambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``StartLambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``StartLambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -6877,7 +6877,7 @@ class Client(BaseClient):
         
         This action resets the ``taskHeartbeatTimeout`` clock. The ``taskHeartbeatTimeout`` is specified in  RegisterActivityType .
         
-        This action doesn't in itself create an event in the workflow execution history. However, if the task times out, the workflow execution history contains a ``ActivityTaskTimedOut`` event that contains the information from the last heartbeat generated by the activity worker.
+        This action doesn\'t in itself create an event in the workflow execution history. However, if the task times out, the workflow execution history contains a ``ActivityTaskTimedOut`` event that contains the information from the last heartbeat generated by the activity worker.
         
         .. note::
         
@@ -6893,15 +6893,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/RecordActivityTaskHeartbeat>`_
         
@@ -6909,8 +6909,8 @@ class Client(BaseClient):
         ::
         
           response = client.record_activity_task_heartbeat(
-              taskToken='string',
-              details='string'
+              taskToken=\'string\',
+              details=\'string\'
           )
         :type taskToken: string
         :param taskToken: **[REQUIRED]** 
@@ -6934,7 +6934,7 @@ class Client(BaseClient):
           ::
         
             {
-                'cancelRequested': True|False
+                \'cancelRequested\': True|False
             }
           **Response Structure** 
         
@@ -6958,7 +6958,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -6972,7 +6972,7 @@ class Client(BaseClient):
            
           * ``version`` : String constraint. The key is ``swf:version`` . 
            
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/RegisterActivityType>`_
         
@@ -6980,18 +6980,18 @@ class Client(BaseClient):
         ::
         
           response = client.register_activity_type(
-              domain='string',
-              name='string',
-              version='string',
-              description='string',
-              defaultTaskStartToCloseTimeout='string',
-              defaultTaskHeartbeatTimeout='string',
+              domain=\'string\',
+              name=\'string\',
+              version=\'string\',
+              description=\'string\',
+              defaultTaskStartToCloseTimeout=\'string\',
+              defaultTaskHeartbeatTimeout=\'string\',
               defaultTaskList={
-                  'name': 'string'
+                  \'name\': \'string\'
               },
-              defaultTaskPriority='string',
-              defaultTaskScheduleToStartTimeout='string',
-              defaultTaskScheduleToCloseTimeout='string'
+              defaultTaskPriority=\'string\',
+              defaultTaskScheduleToStartTimeout=\'string\',
+              defaultTaskScheduleToCloseTimeout=\'string\'
           )
         :type domain: string
         :param domain: **[REQUIRED]** 
@@ -7038,7 +7038,7 @@ class Client(BaseClient):
         :type defaultTaskList: dict
         :param defaultTaskList: 
         
-          If set, specifies the default task list to use for scheduling tasks of this activity type. This default task list is used if a task list isn't provided when a task is scheduled through the ``ScheduleActivityTask``   Decision .
+          If set, specifies the default task list to use for scheduling tasks of this activity type. This default task list is used if a task list isn\'t provided when a task is scheduled through the ``ScheduleActivityTask``   Decision .
         
           - **name** *(string) --* **[REQUIRED]** 
         
@@ -7047,7 +7047,7 @@ class Client(BaseClient):
         :type defaultTaskPriority: string
         :param defaultTaskPriority: 
         
-          The default task priority to assign to the activity type. If not assigned, then ``0`` is used. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+          The default task priority to assign to the activity type. If not assigned, then ``0`` is used. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
           For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *in the *Amazon SWF Developer Guide* .* .
         
@@ -7074,15 +7074,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * You cannot use an IAM policy to control domain access for this action. The name of the domain being registered is available as the resource of this action. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/RegisterDomain>`_
         
@@ -7090,9 +7090,9 @@ class Client(BaseClient):
         ::
         
           response = client.register_domain(
-              name='string',
-              description='string',
-              workflowExecutionRetentionPeriodInDays='string'
+              name=\'string\',
+              description=\'string\',
+              workflowExecutionRetentionPeriodInDays=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -7109,9 +7109,9 @@ class Client(BaseClient):
         :type workflowExecutionRetentionPeriodInDays: string
         :param workflowExecutionRetentionPeriodInDays: **[REQUIRED]** 
         
-          The duration (in days) that records and histories of workflow executions on the domain should be kept by the service. After the retention period, the workflow execution isn't available in the results of visibility calls.
+          The duration (in days) that records and histories of workflow executions on the domain should be kept by the service. After the retention period, the workflow execution isn\'t available in the results of visibility calls.
         
-          If you pass the value ``NONE`` or ``0`` (zero), then the workflow execution history isn't retained. As soon as the workflow execution completes, the execution record and its history are deleted.
+          If you pass the value ``NONE`` or ``0`` (zero), then the workflow execution history isn\'t retained. As soon as the workflow execution completes, the execution record and its history are deleted.
         
           The maximum workflow execution retention period is 90 days. For more information about Amazon SWF service limits, see: `Amazon SWF Service Limits <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -7130,7 +7130,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -7144,7 +7144,7 @@ class Client(BaseClient):
            
           * ``version`` : String constraint. The key is ``swf:version`` . 
            
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/RegisterWorkflowType>`_
         
@@ -7152,18 +7152,18 @@ class Client(BaseClient):
         ::
         
           response = client.register_workflow_type(
-              domain='string',
-              name='string',
-              version='string',
-              description='string',
-              defaultTaskStartToCloseTimeout='string',
-              defaultExecutionStartToCloseTimeout='string',
+              domain=\'string\',
+              name=\'string\',
+              version=\'string\',
+              description=\'string\',
+              defaultTaskStartToCloseTimeout=\'string\',
+              defaultExecutionStartToCloseTimeout=\'string\',
               defaultTaskList={
-                  'name': 'string'
+                  \'name\': \'string\'
               },
-              defaultTaskPriority='string',
-              defaultChildPolicy='TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-              defaultLambdaRole='string'
+              defaultTaskPriority=\'string\',
+              defaultChildPolicy=\'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+              defaultLambdaRole=\'string\'
           )
         :type domain: string
         :param domain: **[REQUIRED]** 
@@ -7205,12 +7205,12 @@ class Client(BaseClient):
         
           If set, specifies the default maximum duration for executions of this workflow type. You can override this default when starting an execution through the  StartWorkflowExecution Action or ``StartChildWorkflowExecution``   Decision .
         
-          The duration is specified in seconds; an integer greater than or equal to 0. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for ``defaultExecutionStartToCloseTimeout`` ; there is a one-year max limit on the time that a workflow execution can run. Exceeding this limit always causes the workflow execution to time out.
+          The duration is specified in seconds; an integer greater than or equal to 0. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of \"NONE\" for ``defaultExecutionStartToCloseTimeout`` ; there is a one-year max limit on the time that a workflow execution can run. Exceeding this limit always causes the workflow execution to time out.
         
         :type defaultTaskList: dict
         :param defaultTaskList: 
         
-          If set, specifies the default task list to use for scheduling decision tasks for executions of this workflow type. This default is used only if a task list isn't provided when starting the execution through the  StartWorkflowExecution Action or ``StartChildWorkflowExecution``   Decision .
+          If set, specifies the default task list to use for scheduling decision tasks for executions of this workflow type. This default is used only if a task list isn\'t provided when starting the execution through the  StartWorkflowExecution Action or ``StartChildWorkflowExecution``   Decision .
         
           - **name** *(string) --* **[REQUIRED]** 
         
@@ -7219,7 +7219,7 @@ class Client(BaseClient):
         :type defaultTaskPriority: string
         :param defaultTaskPriority: 
         
-          The default task priority to assign to the workflow type. If not assigned, then ``0`` is used. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+          The default task priority to assign to the workflow type. If not assigned, then ``0`` is used. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
           For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -7243,7 +7243,7 @@ class Client(BaseClient):
         
           .. note::
         
-            Executions of this workflow type need IAM roles to invoke Lambda functions. If you don't specify an IAM role when you start this workflow type, the default Lambda role is attached to the execution. For more information, see `http\://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html <http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>`__ in the *Amazon SWF Developer Guide* .
+            Executions of this workflow type need IAM roles to invoke Lambda functions. If you don\'t specify an IAM role when you start this workflow type, the default Lambda role is attached to the execution. For more information, see `http\://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html <http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>`__ in the *Amazon SWF Developer Guide* .
         
         :returns: None
         """
@@ -7254,7 +7254,7 @@ class Client(BaseClient):
         
         .. note::
         
-          If the runId isn't specified, the ``WorkflowExecutionCancelRequested`` event is recorded in the history of the current open workflow execution with the specified workflowId in the domain.
+          If the runId isn\'t specified, the ``WorkflowExecutionCancelRequested`` event is recorded in the history of the current open workflow execution with the specified workflowId in the domain.
         
         .. note::
         
@@ -7262,15 +7262,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/RequestCancelWorkflowExecution>`_
         
@@ -7278,9 +7278,9 @@ class Client(BaseClient):
         ::
         
           response = client.request_cancel_workflow_execution(
-              domain='string',
-              workflowId='string',
-              runId='string'
+              domain=\'string\',
+              workflowId=\'string\',
+              runId=\'string\'
           )
         :type domain: string
         :param domain: **[REQUIRED]** 
@@ -7314,15 +7314,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/RespondActivityTaskCanceled>`_
         
@@ -7330,8 +7330,8 @@ class Client(BaseClient):
         ::
         
           response = client.respond_activity_task_canceled(
-              taskToken='string',
-              details='string'
+              taskToken=\'string\',
+              details=\'string\'
           )
         :type taskToken: string
         :param taskToken: **[REQUIRED]** 
@@ -7356,21 +7356,21 @@ class Client(BaseClient):
         
         .. warning::
         
-          If the requested task doesn't complete successfully, use  RespondActivityTaskFailed instead. If the worker finds that the task is canceled through the ``canceled`` flag returned by  RecordActivityTaskHeartbeat , it should cancel the task, clean up and then call  RespondActivityTaskCanceled .
+          If the requested task doesn\'t complete successfully, use  RespondActivityTaskFailed instead. If the worker finds that the task is canceled through the ``canceled`` flag returned by  RecordActivityTaskHeartbeat , it should cancel the task, clean up and then call  RespondActivityTaskCanceled .
         
         A task is considered open from the time that it is scheduled until it is closed. Therefore a task is reported as open while a worker is processing it. A task is closed after it has been specified in a call to RespondActivityTaskCompleted,  RespondActivityTaskCanceled ,  RespondActivityTaskFailed , or the task has `timed out <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types>`__ .
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/RespondActivityTaskCompleted>`_
         
@@ -7378,8 +7378,8 @@ class Client(BaseClient):
         ::
         
           response = client.respond_activity_task_completed(
-              taskToken='string',
-              result='string'
+              taskToken=\'string\',
+              result=\'string\'
           )
         :type taskToken: string
         :param taskToken: **[REQUIRED]** 
@@ -7406,15 +7406,15 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/RespondActivityTaskFailed>`_
         
@@ -7422,9 +7422,9 @@ class Client(BaseClient):
         ::
         
           response = client.respond_activity_task_failed(
-              taskToken='string',
-              reason='string',
-              details='string'
+              taskToken=\'string\',
+              reason=\'string\',
+              details=\'string\'
           )
         :type taskToken: string
         :param taskToken: **[REQUIRED]** 
@@ -7464,109 +7464,109 @@ class Client(BaseClient):
         ::
         
           response = client.respond_decision_task_completed(
-              taskToken='string',
+              taskToken=\'string\',
               decisions=[
                   {
-                      'decisionType': 'ScheduleActivityTask'|'RequestCancelActivityTask'|'CompleteWorkflowExecution'|'FailWorkflowExecution'|'CancelWorkflowExecution'|'ContinueAsNewWorkflowExecution'|'RecordMarker'|'StartTimer'|'CancelTimer'|'SignalExternalWorkflowExecution'|'RequestCancelExternalWorkflowExecution'|'StartChildWorkflowExecution'|'ScheduleLambdaFunction',
-                      'scheduleActivityTaskDecisionAttributes': {
-                          'activityType': {
-                              'name': 'string',
-                              'version': 'string'
+                      \'decisionType\': \'ScheduleActivityTask\'|\'RequestCancelActivityTask\'|\'CompleteWorkflowExecution\'|\'FailWorkflowExecution\'|\'CancelWorkflowExecution\'|\'ContinueAsNewWorkflowExecution\'|\'RecordMarker\'|\'StartTimer\'|\'CancelTimer\'|\'SignalExternalWorkflowExecution\'|\'RequestCancelExternalWorkflowExecution\'|\'StartChildWorkflowExecution\'|\'ScheduleLambdaFunction\',
+                      \'scheduleActivityTaskDecisionAttributes\': {
+                          \'activityType\': {
+                              \'name\': \'string\',
+                              \'version\': \'string\'
                           },
-                          'activityId': 'string',
-                          'control': 'string',
-                          'input': 'string',
-                          'scheduleToCloseTimeout': 'string',
-                          'taskList': {
-                              'name': 'string'
+                          \'activityId\': \'string\',
+                          \'control\': \'string\',
+                          \'input\': \'string\',
+                          \'scheduleToCloseTimeout\': \'string\',
+                          \'taskList\': {
+                              \'name\': \'string\'
                           },
-                          'taskPriority': 'string',
-                          'scheduleToStartTimeout': 'string',
-                          'startToCloseTimeout': 'string',
-                          'heartbeatTimeout': 'string'
+                          \'taskPriority\': \'string\',
+                          \'scheduleToStartTimeout\': \'string\',
+                          \'startToCloseTimeout\': \'string\',
+                          \'heartbeatTimeout\': \'string\'
                       },
-                      'requestCancelActivityTaskDecisionAttributes': {
-                          'activityId': 'string'
+                      \'requestCancelActivityTaskDecisionAttributes\': {
+                          \'activityId\': \'string\'
                       },
-                      'completeWorkflowExecutionDecisionAttributes': {
-                          'result': 'string'
+                      \'completeWorkflowExecutionDecisionAttributes\': {
+                          \'result\': \'string\'
                       },
-                      'failWorkflowExecutionDecisionAttributes': {
-                          'reason': 'string',
-                          'details': 'string'
+                      \'failWorkflowExecutionDecisionAttributes\': {
+                          \'reason\': \'string\',
+                          \'details\': \'string\'
                       },
-                      'cancelWorkflowExecutionDecisionAttributes': {
-                          'details': 'string'
+                      \'cancelWorkflowExecutionDecisionAttributes\': {
+                          \'details\': \'string\'
                       },
-                      'continueAsNewWorkflowExecutionDecisionAttributes': {
-                          'input': 'string',
-                          'executionStartToCloseTimeout': 'string',
-                          'taskList': {
-                              'name': 'string'
+                      \'continueAsNewWorkflowExecutionDecisionAttributes\': {
+                          \'input\': \'string\',
+                          \'executionStartToCloseTimeout\': \'string\',
+                          \'taskList\': {
+                              \'name\': \'string\'
                           },
-                          'taskPriority': 'string',
-                          'taskStartToCloseTimeout': 'string',
-                          'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                          'tagList': [
-                              'string',
+                          \'taskPriority\': \'string\',
+                          \'taskStartToCloseTimeout\': \'string\',
+                          \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                          \'tagList\': [
+                              \'string\',
                           ],
-                          'workflowTypeVersion': 'string',
-                          'lambdaRole': 'string'
+                          \'workflowTypeVersion\': \'string\',
+                          \'lambdaRole\': \'string\'
                       },
-                      'recordMarkerDecisionAttributes': {
-                          'markerName': 'string',
-                          'details': 'string'
+                      \'recordMarkerDecisionAttributes\': {
+                          \'markerName\': \'string\',
+                          \'details\': \'string\'
                       },
-                      'startTimerDecisionAttributes': {
-                          'timerId': 'string',
-                          'control': 'string',
-                          'startToFireTimeout': 'string'
+                      \'startTimerDecisionAttributes\': {
+                          \'timerId\': \'string\',
+                          \'control\': \'string\',
+                          \'startToFireTimeout\': \'string\'
                       },
-                      'cancelTimerDecisionAttributes': {
-                          'timerId': 'string'
+                      \'cancelTimerDecisionAttributes\': {
+                          \'timerId\': \'string\'
                       },
-                      'signalExternalWorkflowExecutionDecisionAttributes': {
-                          'workflowId': 'string',
-                          'runId': 'string',
-                          'signalName': 'string',
-                          'input': 'string',
-                          'control': 'string'
+                      \'signalExternalWorkflowExecutionDecisionAttributes\': {
+                          \'workflowId\': \'string\',
+                          \'runId\': \'string\',
+                          \'signalName\': \'string\',
+                          \'input\': \'string\',
+                          \'control\': \'string\'
                       },
-                      'requestCancelExternalWorkflowExecutionDecisionAttributes': {
-                          'workflowId': 'string',
-                          'runId': 'string',
-                          'control': 'string'
+                      \'requestCancelExternalWorkflowExecutionDecisionAttributes\': {
+                          \'workflowId\': \'string\',
+                          \'runId\': \'string\',
+                          \'control\': \'string\'
                       },
-                      'startChildWorkflowExecutionDecisionAttributes': {
-                          'workflowType': {
-                              'name': 'string',
-                              'version': 'string'
+                      \'startChildWorkflowExecutionDecisionAttributes\': {
+                          \'workflowType\': {
+                              \'name\': \'string\',
+                              \'version\': \'string\'
                           },
-                          'workflowId': 'string',
-                          'control': 'string',
-                          'input': 'string',
-                          'executionStartToCloseTimeout': 'string',
-                          'taskList': {
-                              'name': 'string'
+                          \'workflowId\': \'string\',
+                          \'control\': \'string\',
+                          \'input\': \'string\',
+                          \'executionStartToCloseTimeout\': \'string\',
+                          \'taskList\': {
+                              \'name\': \'string\'
                           },
-                          'taskPriority': 'string',
-                          'taskStartToCloseTimeout': 'string',
-                          'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                          'tagList': [
-                              'string',
+                          \'taskPriority\': \'string\',
+                          \'taskStartToCloseTimeout\': \'string\',
+                          \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                          \'tagList\': [
+                              \'string\',
                           ],
-                          'lambdaRole': 'string'
+                          \'lambdaRole\': \'string\'
                       },
-                      'scheduleLambdaFunctionDecisionAttributes': {
-                          'id': 'string',
-                          'name': 'string',
-                          'control': 'string',
-                          'input': 'string',
-                          'startToCloseTimeout': 'string'
+                      \'scheduleLambdaFunctionDecisionAttributes\': {
+                          \'id\': \'string\',
+                          \'name\': \'string\',
+                          \'control\': \'string\',
+                          \'input\': \'string\',
+                          \'startToCloseTimeout\': \'string\'
                       }
                   },
               ],
-              executionContext='string'
+              executionContext=\'string\'
           )
         :type taskToken: string
         :param taskToken: **[REQUIRED]** 
@@ -7596,7 +7596,7 @@ class Client(BaseClient):
              
             * ``FailWorkflowExecution`` – Closes the workflow execution and records a ``WorkflowExecutionFailed`` event in the history. 
              
-            * ``RecordMarker`` – Records a ``MarkerRecorded`` event in the history. Markers can be used for adding custom information in the history for instance to let deciders know that they don't need to look at the history beyond the marker event. 
+            * ``RecordMarker`` – Records a ``MarkerRecorded`` event in the history. Markers can be used for adding custom information in the history for instance to let deciders know that they don\'t need to look at the history beyond the marker event. 
              
             * ``RequestCancelActivityTask`` – Attempts to cancel a previously scheduled activity task. If the activity task was scheduled but has not been assigned to a worker, then it is canceled. If the activity task was already assigned to a worker, then the worker is informed that cancellation has been requested in the response to  RecordActivityTaskHeartbeat . 
              
@@ -7624,9 +7624,9 @@ class Client(BaseClient):
              
             * The decision lacks sufficient permissions. 
              
-            One of the following events might be added to the history to indicate an error. The event attribute's ``cause`` parameter indicates the cause. If ``cause`` is set to ``OPERATION_NOT_PERMITTED`` , the decision failed because it lacked sufficient permissions. For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+            One of the following events might be added to the history to indicate an error. The event attribute\'s ``cause`` parameter indicates the cause. If ``cause`` is set to ``OPERATION_NOT_PERMITTED`` , the decision failed because it lacked sufficient permissions. For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
-            * ``ScheduleActivityTaskFailed`` – A ``ScheduleActivityTask`` decision failed. This could happen if the activity type specified in the decision isn't registered, is in a deprecated state, or the decision isn't properly configured. 
+            * ``ScheduleActivityTaskFailed`` – A ``ScheduleActivityTask`` decision failed. This could happen if the activity type specified in the decision isn\'t registered, is in a deprecated state, or the decision isn\'t properly configured. 
              
             * ``RequestCancelActivityTaskFailed`` – A ``RequestCancelActivityTask`` decision failed. This could happen if there is no open activity task with the specified activityId. 
              
@@ -7634,7 +7634,7 @@ class Client(BaseClient):
              
             * ``CancelTimerFailed`` – A ``CancelTimer`` decision failed. This could happen if there is no open timer with the specified timerId. 
              
-            * ``StartChildWorkflowExecutionFailed`` – A ``StartChildWorkflowExecution`` decision failed. This could happen if the workflow type specified isn't registered, is deprecated, or the decision isn't properly configured. 
+            * ``StartChildWorkflowExecutionFailed`` – A ``StartChildWorkflowExecution`` decision failed. This could happen if the workflow type specified isn\'t registered, is deprecated, or the decision isn\'t properly configured. 
              
             * ``SignalExternalWorkflowExecutionFailed`` – A ``SignalExternalWorkflowExecution`` decision failed. This could happen if the ``workflowID`` specified in the decision was incorrect. 
              
@@ -7688,7 +7688,7 @@ class Client(BaseClient):
         
             - **scheduleActivityTaskDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``ScheduleActivityTask`` decision. It isn't set for other decision types.
+              Provides the details of the ``ScheduleActivityTask`` decision. It isn\'t set for other decision types.
         
               - **activityType** *(dict) --* **[REQUIRED]** 
         
@@ -7718,7 +7718,7 @@ class Client(BaseClient):
         
               - **control** *(string) --* 
         
-                Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.
+                Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn\'t sent to the activity.
         
               - **input** *(string) --* 
         
@@ -7750,7 +7750,7 @@ class Client(BaseClient):
         
               - **taskPriority** *(string) --* 
         
-                If set, specifies the priority with which the activity task is to be assigned to a worker. This overrides the defaultTaskPriority specified when registering the activity type using  RegisterActivityType . Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                If set, specifies the priority with which the activity task is to be assigned to a worker. This overrides the defaultTaskPriority specified when registering the activity type using  RegisterActivityType . Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                 For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -7782,7 +7782,7 @@ class Client(BaseClient):
         
             - **requestCancelActivityTaskDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``RequestCancelActivityTask`` decision. It isn't set for other decision types.
+              Provides the details of the ``RequestCancelActivityTask`` decision. It isn\'t set for other decision types.
         
               - **activityId** *(string) --* **[REQUIRED]** 
         
@@ -7790,7 +7790,7 @@ class Client(BaseClient):
         
             - **completeWorkflowExecutionDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``CompleteWorkflowExecution`` decision. It isn't set for other decision types.
+              Provides the details of the ``CompleteWorkflowExecution`` decision. It isn\'t set for other decision types.
         
               - **result** *(string) --* 
         
@@ -7798,7 +7798,7 @@ class Client(BaseClient):
         
             - **failWorkflowExecutionDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``FailWorkflowExecution`` decision. It isn't set for other decision types.
+              Provides the details of the ``FailWorkflowExecution`` decision. It isn\'t set for other decision types.
         
               - **reason** *(string) --* 
         
@@ -7810,7 +7810,7 @@ class Client(BaseClient):
         
             - **cancelWorkflowExecutionDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``CancelWorkflowExecution`` decision. It isn't set for other decision types.
+              Provides the details of the ``CancelWorkflowExecution`` decision. It isn\'t set for other decision types.
         
               - **details** *(string) --* 
         
@@ -7818,7 +7818,7 @@ class Client(BaseClient):
         
             - **continueAsNewWorkflowExecutionDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``ContinueAsNewWorkflowExecution`` decision. It isn't set for other decision types.
+              Provides the details of the ``ContinueAsNewWorkflowExecution`` decision. It isn\'t set for other decision types.
         
               - **input** *(string) --* 
         
@@ -7844,7 +7844,7 @@ class Client(BaseClient):
         
               - **taskPriority** *(string) --* 
         
-                The task priority that, if set, specifies the priority for the decision tasks for this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                The task priority that, if set, specifies the priority for the decision tasks for this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                 For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -7890,7 +7890,7 @@ class Client(BaseClient):
         
             - **recordMarkerDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``RecordMarker`` decision. It isn't set for other decision types.
+              Provides the details of the ``RecordMarker`` decision. It isn\'t set for other decision types.
         
               - **markerName** *(string) --* **[REQUIRED]** 
         
@@ -7902,7 +7902,7 @@ class Client(BaseClient):
         
             - **startTimerDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``StartTimer`` decision. It isn't set for other decision types.
+              Provides the details of the ``StartTimer`` decision. It isn\'t set for other decision types.
         
               - **timerId** *(string) --* **[REQUIRED]** 
         
@@ -7922,7 +7922,7 @@ class Client(BaseClient):
         
             - **cancelTimerDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``CancelTimer`` decision. It isn't set for other decision types.
+              Provides the details of the ``CancelTimer`` decision. It isn\'t set for other decision types.
         
               - **timerId** *(string) --* **[REQUIRED]** 
         
@@ -7930,7 +7930,7 @@ class Client(BaseClient):
         
             - **signalExternalWorkflowExecutionDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``SignalExternalWorkflowExecution`` decision. It isn't set for other decision types.
+              Provides the details of the ``SignalExternalWorkflowExecution`` decision. It isn\'t set for other decision types.
         
               - **workflowId** *(string) --* **[REQUIRED]** 
         
@@ -7954,7 +7954,7 @@ class Client(BaseClient):
         
             - **requestCancelExternalWorkflowExecutionDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``RequestCancelExternalWorkflowExecution`` decision. It isn't set for other decision types.
+              Provides the details of the ``RequestCancelExternalWorkflowExecution`` decision. It isn\'t set for other decision types.
         
               - **workflowId** *(string) --* **[REQUIRED]** 
         
@@ -7970,7 +7970,7 @@ class Client(BaseClient):
         
             - **startChildWorkflowExecutionDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``StartChildWorkflowExecution`` decision. It isn't set for other decision types.
+              Provides the details of the ``StartChildWorkflowExecution`` decision. It isn\'t set for other decision types.
         
               - **workflowType** *(dict) --* **[REQUIRED]** 
         
@@ -8000,7 +8000,7 @@ class Client(BaseClient):
         
               - **control** *(string) --* 
         
-                The data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the child workflow execution.
+                The data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn\'t sent to the child workflow execution.
         
               - **input** *(string) --* 
         
@@ -8032,7 +8032,7 @@ class Client(BaseClient):
         
               - **taskPriority** *(string) --* 
         
-                A task priority that, if set, specifies the priority for a decision task of this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                A task priority that, if set, specifies the priority for a decision task of this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                 For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -8074,7 +8074,7 @@ class Client(BaseClient):
         
             - **scheduleLambdaFunctionDecisionAttributes** *(dict) --* 
         
-              Provides the details of the ``ScheduleLambdaFunction`` decision. It isn't set for other decision types.
+              Provides the details of the ``ScheduleLambdaFunction`` decision. It isn\'t set for other decision types.
         
               - **id** *(string) --* **[REQUIRED]** 
         
@@ -8086,7 +8086,7 @@ class Client(BaseClient):
         
               - **control** *(string) --* 
         
-                The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
+                The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the Lambda task.
         
               - **input** *(string) --* 
         
@@ -8110,23 +8110,23 @@ class Client(BaseClient):
         
         .. note::
         
-          If a runId isn't specified, then the ``WorkflowExecutionSignaled`` event is recorded in the history of the current open workflow with the matching workflowId in the domain.
+          If a runId isn\'t specified, then the ``WorkflowExecutionSignaled`` event is recorded in the history of the current open workflow with the matching workflowId in the domain.
         
         .. note::
         
-          If the specified workflow execution isn't open, this method fails with ``UnknownResource`` .
+          If the specified workflow execution isn\'t open, this method fails with ``UnknownResource`` .
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/SignalWorkflowExecution>`_
         
@@ -8134,11 +8134,11 @@ class Client(BaseClient):
         ::
         
           response = client.signal_workflow_execution(
-              domain='string',
-              workflowId='string',
-              runId='string',
-              signalName='string',
-              input='string'
+              domain=\'string\',
+              workflowId=\'string\',
+              runId=\'string\',
+              signalName=\'string\',
+              input=\'string\'
           )
         :type domain: string
         :param domain: **[REQUIRED]** 
@@ -8163,7 +8163,7 @@ class Client(BaseClient):
         :type input: string
         :param input: 
         
-          Data to attach to the ``WorkflowExecutionSignaled`` event in the target workflow execution's history.
+          Data to attach to the ``WorkflowExecutionSignaled`` event in the target workflow execution\'s history.
         
         :returns: None
         """
@@ -8176,7 +8176,7 @@ class Client(BaseClient):
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
@@ -8200,7 +8200,7 @@ class Client(BaseClient):
            
           * ``workflowType.version`` : String constraint. The key is ``swf:workflowType.version`` . 
            
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/StartWorkflowExecution>`_
         
@@ -8208,24 +8208,24 @@ class Client(BaseClient):
         ::
         
           response = client.start_workflow_execution(
-              domain='string',
-              workflowId='string',
+              domain=\'string\',
+              workflowId=\'string\',
               workflowType={
-                  'name': 'string',
-                  'version': 'string'
+                  \'name\': \'string\',
+                  \'version\': \'string\'
               },
               taskList={
-                  'name': 'string'
+                  \'name\': \'string\'
               },
-              taskPriority='string',
-              input='string',
-              executionStartToCloseTimeout='string',
+              taskPriority=\'string\',
+              input=\'string\',
+              executionStartToCloseTimeout=\'string\',
               tagList=[
-                  'string',
+                  \'string\',
               ],
-              taskStartToCloseTimeout='string',
-              childPolicy='TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-              lambdaRole='string'
+              taskStartToCloseTimeout=\'string\',
+              childPolicy=\'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+              lambdaRole=\'string\'
           )
         :type domain: string
         :param domain: **[REQUIRED]** 
@@ -8278,7 +8278,7 @@ class Client(BaseClient):
         :type taskPriority: string
         :param taskPriority: 
         
-          The task priority to use for this workflow execution. This overrides any default priority that was assigned when the workflow type was registered. If not set, then the default task priority for the workflow type is used. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+          The task priority to use for this workflow execution. This overrides any default priority that was assigned when the workflow type was registered. If not set, then the default task priority for the workflow type is used. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
           For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -8292,7 +8292,7 @@ class Client(BaseClient):
         
           The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type.
         
-          The duration is specified in seconds; an integer greater than or equal to ``0`` . Exceeding this limit causes the workflow execution to time out. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for this timeout; there is a one-year max limit on the time that a workflow execution can run.
+          The duration is specified in seconds; an integer greater than or equal to ``0`` . Exceeding this limit causes the workflow execution to time out. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of \"NONE\" for this timeout; there is a one-year max limit on the time that a workflow execution can run.
         
           .. note::
         
@@ -8340,7 +8340,7 @@ class Client(BaseClient):
         
           .. note::
         
-            Executions of this workflow type need IAM roles to invoke Lambda functions. If you don't attach an IAM role, any attempt to schedule a Lambda task fails. This results in a ``ScheduleLambdaFunctionFailed`` history event. For more information, see `http\://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html <http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>`__ in the *Amazon SWF Developer Guide* .
+            Executions of this workflow type need IAM roles to invoke Lambda functions. If you don\'t attach an IAM role, any attempt to schedule a Lambda task fails. This results in a ``ScheduleLambdaFunctionFailed`` history event. For more information, see `http\://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html <http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>`__ in the *Amazon SWF Developer Guide* .
         
         :rtype: dict
         :returns: 
@@ -8350,7 +8350,7 @@ class Client(BaseClient):
           ::
         
             {
-                'runId': 'string'
+                \'runId\': \'string\'
             }
           **Response Structure** 
         
@@ -8374,23 +8374,23 @@ class Client(BaseClient):
         
         .. note::
         
-          If a runId isn't specified, then the ``WorkflowExecutionTerminated`` event is recorded in the history of the current open workflow with the matching workflowId in the domain.
+          If a runId isn\'t specified, then the ``WorkflowExecutionTerminated`` event is recorded in the history of the current open workflow with the matching workflowId in the domain.
         
         .. note::
         
-          You should consider using  RequestCancelWorkflowExecution action instead because it allows the workflow to gracefully close while  TerminateWorkflowExecution doesn't.
+          You should consider using  RequestCancelWorkflowExecution action instead because it allows the workflow to gracefully close while  TerminateWorkflowExecution doesn\'t.
         
          **Access Control**  
         
-        You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+        You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
         
         * Use a ``Resource`` element with the domain name to limit the action to only specified domains. 
          
         * Use an ``Action`` element to allow or deny permission to call this action. 
          
-        * You cannot use an IAM policy to constrain this action's parameters. 
+        * You cannot use an IAM policy to constrain this action\'s parameters. 
          
-        If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
+        If the caller doesn\'t have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s ``cause`` parameter is set to ``OPERATION_NOT_PERMITTED`` . For details and example IAM policies, see `Using IAM to Manage Access to Amazon SWF Workflows <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html>`__ in the *Amazon SWF Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/TerminateWorkflowExecution>`_
         
@@ -8398,12 +8398,12 @@ class Client(BaseClient):
         ::
         
           response = client.terminate_workflow_execution(
-              domain='string',
-              workflowId='string',
-              runId='string',
-              reason='string',
-              details='string',
-              childPolicy='TERMINATE'|'REQUEST_CANCEL'|'ABANDON'
+              domain=\'string\',
+              workflowId=\'string\',
+              runId=\'string\',
+              reason=\'string\',
+              details=\'string\',
+              childPolicy=\'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\'
           )
         :type domain: string
         :param domain: **[REQUIRED]** 

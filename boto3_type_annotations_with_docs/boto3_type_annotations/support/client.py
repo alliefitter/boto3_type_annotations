@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -19,11 +19,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_attachments_to_set(
-              attachmentSetId='string',
+              attachmentSetId=\'string\',
               attachments=[
                   {
-                      'fileName': 'string',
-                      'data': b'bytes'
+                      \'fileName\': \'string\',
+                      \'data\': b\'bytes\'
                   },
               ]
           )
@@ -57,8 +57,8 @@ class Client(BaseClient):
           ::
         
             {
-                'attachmentSetId': 'string',
-                'expiryTime': 'string'
+                \'attachmentSetId\': \'string\',
+                \'expiryTime\': \'string\'
             }
           **Response Structure** 
         
@@ -90,12 +90,12 @@ class Client(BaseClient):
         ::
         
           response = client.add_communication_to_case(
-              caseId='string',
-              communicationBody='string',
+              caseId=\'string\',
+              communicationBody=\'string\',
               ccEmailAddresses=[
-                  'string',
+                  \'string\',
               ],
-              attachmentSetId='string'
+              attachmentSetId=\'string\'
           )
         :type caseId: string
         :param caseId: 
@@ -127,7 +127,7 @@ class Client(BaseClient):
           ::
         
             {
-                'result': True|False
+                \'result\': True|False
             }
           **Response Structure** 
         
@@ -148,10 +148,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -161,7 +161,7 @@ class Client(BaseClient):
     def create_case(self, subject: str, communicationBody: str, serviceCode: str = None, severityCode: str = None, categoryCode: str = None, ccEmailAddresses: List = None, language: str = None, issueType: str = None, attachmentSetId: str = None) -> Dict:
         """
         
-        * **issueType.** The type of issue for the case. You can specify either "customer-service" or "technical." If you do not indicate a value, the default is "technical."  
+        * **issueType.** The type of issue for the case. You can specify either \"customer-service\" or \"technical.\" If you do not indicate a value, the default is \"technical.\"  
          
         * **serviceCode.** The code for an AWS service. You obtain the ``serviceCode`` by calling  DescribeServices .  
          
@@ -191,17 +191,17 @@ class Client(BaseClient):
         ::
         
           response = client.create_case(
-              subject='string',
-              serviceCode='string',
-              severityCode='string',
-              categoryCode='string',
-              communicationBody='string',
+              subject=\'string\',
+              serviceCode=\'string\',
+              severityCode=\'string\',
+              categoryCode=\'string\',
+              communicationBody=\'string\',
               ccEmailAddresses=[
-                  'string',
+                  \'string\',
               ],
-              language='string',
-              issueType='string',
-              attachmentSetId='string'
+              language=\'string\',
+              issueType=\'string\',
+              attachmentSetId=\'string\'
           )
         :type subject: string
         :param subject: **[REQUIRED]** 
@@ -220,7 +220,7 @@ class Client(BaseClient):
         
           .. note::
         
-            The availability of severity levels depends on each customer's support subscription. In other words, your subscription may not necessarily require the urgent level of response time.
+            The availability of severity levels depends on each customer\'s support subscription. In other words, your subscription may not necessarily require the urgent level of response time.
         
         :type categoryCode: string
         :param categoryCode: 
@@ -242,12 +242,12 @@ class Client(BaseClient):
         :type language: string
         :param language: 
         
-          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
         
         :type issueType: string
         :param issueType: 
         
-          The type of issue for the case. You can specify either "customer-service" or "technical." If you do not indicate a value, the default is "technical."
+          The type of issue for the case. You can specify either \"customer-service\" or \"technical.\" If you do not indicate a value, the default is \"technical.\"
         
         :type attachmentSetId: string
         :param attachmentSetId: 
@@ -262,7 +262,7 @@ class Client(BaseClient):
           ::
         
             {
-                'caseId': 'string'
+                \'caseId\': \'string\'
             }
           **Response Structure** 
         
@@ -286,7 +286,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_attachment(
-              attachmentId='string'
+              attachmentId=\'string\'
           )
         :type attachmentId: string
         :param attachmentId: **[REQUIRED]** 
@@ -301,9 +301,9 @@ class Client(BaseClient):
           ::
         
             {
-                'attachment': {
-                    'fileName': 'string',
-                    'data': b'bytes'
+                \'attachment\': {
+                    \'fileName\': \'string\',
+                    \'data\': b\'bytes\'
                 }
             }
           **Response Structure** 
@@ -345,15 +345,15 @@ class Client(BaseClient):
         
           response = client.describe_cases(
               caseIdList=[
-                  'string',
+                  \'string\',
               ],
-              displayId='string',
-              afterTime='string',
-              beforeTime='string',
+              displayId=\'string\',
+              afterTime=\'string\',
+              beforeTime=\'string\',
               includeResolvedCases=True|False,
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
-              language='string',
+              language=\'string\',
               includeCommunications=True|False
           )
         :type caseIdList: list
@@ -396,7 +396,7 @@ class Client(BaseClient):
         :type language: string
         :param language: 
         
-          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
         
         :type includeCommunications: boolean
         :param includeCommunications: 
@@ -411,41 +411,41 @@ class Client(BaseClient):
           ::
         
             {
-                'cases': [
+                \'cases\': [
                     {
-                        'caseId': 'string',
-                        'displayId': 'string',
-                        'subject': 'string',
-                        'status': 'string',
-                        'serviceCode': 'string',
-                        'categoryCode': 'string',
-                        'severityCode': 'string',
-                        'submittedBy': 'string',
-                        'timeCreated': 'string',
-                        'recentCommunications': {
-                            'communications': [
+                        \'caseId\': \'string\',
+                        \'displayId\': \'string\',
+                        \'subject\': \'string\',
+                        \'status\': \'string\',
+                        \'serviceCode\': \'string\',
+                        \'categoryCode\': \'string\',
+                        \'severityCode\': \'string\',
+                        \'submittedBy\': \'string\',
+                        \'timeCreated\': \'string\',
+                        \'recentCommunications\': {
+                            \'communications\': [
                                 {
-                                    'caseId': 'string',
-                                    'body': 'string',
-                                    'submittedBy': 'string',
-                                    'timeCreated': 'string',
-                                    'attachmentSet': [
+                                    \'caseId\': \'string\',
+                                    \'body\': \'string\',
+                                    \'submittedBy\': \'string\',
+                                    \'timeCreated\': \'string\',
+                                    \'attachmentSet\': [
                                         {
-                                            'attachmentId': 'string',
-                                            'fileName': 'string'
+                                            \'attachmentId\': \'string\',
+                                            \'fileName\': \'string\'
                                         },
                                     ]
                                 },
                             ],
-                            'nextToken': 'string'
+                            \'nextToken\': \'string\'
                         },
-                        'ccEmailAddresses': [
-                            'string',
+                        \'ccEmailAddresses\': [
+                            \'string\',
                         ],
-                        'language': 'string'
+                        \'language\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -467,7 +467,7 @@ class Client(BaseClient):
                  
                 * **displayId.** The identifier for the case on pages in the AWS Support Center. 
                  
-                * **language.** The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them. 
+                * **language.** The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them. 
                  
                 * **recentCommunications.** One or more  Communication objects. Fields of these objects are ``attachments`` , ``body`` , ``caseId`` , ``submittedBy`` , and ``timeCreated`` . 
                  
@@ -577,7 +577,7 @@ class Client(BaseClient):
               
                 - **language** *(string) --* 
         
-                  The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+                  The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
         
             - **nextToken** *(string) --* 
         
@@ -599,10 +599,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_communications(
-              caseId='string',
-              beforeTime='string',
-              afterTime='string',
-              nextToken='string',
+              caseId=\'string\',
+              beforeTime=\'string\',
+              afterTime=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type caseId: string
@@ -638,21 +638,21 @@ class Client(BaseClient):
           ::
         
             {
-                'communications': [
+                \'communications\': [
                     {
-                        'caseId': 'string',
-                        'body': 'string',
-                        'submittedBy': 'string',
-                        'timeCreated': 'string',
-                        'attachmentSet': [
+                        \'caseId\': \'string\',
+                        \'body\': \'string\',
+                        \'submittedBy\': \'string\',
+                        \'timeCreated\': \'string\',
+                        \'attachmentSet\': [
                             {
-                                'attachmentId': 'string',
-                                'fileName': 'string'
+                                \'attachmentId\': \'string\',
+                                \'fileName\': \'string\'
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -719,9 +719,9 @@ class Client(BaseClient):
         
           response = client.describe_services(
               serviceCodeList=[
-                  'string',
+                  \'string\',
               ],
-              language='string'
+              language=\'string\'
           )
         :type serviceCodeList: list
         :param serviceCodeList: 
@@ -733,7 +733,7 @@ class Client(BaseClient):
         :type language: string
         :param language: 
         
-          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
         
         :rtype: dict
         :returns: 
@@ -743,14 +743,14 @@ class Client(BaseClient):
           ::
         
             {
-                'services': [
+                \'services\': [
                     {
-                        'code': 'string',
-                        'name': 'string',
-                        'categories': [
+                        \'code\': \'string\',
+                        \'name\': \'string\',
+                        \'categories\': [
                             {
-                                'code': 'string',
-                                'name': 'string'
+                                \'code\': \'string\',
+                                \'name\': \'string\'
                             },
                         ]
                     },
@@ -806,12 +806,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_severity_levels(
-              language='string'
+              language=\'string\'
           )
         :type language: string
         :param language: 
         
-          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
         
         :rtype: dict
         :returns: 
@@ -821,10 +821,10 @@ class Client(BaseClient):
           ::
         
             {
-                'severityLevels': [
+                \'severityLevels\': [
                     {
-                        'code': 'string',
-                        'name': 'string'
+                        \'code\': \'string\',
+                        \'name\': \'string\'
                     },
                 ]
             }
@@ -844,7 +844,7 @@ class Client(BaseClient):
         
                 - **code** *(string) --* 
         
-                  One of four values: "low," "medium," "high," and "urgent". These values correspond to response times returned to the caller in ``severityLevel.name`` . 
+                  One of four values: \"low,\" \"medium,\" \"high,\" and \"urgent\". These values correspond to response times returned to the caller in ``severityLevel.name`` . 
         
                 - **name** *(string) --* 
         
@@ -867,7 +867,7 @@ class Client(BaseClient):
         
           response = client.describe_trusted_advisor_check_refresh_statuses(
               checkIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type checkIds: list
@@ -885,11 +885,11 @@ class Client(BaseClient):
           ::
         
             {
-                'statuses': [
+                \'statuses\': [
                     {
-                        'checkId': 'string',
-                        'status': 'string',
-                        'millisUntilNextRefreshable': 123
+                        \'checkId\': \'string\',
+                        \'status\': \'string\',
+                        \'millisUntilNextRefreshable\': 123
                     },
                 ]
             }
@@ -913,7 +913,7 @@ class Client(BaseClient):
         
                 - **status** *(string) --* 
         
-                  The status of the Trusted Advisor check for which a refresh has been requested: "none", "enqueued", "processing", "success", or "abandoned".
+                  The status of the Trusted Advisor check for which a refresh has been requested: \"none\", \"enqueued\", \"processing\", \"success\", or \"abandoned\".
         
                 - **millisUntilNextRefreshable** *(integer) --* 
         
@@ -935,7 +935,7 @@ class Client(BaseClient):
          
         In addition, the response contains these fields:
         
-        * **status.** The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available". 
+        * **status.** The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\". 
          
         * **timestamp.** The time of the last refresh of the check. 
          
@@ -947,8 +947,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_trusted_advisor_check_result(
-              checkId='string',
-              language='string'
+              checkId=\'string\',
+              language=\'string\'
           )
         :type checkId: string
         :param checkId: **[REQUIRED]** 
@@ -958,7 +958,7 @@ class Client(BaseClient):
         :type language: string
         :param language: 
         
-          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
         
         :rtype: dict
         :returns: 
@@ -968,30 +968,30 @@ class Client(BaseClient):
           ::
         
             {
-                'result': {
-                    'checkId': 'string',
-                    'timestamp': 'string',
-                    'status': 'string',
-                    'resourcesSummary': {
-                        'resourcesProcessed': 123,
-                        'resourcesFlagged': 123,
-                        'resourcesIgnored': 123,
-                        'resourcesSuppressed': 123
+                \'result\': {
+                    \'checkId\': \'string\',
+                    \'timestamp\': \'string\',
+                    \'status\': \'string\',
+                    \'resourcesSummary\': {
+                        \'resourcesProcessed\': 123,
+                        \'resourcesFlagged\': 123,
+                        \'resourcesIgnored\': 123,
+                        \'resourcesSuppressed\': 123
                     },
-                    'categorySpecificSummary': {
-                        'costOptimizing': {
-                            'estimatedMonthlySavings': 123.0,
-                            'estimatedPercentMonthlySavings': 123.0
+                    \'categorySpecificSummary\': {
+                        \'costOptimizing\': {
+                            \'estimatedMonthlySavings\': 123.0,
+                            \'estimatedPercentMonthlySavings\': 123.0
                         }
                     },
-                    'flaggedResources': [
+                    \'flaggedResources\': [
                         {
-                            'status': 'string',
-                            'region': 'string',
-                            'resourceId': 'string',
-                            'isSuppressed': True|False,
-                            'metadata': [
-                                'string',
+                            \'status\': \'string\',
+                            \'region\': \'string\',
+                            \'resourceId\': \'string\',
+                            \'isSuppressed\': True|False,
+                            \'metadata\': [
+                                \'string\',
                             ]
                         },
                     ]
@@ -1017,7 +1017,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
+                The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".
         
               - **resourcesSummary** *(dict) --* 
         
@@ -1100,7 +1100,7 @@ class Client(BaseClient):
         
           response = client.describe_trusted_advisor_check_summaries(
               checkIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type checkIds: list
@@ -1118,22 +1118,22 @@ class Client(BaseClient):
           ::
         
             {
-                'summaries': [
+                \'summaries\': [
                     {
-                        'checkId': 'string',
-                        'timestamp': 'string',
-                        'status': 'string',
-                        'hasFlaggedResources': True|False,
-                        'resourcesSummary': {
-                            'resourcesProcessed': 123,
-                            'resourcesFlagged': 123,
-                            'resourcesIgnored': 123,
-                            'resourcesSuppressed': 123
+                        \'checkId\': \'string\',
+                        \'timestamp\': \'string\',
+                        \'status\': \'string\',
+                        \'hasFlaggedResources\': True|False,
+                        \'resourcesSummary\': {
+                            \'resourcesProcessed\': 123,
+                            \'resourcesFlagged\': 123,
+                            \'resourcesIgnored\': 123,
+                            \'resourcesSuppressed\': 123
                         },
-                        'categorySpecificSummary': {
-                            'costOptimizing': {
-                                'estimatedMonthlySavings': 123.0,
-                                'estimatedPercentMonthlySavings': 123.0
+                        \'categorySpecificSummary\': {
+                            \'costOptimizing\': {
+                                \'estimatedMonthlySavings\': 123.0,
+                                \'estimatedPercentMonthlySavings\': 123.0
                             }
                         }
                     },
@@ -1163,7 +1163,7 @@ class Client(BaseClient):
         
                 - **status** *(string) --* 
         
-                  The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
+                  The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".
         
                 - **hasFlaggedResources** *(boolean) --* 
         
@@ -1217,12 +1217,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_trusted_advisor_checks(
-              language='string'
+              language=\'string\'
           )
         :type language: string
         :param language: **[REQUIRED]** 
         
-          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+          The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
         
         :rtype: dict
         :returns: 
@@ -1232,14 +1232,14 @@ class Client(BaseClient):
           ::
         
             {
-                'checks': [
+                \'checks\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'category': 'string',
-                        'metadata': [
-                            'string',
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'category\': \'string\',
+                        \'metadata\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -1299,7 +1299,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1311,10 +1311,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1346,7 +1346,7 @@ class Client(BaseClient):
         
         The response contains a  TrustedAdvisorCheckRefreshStatus object, which contains these fields:
         
-        * **status.** The refresh status of the check: "none", "enqueued", "processing", "success", or "abandoned". 
+        * **status.** The refresh status of the check: \"none\", \"enqueued\", \"processing\", \"success\", or \"abandoned\". 
          
         * **millisUntilNextRefreshable.** The amount of time, in milliseconds, until the check is eligible for refresh. 
          
@@ -1358,7 +1358,7 @@ class Client(BaseClient):
         ::
         
           response = client.refresh_trusted_advisor_check(
-              checkId='string'
+              checkId=\'string\'
           )
         :type checkId: string
         :param checkId: **[REQUIRED]** 
@@ -1373,10 +1373,10 @@ class Client(BaseClient):
           ::
         
             {
-                'status': {
-                    'checkId': 'string',
-                    'status': 'string',
-                    'millisUntilNextRefreshable': 123
+                \'status\': {
+                    \'checkId\': \'string\',
+                    \'status\': \'string\',
+                    \'millisUntilNextRefreshable\': 123
                 }
             }
           **Response Structure** 
@@ -1395,7 +1395,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The status of the Trusted Advisor check for which a refresh has been requested: "none", "enqueued", "processing", "success", or "abandoned".
+                The status of the Trusted Advisor check for which a refresh has been requested: \"none\", \"enqueued\", \"processing\", \"success\", or \"abandoned\".
         
               - **millisUntilNextRefreshable** *(integer) --* 
         
@@ -1413,7 +1413,7 @@ class Client(BaseClient):
         ::
         
           response = client.resolve_case(
-              caseId='string'
+              caseId=\'string\'
           )
         :type caseId: string
         :param caseId: 
@@ -1428,8 +1428,8 @@ class Client(BaseClient):
           ::
         
             {
-                'initialCaseStatus': 'string',
-                'finalCaseStatus': 'string'
+                \'initialCaseStatus\': \'string\',
+                \'finalCaseStatus\': \'string\'
             }
           **Response Structure** 
         

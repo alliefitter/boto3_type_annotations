@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -18,7 +18,7 @@ class Client(BaseClient):
         ::
         
           response = client.allocate_static_ip(
-              staticIpName='string'
+              staticIpName=\'string\'
           )
         :type staticIpName: string
         :param staticIpName: **[REQUIRED]** 
@@ -33,23 +33,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -133,9 +133,9 @@ class Client(BaseClient):
         ::
         
           response = client.attach_disk(
-              diskName='string',
-              instanceName='string',
-              diskPath='string'
+              diskName=\'string\',
+              instanceName=\'string\',
+              diskPath=\'string\'
           )
         :type diskName: string
         :param diskName: **[REQUIRED]** 
@@ -160,23 +160,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -262,9 +262,9 @@ class Client(BaseClient):
         ::
         
           response = client.attach_instances_to_load_balancer(
-              loadBalancerName='string',
+              loadBalancerName=\'string\',
               instanceNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type loadBalancerName: string
@@ -291,23 +291,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -393,8 +393,8 @@ class Client(BaseClient):
         ::
         
           response = client.attach_load_balancer_tls_certificate(
-              loadBalancerName='string',
-              certificateName='string'
+              loadBalancerName=\'string\',
+              certificateName=\'string\'
           )
         :type loadBalancerName: string
         :param loadBalancerName: **[REQUIRED]** 
@@ -414,23 +414,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -442,7 +442,7 @@ class Client(BaseClient):
         
               An object representing the API operations.
         
-              These SSL/TLS certificates are only usable by Lightsail load balancers. You can't get the certificate and use it for another purpose.
+              These SSL/TLS certificates are only usable by Lightsail load balancers. You can\'t get the certificate and use it for another purpose.
         
               - *(dict) --* 
         
@@ -516,8 +516,8 @@ class Client(BaseClient):
         ::
         
           response = client.attach_static_ip(
-              staticIpName='string',
-              instanceName='string'
+              staticIpName=\'string\',
+              instanceName=\'string\'
           )
         :type staticIpName: string
         :param staticIpName: **[REQUIRED]** 
@@ -537,23 +537,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -634,10 +634,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -654,11 +654,11 @@ class Client(BaseClient):
         
           response = client.close_instance_public_ports(
               portInfo={
-                  'fromPort': 123,
-                  'toPort': 123,
-                  'protocol': 'tcp'|'all'|'udp'
+                  \'fromPort\': 123,
+                  \'toPort\': 123,
+                  \'protocol\': \'tcp\'|\'all\'|\'udp\'
               },
-              instanceName='string'
+              instanceName=\'string\'
           )
         :type portInfo: dict
         :param portInfo: **[REQUIRED]** 
@@ -680,7 +680,7 @@ class Client(BaseClient):
         :type instanceName: string
         :param instanceName: **[REQUIRED]** 
         
-          The name of the instance on which you're attempting to close the public ports.
+          The name of the instance on which you\'re attempting to close the public ports.
         
         :rtype: dict
         :returns: 
@@ -690,22 +690,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -784,8 +784,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_disk(
-              diskName='string',
-              availabilityZone='string',
+              diskName=\'string\',
+              availabilityZone=\'string\',
               sizeInGb=123
           )
         :type diskName: string
@@ -813,23 +813,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -913,9 +913,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_disk_from_snapshot(
-              diskName='string',
-              diskSnapshotName='string',
-              availabilityZone='string',
+              diskName=\'string\',
+              diskSnapshotName=\'string\',
+              availabilityZone=\'string\',
               sizeInGb=123
           )
         :type diskName: string
@@ -948,23 +948,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -1050,8 +1050,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_disk_snapshot(
-              diskName='string',
-              diskSnapshotName='string'
+              diskName=\'string\',
+              diskSnapshotName=\'string\'
           )
         :type diskName: string
         :param diskName: **[REQUIRED]** 
@@ -1071,23 +1071,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -1171,7 +1171,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_domain(
-              domainName='string'
+              domainName=\'string\'
           )
         :type domainName: string
         :param domainName: **[REQUIRED]** 
@@ -1190,22 +1190,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1284,15 +1284,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_domain_entry(
-              domainName='string',
+              domainName=\'string\',
               domainEntry={
-                  'id': 'string',
-                  'name': 'string',
-                  'target': 'string',
-                  'isAlias': True|False,
-                  'type': 'string',
-                  'options': {
-                      'string': 'string'
+                  \'id\': \'string\',
+                  \'name\': \'string\',
+                  \'target\': \'string\',
+                  \'isAlias\': True|False,
+                  \'type\': \'string\',
+                  \'options\': {
+                      \'string\': \'string\'
                   }
               }
           )
@@ -1348,22 +1348,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1442,8 +1442,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_instance_snapshot(
-              instanceSnapshotName='string',
-              instanceName='string'
+              instanceSnapshotName=\'string\',
+              instanceName=\'string\'
           )
         :type instanceSnapshotName: string
         :param instanceSnapshotName: **[REQUIRED]** 
@@ -1463,23 +1463,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -1564,19 +1564,19 @@ class Client(BaseClient):
         
           response = client.create_instances(
               instanceNames=[
-                  'string',
+                  \'string\',
               ],
-              availabilityZone='string',
-              customImageName='string',
-              blueprintId='string',
-              bundleId='string',
-              userData='string',
-              keyPairName='string'
+              availabilityZone=\'string\',
+              customImageName=\'string\',
+              blueprintId=\'string\',
+              bundleId=\'string\',
+              userData=\'string\',
+              keyPairName=\'string\'
           )
         :type instanceNames: list
         :param instanceNames: **[REQUIRED]** 
         
-          The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: ``["MyFirstInstance","MySecondInstance"]``  
+          The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: ``[\"MyFirstInstance\",\"MySecondInstance\"]``  
         
           - *(string) --* 
         
@@ -1626,23 +1626,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -1727,21 +1727,21 @@ class Client(BaseClient):
         
           response = client.create_instances_from_snapshot(
               instanceNames=[
-                  'string',
+                  \'string\',
               ],
               attachedDiskMapping={
-                  'string': [
+                  \'string\': [
                       {
-                          'originalDiskPath': 'string',
-                          'newDiskName': 'string'
+                          \'originalDiskPath\': \'string\',
+                          \'newDiskName\': \'string\'
                       },
                   ]
               },
-              availabilityZone='string',
-              instanceSnapshotName='string',
-              bundleId='string',
-              userData='string',
-              keyPairName='string'
+              availabilityZone=\'string\',
+              instanceSnapshotName=\'string\',
+              bundleId=\'string\',
+              userData=\'string\',
+              keyPairName=\'string\'
           )
         :type instanceNames: list
         :param instanceNames: **[REQUIRED]** 
@@ -1808,23 +1808,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -1908,7 +1908,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_key_pair(
-              keyPairName='string'
+              keyPairName=\'string\'
           )
         :type keyPairName: string
         :param keyPairName: **[REQUIRED]** 
@@ -1923,36 +1923,36 @@ class Client(BaseClient):
           ::
         
             {
-                'keyPair': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'supportCode': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'keyPair\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'supportCode\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'fingerprint': 'string'
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'fingerprint\': \'string\'
                 },
-                'publicKeyBase64': 'string',
-                'privateKeyBase64': 'string',
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'publicKeyBase64\': \'string\',
+                \'privateKeyBase64\': \'string\',
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2081,13 +2081,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_load_balancer(
-              loadBalancerName='string',
+              loadBalancerName=\'string\',
               instancePort=123,
-              healthCheckPath='string',
-              certificateName='string',
-              certificateDomainName='string',
+              healthCheckPath=\'string\',
+              certificateName=\'string\',
+              certificateDomainName=\'string\',
               certificateAlternativeNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type loadBalancerName: string
@@ -2098,12 +2098,12 @@ class Client(BaseClient):
         :type instancePort: integer
         :param instancePort: **[REQUIRED]** 
         
-          The instance port where you're creating your load balancer.
+          The instance port where you\'re creating your load balancer.
         
         :type healthCheckPath: string
         :param healthCheckPath: 
         
-          The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., ``"/"`` ).
+          The path you provided to perform the load balancer health check. If you didn\'t specify a health check path, Lightsail uses the root path of your website (e.g., ``\"/\"`` ).
         
           You may want to specify a custom health check path other than the root of your application if your home page loads slowly or has a lot of media or scripting on it.
         
@@ -2136,23 +2136,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -2238,11 +2238,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_load_balancer_tls_certificate(
-              loadBalancerName='string',
-              certificateName='string',
-              certificateDomainName='string',
+              loadBalancerName=\'string\',
+              certificateName=\'string\',
+              certificateDomainName=\'string\',
               certificateAlternativeNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type loadBalancerName: string
@@ -2277,23 +2277,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -2377,15 +2377,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_relational_database(
-              relationalDatabaseName='string',
-              availabilityZone='string',
-              relationalDatabaseBlueprintId='string',
-              relationalDatabaseBundleId='string',
-              masterDatabaseName='string',
-              masterUsername='string',
-              masterUserPassword='string',
-              preferredBackupWindow='string',
-              preferredMaintenanceWindow='string',
+              relationalDatabaseName=\'string\',
+              availabilityZone=\'string\',
+              relationalDatabaseBlueprintId=\'string\',
+              relationalDatabaseBundleId=\'string\',
+              masterDatabaseName=\'string\',
+              masterUsername=\'string\',
+              masterUserPassword=\'string\',
+              preferredBackupWindow=\'string\',
+              preferredMaintenanceWindow=\'string\',
               publiclyAccessible=True|False
           )
         :type relationalDatabaseName: string
@@ -2449,7 +2449,7 @@ class Client(BaseClient):
         :type masterUserPassword: string
         :param masterUserPassword: 
         
-          The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
+          The password for the master user of your new database. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".
         
           Constraints: Must contain 8 to 41 characters.
         
@@ -2502,23 +2502,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -2604,12 +2604,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_relational_database_from_snapshot(
-              relationalDatabaseName='string',
-              availabilityZone='string',
+              relationalDatabaseName=\'string\',
+              availabilityZone=\'string\',
               publiclyAccessible=True|False,
-              relationalDatabaseSnapshotName='string',
-              relationalDatabaseBundleId='string',
-              sourceRelationalDatabaseName='string',
+              relationalDatabaseSnapshotName=\'string\',
+              relationalDatabaseBundleId=\'string\',
+              sourceRelationalDatabaseName=\'string\',
               restoreTime=datetime(2015, 1, 1),
               useLatestRestorableTime=True|False
           )
@@ -2687,23 +2687,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -2787,8 +2787,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_relational_database_snapshot(
-              relationalDatabaseName='string',
-              relationalDatabaseSnapshotName='string'
+              relationalDatabaseName=\'string\',
+              relationalDatabaseSnapshotName=\'string\'
           )
         :type relationalDatabaseName: string
         :param relationalDatabaseName: **[REQUIRED]** 
@@ -2814,23 +2814,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -2918,7 +2918,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_disk(
-              diskName='string'
+              diskName=\'string\'
           )
         :type diskName: string
         :param diskName: **[REQUIRED]** 
@@ -2933,23 +2933,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -3035,7 +3035,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_disk_snapshot(
-              diskSnapshotName='string'
+              diskSnapshotName=\'string\'
           )
         :type diskSnapshotName: string
         :param diskSnapshotName: **[REQUIRED]** 
@@ -3050,23 +3050,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -3150,7 +3150,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_domain(
-              domainName='string'
+              domainName=\'string\'
           )
         :type domainName: string
         :param domainName: **[REQUIRED]** 
@@ -3165,22 +3165,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3259,15 +3259,15 @@ class Client(BaseClient):
         ::
         
           response = client.delete_domain_entry(
-              domainName='string',
+              domainName=\'string\',
               domainEntry={
-                  'id': 'string',
-                  'name': 'string',
-                  'target': 'string',
-                  'isAlias': True|False,
-                  'type': 'string',
-                  'options': {
-                      'string': 'string'
+                  \'id\': \'string\',
+                  \'name\': \'string\',
+                  \'target\': \'string\',
+                  \'isAlias\': True|False,
+                  \'type\': \'string\',
+                  \'options\': {
+                      \'string\': \'string\'
                   }
               }
           )
@@ -3323,22 +3323,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3417,7 +3417,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_instance(
-              instanceName='string'
+              instanceName=\'string\'
           )
         :type instanceName: string
         :param instanceName: **[REQUIRED]** 
@@ -3432,23 +3432,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -3532,7 +3532,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_instance_snapshot(
-              instanceSnapshotName='string'
+              instanceSnapshotName=\'string\'
           )
         :type instanceSnapshotName: string
         :param instanceSnapshotName: **[REQUIRED]** 
@@ -3547,23 +3547,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -3647,7 +3647,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_key_pair(
-              keyPairName='string'
+              keyPairName=\'string\'
           )
         :type keyPairName: string
         :param keyPairName: **[REQUIRED]** 
@@ -3662,22 +3662,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3756,7 +3756,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_load_balancer(
-              loadBalancerName='string'
+              loadBalancerName=\'string\'
           )
         :type loadBalancerName: string
         :param loadBalancerName: **[REQUIRED]** 
@@ -3771,23 +3771,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -3871,8 +3871,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_load_balancer_tls_certificate(
-              loadBalancerName='string',
-              certificateName='string',
+              loadBalancerName=\'string\',
+              certificateName=\'string\',
               force=True|False
           )
         :type loadBalancerName: string
@@ -3900,23 +3900,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -4000,9 +4000,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_relational_database(
-              relationalDatabaseName='string',
+              relationalDatabaseName=\'string\',
               skipFinalSnapshot=True|False,
-              finalRelationalDatabaseSnapshotName='string'
+              finalRelationalDatabaseSnapshotName=\'string\'
           )
         :type relationalDatabaseName: string
         :param relationalDatabaseName: **[REQUIRED]** 
@@ -4041,23 +4041,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -4141,7 +4141,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_relational_database_snapshot(
-              relationalDatabaseSnapshotName='string'
+              relationalDatabaseSnapshotName=\'string\'
           )
         :type relationalDatabaseSnapshotName: string
         :param relationalDatabaseSnapshotName: **[REQUIRED]** 
@@ -4156,23 +4156,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -4256,7 +4256,7 @@ class Client(BaseClient):
         ::
         
           response = client.detach_disk(
-              diskName='string'
+              diskName=\'string\'
           )
         :type diskName: string
         :param diskName: **[REQUIRED]** 
@@ -4271,23 +4271,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -4373,9 +4373,9 @@ class Client(BaseClient):
         ::
         
           response = client.detach_instances_from_load_balancer(
-              loadBalancerName='string',
+              loadBalancerName=\'string\',
               instanceNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type loadBalancerName: string
@@ -4398,23 +4398,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -4498,7 +4498,7 @@ class Client(BaseClient):
         ::
         
           response = client.detach_static_ip(
-              staticIpName='string'
+              staticIpName=\'string\'
           )
         :type staticIpName: string
         :param staticIpName: **[REQUIRED]** 
@@ -4513,23 +4513,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -4622,8 +4622,8 @@ class Client(BaseClient):
           ::
         
             {
-                'publicKeyBase64': 'string',
-                'privateKeyBase64': 'string'
+                \'publicKeyBase64\': \'string\',
+                \'privateKeyBase64\': \'string\'
             }
           **Response Structure** 
         
@@ -4656,7 +4656,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -4671,7 +4671,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_active_names(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -4686,10 +4686,10 @@ class Client(BaseClient):
           ::
         
             {
-                'activeNames': [
-                    'string',
+                \'activeNames\': [
+                    \'string\',
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4718,7 +4718,7 @@ class Client(BaseClient):
         
           response = client.get_blueprints(
               includeInactive=True|False,
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type includeInactive: boolean
         :param includeInactive: 
@@ -4738,23 +4738,23 @@ class Client(BaseClient):
           ::
         
             {
-                'blueprints': [
+                \'blueprints\': [
                     {
-                        'blueprintId': 'string',
-                        'name': 'string',
-                        'group': 'string',
-                        'type': 'os'|'app',
-                        'description': 'string',
-                        'isActive': True|False,
-                        'minPower': 123,
-                        'version': 'string',
-                        'versionCode': 'string',
-                        'productUrl': 'string',
-                        'licenseUrl': 'string',
-                        'platform': 'LINUX_UNIX'|'WINDOWS'
+                        \'blueprintId\': \'string\',
+                        \'name\': \'string\',
+                        \'group\': \'string\',
+                        \'type\': \'os\'|\'app\',
+                        \'description\': \'string\',
+                        \'isActive\': True|False,
+                        \'minPower\': 123,
+                        \'version\': \'string\',
+                        \'versionCode\': \'string\',
+                        \'productUrl\': \'string\',
+                        \'licenseUrl\': \'string\',
+                        \'platform\': \'LINUX_UNIX\'|\'WINDOWS\'
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4833,7 +4833,7 @@ class Client(BaseClient):
         
           response = client.get_bundles(
               includeInactive=True|False,
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type includeInactive: boolean
         :param includeInactive: 
@@ -4853,24 +4853,24 @@ class Client(BaseClient):
           ::
         
             {
-                'bundles': [
+                \'bundles\': [
                     {
-                        'price': ...,
-                        'cpuCount': 123,
-                        'diskSizeInGb': 123,
-                        'bundleId': 'string',
-                        'instanceType': 'string',
-                        'isActive': True|False,
-                        'name': 'string',
-                        'power': 123,
-                        'ramSizeInGb': ...,
-                        'transferPerMonthInGb': 123,
-                        'supportedPlatforms': [
-                            'LINUX_UNIX'|'WINDOWS',
+                        \'price\': ...,
+                        \'cpuCount\': 123,
+                        \'diskSizeInGb\': 123,
+                        \'bundleId\': \'string\',
+                        \'instanceType\': \'string\',
+                        \'isActive\': True|False,
+                        \'name\': \'string\',
+                        \'power\': 123,
+                        \'ramSizeInGb\': ...,
+                        \'transferPerMonthInGb\': 123,
+                        \'supportedPlatforms\': [
+                            \'LINUX_UNIX\'|\'WINDOWS\',
                         ]
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4914,7 +4914,7 @@ class Client(BaseClient):
         
                 - **power** *(integer) --* 
         
-                  A numeric value that represents the power of the bundle (e.g., ``500`` ). You can use the bundle's power value in conjunction with a blueprint's minimum power value to determine whether the blueprint will run on the bundle. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500.
+                  A numeric value that represents the power of the bundle (e.g., ``500`` ). You can use the bundle\'s power value in conjunction with a blueprint\'s minimum power value to determine whether the blueprint will run on the bundle. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500.
         
                 - **ramSizeInGb** *(float) --* 
         
@@ -4946,7 +4946,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_disk(
-              diskName='string'
+              diskName=\'string\'
           )
         :type diskName: string
         :param diskName: **[REQUIRED]** 
@@ -4961,25 +4961,25 @@ class Client(BaseClient):
           ::
         
             {
-                'disk': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'supportCode': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'disk\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'supportCode\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'sizeInGb': 123,
-                    'isSystemDisk': True|False,
-                    'iops': 123,
-                    'path': 'string',
-                    'state': 'pending'|'error'|'available'|'in-use'|'unknown',
-                    'attachedTo': 'string',
-                    'isAttached': True|False,
-                    'attachmentState': 'string',
-                    'gbInUse': 123
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'sizeInGb\': 123,
+                    \'isSystemDisk\': True|False,
+                    \'iops\': 123,
+                    \'path\': \'string\',
+                    \'state\': \'pending\'|\'error\'|\'available\'|\'in-use\'|\'unknown\',
+                    \'attachedTo\': \'string\',
+                    \'isAttached\': True|False,
+                    \'attachmentState\': \'string\',
+                    \'gbInUse\': 123
                 }
             }
           **Response Structure** 
@@ -5078,7 +5078,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_disk_snapshot(
-              diskSnapshotName='string'
+              diskSnapshotName=\'string\'
           )
         :type diskSnapshotName: string
         :param diskSnapshotName: **[REQUIRED]** 
@@ -5093,21 +5093,21 @@ class Client(BaseClient):
           ::
         
             {
-                'diskSnapshot': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'supportCode': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'diskSnapshot\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'supportCode\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'sizeInGb': 123,
-                    'state': 'pending'|'completed'|'error'|'unknown',
-                    'progress': 'string',
-                    'fromDiskName': 'string',
-                    'fromDiskArn': 'string'
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'sizeInGb\': 123,
+                    \'state\': \'pending\'|\'completed\'|\'error\'|\'unknown\',
+                    \'progress\': \'string\',
+                    \'fromDiskName\': \'string\',
+                    \'fromDiskArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5184,7 +5184,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_disk_snapshots(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -5199,25 +5199,25 @@ class Client(BaseClient):
           ::
         
             {
-                'diskSnapshots': [
+                \'diskSnapshots\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'sizeInGb': 123,
-                        'state': 'pending'|'completed'|'error'|'unknown',
-                        'progress': 'string',
-                        'fromDiskName': 'string',
-                        'fromDiskArn': 'string'
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'sizeInGb\': 123,
+                        \'state\': \'pending\'|\'completed\'|\'error\'|\'unknown\',
+                        \'progress\': \'string\',
+                        \'fromDiskName\': \'string\',
+                        \'fromDiskArn\': \'string\'
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5301,7 +5301,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_disks(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -5316,29 +5316,29 @@ class Client(BaseClient):
           ::
         
             {
-                'disks': [
+                \'disks\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'sizeInGb': 123,
-                        'isSystemDisk': True|False,
-                        'iops': 123,
-                        'path': 'string',
-                        'state': 'pending'|'error'|'available'|'in-use'|'unknown',
-                        'attachedTo': 'string',
-                        'isAttached': True|False,
-                        'attachmentState': 'string',
-                        'gbInUse': 123
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'sizeInGb\': 123,
+                        \'isSystemDisk\': True|False,
+                        \'iops\': 123,
+                        \'path\': \'string\',
+                        \'state\': \'pending\'|\'error\'|\'available\'|\'in-use\'|\'unknown\',
+                        \'attachedTo\': \'string\',
+                        \'isAttached\': True|False,
+                        \'attachmentState\': \'string\',
+                        \'gbInUse\': 123
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5444,7 +5444,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_domain(
-              domainName='string'
+              domainName=\'string\'
           )
         :type domainName: string
         :param domainName: **[REQUIRED]** 
@@ -5459,25 +5459,25 @@ class Client(BaseClient):
           ::
         
             {
-                'domain': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'supportCode': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'domain\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'supportCode\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'domainEntries': [
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'domainEntries\': [
                         {
-                            'id': 'string',
-                            'name': 'string',
-                            'target': 'string',
-                            'isAlias': True|False,
-                            'type': 'string',
-                            'options': {
-                                'string': 'string'
+                            \'id\': \'string\',
+                            \'name\': \'string\',
+                            \'target\': \'string\',
+                            \'isAlias\': True|False,
+                            \'type\': \'string\',
+                            \'options\': {
+                                \'string\': \'string\'
                             }
                         },
                     ]
@@ -5577,7 +5577,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_domains(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -5592,32 +5592,32 @@ class Client(BaseClient):
           ::
         
             {
-                'domains': [
+                \'domains\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'domainEntries': [
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'domainEntries\': [
                             {
-                                'id': 'string',
-                                'name': 'string',
-                                'target': 'string',
-                                'isAlias': True|False,
-                                'type': 'string',
-                                'options': {
-                                    'string': 'string'
+                                \'id\': \'string\',
+                                \'name\': \'string\',
+                                \'target\': \'string\',
+                                \'isAlias\': True|False,
+                                \'type\': \'string\',
+                                \'options\': {
+                                    \'string\': \'string\'
                                 }
                             },
                         ]
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5625,7 +5625,7 @@ class Client(BaseClient):
             
             - **domains** *(list) --* 
         
-              An array of key-value pairs containing information about each of the domain entries in the user's account.
+              An array of key-value pairs containing information about each of the domain entries in the user\'s account.
         
               - *(dict) --* 
         
@@ -5721,7 +5721,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_instance(
-              instanceName='string'
+              instanceName=\'string\'
           )
         :type instanceName: string
         :param instanceName: **[REQUIRED]** 
@@ -5736,71 +5736,71 @@ class Client(BaseClient):
           ::
         
             {
-                'instance': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'supportCode': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'instance\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'supportCode\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'blueprintId': 'string',
-                    'blueprintName': 'string',
-                    'bundleId': 'string',
-                    'isStaticIp': True|False,
-                    'privateIpAddress': 'string',
-                    'publicIpAddress': 'string',
-                    'ipv6Address': 'string',
-                    'hardware': {
-                        'cpuCount': 123,
-                        'disks': [
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'blueprintId\': \'string\',
+                    \'blueprintName\': \'string\',
+                    \'bundleId\': \'string\',
+                    \'isStaticIp\': True|False,
+                    \'privateIpAddress\': \'string\',
+                    \'publicIpAddress\': \'string\',
+                    \'ipv6Address\': \'string\',
+                    \'hardware\': {
+                        \'cpuCount\': 123,
+                        \'disks\': [
                             {
-                                'name': 'string',
-                                'arn': 'string',
-                                'supportCode': 'string',
-                                'createdAt': datetime(2015, 1, 1),
-                                'location': {
-                                    'availabilityZone': 'string',
-                                    'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                                \'name\': \'string\',
+                                \'arn\': \'string\',
+                                \'supportCode\': \'string\',
+                                \'createdAt\': datetime(2015, 1, 1),
+                                \'location\': {
+                                    \'availabilityZone\': \'string\',
+                                    \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                                 },
-                                'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                                'sizeInGb': 123,
-                                'isSystemDisk': True|False,
-                                'iops': 123,
-                                'path': 'string',
-                                'state': 'pending'|'error'|'available'|'in-use'|'unknown',
-                                'attachedTo': 'string',
-                                'isAttached': True|False,
-                                'attachmentState': 'string',
-                                'gbInUse': 123
+                                \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                                \'sizeInGb\': 123,
+                                \'isSystemDisk\': True|False,
+                                \'iops\': 123,
+                                \'path\': \'string\',
+                                \'state\': \'pending\'|\'error\'|\'available\'|\'in-use\'|\'unknown\',
+                                \'attachedTo\': \'string\',
+                                \'isAttached\': True|False,
+                                \'attachmentState\': \'string\',
+                                \'gbInUse\': 123
                             },
                         ],
-                        'ramSizeInGb': ...
+                        \'ramSizeInGb\': ...
                     },
-                    'networking': {
-                        'monthlyTransfer': {
-                            'gbPerMonthAllocated': 123
+                    \'networking\': {
+                        \'monthlyTransfer\': {
+                            \'gbPerMonthAllocated\': 123
                         },
-                        'ports': [
+                        \'ports\': [
                             {
-                                'fromPort': 123,
-                                'toPort': 123,
-                                'protocol': 'tcp'|'all'|'udp',
-                                'accessFrom': 'string',
-                                'accessType': 'Public'|'Private',
-                                'commonName': 'string',
-                                'accessDirection': 'inbound'|'outbound'
+                                \'fromPort\': 123,
+                                \'toPort\': 123,
+                                \'protocol\': \'tcp\'|\'all\'|\'udp\',
+                                \'accessFrom\': \'string\',
+                                \'accessType\': \'Public\'|\'Private\',
+                                \'commonName\': \'string\',
+                                \'accessDirection\': \'inbound\'|\'outbound\'
                             },
                         ]
                     },
-                    'state': {
-                        'code': 123,
-                        'name': 'string'
+                    \'state\': {
+                        \'code\': 123,
+                        \'name\': \'string\'
                     },
-                    'username': 'string',
-                    'sshKeyName': 'string'
+                    \'username\': \'string\',
+                    \'sshKeyName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5999,11 +5999,11 @@ class Client(BaseClient):
         
                       The protocol being used. Can be one of the following.
         
-                      * ``tcp`` - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead. 
+                      * ``tcp`` - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn\'t require reliable data stream service, use UDP instead. 
                        
                       * ``all`` - All transport layer protocol types. For more general information, see `Transport layer <https://en.wikipedia.org/wiki/Transport_layer>`__ on Wikipedia. 
                        
-                      * ``udp`` - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead. 
+                      * ``udp`` - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don\'t require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead. 
                        
                     - **accessFrom** *(string) --* 
         
@@ -6053,8 +6053,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_instance_access_details(
-              instanceName='string',
-              protocol='ssh'|'rdp'
+              instanceName=\'string\',
+              protocol=\'ssh\'|\'rdp\'
           )
         :type instanceName: string
         :param instanceName: **[REQUIRED]** 
@@ -6074,19 +6074,19 @@ class Client(BaseClient):
           ::
         
             {
-                'accessDetails': {
-                    'certKey': 'string',
-                    'expiresAt': datetime(2015, 1, 1),
-                    'ipAddress': 'string',
-                    'password': 'string',
-                    'passwordData': {
-                        'ciphertext': 'string',
-                        'keyPairName': 'string'
+                \'accessDetails\': {
+                    \'certKey\': \'string\',
+                    \'expiresAt\': datetime(2015, 1, 1),
+                    \'ipAddress\': \'string\',
+                    \'password\': \'string\',
+                    \'passwordData\': {
+                        \'ciphertext\': \'string\',
+                        \'keyPairName\': \'string\'
                     },
-                    'privateKey': 'string',
-                    'protocol': 'ssh'|'rdp',
-                    'instanceName': 'string',
-                    'username': 'string'
+                    \'privateKey\': \'string\',
+                    \'protocol\': \'ssh\'|\'rdp\',
+                    \'instanceName\': \'string\',
+                    \'username\': \'string\'
                 }
             }
           **Response Structure** 
@@ -6169,14 +6169,14 @@ class Client(BaseClient):
         ::
         
           response = client.get_instance_metric_data(
-              instanceName='string',
-              metricName='CPUUtilization'|'NetworkIn'|'NetworkOut'|'StatusCheckFailed'|'StatusCheckFailed_Instance'|'StatusCheckFailed_System',
+              instanceName=\'string\',
+              metricName=\'CPUUtilization\'|\'NetworkIn\'|\'NetworkOut\'|\'StatusCheckFailed\'|\'StatusCheckFailed_Instance\'|\'StatusCheckFailed_System\',
               period=123,
               startTime=datetime(2015, 1, 1),
               endTime=datetime(2015, 1, 1),
-              unit='Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None',
+              unit=\'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\',
               statistics=[
-                  'Minimum'|'Maximum'|'Sum'|'Average'|'SampleCount',
+                  \'Minimum\'|\'Maximum\'|\'Sum\'|\'Average\'|\'SampleCount\',
               ]
           )
         :type instanceName: string
@@ -6224,16 +6224,16 @@ class Client(BaseClient):
           ::
         
             {
-                'metricName': 'CPUUtilization'|'NetworkIn'|'NetworkOut'|'StatusCheckFailed'|'StatusCheckFailed_Instance'|'StatusCheckFailed_System',
-                'metricData': [
+                \'metricName\': \'CPUUtilization\'|\'NetworkIn\'|\'NetworkOut\'|\'StatusCheckFailed\'|\'StatusCheckFailed_Instance\'|\'StatusCheckFailed_System\',
+                \'metricData\': [
                     {
-                        'average': 123.0,
-                        'maximum': 123.0,
-                        'minimum': 123.0,
-                        'sampleCount': 123.0,
-                        'sum': 123.0,
-                        'timestamp': datetime(2015, 1, 1),
-                        'unit': 'Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None'
+                        \'average\': 123.0,
+                        \'maximum\': 123.0,
+                        \'minimum\': 123.0,
+                        \'sampleCount\': 123.0,
+                        \'sum\': 123.0,
+                        \'timestamp\': datetime(2015, 1, 1),
+                        \'unit\': \'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\'
                     },
                 ]
             }
@@ -6293,7 +6293,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_instance_port_states(
-              instanceName='string'
+              instanceName=\'string\'
           )
         :type instanceName: string
         :param instanceName: **[REQUIRED]** 
@@ -6308,12 +6308,12 @@ class Client(BaseClient):
           ::
         
             {
-                'portStates': [
+                \'portStates\': [
                     {
-                        'fromPort': 123,
-                        'toPort': 123,
-                        'protocol': 'tcp'|'all'|'udp',
-                        'state': 'open'|'closed'
+                        \'fromPort\': 123,
+                        \'toPort\': 123,
+                        \'protocol\': \'tcp\'|\'all\'|\'udp\',
+                        \'state\': \'open\'|\'closed\'
                     },
                 ]
             }
@@ -6341,11 +6341,11 @@ class Client(BaseClient):
         
                   The protocol being used. Can be one of the following.
         
-                  * ``tcp`` - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead. 
+                  * ``tcp`` - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn\'t require reliable data stream service, use UDP instead. 
                    
                   * ``all`` - All transport layer protocol types. For more general information, see `Transport layer <https://en.wikipedia.org/wiki/Transport_layer>`__ on Wikipedia. 
                    
-                  * ``udp`` - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead. 
+                  * ``udp`` - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don\'t require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead. 
                    
                 - **state** *(string) --* 
         
@@ -6363,7 +6363,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_instance_snapshot(
-              instanceSnapshotName='string'
+              instanceSnapshotName=\'string\'
           )
         :type instanceSnapshotName: string
         :param instanceSnapshotName: **[REQUIRED]** 
@@ -6378,45 +6378,45 @@ class Client(BaseClient):
           ::
         
             {
-                'instanceSnapshot': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'supportCode': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'instanceSnapshot\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'supportCode\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'state': 'pending'|'error'|'available',
-                    'progress': 'string',
-                    'fromAttachedDisks': [
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'state\': \'pending\'|\'error\'|\'available\',
+                    \'progress\': \'string\',
+                    \'fromAttachedDisks\': [
                         {
-                            'name': 'string',
-                            'arn': 'string',
-                            'supportCode': 'string',
-                            'createdAt': datetime(2015, 1, 1),
-                            'location': {
-                                'availabilityZone': 'string',
-                                'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                            \'name\': \'string\',
+                            \'arn\': \'string\',
+                            \'supportCode\': \'string\',
+                            \'createdAt\': datetime(2015, 1, 1),
+                            \'location\': {
+                                \'availabilityZone\': \'string\',
+                                \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                             },
-                            'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                            'sizeInGb': 123,
-                            'isSystemDisk': True|False,
-                            'iops': 123,
-                            'path': 'string',
-                            'state': 'pending'|'error'|'available'|'in-use'|'unknown',
-                            'attachedTo': 'string',
-                            'isAttached': True|False,
-                            'attachmentState': 'string',
-                            'gbInUse': 123
+                            \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                            \'sizeInGb\': 123,
+                            \'isSystemDisk\': True|False,
+                            \'iops\': 123,
+                            \'path\': \'string\',
+                            \'state\': \'pending\'|\'error\'|\'available\'|\'in-use\'|\'unknown\',
+                            \'attachedTo\': \'string\',
+                            \'isAttached\': True|False,
+                            \'attachmentState\': \'string\',
+                            \'gbInUse\': 123
                         },
                     ],
-                    'fromInstanceName': 'string',
-                    'fromInstanceArn': 'string',
-                    'fromBlueprintId': 'string',
-                    'fromBundleId': 'string',
-                    'sizeInGb': 123
+                    \'fromInstanceName\': \'string\',
+                    \'fromInstanceArn\': \'string\',
+                    \'fromBlueprintId\': \'string\',
+                    \'fromBundleId\': \'string\',
+                    \'sizeInGb\': 123
                 }
             }
           **Response Structure** 
@@ -6583,7 +6583,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_instance_snapshots(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -6598,49 +6598,49 @@ class Client(BaseClient):
           ::
         
             {
-                'instanceSnapshots': [
+                \'instanceSnapshots\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'state': 'pending'|'error'|'available',
-                        'progress': 'string',
-                        'fromAttachedDisks': [
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'state\': \'pending\'|\'error\'|\'available\',
+                        \'progress\': \'string\',
+                        \'fromAttachedDisks\': [
                             {
-                                'name': 'string',
-                                'arn': 'string',
-                                'supportCode': 'string',
-                                'createdAt': datetime(2015, 1, 1),
-                                'location': {
-                                    'availabilityZone': 'string',
-                                    'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                                \'name\': \'string\',
+                                \'arn\': \'string\',
+                                \'supportCode\': \'string\',
+                                \'createdAt\': datetime(2015, 1, 1),
+                                \'location\': {
+                                    \'availabilityZone\': \'string\',
+                                    \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                                 },
-                                'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                                'sizeInGb': 123,
-                                'isSystemDisk': True|False,
-                                'iops': 123,
-                                'path': 'string',
-                                'state': 'pending'|'error'|'available'|'in-use'|'unknown',
-                                'attachedTo': 'string',
-                                'isAttached': True|False,
-                                'attachmentState': 'string',
-                                'gbInUse': 123
+                                \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                                \'sizeInGb\': 123,
+                                \'isSystemDisk\': True|False,
+                                \'iops\': 123,
+                                \'path\': \'string\',
+                                \'state\': \'pending\'|\'error\'|\'available\'|\'in-use\'|\'unknown\',
+                                \'attachedTo\': \'string\',
+                                \'isAttached\': True|False,
+                                \'attachmentState\': \'string\',
+                                \'gbInUse\': 123
                             },
                         ],
-                        'fromInstanceName': 'string',
-                        'fromInstanceArn': 'string',
-                        'fromBlueprintId': 'string',
-                        'fromBundleId': 'string',
-                        'sizeInGb': 123
+                        \'fromInstanceName\': \'string\',
+                        \'fromInstanceArn\': \'string\',
+                        \'fromBlueprintId\': \'string\',
+                        \'fromBundleId\': \'string\',
+                        \'sizeInGb\': 123
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6814,7 +6814,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_instance_state(
-              instanceName='string'
+              instanceName=\'string\'
           )
         :type instanceName: string
         :param instanceName: **[REQUIRED]** 
@@ -6829,9 +6829,9 @@ class Client(BaseClient):
           ::
         
             {
-                'state': {
-                    'code': 123,
-                    'name': 'string'
+                \'state\': {
+                    \'code\': 123,
+                    \'name\': \'string\'
                 }
             }
           **Response Structure** 
@@ -6862,7 +6862,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_instances(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -6877,75 +6877,75 @@ class Client(BaseClient):
           ::
         
             {
-                'instances': [
+                \'instances\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'blueprintId': 'string',
-                        'blueprintName': 'string',
-                        'bundleId': 'string',
-                        'isStaticIp': True|False,
-                        'privateIpAddress': 'string',
-                        'publicIpAddress': 'string',
-                        'ipv6Address': 'string',
-                        'hardware': {
-                            'cpuCount': 123,
-                            'disks': [
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'blueprintId\': \'string\',
+                        \'blueprintName\': \'string\',
+                        \'bundleId\': \'string\',
+                        \'isStaticIp\': True|False,
+                        \'privateIpAddress\': \'string\',
+                        \'publicIpAddress\': \'string\',
+                        \'ipv6Address\': \'string\',
+                        \'hardware\': {
+                            \'cpuCount\': 123,
+                            \'disks\': [
                                 {
-                                    'name': 'string',
-                                    'arn': 'string',
-                                    'supportCode': 'string',
-                                    'createdAt': datetime(2015, 1, 1),
-                                    'location': {
-                                        'availabilityZone': 'string',
-                                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                                    \'name\': \'string\',
+                                    \'arn\': \'string\',
+                                    \'supportCode\': \'string\',
+                                    \'createdAt\': datetime(2015, 1, 1),
+                                    \'location\': {
+                                        \'availabilityZone\': \'string\',
+                                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                                     },
-                                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                                    'sizeInGb': 123,
-                                    'isSystemDisk': True|False,
-                                    'iops': 123,
-                                    'path': 'string',
-                                    'state': 'pending'|'error'|'available'|'in-use'|'unknown',
-                                    'attachedTo': 'string',
-                                    'isAttached': True|False,
-                                    'attachmentState': 'string',
-                                    'gbInUse': 123
+                                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                                    \'sizeInGb\': 123,
+                                    \'isSystemDisk\': True|False,
+                                    \'iops\': 123,
+                                    \'path\': \'string\',
+                                    \'state\': \'pending\'|\'error\'|\'available\'|\'in-use\'|\'unknown\',
+                                    \'attachedTo\': \'string\',
+                                    \'isAttached\': True|False,
+                                    \'attachmentState\': \'string\',
+                                    \'gbInUse\': 123
                                 },
                             ],
-                            'ramSizeInGb': ...
+                            \'ramSizeInGb\': ...
                         },
-                        'networking': {
-                            'monthlyTransfer': {
-                                'gbPerMonthAllocated': 123
+                        \'networking\': {
+                            \'monthlyTransfer\': {
+                                \'gbPerMonthAllocated\': 123
                             },
-                            'ports': [
+                            \'ports\': [
                                 {
-                                    'fromPort': 123,
-                                    'toPort': 123,
-                                    'protocol': 'tcp'|'all'|'udp',
-                                    'accessFrom': 'string',
-                                    'accessType': 'Public'|'Private',
-                                    'commonName': 'string',
-                                    'accessDirection': 'inbound'|'outbound'
+                                    \'fromPort\': 123,
+                                    \'toPort\': 123,
+                                    \'protocol\': \'tcp\'|\'all\'|\'udp\',
+                                    \'accessFrom\': \'string\',
+                                    \'accessType\': \'Public\'|\'Private\',
+                                    \'commonName\': \'string\',
+                                    \'accessDirection\': \'inbound\'|\'outbound\'
                                 },
                             ]
                         },
-                        'state': {
-                            'code': 123,
-                            'name': 'string'
+                        \'state\': {
+                            \'code\': 123,
+                            \'name\': \'string\'
                         },
-                        'username': 'string',
-                        'sshKeyName': 'string'
+                        \'username\': \'string\',
+                        \'sshKeyName\': \'string\'
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7147,11 +7147,11 @@ class Client(BaseClient):
         
                         The protocol being used. Can be one of the following.
         
-                        * ``tcp`` - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead. 
+                        * ``tcp`` - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn\'t require reliable data stream service, use UDP instead. 
                          
                         * ``all`` - All transport layer protocol types. For more general information, see `Transport layer <https://en.wikipedia.org/wiki/Transport_layer>`__ on Wikipedia. 
                          
-                        * ``udp`` - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead. 
+                        * ``udp`` - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don\'t require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead. 
                          
                       - **accessFrom** *(string) --* 
         
@@ -7205,7 +7205,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_key_pair(
-              keyPairName='string'
+              keyPairName=\'string\'
           )
         :type keyPairName: string
         :param keyPairName: **[REQUIRED]** 
@@ -7220,17 +7220,17 @@ class Client(BaseClient):
           ::
         
             {
-                'keyPair': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'supportCode': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'keyPair\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'supportCode\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'fingerprint': 'string'
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'fingerprint\': \'string\'
                 }
             }
           **Response Structure** 
@@ -7289,7 +7289,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_key_pairs(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -7304,21 +7304,21 @@ class Client(BaseClient):
           ::
         
             {
-                'keyPairs': [
+                \'keyPairs\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'fingerprint': 'string'
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'fingerprint\': \'string\'
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7384,7 +7384,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_load_balancer(
-              loadBalancerName='string'
+              loadBalancerName=\'string\'
           )
         :type loadBalancerName: string
         :param loadBalancerName: **[REQUIRED]** 
@@ -7399,39 +7399,39 @@ class Client(BaseClient):
           ::
         
             {
-                'loadBalancer': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'supportCode': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'loadBalancer\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'supportCode\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'dnsName': 'string',
-                    'state': 'active'|'provisioning'|'active_impaired'|'failed'|'unknown',
-                    'protocol': 'HTTP_HTTPS'|'HTTP',
-                    'publicPorts': [
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'dnsName\': \'string\',
+                    \'state\': \'active\'|\'provisioning\'|\'active_impaired\'|\'failed\'|\'unknown\',
+                    \'protocol\': \'HTTP_HTTPS\'|\'HTTP\',
+                    \'publicPorts\': [
                         123,
                     ],
-                    'healthCheckPath': 'string',
-                    'instancePort': 123,
-                    'instanceHealthSummary': [
+                    \'healthCheckPath\': \'string\',
+                    \'instancePort\': 123,
+                    \'instanceHealthSummary\': [
                         {
-                            'instanceName': 'string',
-                            'instanceHealth': 'initial'|'healthy'|'unhealthy'|'unused'|'draining'|'unavailable',
-                            'instanceHealthReason': 'Lb.RegistrationInProgress'|'Lb.InitialHealthChecking'|'Lb.InternalError'|'Instance.ResponseCodeMismatch'|'Instance.Timeout'|'Instance.FailedHealthChecks'|'Instance.NotRegistered'|'Instance.NotInUse'|'Instance.DeregistrationInProgress'|'Instance.InvalidState'|'Instance.IpUnusable'
+                            \'instanceName\': \'string\',
+                            \'instanceHealth\': \'initial\'|\'healthy\'|\'unhealthy\'|\'unused\'|\'draining\'|\'unavailable\',
+                            \'instanceHealthReason\': \'Lb.RegistrationInProgress\'|\'Lb.InitialHealthChecking\'|\'Lb.InternalError\'|\'Instance.ResponseCodeMismatch\'|\'Instance.Timeout\'|\'Instance.FailedHealthChecks\'|\'Instance.NotRegistered\'|\'Instance.NotInUse\'|\'Instance.DeregistrationInProgress\'|\'Instance.InvalidState\'|\'Instance.IpUnusable\'
                         },
                     ],
-                    'tlsCertificateSummaries': [
+                    \'tlsCertificateSummaries\': [
                         {
-                            'name': 'string',
-                            'isAttached': True|False
+                            \'name\': \'string\',
+                            \'isAttached\': True|False
                         },
                     ],
-                    'configurationOptions': {
-                        'string': 'string'
+                    \'configurationOptions\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -7487,7 +7487,7 @@ class Client(BaseClient):
         
                 The protocol you have enabled for your load balancer. Valid values are below.
         
-                You can't just have ``HTTP_HTTPS`` , but you can have just ``HTTP`` .
+                You can\'t just have ``HTTP_HTTPS`` , but you can have just ``HTTP`` .
         
               - **publicPorts** *(list) --* 
         
@@ -7501,7 +7501,7 @@ class Client(BaseClient):
         
               - **instancePort** *(integer) --* 
         
-                The port where the load balancer will direct traffic to your Lightsail instances. For HTTP traffic, it's port 80. For HTTPS traffic, it's port 443.
+                The port where the load balancer will direct traffic to your Lightsail instances. For HTTP traffic, it\'s port 80. For HTTPS traffic, it\'s port 443.
         
               - **instanceHealthSummary** *(list) --* 
         
@@ -7589,14 +7589,14 @@ class Client(BaseClient):
         ::
         
           response = client.get_load_balancer_metric_data(
-              loadBalancerName='string',
-              metricName='ClientTLSNegotiationErrorCount'|'HealthyHostCount'|'UnhealthyHostCount'|'HTTPCode_LB_4XX_Count'|'HTTPCode_LB_5XX_Count'|'HTTPCode_Instance_2XX_Count'|'HTTPCode_Instance_3XX_Count'|'HTTPCode_Instance_4XX_Count'|'HTTPCode_Instance_5XX_Count'|'InstanceResponseTime'|'RejectedConnectionCount'|'RequestCount',
+              loadBalancerName=\'string\',
+              metricName=\'ClientTLSNegotiationErrorCount\'|\'HealthyHostCount\'|\'UnhealthyHostCount\'|\'HTTPCode_LB_4XX_Count\'|\'HTTPCode_LB_5XX_Count\'|\'HTTPCode_Instance_2XX_Count\'|\'HTTPCode_Instance_3XX_Count\'|\'HTTPCode_Instance_4XX_Count\'|\'HTTPCode_Instance_5XX_Count\'|\'InstanceResponseTime\'|\'RejectedConnectionCount\'|\'RequestCount\',
               period=123,
               startTime=datetime(2015, 1, 1),
               endTime=datetime(2015, 1, 1),
-              unit='Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None',
+              unit=\'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\',
               statistics=[
-                  'Minimum'|'Maximum'|'Sum'|'Average'|'SampleCount',
+                  \'Minimum\'|\'Maximum\'|\'Sum\'|\'Average\'|\'SampleCount\',
               ]
           )
         :type loadBalancerName: string
@@ -7678,16 +7678,16 @@ class Client(BaseClient):
           ::
         
             {
-                'metricName': 'ClientTLSNegotiationErrorCount'|'HealthyHostCount'|'UnhealthyHostCount'|'HTTPCode_LB_4XX_Count'|'HTTPCode_LB_5XX_Count'|'HTTPCode_Instance_2XX_Count'|'HTTPCode_Instance_3XX_Count'|'HTTPCode_Instance_4XX_Count'|'HTTPCode_Instance_5XX_Count'|'InstanceResponseTime'|'RejectedConnectionCount'|'RequestCount',
-                'metricData': [
+                \'metricName\': \'ClientTLSNegotiationErrorCount\'|\'HealthyHostCount\'|\'UnhealthyHostCount\'|\'HTTPCode_LB_4XX_Count\'|\'HTTPCode_LB_5XX_Count\'|\'HTTPCode_Instance_2XX_Count\'|\'HTTPCode_Instance_3XX_Count\'|\'HTTPCode_Instance_4XX_Count\'|\'HTTPCode_Instance_5XX_Count\'|\'InstanceResponseTime\'|\'RejectedConnectionCount\'|\'RequestCount\',
+                \'metricData\': [
                     {
-                        'average': 123.0,
-                        'maximum': 123.0,
-                        'minimum': 123.0,
-                        'sampleCount': 123.0,
-                        'sum': 123.0,
-                        'timestamp': datetime(2015, 1, 1),
-                        'unit': 'Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None'
+                        \'average\': 123.0,
+                        \'maximum\': 123.0,
+                        \'minimum\': 123.0,
+                        \'sampleCount\': 123.0,
+                        \'sum\': 123.0,
+                        \'timestamp\': datetime(2015, 1, 1),
+                        \'unit\': \'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\'
                     },
                 ]
             }
@@ -7775,7 +7775,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_load_balancer_tls_certificates(
-              loadBalancerName='string'
+              loadBalancerName=\'string\'
           )
         :type loadBalancerName: string
         :param loadBalancerName: **[REQUIRED]** 
@@ -7790,52 +7790,52 @@ class Client(BaseClient):
           ::
         
             {
-                'tlsCertificates': [
+                \'tlsCertificates\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'loadBalancerName': 'string',
-                        'isAttached': True|False,
-                        'status': 'PENDING_VALIDATION'|'ISSUED'|'INACTIVE'|'EXPIRED'|'VALIDATION_TIMED_OUT'|'REVOKED'|'FAILED'|'UNKNOWN',
-                        'domainName': 'string',
-                        'domainValidationRecords': [
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'loadBalancerName\': \'string\',
+                        \'isAttached\': True|False,
+                        \'status\': \'PENDING_VALIDATION\'|\'ISSUED\'|\'INACTIVE\'|\'EXPIRED\'|\'VALIDATION_TIMED_OUT\'|\'REVOKED\'|\'FAILED\'|\'UNKNOWN\',
+                        \'domainName\': \'string\',
+                        \'domainValidationRecords\': [
                             {
-                                'name': 'string',
-                                'type': 'string',
-                                'value': 'string',
-                                'validationStatus': 'PENDING_VALIDATION'|'FAILED'|'SUCCESS',
-                                'domainName': 'string'
+                                \'name\': \'string\',
+                                \'type\': \'string\',
+                                \'value\': \'string\',
+                                \'validationStatus\': \'PENDING_VALIDATION\'|\'FAILED\'|\'SUCCESS\',
+                                \'domainName\': \'string\'
                             },
                         ],
-                        'failureReason': 'NO_AVAILABLE_CONTACTS'|'ADDITIONAL_VERIFICATION_REQUIRED'|'DOMAIN_NOT_ALLOWED'|'INVALID_PUBLIC_DOMAIN'|'OTHER',
-                        'issuedAt': datetime(2015, 1, 1),
-                        'issuer': 'string',
-                        'keyAlgorithm': 'string',
-                        'notAfter': datetime(2015, 1, 1),
-                        'notBefore': datetime(2015, 1, 1),
-                        'renewalSummary': {
-                            'renewalStatus': 'PENDING_AUTO_RENEWAL'|'PENDING_VALIDATION'|'SUCCESS'|'FAILED',
-                            'domainValidationOptions': [
+                        \'failureReason\': \'NO_AVAILABLE_CONTACTS\'|\'ADDITIONAL_VERIFICATION_REQUIRED\'|\'DOMAIN_NOT_ALLOWED\'|\'INVALID_PUBLIC_DOMAIN\'|\'OTHER\',
+                        \'issuedAt\': datetime(2015, 1, 1),
+                        \'issuer\': \'string\',
+                        \'keyAlgorithm\': \'string\',
+                        \'notAfter\': datetime(2015, 1, 1),
+                        \'notBefore\': datetime(2015, 1, 1),
+                        \'renewalSummary\': {
+                            \'renewalStatus\': \'PENDING_AUTO_RENEWAL\'|\'PENDING_VALIDATION\'|\'SUCCESS\'|\'FAILED\',
+                            \'domainValidationOptions\': [
                                 {
-                                    'domainName': 'string',
-                                    'validationStatus': 'PENDING_VALIDATION'|'FAILED'|'SUCCESS'
+                                    \'domainName\': \'string\',
+                                    \'validationStatus\': \'PENDING_VALIDATION\'|\'FAILED\'|\'SUCCESS\'
                                 },
                             ]
                         },
-                        'revocationReason': 'UNSPECIFIED'|'KEY_COMPROMISE'|'CA_COMPROMISE'|'AFFILIATION_CHANGED'|'SUPERCEDED'|'CESSATION_OF_OPERATION'|'CERTIFICATE_HOLD'|'REMOVE_FROM_CRL'|'PRIVILEGE_WITHDRAWN'|'A_A_COMPROMISE',
-                        'revokedAt': datetime(2015, 1, 1),
-                        'serial': 'string',
-                        'signatureAlgorithm': 'string',
-                        'subject': 'string',
-                        'subjectAlternativeNames': [
-                            'string',
+                        \'revocationReason\': \'UNSPECIFIED\'|\'KEY_COMPROMISE\'|\'CA_COMPROMISE\'|\'AFFILIATION_CHANGED\'|\'SUPERCEDED\'|\'CESSATION_OF_OPERATION\'|\'CERTIFICATE_HOLD\'|\'REMOVE_FROM_CRL\'|\'PRIVILEGE_WITHDRAWN\'|\'A_A_COMPROMISE\',
+                        \'revokedAt\': datetime(2015, 1, 1),
+                        \'serial\': \'string\',
+                        \'signatureAlgorithm\': \'string\',
+                        \'subject\': \'string\',
+                        \'subjectAlternativeNames\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -7976,15 +7976,15 @@ class Client(BaseClient):
         
                 - **renewalSummary** *(dict) --* 
         
-                  An object containing information about the status of Lightsail's managed renewal for the certificate.
+                  An object containing information about the status of Lightsail\'s managed renewal for the certificate.
         
                   - **renewalStatus** *(string) --* 
         
-                    The status of Lightsail's managed renewal of the certificate. Valid values are listed below.
+                    The status of Lightsail\'s managed renewal of the certificate. Valid values are listed below.
         
                   - **domainValidationOptions** *(list) --* 
         
-                    Contains information about the validation of each domain name in the certificate, as it pertains to Lightsail's managed renewal. This is different from the initial validation that occurs as a result of the RequestCertificate request.
+                    Contains information about the validation of each domain name in the certificate, as it pertains to Lightsail\'s managed renewal. This is different from the initial validation that occurs as a result of the RequestCertificate request.
         
                     - *(dict) --* 
         
@@ -8038,7 +8038,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_load_balancers(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -8053,44 +8053,44 @@ class Client(BaseClient):
           ::
         
             {
-                'loadBalancers': [
+                \'loadBalancers\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'dnsName': 'string',
-                        'state': 'active'|'provisioning'|'active_impaired'|'failed'|'unknown',
-                        'protocol': 'HTTP_HTTPS'|'HTTP',
-                        'publicPorts': [
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'dnsName\': \'string\',
+                        \'state\': \'active\'|\'provisioning\'|\'active_impaired\'|\'failed\'|\'unknown\',
+                        \'protocol\': \'HTTP_HTTPS\'|\'HTTP\',
+                        \'publicPorts\': [
                             123,
                         ],
-                        'healthCheckPath': 'string',
-                        'instancePort': 123,
-                        'instanceHealthSummary': [
+                        \'healthCheckPath\': \'string\',
+                        \'instancePort\': 123,
+                        \'instanceHealthSummary\': [
                             {
-                                'instanceName': 'string',
-                                'instanceHealth': 'initial'|'healthy'|'unhealthy'|'unused'|'draining'|'unavailable',
-                                'instanceHealthReason': 'Lb.RegistrationInProgress'|'Lb.InitialHealthChecking'|'Lb.InternalError'|'Instance.ResponseCodeMismatch'|'Instance.Timeout'|'Instance.FailedHealthChecks'|'Instance.NotRegistered'|'Instance.NotInUse'|'Instance.DeregistrationInProgress'|'Instance.InvalidState'|'Instance.IpUnusable'
+                                \'instanceName\': \'string\',
+                                \'instanceHealth\': \'initial\'|\'healthy\'|\'unhealthy\'|\'unused\'|\'draining\'|\'unavailable\',
+                                \'instanceHealthReason\': \'Lb.RegistrationInProgress\'|\'Lb.InitialHealthChecking\'|\'Lb.InternalError\'|\'Instance.ResponseCodeMismatch\'|\'Instance.Timeout\'|\'Instance.FailedHealthChecks\'|\'Instance.NotRegistered\'|\'Instance.NotInUse\'|\'Instance.DeregistrationInProgress\'|\'Instance.InvalidState\'|\'Instance.IpUnusable\'
                             },
                         ],
-                        'tlsCertificateSummaries': [
+                        \'tlsCertificateSummaries\': [
                             {
-                                'name': 'string',
-                                'isAttached': True|False
+                                \'name\': \'string\',
+                                \'isAttached\': True|False
                             },
                         ],
-                        'configurationOptions': {
-                            'string': 'string'
+                        \'configurationOptions\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8148,7 +8148,7 @@ class Client(BaseClient):
         
                   The protocol you have enabled for your load balancer. Valid values are below.
         
-                  You can't just have ``HTTP_HTTPS`` , but you can have just ``HTTP`` .
+                  You can\'t just have ``HTTP_HTTPS`` , but you can have just ``HTTP`` .
         
                 - **publicPorts** *(list) --* 
         
@@ -8162,7 +8162,7 @@ class Client(BaseClient):
         
                 - **instancePort** *(integer) --* 
         
-                  The port where the load balancer will direct traffic to your Lightsail instances. For HTTP traffic, it's port 80. For HTTPS traffic, it's port 443.
+                  The port where the load balancer will direct traffic to your Lightsail instances. For HTTP traffic, it\'s port 80. For HTTPS traffic, it\'s port 443.
         
                 - **instanceHealthSummary** *(list) --* 
         
@@ -8254,7 +8254,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_operation(
-              operationId='string'
+              operationId=\'string\'
           )
         :type operationId: string
         :param operationId: **[REQUIRED]** 
@@ -8269,22 +8269,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -8365,7 +8365,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_operations(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -8380,26 +8380,26 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8485,8 +8485,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_operations_for_resource(
-              resourceName='string',
-              pageToken='string'
+              resourceName=\'string\',
+              pageToken=\'string\'
           )
         :type resourceName: string
         :param resourceName: **[REQUIRED]** 
@@ -8506,27 +8506,27 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ],
-                'nextPageCount': 'string',
-                'nextPageToken': 'string'
+                \'nextPageCount\': \'string\',
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8617,10 +8617,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -8661,22 +8661,22 @@ class Client(BaseClient):
           ::
         
             {
-                'regions': [
+                \'regions\': [
                     {
-                        'continentCode': 'string',
-                        'description': 'string',
-                        'displayName': 'string',
-                        'name': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2',
-                        'availabilityZones': [
+                        \'continentCode\': \'string\',
+                        \'description\': \'string\',
+                        \'displayName\': \'string\',
+                        \'name\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\',
+                        \'availabilityZones\': [
                             {
-                                'zoneName': 'string',
-                                'state': 'string'
+                                \'zoneName\': \'string\',
+                                \'state\': \'string\'
                             },
                         ],
-                        'relationalDatabaseAvailabilityZones': [
+                        \'relationalDatabaseAvailabilityZones\': [
                             {
-                                'zoneName': 'string',
-                                'state': 'string'
+                                \'zoneName\': \'string\',
+                                \'state\': \'string\'
                             },
                         ]
                     },
@@ -8754,7 +8754,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_database(
-              relationalDatabaseName='string'
+              relationalDatabaseName=\'string\'
           )
         :type relationalDatabaseName: string
         :param relationalDatabaseName: **[REQUIRED]** 
@@ -8769,49 +8769,49 @@ class Client(BaseClient):
           ::
         
             {
-                'relationalDatabase': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'supportCode': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'relationalDatabase\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'supportCode\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'relationalDatabaseBlueprintId': 'string',
-                    'relationalDatabaseBundleId': 'string',
-                    'masterDatabaseName': 'string',
-                    'hardware': {
-                        'cpuCount': 123,
-                        'diskSizeInGb': 123,
-                        'ramSizeInGb': ...
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'relationalDatabaseBlueprintId\': \'string\',
+                    \'relationalDatabaseBundleId\': \'string\',
+                    \'masterDatabaseName\': \'string\',
+                    \'hardware\': {
+                        \'cpuCount\': 123,
+                        \'diskSizeInGb\': 123,
+                        \'ramSizeInGb\': ...
                     },
-                    'state': 'string',
-                    'secondaryAvailabilityZone': 'string',
-                    'backupRetentionEnabled': True|False,
-                    'pendingModifiedValues': {
-                        'masterUserPassword': 'string',
-                        'engineVersion': 'string',
-                        'backupRetentionEnabled': True|False
+                    \'state\': \'string\',
+                    \'secondaryAvailabilityZone\': \'string\',
+                    \'backupRetentionEnabled\': True|False,
+                    \'pendingModifiedValues\': {
+                        \'masterUserPassword\': \'string\',
+                        \'engineVersion\': \'string\',
+                        \'backupRetentionEnabled\': True|False
                     },
-                    'engine': 'string',
-                    'engineVersion': 'string',
-                    'latestRestorableTime': datetime(2015, 1, 1),
-                    'masterUsername': 'string',
-                    'parameterApplyStatus': 'string',
-                    'preferredBackupWindow': 'string',
-                    'preferredMaintenanceWindow': 'string',
-                    'publiclyAccessible': True|False,
-                    'masterEndpoint': {
-                        'port': 123,
-                        'address': 'string'
+                    \'engine\': \'string\',
+                    \'engineVersion\': \'string\',
+                    \'latestRestorableTime\': datetime(2015, 1, 1),
+                    \'masterUsername\': \'string\',
+                    \'parameterApplyStatus\': \'string\',
+                    \'preferredBackupWindow\': \'string\',
+                    \'preferredMaintenanceWindow\': \'string\',
+                    \'publiclyAccessible\': True|False,
+                    \'masterEndpoint\': {
+                        \'port\': 123,
+                        \'address\': \'string\'
                     },
-                    'pendingMaintenanceActions': [
+                    \'pendingMaintenanceActions\': [
                         {
-                            'action': 'string',
-                            'description': 'string',
-                            'currentApplyDate': datetime(2015, 1, 1)
+                            \'action\': \'string\',
+                            \'description\': \'string\',
+                            \'currentApplyDate\': datetime(2015, 1, 1)
                         },
                     ]
                 }
@@ -8994,7 +8994,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_database_blueprints(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -9009,17 +9009,17 @@ class Client(BaseClient):
           ::
         
             {
-                'blueprints': [
+                \'blueprints\': [
                     {
-                        'blueprintId': 'string',
-                        'engine': 'mysql',
-                        'engineVersion': 'string',
-                        'engineDescription': 'string',
-                        'engineVersionDescription': 'string',
-                        'isEngineDefault': True|False
+                        \'blueprintId\': \'string\',
+                        \'engine\': \'mysql\',
+                        \'engineVersion\': \'string\',
+                        \'engineDescription\': \'string\',
+                        \'engineVersionDescription\': \'string\',
+                        \'isEngineDefault\': True|False
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9075,7 +9075,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_database_bundles(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -9090,20 +9090,20 @@ class Client(BaseClient):
           ::
         
             {
-                'bundles': [
+                \'bundles\': [
                     {
-                        'bundleId': 'string',
-                        'name': 'string',
-                        'price': ...,
-                        'ramSizeInGb': ...,
-                        'diskSizeInGb': 123,
-                        'transferPerMonthInGb': 123,
-                        'cpuCount': 123,
-                        'isEncrypted': True|False,
-                        'isActive': True|False
+                        \'bundleId\': \'string\',
+                        \'name\': \'string\',
+                        \'price\': ...,
+                        \'ramSizeInGb\': ...,
+                        \'diskSizeInGb\': 123,
+                        \'transferPerMonthInGb\': 123,
+                        \'cpuCount\': 123,
+                        \'isEncrypted\': True|False,
+                        \'isActive\': True|False
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9169,9 +9169,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_database_events(
-              relationalDatabaseName='string',
+              relationalDatabaseName=\'string\',
               durationInMinutes=123,
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type relationalDatabaseName: string
         :param relationalDatabaseName: **[REQUIRED]** 
@@ -9200,17 +9200,17 @@ class Client(BaseClient):
           ::
         
             {
-                'relationalDatabaseEvents': [
+                \'relationalDatabaseEvents\': [
                     {
-                        'resource': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'message': 'string',
-                        'eventCategories': [
-                            'string',
+                        \'resource\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'message\': \'string\',
+                        \'eventCategories\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9258,12 +9258,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_database_log_events(
-              relationalDatabaseName='string',
-              logStreamName='string',
+              relationalDatabaseName=\'string\',
+              logStreamName=\'string\',
               startTime=datetime(2015, 1, 1),
               endTime=datetime(2015, 1, 1),
               startFromHead=True|False,
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type relationalDatabaseName: string
         :param relationalDatabaseName: **[REQUIRED]** 
@@ -9319,14 +9319,14 @@ class Client(BaseClient):
           ::
         
             {
-                'resourceLogEvents': [
+                \'resourceLogEvents\': [
                     {
-                        'createdAt': datetime(2015, 1, 1),
-                        'message': 'string'
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'message\': \'string\'
                     },
                 ],
-                'nextBackwardToken': 'string',
-                'nextForwardToken': 'string'
+                \'nextBackwardToken\': \'string\',
+                \'nextForwardToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9368,7 +9368,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_database_log_streams(
-              relationalDatabaseName='string'
+              relationalDatabaseName=\'string\'
           )
         :type relationalDatabaseName: string
         :param relationalDatabaseName: **[REQUIRED]** 
@@ -9383,8 +9383,8 @@ class Client(BaseClient):
           ::
         
             {
-                'logStreams': [
-                    'string',
+                \'logStreams\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -9409,8 +9409,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_database_master_user_password(
-              relationalDatabaseName='string',
-              passwordVersion='CURRENT'|'PREVIOUS'|'PENDING'
+              relationalDatabaseName=\'string\',
+              passwordVersion=\'CURRENT\'|\'PREVIOUS\'|\'PENDING\'
           )
         :type relationalDatabaseName: string
         :param relationalDatabaseName: **[REQUIRED]** 
@@ -9434,8 +9434,8 @@ class Client(BaseClient):
           ::
         
             {
-                'masterUserPassword': 'string',
-                'createdAt': datetime(2015, 1, 1)
+                \'masterUserPassword\': \'string\',
+                \'createdAt\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -9461,14 +9461,14 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_database_metric_data(
-              relationalDatabaseName='string',
-              metricName='CPUUtilization'|'DatabaseConnections'|'DiskQueueDepth'|'FreeStorageSpace'|'NetworkReceiveThroughput'|'NetworkTransmitThroughput',
+              relationalDatabaseName=\'string\',
+              metricName=\'CPUUtilization\'|\'DatabaseConnections\'|\'DiskQueueDepth\'|\'FreeStorageSpace\'|\'NetworkReceiveThroughput\'|\'NetworkTransmitThroughput\',
               period=123,
               startTime=datetime(2015, 1, 1),
               endTime=datetime(2015, 1, 1),
-              unit='Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None',
+              unit=\'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\',
               statistics=[
-                  'Minimum'|'Maximum'|'Sum'|'Average'|'SampleCount',
+                  \'Minimum\'|\'Maximum\'|\'Sum\'|\'Average\'|\'SampleCount\',
               ]
           )
         :type relationalDatabaseName: string
@@ -9528,16 +9528,16 @@ class Client(BaseClient):
           ::
         
             {
-                'metricName': 'CPUUtilization'|'DatabaseConnections'|'DiskQueueDepth'|'FreeStorageSpace'|'NetworkReceiveThroughput'|'NetworkTransmitThroughput',
-                'metricData': [
+                \'metricName\': \'CPUUtilization\'|\'DatabaseConnections\'|\'DiskQueueDepth\'|\'FreeStorageSpace\'|\'NetworkReceiveThroughput\'|\'NetworkTransmitThroughput\',
+                \'metricData\': [
                     {
-                        'average': 123.0,
-                        'maximum': 123.0,
-                        'minimum': 123.0,
-                        'sampleCount': 123.0,
-                        'sum': 123.0,
-                        'timestamp': datetime(2015, 1, 1),
-                        'unit': 'Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None'
+                        \'average\': 123.0,
+                        \'maximum\': 123.0,
+                        \'minimum\': 123.0,
+                        \'sampleCount\': 123.0,
+                        \'sum\': 123.0,
+                        \'timestamp\': datetime(2015, 1, 1),
+                        \'unit\': \'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\'
                     },
                 ]
             }
@@ -9599,8 +9599,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_database_parameters(
-              relationalDatabaseName='string',
-              pageToken='string'
+              relationalDatabaseName=\'string\',
+              pageToken=\'string\'
           )
         :type relationalDatabaseName: string
         :param relationalDatabaseName: **[REQUIRED]** 
@@ -9620,19 +9620,19 @@ class Client(BaseClient):
           ::
         
             {
-                'parameters': [
+                \'parameters\': [
                     {
-                        'allowedValues': 'string',
-                        'applyMethod': 'string',
-                        'applyType': 'string',
-                        'dataType': 'string',
-                        'description': 'string',
-                        'isModifiable': True|False,
-                        'parameterName': 'string',
-                        'parameterValue': 'string'
+                        \'allowedValues\': \'string\',
+                        \'applyMethod\': \'string\',
+                        \'applyType\': \'string\',
+                        \'dataType\': \'string\',
+                        \'description\': \'string\',
+                        \'isModifiable\': True|False,
+                        \'parameterName\': \'string\',
+                        \'parameterValue\': \'string\'
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9696,7 +9696,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_database_snapshot(
-              relationalDatabaseSnapshotName='string'
+              relationalDatabaseSnapshotName=\'string\'
           )
         :type relationalDatabaseSnapshotName: string
         :param relationalDatabaseSnapshotName: **[REQUIRED]** 
@@ -9711,24 +9711,24 @@ class Client(BaseClient):
           ::
         
             {
-                'relationalDatabaseSnapshot': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'supportCode': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'relationalDatabaseSnapshot\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'supportCode\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'engine': 'string',
-                    'engineVersion': 'string',
-                    'sizeInGb': 123,
-                    'state': 'string',
-                    'fromRelationalDatabaseName': 'string',
-                    'fromRelationalDatabaseArn': 'string',
-                    'fromRelationalDatabaseBundleId': 'string',
-                    'fromRelationalDatabaseBlueprintId': 'string'
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'engine\': \'string\',
+                    \'engineVersion\': \'string\',
+                    \'sizeInGb\': 123,
+                    \'state\': \'string\',
+                    \'fromRelationalDatabaseName\': \'string\',
+                    \'fromRelationalDatabaseArn\': \'string\',
+                    \'fromRelationalDatabaseBundleId\': \'string\',
+                    \'fromRelationalDatabaseBlueprintId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9815,7 +9815,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_database_snapshots(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -9830,28 +9830,28 @@ class Client(BaseClient):
           ::
         
             {
-                'relationalDatabaseSnapshots': [
+                \'relationalDatabaseSnapshots\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'engine': 'string',
-                        'engineVersion': 'string',
-                        'sizeInGb': 123,
-                        'state': 'string',
-                        'fromRelationalDatabaseName': 'string',
-                        'fromRelationalDatabaseArn': 'string',
-                        'fromRelationalDatabaseBundleId': 'string',
-                        'fromRelationalDatabaseBlueprintId': 'string'
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'engine\': \'string\',
+                        \'engineVersion\': \'string\',
+                        \'sizeInGb\': 123,
+                        \'state\': \'string\',
+                        \'fromRelationalDatabaseName\': \'string\',
+                        \'fromRelationalDatabaseArn\': \'string\',
+                        \'fromRelationalDatabaseBundleId\': \'string\',
+                        \'fromRelationalDatabaseBlueprintId\': \'string\'
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9945,7 +9945,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_relational_databases(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -9960,55 +9960,55 @@ class Client(BaseClient):
           ::
         
             {
-                'relationalDatabases': [
+                \'relationalDatabases\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'relationalDatabaseBlueprintId': 'string',
-                        'relationalDatabaseBundleId': 'string',
-                        'masterDatabaseName': 'string',
-                        'hardware': {
-                            'cpuCount': 123,
-                            'diskSizeInGb': 123,
-                            'ramSizeInGb': ...
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'relationalDatabaseBlueprintId\': \'string\',
+                        \'relationalDatabaseBundleId\': \'string\',
+                        \'masterDatabaseName\': \'string\',
+                        \'hardware\': {
+                            \'cpuCount\': 123,
+                            \'diskSizeInGb\': 123,
+                            \'ramSizeInGb\': ...
                         },
-                        'state': 'string',
-                        'secondaryAvailabilityZone': 'string',
-                        'backupRetentionEnabled': True|False,
-                        'pendingModifiedValues': {
-                            'masterUserPassword': 'string',
-                            'engineVersion': 'string',
-                            'backupRetentionEnabled': True|False
+                        \'state\': \'string\',
+                        \'secondaryAvailabilityZone\': \'string\',
+                        \'backupRetentionEnabled\': True|False,
+                        \'pendingModifiedValues\': {
+                            \'masterUserPassword\': \'string\',
+                            \'engineVersion\': \'string\',
+                            \'backupRetentionEnabled\': True|False
                         },
-                        'engine': 'string',
-                        'engineVersion': 'string',
-                        'latestRestorableTime': datetime(2015, 1, 1),
-                        'masterUsername': 'string',
-                        'parameterApplyStatus': 'string',
-                        'preferredBackupWindow': 'string',
-                        'preferredMaintenanceWindow': 'string',
-                        'publiclyAccessible': True|False,
-                        'masterEndpoint': {
-                            'port': 123,
-                            'address': 'string'
+                        \'engine\': \'string\',
+                        \'engineVersion\': \'string\',
+                        \'latestRestorableTime\': datetime(2015, 1, 1),
+                        \'masterUsername\': \'string\',
+                        \'parameterApplyStatus\': \'string\',
+                        \'preferredBackupWindow\': \'string\',
+                        \'preferredMaintenanceWindow\': \'string\',
+                        \'publiclyAccessible\': True|False,
+                        \'masterEndpoint\': {
+                            \'port\': 123,
+                            \'address\': \'string\'
                         },
-                        'pendingMaintenanceActions': [
+                        \'pendingMaintenanceActions\': [
                             {
-                                'action': 'string',
-                                'description': 'string',
-                                'currentApplyDate': datetime(2015, 1, 1)
+                                \'action\': \'string\',
+                                \'description\': \'string\',
+                                \'currentApplyDate\': datetime(2015, 1, 1)
                             },
                         ]
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -10194,7 +10194,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_static_ip(
-              staticIpName='string'
+              staticIpName=\'string\'
           )
         :type staticIpName: string
         :param staticIpName: **[REQUIRED]** 
@@ -10209,19 +10209,19 @@ class Client(BaseClient):
           ::
         
             {
-                'staticIp': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'supportCode': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'staticIp\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'supportCode\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'ipAddress': 'string',
-                    'attachedTo': 'string',
-                    'isAttached': True|False
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'ipAddress\': \'string\',
+                    \'attachedTo\': \'string\',
+                    \'isAttached\': True|False
                 }
             }
           **Response Structure** 
@@ -10288,7 +10288,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_static_ips(
-              pageToken='string'
+              pageToken=\'string\'
           )
         :type pageToken: string
         :param pageToken: 
@@ -10303,23 +10303,23 @@ class Client(BaseClient):
           ::
         
             {
-                'staticIps': [
+                \'staticIps\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'ipAddress': 'string',
-                        'attachedTo': 'string',
-                        'isAttached': True|False
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'ipAddress\': \'string\',
+                        \'attachedTo\': \'string\',
+                        \'isAttached\': True|False
                     },
                 ],
-                'nextPageToken': 'string'
+                \'nextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -10405,8 +10405,8 @@ class Client(BaseClient):
         ::
         
           response = client.import_key_pair(
-              keyPairName='string',
-              publicKeyBase64='string'
+              keyPairName=\'string\',
+              publicKeyBase64=\'string\'
           )
         :type keyPairName: string
         :param keyPairName: **[REQUIRED]** 
@@ -10426,22 +10426,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10529,7 +10529,7 @@ class Client(BaseClient):
           ::
         
             {
-                'isPeered': True|False
+                \'isPeered\': True|False
             }
           **Response Structure** 
         
@@ -10552,11 +10552,11 @@ class Client(BaseClient):
         
           response = client.open_instance_public_ports(
               portInfo={
-                  'fromPort': 123,
-                  'toPort': 123,
-                  'protocol': 'tcp'|'all'|'udp'
+                  \'fromPort\': 123,
+                  \'toPort\': 123,
+                  \'protocol\': \'tcp\'|\'all\'|\'udp\'
               },
-              instanceName='string'
+              instanceName=\'string\'
           )
         :type portInfo: dict
         :param portInfo: **[REQUIRED]** 
@@ -10588,22 +10588,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10691,22 +10691,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10787,12 +10787,12 @@ class Client(BaseClient):
           response = client.put_instance_public_ports(
               portInfos=[
                   {
-                      'fromPort': 123,
-                      'toPort': 123,
-                      'protocol': 'tcp'|'all'|'udp'
+                      \'fromPort\': 123,
+                      \'toPort\': 123,
+                      \'protocol\': \'tcp\'|\'all\'|\'udp\'
                   },
               ],
-              instanceName='string'
+              instanceName=\'string\'
           )
         :type portInfos: list
         :param portInfos: **[REQUIRED]** 
@@ -10828,22 +10828,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10922,7 +10922,7 @@ class Client(BaseClient):
         ::
         
           response = client.reboot_instance(
-              instanceName='string'
+              instanceName=\'string\'
           )
         :type instanceName: string
         :param instanceName: **[REQUIRED]** 
@@ -10937,23 +10937,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -11037,7 +11037,7 @@ class Client(BaseClient):
         ::
         
           response = client.reboot_relational_database(
-              relationalDatabaseName='string'
+              relationalDatabaseName=\'string\'
           )
         :type relationalDatabaseName: string
         :param relationalDatabaseName: **[REQUIRED]** 
@@ -11052,23 +11052,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -11152,7 +11152,7 @@ class Client(BaseClient):
         ::
         
           response = client.release_static_ip(
-              staticIpName='string'
+              staticIpName=\'string\'
           )
         :type staticIpName: string
         :param staticIpName: **[REQUIRED]** 
@@ -11167,23 +11167,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -11267,7 +11267,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_instance(
-              instanceName='string'
+              instanceName=\'string\'
           )
         :type instanceName: string
         :param instanceName: **[REQUIRED]** 
@@ -11282,23 +11282,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -11382,7 +11382,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_relational_database(
-              relationalDatabaseName='string'
+              relationalDatabaseName=\'string\'
           )
         :type relationalDatabaseName: string
         :param relationalDatabaseName: **[REQUIRED]** 
@@ -11397,23 +11397,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -11497,7 +11497,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_instance(
-              instanceName='string',
+              instanceName=\'string\',
               force=True|False
           )
         :type instanceName: string
@@ -11522,23 +11522,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -11622,8 +11622,8 @@ class Client(BaseClient):
         ::
         
           response = client.stop_relational_database(
-              relationalDatabaseName='string',
-              relationalDatabaseSnapshotName='string'
+              relationalDatabaseName=\'string\',
+              relationalDatabaseSnapshotName=\'string\'
           )
         :type relationalDatabaseName: string
         :param relationalDatabaseName: **[REQUIRED]** 
@@ -11643,23 +11643,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -11752,22 +11752,22 @@ class Client(BaseClient):
           ::
         
             {
-                'operation': {
-                    'id': 'string',
-                    'resourceName': 'string',
-                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                    'createdAt': datetime(2015, 1, 1),
-                    'location': {
-                        'availabilityZone': 'string',
-                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                \'operation\': {
+                    \'id\': \'string\',
+                    \'resourceName\': \'string\',
+                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'location\': {
+                        \'availabilityZone\': \'string\',
+                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                     },
-                    'isTerminal': True|False,
-                    'operationDetails': 'string',
-                    'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                    'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                    'statusChangedAt': datetime(2015, 1, 1),
-                    'errorCode': 'string',
-                    'errorDetails': 'string'
+                    \'isTerminal\': True|False,
+                    \'operationDetails\': \'string\',
+                    \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                    \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                    \'statusChangedAt\': datetime(2015, 1, 1),
+                    \'errorCode\': \'string\',
+                    \'errorDetails\': \'string\'
                 }
             }
           **Response Structure** 
@@ -11846,15 +11846,15 @@ class Client(BaseClient):
         ::
         
           response = client.update_domain_entry(
-              domainName='string',
+              domainName=\'string\',
               domainEntry={
-                  'id': 'string',
-                  'name': 'string',
-                  'target': 'string',
-                  'isAlias': True|False,
-                  'type': 'string',
-                  'options': {
-                      'string': 'string'
+                  \'id\': \'string\',
+                  \'name\': \'string\',
+                  \'target\': \'string\',
+                  \'isAlias\': True|False,
+                  \'type\': \'string\',
+                  \'options\': {
+                      \'string\': \'string\'
                   }
               }
           )
@@ -11910,23 +11910,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -12010,9 +12010,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_load_balancer_attribute(
-              loadBalancerName='string',
-              attributeName='HealthCheckPath'|'SessionStickinessEnabled'|'SessionStickiness_LB_CookieDurationSeconds',
-              attributeValue='string'
+              loadBalancerName=\'string\',
+              attributeName=\'HealthCheckPath\'|\'SessionStickinessEnabled\'|\'SessionStickiness_LB_CookieDurationSeconds\',
+              attributeValue=\'string\'
           )
         :type loadBalancerName: string
         :param loadBalancerName: **[REQUIRED]** 
@@ -12037,23 +12037,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -12131,7 +12131,7 @@ class Client(BaseClient):
     def update_relational_database(self, relationalDatabaseName: str, masterUserPassword: str = None, rotateMasterUserPassword: bool = None, preferredBackupWindow: str = None, preferredMaintenanceWindow: str = None, enableBackupRetention: bool = None, disableBackupRetention: bool = None, publiclyAccessible: bool = None, applyImmediately: bool = None) -> Dict:
         """
         
-        Updates are applied immediately, or in cases where the updates could result in an outage, are applied during the database's predefined maintenance window.
+        Updates are applied immediately, or in cases where the updates could result in an outage, are applied during the database\'s predefined maintenance window.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/lightsail-2016-11-28/UpdateRelationalDatabase>`_
         
@@ -12139,11 +12139,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_relational_database(
-              relationalDatabaseName='string',
-              masterUserPassword='string',
+              relationalDatabaseName=\'string\',
+              masterUserPassword=\'string\',
               rotateMasterUserPassword=True|False,
-              preferredBackupWindow='string',
-              preferredMaintenanceWindow='string',
+              preferredBackupWindow=\'string\',
+              preferredMaintenanceWindow=\'string\',
               enableBackupRetention=True|False,
               disableBackupRetention=True|False,
               publiclyAccessible=True|False,
@@ -12157,7 +12157,7 @@ class Client(BaseClient):
         :type masterUserPassword: string
         :param masterUserPassword: 
         
-          The password for the master user of your database. The password can include any printable ASCII character except "/", """, or "@".
+          The password for the master user of your database. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".
         
           Constraints: Must contain 8 to 41 characters.
         
@@ -12238,23 +12238,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }
@@ -12332,7 +12332,7 @@ class Client(BaseClient):
     def update_relational_database_parameters(self, relationalDatabaseName: str, parameters: List) -> Dict:
         """
         
-        Parameter updates don't cause outages; therefore, their application is not subject to the preferred maintenance window. However, there are two ways in which paramater updates are applied: ``dynamic`` or ``pending-reboot`` . Parameters marked with a ``dynamic`` apply type are applied immediately. Parameters marked with a ``pending-reboot`` apply type are applied only after the database is rebooted using the ``reboot relational database`` operation.
+        Parameter updates don\'t cause outages; therefore, their application is not subject to the preferred maintenance window. However, there are two ways in which paramater updates are applied: ``dynamic`` or ``pending-reboot`` . Parameters marked with a ``dynamic`` apply type are applied immediately. Parameters marked with a ``pending-reboot`` apply type are applied only after the database is rebooted using the ``reboot relational database`` operation.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/lightsail-2016-11-28/UpdateRelationalDatabaseParameters>`_
         
@@ -12340,17 +12340,17 @@ class Client(BaseClient):
         ::
         
           response = client.update_relational_database_parameters(
-              relationalDatabaseName='string',
+              relationalDatabaseName=\'string\',
               parameters=[
                   {
-                      'allowedValues': 'string',
-                      'applyMethod': 'string',
-                      'applyType': 'string',
-                      'dataType': 'string',
-                      'description': 'string',
-                      'isModifiable': True|False,
-                      'parameterName': 'string',
-                      'parameterValue': 'string'
+                      \'allowedValues\': \'string\',
+                      \'applyMethod\': \'string\',
+                      \'applyType\': \'string\',
+                      \'dataType\': \'string\',
+                      \'description\': \'string\',
+                      \'isModifiable\': True|False,
+                      \'parameterName\': \'string\',
+                      \'parameterValue\': \'string\'
                   },
               ]
           )
@@ -12410,23 +12410,23 @@ class Client(BaseClient):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ]
             }

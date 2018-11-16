@@ -12,11 +12,11 @@ class ListBuilds(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              sortOrder='ASCENDING'|'DESCENDING',
+              sortOrder=\'ASCENDING\'|\'DESCENDING\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type sortOrder: string
@@ -53,10 +53,10 @@ class ListBuilds(Paginator):
           ::
         
             {
-                'ids': [
-                    'string',
+                \'ids\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -86,12 +86,12 @@ class ListBuildsForProject(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              projectName='string',
-              sortOrder='ASCENDING'|'DESCENDING',
+              projectName=\'string\',
+              sortOrder=\'ASCENDING\'|\'DESCENDING\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type projectName: string
@@ -133,10 +133,10 @@ class ListBuildsForProject(Paginator):
           ::
         
             {
-                'ids': [
-                    'string',
+                \'ids\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -166,12 +166,12 @@ class ListProjects(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              sortBy='NAME'|'CREATED_TIME'|'LAST_MODIFIED_TIME',
-              sortOrder='ASCENDING'|'DESCENDING',
+              sortBy=\'NAME\'|\'CREATED_TIME\'|\'LAST_MODIFIED_TIME\',
+              sortOrder=\'ASCENDING\'|\'DESCENDING\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type sortBy: string
@@ -183,7 +183,7 @@ class ListProjects(Paginator):
            
           * ``LAST_MODIFIED_TIME`` : List the build project names based on when information about each build project was last changed. 
            
-          * ``NAME`` : List the build project names based on each build project's name. 
+          * ``NAME`` : List the build project names based on each build project\'s name. 
            
           Use ``sortOrder`` to specify in what order to list the build project names based on the preceding criteria.
         
@@ -223,10 +223,10 @@ class ListProjects(Paginator):
           ::
         
             {
-                'projects': [
-                    'string',
+                \'projects\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

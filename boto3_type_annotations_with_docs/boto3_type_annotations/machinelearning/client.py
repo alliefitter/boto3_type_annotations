@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -19,12 +19,12 @@ class Client(BaseClient):
           response = client.add_tags(
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              ResourceId='string',
-              ResourceType='BatchPrediction'|'DataSource'|'Evaluation'|'MLModel'
+              ResourceId=\'string\',
+              ResourceType=\'BatchPrediction\'|\'DataSource\'|\'Evaluation\'|\'MLModel\'
           )
         :type Tags: list
         :param Tags: **[REQUIRED]** 
@@ -61,8 +61,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceId': 'string',
-                'ResourceType': 'BatchPrediction'|'DataSource'|'Evaluation'|'MLModel'
+                \'ResourceId\': \'string\',
+                \'ResourceType\': \'BatchPrediction\'|\'DataSource\'|\'Evaluation\'|\'MLModel\'
             }
           **Response Structure** 
         
@@ -87,10 +87,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -110,11 +110,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_batch_prediction(
-              BatchPredictionId='string',
-              BatchPredictionName='string',
-              MLModelId='string',
-              BatchPredictionDataSourceId='string',
-              OutputUri='string'
+              BatchPredictionId=\'string\',
+              BatchPredictionName=\'string\',
+              MLModelId=\'string\',
+              BatchPredictionDataSourceId=\'string\',
+              OutputUri=\'string\'
           )
         :type BatchPredictionId: string
         :param BatchPredictionId: **[REQUIRED]** 
@@ -139,7 +139,7 @@ class Client(BaseClient):
         :type OutputUri: string
         :param OutputUri: **[REQUIRED]** 
         
-          The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the ``s3 key`` portion of the ``outputURI`` field: ':', '//', '/./', '/../'.
+          The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the ``s3 key`` portion of the ``outputURI`` field: \':\', \'//\', \'/./\', \'/../\'.
         
           Amazon ML needs permissions to store and retrieve the logs on your behalf. For information about how to set permissions, see the `Amazon Machine Learning Developer Guide <http://docs.aws.amazon.com/machine-learning/latest/dg>`__ .
         
@@ -151,7 +151,7 @@ class Client(BaseClient):
           ::
         
             {
-                'BatchPredictionId': 'string'
+                \'BatchPredictionId\': \'string\'
             }
           **Response Structure** 
         
@@ -181,30 +181,30 @@ class Client(BaseClient):
         ::
         
           response = client.create_data_source_from_rds(
-              DataSourceId='string',
-              DataSourceName='string',
+              DataSourceId=\'string\',
+              DataSourceName=\'string\',
               RDSData={
-                  'DatabaseInformation': {
-                      'InstanceIdentifier': 'string',
-                      'DatabaseName': 'string'
+                  \'DatabaseInformation\': {
+                      \'InstanceIdentifier\': \'string\',
+                      \'DatabaseName\': \'string\'
                   },
-                  'SelectSqlQuery': 'string',
-                  'DatabaseCredentials': {
-                      'Username': 'string',
-                      'Password': 'string'
+                  \'SelectSqlQuery\': \'string\',
+                  \'DatabaseCredentials\': {
+                      \'Username\': \'string\',
+                      \'Password\': \'string\'
                   },
-                  'S3StagingLocation': 'string',
-                  'DataRearrangement': 'string',
-                  'DataSchema': 'string',
-                  'DataSchemaUri': 'string',
-                  'ResourceRole': 'string',
-                  'ServiceRole': 'string',
-                  'SubnetId': 'string',
-                  'SecurityGroupIds': [
-                      'string',
+                  \'S3StagingLocation\': \'string\',
+                  \'DataRearrangement\': \'string\',
+                  \'DataSchema\': \'string\',
+                  \'DataSchemaUri\': \'string\',
+                  \'ResourceRole\': \'string\',
+                  \'ServiceRole\': \'string\',
+                  \'SubnetId\': \'string\',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ]
               },
-              RoleARN='string',
+              RoleARN=\'string\',
               ComputeStatistics=True|False
           )
         :type DataSourceId: string
@@ -244,7 +244,7 @@ class Client(BaseClient):
            
           * DataSchema - A JSON string representing the schema. This is not required if ``DataSchemaUri`` is specified. 
            
-          * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the ``Datasource`` .   Sample - ``"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"``   
+          * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the ``Datasource`` .   Sample - ``\"{\\"splitting\\":{\\"percentBegin\\":10,\\"percentEnd\\":60}}\"``   
            
           - **DatabaseInformation** *(dict) --* **[REQUIRED]** 
         
@@ -288,9 +288,9 @@ class Client(BaseClient):
              
             * **``percentEnd``**  Use ``percentEnd`` to indicate the end of the range of the data used to create the Datasource. If you do not include ``percentBegin`` and ``percentEnd`` , Amazon ML includes all of the data when creating the datasource.
              
-            * **``complement``**  The ``complement`` parameter instructs Amazon ML to use the data that is not included in the range of ``percentBegin`` to ``percentEnd`` to create a datasource. The ``complement`` parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for ``percentBegin`` and ``percentEnd`` , along with the ``complement`` parameter. For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data. Datasource for evaluation: ``{"splitting":{"percentBegin":0, "percentEnd":25}}``  Datasource for training: ``{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}``  
+            * **``complement``**  The ``complement`` parameter instructs Amazon ML to use the data that is not included in the range of ``percentBegin`` to ``percentEnd`` to create a datasource. The ``complement`` parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for ``percentBegin`` and ``percentEnd`` , along with the ``complement`` parameter. For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data. Datasource for evaluation: ``{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25}}``  Datasource for training: ``{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25, \"complement\":\"true\"}}``  
              
-            * **``strategy``**  To change how Amazon ML splits the data for a datasource, use the ``strategy`` parameter. The default value for the ``strategy`` parameter is ``sequential`` , meaning that Amazon ML takes all of the data records between the ``percentBegin`` and ``percentEnd`` parameters for the datasource, in the order that the records appear in the input data. The following two ``DataRearrangement`` lines are examples of sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}``  Datasource for training: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}``  To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the ``strategy`` parameter to ``random`` and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between ``percentBegin`` and ``percentEnd`` . Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records. The following two ``DataRearrangement`` lines are examples of non-sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}``  Datasource for training: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}``  
+            * **``strategy``**  To change how Amazon ML splits the data for a datasource, use the ``strategy`` parameter. The default value for the ``strategy`` parameter is ``sequential`` , meaning that Amazon ML takes all of the data records between the ``percentBegin`` and ``percentEnd`` parameters for the datasource, in the order that the records appear in the input data. The following two ``DataRearrangement`` lines are examples of sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\"}}``  Datasource for training: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\", \"complement\":\"true\"}}``  To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the ``strategy`` parameter to ``random`` and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between ``percentBegin`` and ``percentEnd`` . Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records. The following two ``DataRearrangement`` lines are examples of non-sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3://my_s3_path/bucket/file.csv\"}}``  Datasource for training: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3://my_s3_path/bucket/file.csv\", \"complement\":\"true\"}}``  
              
           - **DataSchema** *(string) --* 
         
@@ -300,23 +300,23 @@ class Client(BaseClient):
         
             Define your ``DataSchema`` as a series of key-value pairs. ``attributes`` and ``excludedVariableNames`` have an array of key-value pairs for their value. Use the following format to define your ``DataSchema`` .
         
-            { "version": "1.0",
+            { \"version\": \"1.0\",
         
-            "recordAnnotationFieldName": "F1",
+            \"recordAnnotationFieldName\": \"F1\",
         
-            "recordWeightFieldName": "F2",
+            \"recordWeightFieldName\": \"F2\",
         
-            "targetFieldName": "F3",
+            \"targetFieldName\": \"F3\",
         
-            "dataFormat": "CSV",
+            \"dataFormat\": \"CSV\",
         
-            "dataFileContainsHeader": true,
+            \"dataFileContainsHeader\": true,
         
-            "attributes": [
+            \"attributes\": [
         
-            { "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],
+            { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\": \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\", \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, { \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, { \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
         
-            "excludedVariableNames": [ "F6" ] } 
+            \"excludedVariableNames\": [ \"F6\" ] } 
         
           - **DataSchemaUri** *(string) --* 
         
@@ -343,7 +343,7 @@ class Client(BaseClient):
         :type RoleARN: string
         :param RoleARN: **[REQUIRED]** 
         
-          The role that Amazon ML assumes on behalf of the user to create and activate a data pipeline in the user's account and copy data using the ``SelectSqlQuery`` query from Amazon RDS to Amazon S3.
+          The role that Amazon ML assumes on behalf of the user to create and activate a data pipeline in the user\'s account and copy data using the ``SelectSqlQuery`` query from Amazon RDS to Amazon S3.
         
         :type ComputeStatistics: boolean
         :param ComputeStatistics: 
@@ -358,7 +358,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DataSourceId': 'string'
+                \'DataSourceId\': \'string\'
             }
           **Response Structure** 
         
@@ -380,13 +380,13 @@ class Client(BaseClient):
         
         ``CreateDataSourceFromRedshift`` is an asynchronous operation. In response to ``CreateDataSourceFromRedshift`` , Amazon Machine Learning (Amazon ML) immediately returns and sets the ``DataSource`` status to ``PENDING`` . After the ``DataSource`` is created and ready for use, Amazon ML sets the ``Status`` parameter to ``COMPLETED`` . ``DataSource`` in ``COMPLETED`` or ``PENDING`` states can be used to perform only ``CreateMLModel`` , ``CreateEvaluation`` , or ``CreateBatchPrediction`` operations. 
         
-        If Amazon ML can't accept the input source, it sets the ``Status`` parameter to ``FAILED`` and includes an error message in the ``Message`` attribute of the ``GetDataSource`` operation response. 
+        If Amazon ML can\'t accept the input source, it sets the ``Status`` parameter to ``FAILED`` and includes an error message in the ``Message`` attribute of the ``GetDataSource`` operation response. 
         
         The observations should be contained in the database hosted on an Amazon Redshift cluster and should be specified by a ``SelectSqlQuery`` query. Amazon ML executes an ``Unload`` command in Amazon Redshift to transfer the result set of the ``SelectSqlQuery`` query to ``S3StagingLocation`` .
         
-        After the ``DataSource`` has been created, it's ready for use in evaluations and batch predictions. If you plan to use the ``DataSource`` to train an ``MLModel`` , the ``DataSource`` also requires a recipe. A recipe describes how each input variable will be used in training an ``MLModel`` . Will the variable be included or excluded from training? Will the variable be manipulated; for example, will it be combined with another variable or will it be split apart into word combinations? The recipe provides answers to these questions.
+        After the ``DataSource`` has been created, it\'s ready for use in evaluations and batch predictions. If you plan to use the ``DataSource`` to train an ``MLModel`` , the ``DataSource`` also requires a recipe. A recipe describes how each input variable will be used in training an ``MLModel`` . Will the variable be included or excluded from training? Will the variable be manipulated; for example, will it be combined with another variable or will it be split apart into word combinations? The recipe provides answers to these questions.
         
-        You can't change an existing datasource, but you can copy and modify the settings from an existing Amazon Redshift datasource to create a new datasource. To do so, call ``GetDataSource`` for an existing datasource and copy the values to a ``CreateDataSource`` call. Change the settings that you want to change and make sure that all required fields have the appropriate values.
+        You can\'t change an existing datasource, but you can copy and modify the settings from an existing Amazon Redshift datasource to create a new datasource. To do so, call ``GetDataSource`` for an existing datasource and copy the values to a ``CreateDataSource`` call. Change the settings that you want to change and make sure that all required fields have the appropriate values.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/machinelearning-2014-12-12/CreateDataSourceFromRedshift>`_
         
@@ -394,24 +394,24 @@ class Client(BaseClient):
         ::
         
           response = client.create_data_source_from_redshift(
-              DataSourceId='string',
-              DataSourceName='string',
+              DataSourceId=\'string\',
+              DataSourceName=\'string\',
               DataSpec={
-                  'DatabaseInformation': {
-                      'DatabaseName': 'string',
-                      'ClusterIdentifier': 'string'
+                  \'DatabaseInformation\': {
+                      \'DatabaseName\': \'string\',
+                      \'ClusterIdentifier\': \'string\'
                   },
-                  'SelectSqlQuery': 'string',
-                  'DatabaseCredentials': {
-                      'Username': 'string',
-                      'Password': 'string'
+                  \'SelectSqlQuery\': \'string\',
+                  \'DatabaseCredentials\': {
+                      \'Username\': \'string\',
+                      \'Password\': \'string\'
                   },
-                  'S3StagingLocation': 'string',
-                  'DataRearrangement': 'string',
-                  'DataSchema': 'string',
-                  'DataSchemaUri': 'string'
+                  \'S3StagingLocation\': \'string\',
+                  \'DataRearrangement\': \'string\',
+                  \'DataSchema\': \'string\',
+                  \'DataSchemaUri\': \'string\'
               },
-              RoleARN='string',
+              RoleARN=\'string\',
               ComputeStatistics=True|False
           )
         :type DataSourceId: string
@@ -445,7 +445,7 @@ class Client(BaseClient):
            
           * DataSchema - A JSON string representing the schema. This is not required if ``DataSchemaUri`` is specified. 
            
-          * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the ``DataSource`` . Sample - ``"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"``   
+          * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the ``DataSource`` . Sample - ``\"{\\"splitting\\":{\\"percentBegin\\":10,\\"percentEnd\\":60}}\"``   
            
           - **DatabaseInformation** *(dict) --* **[REQUIRED]** 
         
@@ -489,9 +489,9 @@ class Client(BaseClient):
              
             * **``percentEnd``**  Use ``percentEnd`` to indicate the end of the range of the data used to create the Datasource. If you do not include ``percentBegin`` and ``percentEnd`` , Amazon ML includes all of the data when creating the datasource.
              
-            * **``complement``**  The ``complement`` parameter instructs Amazon ML to use the data that is not included in the range of ``percentBegin`` to ``percentEnd`` to create a datasource. The ``complement`` parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for ``percentBegin`` and ``percentEnd`` , along with the ``complement`` parameter. For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data. Datasource for evaluation: ``{"splitting":{"percentBegin":0, "percentEnd":25}}``  Datasource for training: ``{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}``  
+            * **``complement``**  The ``complement`` parameter instructs Amazon ML to use the data that is not included in the range of ``percentBegin`` to ``percentEnd`` to create a datasource. The ``complement`` parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for ``percentBegin`` and ``percentEnd`` , along with the ``complement`` parameter. For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data. Datasource for evaluation: ``{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25}}``  Datasource for training: ``{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25, \"complement\":\"true\"}}``  
              
-            * **``strategy``**  To change how Amazon ML splits the data for a datasource, use the ``strategy`` parameter. The default value for the ``strategy`` parameter is ``sequential`` , meaning that Amazon ML takes all of the data records between the ``percentBegin`` and ``percentEnd`` parameters for the datasource, in the order that the records appear in the input data. The following two ``DataRearrangement`` lines are examples of sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}``  Datasource for training: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}``  To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the ``strategy`` parameter to ``random`` and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between ``percentBegin`` and ``percentEnd`` . Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records. The following two ``DataRearrangement`` lines are examples of non-sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}``  Datasource for training: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}``  
+            * **``strategy``**  To change how Amazon ML splits the data for a datasource, use the ``strategy`` parameter. The default value for the ``strategy`` parameter is ``sequential`` , meaning that Amazon ML takes all of the data records between the ``percentBegin`` and ``percentEnd`` parameters for the datasource, in the order that the records appear in the input data. The following two ``DataRearrangement`` lines are examples of sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\"}}``  Datasource for training: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\", \"complement\":\"true\"}}``  To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the ``strategy`` parameter to ``random`` and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between ``percentBegin`` and ``percentEnd`` . Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records. The following two ``DataRearrangement`` lines are examples of non-sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3://my_s3_path/bucket/file.csv\"}}``  Datasource for training: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3://my_s3_path/bucket/file.csv\", \"complement\":\"true\"}}``  
              
           - **DataSchema** *(string) --* 
         
@@ -501,23 +501,23 @@ class Client(BaseClient):
         
             Define your ``DataSchema`` as a series of key-value pairs. ``attributes`` and ``excludedVariableNames`` have an array of key-value pairs for their value. Use the following format to define your ``DataSchema`` .
         
-            { "version": "1.0",
+            { \"version\": \"1.0\",
         
-            "recordAnnotationFieldName": "F1",
+            \"recordAnnotationFieldName\": \"F1\",
         
-            "recordWeightFieldName": "F2",
+            \"recordWeightFieldName\": \"F2\",
         
-            "targetFieldName": "F3",
+            \"targetFieldName\": \"F3\",
         
-            "dataFormat": "CSV",
+            \"dataFormat\": \"CSV\",
         
-            "dataFileContainsHeader": true,
+            \"dataFileContainsHeader\": true,
         
-            "attributes": [
+            \"attributes\": [
         
-            { "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],
+            { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\": \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\", \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, { \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, { \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
         
-            "excludedVariableNames": [ "F6" ] } 
+            \"excludedVariableNames\": [ \"F6\" ] } 
         
           - **DataSchemaUri** *(string) --* 
         
@@ -545,7 +545,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DataSourceId': 'string'
+                \'DataSourceId\': \'string\'
             }
           **Response Structure** 
         
@@ -567,11 +567,11 @@ class Client(BaseClient):
         
         ``CreateDataSourceFromS3`` is an asynchronous operation. In response to ``CreateDataSourceFromS3`` , Amazon Machine Learning (Amazon ML) immediately returns and sets the ``DataSource`` status to ``PENDING`` . After the ``DataSource`` has been created and is ready for use, Amazon ML sets the ``Status`` parameter to ``COMPLETED`` . ``DataSource`` in the ``COMPLETED`` or ``PENDING`` state can be used to perform only ``CreateMLModel`` , ``CreateEvaluation`` or ``CreateBatchPrediction`` operations. 
         
-        If Amazon ML can't accept the input source, it sets the ``Status`` parameter to ``FAILED`` and includes an error message in the ``Message`` attribute of the ``GetDataSource`` operation response. 
+        If Amazon ML can\'t accept the input source, it sets the ``Status`` parameter to ``FAILED`` and includes an error message in the ``Message`` attribute of the ``GetDataSource`` operation response. 
         
         The observation data used in a ``DataSource`` should be ready to use; that is, it should have a consistent structure, and missing data values should be kept to a minimum. The observation data must reside in one or more .csv files in an Amazon Simple Storage Service (Amazon S3) location, along with a schema that describes the data items by name and type. The same schema must be used for all of the data files referenced by the ``DataSource`` . 
         
-        After the ``DataSource`` has been created, it's ready to use in evaluations and batch predictions. If you plan to use the ``DataSource`` to train an ``MLModel`` , the ``DataSource`` also needs a recipe. A recipe describes how each input variable will be used in training an ``MLModel`` . Will the variable be included or excluded from training? Will the variable be manipulated; for example, will it be combined with another variable or will it be split apart into word combinations? The recipe provides answers to these questions.
+        After the ``DataSource`` has been created, it\'s ready to use in evaluations and batch predictions. If you plan to use the ``DataSource`` to train an ``MLModel`` , the ``DataSource`` also needs a recipe. A recipe describes how each input variable will be used in training an ``MLModel`` . Will the variable be included or excluded from training? Will the variable be manipulated; for example, will it be combined with another variable or will it be split apart into word combinations? The recipe provides answers to these questions.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/machinelearning-2014-12-12/CreateDataSourceFromS3>`_
         
@@ -579,13 +579,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_data_source_from_s3(
-              DataSourceId='string',
-              DataSourceName='string',
+              DataSourceId=\'string\',
+              DataSourceName=\'string\',
               DataSpec={
-                  'DataLocationS3': 'string',
-                  'DataRearrangement': 'string',
-                  'DataSchema': 'string',
-                  'DataSchemaLocationS3': 'string'
+                  \'DataLocationS3\': \'string\',
+                  \'DataRearrangement\': \'string\',
+                  \'DataSchema\': \'string\',
+                  \'DataSchemaLocationS3\': \'string\'
               },
               ComputeStatistics=True|False
           )
@@ -610,7 +610,7 @@ class Client(BaseClient):
            
           * DataSchema - A JSON string representing the schema. This is not required if ``DataSchemaUri`` is specified. 
            
-          * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the ``Datasource`` .  Sample - ``"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"``   
+          * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the ``Datasource`` .  Sample - ``\"{\\"splitting\\":{\\"percentBegin\\":10,\\"percentEnd\\":60}}\"``   
            
           - **DataLocationS3** *(string) --* **[REQUIRED]** 
         
@@ -626,9 +626,9 @@ class Client(BaseClient):
              
             * **``percentEnd``**  Use ``percentEnd`` to indicate the end of the range of the data used to create the Datasource. If you do not include ``percentBegin`` and ``percentEnd`` , Amazon ML includes all of the data when creating the datasource.
              
-            * **``complement``**  The ``complement`` parameter instructs Amazon ML to use the data that is not included in the range of ``percentBegin`` to ``percentEnd`` to create a datasource. The ``complement`` parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for ``percentBegin`` and ``percentEnd`` , along with the ``complement`` parameter. For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data. Datasource for evaluation: ``{"splitting":{"percentBegin":0, "percentEnd":25}}``  Datasource for training: ``{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}``  
+            * **``complement``**  The ``complement`` parameter instructs Amazon ML to use the data that is not included in the range of ``percentBegin`` to ``percentEnd`` to create a datasource. The ``complement`` parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for ``percentBegin`` and ``percentEnd`` , along with the ``complement`` parameter. For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data. Datasource for evaluation: ``{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25}}``  Datasource for training: ``{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25, \"complement\":\"true\"}}``  
              
-            * **``strategy``**  To change how Amazon ML splits the data for a datasource, use the ``strategy`` parameter. The default value for the ``strategy`` parameter is ``sequential`` , meaning that Amazon ML takes all of the data records between the ``percentBegin`` and ``percentEnd`` parameters for the datasource, in the order that the records appear in the input data. The following two ``DataRearrangement`` lines are examples of sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}``  Datasource for training: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}``  To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the ``strategy`` parameter to ``random`` and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between ``percentBegin`` and ``percentEnd`` . Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records. The following two ``DataRearrangement`` lines are examples of non-sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}``  Datasource for training: ``{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}``  
+            * **``strategy``**  To change how Amazon ML splits the data for a datasource, use the ``strategy`` parameter. The default value for the ``strategy`` parameter is ``sequential`` , meaning that Amazon ML takes all of the data records between the ``percentBegin`` and ``percentEnd`` parameters for the datasource, in the order that the records appear in the input data. The following two ``DataRearrangement`` lines are examples of sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\"}}``  Datasource for training: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\", \"complement\":\"true\"}}``  To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the ``strategy`` parameter to ``random`` and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between ``percentBegin`` and ``percentEnd`` . Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records. The following two ``DataRearrangement`` lines are examples of non-sequentially ordered training and evaluation datasources: Datasource for evaluation: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3://my_s3_path/bucket/file.csv\"}}``  Datasource for training: ``{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3://my_s3_path/bucket/file.csv\", \"complement\":\"true\"}}``  
              
           - **DataSchema** *(string) --* 
         
@@ -638,23 +638,23 @@ class Client(BaseClient):
         
             Define your ``DataSchema`` as a series of key-value pairs. ``attributes`` and ``excludedVariableNames`` have an array of key-value pairs for their value. Use the following format to define your ``DataSchema`` .
         
-            { "version": "1.0",
+            { \"version\": \"1.0\",
         
-            "recordAnnotationFieldName": "F1",
+            \"recordAnnotationFieldName\": \"F1\",
         
-            "recordWeightFieldName": "F2",
+            \"recordWeightFieldName\": \"F2\",
         
-            "targetFieldName": "F3",
+            \"targetFieldName\": \"F3\",
         
-            "dataFormat": "CSV",
+            \"dataFormat\": \"CSV\",
         
-            "dataFileContainsHeader": true,
+            \"dataFileContainsHeader\": true,
         
-            "attributes": [
+            \"attributes\": [
         
-            { "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],
+            { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\": \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\", \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, { \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, { \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
         
-            "excludedVariableNames": [ "F6" ] } 
+            \"excludedVariableNames\": [ \"F6\" ] } 
         
           - **DataSchemaLocationS3** *(string) --* 
         
@@ -673,7 +673,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DataSourceId': 'string'
+                \'DataSourceId\': \'string\'
             }
           **Response Structure** 
         
@@ -703,10 +703,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_evaluation(
-              EvaluationId='string',
-              EvaluationName='string',
-              MLModelId='string',
-              EvaluationDataSourceId='string'
+              EvaluationId=\'string\',
+              EvaluationName=\'string\',
+              MLModelId=\'string\',
+              EvaluationDataSourceId=\'string\'
           )
         :type EvaluationId: string
         :param EvaluationId: **[REQUIRED]** 
@@ -738,7 +738,7 @@ class Client(BaseClient):
           ::
         
             {
-                'EvaluationId': 'string'
+                \'EvaluationId\': \'string\'
             }
           **Response Structure** 
         
@@ -772,15 +772,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_ml_model(
-              MLModelId='string',
-              MLModelName='string',
-              MLModelType='REGRESSION'|'BINARY'|'MULTICLASS',
+              MLModelId=\'string\',
+              MLModelName=\'string\',
+              MLModelType=\'REGRESSION\'|\'BINARY\'|\'MULTICLASS\',
               Parameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              TrainingDataSourceId='string',
-              Recipe='string',
-              RecipeUri='string'
+              TrainingDataSourceId=\'string\',
+              Recipe=\'string\',
+              RecipeUri=\'string\'
           )
         :type MLModelId: string
         :param MLModelId: **[REQUIRED]** 
@@ -816,11 +816,11 @@ class Client(BaseClient):
            
           * ``sgd.maxPasses`` - The number of times that the training process traverses the observations to build the ``MLModel`` . The value is an integer that ranges from ``1`` to ``10000`` . The default value is ``10`` .
            
-          * ``sgd.shuffleType`` - Whether Amazon ML shuffles the training data. Shuffling the data improves a model's ability to find the optimal solution for a variety of data types. The valid values are ``auto`` and ``none`` . The default value is ``none`` . We strongly recommend that you shuffle your data. 
+          * ``sgd.shuffleType`` - Whether Amazon ML shuffles the training data. Shuffling the data improves a model\'s ability to find the optimal solution for a variety of data types. The valid values are ``auto`` and ``none`` . The default value is ``none`` . We strongly recommend that you shuffle your data. 
            
-          * ``sgd.l1RegularizationAmount`` - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L1 normalization. This parameter can't be used when ``L2`` is specified. Use this parameter sparingly. 
+          * ``sgd.l1RegularizationAmount`` - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L1 normalization. This parameter can\'t be used when ``L2`` is specified. Use this parameter sparingly. 
            
-          * ``sgd.l2RegularizationAmount`` - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L2 normalization. This parameter can't be used when ``L1`` is specified. Use this parameter sparingly. 
+          * ``sgd.l2RegularizationAmount`` - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L2 normalization. This parameter can\'t be used when ``L1`` is specified. Use this parameter sparingly. 
            
           - *(string) --* 
         
@@ -838,12 +838,12 @@ class Client(BaseClient):
         :type Recipe: string
         :param Recipe: 
         
-          The data recipe for creating the ``MLModel`` . You must specify either the recipe or its URI. If you don't specify a recipe or its URI, Amazon ML creates a default.
+          The data recipe for creating the ``MLModel`` . You must specify either the recipe or its URI. If you don\'t specify a recipe or its URI, Amazon ML creates a default.
         
         :type RecipeUri: string
         :param RecipeUri: 
         
-          The Amazon Simple Storage Service (Amazon S3) location and file name that contains the ``MLModel`` recipe. You must specify either the recipe or its URI. If you don't specify a recipe or its URI, Amazon ML creates a default.
+          The Amazon Simple Storage Service (Amazon S3) location and file name that contains the ``MLModel`` recipe. You must specify either the recipe or its URI. If you don\'t specify a recipe or its URI, Amazon ML creates a default.
         
         :rtype: dict
         :returns: 
@@ -853,7 +853,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MLModelId': 'string'
+                \'MLModelId\': \'string\'
             }
           **Response Structure** 
         
@@ -879,7 +879,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_realtime_endpoint(
-              MLModelId='string'
+              MLModelId=\'string\'
           )
         :type MLModelId: string
         :param MLModelId: **[REQUIRED]** 
@@ -894,12 +894,12 @@ class Client(BaseClient):
           ::
         
             {
-                'MLModelId': 'string',
-                'RealtimeEndpointInfo': {
-                    'PeakRequestsPerSecond': 123,
-                    'CreatedAt': datetime(2015, 1, 1),
-                    'EndpointUrl': 'string',
-                    'EndpointStatus': 'NONE'|'READY'|'UPDATING'|'FAILED'
+                \'MLModelId\': \'string\',
+                \'RealtimeEndpointInfo\': {
+                    \'PeakRequestsPerSecond\': 123,
+                    \'CreatedAt\': datetime(2015, 1, 1),
+                    \'EndpointUrl\': \'string\',
+                    \'EndpointStatus\': \'NONE\'|\'READY\'|\'UPDATING\'|\'FAILED\'
                 }
             }
           **Response Structure** 
@@ -966,7 +966,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_batch_prediction(
-              BatchPredictionId='string'
+              BatchPredictionId=\'string\'
           )
         :type BatchPredictionId: string
         :param BatchPredictionId: **[REQUIRED]** 
@@ -981,7 +981,7 @@ class Client(BaseClient):
           ::
         
             {
-                'BatchPredictionId': 'string'
+                \'BatchPredictionId\': \'string\'
             }
           **Response Structure** 
         
@@ -1011,7 +1011,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_data_source(
-              DataSourceId='string'
+              DataSourceId=\'string\'
           )
         :type DataSourceId: string
         :param DataSourceId: **[REQUIRED]** 
@@ -1026,7 +1026,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DataSourceId': 'string'
+                \'DataSourceId\': \'string\'
             }
           **Response Structure** 
         
@@ -1056,7 +1056,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_evaluation(
-              EvaluationId='string'
+              EvaluationId=\'string\'
           )
         :type EvaluationId: string
         :param EvaluationId: **[REQUIRED]** 
@@ -1071,7 +1071,7 @@ class Client(BaseClient):
           ::
         
             {
-                'EvaluationId': 'string'
+                \'EvaluationId\': \'string\'
             }
           **Response Structure** 
         
@@ -1101,7 +1101,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_ml_model(
-              MLModelId='string'
+              MLModelId=\'string\'
           )
         :type MLModelId: string
         :param MLModelId: **[REQUIRED]** 
@@ -1116,7 +1116,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MLModelId': 'string'
+                \'MLModelId\': \'string\'
             }
           **Response Structure** 
         
@@ -1142,7 +1142,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_realtime_endpoint(
-              MLModelId='string'
+              MLModelId=\'string\'
           )
         :type MLModelId: string
         :param MLModelId: **[REQUIRED]** 
@@ -1157,12 +1157,12 @@ class Client(BaseClient):
           ::
         
             {
-                'MLModelId': 'string',
-                'RealtimeEndpointInfo': {
-                    'PeakRequestsPerSecond': 123,
-                    'CreatedAt': datetime(2015, 1, 1),
-                    'EndpointUrl': 'string',
-                    'EndpointStatus': 'NONE'|'READY'|'UPDATING'|'FAILED'
+                \'MLModelId\': \'string\',
+                \'RealtimeEndpointInfo\': {
+                    \'PeakRequestsPerSecond\': 123,
+                    \'CreatedAt\': datetime(2015, 1, 1),
+                    \'EndpointUrl\': \'string\',
+                    \'EndpointStatus\': \'NONE\'|\'READY\'|\'UPDATING\'|\'FAILED\'
                 }
             }
           **Response Structure** 
@@ -1215,7 +1215,7 @@ class Client(BaseClient):
     def delete_tags(self, TagKeys: List, ResourceId: str, ResourceType: str) -> Dict:
         """
         
-        If you specify a tag that doesn't exist, Amazon ML ignores it.
+        If you specify a tag that doesn\'t exist, Amazon ML ignores it.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/machinelearning-2014-12-12/DeleteTags>`_
         
@@ -1224,10 +1224,10 @@ class Client(BaseClient):
         
           response = client.delete_tags(
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
-              ResourceId='string',
-              ResourceType='BatchPrediction'|'DataSource'|'Evaluation'|'MLModel'
+              ResourceId=\'string\',
+              ResourceType=\'BatchPrediction\'|\'DataSource\'|\'Evaluation\'|\'MLModel\'
           )
         :type TagKeys: list
         :param TagKeys: **[REQUIRED]** 
@@ -1254,8 +1254,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceId': 'string',
-                'ResourceType': 'BatchPrediction'|'DataSource'|'Evaluation'|'MLModel'
+                \'ResourceId\': \'string\',
+                \'ResourceType\': \'BatchPrediction\'|\'DataSource\'|\'Evaluation\'|\'MLModel\'
             }
           **Response Structure** 
         
@@ -1283,16 +1283,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_batch_predictions(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'IAMUser'|'MLModelId'|'DataSourceId'|'DataURI',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
-              NextToken='string',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'IAMUser\'|\'MLModelId\'|\'DataSourceId\'|\'DataURI\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
+              NextToken=\'string\',
               Limit=123
           )
         :type FilterVariable: string
@@ -1386,27 +1386,27 @@ class Client(BaseClient):
           ::
         
             {
-                'Results': [
+                \'Results\': [
                     {
-                        'BatchPredictionId': 'string',
-                        'MLModelId': 'string',
-                        'BatchPredictionDataSourceId': 'string',
-                        'InputDataLocationS3': 'string',
-                        'CreatedByIamUser': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'LastUpdatedAt': datetime(2015, 1, 1),
-                        'Name': 'string',
-                        'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                        'OutputUri': 'string',
-                        'Message': 'string',
-                        'ComputeTime': 123,
-                        'FinishedAt': datetime(2015, 1, 1),
-                        'StartedAt': datetime(2015, 1, 1),
-                        'TotalRecordCount': 123,
-                        'InvalidRecordCount': 123
+                        \'BatchPredictionId\': \'string\',
+                        \'MLModelId\': \'string\',
+                        \'BatchPredictionDataSourceId\': \'string\',
+                        \'InputDataLocationS3\': \'string\',
+                        \'CreatedByIamUser\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'LastUpdatedAt\': datetime(2015, 1, 1),
+                        \'Name\': \'string\',
+                        \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                        \'OutputUri\': \'string\',
+                        \'Message\': \'string\',
+                        \'ComputeTime\': 123,
+                        \'FinishedAt\': datetime(2015, 1, 1),
+                        \'StartedAt\': datetime(2015, 1, 1),
+                        \'TotalRecordCount\': 123,
+                        \'InvalidRecordCount\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1472,7 +1472,7 @@ class Client(BaseClient):
                    
                 - **OutputUri** *(string) --* 
         
-                  The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the ``s3 key`` portion of the ``outputURI`` field: ':', '//', '/./', '/../'.
+                  The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the ``s3 key`` portion of the ``outputURI`` field: \':\', \'//\', \'/./\', \'/../\'.
         
                 - **Message** *(string) --* 
         
@@ -1514,16 +1514,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_data_sources(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'DataLocationS3'|'IAMUser',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
-              NextToken='string',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'DataLocationS3\'|\'IAMUser\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
+              NextToken=\'string\',
               Limit=123
           )
         :type FilterVariable: string
@@ -1613,46 +1613,46 @@ class Client(BaseClient):
           ::
         
             {
-                'Results': [
+                \'Results\': [
                     {
-                        'DataSourceId': 'string',
-                        'DataLocationS3': 'string',
-                        'DataRearrangement': 'string',
-                        'CreatedByIamUser': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'LastUpdatedAt': datetime(2015, 1, 1),
-                        'DataSizeInBytes': 123,
-                        'NumberOfFiles': 123,
-                        'Name': 'string',
-                        'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                        'Message': 'string',
-                        'RedshiftMetadata': {
-                            'RedshiftDatabase': {
-                                'DatabaseName': 'string',
-                                'ClusterIdentifier': 'string'
+                        \'DataSourceId\': \'string\',
+                        \'DataLocationS3\': \'string\',
+                        \'DataRearrangement\': \'string\',
+                        \'CreatedByIamUser\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'LastUpdatedAt\': datetime(2015, 1, 1),
+                        \'DataSizeInBytes\': 123,
+                        \'NumberOfFiles\': 123,
+                        \'Name\': \'string\',
+                        \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                        \'Message\': \'string\',
+                        \'RedshiftMetadata\': {
+                            \'RedshiftDatabase\': {
+                                \'DatabaseName\': \'string\',
+                                \'ClusterIdentifier\': \'string\'
                             },
-                            'DatabaseUserName': 'string',
-                            'SelectSqlQuery': 'string'
+                            \'DatabaseUserName\': \'string\',
+                            \'SelectSqlQuery\': \'string\'
                         },
-                        'RDSMetadata': {
-                            'Database': {
-                                'InstanceIdentifier': 'string',
-                                'DatabaseName': 'string'
+                        \'RDSMetadata\': {
+                            \'Database\': {
+                                \'InstanceIdentifier\': \'string\',
+                                \'DatabaseName\': \'string\'
                             },
-                            'DatabaseUserName': 'string',
-                            'SelectSqlQuery': 'string',
-                            'ResourceRole': 'string',
-                            'ServiceRole': 'string',
-                            'DataPipelineId': 'string'
+                            \'DatabaseUserName\': \'string\',
+                            \'SelectSqlQuery\': \'string\',
+                            \'ResourceRole\': \'string\',
+                            \'ServiceRole\': \'string\',
+                            \'DataPipelineId\': \'string\'
                         },
-                        'RoleARN': 'string',
-                        'ComputeStatistics': True|False,
-                        'ComputeTime': 123,
-                        'FinishedAt': datetime(2015, 1, 1),
-                        'StartedAt': datetime(2015, 1, 1)
+                        \'RoleARN\': \'string\',
+                        \'ComputeStatistics\': True|False,
+                        \'ComputeTime\': 123,
+                        \'FinishedAt\': datetime(2015, 1, 1),
+                        \'StartedAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1820,16 +1820,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_evaluations(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'IAMUser'|'MLModelId'|'DataSourceId'|'DataURI',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
-              NextToken='string',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'IAMUser\'|\'MLModelId\'|\'DataSourceId\'|\'DataURI\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
+              NextToken=\'string\',
               Limit=123
           )
         :type FilterVariable: string
@@ -1923,29 +1923,29 @@ class Client(BaseClient):
           ::
         
             {
-                'Results': [
+                \'Results\': [
                     {
-                        'EvaluationId': 'string',
-                        'MLModelId': 'string',
-                        'EvaluationDataSourceId': 'string',
-                        'InputDataLocationS3': 'string',
-                        'CreatedByIamUser': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'LastUpdatedAt': datetime(2015, 1, 1),
-                        'Name': 'string',
-                        'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                        'PerformanceMetrics': {
-                            'Properties': {
-                                'string': 'string'
+                        \'EvaluationId\': \'string\',
+                        \'MLModelId\': \'string\',
+                        \'EvaluationDataSourceId\': \'string\',
+                        \'InputDataLocationS3\': \'string\',
+                        \'CreatedByIamUser\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'LastUpdatedAt\': datetime(2015, 1, 1),
+                        \'Name\': \'string\',
+                        \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                        \'PerformanceMetrics\': {
+                            \'Properties\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'Message': 'string',
-                        'ComputeTime': 123,
-                        'FinishedAt': datetime(2015, 1, 1),
-                        'StartedAt': datetime(2015, 1, 1)
+                        \'Message\': \'string\',
+                        \'ComputeTime\': 123,
+                        \'FinishedAt\': datetime(2015, 1, 1),
+                        \'StartedAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2059,16 +2059,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_ml_models(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'IAMUser'|'TrainingDataSourceId'|'RealtimeEndpointStatus'|'MLModelType'|'Algorithm'|'TrainingDataURI',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
-              NextToken='string',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'IAMUser\'|\'TrainingDataSourceId\'|\'RealtimeEndpointStatus\'|\'MLModelType\'|\'Algorithm\'|\'TrainingDataURI\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
+              NextToken=\'string\',
               Limit=123
           )
         :type FilterVariable: string
@@ -2166,37 +2166,37 @@ class Client(BaseClient):
           ::
         
             {
-                'Results': [
+                \'Results\': [
                     {
-                        'MLModelId': 'string',
-                        'TrainingDataSourceId': 'string',
-                        'CreatedByIamUser': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'LastUpdatedAt': datetime(2015, 1, 1),
-                        'Name': 'string',
-                        'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                        'SizeInBytes': 123,
-                        'EndpointInfo': {
-                            'PeakRequestsPerSecond': 123,
-                            'CreatedAt': datetime(2015, 1, 1),
-                            'EndpointUrl': 'string',
-                            'EndpointStatus': 'NONE'|'READY'|'UPDATING'|'FAILED'
+                        \'MLModelId\': \'string\',
+                        \'TrainingDataSourceId\': \'string\',
+                        \'CreatedByIamUser\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'LastUpdatedAt\': datetime(2015, 1, 1),
+                        \'Name\': \'string\',
+                        \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                        \'SizeInBytes\': 123,
+                        \'EndpointInfo\': {
+                            \'PeakRequestsPerSecond\': 123,
+                            \'CreatedAt\': datetime(2015, 1, 1),
+                            \'EndpointUrl\': \'string\',
+                            \'EndpointStatus\': \'NONE\'|\'READY\'|\'UPDATING\'|\'FAILED\'
                         },
-                        'TrainingParameters': {
-                            'string': 'string'
+                        \'TrainingParameters\': {
+                            \'string\': \'string\'
                         },
-                        'InputDataLocationS3': 'string',
-                        'Algorithm': 'sgd',
-                        'MLModelType': 'REGRESSION'|'BINARY'|'MULTICLASS',
-                        'ScoreThreshold': ...,
-                        'ScoreThresholdLastUpdatedAt': datetime(2015, 1, 1),
-                        'Message': 'string',
-                        'ComputeTime': 123,
-                        'FinishedAt': datetime(2015, 1, 1),
-                        'StartedAt': datetime(2015, 1, 1)
+                        \'InputDataLocationS3\': \'string\',
+                        \'Algorithm\': \'sgd\',
+                        \'MLModelType\': \'REGRESSION\'|\'BINARY\'|\'MULTICLASS\',
+                        \'ScoreThreshold\': ...,
+                        \'ScoreThresholdLastUpdatedAt\': datetime(2015, 1, 1),
+                        \'Message\': \'string\',
+                        \'ComputeTime\': 123,
+                        \'FinishedAt\': datetime(2015, 1, 1),
+                        \'StartedAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2246,11 +2246,11 @@ class Client(BaseClient):
                    
                   * ``INPROGRESS`` - The creation process is underway.
                    
-                  * ``FAILED`` - The request to create an ``MLModel`` didn't run to completion. The model isn't usable.
+                  * ``FAILED`` - The request to create an ``MLModel`` didn\'t run to completion. The model isn\'t usable.
                    
                   * ``COMPLETED`` - The creation process completed successfully.
                    
-                  * ``DELETED`` - The ``MLModel`` is marked as deleted. It isn't usable.
+                  * ``DELETED`` - The ``MLModel`` is marked as deleted. It isn\'t usable.
                    
                 - **SizeInBytes** *(integer) --* 
         
@@ -2298,11 +2298,11 @@ class Client(BaseClient):
                    
                   * ``sgd.maxPasses`` - The number of times that the training process traverses the observations to build the ``MLModel`` . The value is an integer that ranges from ``1`` to ``10000`` . The default value is ``10`` .
                    
-                  * ``sgd.shuffleType`` - Whether Amazon ML shuffles the training data. Shuffling the data improves a model's ability to find the optimal solution for a variety of data types. The valid values are ``auto`` and ``none`` . The default value is ``none`` .
+                  * ``sgd.shuffleType`` - Whether Amazon ML shuffles the training data. Shuffling the data improves a model\'s ability to find the optimal solution for a variety of data types. The valid values are ``auto`` and ``none`` . The default value is ``none`` .
                    
-                  * ``sgd.l1RegularizationAmount`` - The coefficient regularization L1 norm, which controls overfitting the data by penalizing large coefficients. This parameter tends to drive coefficients to zero, resulting in sparse feature set. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L1 normalization. This parameter can't be used when ``L2`` is specified. Use this parameter sparingly. 
+                  * ``sgd.l1RegularizationAmount`` - The coefficient regularization L1 norm, which controls overfitting the data by penalizing large coefficients. This parameter tends to drive coefficients to zero, resulting in sparse feature set. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L1 normalization. This parameter can\'t be used when ``L2`` is specified. Use this parameter sparingly. 
                    
-                  * ``sgd.l2RegularizationAmount`` - The coefficient regularization L2 norm, which controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L2 normalization. This parameter can't be used when ``L1`` is specified. Use this parameter sparingly. 
+                  * ``sgd.l2RegularizationAmount`` - The coefficient regularization L2 norm, which controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L2 normalization. This parameter can\'t be used when ``L1`` is specified. Use this parameter sparingly. 
                    
                   - *(string) --* 
         
@@ -2326,11 +2326,11 @@ class Client(BaseClient):
         
                   Identifies the ``MLModel`` category. The following are the available types:
         
-                  * ``REGRESSION`` - Produces a numeric result. For example, "What price should a house be listed at?"
+                  * ``REGRESSION`` - Produces a numeric result. For example, \"What price should a house be listed at?\"
                    
-                  * ``BINARY`` - Produces one of two possible results. For example, "Is this a child-friendly web site?".
+                  * ``BINARY`` - Produces one of two possible results. For example, \"Is this a child-friendly web site?\".
                    
-                  * ``MULTICLASS`` - Produces one of several possible results. For example, "Is this a HIGH-, LOW-, or MEDIUM-risk trade?".
+                  * ``MULTICLASS`` - Produces one of several possible results. For example, \"Is this a HIGH-, LOW-, or MEDIUM-risk trade?\".
                    
                 - **ScoreThreshold** *(float) --* 
                 
@@ -2370,8 +2370,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_tags(
-              ResourceId='string',
-              ResourceType='BatchPrediction'|'DataSource'|'Evaluation'|'MLModel'
+              ResourceId=\'string\',
+              ResourceType=\'BatchPrediction\'|\'DataSource\'|\'Evaluation\'|\'MLModel\'
           )
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]** 
@@ -2391,12 +2391,12 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceId': 'string',
-                'ResourceType': 'BatchPrediction'|'DataSource'|'Evaluation'|'MLModel',
-                'Tags': [
+                \'ResourceId\': \'string\',
+                \'ResourceType\': \'BatchPrediction\'|\'DataSource\'|\'Evaluation\'|\'MLModel\',
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -2449,7 +2449,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2464,7 +2464,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_batch_prediction(
-              BatchPredictionId='string'
+              BatchPredictionId=\'string\'
           )
         :type BatchPredictionId: string
         :param BatchPredictionId: **[REQUIRED]** 
@@ -2479,23 +2479,23 @@ class Client(BaseClient):
           ::
         
             {
-                'BatchPredictionId': 'string',
-                'MLModelId': 'string',
-                'BatchPredictionDataSourceId': 'string',
-                'InputDataLocationS3': 'string',
-                'CreatedByIamUser': 'string',
-                'CreatedAt': datetime(2015, 1, 1),
-                'LastUpdatedAt': datetime(2015, 1, 1),
-                'Name': 'string',
-                'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                'OutputUri': 'string',
-                'LogUri': 'string',
-                'Message': 'string',
-                'ComputeTime': 123,
-                'FinishedAt': datetime(2015, 1, 1),
-                'StartedAt': datetime(2015, 1, 1),
-                'TotalRecordCount': 123,
-                'InvalidRecordCount': 123
+                \'BatchPredictionId\': \'string\',
+                \'MLModelId\': \'string\',
+                \'BatchPredictionDataSourceId\': \'string\',
+                \'InputDataLocationS3\': \'string\',
+                \'CreatedByIamUser\': \'string\',
+                \'CreatedAt\': datetime(2015, 1, 1),
+                \'LastUpdatedAt\': datetime(2015, 1, 1),
+                \'Name\': \'string\',
+                \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                \'OutputUri\': \'string\',
+                \'LogUri\': \'string\',
+                \'Message\': \'string\',
+                \'ComputeTime\': 123,
+                \'FinishedAt\': datetime(2015, 1, 1),
+                \'StartedAt\': datetime(2015, 1, 1),
+                \'TotalRecordCount\': 123,
+                \'InvalidRecordCount\': 123
             }
           **Response Structure** 
         
@@ -2571,7 +2571,7 @@ class Client(BaseClient):
         
             - **StartedAt** *(datetime) --* 
         
-              The epoch time when Amazon Machine Learning marked the ``BatchPrediction`` as ``INPROGRESS`` . ``StartedAt`` isn't available if the ``BatchPrediction`` is in the ``PENDING`` state.
+              The epoch time when Amazon Machine Learning marked the ``BatchPrediction`` as ``INPROGRESS`` . ``StartedAt`` isn\'t available if the ``BatchPrediction`` is in the ``PENDING`` state.
         
             - **TotalRecordCount** *(integer) --* 
         
@@ -2595,7 +2595,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_data_source(
-              DataSourceId='string',
+              DataSourceId=\'string\',
               Verbose=True|False
           )
         :type DataSourceId: string
@@ -2620,43 +2620,43 @@ class Client(BaseClient):
           ::
         
             {
-                'DataSourceId': 'string',
-                'DataLocationS3': 'string',
-                'DataRearrangement': 'string',
-                'CreatedByIamUser': 'string',
-                'CreatedAt': datetime(2015, 1, 1),
-                'LastUpdatedAt': datetime(2015, 1, 1),
-                'DataSizeInBytes': 123,
-                'NumberOfFiles': 123,
-                'Name': 'string',
-                'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                'LogUri': 'string',
-                'Message': 'string',
-                'RedshiftMetadata': {
-                    'RedshiftDatabase': {
-                        'DatabaseName': 'string',
-                        'ClusterIdentifier': 'string'
+                \'DataSourceId\': \'string\',
+                \'DataLocationS3\': \'string\',
+                \'DataRearrangement\': \'string\',
+                \'CreatedByIamUser\': \'string\',
+                \'CreatedAt\': datetime(2015, 1, 1),
+                \'LastUpdatedAt\': datetime(2015, 1, 1),
+                \'DataSizeInBytes\': 123,
+                \'NumberOfFiles\': 123,
+                \'Name\': \'string\',
+                \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                \'LogUri\': \'string\',
+                \'Message\': \'string\',
+                \'RedshiftMetadata\': {
+                    \'RedshiftDatabase\': {
+                        \'DatabaseName\': \'string\',
+                        \'ClusterIdentifier\': \'string\'
                     },
-                    'DatabaseUserName': 'string',
-                    'SelectSqlQuery': 'string'
+                    \'DatabaseUserName\': \'string\',
+                    \'SelectSqlQuery\': \'string\'
                 },
-                'RDSMetadata': {
-                    'Database': {
-                        'InstanceIdentifier': 'string',
-                        'DatabaseName': 'string'
+                \'RDSMetadata\': {
+                    \'Database\': {
+                        \'InstanceIdentifier\': \'string\',
+                        \'DatabaseName\': \'string\'
                     },
-                    'DatabaseUserName': 'string',
-                    'SelectSqlQuery': 'string',
-                    'ResourceRole': 'string',
-                    'ServiceRole': 'string',
-                    'DataPipelineId': 'string'
+                    \'DatabaseUserName\': \'string\',
+                    \'SelectSqlQuery\': \'string\',
+                    \'ResourceRole\': \'string\',
+                    \'ServiceRole\': \'string\',
+                    \'DataPipelineId\': \'string\'
                 },
-                'RoleARN': 'string',
-                'ComputeStatistics': True|False,
-                'ComputeTime': 123,
-                'FinishedAt': datetime(2015, 1, 1),
-                'StartedAt': datetime(2015, 1, 1),
-                'DataSourceSchema': 'string'
+                \'RoleARN\': \'string\',
+                \'ComputeStatistics\': True|False,
+                \'ComputeTime\': 123,
+                \'FinishedAt\': datetime(2015, 1, 1),
+                \'StartedAt\': datetime(2015, 1, 1),
+                \'DataSourceSchema\': \'string\'
             }
           **Response Structure** 
         
@@ -2800,7 +2800,7 @@ class Client(BaseClient):
         
             - **StartedAt** *(datetime) --* 
         
-              The epoch time when Amazon Machine Learning marked the ``DataSource`` as ``INPROGRESS`` . ``StartedAt`` isn't available if the ``DataSource`` is in the ``PENDING`` state.
+              The epoch time when Amazon Machine Learning marked the ``DataSource`` as ``INPROGRESS`` . ``StartedAt`` isn\'t available if the ``DataSource`` is in the ``PENDING`` state.
         
             - **DataSourceSchema** *(string) --* 
         
@@ -2824,7 +2824,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_evaluation(
-              EvaluationId='string'
+              EvaluationId=\'string\'
           )
         :type EvaluationId: string
         :param EvaluationId: **[REQUIRED]** 
@@ -2839,25 +2839,25 @@ class Client(BaseClient):
           ::
         
             {
-                'EvaluationId': 'string',
-                'MLModelId': 'string',
-                'EvaluationDataSourceId': 'string',
-                'InputDataLocationS3': 'string',
-                'CreatedByIamUser': 'string',
-                'CreatedAt': datetime(2015, 1, 1),
-                'LastUpdatedAt': datetime(2015, 1, 1),
-                'Name': 'string',
-                'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                'PerformanceMetrics': {
-                    'Properties': {
-                        'string': 'string'
+                \'EvaluationId\': \'string\',
+                \'MLModelId\': \'string\',
+                \'EvaluationDataSourceId\': \'string\',
+                \'InputDataLocationS3\': \'string\',
+                \'CreatedByIamUser\': \'string\',
+                \'CreatedAt\': datetime(2015, 1, 1),
+                \'LastUpdatedAt\': datetime(2015, 1, 1),
+                \'Name\': \'string\',
+                \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                \'PerformanceMetrics\': {
+                    \'Properties\': {
+                        \'string\': \'string\'
                     }
                 },
-                'LogUri': 'string',
-                'Message': 'string',
-                'ComputeTime': 123,
-                'FinishedAt': datetime(2015, 1, 1),
-                'StartedAt': datetime(2015, 1, 1)
+                \'LogUri\': \'string\',
+                \'Message\': \'string\',
+                \'ComputeTime\': 123,
+                \'FinishedAt\': datetime(2015, 1, 1),
+                \'StartedAt\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -2947,7 +2947,7 @@ class Client(BaseClient):
         
             - **StartedAt** *(datetime) --* 
         
-              The epoch time when Amazon Machine Learning marked the ``Evaluation`` as ``INPROGRESS`` . ``StartedAt`` isn't available if the ``Evaluation`` is in the ``PENDING`` state.
+              The epoch time when Amazon Machine Learning marked the ``Evaluation`` as ``INPROGRESS`` . ``StartedAt`` isn\'t available if the ``Evaluation`` is in the ``PENDING`` state.
         
         """
         pass
@@ -2963,7 +2963,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_ml_model(
-              MLModelId='string',
+              MLModelId=\'string\',
               Verbose=True|False
           )
         :type MLModelId: string
@@ -2988,34 +2988,34 @@ class Client(BaseClient):
           ::
         
             {
-                'MLModelId': 'string',
-                'TrainingDataSourceId': 'string',
-                'CreatedByIamUser': 'string',
-                'CreatedAt': datetime(2015, 1, 1),
-                'LastUpdatedAt': datetime(2015, 1, 1),
-                'Name': 'string',
-                'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                'SizeInBytes': 123,
-                'EndpointInfo': {
-                    'PeakRequestsPerSecond': 123,
-                    'CreatedAt': datetime(2015, 1, 1),
-                    'EndpointUrl': 'string',
-                    'EndpointStatus': 'NONE'|'READY'|'UPDATING'|'FAILED'
+                \'MLModelId\': \'string\',
+                \'TrainingDataSourceId\': \'string\',
+                \'CreatedByIamUser\': \'string\',
+                \'CreatedAt\': datetime(2015, 1, 1),
+                \'LastUpdatedAt\': datetime(2015, 1, 1),
+                \'Name\': \'string\',
+                \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                \'SizeInBytes\': 123,
+                \'EndpointInfo\': {
+                    \'PeakRequestsPerSecond\': 123,
+                    \'CreatedAt\': datetime(2015, 1, 1),
+                    \'EndpointUrl\': \'string\',
+                    \'EndpointStatus\': \'NONE\'|\'READY\'|\'UPDATING\'|\'FAILED\'
                 },
-                'TrainingParameters': {
-                    'string': 'string'
+                \'TrainingParameters\': {
+                    \'string\': \'string\'
                 },
-                'InputDataLocationS3': 'string',
-                'MLModelType': 'REGRESSION'|'BINARY'|'MULTICLASS',
-                'ScoreThreshold': ...,
-                'ScoreThresholdLastUpdatedAt': datetime(2015, 1, 1),
-                'LogUri': 'string',
-                'Message': 'string',
-                'ComputeTime': 123,
-                'FinishedAt': datetime(2015, 1, 1),
-                'StartedAt': datetime(2015, 1, 1),
-                'Recipe': 'string',
-                'Schema': 'string'
+                \'InputDataLocationS3\': \'string\',
+                \'MLModelType\': \'REGRESSION\'|\'BINARY\'|\'MULTICLASS\',
+                \'ScoreThreshold\': ...,
+                \'ScoreThresholdLastUpdatedAt\': datetime(2015, 1, 1),
+                \'LogUri\': \'string\',
+                \'Message\': \'string\',
+                \'ComputeTime\': 123,
+                \'FinishedAt\': datetime(2015, 1, 1),
+                \'StartedAt\': datetime(2015, 1, 1),
+                \'Recipe\': \'string\',
+                \'Schema\': \'string\'
             }
           **Response Structure** 
         
@@ -3055,11 +3055,11 @@ class Client(BaseClient):
                
               * ``INPROGRESS`` - The request is processing.
                
-              * ``FAILED`` - The request did not run to completion. The ML model isn't usable.
+              * ``FAILED`` - The request did not run to completion. The ML model isn\'t usable.
                
               * ``COMPLETED`` - The request completed successfully.
                
-              * ``DELETED`` - The ``MLModel`` is marked as deleted. It isn't usable.
+              * ``DELETED`` - The ``MLModel`` is marked as deleted. It isn\'t usable.
                
             - **SizeInBytes** *(integer) --* 
         
@@ -3107,11 +3107,11 @@ class Client(BaseClient):
                
               * ``sgd.maxPasses`` - The number of times that the training process traverses the observations to build the ``MLModel`` . The value is an integer that ranges from ``1`` to ``10000`` . The default value is ``10`` .
                
-              * ``sgd.shuffleType`` - Whether Amazon ML shuffles the training data. Shuffling data improves a model's ability to find the optimal solution for a variety of data types. The valid values are ``auto`` and ``none`` . The default value is ``none`` . We strongly recommend that you shuffle your data.
+              * ``sgd.shuffleType`` - Whether Amazon ML shuffles the training data. Shuffling data improves a model\'s ability to find the optimal solution for a variety of data types. The valid values are ``auto`` and ``none`` . The default value is ``none`` . We strongly recommend that you shuffle your data.
                
-              * ``sgd.l1RegularizationAmount`` - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L1 normalization. This parameter can't be used when ``L2`` is specified. Use this parameter sparingly. 
+              * ``sgd.l1RegularizationAmount`` - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L1 normalization. This parameter can\'t be used when ``L2`` is specified. Use this parameter sparingly. 
                
-              * ``sgd.l2RegularizationAmount`` - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L2 normalization. This parameter can't be used when ``L1`` is specified. Use this parameter sparingly. 
+              * ``sgd.l2RegularizationAmount`` - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L2 normalization. This parameter can\'t be used when ``L1`` is specified. Use this parameter sparingly. 
                
               - *(string) --* 
         
@@ -3129,11 +3129,11 @@ class Client(BaseClient):
         
               Identifies the ``MLModel`` category. The following are the available types: 
         
-              * REGRESSION -- Produces a numeric result. For example, "What price should a house be listed at?"
+              * REGRESSION -- Produces a numeric result. For example, \"What price should a house be listed at?\"
                
-              * BINARY -- Produces one of two possible results. For example, "Is this an e-commerce website?"
+              * BINARY -- Produces one of two possible results. For example, \"Is this an e-commerce website?\"
                
-              * MULTICLASS -- Produces one of several possible results. For example, "Is this a HIGH, LOW or MEDIUM risk trade?"
+              * MULTICLASS -- Produces one of several possible results. For example, \"Is this a HIGH, LOW or MEDIUM risk trade?\"
                
             - **ScoreThreshold** *(float) --* 
         
@@ -3163,7 +3163,7 @@ class Client(BaseClient):
         
             - **StartedAt** *(datetime) --* 
         
-              The epoch time when Amazon Machine Learning marked the ``MLModel`` as ``INPROGRESS`` . ``StartedAt`` isn't available if the ``MLModel`` is in the ``PENDING`` state.
+              The epoch time when Amazon Machine Learning marked the ``MLModel`` as ``INPROGRESS`` . ``StartedAt`` isn\'t available if the ``MLModel`` is in the ``PENDING`` state.
         
             - **Recipe** *(string) --* 
         
@@ -3194,10 +3194,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3235,11 +3235,11 @@ class Client(BaseClient):
         ::
         
           response = client.predict(
-              MLModelId='string',
+              MLModelId=\'string\',
               Record={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              PredictEndpoint='string'
+              PredictEndpoint=\'string\'
           )
         :type MLModelId: string
         :param MLModelId: **[REQUIRED]** 
@@ -3253,11 +3253,11 @@ class Client(BaseClient):
         
           - *(string) --* 
         
-            The name of a variable. Currently it's used to specify the name of the target value, label, weight, and tags.
+            The name of a variable. Currently it\'s used to specify the name of the target value, label, weight, and tags.
         
             - *(string) --* 
         
-              The value of a variable. Currently it's used to specify values of the target value, weights, and tag variables and for filtering variable values.
+              The value of a variable. Currently it\'s used to specify values of the target value, weights, and tag variables and for filtering variable values.
         
         :type PredictEndpoint: string
         :param PredictEndpoint: **[REQUIRED]** 
@@ -3270,14 +3270,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Prediction': {
-                    'predictedLabel': 'string',
-                    'predictedValue': ...,
-                    'predictedScores': {
-                        'string': ...
+                \'Prediction\': {
+                    \'predictedLabel\': \'string\',
+                    \'predictedValue\': ...,
+                    \'predictedScores\': {
+                        \'string\': ...
                     },
-                    'details': {
-                        'string': 'string'
+                    \'details\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -3329,8 +3329,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_batch_prediction(
-              BatchPredictionId='string',
-              BatchPredictionName='string'
+              BatchPredictionId=\'string\',
+              BatchPredictionName=\'string\'
           )
         :type BatchPredictionId: string
         :param BatchPredictionId: **[REQUIRED]** 
@@ -3350,7 +3350,7 @@ class Client(BaseClient):
           ::
         
             {
-                'BatchPredictionId': 'string'
+                \'BatchPredictionId\': \'string\'
             }
           **Response Structure** 
         
@@ -3378,8 +3378,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_data_source(
-              DataSourceId='string',
-              DataSourceName='string'
+              DataSourceId=\'string\',
+              DataSourceName=\'string\'
           )
         :type DataSourceId: string
         :param DataSourceId: **[REQUIRED]** 
@@ -3399,7 +3399,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DataSourceId': 'string'
+                \'DataSourceId\': \'string\'
             }
           **Response Structure** 
         
@@ -3427,8 +3427,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_evaluation(
-              EvaluationId='string',
-              EvaluationName='string'
+              EvaluationId=\'string\',
+              EvaluationName=\'string\'
           )
         :type EvaluationId: string
         :param EvaluationId: **[REQUIRED]** 
@@ -3448,7 +3448,7 @@ class Client(BaseClient):
           ::
         
             {
-                'EvaluationId': 'string'
+                \'EvaluationId\': \'string\'
             }
           **Response Structure** 
         
@@ -3476,8 +3476,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_ml_model(
-              MLModelId='string',
-              MLModelName='string',
+              MLModelId=\'string\',
+              MLModelName=\'string\',
               ScoreThreshold=...
           )
         :type MLModelId: string
@@ -3505,7 +3505,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MLModelId': 'string'
+                \'MLModelId\': \'string\'
             }
           **Response Structure** 
         

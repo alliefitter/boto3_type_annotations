@@ -1,9 +1,9 @@
+from typing import Optional
+from typing import Union
 from botocore.waiter import Waiter
 from botocore.paginate import Paginator
-from typing import Union
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -13,10 +13,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -39,7 +39,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -51,10 +51,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -100,9 +100,9 @@ class Client(BaseClient):
         ::
         
           response = client.translate_text(
-              Text='string',
-              SourceLanguageCode='string',
-              TargetLanguageCode='string'
+              Text=\'string\',
+              SourceLanguageCode=\'string\',
+              TargetLanguageCode=\'string\'
           )
         :type Text: string
         :param Text: **[REQUIRED]** 
@@ -112,14 +112,14 @@ class Client(BaseClient):
         :type SourceLanguageCode: string
         :param SourceLanguageCode: **[REQUIRED]** 
         
-          One of the supported language codes for the source text. If the ``TargetLanguageCode`` is not "en", the ``SourceLanguageCode`` must be "en".
+          One of the supported language codes for the source text. If the ``TargetLanguageCode`` is not \"en\", the ``SourceLanguageCode`` must be \"en\".
         
           To have Amazon Translate determine the source language of your text, you can specify ``auto`` in the ``SourceLanguageCode`` field. If you specify ``auto`` , Amazon Translate will call Amazon Comprehend to determine the source language.
         
         :type TargetLanguageCode: string
         :param TargetLanguageCode: **[REQUIRED]** 
         
-          One of the supported language codes for the target text. If the ``SourceLanguageCode`` is not "en", the ``TargetLanguageCode`` must be "en".
+          One of the supported language codes for the target text. If the ``SourceLanguageCode`` is not \"en\", the ``TargetLanguageCode`` must be \"en\".
         
         :rtype: dict
         :returns: 
@@ -129,9 +129,9 @@ class Client(BaseClient):
           ::
         
             {
-                'TranslatedText': 'string',
-                'SourceLanguageCode': 'string',
-                'TargetLanguageCode': 'string'
+                \'TranslatedText\': \'string\',
+                \'SourceLanguageCode\': \'string\',
+                \'TargetLanguageCode\': \'string\'
             }
           **Response Structure** 
         

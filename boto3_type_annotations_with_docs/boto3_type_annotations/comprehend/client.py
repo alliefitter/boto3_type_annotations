@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
+from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -18,7 +18,7 @@ class Client(BaseClient):
         
           response = client.batch_detect_dominant_language(
               TextList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type TextList: list
@@ -36,22 +36,22 @@ class Client(BaseClient):
           ::
         
             {
-                'ResultList': [
+                \'ResultList\': [
                     {
-                        'Index': 123,
-                        'Languages': [
+                        \'Index\': 123,
+                        \'Languages\': [
                             {
-                                'LanguageCode': 'string',
-                                'Score': ...
+                                \'LanguageCode\': \'string\',
+                                \'Score\': ...
                             },
                         ]
                     },
                 ],
-                'ErrorList': [
+                \'ErrorList\': [
                     {
-                        'Index': 123,
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'Index\': 123,
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -120,9 +120,9 @@ class Client(BaseClient):
         
           response = client.batch_detect_entities(
               TextList=[
-                  'string',
+                  \'string\',
               ],
-              LanguageCode='en'|'es'|'fr'|'de'|'it'|'pt'
+              LanguageCode=\'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\'
           )
         :type TextList: list
         :param TextList: **[REQUIRED]** 
@@ -134,7 +134,7 @@ class Client(BaseClient):
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
         
-          The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
+          The language of the input documents. You can specify English (\"en\") or Spanish (\"es\"). All documents must be in the same language.
         
         :rtype: dict
         :returns: 
@@ -144,25 +144,25 @@ class Client(BaseClient):
           ::
         
             {
-                'ResultList': [
+                \'ResultList\': [
                     {
-                        'Index': 123,
-                        'Entities': [
+                        \'Index\': 123,
+                        \'Entities\': [
                             {
-                                'Score': ...,
-                                'Type': 'PERSON'|'LOCATION'|'ORGANIZATION'|'COMMERCIAL_ITEM'|'EVENT'|'DATE'|'QUANTITY'|'TITLE'|'OTHER',
-                                'Text': 'string',
-                                'BeginOffset': 123,
-                                'EndOffset': 123
+                                \'Score\': ...,
+                                \'Type\': \'PERSON\'|\'LOCATION\'|\'ORGANIZATION\'|\'COMMERCIAL_ITEM\'|\'EVENT\'|\'DATE\'|\'QUANTITY\'|\'TITLE\'|\'OTHER\',
+                                \'Text\': \'string\',
+                                \'BeginOffset\': 123,
+                                \'EndOffset\': 123
                             },
                         ]
                     },
                 ],
-                'ErrorList': [
+                \'ErrorList\': [
                     {
-                        'Index': 123,
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'Index\': 123,
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -196,7 +196,7 @@ class Client(BaseClient):
         
                     - **Type** *(string) --* 
         
-                      The entity's type.
+                      The entity\'s type.
         
                     - **Text** *(string) --* 
         
@@ -243,9 +243,9 @@ class Client(BaseClient):
         
           response = client.batch_detect_key_phrases(
               TextList=[
-                  'string',
+                  \'string\',
               ],
-              LanguageCode='en'|'es'|'fr'|'de'|'it'|'pt'
+              LanguageCode=\'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\'
           )
         :type TextList: list
         :param TextList: **[REQUIRED]** 
@@ -257,7 +257,7 @@ class Client(BaseClient):
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
         
-          The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
+          The language of the input documents. You can specify English (\"en\") or Spanish (\"es\"). All documents must be in the same language.
         
         :rtype: dict
         :returns: 
@@ -267,24 +267,24 @@ class Client(BaseClient):
           ::
         
             {
-                'ResultList': [
+                \'ResultList\': [
                     {
-                        'Index': 123,
-                        'KeyPhrases': [
+                        \'Index\': 123,
+                        \'KeyPhrases\': [
                             {
-                                'Score': ...,
-                                'Text': 'string',
-                                'BeginOffset': 123,
-                                'EndOffset': 123
+                                \'Score\': ...,
+                                \'Text\': \'string\',
+                                \'BeginOffset\': 123,
+                                \'EndOffset\': 123
                             },
                         ]
                     },
                 ],
-                'ErrorList': [
+                \'ErrorList\': [
                     {
-                        'Index': 123,
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'Index\': 123,
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -361,9 +361,9 @@ class Client(BaseClient):
         
           response = client.batch_detect_sentiment(
               TextList=[
-                  'string',
+                  \'string\',
               ],
-              LanguageCode='en'|'es'|'fr'|'de'|'it'|'pt'
+              LanguageCode=\'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\'
           )
         :type TextList: list
         :param TextList: **[REQUIRED]** 
@@ -375,7 +375,7 @@ class Client(BaseClient):
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
         
-          The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
+          The language of the input documents. You can specify English (\"en\") or Spanish (\"es\"). All documents must be in the same language.
         
         :rtype: dict
         :returns: 
@@ -385,23 +385,23 @@ class Client(BaseClient):
           ::
         
             {
-                'ResultList': [
+                \'ResultList\': [
                     {
-                        'Index': 123,
-                        'Sentiment': 'POSITIVE'|'NEGATIVE'|'NEUTRAL'|'MIXED',
-                        'SentimentScore': {
-                            'Positive': ...,
-                            'Negative': ...,
-                            'Neutral': ...,
-                            'Mixed': ...
+                        \'Index\': 123,
+                        \'Sentiment\': \'POSITIVE\'|\'NEGATIVE\'|\'NEUTRAL\'|\'MIXED\',
+                        \'SentimentScore\': {
+                            \'Positive\': ...,
+                            \'Negative\': ...,
+                            \'Neutral\': ...,
+                            \'Mixed\': ...
                         }
                     },
                 ],
-                'ErrorList': [
+                \'ErrorList\': [
                     {
-                        'Index': 123,
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'Index\': 123,
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -478,9 +478,9 @@ class Client(BaseClient):
         
           response = client.batch_detect_syntax(
               TextList=[
-                  'string',
+                  \'string\',
               ],
-              LanguageCode='en'|'es'|'fr'|'de'|'it'|'pt'
+              LanguageCode=\'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\'
           )
         :type TextList: list
         :param TextList: **[REQUIRED]** 
@@ -492,7 +492,7 @@ class Client(BaseClient):
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
         
-          The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
+          The language of the input documents. You can specify English (\"en\") or Spanish (\"es\"). All documents must be in the same language.
         
         :rtype: dict
         :returns: 
@@ -502,28 +502,28 @@ class Client(BaseClient):
           ::
         
             {
-                'ResultList': [
+                \'ResultList\': [
                     {
-                        'Index': 123,
-                        'SyntaxTokens': [
+                        \'Index\': 123,
+                        \'SyntaxTokens\': [
                             {
-                                'TokenId': 123,
-                                'Text': 'string',
-                                'BeginOffset': 123,
-                                'EndOffset': 123,
-                                'PartOfSpeech': {
-                                    'Tag': 'ADJ'|'ADP'|'ADV'|'AUX'|'CONJ'|'DET'|'INTJ'|'NOUN'|'NUM'|'O'|'PART'|'PRON'|'PROPN'|'PUNCT'|'SCONJ'|'SYM'|'VERB',
-                                    'Score': ...
+                                \'TokenId\': 123,
+                                \'Text\': \'string\',
+                                \'BeginOffset\': 123,
+                                \'EndOffset\': 123,
+                                \'PartOfSpeech\': {
+                                    \'Tag\': \'ADJ\'|\'ADP\'|\'ADV\'|\'AUX\'|\'CONJ\'|\'DET\'|\'INTJ\'|\'NOUN\'|\'NUM\'|\'O\'|\'PART\'|\'PRON\'|\'PROPN\'|\'PUNCT\'|\'SCONJ\'|\'SYM\'|\'VERB\',
+                                    \'Score\': ...
                                 }
                             },
                         ]
                     },
                 ],
-                'ErrorList': [
+                \'ErrorList\': [
                     {
-                        'Index': 123,
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'Index\': 123,
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -608,10 +608,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -627,7 +627,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_dominant_language_detection_job(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -642,21 +642,21 @@ class Client(BaseClient):
           ::
         
             {
-                'DominantLanguageDetectionJobProperties': {
-                    'JobId': 'string',
-                    'JobName': 'string',
-                    'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                    'Message': 'string',
-                    'SubmitTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'InputDataConfig': {
-                        'S3Uri': 'string',
-                        'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                \'DominantLanguageDetectionJobProperties\': {
+                    \'JobId\': \'string\',
+                    \'JobName\': \'string\',
+                    \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                    \'Message\': \'string\',
+                    \'SubmitTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'InputDataConfig\': {
+                        \'S3Uri\': \'string\',
+                        \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
                     },
-                    'OutputDataConfig': {
-                        'S3Uri': 'string'
+                    \'OutputDataConfig\': {
+                        \'S3Uri\': \'string\'
                     },
-                    'DataAccessRoleArn': 'string'
+                    \'DataAccessRoleArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -735,7 +735,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_entities_detection_job(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -750,22 +750,22 @@ class Client(BaseClient):
           ::
         
             {
-                'EntitiesDetectionJobProperties': {
-                    'JobId': 'string',
-                    'JobName': 'string',
-                    'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                    'Message': 'string',
-                    'SubmitTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'InputDataConfig': {
-                        'S3Uri': 'string',
-                        'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                \'EntitiesDetectionJobProperties\': {
+                    \'JobId\': \'string\',
+                    \'JobName\': \'string\',
+                    \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                    \'Message\': \'string\',
+                    \'SubmitTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'InputDataConfig\': {
+                        \'S3Uri\': \'string\',
+                        \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
                     },
-                    'OutputDataConfig': {
-                        'S3Uri': 'string'
+                    \'OutputDataConfig\': {
+                        \'S3Uri\': \'string\'
                     },
-                    'LanguageCode': 'en'|'es'|'fr'|'de'|'it'|'pt',
-                    'DataAccessRoleArn': 'string'
+                    \'LanguageCode\': \'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\',
+                    \'DataAccessRoleArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -848,7 +848,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_key_phrases_detection_job(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -863,22 +863,22 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyPhrasesDetectionJobProperties': {
-                    'JobId': 'string',
-                    'JobName': 'string',
-                    'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                    'Message': 'string',
-                    'SubmitTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'InputDataConfig': {
-                        'S3Uri': 'string',
-                        'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                \'KeyPhrasesDetectionJobProperties\': {
+                    \'JobId\': \'string\',
+                    \'JobName\': \'string\',
+                    \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                    \'Message\': \'string\',
+                    \'SubmitTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'InputDataConfig\': {
+                        \'S3Uri\': \'string\',
+                        \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
                     },
-                    'OutputDataConfig': {
-                        'S3Uri': 'string'
+                    \'OutputDataConfig\': {
+                        \'S3Uri\': \'string\'
                     },
-                    'LanguageCode': 'en'|'es'|'fr'|'de'|'it'|'pt',
-                    'DataAccessRoleArn': 'string'
+                    \'LanguageCode\': \'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\',
+                    \'DataAccessRoleArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -961,7 +961,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_sentiment_detection_job(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -976,22 +976,22 @@ class Client(BaseClient):
           ::
         
             {
-                'SentimentDetectionJobProperties': {
-                    'JobId': 'string',
-                    'JobName': 'string',
-                    'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                    'Message': 'string',
-                    'SubmitTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'InputDataConfig': {
-                        'S3Uri': 'string',
-                        'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                \'SentimentDetectionJobProperties\': {
+                    \'JobId\': \'string\',
+                    \'JobName\': \'string\',
+                    \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                    \'Message\': \'string\',
+                    \'SubmitTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'InputDataConfig\': {
+                        \'S3Uri\': \'string\',
+                        \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
                     },
-                    'OutputDataConfig': {
-                        'S3Uri': 'string'
+                    \'OutputDataConfig\': {
+                        \'S3Uri\': \'string\'
                     },
-                    'LanguageCode': 'en'|'es'|'fr'|'de'|'it'|'pt',
-                    'DataAccessRoleArn': 'string'
+                    \'LanguageCode\': \'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\',
+                    \'DataAccessRoleArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1074,7 +1074,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_topics_detection_job(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -1089,21 +1089,21 @@ class Client(BaseClient):
           ::
         
             {
-                'TopicsDetectionJobProperties': {
-                    'JobId': 'string',
-                    'JobName': 'string',
-                    'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                    'Message': 'string',
-                    'SubmitTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'InputDataConfig': {
-                        'S3Uri': 'string',
-                        'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                \'TopicsDetectionJobProperties\': {
+                    \'JobId\': \'string\',
+                    \'JobName\': \'string\',
+                    \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                    \'Message\': \'string\',
+                    \'SubmitTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'InputDataConfig\': {
+                        \'S3Uri\': \'string\',
+                        \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
                     },
-                    'OutputDataConfig': {
-                        'S3Uri': 'string'
+                    \'OutputDataConfig\': {
+                        \'S3Uri\': \'string\'
                     },
-                    'NumberOfTopics': 123
+                    \'NumberOfTopics\': 123
                 }
             }
           **Response Structure** 
@@ -1182,7 +1182,7 @@ class Client(BaseClient):
         ::
         
           response = client.detect_dominant_language(
-              Text='string'
+              Text=\'string\'
           )
         :type Text: string
         :param Text: **[REQUIRED]** 
@@ -1197,10 +1197,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Languages': [
+                \'Languages\': [
                     {
-                        'LanguageCode': 'string',
-                        'Score': ...
+                        \'LanguageCode\': \'string\',
+                        \'Score\': ...
                     },
                 ]
             }
@@ -1236,8 +1236,8 @@ class Client(BaseClient):
         ::
         
           response = client.detect_entities(
-              Text='string',
-              LanguageCode='en'|'es'|'fr'|'de'|'it'|'pt'
+              Text=\'string\',
+              LanguageCode=\'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\'
           )
         :type Text: string
         :param Text: **[REQUIRED]** 
@@ -1247,7 +1247,7 @@ class Client(BaseClient):
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
         
-          The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
+          The language of the input documents. You can specify English (\"en\") or Spanish (\"es\"). All documents must be in the same language.
         
         :rtype: dict
         :returns: 
@@ -1257,13 +1257,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Entities': [
+                \'Entities\': [
                     {
-                        'Score': ...,
-                        'Type': 'PERSON'|'LOCATION'|'ORGANIZATION'|'COMMERCIAL_ITEM'|'EVENT'|'DATE'|'QUANTITY'|'TITLE'|'OTHER',
-                        'Text': 'string',
-                        'BeginOffset': 123,
-                        'EndOffset': 123
+                        \'Score\': ...,
+                        \'Type\': \'PERSON\'|\'LOCATION\'|\'ORGANIZATION\'|\'COMMERCIAL_ITEM\'|\'EVENT\'|\'DATE\'|\'QUANTITY\'|\'TITLE\'|\'OTHER\',
+                        \'Text\': \'string\',
+                        \'BeginOffset\': 123,
+                        \'EndOffset\': 123
                     },
                 ]
             }
@@ -1285,7 +1285,7 @@ class Client(BaseClient):
         
                 - **Type** *(string) --* 
         
-                  The entity's type.
+                  The entity\'s type.
         
                 - **Text** *(string) --* 
         
@@ -1311,8 +1311,8 @@ class Client(BaseClient):
         ::
         
           response = client.detect_key_phrases(
-              Text='string',
-              LanguageCode='en'|'es'|'fr'|'de'|'it'|'pt'
+              Text=\'string\',
+              LanguageCode=\'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\'
           )
         :type Text: string
         :param Text: **[REQUIRED]** 
@@ -1322,7 +1322,7 @@ class Client(BaseClient):
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
         
-          The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
+          The language of the input documents. You can specify English (\"en\") or Spanish (\"es\"). All documents must be in the same language.
         
         :rtype: dict
         :returns: 
@@ -1332,12 +1332,12 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyPhrases': [
+                \'KeyPhrases\': [
                     {
-                        'Score': ...,
-                        'Text': 'string',
-                        'BeginOffset': 123,
-                        'EndOffset': 123
+                        \'Score\': ...,
+                        \'Text\': \'string\',
+                        \'BeginOffset\': 123,
+                        \'EndOffset\': 123
                     },
                 ]
             }
@@ -1381,8 +1381,8 @@ class Client(BaseClient):
         ::
         
           response = client.detect_sentiment(
-              Text='string',
-              LanguageCode='en'|'es'|'fr'|'de'|'it'|'pt'
+              Text=\'string\',
+              LanguageCode=\'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\'
           )
         :type Text: string
         :param Text: **[REQUIRED]** 
@@ -1392,7 +1392,7 @@ class Client(BaseClient):
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
         
-          The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
+          The language of the input documents. You can specify English (\"en\") or Spanish (\"es\"). All documents must be in the same language.
         
         :rtype: dict
         :returns: 
@@ -1402,12 +1402,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Sentiment': 'POSITIVE'|'NEGATIVE'|'NEUTRAL'|'MIXED',
-                'SentimentScore': {
-                    'Positive': ...,
-                    'Negative': ...,
-                    'Neutral': ...,
-                    'Mixed': ...
+                \'Sentiment\': \'POSITIVE\'|\'NEGATIVE\'|\'NEUTRAL\'|\'MIXED\',
+                \'SentimentScore\': {
+                    \'Positive\': ...,
+                    \'Negative\': ...,
+                    \'Neutral\': ...,
+                    \'Mixed\': ...
                 }
             }
           **Response Structure** 
@@ -1450,8 +1450,8 @@ class Client(BaseClient):
         ::
         
           response = client.detect_syntax(
-              Text='string',
-              LanguageCode='en'|'es'|'fr'|'de'|'it'|'pt'
+              Text=\'string\',
+              LanguageCode=\'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\'
           )
         :type Text: string
         :param Text: **[REQUIRED]** 
@@ -1461,7 +1461,7 @@ class Client(BaseClient):
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
         
-          The language code of the input documents. You can specify English ("en") or Spanish ("es").
+          The language code of the input documents. You can specify English (\"en\") or Spanish (\"es\").
         
         :rtype: dict
         :returns: 
@@ -1471,15 +1471,15 @@ class Client(BaseClient):
           ::
         
             {
-                'SyntaxTokens': [
+                \'SyntaxTokens\': [
                     {
-                        'TokenId': 123,
-                        'Text': 'string',
-                        'BeginOffset': 123,
-                        'EndOffset': 123,
-                        'PartOfSpeech': {
-                            'Tag': 'ADJ'|'ADP'|'ADV'|'AUX'|'CONJ'|'DET'|'INTJ'|'NOUN'|'NUM'|'O'|'PART'|'PRON'|'PROPN'|'PUNCT'|'SCONJ'|'SYM'|'VERB',
-                            'Score': ...
+                        \'TokenId\': 123,
+                        \'Text\': \'string\',
+                        \'BeginOffset\': 123,
+                        \'EndOffset\': 123,
+                        \'PartOfSpeech\': {
+                            \'Tag\': \'ADJ\'|\'ADP\'|\'ADV\'|\'AUX\'|\'CONJ\'|\'DET\'|\'INTJ\'|\'NOUN\'|\'NUM\'|\'O\'|\'PART\'|\'PRON\'|\'PROPN\'|\'PUNCT\'|\'SCONJ\'|\'SYM\'|\'VERB\',
+                            \'Score\': ...
                         }
                     },
                 ]
@@ -1543,7 +1543,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1555,10 +1555,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1591,12 +1591,12 @@ class Client(BaseClient):
         
           response = client.list_dominant_language_detection_jobs(
               Filter={
-                  'JobName': 'string',
-                  'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                  'SubmitTimeBefore': datetime(2015, 1, 1),
-                  'SubmitTimeAfter': datetime(2015, 1, 1)
+                  \'JobName\': \'string\',
+                  \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                  \'SubmitTimeBefore\': datetime(2015, 1, 1),
+                  \'SubmitTimeAfter\': datetime(2015, 1, 1)
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filter: dict
@@ -1638,25 +1638,25 @@ class Client(BaseClient):
           ::
         
             {
-                'DominantLanguageDetectionJobPropertiesList': [
+                \'DominantLanguageDetectionJobPropertiesList\': [
                     {
-                        'JobId': 'string',
-                        'JobName': 'string',
-                        'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                        'Message': 'string',
-                        'SubmitTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'InputDataConfig': {
-                            'S3Uri': 'string',
-                            'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                        \'JobId\': \'string\',
+                        \'JobName\': \'string\',
+                        \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                        \'Message\': \'string\',
+                        \'SubmitTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'InputDataConfig\': {
+                            \'S3Uri\': \'string\',
+                            \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
                         },
-                        'OutputDataConfig': {
-                            'S3Uri': 'string'
+                        \'OutputDataConfig\': {
+                            \'S3Uri\': \'string\'
                         },
-                        'DataAccessRoleArn': 'string'
+                        \'DataAccessRoleArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1743,12 +1743,12 @@ class Client(BaseClient):
         
           response = client.list_entities_detection_jobs(
               Filter={
-                  'JobName': 'string',
-                  'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                  'SubmitTimeBefore': datetime(2015, 1, 1),
-                  'SubmitTimeAfter': datetime(2015, 1, 1)
+                  \'JobName\': \'string\',
+                  \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                  \'SubmitTimeBefore\': datetime(2015, 1, 1),
+                  \'SubmitTimeAfter\': datetime(2015, 1, 1)
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filter: dict
@@ -1790,26 +1790,26 @@ class Client(BaseClient):
           ::
         
             {
-                'EntitiesDetectionJobPropertiesList': [
+                \'EntitiesDetectionJobPropertiesList\': [
                     {
-                        'JobId': 'string',
-                        'JobName': 'string',
-                        'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                        'Message': 'string',
-                        'SubmitTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'InputDataConfig': {
-                            'S3Uri': 'string',
-                            'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                        \'JobId\': \'string\',
+                        \'JobName\': \'string\',
+                        \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                        \'Message\': \'string\',
+                        \'SubmitTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'InputDataConfig\': {
+                            \'S3Uri\': \'string\',
+                            \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
                         },
-                        'OutputDataConfig': {
-                            'S3Uri': 'string'
+                        \'OutputDataConfig\': {
+                            \'S3Uri\': \'string\'
                         },
-                        'LanguageCode': 'en'|'es'|'fr'|'de'|'it'|'pt',
-                        'DataAccessRoleArn': 'string'
+                        \'LanguageCode\': \'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\',
+                        \'DataAccessRoleArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1900,12 +1900,12 @@ class Client(BaseClient):
         
           response = client.list_key_phrases_detection_jobs(
               Filter={
-                  'JobName': 'string',
-                  'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                  'SubmitTimeBefore': datetime(2015, 1, 1),
-                  'SubmitTimeAfter': datetime(2015, 1, 1)
+                  \'JobName\': \'string\',
+                  \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                  \'SubmitTimeBefore\': datetime(2015, 1, 1),
+                  \'SubmitTimeAfter\': datetime(2015, 1, 1)
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filter: dict
@@ -1947,26 +1947,26 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyPhrasesDetectionJobPropertiesList': [
+                \'KeyPhrasesDetectionJobPropertiesList\': [
                     {
-                        'JobId': 'string',
-                        'JobName': 'string',
-                        'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                        'Message': 'string',
-                        'SubmitTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'InputDataConfig': {
-                            'S3Uri': 'string',
-                            'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                        \'JobId\': \'string\',
+                        \'JobName\': \'string\',
+                        \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                        \'Message\': \'string\',
+                        \'SubmitTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'InputDataConfig\': {
+                            \'S3Uri\': \'string\',
+                            \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
                         },
-                        'OutputDataConfig': {
-                            'S3Uri': 'string'
+                        \'OutputDataConfig\': {
+                            \'S3Uri\': \'string\'
                         },
-                        'LanguageCode': 'en'|'es'|'fr'|'de'|'it'|'pt',
-                        'DataAccessRoleArn': 'string'
+                        \'LanguageCode\': \'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\',
+                        \'DataAccessRoleArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2057,12 +2057,12 @@ class Client(BaseClient):
         
           response = client.list_sentiment_detection_jobs(
               Filter={
-                  'JobName': 'string',
-                  'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                  'SubmitTimeBefore': datetime(2015, 1, 1),
-                  'SubmitTimeAfter': datetime(2015, 1, 1)
+                  \'JobName\': \'string\',
+                  \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                  \'SubmitTimeBefore\': datetime(2015, 1, 1),
+                  \'SubmitTimeAfter\': datetime(2015, 1, 1)
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filter: dict
@@ -2104,26 +2104,26 @@ class Client(BaseClient):
           ::
         
             {
-                'SentimentDetectionJobPropertiesList': [
+                \'SentimentDetectionJobPropertiesList\': [
                     {
-                        'JobId': 'string',
-                        'JobName': 'string',
-                        'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                        'Message': 'string',
-                        'SubmitTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'InputDataConfig': {
-                            'S3Uri': 'string',
-                            'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                        \'JobId\': \'string\',
+                        \'JobName\': \'string\',
+                        \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                        \'Message\': \'string\',
+                        \'SubmitTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'InputDataConfig\': {
+                            \'S3Uri\': \'string\',
+                            \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
                         },
-                        'OutputDataConfig': {
-                            'S3Uri': 'string'
+                        \'OutputDataConfig\': {
+                            \'S3Uri\': \'string\'
                         },
-                        'LanguageCode': 'en'|'es'|'fr'|'de'|'it'|'pt',
-                        'DataAccessRoleArn': 'string'
+                        \'LanguageCode\': \'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\',
+                        \'DataAccessRoleArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2214,12 +2214,12 @@ class Client(BaseClient):
         
           response = client.list_topics_detection_jobs(
               Filter={
-                  'JobName': 'string',
-                  'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                  'SubmitTimeBefore': datetime(2015, 1, 1),
-                  'SubmitTimeAfter': datetime(2015, 1, 1)
+                  \'JobName\': \'string\',
+                  \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                  \'SubmitTimeBefore\': datetime(2015, 1, 1),
+                  \'SubmitTimeAfter\': datetime(2015, 1, 1)
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filter: dict
@@ -2259,25 +2259,25 @@ class Client(BaseClient):
           ::
         
             {
-                'TopicsDetectionJobPropertiesList': [
+                \'TopicsDetectionJobPropertiesList\': [
                     {
-                        'JobId': 'string',
-                        'JobName': 'string',
-                        'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                        'Message': 'string',
-                        'SubmitTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'InputDataConfig': {
-                            'S3Uri': 'string',
-                            'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                        \'JobId\': \'string\',
+                        \'JobName\': \'string\',
+                        \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                        \'Message\': \'string\',
+                        \'SubmitTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'InputDataConfig\': {
+                            \'S3Uri\': \'string\',
+                            \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
                         },
-                        'OutputDataConfig': {
-                            'S3Uri': 'string'
+                        \'OutputDataConfig\': {
+                            \'S3Uri\': \'string\'
                         },
-                        'NumberOfTopics': 123
+                        \'NumberOfTopics\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2364,15 +2364,15 @@ class Client(BaseClient):
         
           response = client.start_dominant_language_detection_job(
               InputDataConfig={
-                  'S3Uri': 'string',
-                  'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                  \'S3Uri\': \'string\',
+                  \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
               },
               OutputDataConfig={
-                  'S3Uri': 'string'
+                  \'S3Uri\': \'string\'
               },
-              DataAccessRoleArn='string',
-              JobName='string',
-              ClientRequestToken='string'
+              DataAccessRoleArn=\'string\',
+              JobName=\'string\',
+              ClientRequestToken=\'string\'
           )
         :type InputDataConfig: dict
         :param InputDataConfig: **[REQUIRED]** 
@@ -2429,8 +2429,8 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED'
+                \'JobId\': \'string\',
+                \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\'
             }
           **Response Structure** 
         
@@ -2465,16 +2465,16 @@ class Client(BaseClient):
         
           response = client.start_entities_detection_job(
               InputDataConfig={
-                  'S3Uri': 'string',
-                  'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                  \'S3Uri\': \'string\',
+                  \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
               },
               OutputDataConfig={
-                  'S3Uri': 'string'
+                  \'S3Uri\': \'string\'
               },
-              DataAccessRoleArn='string',
-              JobName='string',
-              LanguageCode='en'|'es'|'fr'|'de'|'it'|'pt',
-              ClientRequestToken='string'
+              DataAccessRoleArn=\'string\',
+              JobName=\'string\',
+              LanguageCode=\'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\',
+              ClientRequestToken=\'string\'
           )
         :type InputDataConfig: dict
         :param InputDataConfig: **[REQUIRED]** 
@@ -2519,12 +2519,12 @@ class Client(BaseClient):
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
         
-          The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
+          The language of the input documents. You can specify English (\"en\") or Spanish (\"es\"). All documents must be in the same language.
         
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+          A unique identifier for the request. If you don\'t set the client request token, Amazon Comprehend generates one.
         
           This field is autopopulated if not provided.
         
@@ -2536,8 +2536,8 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED'
+                \'JobId\': \'string\',
+                \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\'
             }
           **Response Structure** 
         
@@ -2572,16 +2572,16 @@ class Client(BaseClient):
         
           response = client.start_key_phrases_detection_job(
               InputDataConfig={
-                  'S3Uri': 'string',
-                  'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                  \'S3Uri\': \'string\',
+                  \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
               },
               OutputDataConfig={
-                  'S3Uri': 'string'
+                  \'S3Uri\': \'string\'
               },
-              DataAccessRoleArn='string',
-              JobName='string',
-              LanguageCode='en'|'es'|'fr'|'de'|'it'|'pt',
-              ClientRequestToken='string'
+              DataAccessRoleArn=\'string\',
+              JobName=\'string\',
+              LanguageCode=\'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\',
+              ClientRequestToken=\'string\'
           )
         :type InputDataConfig: dict
         :param InputDataConfig: **[REQUIRED]** 
@@ -2626,12 +2626,12 @@ class Client(BaseClient):
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
         
-          The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
+          The language of the input documents. You can specify English (\"en\") or Spanish (\"es\"). All documents must be in the same language.
         
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+          A unique identifier for the request. If you don\'t set the client request token, Amazon Comprehend generates one.
         
           This field is autopopulated if not provided.
         
@@ -2643,8 +2643,8 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED'
+                \'JobId\': \'string\',
+                \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\'
             }
           **Response Structure** 
         
@@ -2679,16 +2679,16 @@ class Client(BaseClient):
         
           response = client.start_sentiment_detection_job(
               InputDataConfig={
-                  'S3Uri': 'string',
-                  'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                  \'S3Uri\': \'string\',
+                  \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
               },
               OutputDataConfig={
-                  'S3Uri': 'string'
+                  \'S3Uri\': \'string\'
               },
-              DataAccessRoleArn='string',
-              JobName='string',
-              LanguageCode='en'|'es'|'fr'|'de'|'it'|'pt',
-              ClientRequestToken='string'
+              DataAccessRoleArn=\'string\',
+              JobName=\'string\',
+              LanguageCode=\'en\'|\'es\'|\'fr\'|\'de\'|\'it\'|\'pt\',
+              ClientRequestToken=\'string\'
           )
         :type InputDataConfig: dict
         :param InputDataConfig: **[REQUIRED]** 
@@ -2733,12 +2733,12 @@ class Client(BaseClient):
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
         
-          The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
+          The language of the input documents. You can specify English (\"en\") or Spanish (\"es\"). All documents must be in the same language.
         
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+          A unique identifier for the request. If you don\'t set the client request token, Amazon Comprehend generates one.
         
           This field is autopopulated if not provided.
         
@@ -2750,8 +2750,8 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED'
+                \'JobId\': \'string\',
+                \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\'
             }
           **Response Structure** 
         
@@ -2786,16 +2786,16 @@ class Client(BaseClient):
         
           response = client.start_topics_detection_job(
               InputDataConfig={
-                  'S3Uri': 'string',
-                  'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                  \'S3Uri\': \'string\',
+                  \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
               },
               OutputDataConfig={
-                  'S3Uri': 'string'
+                  \'S3Uri\': \'string\'
               },
-              DataAccessRoleArn='string',
-              JobName='string',
+              DataAccessRoleArn=\'string\',
+              JobName=\'string\',
               NumberOfTopics=123,
-              ClientRequestToken='string'
+              ClientRequestToken=\'string\'
           )
         :type InputDataConfig: dict
         :param InputDataConfig: **[REQUIRED]** 
@@ -2857,8 +2857,8 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED'
+                \'JobId\': \'string\',
+                \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\'
             }
           **Response Structure** 
         
@@ -2898,7 +2898,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_dominant_language_detection_job(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -2913,8 +2913,8 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED'
+                \'JobId\': \'string\',
+                \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\'
             }
           **Response Structure** 
         
@@ -2946,7 +2946,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_entities_detection_job(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -2961,8 +2961,8 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED'
+                \'JobId\': \'string\',
+                \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\'
             }
           **Response Structure** 
         
@@ -2994,7 +2994,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_key_phrases_detection_job(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -3009,8 +3009,8 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED'
+                \'JobId\': \'string\',
+                \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\'
             }
           **Response Structure** 
         
@@ -3042,7 +3042,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_sentiment_detection_job(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -3057,8 +3057,8 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED'
+                \'JobId\': \'string\',
+                \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\'
             }
           **Response Structure** 
         

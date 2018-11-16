@@ -12,10 +12,10 @@ class TableExists(Waiter):
         ::
         
           waiter.wait(
-              TableName='string',
+              TableName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type TableName: string
@@ -51,10 +51,10 @@ class TableNotExists(Waiter):
         ::
         
           waiter.wait(
-              TableName='string',
+              TableName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type TableName: string

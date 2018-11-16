@@ -1,9 +1,9 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
-from typing import Union
 from typing import Optional
-from botocore.client import BaseClient
+from typing import Union
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -13,10 +13,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -32,7 +32,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_playback_configuration(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -69,7 +69,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -81,10 +81,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -104,7 +104,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_playback_configuration(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -119,19 +119,19 @@ class Client(BaseClient):
           ::
         
             {
-                'AdDecisionServerUrl': 'string',
-                'CdnConfiguration': {
-                    'AdSegmentUrlPrefix': 'string',
-                    'ContentSegmentUrlPrefix': 'string'
+                \'AdDecisionServerUrl\': \'string\',
+                \'CdnConfiguration\': {
+                    \'AdSegmentUrlPrefix\': \'string\',
+                    \'ContentSegmentUrlPrefix\': \'string\'
                 },
-                'HlsConfiguration': {
-                    'ManifestEndpointPrefix': 'string'
+                \'HlsConfiguration\': {
+                    \'ManifestEndpointPrefix\': \'string\'
                 },
-                'Name': 'string',
-                'PlaybackEndpointPrefix': 'string',
-                'SessionInitializationEndpointPrefix': 'string',
-                'SlateAdUrl': 'string',
-                'VideoContentSourceUrl': 'string'
+                \'Name\': \'string\',
+                \'PlaybackEndpointPrefix\': \'string\',
+                \'SessionInitializationEndpointPrefix\': \'string\',
+                \'SlateAdUrl\': \'string\',
+                \'VideoContentSourceUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -147,11 +147,11 @@ class Client(BaseClient):
         
               - **AdSegmentUrlPrefix** *(string) --* 
         
-                A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.<region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
+                A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.<region>.amazonaws.com. Then specify the rule\'s name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
         
               - **ContentSegmentUrlPrefix** *(string) --* 
         
-                A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
+                A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule\'s name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
         
             - **HlsConfiguration** *(dict) --* 
         
@@ -175,7 +175,7 @@ class Client(BaseClient):
         
             - **SlateAdUrl** *(string) --* 
         
-              URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because AWS Elemental MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. 
+              URL for a high-quality video asset to transcode and use to fill in time that\'s not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because AWS Elemental MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. 
         
             - **VideoContentSourceUrl** *(string) --* 
         
@@ -206,7 +206,7 @@ class Client(BaseClient):
         
           response = client.list_playback_configurations(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -226,19 +226,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Items': [
+                \'Items\': [
                     {
-                        'AdDecisionServerUrl': 'string',
-                        'CdnConfiguration': {
-                            'AdSegmentUrlPrefix': 'string',
-                            'ContentSegmentUrlPrefix': 'string'
+                        \'AdDecisionServerUrl\': \'string\',
+                        \'CdnConfiguration\': {
+                            \'AdSegmentUrlPrefix\': \'string\',
+                            \'ContentSegmentUrlPrefix\': \'string\'
                         },
-                        'Name': 'string',
-                        'SlateAdUrl': 'string',
-                        'VideoContentSourceUrl': 'string'
+                        \'Name\': \'string\',
+                        \'SlateAdUrl\': \'string\',
+                        \'VideoContentSourceUrl\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -262,11 +262,11 @@ class Client(BaseClient):
         
                   - **AdSegmentUrlPrefix** *(string) --* 
         
-                    A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.<region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
+                    A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.<region>.amazonaws.com. Then specify the rule\'s name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
         
                   - **ContentSegmentUrlPrefix** *(string) --* 
         
-                    A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
+                    A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule\'s name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
         
                 - **Name** *(string) --* 
         
@@ -274,7 +274,7 @@ class Client(BaseClient):
         
                 - **SlateAdUrl** *(string) --* 
         
-                  URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because AWS Elemental MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. 
+                  URL for a high-quality video asset to transcode and use to fill in time that\'s not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because AWS Elemental MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. 
         
                 - **VideoContentSourceUrl** *(string) --* 
         
@@ -296,14 +296,14 @@ class Client(BaseClient):
         ::
         
           response = client.put_playback_configuration(
-              AdDecisionServerUrl='string',
+              AdDecisionServerUrl=\'string\',
               CdnConfiguration={
-                  'AdSegmentUrlPrefix': 'string',
-                  'ContentSegmentUrlPrefix': 'string'
+                  \'AdSegmentUrlPrefix\': \'string\',
+                  \'ContentSegmentUrlPrefix\': \'string\'
               },
-              Name='string',
-              SlateAdUrl='string',
-              VideoContentSourceUrl='string'
+              Name=\'string\',
+              SlateAdUrl=\'string\',
+              VideoContentSourceUrl=\'string\'
           )
         :type AdDecisionServerUrl: string
         :param AdDecisionServerUrl: 
@@ -317,11 +317,11 @@ class Client(BaseClient):
         
           - **AdSegmentUrlPrefix** *(string) --* 
         
-            A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.<region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
+            A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.<region>.amazonaws.com. Then specify the rule\'s name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
         
           - **ContentSegmentUrlPrefix** *(string) --* 
         
-            A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
+            A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule\'s name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
         
         :type Name: string
         :param Name: 
@@ -331,7 +331,7 @@ class Client(BaseClient):
         :type SlateAdUrl: string
         :param SlateAdUrl: 
         
-          The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because AWS Elemental MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. 
+          The URL for a high-quality video asset to transcode and use to fill in time that\'s not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because AWS Elemental MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. 
         
         :type VideoContentSourceUrl: string
         :param VideoContentSourceUrl: 
@@ -346,19 +346,19 @@ class Client(BaseClient):
           ::
         
             {
-                'AdDecisionServerUrl': 'string',
-                'CdnConfiguration': {
-                    'AdSegmentUrlPrefix': 'string',
-                    'ContentSegmentUrlPrefix': 'string'
+                \'AdDecisionServerUrl\': \'string\',
+                \'CdnConfiguration\': {
+                    \'AdSegmentUrlPrefix\': \'string\',
+                    \'ContentSegmentUrlPrefix\': \'string\'
                 },
-                'HlsConfiguration': {
-                    'ManifestEndpointPrefix': 'string'
+                \'HlsConfiguration\': {
+                    \'ManifestEndpointPrefix\': \'string\'
                 },
-                'Name': 'string',
-                'PlaybackEndpointPrefix': 'string',
-                'SessionInitializationEndpointPrefix': 'string',
-                'SlateAdUrl': 'string',
-                'VideoContentSourceUrl': 'string'
+                \'Name\': \'string\',
+                \'PlaybackEndpointPrefix\': \'string\',
+                \'SessionInitializationEndpointPrefix\': \'string\',
+                \'SlateAdUrl\': \'string\',
+                \'VideoContentSourceUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -374,11 +374,11 @@ class Client(BaseClient):
         
               - **AdSegmentUrlPrefix** *(string) --* 
         
-                A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.<region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
+                A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.<region>.amazonaws.com. Then specify the rule\'s name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
         
               - **ContentSegmentUrlPrefix** *(string) --* 
         
-                A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
+                A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule\'s name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
         
             - **HlsConfiguration** *(dict) --* 
         
@@ -402,7 +402,7 @@ class Client(BaseClient):
         
             - **SlateAdUrl** *(string) --* 
         
-              URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because AWS Elemental MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. 
+              URL for a high-quality video asset to transcode and use to fill in time that\'s not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because AWS Elemental MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. 
         
             - **VideoContentSourceUrl** *(string) --* 
         

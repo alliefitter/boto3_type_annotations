@@ -1,10 +1,10 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
-from typing import Union
 from typing import Optional
-from botocore.client import BaseClient
+from typing import Union
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,14 +33,14 @@ class Client(BaseClient):
         ::
         
           response = client.generate_data_set(
-              dataSetType='customer_subscriber_hourly_monthly_subscriptions'|'customer_subscriber_annual_subscriptions'|'daily_business_usage_by_instance_type'|'daily_business_fees'|'daily_business_free_trial_conversions'|'daily_business_new_instances'|'daily_business_new_product_subscribers'|'daily_business_canceled_product_subscribers'|'monthly_revenue_billing_and_revenue_data'|'monthly_revenue_annual_subscriptions'|'disbursed_amount_by_product'|'disbursed_amount_by_product_with_uncollected_funds'|'disbursed_amount_by_instance_hours'|'disbursed_amount_by_customer_geo'|'disbursed_amount_by_age_of_uncollected_funds'|'disbursed_amount_by_age_of_disbursed_funds'|'customer_profile_by_industry'|'customer_profile_by_revenue'|'customer_profile_by_geography'|'sales_compensation_billed_revenue'|'us_sales_and_use_tax_records',
+              dataSetType=\'customer_subscriber_hourly_monthly_subscriptions\'|\'customer_subscriber_annual_subscriptions\'|\'daily_business_usage_by_instance_type\'|\'daily_business_fees\'|\'daily_business_free_trial_conversions\'|\'daily_business_new_instances\'|\'daily_business_new_product_subscribers\'|\'daily_business_canceled_product_subscribers\'|\'monthly_revenue_billing_and_revenue_data\'|\'monthly_revenue_annual_subscriptions\'|\'disbursed_amount_by_product\'|\'disbursed_amount_by_product_with_uncollected_funds\'|\'disbursed_amount_by_instance_hours\'|\'disbursed_amount_by_customer_geo\'|\'disbursed_amount_by_age_of_uncollected_funds\'|\'disbursed_amount_by_age_of_disbursed_funds\'|\'customer_profile_by_industry\'|\'customer_profile_by_revenue\'|\'customer_profile_by_geography\'|\'sales_compensation_billed_revenue\'|\'us_sales_and_use_tax_records\',
               dataSetPublicationDate=datetime(2015, 1, 1),
-              roleNameArn='string',
-              destinationS3BucketName='string',
-              destinationS3Prefix='string',
-              snsTopicArn='string',
+              roleNameArn=\'string\',
+              destinationS3BucketName=\'string\',
+              destinationS3Prefix=\'string\',
+              snsTopicArn=\'string\',
               customerDefinedValues={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type dataSetType: string
@@ -100,7 +100,7 @@ class Client(BaseClient):
         :param destinationS3BucketName: **[REQUIRED]** The name (friendly name, not ARN) of the destination S3 bucket.
         
         :type destinationS3Prefix: string
-        :param destinationS3Prefix: (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
+        :param destinationS3Prefix: (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
         
         :type snsTopicArn: string
         :param snsTopicArn: **[REQUIRED]** Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an error has occurred.
@@ -120,7 +120,7 @@ class Client(BaseClient):
           ::
         
             {
-                'dataSetRequestId': 'string'
+                \'dataSetRequestId\': \'string\'
             }
           **Response Structure** 
         
@@ -146,7 +146,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -158,10 +158,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -193,14 +193,14 @@ class Client(BaseClient):
         ::
         
           response = client.start_support_data_export(
-              dataSetType='customer_support_contacts_data'|'test_customer_support_contacts_data',
+              dataSetType=\'customer_support_contacts_data\'|\'test_customer_support_contacts_data\',
               fromDate=datetime(2015, 1, 1),
-              roleNameArn='string',
-              destinationS3BucketName='string',
-              destinationS3Prefix='string',
-              snsTopicArn='string',
+              roleNameArn=\'string\',
+              destinationS3BucketName=\'string\',
+              destinationS3Prefix=\'string\',
+              snsTopicArn=\'string\',
               customerDefinedValues={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type dataSetType: string
@@ -222,7 +222,7 @@ class Client(BaseClient):
         :param destinationS3BucketName: **[REQUIRED]** The name (friendly name, not ARN) of the destination S3 bucket.
         
         :type destinationS3Prefix: string
-        :param destinationS3Prefix: (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
+        :param destinationS3Prefix: (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
         
         :type snsTopicArn: string
         :param snsTopicArn: **[REQUIRED]** Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an error has occurred.
@@ -242,7 +242,7 @@ class Client(BaseClient):
           ::
         
             {
-                'dataSetRequestId': 'string'
+                \'dataSetRequestId\': \'string\'
             }
           **Response Structure** 
         

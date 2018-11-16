@@ -1,9 +1,9 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
-from typing import Union
 from typing import Optional
-from botocore.client import BaseClient
+from typing import Union
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -13,10 +13,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -32,7 +32,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_activity(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -47,7 +47,7 @@ class Client(BaseClient):
            
           * wildcard characters ``? *``   
            
-          * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+          * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
            
           * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
            
@@ -59,8 +59,8 @@ class Client(BaseClient):
           ::
         
             {
-                'activityArn': 'string',
-                'creationDate': datetime(2015, 1, 1)
+                \'activityArn\': \'string\',
+                \'creationDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -86,9 +86,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_state_machine(
-              name='string',
-              definition='string',
-              roleArn='string'
+              name=\'string\',
+              definition=\'string\',
+              roleArn=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -103,7 +103,7 @@ class Client(BaseClient):
            
           * wildcard characters ``? *``   
            
-          * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+          * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
            
           * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
            
@@ -125,8 +125,8 @@ class Client(BaseClient):
           ::
         
             {
-                'stateMachineArn': 'string',
-                'creationDate': datetime(2015, 1, 1)
+                \'stateMachineArn\': \'string\',
+                \'creationDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -152,7 +152,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_activity(
-              activityArn='string'
+              activityArn=\'string\'
           )
         :type activityArn: string
         :param activityArn: **[REQUIRED]** 
@@ -186,7 +186,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_state_machine(
-              stateMachineArn='string'
+              stateMachineArn=\'string\'
           )
         :type stateMachineArn: string
         :param stateMachineArn: **[REQUIRED]** 
@@ -216,7 +216,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_activity(
-              activityArn='string'
+              activityArn=\'string\'
           )
         :type activityArn: string
         :param activityArn: **[REQUIRED]** 
@@ -231,9 +231,9 @@ class Client(BaseClient):
           ::
         
             {
-                'activityArn': 'string',
-                'name': 'string',
-                'creationDate': datetime(2015, 1, 1)
+                \'activityArn\': \'string\',
+                \'name\': \'string\',
+                \'creationDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -255,7 +255,7 @@ class Client(BaseClient):
                
               * wildcard characters ``? *``   
                
-              * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+              * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
                
               * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
                
@@ -275,7 +275,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_execution(
-              executionArn='string'
+              executionArn=\'string\'
           )
         :type executionArn: string
         :param executionArn: **[REQUIRED]** 
@@ -290,14 +290,14 @@ class Client(BaseClient):
           ::
         
             {
-                'executionArn': 'string',
-                'stateMachineArn': 'string',
-                'name': 'string',
-                'status': 'RUNNING'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'ABORTED',
-                'startDate': datetime(2015, 1, 1),
-                'stopDate': datetime(2015, 1, 1),
-                'input': 'string',
-                'output': 'string'
+                \'executionArn\': \'string\',
+                \'stateMachineArn\': \'string\',
+                \'name\': \'string\',
+                \'status\': \'RUNNING\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'ABORTED\',
+                \'startDate\': datetime(2015, 1, 1),
+                \'stopDate\': datetime(2015, 1, 1),
+                \'input\': \'string\',
+                \'output\': \'string\'
             }
           **Response Structure** 
         
@@ -323,7 +323,7 @@ class Client(BaseClient):
                
               * wildcard characters ``? *``   
                
-              * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+              * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
                
               * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
                
@@ -363,7 +363,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_state_machine(
-              stateMachineArn='string'
+              stateMachineArn=\'string\'
           )
         :type stateMachineArn: string
         :param stateMachineArn: **[REQUIRED]** 
@@ -378,12 +378,12 @@ class Client(BaseClient):
           ::
         
             {
-                'stateMachineArn': 'string',
-                'name': 'string',
-                'status': 'ACTIVE'|'DELETING',
-                'definition': 'string',
-                'roleArn': 'string',
-                'creationDate': datetime(2015, 1, 1)
+                \'stateMachineArn\': \'string\',
+                \'name\': \'string\',
+                \'status\': \'ACTIVE\'|\'DELETING\',
+                \'definition\': \'string\',
+                \'roleArn\': \'string\',
+                \'creationDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -405,7 +405,7 @@ class Client(BaseClient):
                
               * wildcard characters ``? *``   
                
-              * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+              * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
                
               * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
                
@@ -437,7 +437,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_state_machine_for_execution(
-              executionArn='string'
+              executionArn=\'string\'
           )
         :type executionArn: string
         :param executionArn: **[REQUIRED]** 
@@ -452,11 +452,11 @@ class Client(BaseClient):
           ::
         
             {
-                'stateMachineArn': 'string',
-                'name': 'string',
-                'definition': 'string',
-                'roleArn': 'string',
-                'updateDate': datetime(2015, 1, 1)
+                \'stateMachineArn\': \'string\',
+                \'name\': \'string\',
+                \'definition\': \'string\',
+                \'roleArn\': \'string\',
+                \'updateDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -501,7 +501,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -520,8 +520,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_activity_task(
-              activityArn='string',
-              workerName='string'
+              activityArn=\'string\',
+              workerName=\'string\'
           )
         :type activityArn: string
         :param activityArn: **[REQUIRED]** 
@@ -541,8 +541,8 @@ class Client(BaseClient):
           ::
         
             {
-                'taskToken': 'string',
-                'input': 'string'
+                \'taskToken\': \'string\',
+                \'input\': \'string\'
             }
           **Response Structure** 
         
@@ -570,10 +570,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_execution_history(
-              executionArn='string',
+              executionArn=\'string\',
               maxResults=123,
               reverseOrder=True|False,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type executionArn: string
         :param executionArn: **[REQUIRED]** 
@@ -607,90 +607,90 @@ class Client(BaseClient):
           ::
         
             {
-                'events': [
+                \'events\': [
                     {
-                        'timestamp': datetime(2015, 1, 1),
-                        'type': 'ActivityFailed'|'ActivityScheduleFailed'|'ActivityScheduled'|'ActivityStarted'|'ActivitySucceeded'|'ActivityTimedOut'|'ChoiceStateEntered'|'ChoiceStateExited'|'ExecutionFailed'|'ExecutionStarted'|'ExecutionSucceeded'|'ExecutionAborted'|'ExecutionTimedOut'|'FailStateEntered'|'LambdaFunctionFailed'|'LambdaFunctionScheduleFailed'|'LambdaFunctionScheduled'|'LambdaFunctionStartFailed'|'LambdaFunctionStarted'|'LambdaFunctionSucceeded'|'LambdaFunctionTimedOut'|'SucceedStateEntered'|'SucceedStateExited'|'TaskStateAborted'|'TaskStateEntered'|'TaskStateExited'|'PassStateEntered'|'PassStateExited'|'ParallelStateAborted'|'ParallelStateEntered'|'ParallelStateExited'|'ParallelStateFailed'|'ParallelStateStarted'|'ParallelStateSucceeded'|'WaitStateAborted'|'WaitStateEntered'|'WaitStateExited',
-                        'id': 123,
-                        'previousEventId': 123,
-                        'activityFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'timestamp\': datetime(2015, 1, 1),
+                        \'type\': \'ActivityFailed\'|\'ActivityScheduleFailed\'|\'ActivityScheduled\'|\'ActivityStarted\'|\'ActivitySucceeded\'|\'ActivityTimedOut\'|\'ChoiceStateEntered\'|\'ChoiceStateExited\'|\'ExecutionFailed\'|\'ExecutionStarted\'|\'ExecutionSucceeded\'|\'ExecutionAborted\'|\'ExecutionTimedOut\'|\'FailStateEntered\'|\'LambdaFunctionFailed\'|\'LambdaFunctionScheduleFailed\'|\'LambdaFunctionScheduled\'|\'LambdaFunctionStartFailed\'|\'LambdaFunctionStarted\'|\'LambdaFunctionSucceeded\'|\'LambdaFunctionTimedOut\'|\'SucceedStateEntered\'|\'SucceedStateExited\'|\'TaskStateAborted\'|\'TaskStateEntered\'|\'TaskStateExited\'|\'PassStateEntered\'|\'PassStateExited\'|\'ParallelStateAborted\'|\'ParallelStateEntered\'|\'ParallelStateExited\'|\'ParallelStateFailed\'|\'ParallelStateStarted\'|\'ParallelStateSucceeded\'|\'WaitStateAborted\'|\'WaitStateEntered\'|\'WaitStateExited\',
+                        \'id\': 123,
+                        \'previousEventId\': 123,
+                        \'activityFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'activityScheduleFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'activityScheduleFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'activityScheduledEventDetails': {
-                            'resource': 'string',
-                            'input': 'string',
-                            'timeoutInSeconds': 123,
-                            'heartbeatInSeconds': 123
+                        \'activityScheduledEventDetails\': {
+                            \'resource\': \'string\',
+                            \'input\': \'string\',
+                            \'timeoutInSeconds\': 123,
+                            \'heartbeatInSeconds\': 123
                         },
-                        'activityStartedEventDetails': {
-                            'workerName': 'string'
+                        \'activityStartedEventDetails\': {
+                            \'workerName\': \'string\'
                         },
-                        'activitySucceededEventDetails': {
-                            'output': 'string'
+                        \'activitySucceededEventDetails\': {
+                            \'output\': \'string\'
                         },
-                        'activityTimedOutEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'activityTimedOutEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'executionFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'executionFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'executionStartedEventDetails': {
-                            'input': 'string',
-                            'roleArn': 'string'
+                        \'executionStartedEventDetails\': {
+                            \'input\': \'string\',
+                            \'roleArn\': \'string\'
                         },
-                        'executionSucceededEventDetails': {
-                            'output': 'string'
+                        \'executionSucceededEventDetails\': {
+                            \'output\': \'string\'
                         },
-                        'executionAbortedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'executionAbortedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'executionTimedOutEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'executionTimedOutEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'lambdaFunctionFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'lambdaFunctionFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'lambdaFunctionScheduleFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'lambdaFunctionScheduleFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'lambdaFunctionScheduledEventDetails': {
-                            'resource': 'string',
-                            'input': 'string',
-                            'timeoutInSeconds': 123
+                        \'lambdaFunctionScheduledEventDetails\': {
+                            \'resource\': \'string\',
+                            \'input\': \'string\',
+                            \'timeoutInSeconds\': 123
                         },
-                        'lambdaFunctionStartFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'lambdaFunctionStartFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'lambdaFunctionSucceededEventDetails': {
-                            'output': 'string'
+                        \'lambdaFunctionSucceededEventDetails\': {
+                            \'output\': \'string\'
                         },
-                        'lambdaFunctionTimedOutEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'lambdaFunctionTimedOutEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'stateEnteredEventDetails': {
-                            'name': 'string',
-                            'input': 'string'
+                        \'stateEnteredEventDetails\': {
+                            \'name\': \'string\',
+                            \'input\': \'string\'
                         },
-                        'stateExitedEventDetails': {
-                            'name': 'string',
-                            'output': 'string'
+                        \'stateExitedEventDetails\': {
+                            \'name\': \'string\',
+                            \'output\': \'string\'
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -948,7 +948,7 @@ class Client(BaseClient):
                      
                     * wildcard characters ``? *``   
                      
-                    * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+                    * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
                      
                     * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
                      
@@ -971,10 +971,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1009,7 +1009,7 @@ class Client(BaseClient):
         
           response = client.list_activities(
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type maxResults: integer
         :param maxResults: 
@@ -1033,14 +1033,14 @@ class Client(BaseClient):
           ::
         
             {
-                'activities': [
+                \'activities\': [
                     {
-                        'activityArn': 'string',
-                        'name': 'string',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'activityArn\': \'string\',
+                        \'name\': \'string\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1070,7 +1070,7 @@ class Client(BaseClient):
                    
                   * wildcard characters ``? *``   
                    
-                  * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+                  * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
                    
                   * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
                    
@@ -1098,10 +1098,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_executions(
-              stateMachineArn='string',
-              statusFilter='RUNNING'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'ABORTED',
+              stateMachineArn=\'string\',
+              statusFilter=\'RUNNING\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'ABORTED\',
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type stateMachineArn: string
         :param stateMachineArn: **[REQUIRED]** 
@@ -1135,17 +1135,17 @@ class Client(BaseClient):
           ::
         
             {
-                'executions': [
+                \'executions\': [
                     {
-                        'executionArn': 'string',
-                        'stateMachineArn': 'string',
-                        'name': 'string',
-                        'status': 'RUNNING'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'ABORTED',
-                        'startDate': datetime(2015, 1, 1),
-                        'stopDate': datetime(2015, 1, 1)
+                        \'executionArn\': \'string\',
+                        \'stateMachineArn\': \'string\',
+                        \'name\': \'string\',
+                        \'status\': \'RUNNING\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'ABORTED\',
+                        \'startDate\': datetime(2015, 1, 1),
+                        \'stopDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1179,7 +1179,7 @@ class Client(BaseClient):
                    
                   * wildcard characters ``? *``   
                    
-                  * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+                  * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
                    
                   * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
                    
@@ -1216,7 +1216,7 @@ class Client(BaseClient):
         
           response = client.list_state_machines(
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type maxResults: integer
         :param maxResults: 
@@ -1240,14 +1240,14 @@ class Client(BaseClient):
           ::
         
             {
-                'stateMachines': [
+                \'stateMachines\': [
                     {
-                        'stateMachineArn': 'string',
-                        'name': 'string',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'stateMachineArn\': \'string\',
+                        \'name\': \'string\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1275,7 +1275,7 @@ class Client(BaseClient):
                    
                   * wildcard characters ``? *``   
                    
-                  * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+                  * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
                    
                   * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
                    
@@ -1301,9 +1301,9 @@ class Client(BaseClient):
         ::
         
           response = client.send_task_failure(
-              taskToken='string',
-              error='string',
-              cause='string'
+              taskToken=\'string\',
+              error=\'string\',
+              cause=\'string\'
           )
         :type taskToken: string
         :param taskToken: **[REQUIRED]** 
@@ -1339,7 +1339,7 @@ class Client(BaseClient):
         
         .. note::
         
-          The ``Timeout`` of a task, defined in the state machine's Amazon States Language definition, is its maximum allowed duration, regardless of the number of  SendTaskHeartbeat requests received.
+          The ``Timeout`` of a task, defined in the state machine\'s Amazon States Language definition, is its maximum allowed duration, regardless of the number of  SendTaskHeartbeat requests received.
         
         .. note::
         
@@ -1351,7 +1351,7 @@ class Client(BaseClient):
         ::
         
           response = client.send_task_heartbeat(
-              taskToken='string'
+              taskToken=\'string\'
           )
         :type taskToken: string
         :param taskToken: **[REQUIRED]** 
@@ -1381,8 +1381,8 @@ class Client(BaseClient):
         ::
         
           response = client.send_task_success(
-              taskToken='string',
-              output='string'
+              taskToken=\'string\',
+              output=\'string\'
           )
         :type taskToken: string
         :param taskToken: **[REQUIRED]** 
@@ -1417,9 +1417,9 @@ class Client(BaseClient):
         ::
         
           response = client.start_execution(
-              stateMachineArn='string',
-              name='string',
-              input='string'
+              stateMachineArn=\'string\',
+              name=\'string\',
+              input=\'string\'
           )
         :type stateMachineArn: string
         :param stateMachineArn: **[REQUIRED]** 
@@ -1433,9 +1433,9 @@ class Client(BaseClient):
         
           .. warning::
         
-            An execution can't use the name of another execution for 90 days.
+            An execution can\'t use the name of another execution for 90 days.
         
-            When you make multiple ``StartExecution`` calls with the same name, the new execution doesn't run and the following rules apply:
+            When you make multiple ``StartExecution`` calls with the same name, the new execution doesn\'t run and the following rules apply:
         
             * When the original execution is open and the execution input from the new call is *different* , the ``ExecutionAlreadyExists`` message is returned. 
              
@@ -1451,7 +1451,7 @@ class Client(BaseClient):
            
           * wildcard characters ``? *``   
            
-          * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+          * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
            
           * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
            
@@ -1460,11 +1460,11 @@ class Client(BaseClient):
         
           The string that contains the JSON input data for the execution, for example:
         
-           ``"input": "{\"first_name\" : \"test\"}"``  
+           ``\"input\": \"{\\"first_name\\" : \\"test\\"}\"``  
         
           .. note::
         
-            If you don't include any JSON input data, you still must include the two braces, for example: ``"input": "{}"``  
+            If you don\'t include any JSON input data, you still must include the two braces, for example: ``\"input\": \"{}\"``  
         
         :rtype: dict
         :returns: 
@@ -1474,8 +1474,8 @@ class Client(BaseClient):
           ::
         
             {
-                'executionArn': 'string',
-                'startDate': datetime(2015, 1, 1)
+                \'executionArn\': \'string\',
+                \'startDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1501,9 +1501,9 @@ class Client(BaseClient):
         ::
         
           response = client.stop_execution(
-              executionArn='string',
-              error='string',
-              cause='string'
+              executionArn=\'string\',
+              error=\'string\',
+              cause=\'string\'
           )
         :type executionArn: string
         :param executionArn: **[REQUIRED]** 
@@ -1528,7 +1528,7 @@ class Client(BaseClient):
           ::
         
             {
-                'stopDate': datetime(2015, 1, 1)
+                \'stopDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1554,9 +1554,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_state_machine(
-              stateMachineArn='string',
-              definition='string',
-              roleArn='string'
+              stateMachineArn=\'string\',
+              definition=\'string\',
+              roleArn=\'string\'
           )
         :type stateMachineArn: string
         :param stateMachineArn: **[REQUIRED]** 
@@ -1581,7 +1581,7 @@ class Client(BaseClient):
           ::
         
             {
-                'updateDate': datetime(2015, 1, 1)
+                \'updateDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         

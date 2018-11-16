@@ -1,21 +1,21 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from typing import IO
-from boto3.s3.transfer import TransferConfig
-from botocore.paginate import Paginator
-from typing import Callable
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
+from typing import IO
+from typing import Callable
+from boto3.s3.transfer import TransferConfig
 
 
 class Client(BaseClient):
     def abort_multipart_upload(self, Bucket: str, Key: str, UploadId: str, RequestPayer: str = None) -> Dict:
         """
         
-        To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.
+        To verify that all parts have been removed, so you don\'t get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload>`_
         
@@ -23,10 +23,10 @@ class Client(BaseClient):
         ::
         
           response = client.abort_multipart_upload(
-              Bucket='string',
-              Key='string',
-              UploadId='string',
-              RequestPayer='requester'
+              Bucket=\'string\',
+              Key=\'string\',
+              UploadId=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -50,7 +50,7 @@ class Client(BaseClient):
           ::
         
             {
-                'RequestCharged': 'requester'
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -69,10 +69,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -88,18 +88,18 @@ class Client(BaseClient):
         ::
         
           response = client.complete_multipart_upload(
-              Bucket='string',
-              Key='string',
+              Bucket=\'string\',
+              Key=\'string\',
               MultipartUpload={
-                  'Parts': [
+                  \'Parts\': [
                       {
-                          'ETag': 'string',
-                          'PartNumber': 123
+                          \'ETag\': \'string\',
+                          \'PartNumber\': 123
                       },
                   ]
               },
-              UploadId='string',
-              RequestPayer='requester'
+              UploadId=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -138,15 +138,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Location': 'string',
-                'Bucket': 'string',
-                'Key': 'string',
-                'Expiration': 'string',
-                'ETag': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'VersionId': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'Location\': \'string\',
+                \'Bucket\': \'string\',
+                \'Key\': \'string\',
+                \'Expiration\': \'string\',
+                \'ETag\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'VersionId\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -194,18 +194,18 @@ class Client(BaseClient):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
+            s3 = boto3.resource(\'s3\')
             copy_source = {
-                'Bucket': 'mybucket',
-                'Key': 'mykey'
+                \'Bucket\': \'mybucket\',
+                \'Key\': \'mykey\'
             }
-            s3.meta.client.copy(copy_source, 'otherbucket', 'otherkey')
+            s3.meta.client.copy(copy_source, \'otherbucket\', \'otherkey\')
         
         :type CopySource: dict
         :param CopySource: The name of the source bucket, key name of the
             source object, and optional version ID of the source object. The
             dictionary format is:
-            ``{'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}``. Note
+            ``{\'Bucket\': \'bucket\', \'Key\': \'key\', \'VersionId\': \'id\'}``. Note
             that the ``VersionId`` key is optional and may be omitted.
         
         :type Bucket: str
@@ -244,39 +244,39 @@ class Client(BaseClient):
         ::
         
           response = client.copy_object(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-              Bucket='string',
-              CacheControl='string',
-              ContentDisposition='string',
-              ContentEncoding='string',
-              ContentLanguage='string',
-              ContentType='string',
-              CopySource='string' or {'Bucket': 'string', 'Key': 'string', 'VersionId': 'string'},
-              CopySourceIfMatch='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+              Bucket=\'string\',
+              CacheControl=\'string\',
+              ContentDisposition=\'string\',
+              ContentEncoding=\'string\',
+              ContentLanguage=\'string\',
+              ContentType=\'string\',
+              CopySource=\'string\' or {\'Bucket\': \'string\', \'Key\': \'string\', \'VersionId\': \'string\'},
+              CopySourceIfMatch=\'string\',
               CopySourceIfModifiedSince=datetime(2015, 1, 1),
-              CopySourceIfNoneMatch='string',
+              CopySourceIfNoneMatch=\'string\',
               CopySourceIfUnmodifiedSince=datetime(2015, 1, 1),
               Expires=datetime(2015, 1, 1),
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWriteACP='string',
-              Key='string',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWriteACP=\'string\',
+              Key=\'string\',
               Metadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              MetadataDirective='COPY'|'REPLACE',
-              TaggingDirective='COPY'|'REPLACE',
-              ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-              WebsiteRedirectLocation='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              SSEKMSKeyId='string',
-              CopySourceSSECustomerAlgorithm='string',
-              CopySourceSSECustomerKey='string',
-              RequestPayer='requester',
-              Tagging='string'
+              MetadataDirective=\'COPY\'|\'REPLACE\',
+              TaggingDirective=\'COPY\'|\'REPLACE\',
+              ServerSideEncryption=\'AES256\'|\'aws:kms\',
+              StorageClass=\'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+              WebsiteRedirectLocation=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              SSEKMSKeyId=\'string\',
+              CopySourceSSECustomerAlgorithm=\'string\',
+              CopySourceSSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
+              Tagging=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -312,7 +312,7 @@ class Client(BaseClient):
           A standard MIME type describing the format of the object data.
         
         :type CopySource: str or dict
-        :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object, and optional version ID of the source object.  You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key}?versionId={versionId} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}.  Note that the VersionId key is optional and may be omitted.
+        :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object, and optional version ID of the source object.  You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key}?versionId={versionId} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {\'Bucket\': \'bucket\', \'Key\': \'key\', \'VersionId\': \'id\'}.  Note that the VersionId key is optional and may be omitted.
         
         :type CopySourceIfMatch: string
         :param CopySourceIfMatch: 
@@ -332,7 +332,7 @@ class Client(BaseClient):
         :type CopySourceIfUnmodifiedSince: datetime
         :param CopySourceIfUnmodifiedSince: 
         
-          Copies the object if it hasn't been modified since the specified time.
+          Copies the object if it hasn\'t been modified since the specified time.
         
         :type Expires: datetime
         :param Expires: 
@@ -389,7 +389,7 @@ class Client(BaseClient):
         :type StorageClass: string
         :param StorageClass: 
         
-          The type of storage to use for the object. Defaults to 'STANDARD'.
+          The type of storage to use for the object. Defaults to \'STANDARD\'.
         
         :type WebsiteRedirectLocation: string
         :param WebsiteRedirectLocation: 
@@ -453,18 +453,18 @@ class Client(BaseClient):
           ::
         
             {
-                'CopyObjectResult': {
-                    'ETag': 'string',
-                    'LastModified': datetime(2015, 1, 1)
+                \'CopyObjectResult\': {
+                    \'ETag\': \'string\',
+                    \'LastModified\': datetime(2015, 1, 1)
                 },
-                'Expiration': 'string',
-                'CopySourceVersionId': 'string',
-                'VersionId': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'Expiration\': \'string\',
+                \'CopySourceVersionId\': \'string\',
+                \'VersionId\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -518,16 +518,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_bucket(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read',
-              Bucket='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\',
+              Bucket=\'string\',
               CreateBucketConfiguration={
-                  'LocationConstraint': 'EU'|'eu-west-1'|'us-west-1'|'us-west-2'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1'|'cn-north-1'|'eu-central-1'
+                  \'LocationConstraint\': \'EU\'|\'eu-west-1\'|\'us-west-1\'|\'us-west-2\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\'|\'cn-north-1\'|\'eu-central-1\'
               },
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWrite='string',
-              GrantWriteACP='string'
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWrite=\'string\',
+              GrantWriteACP=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -542,7 +542,7 @@ class Client(BaseClient):
         
           - **LocationConstraint** *(string) --* 
         
-            Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
+            Specifies the region where the bucket will be created. If you don\'t specify a region, the bucket will be created in US Standard.
         
         :type GrantFullControl: string
         :param GrantFullControl: 
@@ -577,7 +577,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Location': 'string'
+                \'Location\': \'string\'
             }
           **Response Structure** 
         
@@ -598,30 +598,30 @@ class Client(BaseClient):
         ::
         
           response = client.create_multipart_upload(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-              Bucket='string',
-              CacheControl='string',
-              ContentDisposition='string',
-              ContentEncoding='string',
-              ContentLanguage='string',
-              ContentType='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+              Bucket=\'string\',
+              CacheControl=\'string\',
+              ContentDisposition=\'string\',
+              ContentEncoding=\'string\',
+              ContentLanguage=\'string\',
+              ContentType=\'string\',
               Expires=datetime(2015, 1, 1),
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWriteACP='string',
-              Key='string',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWriteACP=\'string\',
+              Key=\'string\',
               Metadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-              WebsiteRedirectLocation='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              SSEKMSKeyId='string',
-              RequestPayer='requester',
-              Tagging='string'
+              ServerSideEncryption=\'AES256\'|\'aws:kms\',
+              StorageClass=\'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+              WebsiteRedirectLocation=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              SSEKMSKeyId=\'string\',
+              RequestPayer=\'requester\',
+              Tagging=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -701,7 +701,7 @@ class Client(BaseClient):
         :type StorageClass: string
         :param StorageClass: 
         
-          The type of storage to use for the object. Defaults to 'STANDARD'.
+          The type of storage to use for the object. Defaults to \'STANDARD\'.
         
         :type WebsiteRedirectLocation: string
         :param WebsiteRedirectLocation: 
@@ -748,16 +748,16 @@ class Client(BaseClient):
           ::
         
             {
-                'AbortDate': datetime(2015, 1, 1),
-                'AbortRuleId': 'string',
-                'Bucket': 'string',
-                'Key': 'string',
-                'UploadId': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'AbortDate\': datetime(2015, 1, 1),
+                \'AbortRuleId\': \'string\',
+                \'Bucket\': \'string\',
+                \'Key\': \'string\',
+                \'UploadId\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -815,7 +815,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bucket(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -833,8 +833,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bucket_analytics_configuration(
-              Bucket='string',
-              Id='string'
+              Bucket=\'string\',
+              Id=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -859,7 +859,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bucket_cors(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -877,7 +877,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bucket_encryption(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -897,8 +897,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bucket_inventory_configuration(
-              Bucket='string',
-              Id='string'
+              Bucket=\'string\',
+              Id=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -923,7 +923,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bucket_lifecycle(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -941,8 +941,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bucket_metrics_configuration(
-              Bucket='string',
-              Id='string'
+              Bucket=\'string\',
+              Id=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -967,7 +967,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bucket_policy(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -985,7 +985,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bucket_replication(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1011,7 +1011,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bucket_tagging(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1029,7 +1029,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bucket_website(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1047,11 +1047,11 @@ class Client(BaseClient):
         ::
         
           response = client.delete_object(
-              Bucket='string',
-              Key='string',
-              MFA='string',
-              VersionId='string',
-              RequestPayer='requester'
+              Bucket=\'string\',
+              Key=\'string\',
+              MFA=\'string\',
+              VersionId=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1062,7 +1062,7 @@ class Client(BaseClient):
         :type MFA: string
         :param MFA: 
         
-          The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+          The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
         
         :type VersionId: string
         :param VersionId: 
@@ -1082,9 +1082,9 @@ class Client(BaseClient):
           ::
         
             {
-                'DeleteMarker': True|False,
-                'VersionId': 'string',
-                'RequestCharged': 'requester'
+                \'DeleteMarker\': True|False,
+                \'VersionId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -1114,9 +1114,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_object_tagging(
-              Bucket='string',
-              Key='string',
-              VersionId='string'
+              Bucket=\'string\',
+              Key=\'string\',
+              VersionId=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1137,7 +1137,7 @@ class Client(BaseClient):
           ::
         
             {
-                'VersionId': 'string'
+                \'VersionId\': \'string\'
             }
           **Response Structure** 
         
@@ -1159,18 +1159,18 @@ class Client(BaseClient):
         ::
         
           response = client.delete_objects(
-              Bucket='string',
+              Bucket=\'string\',
               Delete={
-                  'Objects': [
+                  \'Objects\': [
                       {
-                          'Key': 'string',
-                          'VersionId': 'string'
+                          \'Key\': \'string\',
+                          \'VersionId\': \'string\'
                       },
                   ],
-                  'Quiet': True|False
+                  \'Quiet\': True|False
               },
-              MFA='string',
-              RequestPayer='requester'
+              MFA=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1197,7 +1197,7 @@ class Client(BaseClient):
         :type MFA: string
         :param MFA: 
         
-          The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+          The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
         
         :type RequestPayer: string
         :param RequestPayer: 
@@ -1212,21 +1212,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Deleted': [
+                \'Deleted\': [
                     {
-                        'Key': 'string',
-                        'VersionId': 'string',
-                        'DeleteMarker': True|False,
-                        'DeleteMarkerVersionId': 'string'
+                        \'Key\': \'string\',
+                        \'VersionId\': \'string\',
+                        \'DeleteMarker\': True|False,
+                        \'DeleteMarkerVersionId\': \'string\'
                     },
                 ],
-                'RequestCharged': 'requester',
-                'Errors': [
+                \'RequestCharged\': \'requester\',
+                \'Errors\': [
                     {
-                        'Key': 'string',
-                        'VersionId': 'string',
-                        'Code': 'string',
-                        'Message': 'string'
+                        \'Key\': \'string\',
+                        \'VersionId\': \'string\',
+                        \'Code\': \'string\',
+                        \'Message\': \'string\'
                     },
                 ]
             }
@@ -1271,12 +1271,12 @@ class Client(BaseClient):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
-            s3.meta.client.download_file('mybucket', 'hello.txt', '/tmp/hello.txt')
+            s3 = boto3.resource(\'s3\')
+            s3.meta.client.download_file(\'mybucket\', \'hello.txt\', \'/tmp/hello.txt\')
         
-        Similar behavior as S3Transfer's download_file() method,
+        Similar behavior as S3Transfer\'s download_file() method,
         except that parameters are capitalized. Detailed examples can be found at
-        :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+        :ref:`S3Transfer\'s Usage <ref_s3transfer_usage>`.
         
         :type Filename: str
         :param Filename: The path to the file to download to.
@@ -1312,10 +1312,10 @@ class Client(BaseClient):
         Usage::
         
             import boto3
-            s3 = boto3.client('s3')
+            s3 = boto3.client(\'s3\')
         
-            with open('filename', 'wb') as data:
-                s3.download_fileobj('mybucket', 'mykey', data)
+            with open(\'filename\', \'wb\') as data:
+                s3.download_fileobj(\'mybucket\', \'mykey\', data)
         
         :type Fileobj: a file-like object
         :param Fileobj: A file-like object to download into. At a minimum, it must
@@ -1371,9 +1371,9 @@ class Client(BaseClient):
             element can be either a list or a structure. For example:
         
             [
-             {"acl": "public-read"},
-             ["content-length-range", 2, 5],
-             ["starts-with", "$success_action_redirect", ""]
+             {\"acl\": \"public-read\"},
+             [\"content-length-range\", 2, 5],
+             [\"starts-with\", \"$success_action_redirect\", \"\"]
             ]
         
             Conditions that are included may pertain to acl,
@@ -1397,11 +1397,11 @@ class Client(BaseClient):
             the form fields and respective values to use when submitting the
             post. For example:
         
-            {'url': 'https://mybucket.s3.amazonaws.com
-             'fields': {'acl': 'public-read',
-                        'key': 'mykey',
-                        'signature': 'mysignature',
-                        'policy': 'mybase64 encoded policy'}
+            {\'url\': \'https://mybucket.s3.amazonaws.com
+             \'fields\': {\'acl\': \'public-read\',
+                        \'key\': \'mykey\',
+                        \'signature\': \'mysignature\',
+                        \'policy\': \'mybase64 encoded policy\'}
             }
         """
         pass
@@ -1422,7 +1422,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1437,7 +1437,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_accelerate_configuration(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1452,7 +1452,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 'Enabled'|'Suspended'
+                \'Status\': \'Enabled\'|\'Suspended\'
             }
           **Response Structure** 
         
@@ -1474,7 +1474,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_acl(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1487,20 +1487,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Owner': {
-                    'DisplayName': 'string',
-                    'ID': 'string'
+                \'Owner\': {
+                    \'DisplayName\': \'string\',
+                    \'ID\': \'string\'
                 },
-                'Grants': [
+                \'Grants\': [
                     {
-                        'Grantee': {
-                            'DisplayName': 'string',
-                            'EmailAddress': 'string',
-                            'ID': 'string',
-                            'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                            'URI': 'string'
+                        \'Grantee\': {
+                            \'DisplayName\': \'string\',
+                            \'EmailAddress\': \'string\',
+                            \'ID\': \'string\',
+                            \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                            \'URI\': \'string\'
                         },
-                        'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                        \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                     },
                 ]
             }
@@ -1558,8 +1558,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_analytics_configuration(
-              Bucket='string',
-              Id='string'
+              Bucket=\'string\',
+              Id=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1579,33 +1579,33 @@ class Client(BaseClient):
           ::
         
             {
-                'AnalyticsConfiguration': {
-                    'Id': 'string',
-                    'Filter': {
-                        'Prefix': 'string',
-                        'Tag': {
-                            'Key': 'string',
-                            'Value': 'string'
+                \'AnalyticsConfiguration\': {
+                    \'Id\': \'string\',
+                    \'Filter\': {
+                        \'Prefix\': \'string\',
+                        \'Tag\': {
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
-                        'And': {
-                            'Prefix': 'string',
-                            'Tags': [
+                        \'And\': {
+                            \'Prefix\': \'string\',
+                            \'Tags\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         }
                     },
-                    'StorageClassAnalysis': {
-                        'DataExport': {
-                            'OutputSchemaVersion': 'V_1',
-                            'Destination': {
-                                'S3BucketDestination': {
-                                    'Format': 'CSV',
-                                    'BucketAccountId': 'string',
-                                    'Bucket': 'string',
-                                    'Prefix': 'string'
+                    \'StorageClassAnalysis\': {
+                        \'DataExport\': {
+                            \'OutputSchemaVersion\': \'V_1\',
+                            \'Destination\': {
+                                \'S3BucketDestination\': {
+                                    \'Format\': \'CSV\',
+                                    \'BucketAccountId\': \'string\',
+                                    \'Bucket\': \'string\',
+                                    \'Prefix\': \'string\'
                                 }
                             }
                         }
@@ -1714,7 +1714,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_cors(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1727,21 +1727,21 @@ class Client(BaseClient):
           ::
         
             {
-                'CORSRules': [
+                \'CORSRules\': [
                     {
-                        'AllowedHeaders': [
-                            'string',
+                        \'AllowedHeaders\': [
+                            \'string\',
                         ],
-                        'AllowedMethods': [
-                            'string',
+                        \'AllowedMethods\': [
+                            \'string\',
                         ],
-                        'AllowedOrigins': [
-                            'string',
+                        \'AllowedOrigins\': [
+                            \'string\',
                         ],
-                        'ExposeHeaders': [
-                            'string',
+                        \'ExposeHeaders\': [
+                            \'string\',
                         ],
-                        'MaxAgeSeconds': 123
+                        \'MaxAgeSeconds\': 123
                     },
                 ]
             }
@@ -1793,7 +1793,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_encryption(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1808,12 +1808,12 @@ class Client(BaseClient):
           ::
         
             {
-                'ServerSideEncryptionConfiguration': {
-                    'Rules': [
+                \'ServerSideEncryptionConfiguration\': {
+                    \'Rules\': [
                         {
-                            'ApplyServerSideEncryptionByDefault': {
-                                'SSEAlgorithm': 'AES256'|'aws:kms',
-                                'KMSMasterKeyID': 'string'
+                            \'ApplyServerSideEncryptionByDefault\': {
+                                \'SSEAlgorithm\': \'AES256\'|\'aws:kms\',
+                                \'KMSMasterKeyID\': \'string\'
                             }
                         },
                     ]
@@ -1859,8 +1859,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_inventory_configuration(
-              Bucket='string',
-              Id='string'
+              Bucket=\'string\',
+              Id=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -1880,32 +1880,32 @@ class Client(BaseClient):
           ::
         
             {
-                'InventoryConfiguration': {
-                    'Destination': {
-                        'S3BucketDestination': {
-                            'AccountId': 'string',
-                            'Bucket': 'string',
-                            'Format': 'CSV'|'ORC',
-                            'Prefix': 'string',
-                            'Encryption': {
-                                'SSES3': {},
-                                'SSEKMS': {
-                                    'KeyId': 'string'
+                \'InventoryConfiguration\': {
+                    \'Destination\': {
+                        \'S3BucketDestination\': {
+                            \'AccountId\': \'string\',
+                            \'Bucket\': \'string\',
+                            \'Format\': \'CSV\'|\'ORC\',
+                            \'Prefix\': \'string\',
+                            \'Encryption\': {
+                                \'SSES3\': {},
+                                \'SSEKMS\': {
+                                    \'KeyId\': \'string\'
                                 }
                             }
                         }
                     },
-                    'IsEnabled': True|False,
-                    'Filter': {
-                        'Prefix': 'string'
+                    \'IsEnabled\': True|False,
+                    \'Filter\': {
+                        \'Prefix\': \'string\'
                     },
-                    'Id': 'string',
-                    'IncludedObjectVersions': 'All'|'Current',
-                    'OptionalFields': [
-                        'Size'|'LastModifiedDate'|'StorageClass'|'ETag'|'IsMultipartUploaded'|'ReplicationStatus'|'EncryptionStatus',
+                    \'Id\': \'string\',
+                    \'IncludedObjectVersions\': \'All\'|\'Current\',
+                    \'OptionalFields\': [
+                        \'Size\'|\'LastModifiedDate\'|\'StorageClass\'|\'ETag\'|\'IsMultipartUploaded\'|\'ReplicationStatus\'|\'EncryptionStatus\',
                     ],
-                    'Schedule': {
-                        'Frequency': 'Daily'|'Weekly'
+                    \'Schedule\': {
+                        \'Frequency\': \'Daily\'|\'Weekly\'
                     }
                 }
             }
@@ -1963,7 +1963,7 @@ class Client(BaseClient):
         
               - **Filter** *(dict) --* 
         
-                Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
+                Specifies an inventory filter. The inventory only includes objects that meet the filter\'s criteria.
         
                 - **Prefix** *(string) --* 
         
@@ -2007,7 +2007,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_lifecycle(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -2020,30 +2020,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Rules': [
+                \'Rules\': [
                     {
-                        'Expiration': {
-                            'Date': datetime(2015, 1, 1),
-                            'Days': 123,
-                            'ExpiredObjectDeleteMarker': True|False
+                        \'Expiration\': {
+                            \'Date\': datetime(2015, 1, 1),
+                            \'Days\': 123,
+                            \'ExpiredObjectDeleteMarker\': True|False
                         },
-                        'ID': 'string',
-                        'Prefix': 'string',
-                        'Status': 'Enabled'|'Disabled',
-                        'Transition': {
-                            'Date': datetime(2015, 1, 1),
-                            'Days': 123,
-                            'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                        \'ID\': \'string\',
+                        \'Prefix\': \'string\',
+                        \'Status\': \'Enabled\'|\'Disabled\',
+                        \'Transition\': {
+                            \'Date\': datetime(2015, 1, 1),
+                            \'Days\': 123,
+                            \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                         },
-                        'NoncurrentVersionTransition': {
-                            'NoncurrentDays': 123,
-                            'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                        \'NoncurrentVersionTransition\': {
+                            \'NoncurrentDays\': 123,
+                            \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                         },
-                        'NoncurrentVersionExpiration': {
-                            'NoncurrentDays': 123
+                        \'NoncurrentVersionExpiration\': {
+                            \'NoncurrentDays\': 123
                         },
-                        'AbortIncompleteMultipartUpload': {
-                            'DaysAfterInitiation': 123
+                        \'AbortIncompleteMultipartUpload\': {
+                            \'DaysAfterInitiation\': 123
                         }
                     },
                 ]
@@ -2080,7 +2080,7 @@ class Client(BaseClient):
         
                 - **Status** *(string) --* 
         
-                  If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
+                  If \'Enabled\', the rule is currently being applied. If \'Disabled\', the rule is not currently being applied.
         
                 - **Transition** *(dict) --* 
                   
@@ -2098,7 +2098,7 @@ class Client(BaseClient):
         
                 - **NoncurrentVersionTransition** *(dict) --* 
         
-                  Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object's lifetime.
+                  Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object\'s lifetime.
         
                   - **NoncurrentDays** *(integer) --* 
         
@@ -2110,7 +2110,7 @@ class Client(BaseClient):
         
                 - **NoncurrentVersionExpiration** *(dict) --* 
         
-                  Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+                  Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object\'s lifetime.
         
                   - **NoncurrentDays** *(integer) --* 
         
@@ -2136,7 +2136,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_lifecycle_configuration(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -2149,50 +2149,50 @@ class Client(BaseClient):
           ::
         
             {
-                'Rules': [
+                \'Rules\': [
                     {
-                        'Expiration': {
-                            'Date': datetime(2015, 1, 1),
-                            'Days': 123,
-                            'ExpiredObjectDeleteMarker': True|False
+                        \'Expiration\': {
+                            \'Date\': datetime(2015, 1, 1),
+                            \'Days\': 123,
+                            \'ExpiredObjectDeleteMarker\': True|False
                         },
-                        'ID': 'string',
-                        'Prefix': 'string',
-                        'Filter': {
-                            'Prefix': 'string',
-                            'Tag': {
-                                'Key': 'string',
-                                'Value': 'string'
+                        \'ID\': \'string\',
+                        \'Prefix\': \'string\',
+                        \'Filter\': {
+                            \'Prefix\': \'string\',
+                            \'Tag\': {
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
-                            'And': {
-                                'Prefix': 'string',
-                                'Tags': [
+                            \'And\': {
+                                \'Prefix\': \'string\',
+                                \'Tags\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             }
                         },
-                        'Status': 'Enabled'|'Disabled',
-                        'Transitions': [
+                        \'Status\': \'Enabled\'|\'Disabled\',
+                        \'Transitions\': [
                             {
-                                'Date': datetime(2015, 1, 1),
-                                'Days': 123,
-                                'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                                \'Date\': datetime(2015, 1, 1),
+                                \'Days\': 123,
+                                \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                             },
                         ],
-                        'NoncurrentVersionTransitions': [
+                        \'NoncurrentVersionTransitions\': [
                             {
-                                'NoncurrentDays': 123,
-                                'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                                \'NoncurrentDays\': 123,
+                                \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                             },
                         ],
-                        'NoncurrentVersionExpiration': {
-                            'NoncurrentDays': 123
+                        \'NoncurrentVersionExpiration\': {
+                            \'NoncurrentDays\': 123
                         },
-                        'AbortIncompleteMultipartUpload': {
-                            'DaysAfterInitiation': 123
+                        \'AbortIncompleteMultipartUpload\': {
+                            \'DaysAfterInitiation\': 123
                         }
                     },
                 ]
@@ -2237,7 +2237,7 @@ class Client(BaseClient):
         
                   - **Tag** *(dict) --* 
         
-                    This tag must exist in the object's tag set in order for the rule to apply.
+                    This tag must exist in the object\'s tag set in order for the rule to apply.
         
                     - **Key** *(string) --* 
         
@@ -2255,7 +2255,7 @@ class Client(BaseClient):
                     
                     - **Tags** *(list) --* 
         
-                      All of these tags must exist in the object's tag set in order for the rule to apply.
+                      All of these tags must exist in the object\'s tag set in order for the rule to apply.
         
                       - *(dict) --* 
                         
@@ -2269,7 +2269,7 @@ class Client(BaseClient):
         
                 - **Status** *(string) --* 
         
-                  If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
+                  If \'Enabled\', the rule is currently being applied. If \'Disabled\', the rule is not currently being applied.
         
                 - **Transitions** *(list) --* 
                   
@@ -2291,7 +2291,7 @@ class Client(BaseClient):
                   
                   - *(dict) --* 
         
-                    Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object's lifetime.
+                    Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object\'s lifetime.
         
                     - **NoncurrentDays** *(integer) --* 
         
@@ -2303,7 +2303,7 @@ class Client(BaseClient):
         
                 - **NoncurrentVersionExpiration** *(dict) --* 
         
-                  Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+                  Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object\'s lifetime.
         
                   - **NoncurrentDays** *(integer) --* 
         
@@ -2329,7 +2329,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_location(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -2342,7 +2342,7 @@ class Client(BaseClient):
           ::
         
             {
-                'LocationConstraint': 'EU'|'eu-west-1'|'us-west-1'|'us-west-2'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1'|'cn-north-1'|'eu-central-1'
+                \'LocationConstraint\': \'EU\'|\'eu-west-1\'|\'us-west-1\'|\'us-west-2\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\'|\'cn-north-1\'|\'eu-central-1\'
             }
           **Response Structure** 
         
@@ -2361,7 +2361,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_logging(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -2374,21 +2374,21 @@ class Client(BaseClient):
           ::
         
             {
-                'LoggingEnabled': {
-                    'TargetBucket': 'string',
-                    'TargetGrants': [
+                \'LoggingEnabled\': {
+                    \'TargetBucket\': \'string\',
+                    \'TargetGrants\': [
                         {
-                            'Grantee': {
-                                'DisplayName': 'string',
-                                'EmailAddress': 'string',
-                                'ID': 'string',
-                                'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                                'URI': 'string'
+                            \'Grantee\': {
+                                \'DisplayName\': \'string\',
+                                \'EmailAddress\': \'string\',
+                                \'ID\': \'string\',
+                                \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                                \'URI\': \'string\'
                             },
-                            'Permission': 'FULL_CONTROL'|'READ'|'WRITE'
+                            \'Permission\': \'FULL_CONTROL\'|\'READ\'|\'WRITE\'
                         },
                     ],
-                    'TargetPrefix': 'string'
+                    \'TargetPrefix\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2449,8 +2449,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_metrics_configuration(
-              Bucket='string',
-              Id='string'
+              Bucket=\'string\',
+              Id=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -2470,20 +2470,20 @@ class Client(BaseClient):
           ::
         
             {
-                'MetricsConfiguration': {
-                    'Id': 'string',
-                    'Filter': {
-                        'Prefix': 'string',
-                        'Tag': {
-                            'Key': 'string',
-                            'Value': 'string'
+                \'MetricsConfiguration\': {
+                    \'Id\': \'string\',
+                    \'Filter\': {
+                        \'Prefix\': \'string\',
+                        \'Tag\': {
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
-                        'And': {
-                            'Prefix': 'string',
-                            'Tags': [
+                        \'And\': {
+                            \'Prefix\': \'string\',
+                            \'Tags\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         }
@@ -2504,7 +2504,7 @@ class Client(BaseClient):
         
               - **Filter** *(dict) --* 
         
-                Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
+                Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter\'s criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
         
                 - **Prefix** *(string) --* 
         
@@ -2560,7 +2560,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_notification(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -2575,30 +2575,30 @@ class Client(BaseClient):
           ::
         
             {
-                'TopicConfiguration': {
-                    'Id': 'string',
-                    'Events': [
-                        's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                \'TopicConfiguration\': {
+                    \'Id\': \'string\',
+                    \'Events\': [
+                        \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                     ],
-                    'Event': 's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
-                    'Topic': 'string'
+                    \'Event\': \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
+                    \'Topic\': \'string\'
                 },
-                'QueueConfiguration': {
-                    'Id': 'string',
-                    'Event': 's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
-                    'Events': [
-                        's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                \'QueueConfiguration\': {
+                    \'Id\': \'string\',
+                    \'Event\': \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
+                    \'Events\': [
+                        \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                     ],
-                    'Queue': 'string'
+                    \'Queue\': \'string\'
                 },
-                'CloudFunctionConfiguration': {
-                    'Id': 'string',
-                    'Event': 's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
-                    'Events': [
-                        's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                \'CloudFunctionConfiguration\': {
+                    \'Id\': \'string\',
+                    \'Event\': \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
+                    \'Events\': [
+                        \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                     ],
-                    'CloudFunction': 'string',
-                    'InvocationRole': 'string'
+                    \'CloudFunction\': \'string\',
+                    \'InvocationRole\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2609,7 +2609,7 @@ class Client(BaseClient):
               
               - **Id** *(string) --* 
         
-                Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
               - **Events** *(list) --* 
                 
@@ -2629,7 +2629,7 @@ class Client(BaseClient):
               
               - **Id** *(string) --* 
         
-                Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
               - **Event** *(string) --* 
         
@@ -2647,7 +2647,7 @@ class Client(BaseClient):
               
               - **Id** *(string) --* 
         
-                Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
               - **Event** *(string) --* 
         
@@ -2675,7 +2675,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_notification_configuration(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -2690,57 +2690,57 @@ class Client(BaseClient):
           ::
         
             {
-                'TopicConfigurations': [
+                \'TopicConfigurations\': [
                     {
-                        'Id': 'string',
-                        'TopicArn': 'string',
-                        'Events': [
-                            's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                        \'Id\': \'string\',
+                        \'TopicArn\': \'string\',
+                        \'Events\': [
+                            \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                         ],
-                        'Filter': {
-                            'Key': {
-                                'FilterRules': [
+                        \'Filter\': {
+                            \'Key\': {
+                                \'FilterRules\': [
                                     {
-                                        'Name': 'prefix'|'suffix',
-                                        'Value': 'string'
+                                        \'Name\': \'prefix\'|\'suffix\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             }
                         }
                     },
                 ],
-                'QueueConfigurations': [
+                \'QueueConfigurations\': [
                     {
-                        'Id': 'string',
-                        'QueueArn': 'string',
-                        'Events': [
-                            's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                        \'Id\': \'string\',
+                        \'QueueArn\': \'string\',
+                        \'Events\': [
+                            \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                         ],
-                        'Filter': {
-                            'Key': {
-                                'FilterRules': [
+                        \'Filter\': {
+                            \'Key\': {
+                                \'FilterRules\': [
                                     {
-                                        'Name': 'prefix'|'suffix',
-                                        'Value': 'string'
+                                        \'Name\': \'prefix\'|\'suffix\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             }
                         }
                     },
                 ],
-                'LambdaFunctionConfigurations': [
+                \'LambdaFunctionConfigurations\': [
                     {
-                        'Id': 'string',
-                        'LambdaFunctionArn': 'string',
-                        'Events': [
-                            's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                        \'Id\': \'string\',
+                        \'LambdaFunctionArn\': \'string\',
+                        \'Events\': [
+                            \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                         ],
-                        'Filter': {
-                            'Key': {
-                                'FilterRules': [
+                        \'Filter\': {
+                            \'Key\': {
+                                \'FilterRules\': [
                                     {
-                                        'Name': 'prefix'|'suffix',
-                                        'Value': 'string'
+                                        \'Name\': \'prefix\'|\'suffix\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             }
@@ -2762,7 +2762,7 @@ class Client(BaseClient):
         
                 - **Id** *(string) --* 
         
-                  Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                  Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
                 - **TopicArn** *(string) --* 
         
@@ -2804,7 +2804,7 @@ class Client(BaseClient):
         
                 - **Id** *(string) --* 
         
-                  Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                  Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
                 - **QueueArn** *(string) --* 
         
@@ -2846,7 +2846,7 @@ class Client(BaseClient):
         
                 - **Id** *(string) --* 
         
-                  Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                  Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
                 - **LambdaFunctionArn** *(string) --* 
         
@@ -2892,7 +2892,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_policy(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -2905,7 +2905,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': 'string'
+                \'Policy\': \'string\'
             }
           **Response Structure** 
         
@@ -2927,7 +2927,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_replication(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -2940,48 +2940,48 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationConfiguration': {
-                    'Role': 'string',
-                    'Rules': [
+                \'ReplicationConfiguration\': {
+                    \'Role\': \'string\',
+                    \'Rules\': [
                         {
-                            'ID': 'string',
-                            'Priority': 123,
-                            'Prefix': 'string',
-                            'Filter': {
-                                'Prefix': 'string',
-                                'Tag': {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                            \'ID\': \'string\',
+                            \'Priority\': 123,
+                            \'Prefix\': \'string\',
+                            \'Filter\': {
+                                \'Prefix\': \'string\',
+                                \'Tag\': {
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
-                                'And': {
-                                    'Prefix': 'string',
-                                    'Tags': [
+                                \'And\': {
+                                    \'Prefix\': \'string\',
+                                    \'Tags\': [
                                         {
-                                            'Key': 'string',
-                                            'Value': 'string'
+                                            \'Key\': \'string\',
+                                            \'Value\': \'string\'
                                         },
                                     ]
                                 }
                             },
-                            'Status': 'Enabled'|'Disabled',
-                            'SourceSelectionCriteria': {
-                                'SseKmsEncryptedObjects': {
-                                    'Status': 'Enabled'|'Disabled'
+                            \'Status\': \'Enabled\'|\'Disabled\',
+                            \'SourceSelectionCriteria\': {
+                                \'SseKmsEncryptedObjects\': {
+                                    \'Status\': \'Enabled\'|\'Disabled\'
                                 }
                             },
-                            'Destination': {
-                                'Bucket': 'string',
-                                'Account': 'string',
-                                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                                'AccessControlTranslation': {
-                                    'Owner': 'Destination'
+                            \'Destination\': {
+                                \'Bucket\': \'string\',
+                                \'Account\': \'string\',
+                                \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                                \'AccessControlTranslation\': {
+                                    \'Owner\': \'Destination\'
                                 },
-                                'EncryptionConfiguration': {
-                                    'ReplicaKmsKeyID': 'string'
+                                \'EncryptionConfiguration\': {
+                                    \'ReplicaKmsKeyID\': \'string\'
                                 }
                             },
-                            'DeleteMarkerReplication': {
-                                'Status': 'Enabled'|'Disabled'
+                            \'DeleteMarkerReplication\': {
+                                \'Status\': \'Enabled\'|\'Disabled\'
                             }
                         },
                     ]
@@ -3111,7 +3111,7 @@ class Client(BaseClient):
         
                       Container for information regarding the access control for replicas. 
         
-                      Use only in a cross-account scenario, where source and destination bucket owners are not the same, when you want to change replica ownership to the AWS account that owns the destination bucket. If you don't add this element to the replication configuration, the replicas are owned by same AWS account that owns the source object. 
+                      Use only in a cross-account scenario, where source and destination bucket owners are not the same, when you want to change replica ownership to the AWS account that owns the destination bucket. If you don\'t add this element to the replication configuration, the replicas are owned by same AWS account that owns the source object. 
         
                       - **Owner** *(string) --* 
         
@@ -3149,7 +3149,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_request_payment(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -3162,7 +3162,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Payer': 'Requester'|'BucketOwner'
+                \'Payer\': \'Requester\'|\'BucketOwner\'
             }
           **Response Structure** 
         
@@ -3184,7 +3184,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_tagging(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -3197,10 +3197,10 @@ class Client(BaseClient):
           ::
         
             {
-                'TagSet': [
+                \'TagSet\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -3232,7 +3232,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_versioning(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -3245,8 +3245,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 'Enabled'|'Suspended',
-                'MFADelete': 'Enabled'|'Disabled'
+                \'Status\': \'Enabled\'|\'Suspended\',
+                \'MFADelete\': \'Enabled\'|\'Disabled\'
             }
           **Response Structure** 
         
@@ -3272,7 +3272,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bucket_website(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -3285,28 +3285,28 @@ class Client(BaseClient):
           ::
         
             {
-                'RedirectAllRequestsTo': {
-                    'HostName': 'string',
-                    'Protocol': 'http'|'https'
+                \'RedirectAllRequestsTo\': {
+                    \'HostName\': \'string\',
+                    \'Protocol\': \'http\'|\'https\'
                 },
-                'IndexDocument': {
-                    'Suffix': 'string'
+                \'IndexDocument\': {
+                    \'Suffix\': \'string\'
                 },
-                'ErrorDocument': {
-                    'Key': 'string'
+                \'ErrorDocument\': {
+                    \'Key\': \'string\'
                 },
-                'RoutingRules': [
+                \'RoutingRules\': [
                     {
-                        'Condition': {
-                            'HttpErrorCodeReturnedEquals': 'string',
-                            'KeyPrefixEquals': 'string'
+                        \'Condition\': {
+                            \'HttpErrorCodeReturnedEquals\': \'string\',
+                            \'KeyPrefixEquals\': \'string\'
                         },
-                        'Redirect': {
-                            'HostName': 'string',
-                            'HttpRedirectCode': 'string',
-                            'Protocol': 'http'|'https',
-                            'ReplaceKeyPrefixWith': 'string',
-                            'ReplaceKeyWith': 'string'
+                        \'Redirect\': {
+                            \'HostName\': \'string\',
+                            \'HttpRedirectCode\': \'string\',
+                            \'Protocol\': \'http\'|\'https\',
+                            \'ReplaceKeyPrefixWith\': \'string\',
+                            \'ReplaceKeyWith\': \'string\'
                         }
                     },
                 ]
@@ -3389,23 +3389,23 @@ class Client(BaseClient):
         ::
         
           response = client.get_object(
-              Bucket='string',
-              IfMatch='string',
+              Bucket=\'string\',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Key='string',
-              Range='string',
-              ResponseCacheControl='string',
-              ResponseContentDisposition='string',
-              ResponseContentEncoding='string',
-              ResponseContentLanguage='string',
-              ResponseContentType='string',
+              Key=\'string\',
+              Range=\'string\',
+              ResponseCacheControl=\'string\',
+              ResponseContentDisposition=\'string\',
+              ResponseContentEncoding=\'string\',
+              ResponseContentLanguage=\'string\',
+              ResponseContentType=\'string\',
               ResponseExpires=datetime(2015, 1, 1),
-              VersionId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              VersionId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123
           )
         :type Bucket: string
@@ -3499,7 +3499,7 @@ class Client(BaseClient):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' GET request for the part specified. Useful for downloading just a part of an object.
         
         :rtype: dict
         :returns: 
@@ -3509,36 +3509,36 @@ class Client(BaseClient):
           ::
         
             {
-                'Body': StreamingBody(),
-                'DeleteMarker': True|False,
-                'AcceptRanges': 'string',
-                'Expiration': 'string',
-                'Restore': 'string',
-                'LastModified': datetime(2015, 1, 1),
-                'ContentLength': 123,
-                'ETag': 'string',
-                'MissingMeta': 123,
-                'VersionId': 'string',
-                'CacheControl': 'string',
-                'ContentDisposition': 'string',
-                'ContentEncoding': 'string',
-                'ContentLanguage': 'string',
-                'ContentRange': 'string',
-                'ContentType': 'string',
-                'Expires': datetime(2015, 1, 1),
-                'WebsiteRedirectLocation': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'Metadata': {
-                    'string': 'string'
+                \'Body\': StreamingBody(),
+                \'DeleteMarker\': True|False,
+                \'AcceptRanges\': \'string\',
+                \'Expiration\': \'string\',
+                \'Restore\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1),
+                \'ContentLength\': 123,
+                \'ETag\': \'string\',
+                \'MissingMeta\': 123,
+                \'VersionId\': \'string\',
+                \'CacheControl\': \'string\',
+                \'ContentDisposition\': \'string\',
+                \'ContentEncoding\': \'string\',
+                \'ContentLanguage\': \'string\',
+                \'ContentRange\': \'string\',
+                \'ContentType\': \'string\',
+                \'Expires\': datetime(2015, 1, 1),
+                \'WebsiteRedirectLocation\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'Metadata\': {
+                    \'string\': \'string\'
                 },
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                'RequestCharged': 'requester',
-                'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
-                'PartsCount': 123,
-                'TagCount': 123
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                \'RequestCharged\': \'requester\',
+                \'ReplicationStatus\': \'COMPLETE\'|\'PENDING\'|\'FAILED\'|\'REPLICA\',
+                \'PartsCount\': 123,
+                \'TagCount\': 123
             }
           **Response Structure** 
         
@@ -3666,10 +3666,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_object_acl(
-              Bucket='string',
-              Key='string',
-              VersionId='string',
-              RequestPayer='requester'
+              Bucket=\'string\',
+              Key=\'string\',
+              VersionId=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -3695,23 +3695,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Owner': {
-                    'DisplayName': 'string',
-                    'ID': 'string'
+                \'Owner\': {
+                    \'DisplayName\': \'string\',
+                    \'ID\': \'string\'
                 },
-                'Grants': [
+                \'Grants\': [
                     {
-                        'Grantee': {
-                            'DisplayName': 'string',
-                            'EmailAddress': 'string',
-                            'ID': 'string',
-                            'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                            'URI': 'string'
+                        \'Grantee\': {
+                            \'DisplayName\': \'string\',
+                            \'EmailAddress\': \'string\',
+                            \'ID\': \'string\',
+                            \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                            \'URI\': \'string\'
                         },
-                        'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                        \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                     },
                 ],
-                'RequestCharged': 'requester'
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -3771,9 +3771,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_object_tagging(
-              Bucket='string',
-              Key='string',
-              VersionId='string'
+              Bucket=\'string\',
+              Key=\'string\',
+              VersionId=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -3792,11 +3792,11 @@ class Client(BaseClient):
           ::
         
             {
-                'VersionId': 'string',
-                'TagSet': [
+                \'VersionId\': \'string\',
+                \'TagSet\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -3830,9 +3830,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_object_torrent(
-              Bucket='string',
-              Key='string',
-              RequestPayer='requester'
+              Bucket=\'string\',
+              Key=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -3853,8 +3853,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Body': StreamingBody(),
-                'RequestCharged': 'requester'
+                \'Body\': StreamingBody(),
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -3875,10 +3875,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3910,7 +3910,7 @@ class Client(BaseClient):
         ::
         
           response = client.head_bucket(
-              Bucket='string'
+              Bucket=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -3928,17 +3928,17 @@ class Client(BaseClient):
         ::
         
           response = client.head_object(
-              Bucket='string',
-              IfMatch='string',
+              Bucket=\'string\',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Key='string',
-              Range='string',
-              VersionId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              Key=\'string\',
+              Range=\'string\',
+              VersionId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123
           )
         :type Bucket: string
@@ -4002,7 +4002,7 @@ class Client(BaseClient):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
         
         :rtype: dict
         :returns: 
@@ -4012,33 +4012,33 @@ class Client(BaseClient):
           ::
         
             {
-                'DeleteMarker': True|False,
-                'AcceptRanges': 'string',
-                'Expiration': 'string',
-                'Restore': 'string',
-                'LastModified': datetime(2015, 1, 1),
-                'ContentLength': 123,
-                'ETag': 'string',
-                'MissingMeta': 123,
-                'VersionId': 'string',
-                'CacheControl': 'string',
-                'ContentDisposition': 'string',
-                'ContentEncoding': 'string',
-                'ContentLanguage': 'string',
-                'ContentType': 'string',
-                'Expires': datetime(2015, 1, 1),
-                'WebsiteRedirectLocation': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'Metadata': {
-                    'string': 'string'
+                \'DeleteMarker\': True|False,
+                \'AcceptRanges\': \'string\',
+                \'Expiration\': \'string\',
+                \'Restore\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1),
+                \'ContentLength\': 123,
+                \'ETag\': \'string\',
+                \'MissingMeta\': 123,
+                \'VersionId\': \'string\',
+                \'CacheControl\': \'string\',
+                \'ContentDisposition\': \'string\',
+                \'ContentEncoding\': \'string\',
+                \'ContentLanguage\': \'string\',
+                \'ContentType\': \'string\',
+                \'Expires\': datetime(2015, 1, 1),
+                \'WebsiteRedirectLocation\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'Metadata\': {
+                    \'string\': \'string\'
                 },
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                'RequestCharged': 'requester',
-                'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
-                'PartsCount': 123
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                \'RequestCharged\': \'requester\',
+                \'ReplicationStatus\': \'COMPLETE\'|\'PENDING\'|\'FAILED\'|\'REPLICA\',
+                \'PartsCount\': 123
             }
           **Response Structure** 
         
@@ -4154,8 +4154,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_bucket_analytics_configurations(
-              Bucket='string',
-              ContinuationToken='string'
+              Bucket=\'string\',
+              ContinuationToken=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -4175,37 +4175,37 @@ class Client(BaseClient):
           ::
         
             {
-                'IsTruncated': True|False,
-                'ContinuationToken': 'string',
-                'NextContinuationToken': 'string',
-                'AnalyticsConfigurationList': [
+                \'IsTruncated\': True|False,
+                \'ContinuationToken\': \'string\',
+                \'NextContinuationToken\': \'string\',
+                \'AnalyticsConfigurationList\': [
                     {
-                        'Id': 'string',
-                        'Filter': {
-                            'Prefix': 'string',
-                            'Tag': {
-                                'Key': 'string',
-                                'Value': 'string'
+                        \'Id\': \'string\',
+                        \'Filter\': {
+                            \'Prefix\': \'string\',
+                            \'Tag\': {
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
-                            'And': {
-                                'Prefix': 'string',
-                                'Tags': [
+                            \'And\': {
+                                \'Prefix\': \'string\',
+                                \'Tags\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             }
                         },
-                        'StorageClassAnalysis': {
-                            'DataExport': {
-                                'OutputSchemaVersion': 'V_1',
-                                'Destination': {
-                                    'S3BucketDestination': {
-                                        'Format': 'CSV',
-                                        'BucketAccountId': 'string',
-                                        'Bucket': 'string',
-                                        'Prefix': 'string'
+                        \'StorageClassAnalysis\': {
+                            \'DataExport\': {
+                                \'OutputSchemaVersion\': \'V_1\',
+                                \'Destination\': {
+                                    \'S3BucketDestination\': {
+                                        \'Format\': \'CSV\',
+                                        \'BucketAccountId\': \'string\',
+                                        \'Bucket\': \'string\',
+                                        \'Prefix\': \'string\'
                                     }
                                 }
                             }
@@ -4329,8 +4329,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_bucket_inventory_configurations(
-              Bucket='string',
-              ContinuationToken='string'
+              Bucket=\'string\',
+              ContinuationToken=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -4350,39 +4350,39 @@ class Client(BaseClient):
           ::
         
             {
-                'ContinuationToken': 'string',
-                'InventoryConfigurationList': [
+                \'ContinuationToken\': \'string\',
+                \'InventoryConfigurationList\': [
                     {
-                        'Destination': {
-                            'S3BucketDestination': {
-                                'AccountId': 'string',
-                                'Bucket': 'string',
-                                'Format': 'CSV'|'ORC',
-                                'Prefix': 'string',
-                                'Encryption': {
-                                    'SSES3': {},
-                                    'SSEKMS': {
-                                        'KeyId': 'string'
+                        \'Destination\': {
+                            \'S3BucketDestination\': {
+                                \'AccountId\': \'string\',
+                                \'Bucket\': \'string\',
+                                \'Format\': \'CSV\'|\'ORC\',
+                                \'Prefix\': \'string\',
+                                \'Encryption\': {
+                                    \'SSES3\': {},
+                                    \'SSEKMS\': {
+                                        \'KeyId\': \'string\'
                                     }
                                 }
                             }
                         },
-                        'IsEnabled': True|False,
-                        'Filter': {
-                            'Prefix': 'string'
+                        \'IsEnabled\': True|False,
+                        \'Filter\': {
+                            \'Prefix\': \'string\'
                         },
-                        'Id': 'string',
-                        'IncludedObjectVersions': 'All'|'Current',
-                        'OptionalFields': [
-                            'Size'|'LastModifiedDate'|'StorageClass'|'ETag'|'IsMultipartUploaded'|'ReplicationStatus'|'EncryptionStatus',
+                        \'Id\': \'string\',
+                        \'IncludedObjectVersions\': \'All\'|\'Current\',
+                        \'OptionalFields\': [
+                            \'Size\'|\'LastModifiedDate\'|\'StorageClass\'|\'ETag\'|\'IsMultipartUploaded\'|\'ReplicationStatus\'|\'EncryptionStatus\',
                         ],
-                        'Schedule': {
-                            'Frequency': 'Daily'|'Weekly'
+                        \'Schedule\': {
+                            \'Frequency\': \'Daily\'|\'Weekly\'
                         }
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextContinuationToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextContinuationToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4444,7 +4444,7 @@ class Client(BaseClient):
         
                 - **Filter** *(dict) --* 
         
-                  Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
+                  Specifies an inventory filter. The inventory only includes objects that meet the filter\'s criteria.
         
                   - **Prefix** *(string) --* 
         
@@ -4492,8 +4492,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_bucket_metrics_configurations(
-              Bucket='string',
-              ContinuationToken='string'
+              Bucket=\'string\',
+              ContinuationToken=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -4513,24 +4513,24 @@ class Client(BaseClient):
           ::
         
             {
-                'IsTruncated': True|False,
-                'ContinuationToken': 'string',
-                'NextContinuationToken': 'string',
-                'MetricsConfigurationList': [
+                \'IsTruncated\': True|False,
+                \'ContinuationToken\': \'string\',
+                \'NextContinuationToken\': \'string\',
+                \'MetricsConfigurationList\': [
                     {
-                        'Id': 'string',
-                        'Filter': {
-                            'Prefix': 'string',
-                            'Tag': {
-                                'Key': 'string',
-                                'Value': 'string'
+                        \'Id\': \'string\',
+                        \'Filter\': {
+                            \'Prefix\': \'string\',
+                            \'Tag\': {
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
-                            'And': {
-                                'Prefix': 'string',
-                                'Tags': [
+                            \'And\': {
+                                \'Prefix\': \'string\',
+                                \'Tags\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             }
@@ -4566,7 +4566,7 @@ class Client(BaseClient):
         
                 - **Filter** *(dict) --* 
         
-                  Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
+                  Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter\'s criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
         
                   - **Prefix** *(string) --* 
         
@@ -4627,15 +4627,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Buckets': [
+                \'Buckets\': [
                     {
-                        'Name': 'string',
-                        'CreationDate': datetime(2015, 1, 1)
+                        \'Name\': \'string\',
+                        \'CreationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'Owner': {
-                    'DisplayName': 'string',
-                    'ID': 'string'
+                \'Owner\': {
+                    \'DisplayName\': \'string\',
+                    \'ID\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4672,13 +4672,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_multipart_uploads(
-              Bucket='string',
-              Delimiter='string',
-              EncodingType='url',
-              KeyMarker='string',
+              Bucket=\'string\',
+              Delimiter=\'string\',
+              EncodingType=\'url\',
+              KeyMarker=\'string\',
               MaxUploads=123,
-              Prefix='string',
-              UploadIdMarker='string'
+              Prefix=\'string\',
+              UploadIdMarker=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -4721,37 +4721,37 @@ class Client(BaseClient):
           ::
         
             {
-                'Bucket': 'string',
-                'KeyMarker': 'string',
-                'UploadIdMarker': 'string',
-                'NextKeyMarker': 'string',
-                'Prefix': 'string',
-                'Delimiter': 'string',
-                'NextUploadIdMarker': 'string',
-                'MaxUploads': 123,
-                'IsTruncated': True|False,
-                'Uploads': [
+                \'Bucket\': \'string\',
+                \'KeyMarker\': \'string\',
+                \'UploadIdMarker\': \'string\',
+                \'NextKeyMarker\': \'string\',
+                \'Prefix\': \'string\',
+                \'Delimiter\': \'string\',
+                \'NextUploadIdMarker\': \'string\',
+                \'MaxUploads\': 123,
+                \'IsTruncated\': True|False,
+                \'Uploads\': [
                     {
-                        'UploadId': 'string',
-                        'Key': 'string',
-                        'Initiated': datetime(2015, 1, 1),
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                        'Owner': {
-                            'DisplayName': 'string',
-                            'ID': 'string'
+                        \'UploadId\': \'string\',
+                        \'Key\': \'string\',
+                        \'Initiated\': datetime(2015, 1, 1),
+                        \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                        \'Owner\': {
+                            \'DisplayName\': \'string\',
+                            \'ID\': \'string\'
                         },
-                        'Initiator': {
-                            'ID': 'string',
-                            'DisplayName': 'string'
+                        \'Initiator\': {
+                            \'ID\': \'string\',
+                            \'DisplayName\': \'string\'
                         }
                     },
                 ],
-                'CommonPrefixes': [
+                \'CommonPrefixes\': [
                     {
-                        'Prefix': 'string'
+                        \'Prefix\': \'string\'
                     },
                 ],
-                'EncodingType': 'url'
+                \'EncodingType\': \'url\'
             }
           **Response Structure** 
         
@@ -4851,13 +4851,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_object_versions(
-              Bucket='string',
-              Delimiter='string',
-              EncodingType='url',
-              KeyMarker='string',
+              Bucket=\'string\',
+              Delimiter=\'string\',
+              EncodingType=\'url\',
+              KeyMarker=\'string\',
               MaxKeys=123,
-              Prefix='string',
-              VersionIdMarker='string'
+              Prefix=\'string\',
+              VersionIdMarker=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -4900,48 +4900,48 @@ class Client(BaseClient):
           ::
         
             {
-                'IsTruncated': True|False,
-                'KeyMarker': 'string',
-                'VersionIdMarker': 'string',
-                'NextKeyMarker': 'string',
-                'NextVersionIdMarker': 'string',
-                'Versions': [
+                \'IsTruncated\': True|False,
+                \'KeyMarker\': \'string\',
+                \'VersionIdMarker\': \'string\',
+                \'NextKeyMarker\': \'string\',
+                \'NextVersionIdMarker\': \'string\',
+                \'Versions\': [
                     {
-                        'ETag': 'string',
-                        'Size': 123,
-                        'StorageClass': 'STANDARD',
-                        'Key': 'string',
-                        'VersionId': 'string',
-                        'IsLatest': True|False,
-                        'LastModified': datetime(2015, 1, 1),
-                        'Owner': {
-                            'DisplayName': 'string',
-                            'ID': 'string'
+                        \'ETag\': \'string\',
+                        \'Size\': 123,
+                        \'StorageClass\': \'STANDARD\',
+                        \'Key\': \'string\',
+                        \'VersionId\': \'string\',
+                        \'IsLatest\': True|False,
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'Owner\': {
+                            \'DisplayName\': \'string\',
+                            \'ID\': \'string\'
                         }
                     },
                 ],
-                'DeleteMarkers': [
+                \'DeleteMarkers\': [
                     {
-                        'Owner': {
-                            'DisplayName': 'string',
-                            'ID': 'string'
+                        \'Owner\': {
+                            \'DisplayName\': \'string\',
+                            \'ID\': \'string\'
                         },
-                        'Key': 'string',
-                        'VersionId': 'string',
-                        'IsLatest': True|False,
-                        'LastModified': datetime(2015, 1, 1)
+                        \'Key\': \'string\',
+                        \'VersionId\': \'string\',
+                        \'IsLatest\': True|False,
+                        \'LastModified\': datetime(2015, 1, 1)
                     },
                 ],
-                'Name': 'string',
-                'Prefix': 'string',
-                'Delimiter': 'string',
-                'MaxKeys': 123,
-                'CommonPrefixes': [
+                \'Name\': \'string\',
+                \'Prefix\': \'string\',
+                \'Delimiter\': \'string\',
+                \'MaxKeys\': 123,
+                \'CommonPrefixes\': [
                     {
-                        'Prefix': 'string'
+                        \'Prefix\': \'string\'
                     },
                 ],
-                'EncodingType': 'url'
+                \'EncodingType\': \'url\'
             }
           **Response Structure** 
         
@@ -5057,13 +5057,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_objects(
-              Bucket='string',
-              Delimiter='string',
-              EncodingType='url',
-              Marker='string',
+              Bucket=\'string\',
+              Delimiter=\'string\',
+              EncodingType=\'url\',
+              Marker=\'string\',
               MaxKeys=123,
-              Prefix='string',
-              RequestPayer='requester'
+              Prefix=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -5106,32 +5106,32 @@ class Client(BaseClient):
           ::
         
             {
-                'IsTruncated': True|False,
-                'Marker': 'string',
-                'NextMarker': 'string',
-                'Contents': [
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\',
+                \'NextMarker\': \'string\',
+                \'Contents\': [
                     {
-                        'Key': 'string',
-                        'LastModified': datetime(2015, 1, 1),
-                        'ETag': 'string',
-                        'Size': 123,
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA',
-                        'Owner': {
-                            'DisplayName': 'string',
-                            'ID': 'string'
+                        \'Key\': \'string\',
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'ETag\': \'string\',
+                        \'Size\': 123,
+                        \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                        \'Owner\': {
+                            \'DisplayName\': \'string\',
+                            \'ID\': \'string\'
                         }
                     },
                 ],
-                'Name': 'string',
-                'Prefix': 'string',
-                'Delimiter': 'string',
-                'MaxKeys': 123,
-                'CommonPrefixes': [
+                \'Name\': \'string\',
+                \'Prefix\': \'string\',
+                \'Delimiter\': \'string\',
+                \'MaxKeys\': 123,
+                \'CommonPrefixes\': [
                     {
-                        'Prefix': 'string'
+                        \'Prefix\': \'string\'
                     },
                 ],
-                'EncodingType': 'url'
+                \'EncodingType\': \'url\'
             }
           **Response Structure** 
         
@@ -5199,15 +5199,15 @@ class Client(BaseClient):
         ::
         
           response = client.list_objects_v2(
-              Bucket='string',
-              Delimiter='string',
-              EncodingType='url',
+              Bucket=\'string\',
+              Delimiter=\'string\',
+              EncodingType=\'url\',
               MaxKeys=123,
-              Prefix='string',
-              ContinuationToken='string',
+              Prefix=\'string\',
+              ContinuationToken=\'string\',
               FetchOwner=True|False,
-              StartAfter='string',
-              RequestPayer='requester'
+              StartAfter=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -5262,34 +5262,34 @@ class Client(BaseClient):
           ::
         
             {
-                'IsTruncated': True|False,
-                'Contents': [
+                \'IsTruncated\': True|False,
+                \'Contents\': [
                     {
-                        'Key': 'string',
-                        'LastModified': datetime(2015, 1, 1),
-                        'ETag': 'string',
-                        'Size': 123,
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA',
-                        'Owner': {
-                            'DisplayName': 'string',
-                            'ID': 'string'
+                        \'Key\': \'string\',
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'ETag\': \'string\',
+                        \'Size\': 123,
+                        \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                        \'Owner\': {
+                            \'DisplayName\': \'string\',
+                            \'ID\': \'string\'
                         }
                     },
                 ],
-                'Name': 'string',
-                'Prefix': 'string',
-                'Delimiter': 'string',
-                'MaxKeys': 123,
-                'CommonPrefixes': [
+                \'Name\': \'string\',
+                \'Prefix\': \'string\',
+                \'Delimiter\': \'string\',
+                \'MaxKeys\': 123,
+                \'CommonPrefixes\': [
                     {
-                        'Prefix': 'string'
+                        \'Prefix\': \'string\'
                     },
                 ],
-                'EncodingType': 'url',
-                'KeyCount': 123,
-                'ContinuationToken': 'string',
-                'NextContinuationToken': 'string',
-                'StartAfter': 'string'
+                \'EncodingType\': \'url\',
+                \'KeyCount\': 123,
+                \'ContinuationToken\': \'string\',
+                \'NextContinuationToken\': \'string\',
+                \'StartAfter\': \'string\'
             }
           **Response Structure** 
         
@@ -5379,12 +5379,12 @@ class Client(BaseClient):
         ::
         
           response = client.list_parts(
-              Bucket='string',
-              Key='string',
+              Bucket=\'string\',
+              Key=\'string\',
               MaxParts=123,
               PartNumberMarker=123,
-              UploadId='string',
-              RequestPayer='requester'
+              UploadId=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -5420,33 +5420,33 @@ class Client(BaseClient):
           ::
         
             {
-                'AbortDate': datetime(2015, 1, 1),
-                'AbortRuleId': 'string',
-                'Bucket': 'string',
-                'Key': 'string',
-                'UploadId': 'string',
-                'PartNumberMarker': 123,
-                'NextPartNumberMarker': 123,
-                'MaxParts': 123,
-                'IsTruncated': True|False,
-                'Parts': [
+                \'AbortDate\': datetime(2015, 1, 1),
+                \'AbortRuleId\': \'string\',
+                \'Bucket\': \'string\',
+                \'Key\': \'string\',
+                \'UploadId\': \'string\',
+                \'PartNumberMarker\': 123,
+                \'NextPartNumberMarker\': 123,
+                \'MaxParts\': 123,
+                \'IsTruncated\': True|False,
+                \'Parts\': [
                     {
-                        'PartNumber': 123,
-                        'LastModified': datetime(2015, 1, 1),
-                        'ETag': 'string',
-                        'Size': 123
+                        \'PartNumber\': 123,
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'ETag\': \'string\',
+                        \'Size\': 123
                     },
                 ],
-                'Initiator': {
-                    'ID': 'string',
-                    'DisplayName': 'string'
+                \'Initiator\': {
+                    \'ID\': \'string\',
+                    \'DisplayName\': \'string\'
                 },
-                'Owner': {
-                    'DisplayName': 'string',
-                    'ID': 'string'
+                \'Owner\': {
+                    \'DisplayName\': \'string\',
+                    \'ID\': \'string\'
                 },
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                'RequestCharged': 'requester'
+                \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -5546,9 +5546,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_accelerate_configuration(
-              Bucket='string',
+              Bucket=\'string\',
               AccelerateConfiguration={
-                  'Status': 'Enabled'|'Suspended'
+                  \'Status\': \'Enabled\'|\'Suspended\'
               }
           )
         :type Bucket: string
@@ -5578,31 +5578,31 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_acl(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\',
               AccessControlPolicy={
-                  'Grants': [
+                  \'Grants\': [
                       {
-                          'Grantee': {
-                              'DisplayName': 'string',
-                              'EmailAddress': 'string',
-                              'ID': 'string',
-                              'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                              'URI': 'string'
+                          \'Grantee\': {
+                              \'DisplayName\': \'string\',
+                              \'EmailAddress\': \'string\',
+                              \'ID\': \'string\',
+                              \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                              \'URI\': \'string\'
                           },
-                          'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                          \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                       },
                   ],
-                  'Owner': {
-                      'DisplayName': 'string',
-                      'ID': 'string'
+                  \'Owner\': {
+                      \'DisplayName\': \'string\',
+                      \'ID\': \'string\'
                   }
               },
-              Bucket='string',
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWrite='string',
-              GrantWriteACP='string'
+              Bucket=\'string\',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWrite=\'string\',
+              GrantWriteACP=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -5691,35 +5691,35 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_analytics_configuration(
-              Bucket='string',
-              Id='string',
+              Bucket=\'string\',
+              Id=\'string\',
               AnalyticsConfiguration={
-                  'Id': 'string',
-                  'Filter': {
-                      'Prefix': 'string',
-                      'Tag': {
-                          'Key': 'string',
-                          'Value': 'string'
+                  \'Id\': \'string\',
+                  \'Filter\': {
+                      \'Prefix\': \'string\',
+                      \'Tag\': {
+                          \'Key\': \'string\',
+                          \'Value\': \'string\'
                       },
-                      'And': {
-                          'Prefix': 'string',
-                          'Tags': [
+                      \'And\': {
+                          \'Prefix\': \'string\',
+                          \'Tags\': [
                               {
-                                  'Key': 'string',
-                                  'Value': 'string'
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ]
                       }
                   },
-                  'StorageClassAnalysis': {
-                      'DataExport': {
-                          'OutputSchemaVersion': 'V_1',
-                          'Destination': {
-                              'S3BucketDestination': {
-                                  'Format': 'CSV',
-                                  'BucketAccountId': 'string',
-                                  'Bucket': 'string',
-                                  'Prefix': 'string'
+                  \'StorageClassAnalysis\': {
+                      \'DataExport\': {
+                          \'OutputSchemaVersion\': \'V_1\',
+                          \'Destination\': {
+                              \'S3BucketDestination\': {
+                                  \'Format\': \'CSV\',
+                                  \'BucketAccountId\': \'string\',
+                                  \'Bucket\': \'string\',
+                                  \'Prefix\': \'string\'
                               }
                           }
                       }
@@ -5836,23 +5836,23 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_cors(
-              Bucket='string',
+              Bucket=\'string\',
               CORSConfiguration={
-                  'CORSRules': [
+                  \'CORSRules\': [
                       {
-                          'AllowedHeaders': [
-                              'string',
+                          \'AllowedHeaders\': [
+                              \'string\',
                           ],
-                          'AllowedMethods': [
-                              'string',
+                          \'AllowedMethods\': [
+                              \'string\',
                           ],
-                          'AllowedOrigins': [
-                              'string',
+                          \'AllowedOrigins\': [
+                              \'string\',
                           ],
-                          'ExposeHeaders': [
-                              'string',
+                          \'ExposeHeaders\': [
+                              \'string\',
                           ],
-                          'MaxAgeSeconds': 123
+                          \'MaxAgeSeconds\': 123
                       },
                   ]
               },
@@ -5909,14 +5909,14 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_encryption(
-              Bucket='string',
-              ContentMD5='string',
+              Bucket=\'string\',
+              ContentMD5=\'string\',
               ServerSideEncryptionConfiguration={
-                  'Rules': [
+                  \'Rules\': [
                       {
-                          'ApplyServerSideEncryptionByDefault': {
-                              'SSEAlgorithm': 'AES256'|'aws:kms',
-                              'KMSMasterKeyID': 'string'
+                          \'ApplyServerSideEncryptionByDefault\': {
+                              \'SSEAlgorithm\': \'AES256\'|\'aws:kms\',
+                              \'KMSMasterKeyID\': \'string\'
                           }
                       },
                   ]
@@ -5970,35 +5970,35 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_inventory_configuration(
-              Bucket='string',
-              Id='string',
+              Bucket=\'string\',
+              Id=\'string\',
               InventoryConfiguration={
-                  'Destination': {
-                      'S3BucketDestination': {
-                          'AccountId': 'string',
-                          'Bucket': 'string',
-                          'Format': 'CSV'|'ORC',
-                          'Prefix': 'string',
-                          'Encryption': {
-                              'SSES3': {}
+                  \'Destination\': {
+                      \'S3BucketDestination\': {
+                          \'AccountId\': \'string\',
+                          \'Bucket\': \'string\',
+                          \'Format\': \'CSV\'|\'ORC\',
+                          \'Prefix\': \'string\',
+                          \'Encryption\': {
+                              \'SSES3\': {}
                               ,
-                              'SSEKMS': {
-                                  'KeyId': 'string'
+                              \'SSEKMS\': {
+                                  \'KeyId\': \'string\'
                               }
                           }
                       }
                   },
-                  'IsEnabled': True|False,
-                  'Filter': {
-                      'Prefix': 'string'
+                  \'IsEnabled\': True|False,
+                  \'Filter\': {
+                      \'Prefix\': \'string\'
                   },
-                  'Id': 'string',
-                  'IncludedObjectVersions': 'All'|'Current',
-                  'OptionalFields': [
-                      'Size'|'LastModifiedDate'|'StorageClass'|'ETag'|'IsMultipartUploaded'|'ReplicationStatus'|'EncryptionStatus',
+                  \'Id\': \'string\',
+                  \'IncludedObjectVersions\': \'All\'|\'Current\',
+                  \'OptionalFields\': [
+                      \'Size\'|\'LastModifiedDate\'|\'StorageClass\'|\'ETag\'|\'IsMultipartUploaded\'|\'ReplicationStatus\'|\'EncryptionStatus\',
                   ],
-                  'Schedule': {
-                      'Frequency': 'Daily'|'Weekly'
+                  \'Schedule\': {
+                      \'Frequency\': \'Daily\'|\'Weekly\'
                   }
               }
           )
@@ -6063,7 +6063,7 @@ class Client(BaseClient):
         
           - **Filter** *(dict) --* 
         
-            Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
+            Specifies an inventory filter. The inventory only includes objects that meet the filter\'s criteria.
         
             - **Prefix** *(string) --* **[REQUIRED]** 
         
@@ -6108,32 +6108,32 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_lifecycle(
-              Bucket='string',
+              Bucket=\'string\',
               LifecycleConfiguration={
-                  'Rules': [
+                  \'Rules\': [
                       {
-                          'Expiration': {
-                              'Date': datetime(2015, 1, 1),
-                              'Days': 123,
-                              'ExpiredObjectDeleteMarker': True|False
+                          \'Expiration\': {
+                              \'Date\': datetime(2015, 1, 1),
+                              \'Days\': 123,
+                              \'ExpiredObjectDeleteMarker\': True|False
                           },
-                          'ID': 'string',
-                          'Prefix': 'string',
-                          'Status': 'Enabled'|'Disabled',
-                          'Transition': {
-                              'Date': datetime(2015, 1, 1),
-                              'Days': 123,
-                              'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                          \'ID\': \'string\',
+                          \'Prefix\': \'string\',
+                          \'Status\': \'Enabled\'|\'Disabled\',
+                          \'Transition\': {
+                              \'Date\': datetime(2015, 1, 1),
+                              \'Days\': 123,
+                              \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                           },
-                          'NoncurrentVersionTransition': {
-                              'NoncurrentDays': 123,
-                              'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                          \'NoncurrentVersionTransition\': {
+                              \'NoncurrentDays\': 123,
+                              \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                           },
-                          'NoncurrentVersionExpiration': {
-                              'NoncurrentDays': 123
+                          \'NoncurrentVersionExpiration\': {
+                              \'NoncurrentDays\': 123
                           },
-                          'AbortIncompleteMultipartUpload': {
-                              'DaysAfterInitiation': 123
+                          \'AbortIncompleteMultipartUpload\': {
+                              \'DaysAfterInitiation\': 123
                           }
                       },
                   ]
@@ -6173,7 +6173,7 @@ class Client(BaseClient):
         
               - **Status** *(string) --* **[REQUIRED]** 
         
-                If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
+                If \'Enabled\', the rule is currently being applied. If \'Disabled\', the rule is not currently being applied.
         
               - **Transition** *(dict) --* 
         
@@ -6191,7 +6191,7 @@ class Client(BaseClient):
         
               - **NoncurrentVersionTransition** *(dict) --* 
         
-                Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object's lifetime.
+                Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object\'s lifetime.
         
                 - **NoncurrentDays** *(integer) --* 
         
@@ -6203,7 +6203,7 @@ class Client(BaseClient):
         
               - **NoncurrentVersionExpiration** *(dict) --* 
         
-                Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+                Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object\'s lifetime.
         
                 - **NoncurrentDays** *(integer) --* 
         
@@ -6230,52 +6230,52 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_lifecycle_configuration(
-              Bucket='string',
+              Bucket=\'string\',
               LifecycleConfiguration={
-                  'Rules': [
+                  \'Rules\': [
                       {
-                          'Expiration': {
-                              'Date': datetime(2015, 1, 1),
-                              'Days': 123,
-                              'ExpiredObjectDeleteMarker': True|False
+                          \'Expiration\': {
+                              \'Date\': datetime(2015, 1, 1),
+                              \'Days\': 123,
+                              \'ExpiredObjectDeleteMarker\': True|False
                           },
-                          'ID': 'string',
-                          'Prefix': 'string',
-                          'Filter': {
-                              'Prefix': 'string',
-                              'Tag': {
-                                  'Key': 'string',
-                                  'Value': 'string'
+                          \'ID\': \'string\',
+                          \'Prefix\': \'string\',
+                          \'Filter\': {
+                              \'Prefix\': \'string\',
+                              \'Tag\': {
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\'
                               },
-                              'And': {
-                                  'Prefix': 'string',
-                                  'Tags': [
+                              \'And\': {
+                                  \'Prefix\': \'string\',
+                                  \'Tags\': [
                                       {
-                                          'Key': 'string',
-                                          'Value': 'string'
+                                          \'Key\': \'string\',
+                                          \'Value\': \'string\'
                                       },
                                   ]
                               }
                           },
-                          'Status': 'Enabled'|'Disabled',
-                          'Transitions': [
+                          \'Status\': \'Enabled\'|\'Disabled\',
+                          \'Transitions\': [
                               {
-                                  'Date': datetime(2015, 1, 1),
-                                  'Days': 123,
-                                  'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                                  \'Date\': datetime(2015, 1, 1),
+                                  \'Days\': 123,
+                                  \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                               },
                           ],
-                          'NoncurrentVersionTransitions': [
+                          \'NoncurrentVersionTransitions\': [
                               {
-                                  'NoncurrentDays': 123,
-                                  'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'
+                                  \'NoncurrentDays\': 123,
+                                  \'StorageClass\': \'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                               },
                           ],
-                          'NoncurrentVersionExpiration': {
-                              'NoncurrentDays': 123
+                          \'NoncurrentVersionExpiration\': {
+                              \'NoncurrentDays\': 123
                           },
-                          'AbortIncompleteMultipartUpload': {
-                              'DaysAfterInitiation': 123
+                          \'AbortIncompleteMultipartUpload\': {
+                              \'DaysAfterInitiation\': 123
                           }
                       },
                   ]
@@ -6323,7 +6323,7 @@ class Client(BaseClient):
         
                 - **Tag** *(dict) --* 
         
-                  This tag must exist in the object's tag set in order for the rule to apply.
+                  This tag must exist in the object\'s tag set in order for the rule to apply.
         
                   - **Key** *(string) --* **[REQUIRED]** 
         
@@ -6341,7 +6341,7 @@ class Client(BaseClient):
         
                   - **Tags** *(list) --* 
         
-                    All of these tags must exist in the object's tag set in order for the rule to apply.
+                    All of these tags must exist in the object\'s tag set in order for the rule to apply.
         
                     - *(dict) --* 
         
@@ -6355,7 +6355,7 @@ class Client(BaseClient):
         
               - **Status** *(string) --* **[REQUIRED]** 
         
-                If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
+                If \'Enabled\', the rule is currently being applied. If \'Disabled\', the rule is not currently being applied.
         
               - **Transitions** *(list) --* 
         
@@ -6377,7 +6377,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object's lifetime.
+                  Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object\'s lifetime.
         
                   - **NoncurrentDays** *(integer) --* 
         
@@ -6389,7 +6389,7 @@ class Client(BaseClient):
         
               - **NoncurrentVersionExpiration** *(dict) --* 
         
-                Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+                Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object\'s lifetime.
         
                 - **NoncurrentDays** *(integer) --* 
         
@@ -6416,23 +6416,23 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_logging(
-              Bucket='string',
+              Bucket=\'string\',
               BucketLoggingStatus={
-                  'LoggingEnabled': {
-                      'TargetBucket': 'string',
-                      'TargetGrants': [
+                  \'LoggingEnabled\': {
+                      \'TargetBucket\': \'string\',
+                      \'TargetGrants\': [
                           {
-                              'Grantee': {
-                                  'DisplayName': 'string',
-                                  'EmailAddress': 'string',
-                                  'ID': 'string',
-                                  'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                                  'URI': 'string'
+                              \'Grantee\': {
+                                  \'DisplayName\': \'string\',
+                                  \'EmailAddress\': \'string\',
+                                  \'ID\': \'string\',
+                                  \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                                  \'URI\': \'string\'
                               },
-                              'Permission': 'FULL_CONTROL'|'READ'|'WRITE'
+                              \'Permission\': \'FULL_CONTROL\'|\'READ\'|\'WRITE\'
                           },
                       ],
-                      'TargetPrefix': 'string'
+                      \'TargetPrefix\': \'string\'
                   }
               },
               
@@ -6498,22 +6498,22 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_metrics_configuration(
-              Bucket='string',
-              Id='string',
+              Bucket=\'string\',
+              Id=\'string\',
               MetricsConfiguration={
-                  'Id': 'string',
-                  'Filter': {
-                      'Prefix': 'string',
-                      'Tag': {
-                          'Key': 'string',
-                          'Value': 'string'
+                  \'Id\': \'string\',
+                  \'Filter\': {
+                      \'Prefix\': \'string\',
+                      \'Tag\': {
+                          \'Key\': \'string\',
+                          \'Value\': \'string\'
                       },
-                      'And': {
-                          'Prefix': 'string',
-                          'Tags': [
+                      \'And\': {
+                          \'Prefix\': \'string\',
+                          \'Tags\': [
                               {
-                                  'Key': 'string',
-                                  'Value': 'string'
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ]
                       }
@@ -6541,7 +6541,7 @@ class Client(BaseClient):
         
           - **Filter** *(dict) --* 
         
-            Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
+            Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter\'s criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
         
             - **Prefix** *(string) --* 
         
@@ -6598,32 +6598,32 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_notification(
-              Bucket='string',
+              Bucket=\'string\',
               NotificationConfiguration={
-                  'TopicConfiguration': {
-                      'Id': 'string',
-                      'Events': [
-                          's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                  \'TopicConfiguration\': {
+                      \'Id\': \'string\',
+                      \'Events\': [
+                          \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                       ],
-                      'Event': 's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
-                      'Topic': 'string'
+                      \'Event\': \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
+                      \'Topic\': \'string\'
                   },
-                  'QueueConfiguration': {
-                      'Id': 'string',
-                      'Event': 's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
-                      'Events': [
-                          's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                  \'QueueConfiguration\': {
+                      \'Id\': \'string\',
+                      \'Event\': \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
+                      \'Events\': [
+                          \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                       ],
-                      'Queue': 'string'
+                      \'Queue\': \'string\'
                   },
-                  'CloudFunctionConfiguration': {
-                      'Id': 'string',
-                      'Event': 's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
-                      'Events': [
-                          's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                  \'CloudFunctionConfiguration\': {
+                      \'Id\': \'string\',
+                      \'Event\': \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
+                      \'Events\': [
+                          \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                       ],
-                      'CloudFunction': 'string',
-                      'InvocationRole': 'string'
+                      \'CloudFunction\': \'string\',
+                      \'InvocationRole\': \'string\'
                   }
               }
           )
@@ -6637,7 +6637,7 @@ class Client(BaseClient):
         
             - **Id** *(string) --* 
         
-              Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+              Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
             - **Events** *(list) --* 
         
@@ -6657,7 +6657,7 @@ class Client(BaseClient):
         
             - **Id** *(string) --* 
         
-              Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+              Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
             - **Event** *(string) --* 
         
@@ -6675,7 +6675,7 @@ class Client(BaseClient):
         
             - **Id** *(string) --* 
         
-              Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+              Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
             - **Event** *(string) --* 
         
@@ -6704,59 +6704,59 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_notification_configuration(
-              Bucket='string',
+              Bucket=\'string\',
               NotificationConfiguration={
-                  'TopicConfigurations': [
+                  \'TopicConfigurations\': [
                       {
-                          'Id': 'string',
-                          'TopicArn': 'string',
-                          'Events': [
-                              's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                          \'Id\': \'string\',
+                          \'TopicArn\': \'string\',
+                          \'Events\': [
+                              \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                           ],
-                          'Filter': {
-                              'Key': {
-                                  'FilterRules': [
+                          \'Filter\': {
+                              \'Key\': {
+                                  \'FilterRules\': [
                                       {
-                                          'Name': 'prefix'|'suffix',
-                                          'Value': 'string'
+                                          \'Name\': \'prefix\'|\'suffix\',
+                                          \'Value\': \'string\'
                                       },
                                   ]
                               }
                           }
                       },
                   ],
-                  'QueueConfigurations': [
+                  \'QueueConfigurations\': [
                       {
-                          'Id': 'string',
-                          'QueueArn': 'string',
-                          'Events': [
-                              's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                          \'Id\': \'string\',
+                          \'QueueArn\': \'string\',
+                          \'Events\': [
+                              \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                           ],
-                          'Filter': {
-                              'Key': {
-                                  'FilterRules': [
+                          \'Filter\': {
+                              \'Key\': {
+                                  \'FilterRules\': [
                                       {
-                                          'Name': 'prefix'|'suffix',
-                                          'Value': 'string'
+                                          \'Name\': \'prefix\'|\'suffix\',
+                                          \'Value\': \'string\'
                                       },
                                   ]
                               }
                           }
                       },
                   ],
-                  'LambdaFunctionConfigurations': [
+                  \'LambdaFunctionConfigurations\': [
                       {
-                          'Id': 'string',
-                          'LambdaFunctionArn': 'string',
-                          'Events': [
-                              's3:ReducedRedundancyLostObject'|'s3:ObjectCreated:*'|'s3:ObjectCreated:Put'|'s3:ObjectCreated:Post'|'s3:ObjectCreated:Copy'|'s3:ObjectCreated:CompleteMultipartUpload'|'s3:ObjectRemoved:*'|'s3:ObjectRemoved:Delete'|'s3:ObjectRemoved:DeleteMarkerCreated',
+                          \'Id\': \'string\',
+                          \'LambdaFunctionArn\': \'string\',
+                          \'Events\': [
+                              \'s3:ReducedRedundancyLostObject\'|\'s3:ObjectCreated:*\'|\'s3:ObjectCreated:Put\'|\'s3:ObjectCreated:Post\'|\'s3:ObjectCreated:Copy\'|\'s3:ObjectCreated:CompleteMultipartUpload\'|\'s3:ObjectRemoved:*\'|\'s3:ObjectRemoved:Delete\'|\'s3:ObjectRemoved:DeleteMarkerCreated\',
                           ],
-                          'Filter': {
-                              'Key': {
-                                  'FilterRules': [
+                          \'Filter\': {
+                              \'Key\': {
+                                  \'FilterRules\': [
                                       {
-                                          'Name': 'prefix'|'suffix',
-                                          'Value': 'string'
+                                          \'Name\': \'prefix\'|\'suffix\',
+                                          \'Value\': \'string\'
                                       },
                                   ]
                               }
@@ -6781,7 +6781,7 @@ class Client(BaseClient):
         
               - **Id** *(string) --* 
         
-                Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
               - **TopicArn** *(string) --* **[REQUIRED]** 
         
@@ -6823,7 +6823,7 @@ class Client(BaseClient):
         
               - **Id** *(string) --* 
         
-                Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
               - **QueueArn** *(string) --* **[REQUIRED]** 
         
@@ -6865,7 +6865,7 @@ class Client(BaseClient):
         
               - **Id** *(string) --* 
         
-                Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.
+                Optional unique identifier for configurations in a notification configuration. If you don\'t provide one, Amazon S3 will assign an ID.
         
               - **LambdaFunctionArn** *(string) --* **[REQUIRED]** 
         
@@ -6912,9 +6912,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_policy(
-              Bucket='string',
+              Bucket=\'string\',
               ConfirmRemoveSelfBucketAccess=True|False,
-              Policy='string'
+              Policy=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -6942,49 +6942,49 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_replication(
-              Bucket='string',
+              Bucket=\'string\',
               ReplicationConfiguration={
-                  'Role': 'string',
-                  'Rules': [
+                  \'Role\': \'string\',
+                  \'Rules\': [
                       {
-                          'ID': 'string',
-                          'Priority': 123,
-                          'Prefix': 'string',
-                          'Filter': {
-                              'Prefix': 'string',
-                              'Tag': {
-                                  'Key': 'string',
-                                  'Value': 'string'
+                          \'ID\': \'string\',
+                          \'Priority\': 123,
+                          \'Prefix\': \'string\',
+                          \'Filter\': {
+                              \'Prefix\': \'string\',
+                              \'Tag\': {
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\'
                               },
-                              'And': {
-                                  'Prefix': 'string',
-                                  'Tags': [
+                              \'And\': {
+                                  \'Prefix\': \'string\',
+                                  \'Tags\': [
                                       {
-                                          'Key': 'string',
-                                          'Value': 'string'
+                                          \'Key\': \'string\',
+                                          \'Value\': \'string\'
                                       },
                                   ]
                               }
                           },
-                          'Status': 'Enabled'|'Disabled',
-                          'SourceSelectionCriteria': {
-                              'SseKmsEncryptedObjects': {
-                                  'Status': 'Enabled'|'Disabled'
+                          \'Status\': \'Enabled\'|\'Disabled\',
+                          \'SourceSelectionCriteria\': {
+                              \'SseKmsEncryptedObjects\': {
+                                  \'Status\': \'Enabled\'|\'Disabled\'
                               }
                           },
-                          'Destination': {
-                              'Bucket': 'string',
-                              'Account': 'string',
-                              'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                              'AccessControlTranslation': {
-                                  'Owner': 'Destination'
+                          \'Destination\': {
+                              \'Bucket\': \'string\',
+                              \'Account\': \'string\',
+                              \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                              \'AccessControlTranslation\': {
+                                  \'Owner\': \'Destination\'
                               },
-                              'EncryptionConfiguration': {
-                                  'ReplicaKmsKeyID': 'string'
+                              \'EncryptionConfiguration\': {
+                                  \'ReplicaKmsKeyID\': \'string\'
                               }
                           },
-                          'DeleteMarkerReplication': {
-                              'Status': 'Enabled'|'Disabled'
+                          \'DeleteMarkerReplication\': {
+                              \'Status\': \'Enabled\'|\'Disabled\'
                           }
                       },
                   ]
@@ -7114,7 +7114,7 @@ class Client(BaseClient):
         
                   Container for information regarding the access control for replicas. 
         
-                  Use only in a cross-account scenario, where source and destination bucket owners are not the same, when you want to change replica ownership to the AWS account that owns the destination bucket. If you don't add this element to the replication configuration, the replicas are owned by same AWS account that owns the source object. 
+                  Use only in a cross-account scenario, where source and destination bucket owners are not the same, when you want to change replica ownership to the AWS account that owns the destination bucket. If you don\'t add this element to the replication configuration, the replicas are owned by same AWS account that owns the source object. 
         
                   - **Owner** *(string) --* **[REQUIRED]** 
         
@@ -7153,9 +7153,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_request_payment(
-              Bucket='string',
+              Bucket=\'string\',
               RequestPaymentConfiguration={
-                  'Payer': 'Requester'|'BucketOwner'
+                  \'Payer\': \'Requester\'|\'BucketOwner\'
               }
           )
         :type Bucket: string
@@ -7181,12 +7181,12 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_tagging(
-              Bucket='string',
+              Bucket=\'string\',
               Tagging={
-                  'TagSet': [
+                  \'TagSet\': [
                       {
-                          'Key': 'string',
-                          'Value': 'string'
+                          \'Key\': \'string\',
+                          \'Value\': \'string\'
                       },
                   ]
               }
@@ -7222,11 +7222,11 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_versioning(
-              Bucket='string',
-              MFA='string',
+              Bucket=\'string\',
+              MFA=\'string\',
               VersioningConfiguration={
-                  'MFADelete': 'Enabled'|'Disabled',
-                  'Status': 'Enabled'|'Suspended'
+                  \'MFADelete\': \'Enabled\'|\'Disabled\',
+                  \'Status\': \'Enabled\'|\'Suspended\'
               }
           )
         :type Bucket: string
@@ -7235,7 +7235,7 @@ class Client(BaseClient):
         :type MFA: string
         :param MFA: 
         
-          The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+          The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
         
         :type VersioningConfiguration: dict
         :param VersioningConfiguration: **[REQUIRED]** 
@@ -7261,30 +7261,30 @@ class Client(BaseClient):
         ::
         
           response = client.put_bucket_website(
-              Bucket='string',
+              Bucket=\'string\',
               WebsiteConfiguration={
-                  'ErrorDocument': {
-                      'Key': 'string'
+                  \'ErrorDocument\': {
+                      \'Key\': \'string\'
                   },
-                  'IndexDocument': {
-                      'Suffix': 'string'
+                  \'IndexDocument\': {
+                      \'Suffix\': \'string\'
                   },
-                  'RedirectAllRequestsTo': {
-                      'HostName': 'string',
-                      'Protocol': 'http'|'https'
+                  \'RedirectAllRequestsTo\': {
+                      \'HostName\': \'string\',
+                      \'Protocol\': \'http\'|\'https\'
                   },
-                  'RoutingRules': [
+                  \'RoutingRules\': [
                       {
-                          'Condition': {
-                              'HttpErrorCodeReturnedEquals': 'string',
-                              'KeyPrefixEquals': 'string'
+                          \'Condition\': {
+                              \'HttpErrorCodeReturnedEquals\': \'string\',
+                              \'KeyPrefixEquals\': \'string\'
                           },
-                          'Redirect': {
-                              'HostName': 'string',
-                              'HttpRedirectCode': 'string',
-                              'Protocol': 'http'|'https',
-                              'ReplaceKeyPrefixWith': 'string',
-                              'ReplaceKeyWith': 'string'
+                          \'Redirect\': {
+                              \'HostName\': \'string\',
+                              \'HttpRedirectCode\': \'string\',
+                              \'Protocol\': \'http\'|\'https\',
+                              \'ReplaceKeyPrefixWith\': \'string\',
+                              \'ReplaceKeyWith\': \'string\'
                           }
                       },
                   ]
@@ -7371,33 +7371,33 @@ class Client(BaseClient):
         ::
         
           response = client.put_object(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-              Body=b'bytes'|file,
-              Bucket='string',
-              CacheControl='string',
-              ContentDisposition='string',
-              ContentEncoding='string',
-              ContentLanguage='string',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+              Body=b\'bytes\'|file,
+              Bucket=\'string\',
+              CacheControl=\'string\',
+              ContentDisposition=\'string\',
+              ContentEncoding=\'string\',
+              ContentLanguage=\'string\',
               ContentLength=123,
-              ContentMD5='string',
-              ContentType='string',
+              ContentMD5=\'string\',
+              ContentType=\'string\',
               Expires=datetime(2015, 1, 1),
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWriteACP='string',
-              Key='string',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWriteACP=\'string\',
+              Key=\'string\',
               Metadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-              WebsiteRedirectLocation='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              SSEKMSKeyId='string',
-              RequestPayer='requester',
-              Tagging='string'
+              ServerSideEncryption=\'AES256\'|\'aws:kms\',
+              StorageClass=\'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+              WebsiteRedirectLocation=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              SSEKMSKeyId=\'string\',
+              RequestPayer=\'requester\',
+              Tagging=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -7496,7 +7496,7 @@ class Client(BaseClient):
         :type StorageClass: string
         :param StorageClass: 
         
-          The type of storage to use for the object. Defaults to 'STANDARD'.
+          The type of storage to use for the object. Defaults to \'STANDARD\'.
         
         :type WebsiteRedirectLocation: string
         :param WebsiteRedirectLocation: 
@@ -7543,14 +7543,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Expiration': 'string',
-                'ETag': 'string',
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'VersionId': 'string',
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'Expiration\': \'string\',
+                \'ETag\': \'string\',
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'VersionId\': \'string\',
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -7600,34 +7600,34 @@ class Client(BaseClient):
         ::
         
           response = client.put_object_acl(
-              ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
+              ACL=\'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
               AccessControlPolicy={
-                  'Grants': [
+                  \'Grants\': [
                       {
-                          'Grantee': {
-                              'DisplayName': 'string',
-                              'EmailAddress': 'string',
-                              'ID': 'string',
-                              'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                              'URI': 'string'
+                          \'Grantee\': {
+                              \'DisplayName\': \'string\',
+                              \'EmailAddress\': \'string\',
+                              \'ID\': \'string\',
+                              \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                              \'URI\': \'string\'
                           },
-                          'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                          \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                       },
                   ],
-                  'Owner': {
-                      'DisplayName': 'string',
-                      'ID': 'string'
+                  \'Owner\': {
+                      \'DisplayName\': \'string\',
+                      \'ID\': \'string\'
                   }
               },
-              Bucket='string',
-              GrantFullControl='string',
-              GrantRead='string',
-              GrantReadACP='string',
-              GrantWrite='string',
-              GrantWriteACP='string',
-              Key='string',
-              RequestPayer='requester',
-              VersionId='string'
+              Bucket=\'string\',
+              GrantFullControl=\'string\',
+              GrantRead=\'string\',
+              GrantReadACP=\'string\',
+              GrantWrite=\'string\',
+              GrantWriteACP=\'string\',
+              Key=\'string\',
+              RequestPayer=\'requester\',
+              VersionId=\'string\'
           )
         :type ACL: string
         :param ACL: 
@@ -7724,7 +7724,7 @@ class Client(BaseClient):
           ::
         
             {
-                'RequestCharged': 'requester'
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -7746,15 +7746,15 @@ class Client(BaseClient):
         ::
         
           response = client.put_object_tagging(
-              Bucket='string',
-              Key='string',
-              VersionId='string',
-              ContentMD5='string',
+              Bucket=\'string\',
+              Key=\'string\',
+              VersionId=\'string\',
+              ContentMD5=\'string\',
               Tagging={
-                  'TagSet': [
+                  \'TagSet\': [
                       {
-                          'Key': 'string',
-                          'Value': 'string'
+                          \'Key\': \'string\',
+                          \'Value\': \'string\'
                       },
                   ]
               }
@@ -7794,7 +7794,7 @@ class Client(BaseClient):
           ::
         
             {
-                'VersionId': 'string'
+                \'VersionId\': \'string\'
             }
           **Response Structure** 
         
@@ -7813,91 +7813,91 @@ class Client(BaseClient):
         ::
         
           response = client.restore_object(
-              Bucket='string',
-              Key='string',
-              VersionId='string',
+              Bucket=\'string\',
+              Key=\'string\',
+              VersionId=\'string\',
               RestoreRequest={
-                  'Days': 123,
-                  'GlacierJobParameters': {
-                      'Tier': 'Standard'|'Bulk'|'Expedited'
+                  \'Days\': 123,
+                  \'GlacierJobParameters\': {
+                      \'Tier\': \'Standard\'|\'Bulk\'|\'Expedited\'
                   },
-                  'Type': 'SELECT',
-                  'Tier': 'Standard'|'Bulk'|'Expedited',
-                  'Description': 'string',
-                  'SelectParameters': {
-                      'InputSerialization': {
-                          'CSV': {
-                              'FileHeaderInfo': 'USE'|'IGNORE'|'NONE',
-                              'Comments': 'string',
-                              'QuoteEscapeCharacter': 'string',
-                              'RecordDelimiter': 'string',
-                              'FieldDelimiter': 'string',
-                              'QuoteCharacter': 'string',
-                              'AllowQuotedRecordDelimiter': True|False
+                  \'Type\': \'SELECT\',
+                  \'Tier\': \'Standard\'|\'Bulk\'|\'Expedited\',
+                  \'Description\': \'string\',
+                  \'SelectParameters\': {
+                      \'InputSerialization\': {
+                          \'CSV\': {
+                              \'FileHeaderInfo\': \'USE\'|\'IGNORE\'|\'NONE\',
+                              \'Comments\': \'string\',
+                              \'QuoteEscapeCharacter\': \'string\',
+                              \'RecordDelimiter\': \'string\',
+                              \'FieldDelimiter\': \'string\',
+                              \'QuoteCharacter\': \'string\',
+                              \'AllowQuotedRecordDelimiter\': True|False
                           },
-                          'CompressionType': 'NONE'|'GZIP'|'BZIP2',
-                          'JSON': {
-                              'Type': 'DOCUMENT'|'LINES'
+                          \'CompressionType\': \'NONE\'|\'GZIP\'|\'BZIP2\',
+                          \'JSON\': {
+                              \'Type\': \'DOCUMENT\'|\'LINES\'
                           },
-                          'Parquet': {}
+                          \'Parquet\': {}
                           
                       },
-                      'ExpressionType': 'SQL',
-                      'Expression': 'string',
-                      'OutputSerialization': {
-                          'CSV': {
-                              'QuoteFields': 'ALWAYS'|'ASNEEDED',
-                              'QuoteEscapeCharacter': 'string',
-                              'RecordDelimiter': 'string',
-                              'FieldDelimiter': 'string',
-                              'QuoteCharacter': 'string'
+                      \'ExpressionType\': \'SQL\',
+                      \'Expression\': \'string\',
+                      \'OutputSerialization\': {
+                          \'CSV\': {
+                              \'QuoteFields\': \'ALWAYS\'|\'ASNEEDED\',
+                              \'QuoteEscapeCharacter\': \'string\',
+                              \'RecordDelimiter\': \'string\',
+                              \'FieldDelimiter\': \'string\',
+                              \'QuoteCharacter\': \'string\'
                           },
-                          'JSON': {
-                              'RecordDelimiter': 'string'
+                          \'JSON\': {
+                              \'RecordDelimiter\': \'string\'
                           }
                       }
                   },
-                  'OutputLocation': {
-                      'S3': {
-                          'BucketName': 'string',
-                          'Prefix': 'string',
-                          'Encryption': {
-                              'EncryptionType': 'AES256'|'aws:kms',
-                              'KMSKeyId': 'string',
-                              'KMSContext': 'string'
+                  \'OutputLocation\': {
+                      \'S3\': {
+                          \'BucketName\': \'string\',
+                          \'Prefix\': \'string\',
+                          \'Encryption\': {
+                              \'EncryptionType\': \'AES256\'|\'aws:kms\',
+                              \'KMSKeyId\': \'string\',
+                              \'KMSContext\': \'string\'
                           },
-                          'CannedACL': 'private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
-                          'AccessControlList': [
+                          \'CannedACL\': \'private\'|\'public-read\'|\'public-read-write\'|\'authenticated-read\'|\'aws-exec-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+                          \'AccessControlList\': [
                               {
-                                  'Grantee': {
-                                      'DisplayName': 'string',
-                                      'EmailAddress': 'string',
-                                      'ID': 'string',
-                                      'Type': 'CanonicalUser'|'AmazonCustomerByEmail'|'Group',
-                                      'URI': 'string'
+                                  \'Grantee\': {
+                                      \'DisplayName\': \'string\',
+                                      \'EmailAddress\': \'string\',
+                                      \'ID\': \'string\',
+                                      \'Type\': \'CanonicalUser\'|\'AmazonCustomerByEmail\'|\'Group\',
+                                      \'URI\': \'string\'
                                   },
-                                  'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                                  \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                               },
                           ],
-                          'Tagging': {
-                              'TagSet': [
+                          \'Tagging\': {
+                              \'TagSet\': [
                                   {
-                                      'Key': 'string',
-                                      'Value': 'string'
+                                      \'Key\': \'string\',
+                                      \'Value\': \'string\'
                                   },
                               ]
                           },
-                          'UserMetadata': [
+                          \'UserMetadata\': [
                               {
-                                  'Name': 'string',
-                                  'Value': 'string'
+                                  \'Name\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ],
-                          'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'
+                          \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\'
                       }
                   }
               },
-              RequestPayer='requester'
+              RequestPayer=\'requester\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -7979,11 +7979,11 @@ class Client(BaseClient):
         
               - **CompressionType** *(string) --* 
         
-                Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
+                Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
         
               - **JSON** *(dict) --* 
         
-                Specifies JSON as object's input serialization format.
+                Specifies JSON as object\'s input serialization format.
         
                 - **Type** *(string) --* 
         
@@ -7991,7 +7991,7 @@ class Client(BaseClient):
         
               - **Parquet** *(dict) --* 
         
-                Specifies Parquet as object's input serialization format.
+                Specifies Parquet as object\'s input serialization format.
         
             - **ExpressionType** *(string) --* **[REQUIRED]** 
         
@@ -8031,7 +8031,7 @@ class Client(BaseClient):
         
               - **JSON** *(dict) --* 
         
-                Specifies JSON as request's output serialization format.
+                Specifies JSON as request\'s output serialization format.
         
                 - **RecordDelimiter** *(string) --* 
         
@@ -8039,7 +8039,7 @@ class Client(BaseClient):
         
           - **OutputLocation** *(dict) --* 
         
-            Describes the location where the restore job's output is stored.
+            Describes the location where the restore job\'s output is stored.
         
             - **S3** *(dict) --* 
         
@@ -8150,8 +8150,8 @@ class Client(BaseClient):
           ::
         
             {
-                'RequestCharged': 'requester',
-                'RestoreOutputPath': 'string'
+                \'RequestCharged\': \'requester\',
+                \'RestoreOutputPath\': \'string\'
             }
           **Response Structure** 
         
@@ -8177,42 +8177,42 @@ class Client(BaseClient):
         ::
         
           response = client.select_object_content(
-              Bucket='string',
-              Key='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              Expression='string',
-              ExpressionType='SQL',
+              Bucket=\'string\',
+              Key=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              Expression=\'string\',
+              ExpressionType=\'SQL\',
               RequestProgress={
-                  'Enabled': True|False
+                  \'Enabled\': True|False
               },
               InputSerialization={
-                  'CSV': {
-                      'FileHeaderInfo': 'USE'|'IGNORE'|'NONE',
-                      'Comments': 'string',
-                      'QuoteEscapeCharacter': 'string',
-                      'RecordDelimiter': 'string',
-                      'FieldDelimiter': 'string',
-                      'QuoteCharacter': 'string',
-                      'AllowQuotedRecordDelimiter': True|False
+                  \'CSV\': {
+                      \'FileHeaderInfo\': \'USE\'|\'IGNORE\'|\'NONE\',
+                      \'Comments\': \'string\',
+                      \'QuoteEscapeCharacter\': \'string\',
+                      \'RecordDelimiter\': \'string\',
+                      \'FieldDelimiter\': \'string\',
+                      \'QuoteCharacter\': \'string\',
+                      \'AllowQuotedRecordDelimiter\': True|False
                   },
-                  'CompressionType': 'NONE'|'GZIP'|'BZIP2',
-                  'JSON': {
-                      'Type': 'DOCUMENT'|'LINES'
+                  \'CompressionType\': \'NONE\'|\'GZIP\'|\'BZIP2\',
+                  \'JSON\': {
+                      \'Type\': \'DOCUMENT\'|\'LINES\'
                   },
-                  'Parquet': {}
+                  \'Parquet\': {}
                   
               },
               OutputSerialization={
-                  'CSV': {
-                      'QuoteFields': 'ALWAYS'|'ASNEEDED',
-                      'QuoteEscapeCharacter': 'string',
-                      'RecordDelimiter': 'string',
-                      'FieldDelimiter': 'string',
-                      'QuoteCharacter': 'string'
+                  \'CSV\': {
+                      \'QuoteFields\': \'ALWAYS\'|\'ASNEEDED\',
+                      \'QuoteEscapeCharacter\': \'string\',
+                      \'RecordDelimiter\': \'string\',
+                      \'FieldDelimiter\': \'string\',
+                      \'QuoteCharacter\': \'string\'
                   },
-                  'JSON': {
-                      'RecordDelimiter': 'string'
+                  \'JSON\': {
+                      \'RecordDelimiter\': \'string\'
                   }
               }
           )
@@ -8301,11 +8301,11 @@ class Client(BaseClient):
         
           - **CompressionType** *(string) --* 
         
-            Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
+            Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
         
           - **JSON** *(dict) --* 
         
-            Specifies JSON as object's input serialization format.
+            Specifies JSON as object\'s input serialization format.
         
             - **Type** *(string) --* 
         
@@ -8313,7 +8313,7 @@ class Client(BaseClient):
         
           - **Parquet** *(dict) --* 
         
-            Specifies Parquet as object's input serialization format.
+            Specifies Parquet as object\'s input serialization format.
         
         :type OutputSerialization: dict
         :param OutputSerialization: **[REQUIRED]** 
@@ -8346,7 +8346,7 @@ class Client(BaseClient):
         
           - **JSON** *(dict) --* 
         
-            Specifies JSON as request's output serialization format.
+            Specifies JSON as request\'s output serialization format.
         
             - **RecordDelimiter** *(string) --* 
         
@@ -8362,26 +8362,26 @@ class Client(BaseClient):
           ::
         
             {
-                'Payload': EventStream({
-                    'Records': {
-                        'Payload': b'bytes'
+                \'Payload\': EventStream({
+                    \'Records\': {
+                        \'Payload\': b\'bytes\'
                     },
-                    'Stats': {
-                        'Details': {
-                            'BytesScanned': 123,
-                            'BytesProcessed': 123,
-                            'BytesReturned': 123
+                    \'Stats\': {
+                        \'Details\': {
+                            \'BytesScanned\': 123,
+                            \'BytesProcessed\': 123,
+                            \'BytesReturned\': 123
                         }
                     },
-                    'Progress': {
-                        'Details': {
-                            'BytesScanned': 123,
-                            'BytesProcessed': 123,
-                            'BytesReturned': 123
+                    \'Progress\': {
+                        \'Details\': {
+                            \'BytesScanned\': 123,
+                            \'BytesProcessed\': 123,
+                            \'BytesReturned\': 123
                         }
                     },
-                    'Cont': {},
-                    'End': {}
+                    \'Cont\': {},
+                    \'End\': {}
                 })
             }
           **Response Structure** 
@@ -8455,12 +8455,12 @@ class Client(BaseClient):
         Usage::
         
             import boto3
-            s3 = boto3.resource('s3')
-            s3.meta.client.upload_file('/tmp/hello.txt', 'mybucket', 'hello.txt')
+            s3 = boto3.resource(\'s3\')
+            s3.meta.client.upload_file(\'/tmp/hello.txt\', \'mybucket\', \'hello.txt\')
         
-        Similar behavior as S3Transfer's upload_file() method,
+        Similar behavior as S3Transfer\'s upload_file() method,
         except that parameters are capitalized. Detailed examples can be found at
-        :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+        :ref:`S3Transfer\'s Usage <ref_s3transfer_usage>`.
         
         :type Filename: str
         :param Filename: The path to the file to upload.
@@ -8496,10 +8496,10 @@ class Client(BaseClient):
         Usage::
         
             import boto3
-            s3 = boto3.client('s3')
+            s3 = boto3.client(\'s3\')
         
-            with open('filename', 'rb') as data:
-                s3.upload_fileobj(data, 'mybucket', 'mykey')
+            with open(\'filename\', \'rb\') as data:
+                s3.upload_fileobj(data, \'mybucket\', \'mykey\')
         
         :type Fileobj: a file-like object
         :param Fileobj: A file-like object to upload. At a minimum, it must
@@ -8536,16 +8536,16 @@ class Client(BaseClient):
         ::
         
           response = client.upload_part(
-              Body=b'bytes'|file,
-              Bucket='string',
+              Body=b\'bytes\'|file,
+              Bucket=\'string\',
               ContentLength=123,
-              ContentMD5='string',
-              Key='string',
+              ContentMD5=\'string\',
+              Key=\'string\',
               PartNumber=123,
-              UploadId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester'
+              UploadId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Body: bytes or seekable file-like object
         :param Body: 
@@ -8612,12 +8612,12 @@ class Client(BaseClient):
           ::
         
             {
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'ETag': 'string',
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'ETag\': \'string\',
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         
@@ -8659,27 +8659,27 @@ class Client(BaseClient):
         ::
         
           response = client.upload_part_copy(
-              Bucket='string',
-              CopySource='string' or {'Bucket': 'string', 'Key': 'string', 'VersionId': 'string'},
-              CopySourceIfMatch='string',
+              Bucket=\'string\',
+              CopySource=\'string\' or {\'Bucket\': \'string\', \'Key\': \'string\', \'VersionId\': \'string\'},
+              CopySourceIfMatch=\'string\',
               CopySourceIfModifiedSince=datetime(2015, 1, 1),
-              CopySourceIfNoneMatch='string',
+              CopySourceIfNoneMatch=\'string\',
               CopySourceIfUnmodifiedSince=datetime(2015, 1, 1),
-              CopySourceRange='string',
-              Key='string',
+              CopySourceRange=\'string\',
+              Key=\'string\',
               PartNumber=123,
-              UploadId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              CopySourceSSECustomerAlgorithm='string',
-              CopySourceSSECustomerKey='string',
-              RequestPayer='requester'
+              UploadId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              CopySourceSSECustomerAlgorithm=\'string\',
+              CopySourceSSECustomerKey=\'string\',
+              RequestPayer=\'requester\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
         
         :type CopySource: str or dict
-        :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object, and optional version ID of the source object.  You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key}?versionId={versionId} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}.  Note that the VersionId key is optional and may be omitted.
+        :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object, and optional version ID of the source object.  You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key}?versionId={versionId} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {\'Bucket\': \'bucket\', \'Key\': \'key\', \'VersionId\': \'id\'}.  Note that the VersionId key is optional and may be omitted.
         
         :type CopySourceIfMatch: string
         :param CopySourceIfMatch: 
@@ -8699,7 +8699,7 @@ class Client(BaseClient):
         :type CopySourceIfUnmodifiedSince: datetime
         :param CopySourceIfUnmodifiedSince: 
         
-          Copies the object if it hasn't been modified since the specified time.
+          Copies the object if it hasn\'t been modified since the specified time.
         
         :type CopySourceRange: string
         :param CopySourceRange: 
@@ -8766,16 +8766,16 @@ class Client(BaseClient):
           ::
         
             {
-                'CopySourceVersionId': 'string',
-                'CopyPartResult': {
-                    'ETag': 'string',
-                    'LastModified': datetime(2015, 1, 1)
+                \'CopySourceVersionId\': \'string\',
+                \'CopyPartResult\': {
+                    \'ETag\': \'string\',
+                    \'LastModified\': datetime(2015, 1, 1)
                 },
-                'ServerSideEncryption': 'AES256'|'aws:kms',
-                'SSECustomerAlgorithm': 'string',
-                'SSECustomerKeyMD5': 'string',
-                'SSEKMSKeyId': 'string',
-                'RequestCharged': 'requester'
+                \'ServerSideEncryption\': \'AES256\'|\'aws:kms\',
+                \'SSECustomerAlgorithm\': \'string\',
+                \'SSECustomerKeyMD5\': \'string\',
+                \'SSEKMSKeyId\': \'string\',
+                \'RequestCharged\': \'requester\'
             }
           **Response Structure** 
         

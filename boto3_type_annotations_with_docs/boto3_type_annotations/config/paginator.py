@@ -15,15 +15,15 @@ class DescribeComplianceByConfigRule(Paginator):
         
           response_iterator = paginator.paginate(
               ConfigRuleNames=[
-                  'string',
+                  \'string\',
               ],
               ComplianceTypes=[
-                  'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
+                  \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ConfigRuleNames: list
@@ -67,14 +67,14 @@ class DescribeComplianceByConfigRule(Paginator):
           ::
         
             {
-                'ComplianceByConfigRules': [
+                \'ComplianceByConfigRules\': [
                     {
-                        'ConfigRuleName': 'string',
-                        'Compliance': {
-                            'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                            'ComplianceContributorCount': {
-                                'CappedCount': 123,
-                                'CapExceeded': True|False
+                        \'ConfigRuleName\': \'string\',
+                        \'Compliance\': {
+                            \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                            \'ComplianceContributorCount\': {
+                                \'CappedCount\': 123,
+                                \'CapExceeded\': True|False
                             }
                         }
                     },
@@ -139,16 +139,16 @@ class DescribeComplianceByResource(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ResourceType='string',
-              ResourceId='string',
+              ResourceType=\'string\',
+              ResourceId=\'string\',
               ComplianceTypes=[
-                  'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
+                  \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
               ],
               Limit=123,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ResourceType: string
@@ -200,15 +200,15 @@ class DescribeComplianceByResource(Paginator):
           ::
         
             {
-                'ComplianceByResources': [
+                \'ComplianceByResources\': [
                     {
-                        'ResourceType': 'string',
-                        'ResourceId': 'string',
-                        'Compliance': {
-                            'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                            'ComplianceContributorCount': {
-                                'CappedCount': 123,
-                                'CapExceeded': True|False
+                        \'ResourceType\': \'string\',
+                        \'ResourceId\': \'string\',
+                        \'Compliance\': {
+                            \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                            \'ComplianceContributorCount\': {
+                                \'CappedCount\': 123,
+                                \'CapExceeded\': True|False
                             }
                         }
                     },
@@ -278,12 +278,12 @@ class DescribeConfigRules(Paginator):
         
           response_iterator = paginator.paginate(
               ConfigRuleNames=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ConfigRuleNames: list
@@ -318,35 +318,35 @@ class DescribeConfigRules(Paginator):
           ::
         
             {
-                'ConfigRules': [
+                \'ConfigRules\': [
                     {
-                        'ConfigRuleName': 'string',
-                        'ConfigRuleArn': 'string',
-                        'ConfigRuleId': 'string',
-                        'Description': 'string',
-                        'Scope': {
-                            'ComplianceResourceTypes': [
-                                'string',
+                        \'ConfigRuleName\': \'string\',
+                        \'ConfigRuleArn\': \'string\',
+                        \'ConfigRuleId\': \'string\',
+                        \'Description\': \'string\',
+                        \'Scope\': {
+                            \'ComplianceResourceTypes\': [
+                                \'string\',
                             ],
-                            'TagKey': 'string',
-                            'TagValue': 'string',
-                            'ComplianceResourceId': 'string'
+                            \'TagKey\': \'string\',
+                            \'TagValue\': \'string\',
+                            \'ComplianceResourceId\': \'string\'
                         },
-                        'Source': {
-                            'Owner': 'CUSTOM_LAMBDA'|'AWS',
-                            'SourceIdentifier': 'string',
-                            'SourceDetails': [
+                        \'Source\': {
+                            \'Owner\': \'CUSTOM_LAMBDA\'|\'AWS\',
+                            \'SourceIdentifier\': \'string\',
+                            \'SourceDetails\': [
                                 {
-                                    'EventSource': 'aws.config',
-                                    'MessageType': 'ConfigurationItemChangeNotification'|'ConfigurationSnapshotDeliveryCompleted'|'ScheduledNotification'|'OversizedConfigurationItemChangeNotification',
-                                    'MaximumExecutionFrequency': 'One_Hour'|'Three_Hours'|'Six_Hours'|'Twelve_Hours'|'TwentyFour_Hours'
+                                    \'EventSource\': \'aws.config\',
+                                    \'MessageType\': \'ConfigurationItemChangeNotification\'|\'ConfigurationSnapshotDeliveryCompleted\'|\'ScheduledNotification\'|\'OversizedConfigurationItemChangeNotification\',
+                                    \'MaximumExecutionFrequency\': \'One_Hour\'|\'Three_Hours\'|\'Six_Hours\'|\'Twelve_Hours\'|\'TwentyFour_Hours\'
                                 },
                             ]
                         },
-                        'InputParameters': 'string',
-                        'MaximumExecutionFrequency': 'One_Hour'|'Three_Hours'|'Six_Hours'|'Twelve_Hours'|'TwentyFour_Hours',
-                        'ConfigRuleState': 'ACTIVE'|'DELETING'|'DELETING_RESULTS'|'EVALUATING',
-                        'CreatedBy': 'string'
+                        \'InputParameters\': \'string\',
+                        \'MaximumExecutionFrequency\': \'One_Hour\'|\'Three_Hours\'|\'Six_Hours\'|\'Twelve_Hours\'|\'TwentyFour_Hours\',
+                        \'ConfigRuleState\': \'ACTIVE\'|\'DELETING\'|\'DELETING_RESULTS\'|\'EVALUATING\',
+                        \'CreatedBy\': \'string\'
                     },
                 ],
                 
@@ -419,7 +419,7 @@ class DescribeConfigRules(Paginator):
         
                     For AWS Config managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see `Using AWS Managed Config Rules <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
         
-                    For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name`` .
+                    For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule\'s AWS Lambda function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name`` .
         
                   - **SourceDetails** *(list) --* 
         
@@ -505,15 +505,15 @@ class GetComplianceDetailsByConfigRule(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ConfigRuleName='string',
+              ConfigRuleName=\'string\',
               ComplianceTypes=[
-                  'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
+                  \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
               ],
               Limit=123,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ConfigRuleName: string
@@ -560,21 +560,21 @@ class GetComplianceDetailsByConfigRule(Paginator):
           ::
         
             {
-                'EvaluationResults': [
+                \'EvaluationResults\': [
                     {
-                        'EvaluationResultIdentifier': {
-                            'EvaluationResultQualifier': {
-                                'ConfigRuleName': 'string',
-                                'ResourceType': 'string',
-                                'ResourceId': 'string'
+                        \'EvaluationResultIdentifier\': {
+                            \'EvaluationResultQualifier\': {
+                                \'ConfigRuleName\': \'string\',
+                                \'ResourceType\': \'string\',
+                                \'ResourceId\': \'string\'
                             },
-                            'OrderingTimestamp': datetime(2015, 1, 1)
+                            \'OrderingTimestamp\': datetime(2015, 1, 1)
                         },
-                        'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                        'ResultRecordedTime': datetime(2015, 1, 1),
-                        'ConfigRuleInvokedTime': datetime(2015, 1, 1),
-                        'Annotation': 'string',
-                        'ResultToken': 'string'
+                        \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                        \'ResultRecordedTime\': datetime(2015, 1, 1),
+                        \'ConfigRuleInvokedTime\': datetime(2015, 1, 1),
+                        \'Annotation\': \'string\',
+                        \'ResultToken\': \'string\'
                     },
                 ],
                 
@@ -651,15 +651,15 @@ class GetComplianceDetailsByResource(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ResourceType='string',
-              ResourceId='string',
+              ResourceType=\'string\',
+              ResourceId=\'string\',
               ComplianceTypes=[
-                  'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
+                  \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ResourceType: string
@@ -706,21 +706,21 @@ class GetComplianceDetailsByResource(Paginator):
           ::
         
             {
-                'EvaluationResults': [
+                \'EvaluationResults\': [
                     {
-                        'EvaluationResultIdentifier': {
-                            'EvaluationResultQualifier': {
-                                'ConfigRuleName': 'string',
-                                'ResourceType': 'string',
-                                'ResourceId': 'string'
+                        \'EvaluationResultIdentifier\': {
+                            \'EvaluationResultQualifier\': {
+                                \'ConfigRuleName\': \'string\',
+                                \'ResourceType\': \'string\',
+                                \'ResourceId\': \'string\'
                             },
-                            'OrderingTimestamp': datetime(2015, 1, 1)
+                            \'OrderingTimestamp\': datetime(2015, 1, 1)
                         },
-                        'ComplianceType': 'COMPLIANT'|'NON_COMPLIANT'|'NOT_APPLICABLE'|'INSUFFICIENT_DATA',
-                        'ResultRecordedTime': datetime(2015, 1, 1),
-                        'ConfigRuleInvokedTime': datetime(2015, 1, 1),
-                        'Annotation': 'string',
-                        'ResultToken': 'string'
+                        \'ComplianceType\': \'COMPLIANT\'|\'NON_COMPLIANT\'|\'NOT_APPLICABLE\'|\'INSUFFICIENT_DATA\',
+                        \'ResultRecordedTime\': datetime(2015, 1, 1),
+                        \'ConfigRuleInvokedTime\': datetime(2015, 1, 1),
+                        \'Annotation\': \'string\',
+                        \'ResultToken\': \'string\'
                     },
                 ],
                 
@@ -797,15 +797,15 @@ class GetResourceConfigHistory(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              resourceType='AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-              resourceId='string',
+              resourceType=\'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+              resourceId=\'string\',
               laterTime=datetime(2015, 1, 1),
               earlierTime=datetime(2015, 1, 1),
-              chronologicalOrder='Reverse'|'Forward',
+              chronologicalOrder=\'Reverse\'|\'Forward\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type resourceType: string
@@ -858,42 +858,42 @@ class GetResourceConfigHistory(Paginator):
           ::
         
             {
-                'configurationItems': [
+                \'configurationItems\': [
                     {
-                        'version': 'string',
-                        'accountId': 'string',
-                        'configurationItemCaptureTime': datetime(2015, 1, 1),
-                        'configurationItemStatus': 'OK'|'ResourceDiscovered'|'ResourceNotRecorded'|'ResourceDeleted'|'ResourceDeletedNotRecorded',
-                        'configurationStateId': 'string',
-                        'configurationItemMD5Hash': 'string',
-                        'arn': 'string',
-                        'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-                        'resourceId': 'string',
-                        'resourceName': 'string',
-                        'awsRegion': 'string',
-                        'availabilityZone': 'string',
-                        'resourceCreationTime': datetime(2015, 1, 1),
-                        'tags': {
-                            'string': 'string'
+                        \'version\': \'string\',
+                        \'accountId\': \'string\',
+                        \'configurationItemCaptureTime\': datetime(2015, 1, 1),
+                        \'configurationItemStatus\': \'OK\'|\'ResourceDiscovered\'|\'ResourceNotRecorded\'|\'ResourceDeleted\'|\'ResourceDeletedNotRecorded\',
+                        \'configurationStateId\': \'string\',
+                        \'configurationItemMD5Hash\': \'string\',
+                        \'arn\': \'string\',
+                        \'resourceType\': \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+                        \'resourceId\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'awsRegion\': \'string\',
+                        \'availabilityZone\': \'string\',
+                        \'resourceCreationTime\': datetime(2015, 1, 1),
+                        \'tags\': {
+                            \'string\': \'string\'
                         },
-                        'relatedEvents': [
-                            'string',
+                        \'relatedEvents\': [
+                            \'string\',
                         ],
-                        'relationships': [
+                        \'relationships\': [
                             {
-                                'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-                                'resourceId': 'string',
-                                'resourceName': 'string',
-                                'relationshipName': 'string'
+                                \'resourceType\': \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+                                \'resourceId\': \'string\',
+                                \'resourceName\': \'string\',
+                                \'relationshipName\': \'string\'
                             },
                         ],
-                        'configuration': 'string',
-                        'supplementaryConfiguration': {
-                            'string': 'string'
+                        \'configuration\': \'string\',
+                        \'supplementaryConfiguration\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -931,7 +931,7 @@ class GetResourceConfigHistory(Paginator):
         
                 - **configurationItemMD5Hash** *(string) --* 
         
-                  Unique MD5 hash that represents the configuration item's state.
+                  Unique MD5 hash that represents the configuration item\'s state.
         
                   You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
         
@@ -1035,17 +1035,17 @@ class ListDiscoveredResources(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              resourceType='AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
+              resourceType=\'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
               resourceIds=[
-                  'string',
+                  \'string\',
               ],
-              resourceName='string',
+              resourceName=\'string\',
               limit=123,
               includeDeletedResources=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type resourceType: string
@@ -1100,15 +1100,15 @@ class ListDiscoveredResources(Paginator):
           ::
         
             {
-                'resourceIdentifiers': [
+                \'resourceIdentifiers\': [
                     {
-                        'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
-                        'resourceId': 'string',
-                        'resourceName': 'string',
-                        'resourceDeletionTime': datetime(2015, 1, 1)
+                        \'resourceType\': \'AWS::EC2::CustomerGateway\'|\'AWS::EC2::EIP\'|\'AWS::EC2::Host\'|\'AWS::EC2::Instance\'|\'AWS::EC2::InternetGateway\'|\'AWS::EC2::NetworkAcl\'|\'AWS::EC2::NetworkInterface\'|\'AWS::EC2::RouteTable\'|\'AWS::EC2::SecurityGroup\'|\'AWS::EC2::Subnet\'|\'AWS::CloudTrail::Trail\'|\'AWS::EC2::Volume\'|\'AWS::EC2::VPC\'|\'AWS::EC2::VPNConnection\'|\'AWS::EC2::VPNGateway\'|\'AWS::IAM::Group\'|\'AWS::IAM::Policy\'|\'AWS::IAM::Role\'|\'AWS::IAM::User\'|\'AWS::ACM::Certificate\'|\'AWS::RDS::DBInstance\'|\'AWS::RDS::DBSubnetGroup\'|\'AWS::RDS::DBSecurityGroup\'|\'AWS::RDS::DBSnapshot\'|\'AWS::RDS::EventSubscription\'|\'AWS::ElasticLoadBalancingV2::LoadBalancer\'|\'AWS::S3::Bucket\'|\'AWS::SSM::ManagedInstanceInventory\'|\'AWS::Redshift::Cluster\'|\'AWS::Redshift::ClusterSnapshot\'|\'AWS::Redshift::ClusterParameterGroup\'|\'AWS::Redshift::ClusterSecurityGroup\'|\'AWS::Redshift::ClusterSubnetGroup\'|\'AWS::Redshift::EventSubscription\'|\'AWS::CloudWatch::Alarm\'|\'AWS::CloudFormation::Stack\'|\'AWS::DynamoDB::Table\'|\'AWS::AutoScaling::AutoScalingGroup\'|\'AWS::AutoScaling::LaunchConfiguration\'|\'AWS::AutoScaling::ScalingPolicy\'|\'AWS::AutoScaling::ScheduledAction\'|\'AWS::CodeBuild::Project\'|\'AWS::WAF::RateBasedRule\'|\'AWS::WAF::Rule\'|\'AWS::WAF::WebACL\'|\'AWS::WAFRegional::RateBasedRule\'|\'AWS::WAFRegional::Rule\'|\'AWS::WAFRegional::WebACL\'|\'AWS::CloudFront::Distribution\'|\'AWS::CloudFront::StreamingDistribution\'|\'AWS::WAF::RuleGroup\'|\'AWS::WAFRegional::RuleGroup\'|\'AWS::Lambda::Function\'|\'AWS::ElasticBeanstalk::Application\'|\'AWS::ElasticBeanstalk::ApplicationVersion\'|\'AWS::ElasticBeanstalk::Environment\'|\'AWS::ElasticLoadBalancing::LoadBalancer\'|\'AWS::XRay::EncryptionConfig\'|\'AWS::SSM::AssociationCompliance\'|\'AWS::SSM::PatchCompliance\'|\'AWS::Shield::Protection\'|\'AWS::ShieldRegional::Protection\'|\'AWS::Config::ResourceCompliance\'|\'AWS::CodePipeline::Pipeline\',
+                        \'resourceId\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceDeletionTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

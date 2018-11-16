@@ -13,9 +13,9 @@ class ListHealthChecks(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,62 +43,62 @@ class ListHealthChecks(Paginator):
           ::
         
             {
-                'HealthChecks': [
+                \'HealthChecks\': [
                     {
-                        'Id': 'string',
-                        'CallerReference': 'string',
-                        'LinkedService': {
-                            'ServicePrincipal': 'string',
-                            'Description': 'string'
+                        \'Id\': \'string\',
+                        \'CallerReference\': \'string\',
+                        \'LinkedService\': {
+                            \'ServicePrincipal\': \'string\',
+                            \'Description\': \'string\'
                         },
-                        'HealthCheckConfig': {
-                            'IPAddress': 'string',
-                            'Port': 123,
-                            'Type': 'HTTP'|'HTTPS'|'HTTP_STR_MATCH'|'HTTPS_STR_MATCH'|'TCP'|'CALCULATED'|'CLOUDWATCH_METRIC',
-                            'ResourcePath': 'string',
-                            'FullyQualifiedDomainName': 'string',
-                            'SearchString': 'string',
-                            'RequestInterval': 123,
-                            'FailureThreshold': 123,
-                            'MeasureLatency': True|False,
-                            'Inverted': True|False,
-                            'Disabled': True|False,
-                            'HealthThreshold': 123,
-                            'ChildHealthChecks': [
-                                'string',
+                        \'HealthCheckConfig\': {
+                            \'IPAddress\': \'string\',
+                            \'Port\': 123,
+                            \'Type\': \'HTTP\'|\'HTTPS\'|\'HTTP_STR_MATCH\'|\'HTTPS_STR_MATCH\'|\'TCP\'|\'CALCULATED\'|\'CLOUDWATCH_METRIC\',
+                            \'ResourcePath\': \'string\',
+                            \'FullyQualifiedDomainName\': \'string\',
+                            \'SearchString\': \'string\',
+                            \'RequestInterval\': 123,
+                            \'FailureThreshold\': 123,
+                            \'MeasureLatency\': True|False,
+                            \'Inverted\': True|False,
+                            \'Disabled\': True|False,
+                            \'HealthThreshold\': 123,
+                            \'ChildHealthChecks\': [
+                                \'string\',
                             ],
-                            'EnableSNI': True|False,
-                            'Regions': [
-                                'us-east-1'|'us-west-1'|'us-west-2'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1',
+                            \'EnableSNI\': True|False,
+                            \'Regions\': [
+                                \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\',
                             ],
-                            'AlarmIdentifier': {
-                                'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1',
-                                'Name': 'string'
+                            \'AlarmIdentifier\': {
+                                \'Region\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'ca-central-1\'|\'eu-central-1\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\',
+                                \'Name\': \'string\'
                             },
-                            'InsufficientDataHealthStatus': 'Healthy'|'Unhealthy'|'LastKnownStatus'
+                            \'InsufficientDataHealthStatus\': \'Healthy\'|\'Unhealthy\'|\'LastKnownStatus\'
                         },
-                        'HealthCheckVersion': 123,
-                        'CloudWatchAlarmConfiguration': {
-                            'EvaluationPeriods': 123,
-                            'Threshold': 123.0,
-                            'ComparisonOperator': 'GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
-                            'Period': 123,
-                            'MetricName': 'string',
-                            'Namespace': 'string',
-                            'Statistic': 'Average'|'Sum'|'SampleCount'|'Maximum'|'Minimum',
-                            'Dimensions': [
+                        \'HealthCheckVersion\': 123,
+                        \'CloudWatchAlarmConfiguration\': {
+                            \'EvaluationPeriods\': 123,
+                            \'Threshold\': 123.0,
+                            \'ComparisonOperator\': \'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
+                            \'Period\': 123,
+                            \'MetricName\': \'string\',
+                            \'Namespace\': \'string\',
+                            \'Statistic\': \'Average\'|\'Sum\'|\'SampleCount\'|\'Maximum\'|\'Minimum\',
+                            \'Dimensions\': [
                                 {
-                                    'Name': 'string',
-                                    'Value': 'string'
+                                    \'Name\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         }
                     },
                 ],
-                'Marker': 'string',
-                'IsTruncated': True|False,
-                'MaxItems': 'string',
-                'NextToken': 'string'
+                \'Marker\': \'string\',
+                \'IsTruncated\': True|False,
+                \'MaxItems\': \'string\',
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -124,15 +124,15 @@ class ListHealthChecks(Paginator):
         
                 - **LinkedService** *(dict) --* 
         
-                  If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                   - **ServicePrincipal** *(string) --* 
         
-                    If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                    If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                   - **Description** *(string) --* 
         
-                    If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                    If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                 - **HealthCheckConfig** *(dict) --* 
         
@@ -140,7 +140,7 @@ class ListHealthChecks(Paginator):
         
                   - **IPAddress** *(string) --* 
         
-                    The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don't specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
+                    The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don\'t specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
         
                     Use one of the following formats for the value of ``IPAddress`` : 
         
@@ -152,7 +152,7 @@ class ListHealthChecks(Paginator):
         
                     For more information, see  HealthCheckConfig$FullyQualifiedDomainName .
         
-                    Constraints: Route 53 can't check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can't create health checks, see the following documents:
+                    Constraints: Route 53 can\'t check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can\'t create health checks, see the following documents:
         
                     * `RFC 5735, Special Use IPv4 Addresses <https://tools.ietf.org/html/rfc5735>`__   
                      
@@ -172,7 +172,7 @@ class ListHealthChecks(Paginator):
         
                     .. warning::
         
-                      You can't change the value of ``Type`` after you create a health check.
+                      You can\'t change the value of ``Type`` after you create a health check.
         
                     You can create the following types of health checks:
         
@@ -190,7 +190,7 @@ class ListHealthChecks(Paginator):
                      
                     * **TCP** : Route 53 tries to establish a TCP connection. 
                      
-                    * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
+                    * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn\'t have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
                      
                     * **CALCULATED** : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of ``HealthThreshold`` .  
                      
@@ -216,15 +216,15 @@ class ListHealthChecks(Paginator):
                      
                     * If you specify another value for ``Port`` and any value except ``TCP`` for ``Type`` , Route 53 passes ``FullyQualifiedDomainName:Port`` to the endpoint in the ``Host`` header. 
                      
-                    If you don't specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
+                    If you don\'t specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
         
-                     **If you don't specify a value for ``IPAddress`` ** :
+                     **If you don\'t specify a value for ``IPAddress`` ** :
         
                     Route 53 sends a DNS request to the domain that you specify for ``FullyQualifiedDomainName`` at the interval that you specify for ``RequestInterval`` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
         
                     .. note::
         
-                      If you don't specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a "DNS resolution failed" error.
+                      If you don\'t specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there\'s no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a \"DNS resolution failed\" error.
         
                     If you want to check the health of weighted, latency, or failover resource record sets and you choose to specify the endpoint only by ``FullyQualifiedDomainName`` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of ``FullyQualifiedDomainName`` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the resource record sets (www.example.com).
         
@@ -232,7 +232,7 @@ class ListHealthChecks(Paginator):
         
                       In this configuration, if you create a health check for which the value of ``FullyQualifiedDomainName`` matches the name of the resource record sets and you then associate the health check with those resource record sets, health check results will be unpredictable.
         
-                    In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn't pass a ``Host`` header.
+                    In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn\'t pass a ``Host`` header.
         
                   - **SearchString** *(string) --* 
         
@@ -246,15 +246,15 @@ class ListHealthChecks(Paginator):
         
                     .. warning::
         
-                      You can't change the value of ``RequestInterval`` after you create a health check.
+                      You can\'t change the value of ``RequestInterval`` after you create a health check.
         
-                    If you don't specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
+                    If you don\'t specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
         
                   - **FailureThreshold** *(integer) --* 
         
                     The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see `How Amazon Route 53 Determines Whether an Endpoint Is Healthy <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-                    If you don't specify a value for ``FailureThreshold`` , the default value is three health checks.
+                    If you don\'t specify a value for ``FailureThreshold`` , the default value is three health checks.
         
                   - **MeasureLatency** *(boolean) --* 
         
@@ -262,7 +262,7 @@ class ListHealthChecks(Paginator):
         
                     .. warning::
         
-                      You can't change the value of ``MeasureLatency`` after you create a health check.
+                      You can\'t change the value of ``MeasureLatency`` after you create a health check.
         
                   - **Inverted** *(boolean) --* 
         
@@ -270,7 +270,7 @@ class ListHealthChecks(Paginator):
         
                   - **Disabled** *(boolean) --* 
         
-                    Stops Route 53 from performing health checks. When you disable a health check, here's what happens:
+                    Stops Route 53 from performing health checks. When you disable a health check, here\'s what happens:
         
                     * **Health checks that check the health of endpoints:** Route 53 stops submitting requests to your application, server, or other resource. 
                      
@@ -302,7 +302,7 @@ class ListHealthChecks(Paginator):
         
                     Specify whether you want Amazon Route 53 to send the value of ``FullyQualifiedDomainName`` to the endpoint in the ``client_hello`` message during TLS negotiation. This allows the endpoint to respond to ``HTTPS`` health check requests with the applicable SSL/TLS certificate.
         
-                    Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don't enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you're still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
+                    Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don\'t enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you\'re still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
         
                     The SSL/TLS certificate on your endpoint includes a domain name in the ``Common Name`` field and possibly several more in the ``Subject Alternative Names`` field. One of the domain names in the certificate should match the value that you specify for ``FullyQualifiedDomainName`` . If the endpoint responds to the ``client_hello`` message with a certificate that does not include the domain name that you specified in ``FullyQualifiedDomainName`` , a health checker will retry the handshake. In the second attempt, the health checker will omit ``FullyQualifiedDomainName`` from the ``client_hello`` message.
         
@@ -310,7 +310,7 @@ class ListHealthChecks(Paginator):
         
                     A complex type that contains one ``Region`` element for each region from which you want Amazon Route 53 health checkers to check the specified endpoint.
         
-                    If you don't specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
+                    If you don\'t specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
         
                     If you update a health check to remove a region that has been performing health checks, Route 53 will briefly continue to perform checks from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with four different regions). 
         
@@ -334,9 +334,9 @@ class ListHealthChecks(Paginator):
         
                         Route 53 supports CloudWatch alarms with the following features:
         
-                        * Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
+                        * Standard-resolution metrics. High-resolution metrics aren\'t supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
                          
-                        * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported. 
+                        * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren\'t supported. 
                          
                   - **InsufficientDataHealthStatus** *(string) --* 
         
@@ -430,17 +430,17 @@ class ListHostedZones(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DelegationSetId='string',
+              DelegationSetId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DelegationSetId: string
         :param DelegationSetId: 
         
-          If you're using reusable delegation sets and you want to list all of the hosted zones that are associated with a reusable delegation set, specify the ID of that reusable delegation set. 
+          If you\'re using reusable delegation sets and you want to list all of the hosted zones that are associated with a reusable delegation set, specify the ID of that reusable delegation set. 
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -467,26 +467,26 @@ class ListHostedZones(Paginator):
           ::
         
             {
-                'HostedZones': [
+                \'HostedZones\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'CallerReference': 'string',
-                        'Config': {
-                            'Comment': 'string',
-                            'PrivateZone': True|False
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'CallerReference\': \'string\',
+                        \'Config\': {
+                            \'Comment\': \'string\',
+                            \'PrivateZone\': True|False
                         },
-                        'ResourceRecordSetCount': 123,
-                        'LinkedService': {
-                            'ServicePrincipal': 'string',
-                            'Description': 'string'
+                        \'ResourceRecordSetCount\': 123,
+                        \'LinkedService\': {
+                            \'ServicePrincipal\': \'string\',
+                            \'Description\': \'string\'
                         }
                     },
                 ],
-                'Marker': 'string',
-                'IsTruncated': True|False,
-                'MaxItems': 'string',
-                'NextToken': 'string'
+                \'Marker\': \'string\',
+                \'IsTruncated\': True|False,
+                \'MaxItems\': \'string\',
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -516,7 +516,7 @@ class ListHostedZones(Paginator):
         
                 - **Config** *(dict) --* 
         
-                  A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don't appear in the response.
+                  A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don\'t appear in the response.
         
                   - **Comment** *(string) --* 
         
@@ -532,15 +532,15 @@ class ListHostedZones(Paginator):
         
                 - **LinkedService** *(dict) --* 
         
-                  If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can't edit or delete it using Route 53. 
+                  If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can\'t edit or delete it using Route 53. 
         
                   - **ServicePrincipal** *(string) --* 
         
-                    If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                    If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                   - **Description** *(string) --* 
         
-                    If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                    If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
             - **Marker** *(string) --* 
         
@@ -572,11 +572,11 @@ class ListResourceRecordSets(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              HostedZoneId='string',
+              HostedZoneId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type HostedZoneId: string
@@ -609,38 +609,38 @@ class ListResourceRecordSets(Paginator):
           ::
         
             {
-                'ResourceRecordSets': [
+                \'ResourceRecordSets\': [
                     {
-                        'Name': 'string',
-                        'Type': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                        'SetIdentifier': 'string',
-                        'Weight': 123,
-                        'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'cn-north-1'|'cn-northwest-1'|'ap-south-1',
-                        'GeoLocation': {
-                            'ContinentCode': 'string',
-                            'CountryCode': 'string',
-                            'SubdivisionCode': 'string'
+                        \'Name\': \'string\',
+                        \'Type\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                        \'SetIdentifier\': \'string\',
+                        \'Weight\': 123,
+                        \'Region\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'ca-central-1\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'cn-north-1\'|\'cn-northwest-1\'|\'ap-south-1\',
+                        \'GeoLocation\': {
+                            \'ContinentCode\': \'string\',
+                            \'CountryCode\': \'string\',
+                            \'SubdivisionCode\': \'string\'
                         },
-                        'Failover': 'PRIMARY'|'SECONDARY',
-                        'MultiValueAnswer': True|False,
-                        'TTL': 123,
-                        'ResourceRecords': [
+                        \'Failover\': \'PRIMARY\'|\'SECONDARY\',
+                        \'MultiValueAnswer\': True|False,
+                        \'TTL\': 123,
+                        \'ResourceRecords\': [
                             {
-                                'Value': 'string'
+                                \'Value\': \'string\'
                             },
                         ],
-                        'AliasTarget': {
-                            'HostedZoneId': 'string',
-                            'DNSName': 'string',
-                            'EvaluateTargetHealth': True|False
+                        \'AliasTarget\': {
+                            \'HostedZoneId\': \'string\',
+                            \'DNSName\': \'string\',
+                            \'EvaluateTargetHealth\': True|False
                         },
-                        'HealthCheckId': 'string',
-                        'TrafficPolicyInstanceId': 'string'
+                        \'HealthCheckId\': \'string\',
+                        \'TrafficPolicyInstanceId\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'MaxItems': 'string',
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'MaxItems\': \'string\',
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -668,17 +668,17 @@ class ListResourceRecordSets(Paginator):
         
                   You can use the asterisk (*) wildcard to replace the leftmost label in a domain name, for example, ``*.example.com`` . Note the following:
         
-                  * The * must replace the entire label. For example, you can't specify ``*prod.example.com`` or ``prod*.example.com`` . 
+                  * The * must replace the entire label. For example, you can\'t specify ``*prod.example.com`` or ``prod*.example.com`` . 
                    
-                  * The * can't replace any of the middle labels, for example, marketing.*.example.com. 
+                  * The * can\'t replace any of the middle labels, for example, marketing.*.example.com. 
                    
                   * If you include * in any position other than the leftmost label in a domain name, DNS treats it as an * character (ASCII 42), not as a wildcard. 
         
                   .. warning::
         
-                     You can't use the * wildcard for resource records sets that have a type of NS. 
+                     You can\'t use the * wildcard for resource records sets that have a type of NS. 
         
-                  You can use the * wildcard as the leftmost label in a domain name, for example, ``*.example.com`` . You can't use an * for one of the middle labels, for example, ``marketing.*.example.com`` . In addition, the * must replace the entire label; for example, you can't specify ``prod*.example.com`` .
+                  You can use the * wildcard as the leftmost label in a domain name, for example, ``*.example.com`` . You can\'t use an * for one of the middle labels, for example, ``marketing.*.example.com`` . In addition, the * must replace the entire label; for example, you can\'t specify ``prod*.example.com`` .
         
                 - **Type** *(string) --* 
         
@@ -692,7 +692,7 @@ class ListResourceRecordSets(Paginator):
         
                   .. note::
         
-                    SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend that you create resource record sets for which the value of ``Type`` is ``SPF`` . RFC 7208, *Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1* , has been updated to say, "...[I]ts existence and mechanism defined in [RFC4408] have led to some interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it." In RFC 7208, see section 14.1, `The SPF DNS Record Type <http://tools.ietf.org/html/rfc7208#section-14.1>`__ .
+                    SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend that you create resource record sets for which the value of ``Type`` is ``SPF`` . RFC 7208, *Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1* , has been updated to say, \"...[I]ts existence and mechanism defined in [RFC4408] have led to some interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it.\" In RFC 7208, see section 14.1, `The SPF DNS Record Type <http://tools.ietf.org/html/rfc7208#section-14.1>`__ .
         
                   Values for alias resource record sets:
         
@@ -704,11 +704,11 @@ class ListResourceRecordSets(Paginator):
                    
                   * **Amazon S3 buckets:**  ``A``   
                    
-                  * **Another resource record set in this hosted zone:** Specify the type of the resource record set that you're creating the alias for. All values are supported except ``NS`` and ``SOA`` . 
+                  * **Another resource record set in this hosted zone:** Specify the type of the resource record set that you\'re creating the alias for. All values are supported except ``NS`` and ``SOA`` . 
         
                   .. note::
         
-                     If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't route traffic to a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record. 
+                     If you\'re creating an alias record that has the same name as the hosted zone (known as the zone apex), you can\'t route traffic to a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record you\'re routing traffic to, and creating a CNAME record for the zone apex isn\'t supported even for an alias record. 
         
                 - **SetIdentifier** *(string) --* 
         
@@ -718,13 +718,13 @@ class ListResourceRecordSets(Paginator):
         
                 - **Weight** *(integer) --* 
         
-                   *Weighted resource record sets only:* Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set. Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource's weight to the total. Note the following:
+                   *Weighted resource record sets only:* Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set. Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource\'s weight to the total. Note the following:
         
                   * You must specify a value for the ``Weight`` element for every weighted resource record set. 
                    
                   * You can only specify one ``ResourceRecord`` per weighted resource record set. 
                    
-                  * You can't create latency, failover, or geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as weighted resource record sets. 
+                  * You can\'t create latency, failover, or geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as weighted resource record sets. 
                    
                   * You can create a maximum of 100 weighted resource record sets that have the same values for the ``Name`` and ``Type`` elements. 
                    
@@ -746,9 +746,9 @@ class ListResourceRecordSets(Paginator):
                    
                   * You can only create one latency resource record set for each Amazon EC2 Region. 
                    
-                  * You aren't required to create latency resource record sets for all Amazon EC2 Regions. Route 53 will choose the region with the best latency from among the regions that you create latency resource record sets for. 
+                  * You aren\'t required to create latency resource record sets for all Amazon EC2 Regions. Route 53 will choose the region with the best latency from among the regions that you create latency resource record sets for. 
                    
-                  * You can't create non-latency resource record sets that have the same values for the ``Name`` and ``Type`` elements as latency resource record sets. 
+                  * You can\'t create non-latency resource record sets that have the same values for the ``Name`` and ``Type`` elements as latency resource record sets. 
                    
                 - **GeoLocation** *(dict) --* 
         
@@ -760,15 +760,15 @@ class ListResourceRecordSets(Paginator):
         
                   If you create separate resource record sets for overlapping geographic regions (for example, one resource record set for a continent and one for a country on the same continent), priority goes to the smallest geographic region. This allows you to route most queries for a continent to one resource and to route queries for a country on that continent to a different resource.
         
-                  You can't create two geolocation resource record sets that specify the same geographic location.
+                  You can\'t create two geolocation resource record sets that specify the same geographic location.
         
-                  The value ``*`` in the ``CountryCode`` element matches all geographic locations that aren't specified in other geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements.
+                  The value ``*`` in the ``CountryCode`` element matches all geographic locations that aren\'t specified in other geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements.
         
                   .. warning::
         
-                    Geolocation works by mapping IP addresses to locations. However, some IP addresses aren't mapped to geographic locations, so even if you create geolocation resource record sets that cover all seven continents, Route 53 will receive some DNS queries from locations that it can't identify. We recommend that you create a resource record set for which the value of ``CountryCode`` is ``*`` , which handles both queries that come from locations for which you haven't created geolocation resource record sets and queries from IP addresses that aren't mapped to a location. If you don't create a ``*`` resource record set, Route 53 returns a "no answer" response for queries from those locations.
+                    Geolocation works by mapping IP addresses to locations. However, some IP addresses aren\'t mapped to geographic locations, so even if you create geolocation resource record sets that cover all seven continents, Route 53 will receive some DNS queries from locations that it can\'t identify. We recommend that you create a resource record set for which the value of ``CountryCode`` is ``*`` , which handles both queries that come from locations for which you haven\'t created geolocation resource record sets and queries from IP addresses that aren\'t mapped to a location. If you don\'t create a ``*`` resource record set, Route 53 returns a \"no answer\" response for queries from those locations.
         
-                  You can't create non-geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as geolocation resource record sets.
+                  You can\'t create non-geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as geolocation resource record sets.
         
                   - **ContinentCode** *(string) --* 
         
@@ -800,7 +800,7 @@ class ListResourceRecordSets(Paginator):
                    
                   * If you omit the ``HealthCheckId`` element for the secondary resource record set, and if the primary resource record set is unhealthy, Route 53 always responds to DNS queries with the applicable value from the secondary resource record set. This is true regardless of the health of the associated endpoint. 
                    
-                  You can't create non-failover resource record sets that have the same values for the ``Name`` and ``Type`` elements as failover resource record sets.
+                  You can\'t create non-failover resource record sets that have the same values for the ``Name`` and ``Type`` elements as failover resource record sets.
         
                   For failover alias resource record sets, you must also include the ``EvaluateTargetHealth`` element and set the value to true.
         
@@ -816,7 +816,7 @@ class ListResourceRecordSets(Paginator):
         
                   * If you associate a health check with a multivalue answer resource record set, Amazon Route 53 responds to DNS queries with the corresponding IP address only when the health check is healthy. 
                    
-                  * If you don't associate a health check with a multivalue answer record, Route 53 always considers the record to be healthy. 
+                  * If you don\'t associate a health check with a multivalue answer record, Route 53 always considers the record to be healthy. 
                    
                   * Route 53 responds to DNS queries with up to eight healthy records; if you have eight or fewer healthy records, Route 53 responds to all DNS queries with all the healthy records. 
                    
@@ -826,15 +826,15 @@ class ListResourceRecordSets(Paginator):
                    
                   * If a resource becomes unavailable after a resolver caches a response, client software typically tries another of the IP addresses in the response. 
                    
-                  You can't create multivalue answer alias records.
+                  You can\'t create multivalue answer alias records.
         
                 - **TTL** *(integer) --* 
         
                   The resource record cache time to live (TTL), in seconds. Note the following:
         
-                  * If you're creating or updating an alias resource record set, omit ``TTL`` . Amazon Route 53 uses the value of ``TTL`` for the alias target.  
+                  * If you\'re creating or updating an alias resource record set, omit ``TTL`` . Amazon Route 53 uses the value of ``TTL`` for the alias target.  
                    
-                  * If you're associating this resource record set with a health check (if you're adding a ``HealthCheckId`` element), we recommend that you specify a ``TTL`` of 60 seconds or less so clients respond quickly to changes in health status. 
+                  * If you\'re associating this resource record set with a health check (if you\'re adding a ``HealthCheckId`` element), we recommend that you specify a ``TTL`` of 60 seconds or less so clients respond quickly to changes in health status. 
                    
                   * All of the resource record sets in a group of weighted resource record sets must have the same value for ``TTL`` . 
                    
@@ -846,7 +846,7 @@ class ListResourceRecordSets(Paginator):
         
                   .. note::
         
-                    If you're creating an alias resource record set, omit ``ResourceRecords`` .
+                    If you\'re creating an alias resource record set, omit ``ResourceRecords`` .
         
                   - *(dict) --* 
         
@@ -854,7 +854,7 @@ class ListResourceRecordSets(Paginator):
         
                     .. note::
         
-                      If you're creating an alias resource record set, omit ``ResourceRecord`` .
+                      If you\'re creating an alias resource record set, omit ``ResourceRecord`` .
         
                     - **Value** *(string) --* 
         
@@ -864,15 +864,15 @@ class ListResourceRecordSets(Paginator):
         
                       .. note::
         
-                        If you're creating an alias resource record set, omit ``Value`` .
+                        If you\'re creating an alias resource record set, omit ``Value`` .
         
                 - **AliasTarget** *(dict) --* 
         
-                   *Alias resource record sets only:* Information about the CloudFront distribution, AWS Elastic Beanstalk environment, ELB load balancer, Amazon S3 bucket, or Amazon Route 53 resource record set to which you're redirecting queries. The AWS Elastic Beanstalk environment must have a regionalized subdomain.
+                   *Alias resource record sets only:* Information about the CloudFront distribution, AWS Elastic Beanstalk environment, ELB load balancer, Amazon S3 bucket, or Amazon Route 53 resource record set to which you\'re redirecting queries. The AWS Elastic Beanstalk environment must have a regionalized subdomain.
         
-                  If you're creating resource records sets for a private hosted zone, note the following:
+                  If you\'re creating resource records sets for a private hosted zone, note the following:
         
-                  * You can't create alias resource record sets for CloudFront distributions in a private hosted zone. 
+                  * You can\'t create alias resource record sets for CloudFront distributions in a private hosted zone. 
                    
                   * Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported. 
                    
@@ -888,17 +888,17 @@ class ListResourceRecordSets(Paginator):
         
                     .. note::
         
-                      Alias resource record sets for CloudFront can't be created in a private zone.
+                      Alias resource record sets for CloudFront can\'t be created in a private zone.
         
                       Elastic Beanstalk environment  
         
-                    Specify the hosted zone ID for the region that you created the environment in. The environment must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see `AWS Elastic Beanstalk <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region>`__ in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* .
+                    Specify the hosted zone ID for the region that you created the environment in. The environment must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see `AWS Elastic Beanstalk <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region>`__ in the \"AWS Regions and Endpoints\" chapter of the *Amazon Web Services General Reference* .
         
                       ELB load balancer  
         
                     Specify the value of the hosted zone ID for the load balancer. Use the following methods to get the hosted zone ID:
         
-                    * `Elastic Load Balancing <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region>`__ table in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* : Use the value that corresponds with the region that you created your load balancer in. Note that there are separate columns for Application and Classic Load Balancers and for Network Load Balancers. 
+                    * `Elastic Load Balancing <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region>`__ table in the \"AWS Regions and Endpoints\" chapter of the *Amazon Web Services General Reference* : Use the value that corresponds with the region that you created your load balancer in. Note that there are separate columns for Application and Classic Load Balancers and for Network Load Balancers. 
                      
                     * **AWS Management Console** : Go to the Amazon EC2 page, choose **Load Balancers** in the navigation pane, select the load balancer, and get the value of the **Hosted zone** field on the **Description** tab. 
                      
@@ -916,11 +916,11 @@ class ListResourceRecordSets(Paginator):
                        
                       An Amazon S3 bucket configured as a static website  
         
-                    Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the `Amazon Simple Storage Service Website Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region>`__ table in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* .
+                    Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the `Amazon Simple Storage Service Website Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region>`__ table in the \"AWS Regions and Endpoints\" chapter of the *Amazon Web Services General Reference* .
         
                       Another Route 53 resource record set in your hosted zone  
         
-                    Specify the hosted zone ID of your hosted zone. (An alias resource record set can't reference a resource record set in a different hosted zone.)
+                    Specify the hosted zone ID of your hosted zone. (An alias resource record set can\'t reference a resource record set in a different hosted zone.)
         
                   - **DNSName** *(string) --* 
         
@@ -934,7 +934,7 @@ class ListResourceRecordSets(Paginator):
         
                     .. note::
         
-                      For failover alias records, you can't specify a CloudFront distribution for both the primary and secondary records. A distribution must include an alternate domain name that matches the name of the record. However, the primary and secondary records have the same name, and you can't include the same alternate domain name in more than one distribution. 
+                      For failover alias records, you can\'t specify a CloudFront distribution for both the primary and secondary records. A distribution must include an alternate domain name that matches the name of the record. However, the primary and secondary records have the same name, and you can\'t include the same alternate domain name in more than one distribution. 
         
                       Elastic Beanstalk environment  
         
@@ -942,7 +942,7 @@ class ListResourceRecordSets(Paginator):
         
                     .. warning::
         
-                      For environments that were created before early 2016, the domain name doesn't include the region. To route traffic to these environments, you must create a CNAME record instead of an alias record. Note that you can't create a CNAME record for the root domain name. For example, if your domain name is example.com, you can create a record that routes traffic for acme.example.com to your Elastic Beanstalk environment, but you can't create a record that routes traffic for example.com to your Elastic Beanstalk environment.
+                      For environments that were created before early 2016, the domain name doesn\'t include the region. To route traffic to these environments, you must create a CNAME record instead of an alias record. Note that you can\'t create a CNAME record for the root domain name. For example, if your domain name is example.com, you can create a record that routes traffic for acme.example.com to your Elastic Beanstalk environment, but you can\'t create a record that routes traffic for example.com to your Elastic Beanstalk environment.
         
                     For Elastic Beanstalk environments that have regionalized subdomains, specify the ``CNAME`` attribute for the environment. You can use the following methods to get the value of the CNAME attribute:
         
@@ -956,7 +956,7 @@ class ListResourceRecordSets(Paginator):
         
                     Specify the DNS name that is associated with the load balancer. Get the DNS name by using the AWS Management Console, the ELB API, or the AWS CLI. 
         
-                    * **AWS Management Console** : Go to the EC2 page, choose **Load Balancers** in the navigation pane, choose the load balancer, choose the **Description** tab, and get the value of the **DNS name** field. (If you're routing traffic to a Classic Load Balancer, get the value that begins with **dualstack** .)  
+                    * **AWS Management Console** : Go to the EC2 page, choose **Load Balancers** in the navigation pane, choose the load balancer, choose the **Description** tab, and get the value of the **DNS name** field. (If you\'re routing traffic to a Classic Load Balancer, get the value that begins with **dualstack** .)  
                      
                     * **Elastic Load Balancing API** : Use ``DescribeLoadBalancers`` to get the value of ``DNSName`` . For more information, see the applicable guide: 
         
@@ -980,7 +980,7 @@ class ListResourceRecordSets(Paginator):
         
                     .. note::
         
-                      If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't specify the domain name for a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record that you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.
+                      If you\'re creating an alias record that has the same name as the hosted zone (known as the zone apex), you can\'t specify the domain name for a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record that you\'re routing traffic to, and creating a CNAME record for the zone apex isn\'t supported even for an alias record.
         
                   - **EvaluateTargetHealth** *(boolean) --* 
         
@@ -990,7 +990,7 @@ class ListResourceRecordSets(Paginator):
         
                       CloudFront distributions  
         
-                    You can't set ``EvaluateTargetHealth`` to ``true`` when the alias target is a CloudFront distribution.
+                    You can\'t set ``EvaluateTargetHealth`` to ``true`` when the alias target is a CloudFront distribution.
         
                       Elastic Beanstalk environments that have regionalized subdomains  
         
@@ -1012,7 +1012,7 @@ class ListResourceRecordSets(Paginator):
                        
                     .. note::
         
-                      When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they're not Route 53 health checks, but they perform a similar function. Do not create Route 53 health checks for the EC2 instances that you register with an ELB load balancer. 
+                      When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they\'re not Route 53 health checks, but they perform a similar function. Do not create Route 53 health checks for the EC2 instances that you register with an ELB load balancer. 
         
                       S3 buckets  
         
@@ -1038,7 +1038,7 @@ class ListResourceRecordSets(Paginator):
                    
                   .. warning::
         
-                    Route 53 doesn't check the health of the endpoint that is specified in the resource record set, for example, the endpoint specified by the IP address in the ``Value`` element. When you add a ``HealthCheckId`` element to a resource record set, Route 53 checks the health of the endpoint that you specified in the health check. 
+                    Route 53 doesn\'t check the health of the endpoint that is specified in the resource record set, for example, the endpoint specified by the IP address in the ``Value`` element. When you add a ``HealthCheckId`` element to a resource record set, Route 53 checks the health of the endpoint that you specified in the health check. 
         
                   For more information, see the following topics in the *Amazon Route 53 Developer Guide* :
         
@@ -1052,7 +1052,7 @@ class ListResourceRecordSets(Paginator):
         
                   Specifying a value for ``HealthCheckId`` is useful only when Route 53 is choosing between two or more resource record sets to respond to a DNS query, and you want Route 53 to base the choice in part on the status of a health check. Configuring health checks makes sense only in the following configurations:
         
-                  * **Non-alias resource record sets** : You're checking the health of a group of non-alias resource record sets that have the same routing policy, name, and type (such as multiple weighted records named www.example.com with a type of A) and you specify health check IDs for all the resource record sets.  If the health check status for a resource record set is healthy, Route 53 includes the record among the records that it responds to DNS queries with. If the health check status for a resource record set is unhealthy, Route 53 stops responding to DNS queries using the value for that resource record set. If the health check status for all resource record sets in the group is unhealthy, Route 53 considers all resource record sets in the group healthy and responds to DNS queries accordingly.  
+                  * **Non-alias resource record sets** : You\'re checking the health of a group of non-alias resource record sets that have the same routing policy, name, and type (such as multiple weighted records named www.example.com with a type of A) and you specify health check IDs for all the resource record sets.  If the health check status for a resource record set is healthy, Route 53 includes the record among the records that it responds to DNS queries with. If the health check status for a resource record set is unhealthy, Route 53 stops responding to DNS queries using the value for that resource record set. If the health check status for all resource record sets in the group is unhealthy, Route 53 considers all resource record sets in the group healthy and responds to DNS queries accordingly.  
                    
                   * **Alias resource record sets** : You specify the following settings: 
         
@@ -1098,7 +1098,7 @@ class ListResourceRecordSets(Paginator):
         
                   .. warning::
         
-                    To delete the resource record set that is associated with a traffic policy instance, use ``DeleteTrafficPolicyInstance`` . Route 53 will delete the resource record set automatically. If you delete the resource record set by using ``ChangeResourceRecordSets`` , Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it even though it's no longer in use. 
+                    To delete the resource record set that is associated with a traffic policy instance, use ``DeleteTrafficPolicyInstance`` . Route 53 will delete the resource record set automatically. If you delete the resource record set by using ``ChangeResourceRecordSets`` , Route 53 doesn\'t automatically delete the traffic policy instance, and you\'ll continue to be charged for it even though it\'s no longer in use. 
         
             - **IsTruncated** *(boolean) --* 
         

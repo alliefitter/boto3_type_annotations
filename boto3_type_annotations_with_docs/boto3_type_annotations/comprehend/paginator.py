@@ -13,15 +13,15 @@ class ListTopicsDetectionJobs(Paginator):
         
           response_iterator = paginator.paginate(
               Filter={
-                  'JobName': 'string',
-                  'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                  'SubmitTimeBefore': datetime(2015, 1, 1),
-                  'SubmitTimeAfter': datetime(2015, 1, 1)
+                  \'JobName\': \'string\',
+                  \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                  \'SubmitTimeBefore\': datetime(2015, 1, 1),
+                  \'SubmitTimeAfter\': datetime(2015, 1, 1)
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filter: dict
@@ -68,22 +68,22 @@ class ListTopicsDetectionJobs(Paginator):
           ::
         
             {
-                'TopicsDetectionJobPropertiesList': [
+                \'TopicsDetectionJobPropertiesList\': [
                     {
-                        'JobId': 'string',
-                        'JobName': 'string',
-                        'JobStatus': 'SUBMITTED'|'IN_PROGRESS'|'COMPLETED'|'FAILED'|'STOP_REQUESTED'|'STOPPED',
-                        'Message': 'string',
-                        'SubmitTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'InputDataConfig': {
-                            'S3Uri': 'string',
-                            'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
+                        \'JobId\': \'string\',
+                        \'JobName\': \'string\',
+                        \'JobStatus\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'STOP_REQUESTED\'|\'STOPPED\',
+                        \'Message\': \'string\',
+                        \'SubmitTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'InputDataConfig\': {
+                            \'S3Uri\': \'string\',
+                            \'InputFormat\': \'ONE_DOC_PER_FILE\'|\'ONE_DOC_PER_LINE\'
                         },
-                        'OutputDataConfig': {
-                            'S3Uri': 'string'
+                        \'OutputDataConfig\': {
+                            \'S3Uri\': \'string\'
                         },
-                        'NumberOfTopics': 123
+                        \'NumberOfTopics\': 123
                     },
                 ],
                 

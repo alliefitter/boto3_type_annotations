@@ -1,9 +1,9 @@
+from typing import Optional
+from typing import Union
 from botocore.waiter import Waiter
 from botocore.paginate import Paginator
-from typing import Union
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -13,10 +13,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -32,7 +32,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_cluster(
-              ClusterId='string'
+              ClusterId=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -62,7 +62,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_job(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -93,20 +93,20 @@ class Client(BaseClient):
         
           response = client.create_address(
               Address={
-                  'AddressId': 'string',
-                  'Name': 'string',
-                  'Company': 'string',
-                  'Street1': 'string',
-                  'Street2': 'string',
-                  'Street3': 'string',
-                  'City': 'string',
-                  'StateOrProvince': 'string',
-                  'PrefectureOrDistrict': 'string',
-                  'Landmark': 'string',
-                  'Country': 'string',
-                  'PostalCode': 'string',
-                  'PhoneNumber': 'string',
-                  'IsRestricted': True|False
+                  \'AddressId\': \'string\',
+                  \'Name\': \'string\',
+                  \'Company\': \'string\',
+                  \'Street1\': \'string\',
+                  \'Street2\': \'string\',
+                  \'Street3\': \'string\',
+                  \'City\': \'string\',
+                  \'StateOrProvince\': \'string\',
+                  \'PrefectureOrDistrict\': \'string\',
+                  \'Landmark\': \'string\',
+                  \'Country\': \'string\',
+                  \'PostalCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'IsRestricted\': True|False
               }
           )
         :type Address: dict
@@ -178,7 +178,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AddressId': 'string'
+                \'AddressId\': \'string\'
             }
           **Response Structure** 
         
@@ -186,7 +186,7 @@ class Client(BaseClient):
             
             - **AddressId** *(string) --* 
         
-              The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snowball for that job shipped to.
+              The automatically generated ID for a specific address. You\'ll use this ID when you create a job to specify which address you want the Snowball for that job shipped to.
         
         """
         pass
@@ -200,48 +200,48 @@ class Client(BaseClient):
         ::
         
           response = client.create_cluster(
-              JobType='IMPORT'|'EXPORT'|'LOCAL_USE',
+              JobType=\'IMPORT\'|\'EXPORT\'|\'LOCAL_USE\',
               Resources={
-                  'S3Resources': [
+                  \'S3Resources\': [
                       {
-                          'BucketArn': 'string',
-                          'KeyRange': {
-                              'BeginMarker': 'string',
-                              'EndMarker': 'string'
+                          \'BucketArn\': \'string\',
+                          \'KeyRange\': {
+                              \'BeginMarker\': \'string\',
+                              \'EndMarker\': \'string\'
                           }
                       },
                   ],
-                  'LambdaResources': [
+                  \'LambdaResources\': [
                       {
-                          'LambdaArn': 'string',
-                          'EventTriggers': [
+                          \'LambdaArn\': \'string\',
+                          \'EventTriggers\': [
                               {
-                                  'EventResourceARN': 'string'
+                                  \'EventResourceARN\': \'string\'
                               },
                           ]
                       },
                   ],
-                  'Ec2AmiResources': [
+                  \'Ec2AmiResources\': [
                       {
-                          'AmiId': 'string',
-                          'SnowballAmiId': 'string'
+                          \'AmiId\': \'string\',
+                          \'SnowballAmiId\': \'string\'
                       },
                   ]
               },
-              Description='string',
-              AddressId='string',
-              KmsKeyARN='string',
-              RoleARN='string',
-              SnowballType='STANDARD'|'EDGE',
-              ShippingOption='SECOND_DAY'|'NEXT_DAY'|'EXPRESS'|'STANDARD',
+              Description=\'string\',
+              AddressId=\'string\',
+              KmsKeyARN=\'string\',
+              RoleARN=\'string\',
+              SnowballType=\'STANDARD\'|\'EDGE\',
+              ShippingOption=\'SECOND_DAY\'|\'NEXT_DAY\'|\'EXPRESS\'|\'STANDARD\',
               Notification={
-                  'SnsTopicARN': 'string',
-                  'JobStatesToNotify': [
-                      'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
+                  \'SnsTopicARN\': \'string\',
+                  \'JobStatesToNotify\': [
+                      \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
                   ],
-                  'NotifyAll': True|False
+                  \'NotifyAll\': True|False
               },
-              ForwardingAddressId='string'
+              ForwardingAddressId=\'string\'
           )
         :type JobType: string
         :param JobType: **[REQUIRED]** 
@@ -299,7 +299,7 @@ class Client(BaseClient):
         
                   - **EventResourceARN** *(string) --* 
         
-                    The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
+                    The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function\'s event trigger associated with this job.
         
           - **Ec2AmiResources** *(list) --* 
         
@@ -345,7 +345,7 @@ class Client(BaseClient):
         :type ShippingOption: string
         :param ShippingOption: **[REQUIRED]** 
         
-          The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:
+          The shipping speed for each node in this cluster. This speed doesn\'t dictate how soon you\'ll get each Snowball Edge device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:
         
           * In Australia, you have access to express shipping. Typically, devices shipped express are delivered in about a day. 
            
@@ -389,7 +389,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ClusterId': 'string'
+                \'ClusterId\': \'string\'
             }
           **Response Structure** 
         
@@ -411,55 +411,55 @@ class Client(BaseClient):
         ::
         
           response = client.create_job(
-              JobType='IMPORT'|'EXPORT'|'LOCAL_USE',
+              JobType=\'IMPORT\'|\'EXPORT\'|\'LOCAL_USE\',
               Resources={
-                  'S3Resources': [
+                  \'S3Resources\': [
                       {
-                          'BucketArn': 'string',
-                          'KeyRange': {
-                              'BeginMarker': 'string',
-                              'EndMarker': 'string'
+                          \'BucketArn\': \'string\',
+                          \'KeyRange\': {
+                              \'BeginMarker\': \'string\',
+                              \'EndMarker\': \'string\'
                           }
                       },
                   ],
-                  'LambdaResources': [
+                  \'LambdaResources\': [
                       {
-                          'LambdaArn': 'string',
-                          'EventTriggers': [
+                          \'LambdaArn\': \'string\',
+                          \'EventTriggers\': [
                               {
-                                  'EventResourceARN': 'string'
+                                  \'EventResourceARN\': \'string\'
                               },
                           ]
                       },
                   ],
-                  'Ec2AmiResources': [
+                  \'Ec2AmiResources\': [
                       {
-                          'AmiId': 'string',
-                          'SnowballAmiId': 'string'
+                          \'AmiId\': \'string\',
+                          \'SnowballAmiId\': \'string\'
                       },
                   ]
               },
-              Description='string',
-              AddressId='string',
-              KmsKeyARN='string',
-              RoleARN='string',
-              SnowballCapacityPreference='T50'|'T80'|'T100'|'NoPreference',
-              ShippingOption='SECOND_DAY'|'NEXT_DAY'|'EXPRESS'|'STANDARD',
+              Description=\'string\',
+              AddressId=\'string\',
+              KmsKeyARN=\'string\',
+              RoleARN=\'string\',
+              SnowballCapacityPreference=\'T50\'|\'T80\'|\'T100\'|\'NoPreference\',
+              ShippingOption=\'SECOND_DAY\'|\'NEXT_DAY\'|\'EXPRESS\'|\'STANDARD\',
               Notification={
-                  'SnsTopicARN': 'string',
-                  'JobStatesToNotify': [
-                      'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
+                  \'SnsTopicARN\': \'string\',
+                  \'JobStatesToNotify\': [
+                      \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
                   ],
-                  'NotifyAll': True|False
+                  \'NotifyAll\': True|False
               },
-              ClusterId='string',
-              SnowballType='STANDARD'|'EDGE',
-              ForwardingAddressId='string'
+              ClusterId=\'string\',
+              SnowballType=\'STANDARD\'|\'EDGE\',
+              ForwardingAddressId=\'string\'
           )
         :type JobType: string
         :param JobType: 
         
-          Defines the type of job that you're creating. 
+          Defines the type of job that you\'re creating. 
         
         :type Resources: dict
         :param Resources: 
@@ -516,7 +516,7 @@ class Client(BaseClient):
         
                   - **EventResourceARN** *(string) --* 
         
-                    The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
+                    The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function\'s event trigger associated with this job.
         
           - **Ec2AmiResources** *(list) --* 
         
@@ -557,12 +557,12 @@ class Client(BaseClient):
         :type SnowballCapacityPreference: string
         :param SnowballCapacityPreference: 
         
-          If your job is being created in one of the US regions, you have the option of specifying what size Snowball you'd like for this job. In all other regions, Snowballs come with 80 TB in storage capacity.
+          If your job is being created in one of the US regions, you have the option of specifying what size Snowball you\'d like for this job. In all other regions, Snowballs come with 80 TB in storage capacity.
         
         :type ShippingOption: string
         :param ShippingOption: 
         
-          The shipping speed for this job. This speed doesn't dictate how soon you'll get the Snowball, rather it represents how quickly the Snowball moves to its destination while in transit. Regional shipping speeds are as follows:
+          The shipping speed for this job. This speed doesn\'t dictate how soon you\'ll get the Snowball, rather it represents how quickly the Snowball moves to its destination while in transit. Regional shipping speeds are as follows:
         
           * In Australia, you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day. 
            
@@ -596,7 +596,7 @@ class Client(BaseClient):
         :type ClusterId: string
         :param ClusterId: 
         
-          The ID of a cluster. If you're creating a job for a node in a cluster, you need to provide only this ``clusterId`` value. The other job attributes are inherited from the cluster.
+          The ID of a cluster. If you\'re creating a job for a node in a cluster, you need to provide only this ``clusterId`` value. The other job attributes are inherited from the cluster.
         
         :type SnowballType: string
         :param SnowballType: 
@@ -616,7 +616,7 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string'
+                \'JobId\': \'string\'
             }
           **Response Structure** 
         
@@ -638,7 +638,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_address(
-              AddressId='string'
+              AddressId=\'string\'
           )
         :type AddressId: string
         :param AddressId: **[REQUIRED]** 
@@ -653,21 +653,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Address': {
-                    'AddressId': 'string',
-                    'Name': 'string',
-                    'Company': 'string',
-                    'Street1': 'string',
-                    'Street2': 'string',
-                    'Street3': 'string',
-                    'City': 'string',
-                    'StateOrProvince': 'string',
-                    'PrefectureOrDistrict': 'string',
-                    'Landmark': 'string',
-                    'Country': 'string',
-                    'PostalCode': 'string',
-                    'PhoneNumber': 'string',
-                    'IsRestricted': True|False
+                \'Address\': {
+                    \'AddressId\': \'string\',
+                    \'Name\': \'string\',
+                    \'Company\': \'string\',
+                    \'Street1\': \'string\',
+                    \'Street2\': \'string\',
+                    \'Street3\': \'string\',
+                    \'City\': \'string\',
+                    \'StateOrProvince\': \'string\',
+                    \'PrefectureOrDistrict\': \'string\',
+                    \'Landmark\': \'string\',
+                    \'Country\': \'string\',
+                    \'PostalCode\': \'string\',
+                    \'PhoneNumber\': \'string\',
+                    \'IsRestricted\': True|False
                 }
             }
           **Response Structure** 
@@ -747,7 +747,7 @@ class Client(BaseClient):
         
           response = client.describe_addresses(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -757,7 +757,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          HTTP requests are stateless. To identify what object comes "next" in the list of ``ADDRESS`` objects, you have the option of specifying a value for ``NextToken`` as the starting point for your list of returned addresses.
+          HTTP requests are stateless. To identify what object comes \"next\" in the list of ``ADDRESS`` objects, you have the option of specifying a value for ``NextToken`` as the starting point for your list of returned addresses.
         
         :rtype: dict
         :returns: 
@@ -767,25 +767,25 @@ class Client(BaseClient):
           ::
         
             {
-                'Addresses': [
+                \'Addresses\': [
                     {
-                        'AddressId': 'string',
-                        'Name': 'string',
-                        'Company': 'string',
-                        'Street1': 'string',
-                        'Street2': 'string',
-                        'Street3': 'string',
-                        'City': 'string',
-                        'StateOrProvince': 'string',
-                        'PrefectureOrDistrict': 'string',
-                        'Landmark': 'string',
-                        'Country': 'string',
-                        'PostalCode': 'string',
-                        'PhoneNumber': 'string',
-                        'IsRestricted': True|False
+                        \'AddressId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Company\': \'string\',
+                        \'Street1\': \'string\',
+                        \'Street2\': \'string\',
+                        \'Street3\': \'string\',
+                        \'City\': \'string\',
+                        \'StateOrProvince\': \'string\',
+                        \'PrefectureOrDistrict\': \'string\',
+                        \'Landmark\': \'string\',
+                        \'Country\': \'string\',
+                        \'PostalCode\': \'string\',
+                        \'PhoneNumber\': \'string\',
+                        \'IsRestricted\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -871,7 +871,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cluster(
-              ClusterId='string'
+              ClusterId=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -886,52 +886,52 @@ class Client(BaseClient):
           ::
         
             {
-                'ClusterMetadata': {
-                    'ClusterId': 'string',
-                    'Description': 'string',
-                    'KmsKeyARN': 'string',
-                    'RoleARN': 'string',
-                    'ClusterState': 'AwaitingQuorum'|'Pending'|'InUse'|'Complete'|'Cancelled',
-                    'JobType': 'IMPORT'|'EXPORT'|'LOCAL_USE',
-                    'SnowballType': 'STANDARD'|'EDGE',
-                    'CreationDate': datetime(2015, 1, 1),
-                    'Resources': {
-                        'S3Resources': [
+                \'ClusterMetadata\': {
+                    \'ClusterId\': \'string\',
+                    \'Description\': \'string\',
+                    \'KmsKeyARN\': \'string\',
+                    \'RoleARN\': \'string\',
+                    \'ClusterState\': \'AwaitingQuorum\'|\'Pending\'|\'InUse\'|\'Complete\'|\'Cancelled\',
+                    \'JobType\': \'IMPORT\'|\'EXPORT\'|\'LOCAL_USE\',
+                    \'SnowballType\': \'STANDARD\'|\'EDGE\',
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'Resources\': {
+                        \'S3Resources\': [
                             {
-                                'BucketArn': 'string',
-                                'KeyRange': {
-                                    'BeginMarker': 'string',
-                                    'EndMarker': 'string'
+                                \'BucketArn\': \'string\',
+                                \'KeyRange\': {
+                                    \'BeginMarker\': \'string\',
+                                    \'EndMarker\': \'string\'
                                 }
                             },
                         ],
-                        'LambdaResources': [
+                        \'LambdaResources\': [
                             {
-                                'LambdaArn': 'string',
-                                'EventTriggers': [
+                                \'LambdaArn\': \'string\',
+                                \'EventTriggers\': [
                                     {
-                                        'EventResourceARN': 'string'
+                                        \'EventResourceARN\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'Ec2AmiResources': [
+                        \'Ec2AmiResources\': [
                             {
-                                'AmiId': 'string',
-                                'SnowballAmiId': 'string'
+                                \'AmiId\': \'string\',
+                                \'SnowballAmiId\': \'string\'
                             },
                         ]
                     },
-                    'AddressId': 'string',
-                    'ShippingOption': 'SECOND_DAY'|'NEXT_DAY'|'EXPRESS'|'STANDARD',
-                    'Notification': {
-                        'SnsTopicARN': 'string',
-                        'JobStatesToNotify': [
-                            'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
+                    \'AddressId\': \'string\',
+                    \'ShippingOption\': \'SECOND_DAY\'|\'NEXT_DAY\'|\'EXPRESS\'|\'STANDARD\',
+                    \'Notification\': {
+                        \'SnsTopicARN\': \'string\',
+                        \'JobStatesToNotify\': [
+                            \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
                         ],
-                        'NotifyAll': True|False
+                        \'NotifyAll\': True|False
                     },
-                    'ForwardingAddressId': 'string'
+                    \'ForwardingAddressId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1024,7 +1024,7 @@ class Client(BaseClient):
         
                         - **EventResourceARN** *(string) --* 
         
-                          The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
+                          The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function\'s event trigger associated with this job.
         
                 - **Ec2AmiResources** *(list) --* 
         
@@ -1048,7 +1048,7 @@ class Client(BaseClient):
         
               - **ShippingOption** *(string) --* 
         
-                The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:
+                The shipping speed for each node in this cluster. This speed doesn\'t dictate how soon you\'ll get each Snowball Edge device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:
         
                 * In Australia, you have access to express shipping. Typically, devices shipped express are delivered in about a day. 
                  
@@ -1094,7 +1094,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_job(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -1109,146 +1109,146 @@ class Client(BaseClient):
           ::
         
             {
-                'JobMetadata': {
-                    'JobId': 'string',
-                    'JobState': 'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
-                    'JobType': 'IMPORT'|'EXPORT'|'LOCAL_USE',
-                    'SnowballType': 'STANDARD'|'EDGE',
-                    'CreationDate': datetime(2015, 1, 1),
-                    'Resources': {
-                        'S3Resources': [
+                \'JobMetadata\': {
+                    \'JobId\': \'string\',
+                    \'JobState\': \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
+                    \'JobType\': \'IMPORT\'|\'EXPORT\'|\'LOCAL_USE\',
+                    \'SnowballType\': \'STANDARD\'|\'EDGE\',
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'Resources\': {
+                        \'S3Resources\': [
                             {
-                                'BucketArn': 'string',
-                                'KeyRange': {
-                                    'BeginMarker': 'string',
-                                    'EndMarker': 'string'
+                                \'BucketArn\': \'string\',
+                                \'KeyRange\': {
+                                    \'BeginMarker\': \'string\',
+                                    \'EndMarker\': \'string\'
                                 }
                             },
                         ],
-                        'LambdaResources': [
+                        \'LambdaResources\': [
                             {
-                                'LambdaArn': 'string',
-                                'EventTriggers': [
+                                \'LambdaArn\': \'string\',
+                                \'EventTriggers\': [
                                     {
-                                        'EventResourceARN': 'string'
+                                        \'EventResourceARN\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'Ec2AmiResources': [
+                        \'Ec2AmiResources\': [
                             {
-                                'AmiId': 'string',
-                                'SnowballAmiId': 'string'
+                                \'AmiId\': \'string\',
+                                \'SnowballAmiId\': \'string\'
                             },
                         ]
                     },
-                    'Description': 'string',
-                    'KmsKeyARN': 'string',
-                    'RoleARN': 'string',
-                    'AddressId': 'string',
-                    'ShippingDetails': {
-                        'ShippingOption': 'SECOND_DAY'|'NEXT_DAY'|'EXPRESS'|'STANDARD',
-                        'InboundShipment': {
-                            'Status': 'string',
-                            'TrackingNumber': 'string'
+                    \'Description\': \'string\',
+                    \'KmsKeyARN\': \'string\',
+                    \'RoleARN\': \'string\',
+                    \'AddressId\': \'string\',
+                    \'ShippingDetails\': {
+                        \'ShippingOption\': \'SECOND_DAY\'|\'NEXT_DAY\'|\'EXPRESS\'|\'STANDARD\',
+                        \'InboundShipment\': {
+                            \'Status\': \'string\',
+                            \'TrackingNumber\': \'string\'
                         },
-                        'OutboundShipment': {
-                            'Status': 'string',
-                            'TrackingNumber': 'string'
+                        \'OutboundShipment\': {
+                            \'Status\': \'string\',
+                            \'TrackingNumber\': \'string\'
                         }
                     },
-                    'SnowballCapacityPreference': 'T50'|'T80'|'T100'|'NoPreference',
-                    'Notification': {
-                        'SnsTopicARN': 'string',
-                        'JobStatesToNotify': [
-                            'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
+                    \'SnowballCapacityPreference\': \'T50\'|\'T80\'|\'T100\'|\'NoPreference\',
+                    \'Notification\': {
+                        \'SnsTopicARN\': \'string\',
+                        \'JobStatesToNotify\': [
+                            \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
                         ],
-                        'NotifyAll': True|False
+                        \'NotifyAll\': True|False
                     },
-                    'DataTransferProgress': {
-                        'BytesTransferred': 123,
-                        'ObjectsTransferred': 123,
-                        'TotalBytes': 123,
-                        'TotalObjects': 123
+                    \'DataTransferProgress\': {
+                        \'BytesTransferred\': 123,
+                        \'ObjectsTransferred\': 123,
+                        \'TotalBytes\': 123,
+                        \'TotalObjects\': 123
                     },
-                    'JobLogInfo': {
-                        'JobCompletionReportURI': 'string',
-                        'JobSuccessLogURI': 'string',
-                        'JobFailureLogURI': 'string'
+                    \'JobLogInfo\': {
+                        \'JobCompletionReportURI\': \'string\',
+                        \'JobSuccessLogURI\': \'string\',
+                        \'JobFailureLogURI\': \'string\'
                     },
-                    'ClusterId': 'string',
-                    'ForwardingAddressId': 'string'
+                    \'ClusterId\': \'string\',
+                    \'ForwardingAddressId\': \'string\'
                 },
-                'SubJobMetadata': [
+                \'SubJobMetadata\': [
                     {
-                        'JobId': 'string',
-                        'JobState': 'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
-                        'JobType': 'IMPORT'|'EXPORT'|'LOCAL_USE',
-                        'SnowballType': 'STANDARD'|'EDGE',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'Resources': {
-                            'S3Resources': [
+                        \'JobId\': \'string\',
+                        \'JobState\': \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
+                        \'JobType\': \'IMPORT\'|\'EXPORT\'|\'LOCAL_USE\',
+                        \'SnowballType\': \'STANDARD\'|\'EDGE\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'Resources\': {
+                            \'S3Resources\': [
                                 {
-                                    'BucketArn': 'string',
-                                    'KeyRange': {
-                                        'BeginMarker': 'string',
-                                        'EndMarker': 'string'
+                                    \'BucketArn\': \'string\',
+                                    \'KeyRange\': {
+                                        \'BeginMarker\': \'string\',
+                                        \'EndMarker\': \'string\'
                                     }
                                 },
                             ],
-                            'LambdaResources': [
+                            \'LambdaResources\': [
                                 {
-                                    'LambdaArn': 'string',
-                                    'EventTriggers': [
+                                    \'LambdaArn\': \'string\',
+                                    \'EventTriggers\': [
                                         {
-                                            'EventResourceARN': 'string'
+                                            \'EventResourceARN\': \'string\'
                                         },
                                     ]
                                 },
                             ],
-                            'Ec2AmiResources': [
+                            \'Ec2AmiResources\': [
                                 {
-                                    'AmiId': 'string',
-                                    'SnowballAmiId': 'string'
+                                    \'AmiId\': \'string\',
+                                    \'SnowballAmiId\': \'string\'
                                 },
                             ]
                         },
-                        'Description': 'string',
-                        'KmsKeyARN': 'string',
-                        'RoleARN': 'string',
-                        'AddressId': 'string',
-                        'ShippingDetails': {
-                            'ShippingOption': 'SECOND_DAY'|'NEXT_DAY'|'EXPRESS'|'STANDARD',
-                            'InboundShipment': {
-                                'Status': 'string',
-                                'TrackingNumber': 'string'
+                        \'Description\': \'string\',
+                        \'KmsKeyARN\': \'string\',
+                        \'RoleARN\': \'string\',
+                        \'AddressId\': \'string\',
+                        \'ShippingDetails\': {
+                            \'ShippingOption\': \'SECOND_DAY\'|\'NEXT_DAY\'|\'EXPRESS\'|\'STANDARD\',
+                            \'InboundShipment\': {
+                                \'Status\': \'string\',
+                                \'TrackingNumber\': \'string\'
                             },
-                            'OutboundShipment': {
-                                'Status': 'string',
-                                'TrackingNumber': 'string'
+                            \'OutboundShipment\': {
+                                \'Status\': \'string\',
+                                \'TrackingNumber\': \'string\'
                             }
                         },
-                        'SnowballCapacityPreference': 'T50'|'T80'|'T100'|'NoPreference',
-                        'Notification': {
-                            'SnsTopicARN': 'string',
-                            'JobStatesToNotify': [
-                                'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
+                        \'SnowballCapacityPreference\': \'T50\'|\'T80\'|\'T100\'|\'NoPreference\',
+                        \'Notification\': {
+                            \'SnsTopicARN\': \'string\',
+                            \'JobStatesToNotify\': [
+                                \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
                             ],
-                            'NotifyAll': True|False
+                            \'NotifyAll\': True|False
                         },
-                        'DataTransferProgress': {
-                            'BytesTransferred': 123,
-                            'ObjectsTransferred': 123,
-                            'TotalBytes': 123,
-                            'TotalObjects': 123
+                        \'DataTransferProgress\': {
+                            \'BytesTransferred\': 123,
+                            \'ObjectsTransferred\': 123,
+                            \'TotalBytes\': 123,
+                            \'TotalObjects\': 123
                         },
-                        'JobLogInfo': {
-                            'JobCompletionReportURI': 'string',
-                            'JobSuccessLogURI': 'string',
-                            'JobFailureLogURI': 'string'
+                        \'JobLogInfo\': {
+                            \'JobCompletionReportURI\': \'string\',
+                            \'JobSuccessLogURI\': \'string\',
+                            \'JobFailureLogURI\': \'string\'
                         },
-                        'ClusterId': 'string',
-                        'ForwardingAddressId': 'string'
+                        \'ClusterId\': \'string\',
+                        \'ForwardingAddressId\': \'string\'
                     },
                 ]
             }
@@ -1330,7 +1330,7 @@ class Client(BaseClient):
         
                         - **EventResourceARN** *(string) --* 
         
-                          The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
+                          The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function\'s event trigger associated with this job.
         
                 - **Ec2AmiResources** *(list) --* 
         
@@ -1366,11 +1366,11 @@ class Client(BaseClient):
         
               - **ShippingDetails** *(dict) --* 
         
-                A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
+                A job\'s shipping information, including inbound and outbound tracking numbers and shipping speed options.
         
                 - **ShippingOption** *(string) --* 
         
-                  The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snowball from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
+                  The shipping speed for a particular job. This speed doesn\'t dictate how soon you\'ll get the Snowball from the job\'s creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
         
                   * In Australia, you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day. 
                    
@@ -1390,7 +1390,7 @@ class Client(BaseClient):
         
                   - **TrackingNumber** *(string) --* 
         
-                    The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snowball as the carrier transports it.
+                    The tracking number for this job. Using this tracking number with your region\'s carrier\'s website, you can track a Snowball as the carrier transports it.
         
                     For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
         
@@ -1404,7 +1404,7 @@ class Client(BaseClient):
         
                   - **TrackingNumber** *(string) --* 
         
-                    The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snowball as the carrier transports it.
+                    The tracking number for this job. Using this tracking number with your region\'s carrier\'s website, you can track a Snowball as the carrier transports it.
         
                     For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
         
@@ -1434,7 +1434,7 @@ class Client(BaseClient):
         
               - **DataTransferProgress** *(dict) --* 
         
-                A value that defines the real-time status of a Snowball's data transfer while the device is at AWS. This data is only available while a job has a ``JobState`` value of ``InProgress`` , for both import and export jobs.
+                A value that defines the real-time status of a Snowball\'s data transfer while the device is at AWS. This data is only available while a job has a ``JobState`` value of ``InProgress`` , for both import and export jobs.
         
                 - **BytesTransferred** *(integer) --* 
         
@@ -1554,7 +1554,7 @@ class Client(BaseClient):
         
                           - **EventResourceARN** *(string) --* 
         
-                            The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
+                            The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function\'s event trigger associated with this job.
         
                   - **Ec2AmiResources** *(list) --* 
         
@@ -1590,11 +1590,11 @@ class Client(BaseClient):
         
                 - **ShippingDetails** *(dict) --* 
         
-                  A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
+                  A job\'s shipping information, including inbound and outbound tracking numbers and shipping speed options.
         
                   - **ShippingOption** *(string) --* 
         
-                    The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snowball from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
+                    The shipping speed for a particular job. This speed doesn\'t dictate how soon you\'ll get the Snowball from the job\'s creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
         
                     * In Australia, you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day. 
                      
@@ -1614,7 +1614,7 @@ class Client(BaseClient):
         
                     - **TrackingNumber** *(string) --* 
         
-                      The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snowball as the carrier transports it.
+                      The tracking number for this job. Using this tracking number with your region\'s carrier\'s website, you can track a Snowball as the carrier transports it.
         
                       For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
         
@@ -1628,7 +1628,7 @@ class Client(BaseClient):
         
                     - **TrackingNumber** *(string) --* 
         
-                      The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snowball as the carrier transports it.
+                      The tracking number for this job. Using this tracking number with your region\'s carrier\'s website, you can track a Snowball as the carrier transports it.
         
                       For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
         
@@ -1658,7 +1658,7 @@ class Client(BaseClient):
         
                 - **DataTransferProgress** *(dict) --* 
         
-                  A value that defines the real-time status of a Snowball's data transfer while the device is at AWS. This data is only available while a job has a ``JobState`` value of ``InProgress`` , for both import and export jobs.
+                  A value that defines the real-time status of a Snowball\'s data transfer while the device is at AWS. This data is only available while a job has a ``JobState`` value of ``InProgress`` , for both import and export jobs.
         
                   - **BytesTransferred** *(integer) --* 
         
@@ -1719,7 +1719,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1730,7 +1730,7 @@ class Client(BaseClient):
         
         The manifest is an encrypted file that you can download after your job enters the ``WithCustomer`` status. The manifest is decrypted by using the ``UnlockCode`` code value, when you pass both values to the Snowball through the Snowball client when the client is started for the first time.
         
-        As a best practice, we recommend that you don't save a copy of an ``UnlockCode`` value in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
+        As a best practice, we recommend that you don\'t save a copy of an ``UnlockCode`` value in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
         
         The credentials of a given job, including its manifest file and unlock code, expire 90 days after the job is created.
         
@@ -1740,7 +1740,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_job_manifest(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -1755,7 +1755,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ManifestURI': 'string'
+                \'ManifestURI\': \'string\'
             }
           **Response Structure** 
         
@@ -1773,7 +1773,7 @@ class Client(BaseClient):
         
         The ``UnlockCode`` value is a 29-character code with 25 alphanumeric characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed along with the manifest to the Snowball through the Snowball client when the client is started for the first time.
         
-        As a best practice, we recommend that you don't save a copy of the ``UnlockCode`` in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
+        As a best practice, we recommend that you don\'t save a copy of the ``UnlockCode`` in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobUnlockCode>`_
         
@@ -1781,7 +1781,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_job_unlock_code(
-              JobId='string'
+              JobId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -1796,7 +1796,7 @@ class Client(BaseClient):
           ::
         
             {
-                'UnlockCode': 'string'
+                \'UnlockCode\': \'string\'
             }
           **Response Structure** 
         
@@ -1815,10 +1815,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1849,8 +1849,8 @@ class Client(BaseClient):
           ::
         
             {
-                'SnowballLimit': 123,
-                'SnowballsInUse': 123
+                \'SnowballLimit\': 123,
+                \'SnowballsInUse\': 123
             }
           **Response Structure** 
         
@@ -1888,9 +1888,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_cluster_jobs(
-              ClusterId='string',
+              ClusterId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -1905,7 +1905,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          HTTP requests are stateless. To identify what object comes "next" in the list of ``JobListEntry`` objects, you have the option of specifying ``NextToken`` as the starting point for your returned list.
+          HTTP requests are stateless. To identify what object comes \"next\" in the list of ``JobListEntry`` objects, you have the option of specifying ``NextToken`` as the starting point for your returned list.
         
         :rtype: dict
         :returns: 
@@ -1915,18 +1915,18 @@ class Client(BaseClient):
           ::
         
             {
-                'JobListEntries': [
+                \'JobListEntries\': [
                     {
-                        'JobId': 'string',
-                        'JobState': 'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
-                        'IsMaster': True|False,
-                        'JobType': 'IMPORT'|'EXPORT'|'LOCAL_USE',
-                        'SnowballType': 'STANDARD'|'EDGE',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'Description': 'string'
+                        \'JobId\': \'string\',
+                        \'JobState\': \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
+                        \'IsMaster\': True|False,
+                        \'JobType\': \'IMPORT\'|\'EXPORT\'|\'LOCAL_USE\',
+                        \'SnowballType\': \'STANDARD\'|\'EDGE\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1934,11 +1934,11 @@ class Client(BaseClient):
             
             - **JobListEntries** *(list) --* 
         
-              Each ``JobListEntry`` object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. 
+              Each ``JobListEntry`` object contains a job\'s state, a job\'s ID, and a value that indicates whether the job is a job part, in the case of export jobs. 
         
               - *(dict) --* 
         
-                Each ``JobListEntry`` object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of an export job.
+                Each ``JobListEntry`` object contains a job\'s state, a job\'s ID, and a value that indicates whether the job is a job part, in the case of an export job.
         
                 - **JobId** *(string) --* 
         
@@ -1950,7 +1950,7 @@ class Client(BaseClient):
         
                 - **IsMaster** *(boolean) --* 
         
-                  A value that indicates that this job is a master job. A master job represents a successful request to create an export job. Master jobs aren't associated with any Snowballs. Instead, each master job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular master job are listed, because they are created after the master job is created.
+                  A value that indicates that this job is a master job. A master job represents a successful request to create an export job. Master jobs aren\'t associated with any Snowballs. Instead, each master job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular master job are listed, because they are created after the master job is created.
         
                 - **JobType** *(string) --* 
         
@@ -1985,7 +1985,7 @@ class Client(BaseClient):
         
           response = client.list_clusters(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -1995,7 +1995,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          HTTP requests are stateless. To identify what object comes "next" in the list of ``ClusterListEntry`` objects, you have the option of specifying ``NextToken`` as the starting point for your returned list.
+          HTTP requests are stateless. To identify what object comes \"next\" in the list of ``ClusterListEntry`` objects, you have the option of specifying ``NextToken`` as the starting point for your returned list.
         
         :rtype: dict
         :returns: 
@@ -2005,15 +2005,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ClusterListEntries': [
+                \'ClusterListEntries\': [
                     {
-                        'ClusterId': 'string',
-                        'ClusterState': 'AwaitingQuorum'|'Pending'|'InUse'|'Complete'|'Cancelled',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'Description': 'string'
+                        \'ClusterId\': \'string\',
+                        \'ClusterState\': \'AwaitingQuorum\'|\'Pending\'|\'InUse\'|\'Complete\'|\'Cancelled\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2021,11 +2021,11 @@ class Client(BaseClient):
             
             - **ClusterListEntries** *(list) --* 
         
-              Each ``ClusterListEntry`` object contains a cluster's state, a cluster's ID, and other important status information.
+              Each ``ClusterListEntry`` object contains a cluster\'s state, a cluster\'s ID, and other important status information.
         
               - *(dict) --* 
         
-                Contains a cluster's state, a cluster's ID, and other important information.
+                Contains a cluster\'s state, a cluster\'s ID, and other important information.
         
                 - **ClusterId** *(string) --* 
         
@@ -2060,7 +2060,7 @@ class Client(BaseClient):
         
           response = client.list_compatible_images(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -2070,7 +2070,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          HTTP requests are stateless. To identify what object comes "next" in the list of compatible images, you can specify a value for ``NextToken`` as the starting point for your list of returned images.
+          HTTP requests are stateless. To identify what object comes \"next\" in the list of compatible images, you can specify a value for ``NextToken`` as the starting point for your list of returned images.
         
         :rtype: dict
         :returns: 
@@ -2080,13 +2080,13 @@ class Client(BaseClient):
           ::
         
             {
-                'CompatibleImages': [
+                \'CompatibleImages\': [
                     {
-                        'AmiId': 'string',
-                        'Name': 'string'
+                        \'AmiId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2098,7 +2098,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                A JSON-formatted object that describes a compatible Amazon Machine Image (AMI), including the ID and name for a Snowball Edge AMI. This AMI is compatible with the device's physical hardware requirements, and it should be able to be run in an SBE1 instance on the device.
+                A JSON-formatted object that describes a compatible Amazon Machine Image (AMI), including the ID and name for a Snowball Edge AMI. This AMI is compatible with the device\'s physical hardware requirements, and it should be able to be run in an SBE1 instance on the device.
         
                 - **AmiId** *(string) --* 
         
@@ -2125,7 +2125,7 @@ class Client(BaseClient):
         
           response = client.list_jobs(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -2135,7 +2135,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          HTTP requests are stateless. To identify what object comes "next" in the list of ``JobListEntry`` objects, you have the option of specifying ``NextToken`` as the starting point for your returned list.
+          HTTP requests are stateless. To identify what object comes \"next\" in the list of ``JobListEntry`` objects, you have the option of specifying ``NextToken`` as the starting point for your returned list.
         
         :rtype: dict
         :returns: 
@@ -2145,18 +2145,18 @@ class Client(BaseClient):
           ::
         
             {
-                'JobListEntries': [
+                \'JobListEntries\': [
                     {
-                        'JobId': 'string',
-                        'JobState': 'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
-                        'IsMaster': True|False,
-                        'JobType': 'IMPORT'|'EXPORT'|'LOCAL_USE',
-                        'SnowballType': 'STANDARD'|'EDGE',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'Description': 'string'
+                        \'JobId\': \'string\',
+                        \'JobState\': \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
+                        \'IsMaster\': True|False,
+                        \'JobType\': \'IMPORT\'|\'EXPORT\'|\'LOCAL_USE\',
+                        \'SnowballType\': \'STANDARD\'|\'EDGE\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2164,11 +2164,11 @@ class Client(BaseClient):
             
             - **JobListEntries** *(list) --* 
         
-              Each ``JobListEntry`` object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. 
+              Each ``JobListEntry`` object contains a job\'s state, a job\'s ID, and a value that indicates whether the job is a job part, in the case of export jobs. 
         
               - *(dict) --* 
         
-                Each ``JobListEntry`` object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of an export job.
+                Each ``JobListEntry`` object contains a job\'s state, a job\'s ID, and a value that indicates whether the job is a job part, in the case of an export job.
         
                 - **JobId** *(string) --* 
         
@@ -2180,7 +2180,7 @@ class Client(BaseClient):
         
                 - **IsMaster** *(boolean) --* 
         
-                  A value that indicates that this job is a master job. A master job represents a successful request to create an export job. Master jobs aren't associated with any Snowballs. Instead, each master job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular master job are listed, because they are created after the master job is created.
+                  A value that indicates that this job is a master job. A master job represents a successful request to create an export job. Master jobs aren\'t associated with any Snowballs. Instead, each master job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular master job are listed, because they are created after the master job is created.
         
                 - **JobType** *(string) --* 
         
@@ -2214,46 +2214,46 @@ class Client(BaseClient):
         ::
         
           response = client.update_cluster(
-              ClusterId='string',
-              RoleARN='string',
-              Description='string',
+              ClusterId=\'string\',
+              RoleARN=\'string\',
+              Description=\'string\',
               Resources={
-                  'S3Resources': [
+                  \'S3Resources\': [
                       {
-                          'BucketArn': 'string',
-                          'KeyRange': {
-                              'BeginMarker': 'string',
-                              'EndMarker': 'string'
+                          \'BucketArn\': \'string\',
+                          \'KeyRange\': {
+                              \'BeginMarker\': \'string\',
+                              \'EndMarker\': \'string\'
                           }
                       },
                   ],
-                  'LambdaResources': [
+                  \'LambdaResources\': [
                       {
-                          'LambdaArn': 'string',
-                          'EventTriggers': [
+                          \'LambdaArn\': \'string\',
+                          \'EventTriggers\': [
                               {
-                                  'EventResourceARN': 'string'
+                                  \'EventResourceARN\': \'string\'
                               },
                           ]
                       },
                   ],
-                  'Ec2AmiResources': [
+                  \'Ec2AmiResources\': [
                       {
-                          'AmiId': 'string',
-                          'SnowballAmiId': 'string'
+                          \'AmiId\': \'string\',
+                          \'SnowballAmiId\': \'string\'
                       },
                   ]
               },
-              AddressId='string',
-              ShippingOption='SECOND_DAY'|'NEXT_DAY'|'EXPRESS'|'STANDARD',
+              AddressId=\'string\',
+              ShippingOption=\'SECOND_DAY\'|\'NEXT_DAY\'|\'EXPRESS\'|\'STANDARD\',
               Notification={
-                  'SnsTopicARN': 'string',
-                  'JobStatesToNotify': [
-                      'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
+                  \'SnsTopicARN\': \'string\',
+                  \'JobStatesToNotify\': [
+                      \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
                   ],
-                  'NotifyAll': True|False
+                  \'NotifyAll\': True|False
               },
-              ForwardingAddressId='string'
+              ForwardingAddressId=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -2321,7 +2321,7 @@ class Client(BaseClient):
         
                   - **EventResourceARN** *(string) --* 
         
-                    The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
+                    The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function\'s event trigger associated with this job.
         
           - **Ec2AmiResources** *(list) --* 
         
@@ -2347,7 +2347,7 @@ class Client(BaseClient):
         :type ShippingOption: string
         :param ShippingOption: 
         
-          The updated shipping option value of this cluster's  ShippingDetails object.
+          The updated shipping option value of this cluster\'s  ShippingDetails object.
         
         :type Notification: dict
         :param Notification: 
@@ -2398,47 +2398,47 @@ class Client(BaseClient):
         ::
         
           response = client.update_job(
-              JobId='string',
-              RoleARN='string',
+              JobId=\'string\',
+              RoleARN=\'string\',
               Notification={
-                  'SnsTopicARN': 'string',
-                  'JobStatesToNotify': [
-                      'New'|'PreparingAppliance'|'PreparingShipment'|'InTransitToCustomer'|'WithCustomer'|'InTransitToAWS'|'WithAWSSortingFacility'|'WithAWS'|'InProgress'|'Complete'|'Cancelled'|'Listing'|'Pending',
+                  \'SnsTopicARN\': \'string\',
+                  \'JobStatesToNotify\': [
+                      \'New\'|\'PreparingAppliance\'|\'PreparingShipment\'|\'InTransitToCustomer\'|\'WithCustomer\'|\'InTransitToAWS\'|\'WithAWSSortingFacility\'|\'WithAWS\'|\'InProgress\'|\'Complete\'|\'Cancelled\'|\'Listing\'|\'Pending\',
                   ],
-                  'NotifyAll': True|False
+                  \'NotifyAll\': True|False
               },
               Resources={
-                  'S3Resources': [
+                  \'S3Resources\': [
                       {
-                          'BucketArn': 'string',
-                          'KeyRange': {
-                              'BeginMarker': 'string',
-                              'EndMarker': 'string'
+                          \'BucketArn\': \'string\',
+                          \'KeyRange\': {
+                              \'BeginMarker\': \'string\',
+                              \'EndMarker\': \'string\'
                           }
                       },
                   ],
-                  'LambdaResources': [
+                  \'LambdaResources\': [
                       {
-                          'LambdaArn': 'string',
-                          'EventTriggers': [
+                          \'LambdaArn\': \'string\',
+                          \'EventTriggers\': [
                               {
-                                  'EventResourceARN': 'string'
+                                  \'EventResourceARN\': \'string\'
                               },
                           ]
                       },
                   ],
-                  'Ec2AmiResources': [
+                  \'Ec2AmiResources\': [
                       {
-                          'AmiId': 'string',
-                          'SnowballAmiId': 'string'
+                          \'AmiId\': \'string\',
+                          \'SnowballAmiId\': \'string\'
                       },
                   ]
               },
-              AddressId='string',
-              ShippingOption='SECOND_DAY'|'NEXT_DAY'|'EXPRESS'|'STANDARD',
-              Description='string',
-              SnowballCapacityPreference='T50'|'T80'|'T100'|'NoPreference',
-              ForwardingAddressId='string'
+              AddressId=\'string\',
+              ShippingOption=\'SECOND_DAY\'|\'NEXT_DAY\'|\'EXPRESS\'|\'STANDARD\',
+              Description=\'string\',
+              SnowballCapacityPreference=\'T50\'|\'T80\'|\'T100\'|\'NoPreference\',
+              ForwardingAddressId=\'string\'
           )
         :type JobId: string
         :param JobId: **[REQUIRED]** 
@@ -2522,7 +2522,7 @@ class Client(BaseClient):
         
                   - **EventResourceARN** *(string) --* 
         
-                    The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
+                    The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function\'s event trigger associated with this job.
         
           - **Ec2AmiResources** *(list) --* 
         
@@ -2548,17 +2548,17 @@ class Client(BaseClient):
         :type ShippingOption: string
         :param ShippingOption: 
         
-          The updated shipping option value of this job's  ShippingDetails object.
+          The updated shipping option value of this job\'s  ShippingDetails object.
         
         :type Description: string
         :param Description: 
         
-          The updated description of this job's  JobMetadata object.
+          The updated description of this job\'s  JobMetadata object.
         
         :type SnowballCapacityPreference: string
         :param SnowballCapacityPreference: 
         
-          The updated ``SnowballCapacityPreference`` of this job's  JobMetadata object. The 50 TB Snowballs are only available in the US regions.
+          The updated ``SnowballCapacityPreference`` of this job\'s  JobMetadata object. The 50 TB Snowballs are only available in the US regions.
         
         :type ForwardingAddressId: string
         :param ForwardingAddressId: 

@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -23,8 +23,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_kms_key(
-              logGroupName='string',
-              kmsKeyId='string'
+              logGroupName=\'string\',
+              kmsKeyId=\'string\'
           )
         :type logGroupName: string
         :param logGroupName: **[REQUIRED]** 
@@ -46,10 +46,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -67,7 +67,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_export_task(
-              taskId='string'
+              taskId=\'string\'
           )
         :type taskId: string
         :param taskId: **[REQUIRED]** 
@@ -91,13 +91,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_export_task(
-              taskName='string',
-              logGroupName='string',
-              logStreamNamePrefix='string',
+              taskName=\'string\',
+              logGroupName=\'string\',
+              logStreamNamePrefix=\'string\',
               fromTime=123,
               to=123,
-              destination='string',
-              destinationPrefix='string'
+              destination=\'string\',
+              destinationPrefix=\'string\'
           )
         :type taskName: string
         :param taskName: 
@@ -112,7 +112,7 @@ class Client(BaseClient):
         :type logStreamNamePrefix: string
         :param logStreamNamePrefix: 
         
-          Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied.
+          Export only log streams that match the provided prefix. If you don\'t specify a value, no prefix filter is applied.
         
         :type fromTime: integer
         :param fromTime: **[REQUIRED]** 
@@ -132,7 +132,7 @@ class Client(BaseClient):
         :type destinationPrefix: string
         :param destinationPrefix: 
         
-          The prefix used as the start of the key for every object exported. If you don't specify a value, the default is ``exportedlogs`` .
+          The prefix used as the start of the key for every object exported. If you don\'t specify a value, the default is ``exportedlogs`` .
         
         :rtype: dict
         :returns: 
@@ -142,7 +142,7 @@ class Client(BaseClient):
           ::
         
             {
-                'taskId': 'string'
+                \'taskId\': \'string\'
             }
           **Response Structure** 
         
@@ -166,7 +166,7 @@ class Client(BaseClient):
          
         * Log group names can be between 1 and 512 characters long. 
          
-        * Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period). 
+        * Log group names consist of the following characters: a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (hyphen), \'/\' (forward slash), and \'.\' (period). 
          
         If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.
         
@@ -178,10 +178,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_log_group(
-              logGroupName='string',
-              kmsKeyId='string',
+              logGroupName=\'string\',
+              kmsKeyId=\'string\',
               tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type logGroupName: string
@@ -218,7 +218,7 @@ class Client(BaseClient):
          
         * Log stream names can be between 1 and 512 characters long. 
          
-        * The ':' (colon) and '*' (asterisk) characters are not allowed. 
+        * The \':\' (colon) and \'*\' (asterisk) characters are not allowed. 
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/CreateLogStream>`_
         
@@ -226,8 +226,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_log_stream(
-              logGroupName='string',
-              logStreamName='string'
+              logGroupName=\'string\',
+              logStreamName=\'string\'
           )
         :type logGroupName: string
         :param logGroupName: **[REQUIRED]** 
@@ -252,7 +252,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_destination(
-              destinationName='string'
+              destinationName=\'string\'
           )
         :type destinationName: string
         :param destinationName: **[REQUIRED]** 
@@ -272,7 +272,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_log_group(
-              logGroupName='string'
+              logGroupName=\'string\'
           )
         :type logGroupName: string
         :param logGroupName: **[REQUIRED]** 
@@ -292,8 +292,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_log_stream(
-              logGroupName='string',
-              logStreamName='string'
+              logGroupName=\'string\',
+              logStreamName=\'string\'
           )
         :type logGroupName: string
         :param logGroupName: **[REQUIRED]** 
@@ -318,8 +318,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_metric_filter(
-              logGroupName='string',
-              filterName='string'
+              logGroupName=\'string\',
+              filterName=\'string\'
           )
         :type logGroupName: string
         :param logGroupName: **[REQUIRED]** 
@@ -344,7 +344,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_resource_policy(
-              policyName='string'
+              policyName=\'string\'
           )
         :type policyName: string
         :param policyName: 
@@ -366,7 +366,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_retention_policy(
-              logGroupName='string'
+              logGroupName=\'string\'
           )
         :type logGroupName: string
         :param logGroupName: **[REQUIRED]** 
@@ -386,8 +386,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_subscription_filter(
-              logGroupName='string',
-              filterName='string'
+              logGroupName=\'string\',
+              filterName=\'string\'
           )
         :type logGroupName: string
         :param logGroupName: **[REQUIRED]** 
@@ -412,14 +412,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_destinations(
-              DestinationNamePrefix='string',
-              nextToken='string',
+              DestinationNamePrefix=\'string\',
+              nextToken=\'string\',
               limit=123
           )
         :type DestinationNamePrefix: string
         :param DestinationNamePrefix: 
         
-          The prefix to match. If you don't specify a value, no prefix filter is applied.
+          The prefix to match. If you don\'t specify a value, no prefix filter is applied.
         
         :type nextToken: string
         :param nextToken: 
@@ -429,7 +429,7 @@ class Client(BaseClient):
         :type limit: integer
         :param limit: 
         
-          The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+          The maximum number of items returned. If you don\'t specify a value, the default is up to 50 items.
         
         :rtype: dict
         :returns: 
@@ -439,17 +439,17 @@ class Client(BaseClient):
           ::
         
             {
-                'destinations': [
+                \'destinations\': [
                     {
-                        'destinationName': 'string',
-                        'targetArn': 'string',
-                        'roleArn': 'string',
-                        'accessPolicy': 'string',
-                        'arn': 'string',
-                        'creationTime': 123
+                        \'destinationName\': \'string\',
+                        \'targetArn\': \'string\',
+                        \'roleArn\': \'string\',
+                        \'accessPolicy\': \'string\',
+                        \'arn\': \'string\',
+                        \'creationTime\': 123
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -503,9 +503,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_export_tasks(
-              taskId='string',
-              statusCode='CANCELLED'|'COMPLETED'|'FAILED'|'PENDING'|'PENDING_CANCEL'|'RUNNING',
-              nextToken='string',
+              taskId=\'string\',
+              statusCode=\'CANCELLED\'|\'COMPLETED\'|\'FAILED\'|\'PENDING\'|\'PENDING_CANCEL\'|\'RUNNING\',
+              nextToken=\'string\',
               limit=123
           )
         :type taskId: string
@@ -526,7 +526,7 @@ class Client(BaseClient):
         :type limit: integer
         :param limit: 
         
-          The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+          The maximum number of items returned. If you don\'t specify a value, the default is up to 50 items.
         
         :rtype: dict
         :returns: 
@@ -536,26 +536,26 @@ class Client(BaseClient):
           ::
         
             {
-                'exportTasks': [
+                \'exportTasks\': [
                     {
-                        'taskId': 'string',
-                        'taskName': 'string',
-                        'logGroupName': 'string',
-                        'from': 123,
-                        'to': 123,
-                        'destination': 'string',
-                        'destinationPrefix': 'string',
-                        'status': {
-                            'code': 'CANCELLED'|'COMPLETED'|'FAILED'|'PENDING'|'PENDING_CANCEL'|'RUNNING',
-                            'message': 'string'
+                        \'taskId\': \'string\',
+                        \'taskName\': \'string\',
+                        \'logGroupName\': \'string\',
+                        \'from\': 123,
+                        \'to\': 123,
+                        \'destination\': \'string\',
+                        \'destinationPrefix\': \'string\',
+                        \'status\': {
+                            \'code\': \'CANCELLED\'|\'COMPLETED\'|\'FAILED\'|\'PENDING\'|\'PENDING_CANCEL\'|\'RUNNING\',
+                            \'message\': \'string\'
                         },
-                        'executionInfo': {
-                            'creationTime': 123,
-                            'completionTime': 123
+                        \'executionInfo\': {
+                            \'creationTime\': 123,
+                            \'completionTime\': 123
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -637,8 +637,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_log_groups(
-              logGroupNamePrefix='string',
-              nextToken='string',
+              logGroupNamePrefix=\'string\',
+              nextToken=\'string\',
               limit=123
           )
         :type logGroupNamePrefix: string
@@ -654,7 +654,7 @@ class Client(BaseClient):
         :type limit: integer
         :param limit: 
         
-          The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+          The maximum number of items returned. If you don\'t specify a value, the default is up to 50 items.
         
         :rtype: dict
         :returns: 
@@ -664,18 +664,18 @@ class Client(BaseClient):
           ::
         
             {
-                'logGroups': [
+                \'logGroups\': [
                     {
-                        'logGroupName': 'string',
-                        'creationTime': 123,
-                        'retentionInDays': 123,
-                        'metricFilterCount': 123,
-                        'arn': 'string',
-                        'storedBytes': 123,
-                        'kmsKeyId': 'string'
+                        \'logGroupName\': \'string\',
+                        \'creationTime\': 123,
+                        \'retentionInDays\': 123,
+                        \'metricFilterCount\': 123,
+                        \'arn\': \'string\',
+                        \'storedBytes\': 123,
+                        \'kmsKeyId\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -735,11 +735,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_log_streams(
-              logGroupName='string',
-              logStreamNamePrefix='string',
-              orderBy='LogStreamName'|'LastEventTime',
+              logGroupName=\'string\',
+              logStreamNamePrefix=\'string\',
+              orderBy=\'LogStreamName\'|\'LastEventTime\',
               descending=True|False,
-              nextToken='string',
+              nextToken=\'string\',
               limit=123
           )
         :type logGroupName: string
@@ -776,7 +776,7 @@ class Client(BaseClient):
         :type limit: integer
         :param limit: 
         
-          The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+          The maximum number of items returned. If you don\'t specify a value, the default is up to 50 items.
         
         :rtype: dict
         :returns: 
@@ -786,19 +786,19 @@ class Client(BaseClient):
           ::
         
             {
-                'logStreams': [
+                \'logStreams\': [
                     {
-                        'logStreamName': 'string',
-                        'creationTime': 123,
-                        'firstEventTimestamp': 123,
-                        'lastEventTimestamp': 123,
-                        'lastIngestionTime': 123,
-                        'uploadSequenceToken': 'string',
-                        'arn': 'string',
-                        'storedBytes': 123
+                        \'logStreamName\': \'string\',
+                        \'creationTime\': 123,
+                        \'firstEventTimestamp\': 123,
+                        \'lastEventTimestamp\': 123,
+                        \'lastIngestionTime\': 123,
+                        \'uploadSequenceToken\': \'string\',
+                        \'arn\': \'string\',
+                        \'storedBytes\': 123
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -860,12 +860,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_metric_filters(
-              logGroupName='string',
-              filterNamePrefix='string',
-              nextToken='string',
+              logGroupName=\'string\',
+              filterNamePrefix=\'string\',
+              nextToken=\'string\',
               limit=123,
-              metricName='string',
-              metricNamespace='string'
+              metricName=\'string\',
+              metricNamespace=\'string\'
           )
         :type logGroupName: string
         :param logGroupName: 
@@ -885,7 +885,7 @@ class Client(BaseClient):
         :type limit: integer
         :param limit: 
         
-          The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+          The maximum number of items returned. If you don\'t specify a value, the default is up to 50 items.
         
         :type metricName: string
         :param metricName: 
@@ -905,23 +905,23 @@ class Client(BaseClient):
           ::
         
             {
-                'metricFilters': [
+                \'metricFilters\': [
                     {
-                        'filterName': 'string',
-                        'filterPattern': 'string',
-                        'metricTransformations': [
+                        \'filterName\': \'string\',
+                        \'filterPattern\': \'string\',
+                        \'metricTransformations\': [
                             {
-                                'metricName': 'string',
-                                'metricNamespace': 'string',
-                                'metricValue': 'string',
-                                'defaultValue': 123.0
+                                \'metricName\': \'string\',
+                                \'metricNamespace\': \'string\',
+                                \'metricValue\': \'string\',
+                                \'defaultValue\': 123.0
                             },
                         ],
-                        'creationTime': 123,
-                        'logGroupName': 'string'
+                        \'creationTime\': 123,
+                        \'logGroupName\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -991,7 +991,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_resource_policies(
-              nextToken='string',
+              nextToken=\'string\',
               limit=123
           )
         :type nextToken: string
@@ -1012,14 +1012,14 @@ class Client(BaseClient):
           ::
         
             {
-                'resourcePolicies': [
+                \'resourcePolicies\': [
                     {
-                        'policyName': 'string',
-                        'policyDocument': 'string',
-                        'lastUpdatedTime': 123
+                        \'policyName\': \'string\',
+                        \'policyDocument\': \'string\',
+                        \'lastUpdatedTime\': 123
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1061,9 +1061,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_subscription_filters(
-              logGroupName='string',
-              filterNamePrefix='string',
-              nextToken='string',
+              logGroupName=\'string\',
+              filterNamePrefix=\'string\',
+              nextToken=\'string\',
               limit=123
           )
         :type logGroupName: string
@@ -1074,7 +1074,7 @@ class Client(BaseClient):
         :type filterNamePrefix: string
         :param filterNamePrefix: 
         
-          The prefix to match. If you don't specify a value, no prefix filter is applied.
+          The prefix to match. If you don\'t specify a value, no prefix filter is applied.
         
         :type nextToken: string
         :param nextToken: 
@@ -1084,7 +1084,7 @@ class Client(BaseClient):
         :type limit: integer
         :param limit: 
         
-          The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+          The maximum number of items returned. If you don\'t specify a value, the default is up to 50 items.
         
         :rtype: dict
         :returns: 
@@ -1094,18 +1094,18 @@ class Client(BaseClient):
           ::
         
             {
-                'subscriptionFilters': [
+                \'subscriptionFilters\': [
                     {
-                        'filterName': 'string',
-                        'logGroupName': 'string',
-                        'filterPattern': 'string',
-                        'destinationArn': 'string',
-                        'roleArn': 'string',
-                        'distribution': 'Random'|'ByLogStream',
-                        'creationTime': 123
+                        \'filterName\': \'string\',
+                        \'logGroupName\': \'string\',
+                        \'filterPattern\': \'string\',
+                        \'destinationArn\': \'string\',
+                        \'roleArn\': \'string\',
+                        \'distribution\': \'Random\'|\'ByLogStream\',
+                        \'creationTime\': 123
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1165,7 +1165,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_kms_key(
-              logGroupName='string'
+              logGroupName=\'string\'
           )
         :type logGroupName: string
         :param logGroupName: **[REQUIRED]** 
@@ -1187,15 +1187,15 @@ class Client(BaseClient):
         ::
         
           response = client.filter_log_events(
-              logGroupName='string',
+              logGroupName=\'string\',
               logStreamNames=[
-                  'string',
+                  \'string\',
               ],
-              logStreamNamePrefix='string',
+              logStreamNamePrefix=\'string\',
               startTime=123,
               endTime=123,
-              filterPattern='string',
-              nextToken='string',
+              filterPattern=\'string\',
+              nextToken=\'string\',
               limit=123,
               interleaved=True|False
           )
@@ -1260,22 +1260,22 @@ class Client(BaseClient):
           ::
         
             {
-                'events': [
+                \'events\': [
                     {
-                        'logStreamName': 'string',
-                        'timestamp': 123,
-                        'message': 'string',
-                        'ingestionTime': 123,
-                        'eventId': 'string'
+                        \'logStreamName\': \'string\',
+                        \'timestamp\': 123,
+                        \'message\': \'string\',
+                        \'ingestionTime\': 123,
+                        \'eventId\': \'string\'
                     },
                 ],
-                'searchedLogStreams': [
+                \'searchedLogStreams\': [
                     {
-                        'logStreamName': 'string',
-                        'searchedCompletely': True|False
+                        \'logStreamName\': \'string\',
+                        \'searchedCompletely\': True|False
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1348,7 +1348,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1365,11 +1365,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_log_events(
-              logGroupName='string',
-              logStreamName='string',
+              logGroupName=\'string\',
+              logStreamName=\'string\',
               startTime=123,
               endTime=123,
-              nextToken='string',
+              nextToken=\'string\',
               limit=123,
               startFromHead=True|False
           )
@@ -1401,7 +1401,7 @@ class Client(BaseClient):
         :type limit: integer
         :param limit: 
         
-          The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.
+          The maximum number of log events returned. If you don\'t specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.
         
         :type startFromHead: boolean
         :param startFromHead: 
@@ -1416,15 +1416,15 @@ class Client(BaseClient):
           ::
         
             {
-                'events': [
+                \'events\': [
                     {
-                        'timestamp': 123,
-                        'message': 'string',
-                        'ingestionTime': 123
+                        \'timestamp\': 123,
+                        \'message\': \'string\',
+                        \'ingestionTime\': 123
                     },
                 ],
-                'nextForwardToken': 'string',
-                'nextBackwardToken': 'string'
+                \'nextForwardToken\': \'string\',
+                \'nextBackwardToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1467,10 +1467,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1502,7 +1502,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_log_group(
-              logGroupName='string'
+              logGroupName=\'string\'
           )
         :type logGroupName: string
         :param logGroupName: **[REQUIRED]** 
@@ -1517,8 +1517,8 @@ class Client(BaseClient):
           ::
         
             {
-                'tags': {
-                    'string': 'string'
+                \'tags\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1547,9 +1547,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_destination(
-              destinationName='string',
-              targetArn='string',
-              roleArn='string'
+              destinationName=\'string\',
+              targetArn=\'string\',
+              roleArn=\'string\'
           )
         :type destinationName: string
         :param destinationName: **[REQUIRED]** 
@@ -1574,13 +1574,13 @@ class Client(BaseClient):
           ::
         
             {
-                'destination': {
-                    'destinationName': 'string',
-                    'targetArn': 'string',
-                    'roleArn': 'string',
-                    'accessPolicy': 'string',
-                    'arn': 'string',
-                    'creationTime': 123
+                \'destination\': {
+                    \'destinationName\': \'string\',
+                    \'targetArn\': \'string\',
+                    \'roleArn\': \'string\',
+                    \'accessPolicy\': \'string\',
+                    \'arn\': \'string\',
+                    \'creationTime\': 123
                 }
             }
           **Response Structure** 
@@ -1627,8 +1627,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_destination_policy(
-              destinationName='string',
-              accessPolicy='string'
+              destinationName=\'string\',
+              accessPolicy=\'string\'
           )
         :type destinationName: string
         :param destinationName: **[REQUIRED]** 
@@ -1663,7 +1663,7 @@ class Client(BaseClient):
          
         * A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails. 
          
-        If a call to PutLogEvents returns "UnrecognizedClientException" the most likely cause is an invalid AWS access key ID or secret key. 
+        If a call to PutLogEvents returns \"UnrecognizedClientException\" the most likely cause is an invalid AWS access key ID or secret key. 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/PutLogEvents>`_
         
@@ -1671,15 +1671,15 @@ class Client(BaseClient):
         ::
         
           response = client.put_log_events(
-              logGroupName='string',
-              logStreamName='string',
+              logGroupName=\'string\',
+              logStreamName=\'string\',
               logEvents=[
                   {
-                      'timestamp': 123,
-                      'message': 'string'
+                      \'timestamp\': 123,
+                      \'message\': \'string\'
                   },
               ],
-              sequenceToken='string'
+              sequenceToken=\'string\'
           )
         :type logGroupName: string
         :param logGroupName: **[REQUIRED]** 
@@ -1721,11 +1721,11 @@ class Client(BaseClient):
           ::
         
             {
-                'nextSequenceToken': 'string',
-                'rejectedLogEventsInfo': {
-                    'tooNewLogEventStartIndex': 123,
-                    'tooOldLogEventEndIndex': 123,
-                    'expiredLogEventEndIndex': 123
+                \'nextSequenceToken\': \'string\',
+                \'rejectedLogEventsInfo\': {
+                    \'tooNewLogEventStartIndex\': 123,
+                    \'tooOldLogEventEndIndex\': 123,
+                    \'expiredLogEventEndIndex\': 123
                 }
             }
           **Response Structure** 
@@ -1766,15 +1766,15 @@ class Client(BaseClient):
         ::
         
           response = client.put_metric_filter(
-              logGroupName='string',
-              filterName='string',
-              filterPattern='string',
+              logGroupName=\'string\',
+              filterName=\'string\',
+              filterPattern=\'string\',
               metricTransformations=[
                   {
-                      'metricName': 'string',
-                      'metricNamespace': 'string',
-                      'metricValue': 'string',
-                      'defaultValue': 123.0
+                      \'metricName\': \'string\',
+                      \'metricNamespace\': \'string\',
+                      \'metricValue\': \'string\',
+                      \'defaultValue\': 123.0
                   },
               ]
           )
@@ -1831,8 +1831,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_resource_policy(
-              policyName='string',
-              policyDocument='string'
+              policyName=\'string\',
+              policyDocument=\'string\'
           )
         :type policyName: string
         :param policyName: 
@@ -1844,9 +1844,9 @@ class Client(BaseClient):
         
           Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.
         
-          The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace "logArn" with the ARN of your CloudWatch Logs resource, such as a log group or log stream.
+          The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace \"logArn\" with the ARN of your CloudWatch Logs resource, such as a log group or log stream.
         
-           ``{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": "logArn" } ] }``  
+           ``{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"logArn\" } ] }``  
         
         :rtype: dict
         :returns: 
@@ -1856,10 +1856,10 @@ class Client(BaseClient):
           ::
         
             {
-                'resourcePolicy': {
-                    'policyName': 'string',
-                    'policyDocument': 'string',
-                    'lastUpdatedTime': 123
+                \'resourcePolicy\': {
+                    \'policyName\': \'string\',
+                    \'policyDocument\': \'string\',
+                    \'lastUpdatedTime\': 123
                 }
             }
           **Response Structure** 
@@ -1894,7 +1894,7 @@ class Client(BaseClient):
         ::
         
           response = client.put_retention_policy(
-              logGroupName='string',
+              logGroupName=\'string\',
               retentionInDays=123
           )
         :type logGroupName: string
@@ -1931,12 +1931,12 @@ class Client(BaseClient):
         ::
         
           response = client.put_subscription_filter(
-              logGroupName='string',
-              filterName='string',
-              filterPattern='string',
-              destinationArn='string',
-              roleArn='string',
-              distribution='Random'|'ByLogStream'
+              logGroupName=\'string\',
+              filterName=\'string\',
+              filterPattern=\'string\',
+              destinationArn=\'string\',
+              roleArn=\'string\',
+              distribution=\'Random\'|\'ByLogStream\'
           )
         :type logGroupName: string
         :param logGroupName: **[REQUIRED]** 
@@ -1969,7 +1969,7 @@ class Client(BaseClient):
         :type roleArn: string
         :param roleArn: 
         
-          The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
+          The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don\'t need to provide the ARN when you are working with a logical destination for cross-account delivery.
         
         :type distribution: string
         :param distribution: 
@@ -1993,9 +1993,9 @@ class Client(BaseClient):
         ::
         
           response = client.tag_log_group(
-              logGroupName='string',
+              logGroupName=\'string\',
               tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type logGroupName: string
@@ -2025,9 +2025,9 @@ class Client(BaseClient):
         ::
         
           response = client.test_metric_filter(
-              filterPattern='string',
+              filterPattern=\'string\',
               logEventMessages=[
-                  'string',
+                  \'string\',
               ]
           )
         :type filterPattern: string
@@ -2050,12 +2050,12 @@ class Client(BaseClient):
           ::
         
             {
-                'matches': [
+                \'matches\': [
                     {
-                        'eventNumber': 123,
-                        'eventMessage': 'string',
-                        'extractedValues': {
-                            'string': 'string'
+                        \'eventNumber\': 123,
+                        \'eventMessage\': \'string\',
+                        \'extractedValues\': {
+                            \'string\': \'string\'
                         }
                     },
                 ]
@@ -2102,9 +2102,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_log_group(
-              logGroupName='string',
+              logGroupName=\'string\',
               tags=[
-                  'string',
+                  \'string\',
               ]
           )
         :type logGroupName: string

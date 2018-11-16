@@ -1,10 +1,10 @@
-from typing import IO
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
-from typing import Union
 from typing import Optional
-from botocore.client import BaseClient
+from typing import Union
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
+from typing import IO
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,10 +33,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_project(
-              name='string',
-              region='string',
-              contents=b'bytes'|file,
-              snapshotId='string'
+              name=\'string\',
+              region=\'string\',
+              contents=b\'bytes\'|file,
+              snapshotId=\'string\'
           )
         :type name: string
         :param name: 
@@ -66,22 +66,22 @@ class Client(BaseClient):
           ::
         
             {
-                'details': {
-                    'name': 'string',
-                    'projectId': 'string',
-                    'region': 'string',
-                    'state': 'NORMAL'|'SYNCING'|'IMPORTING',
-                    'createdDate': datetime(2015, 1, 1),
-                    'lastUpdatedDate': datetime(2015, 1, 1),
-                    'consoleUrl': 'string',
-                    'resources': [
+                \'details\': {
+                    \'name\': \'string\',
+                    \'projectId\': \'string\',
+                    \'region\': \'string\',
+                    \'state\': \'NORMAL\'|\'SYNCING\'|\'IMPORTING\',
+                    \'createdDate\': datetime(2015, 1, 1),
+                    \'lastUpdatedDate\': datetime(2015, 1, 1),
+                    \'consoleUrl\': \'string\',
+                    \'resources\': [
                         {
-                            'type': 'string',
-                            'name': 'string',
-                            'arn': 'string',
-                            'feature': 'string',
-                            'attributes': {
-                                'string': 'string'
+                            \'type\': \'string\',
+                            \'name\': \'string\',
+                            \'arn\': \'string\',
+                            \'feature\': \'string\',
+                            \'attributes\': {
+                                \'string\': \'string\'
                             }
                         },
                     ]
@@ -173,7 +173,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_project(
-              projectId='string'
+              projectId=\'string\'
           )
         :type projectId: string
         :param projectId: **[REQUIRED]** 
@@ -188,25 +188,25 @@ class Client(BaseClient):
           ::
         
             {
-                'deletedResources': [
+                \'deletedResources\': [
                     {
-                        'type': 'string',
-                        'name': 'string',
-                        'arn': 'string',
-                        'feature': 'string',
-                        'attributes': {
-                            'string': 'string'
+                        \'type\': \'string\',
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'feature\': \'string\',
+                        \'attributes\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'orphanedResources': [
+                \'orphanedResources\': [
                     {
-                        'type': 'string',
-                        'name': 'string',
-                        'arn': 'string',
-                        'feature': 'string',
-                        'attributes': {
-                            'string': 'string'
+                        \'type\': \'string\',
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'feature\': \'string\',
+                        \'attributes\': {
+                            \'string\': \'string\'
                         }
                     },
                 ]
@@ -301,7 +301,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_bundle(
-              bundleId='string'
+              bundleId=\'string\'
           )
         :type bundleId: string
         :param bundleId: **[REQUIRED]** 
@@ -316,14 +316,14 @@ class Client(BaseClient):
           ::
         
             {
-                'details': {
-                    'bundleId': 'string',
-                    'title': 'string',
-                    'version': 'string',
-                    'description': 'string',
-                    'iconUrl': 'string',
-                    'availablePlatforms': [
-                        'OSX'|'WINDOWS'|'LINUX'|'OBJC'|'SWIFT'|'ANDROID'|'JAVASCRIPT',
+                \'details\': {
+                    \'bundleId\': \'string\',
+                    \'title\': \'string\',
+                    \'version\': \'string\',
+                    \'description\': \'string\',
+                    \'iconUrl\': \'string\',
+                    \'availablePlatforms\': [
+                        \'OSX\'|\'WINDOWS\'|\'LINUX\'|\'OBJC\'|\'SWIFT\'|\'ANDROID\'|\'JAVASCRIPT\',
                     ]
                 }
             }
@@ -377,7 +377,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_project(
-              projectId='string',
+              projectId=\'string\',
               syncFromResources=True|False
           )
         :type projectId: string
@@ -398,22 +398,22 @@ class Client(BaseClient):
           ::
         
             {
-                'details': {
-                    'name': 'string',
-                    'projectId': 'string',
-                    'region': 'string',
-                    'state': 'NORMAL'|'SYNCING'|'IMPORTING',
-                    'createdDate': datetime(2015, 1, 1),
-                    'lastUpdatedDate': datetime(2015, 1, 1),
-                    'consoleUrl': 'string',
-                    'resources': [
+                \'details\': {
+                    \'name\': \'string\',
+                    \'projectId\': \'string\',
+                    \'region\': \'string\',
+                    \'state\': \'NORMAL\'|\'SYNCING\'|\'IMPORTING\',
+                    \'createdDate\': datetime(2015, 1, 1),
+                    \'lastUpdatedDate\': datetime(2015, 1, 1),
+                    \'consoleUrl\': \'string\',
+                    \'resources\': [
                         {
-                            'type': 'string',
-                            'name': 'string',
-                            'arn': 'string',
-                            'feature': 'string',
-                            'attributes': {
-                                'string': 'string'
+                            \'type\': \'string\',
+                            \'name\': \'string\',
+                            \'arn\': \'string\',
+                            \'feature\': \'string\',
+                            \'attributes\': {
+                                \'string\': \'string\'
                             }
                         },
                     ]
@@ -505,9 +505,9 @@ class Client(BaseClient):
         ::
         
           response = client.export_bundle(
-              bundleId='string',
-              projectId='string',
-              platform='OSX'|'WINDOWS'|'LINUX'|'OBJC'|'SWIFT'|'ANDROID'|'JAVASCRIPT'
+              bundleId=\'string\',
+              projectId=\'string\',
+              platform=\'OSX\'|\'WINDOWS\'|\'LINUX\'|\'OBJC\'|\'SWIFT\'|\'ANDROID\'|\'JAVASCRIPT\'
           )
         :type bundleId: string
         :param bundleId: **[REQUIRED]** 
@@ -532,7 +532,7 @@ class Client(BaseClient):
           ::
         
             {
-                'downloadUrl': 'string'
+                \'downloadUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -556,7 +556,7 @@ class Client(BaseClient):
         ::
         
           response = client.export_project(
-              projectId='string'
+              projectId=\'string\'
           )
         :type projectId: string
         :param projectId: **[REQUIRED]** 
@@ -571,9 +571,9 @@ class Client(BaseClient):
           ::
         
             {
-                'downloadUrl': 'string',
-                'shareUrl': 'string',
-                'snapshotId': 'string'
+                \'downloadUrl\': \'string\',
+                \'shareUrl\': \'string\',
+                \'snapshotId\': \'string\'
             }
           **Response Structure** 
         
@@ -612,7 +612,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -624,10 +624,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -660,7 +660,7 @@ class Client(BaseClient):
         
           response = client.list_bundles(
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type maxResults: integer
         :param maxResults: 
@@ -680,19 +680,19 @@ class Client(BaseClient):
           ::
         
             {
-                'bundleList': [
+                \'bundleList\': [
                     {
-                        'bundleId': 'string',
-                        'title': 'string',
-                        'version': 'string',
-                        'description': 'string',
-                        'iconUrl': 'string',
-                        'availablePlatforms': [
-                            'OSX'|'WINDOWS'|'LINUX'|'OBJC'|'SWIFT'|'ANDROID'|'JAVASCRIPT',
+                        \'bundleId\': \'string\',
+                        \'title\': \'string\',
+                        \'version\': \'string\',
+                        \'description\': \'string\',
+                        \'iconUrl\': \'string\',
+                        \'availablePlatforms\': [
+                            \'OSX\'|\'WINDOWS\'|\'LINUX\'|\'OBJC\'|\'SWIFT\'|\'ANDROID\'|\'JAVASCRIPT\',
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -753,7 +753,7 @@ class Client(BaseClient):
         
           response = client.list_projects(
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type maxResults: integer
         :param maxResults: 
@@ -773,13 +773,13 @@ class Client(BaseClient):
           ::
         
             {
-                'projects': [
+                \'projects\': [
                     {
-                        'name': 'string',
-                        'projectId': 'string'
+                        \'name\': \'string\',
+                        \'projectId\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -819,8 +819,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_project(
-              contents=b'bytes'|file,
-              projectId='string'
+              contents=b\'bytes\'|file,
+              projectId=\'string\'
           )
         :type contents: bytes or seekable file-like object
         :param contents: 
@@ -840,22 +840,22 @@ class Client(BaseClient):
           ::
         
             {
-                'details': {
-                    'name': 'string',
-                    'projectId': 'string',
-                    'region': 'string',
-                    'state': 'NORMAL'|'SYNCING'|'IMPORTING',
-                    'createdDate': datetime(2015, 1, 1),
-                    'lastUpdatedDate': datetime(2015, 1, 1),
-                    'consoleUrl': 'string',
-                    'resources': [
+                \'details\': {
+                    \'name\': \'string\',
+                    \'projectId\': \'string\',
+                    \'region\': \'string\',
+                    \'state\': \'NORMAL\'|\'SYNCING\'|\'IMPORTING\',
+                    \'createdDate\': datetime(2015, 1, 1),
+                    \'lastUpdatedDate\': datetime(2015, 1, 1),
+                    \'consoleUrl\': \'string\',
+                    \'resources\': [
                         {
-                            'type': 'string',
-                            'name': 'string',
-                            'arn': 'string',
-                            'feature': 'string',
-                            'attributes': {
-                                'string': 'string'
+                            \'type\': \'string\',
+                            \'name\': \'string\',
+                            \'arn\': \'string\',
+                            \'feature\': \'string\',
+                            \'attributes\': {
+                                \'string\': \'string\'
                             }
                         },
                     ]

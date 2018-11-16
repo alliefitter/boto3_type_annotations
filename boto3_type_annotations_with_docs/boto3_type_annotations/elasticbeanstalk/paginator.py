@@ -13,20 +13,20 @@ class DescribeEvents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ApplicationName='string',
-              VersionLabel='string',
-              TemplateName='string',
-              EnvironmentId='string',
-              EnvironmentName='string',
-              PlatformArn='string',
-              RequestId='string',
-              Severity='TRACE'|'DEBUG'|'INFO'|'WARN'|'ERROR'|'FATAL',
+              ApplicationName=\'string\',
+              VersionLabel=\'string\',
+              TemplateName=\'string\',
+              EnvironmentId=\'string\',
+              EnvironmentName=\'string\',
+              PlatformArn=\'string\',
+              RequestId=\'string\',
+              Severity=\'TRACE\'|\'DEBUG\'|\'INFO\'|\'WARN\'|\'ERROR\'|\'FATAL\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ApplicationName: string
@@ -104,17 +104,17 @@ class DescribeEvents(Paginator):
           ::
         
             {
-                'Events': [
+                \'Events\': [
                     {
-                        'EventDate': datetime(2015, 1, 1),
-                        'Message': 'string',
-                        'ApplicationName': 'string',
-                        'VersionLabel': 'string',
-                        'TemplateName': 'string',
-                        'EnvironmentName': 'string',
-                        'PlatformArn': 'string',
-                        'RequestId': 'string',
-                        'Severity': 'TRACE'|'DEBUG'|'INFO'|'WARN'|'ERROR'|'FATAL'
+                        \'EventDate\': datetime(2015, 1, 1),
+                        \'Message\': \'string\',
+                        \'ApplicationName\': \'string\',
+                        \'VersionLabel\': \'string\',
+                        \'TemplateName\': \'string\',
+                        \'EnvironmentName\': \'string\',
+                        \'PlatformArn\': \'string\',
+                        \'RequestId\': \'string\',
+                        \'Severity\': \'TRACE\'|\'DEBUG\'|\'INFO\'|\'WARN\'|\'ERROR\'|\'FATAL\'
                     },
                 ],
                 

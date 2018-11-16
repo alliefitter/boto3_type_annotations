@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,19 +33,19 @@ class Client(BaseClient):
         ::
         
           response = client.create_configuration_set(
-              ConfigurationSetName='string',
+              ConfigurationSetName=\'string\',
               TrackingOptions={
-                  'CustomRedirectDomain': 'string'
+                  \'CustomRedirectDomain\': \'string\'
               },
               DeliveryOptions={
-                  'SendingPoolName': 'string'
+                  \'SendingPoolName\': \'string\'
               },
               ReputationOptions={
-                  'ReputationMetricsEnabled': True|False,
-                  'LastFreshStart': datetime(2015, 1, 1)
+                  \'ReputationMetricsEnabled\': True|False,
+                  \'LastFreshStart\': datetime(2015, 1, 1)
               },
               SendingOptions={
-                  'SendingEnabled': True|False
+                  \'SendingEnabled\': True|False
               }
           )
         :type ConfigurationSetName: string
@@ -121,31 +121,31 @@ class Client(BaseClient):
         ::
         
           response = client.create_configuration_set_event_destination(
-              ConfigurationSetName='string',
-              EventDestinationName='string',
+              ConfigurationSetName=\'string\',
+              EventDestinationName=\'string\',
               EventDestination={
-                  'Enabled': True|False,
-                  'MatchingEventTypes': [
-                      'SEND'|'REJECT'|'BOUNCE'|'COMPLAINT'|'DELIVERY'|'OPEN'|'CLICK'|'RENDERING_FAILURE',
+                  \'Enabled\': True|False,
+                  \'MatchingEventTypes\': [
+                      \'SEND\'|\'REJECT\'|\'BOUNCE\'|\'COMPLAINT\'|\'DELIVERY\'|\'OPEN\'|\'CLICK\'|\'RENDERING_FAILURE\',
                   ],
-                  'KinesisFirehoseDestination': {
-                      'IamRoleArn': 'string',
-                      'DeliveryStreamArn': 'string'
+                  \'KinesisFirehoseDestination\': {
+                      \'IamRoleArn\': \'string\',
+                      \'DeliveryStreamArn\': \'string\'
                   },
-                  'CloudWatchDestination': {
-                      'DimensionConfigurations': [
+                  \'CloudWatchDestination\': {
+                      \'DimensionConfigurations\': [
                           {
-                              'DimensionName': 'string',
-                              'DimensionValueSource': 'MESSAGE_TAG'|'EMAIL_HEADER'|'LINK_TAG',
-                              'DefaultDimensionValue': 'string'
+                              \'DimensionName\': \'string\',
+                              \'DimensionValueSource\': \'MESSAGE_TAG\'|\'EMAIL_HEADER\'|\'LINK_TAG\',
+                              \'DefaultDimensionValue\': \'string\'
                           },
                       ]
                   },
-                  'SnsDestination': {
-                      'TopicArn': 'string'
+                  \'SnsDestination\': {
+                      \'TopicArn\': \'string\'
                   },
-                  'PinpointDestination': {
-                      'ApplicationArn': 'string'
+                  \'PinpointDestination\': {
+                      \'ApplicationArn\': \'string\'
                   }
               }
           )
@@ -168,7 +168,7 @@ class Client(BaseClient):
         
             If ``true`` , the event destination is enabled. When the event destination is enabled, the specified event types are sent to the destinations in this ``EventDestinationDefinition`` .
         
-            If ``false`` , the event destination is disabled. When the event destination is disabled, events aren't sent to the specified destinations.
+            If ``false`` , the event destination is disabled. When the event destination is disabled, events aren\'t sent to the specified destinations.
         
           - **MatchingEventTypes** *(list) --* 
         
@@ -216,7 +216,7 @@ class Client(BaseClient):
         
                 - **DefaultDimensionValue** *(string) --* **[REQUIRED]** 
         
-                  The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email. This value has to meet the following criteria:
+                  The default value of the dimension that is published to Amazon CloudWatch if you don\'t provide the value of the dimension when you send an email. This value has to meet the following criteria:
         
                   * It can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). 
                    
@@ -264,7 +264,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_dedicated_ip_pool(
-              PoolName='string'
+              PoolName=\'string\'
           )
         :type PoolName: string
         :param PoolName: **[REQUIRED]** 
@@ -301,7 +301,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_email_identity(
-              EmailIdentity='string'
+              EmailIdentity=\'string\'
           )
         :type EmailIdentity: string
         :param EmailIdentity: **[REQUIRED]** 
@@ -316,13 +316,13 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityType': 'EMAIL_ADDRESS'|'DOMAIN'|'MANAGED_DOMAIN',
-                'VerifiedForSendingStatus': True|False,
-                'DkimAttributes': {
-                    'SigningEnabled': True|False,
-                    'Status': 'PENDING'|'SUCCESS'|'FAILED'|'TEMPORARY_FAILURE'|'NOT_STARTED',
-                    'Tokens': [
-                        'string',
+                \'IdentityType\': \'EMAIL_ADDRESS\'|\'DOMAIN\'|\'MANAGED_DOMAIN\',
+                \'VerifiedForSendingStatus\': True|False,
+                \'DkimAttributes\': {
+                    \'SigningEnabled\': True|False,
+                    \'Status\': \'PENDING\'|\'SUCCESS\'|\'FAILED\'|\'TEMPORARY_FAILURE\'|\'NOT_STARTED\',
+                    \'Tokens\': [
+                        \'string\',
                     ]
                 }
             }
@@ -348,21 +348,21 @@ class Client(BaseClient):
         
               - **SigningEnabled** *(boolean) --* 
         
-                If the value is ``true`` , then the messages that Amazon Pinpoint sends from the identity are DKIM-signed. If the value is ``false`` , then the messages that Amazon Pinpoint sends from the identity aren't DKIM-signed.
+                If the value is ``true`` , then the messages that Amazon Pinpoint sends from the identity are DKIM-signed. If the value is ``false`` , then the messages that Amazon Pinpoint sends from the identity aren\'t DKIM-signed.
         
               - **Status** *(string) --* 
         
                 Describes whether or not Amazon Pinpoint has successfully located the DKIM records in the DNS records for the domain. The status can be one of the following:
         
-                * ``PENDING`` – Amazon Pinpoint hasn't yet located the DKIM records in the DNS configuration for the domain, but will continue to attempt to locate them. 
+                * ``PENDING`` – Amazon Pinpoint hasn\'t yet located the DKIM records in the DNS configuration for the domain, but will continue to attempt to locate them. 
                  
-                * ``SUCCESS`` – Amazon Pinpoint located the DKIM records in the DNS configuration for the domain and determined that they're correct. Amazon Pinpoint can now send DKIM-signed email from the identity. 
+                * ``SUCCESS`` – Amazon Pinpoint located the DKIM records in the DNS configuration for the domain and determined that they\'re correct. Amazon Pinpoint can now send DKIM-signed email from the identity. 
                  
-                * ``FAILED`` – Amazon Pinpoint was unable to locate the DKIM records in the DNS settings for the domain, and won't continue to search for them. 
+                * ``FAILED`` – Amazon Pinpoint was unable to locate the DKIM records in the DNS settings for the domain, and won\'t continue to search for them. 
                  
                 * ``TEMPORARY_FAILURE`` – A temporary issue occurred, which prevented Amazon Pinpoint from determining the DKIM status for the domain. 
                  
-                * ``NOT_STARTED`` – Amazon Pinpoint hasn't yet started searching for the DKIM records in the DKIM records for the domain. 
+                * ``NOT_STARTED`` – Amazon Pinpoint hasn\'t yet started searching for the DKIM records in the DKIM records for the domain. 
                  
               - **Tokens** *(list) --* 
         
@@ -384,7 +384,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_configuration_set(
-              ConfigurationSetName='string'
+              ConfigurationSetName=\'string\'
           )
         :type ConfigurationSetName: string
         :param ConfigurationSetName: **[REQUIRED]** 
@@ -419,8 +419,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_configuration_set_event_destination(
-              ConfigurationSetName='string',
-              EventDestinationName='string'
+              ConfigurationSetName=\'string\',
+              EventDestinationName=\'string\'
           )
         :type ConfigurationSetName: string
         :param ConfigurationSetName: **[REQUIRED]** 
@@ -458,7 +458,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_dedicated_ip_pool(
-              PoolName='string'
+              PoolName=\'string\'
           )
         :type PoolName: string
         :param PoolName: **[REQUIRED]** 
@@ -491,7 +491,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_email_identity(
-              EmailIdentity='string'
+              EmailIdentity=\'string\'
           )
         :type EmailIdentity: string
         :param EmailIdentity: **[REQUIRED]** 
@@ -531,7 +531,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -555,15 +555,15 @@ class Client(BaseClient):
           ::
         
             {
-                'SendQuota': {
-                    'Max24HourSend': 123.0,
-                    'MaxSendRate': 123.0,
-                    'SentLast24Hours': 123.0
+                \'SendQuota\': {
+                    \'Max24HourSend\': 123.0,
+                    \'MaxSendRate\': 123.0,
+                    \'SentLast24Hours\': 123.0
                 },
-                'SendingEnabled': True|False,
-                'DedicatedIpAutoWarmupEnabled': True|False,
-                'EnforcementStatus': 'string',
-                'ProductionAccessEnabled': True|False
+                \'SendingEnabled\': True|False,
+                \'DedicatedIpAutoWarmupEnabled\': True|False,
+                \'EnforcementStatus\': \'string\',
+                \'ProductionAccessEnabled\': True|False
             }
           **Response Structure** 
         
@@ -601,9 +601,9 @@ class Client(BaseClient):
         
               * ``HEALTHY`` – There are no reputation-related issues that currently impact your account. 
                
-              * ``PROBATION`` – We've identified some issues with your Amazon Pinpoint account. We're placing your account under review while you work on correcting these issues. 
+              * ``PROBATION`` – We\'ve identified some issues with your Amazon Pinpoint account. We\'re placing your account under review while you work on correcting these issues. 
                
-              * ``SHUTDOWN`` – Your account's ability to send email is currently paused because of an issue with the email sent from your account. When you correct the issue, you can contact us and request that your account's ability to send email is resumed. 
+              * ``SHUTDOWN`` – Your account\'s ability to send email is currently paused because of an issue with the email sent from your account. When you correct the issue, you can contact us and request that your account\'s ability to send email is resumed. 
                
             - **ProductionAccessEnabled** *(boolean) --* 
         
@@ -627,7 +627,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_configuration_set(
-              ConfigurationSetName='string'
+              ConfigurationSetName=\'string\'
           )
         :type ConfigurationSetName: string
         :param ConfigurationSetName: **[REQUIRED]** 
@@ -642,19 +642,19 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigurationSetName': 'string',
-                'TrackingOptions': {
-                    'CustomRedirectDomain': 'string'
+                \'ConfigurationSetName\': \'string\',
+                \'TrackingOptions\': {
+                    \'CustomRedirectDomain\': \'string\'
                 },
-                'DeliveryOptions': {
-                    'SendingPoolName': 'string'
+                \'DeliveryOptions\': {
+                    \'SendingPoolName\': \'string\'
                 },
-                'ReputationOptions': {
-                    'ReputationMetricsEnabled': True|False,
-                    'LastFreshStart': datetime(2015, 1, 1)
+                \'ReputationOptions\': {
+                    \'ReputationMetricsEnabled\': True|False,
+                    \'LastFreshStart\': datetime(2015, 1, 1)
                 },
-                'SendingOptions': {
-                    'SendingEnabled': True|False
+                \'SendingOptions\': {
+                    \'SendingEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -717,7 +717,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_configuration_set_event_destinations(
-              ConfigurationSetName='string'
+              ConfigurationSetName=\'string\'
           )
         :type ConfigurationSetName: string
         :param ConfigurationSetName: **[REQUIRED]** 
@@ -732,31 +732,31 @@ class Client(BaseClient):
           ::
         
             {
-                'EventDestinations': [
+                \'EventDestinations\': [
                     {
-                        'Name': 'string',
-                        'Enabled': True|False,
-                        'MatchingEventTypes': [
-                            'SEND'|'REJECT'|'BOUNCE'|'COMPLAINT'|'DELIVERY'|'OPEN'|'CLICK'|'RENDERING_FAILURE',
+                        \'Name\': \'string\',
+                        \'Enabled\': True|False,
+                        \'MatchingEventTypes\': [
+                            \'SEND\'|\'REJECT\'|\'BOUNCE\'|\'COMPLAINT\'|\'DELIVERY\'|\'OPEN\'|\'CLICK\'|\'RENDERING_FAILURE\',
                         ],
-                        'KinesisFirehoseDestination': {
-                            'IamRoleArn': 'string',
-                            'DeliveryStreamArn': 'string'
+                        \'KinesisFirehoseDestination\': {
+                            \'IamRoleArn\': \'string\',
+                            \'DeliveryStreamArn\': \'string\'
                         },
-                        'CloudWatchDestination': {
-                            'DimensionConfigurations': [
+                        \'CloudWatchDestination\': {
+                            \'DimensionConfigurations\': [
                                 {
-                                    'DimensionName': 'string',
-                                    'DimensionValueSource': 'MESSAGE_TAG'|'EMAIL_HEADER'|'LINK_TAG',
-                                    'DefaultDimensionValue': 'string'
+                                    \'DimensionName\': \'string\',
+                                    \'DimensionValueSource\': \'MESSAGE_TAG\'|\'EMAIL_HEADER\'|\'LINK_TAG\',
+                                    \'DefaultDimensionValue\': \'string\'
                                 },
                             ]
                         },
-                        'SnsDestination': {
-                            'TopicArn': 'string'
+                        \'SnsDestination\': {
+                            \'TopicArn\': \'string\'
                         },
-                        'PinpointDestination': {
-                            'ApplicationArn': 'string'
+                        \'PinpointDestination\': {
+                            \'ApplicationArn\': \'string\'
                         }
                     },
                 ]
@@ -783,7 +783,7 @@ class Client(BaseClient):
         
                   If ``true`` , the event destination is enabled. When the event destination is enabled, the specified event types are sent to the destinations in this ``EventDestinationDefinition`` .
         
-                  If ``false`` , the event destination is disabled. When the event destination is disabled, events aren't sent to the specified destinations.
+                  If ``false`` , the event destination is disabled. When the event destination is disabled, events aren\'t sent to the specified destinations.
         
                 - **MatchingEventTypes** *(list) --* 
         
@@ -831,7 +831,7 @@ class Client(BaseClient):
         
                       - **DefaultDimensionValue** *(string) --* 
         
-                        The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email. This value has to meet the following criteria:
+                        The default value of the dimension that is published to Amazon CloudWatch if you don\'t provide the value of the dimension when you send an email. This value has to meet the following criteria:
         
                         * It can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). 
                          
@@ -865,12 +865,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_dedicated_ip(
-              Ip='string'
+              Ip=\'string\'
           )
         :type Ip: string
         :param Ip: **[REQUIRED]** 
         
-          The IP address that you want to obtain more information about. The value you specify has to be a dedicated IP address that's assocaited with your Amazon Pinpoint account.
+          The IP address that you want to obtain more information about. The value you specify has to be a dedicated IP address that\'s assocaited with your Amazon Pinpoint account.
         
         :rtype: dict
         :returns: 
@@ -880,11 +880,11 @@ class Client(BaseClient):
           ::
         
             {
-                'DedicatedIp': {
-                    'Ip': 'string',
-                    'WarmupStatus': 'IN_PROGRESS'|'DONE',
-                    'WarmupPercentage': 123,
-                    'PoolName': 'string'
+                \'DedicatedIp\': {
+                    \'Ip\': \'string\',
+                    \'WarmupStatus\': \'IN_PROGRESS\'|\'DONE\',
+                    \'WarmupPercentage\': 123,
+                    \'PoolName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -905,7 +905,7 @@ class Client(BaseClient):
         
                 The warm-up status of a dedicated IP address. The status can have one of the following values:
         
-                * ``IN_PROGRESS`` – The IP address isn't ready to use because the dedicated IP warm-up process is ongoing. 
+                * ``IN_PROGRESS`` – The IP address isn\'t ready to use because the dedicated IP warm-up process is ongoing. 
                  
                 * ``DONE`` – The dedicated IP warm-up process is complete, and the IP address is ready to use. 
                  
@@ -929,8 +929,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_dedicated_ips(
-              PoolName='string',
-              NextToken='string',
+              PoolName=\'string\',
+              NextToken=\'string\',
               PageSize=123
           )
         :type PoolName: string
@@ -956,15 +956,15 @@ class Client(BaseClient):
           ::
         
             {
-                'DedicatedIps': [
+                \'DedicatedIps\': [
                     {
-                        'Ip': 'string',
-                        'WarmupStatus': 'IN_PROGRESS'|'DONE',
-                        'WarmupPercentage': 123,
-                        'PoolName': 'string'
+                        \'Ip\': \'string\',
+                        \'WarmupStatus\': \'IN_PROGRESS\'|\'DONE\',
+                        \'WarmupPercentage\': 123,
+                        \'PoolName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -988,7 +988,7 @@ class Client(BaseClient):
         
                   The warm-up status of a dedicated IP address. The status can have one of the following values:
         
-                  * ``IN_PROGRESS`` – The IP address isn't ready to use because the dedicated IP warm-up process is ongoing. 
+                  * ``IN_PROGRESS`` – The IP address isn\'t ready to use because the dedicated IP warm-up process is ongoing. 
                    
                   * ``DONE`` – The dedicated IP warm-up process is complete, and the IP address is ready to use. 
                    
@@ -1016,7 +1016,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_email_identity(
-              EmailIdentity='string'
+              EmailIdentity=\'string\'
           )
         :type EmailIdentity: string
         :param EmailIdentity: **[REQUIRED]** 
@@ -1031,20 +1031,20 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityType': 'EMAIL_ADDRESS'|'DOMAIN'|'MANAGED_DOMAIN',
-                'FeedbackForwardingStatus': True|False,
-                'VerifiedForSendingStatus': True|False,
-                'DkimAttributes': {
-                    'SigningEnabled': True|False,
-                    'Status': 'PENDING'|'SUCCESS'|'FAILED'|'TEMPORARY_FAILURE'|'NOT_STARTED',
-                    'Tokens': [
-                        'string',
+                \'IdentityType\': \'EMAIL_ADDRESS\'|\'DOMAIN\'|\'MANAGED_DOMAIN\',
+                \'FeedbackForwardingStatus\': True|False,
+                \'VerifiedForSendingStatus\': True|False,
+                \'DkimAttributes\': {
+                    \'SigningEnabled\': True|False,
+                    \'Status\': \'PENDING\'|\'SUCCESS\'|\'FAILED\'|\'TEMPORARY_FAILURE\'|\'NOT_STARTED\',
+                    \'Tokens\': [
+                        \'string\',
                     ]
                 },
-                'MailFromAttributes': {
-                    'MailFromDomain': 'string',
-                    'MailFromDomainStatus': 'PENDING'|'SUCCESS'|'FAILED'|'TEMPORARY_FAILURE',
-                    'BehaviorOnMxFailure': 'USE_DEFAULT_VALUE'|'REJECT_MESSAGE'
+                \'MailFromAttributes\': {
+                    \'MailFromDomain\': \'string\',
+                    \'MailFromDomainStatus\': \'PENDING\'|\'SUCCESS\'|\'FAILED\'|\'TEMPORARY_FAILURE\',
+                    \'BehaviorOnMxFailure\': \'USE_DEFAULT_VALUE\'|\'REJECT_MESSAGE\'
                 }
             }
           **Response Structure** 
@@ -1063,7 +1063,7 @@ class Client(BaseClient):
         
               If the value is ``true`` , Amazon Pinpoint sends you email notifications when bounce or complaint events occur. Amazon Pinpoint sends this notification to the address that you specified in the Return-Path header of the original email.
         
-              When you set this value to ``false`` , Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic or another event destination. You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).
+              When you set this value to ``false`` , Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic or another event destination. You\'re required to have a method of tracking bounces and complaints. If you haven\'t set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).
         
             - **VerifiedForSendingStatus** *(boolean) --* 
         
@@ -1075,21 +1075,21 @@ class Client(BaseClient):
         
               - **SigningEnabled** *(boolean) --* 
         
-                If the value is ``true`` , then the messages that Amazon Pinpoint sends from the identity are DKIM-signed. If the value is ``false`` , then the messages that Amazon Pinpoint sends from the identity aren't DKIM-signed.
+                If the value is ``true`` , then the messages that Amazon Pinpoint sends from the identity are DKIM-signed. If the value is ``false`` , then the messages that Amazon Pinpoint sends from the identity aren\'t DKIM-signed.
         
               - **Status** *(string) --* 
         
                 Describes whether or not Amazon Pinpoint has successfully located the DKIM records in the DNS records for the domain. The status can be one of the following:
         
-                * ``PENDING`` – Amazon Pinpoint hasn't yet located the DKIM records in the DNS configuration for the domain, but will continue to attempt to locate them. 
+                * ``PENDING`` – Amazon Pinpoint hasn\'t yet located the DKIM records in the DNS configuration for the domain, but will continue to attempt to locate them. 
                  
-                * ``SUCCESS`` – Amazon Pinpoint located the DKIM records in the DNS configuration for the domain and determined that they're correct. Amazon Pinpoint can now send DKIM-signed email from the identity. 
+                * ``SUCCESS`` – Amazon Pinpoint located the DKIM records in the DNS configuration for the domain and determined that they\'re correct. Amazon Pinpoint can now send DKIM-signed email from the identity. 
                  
-                * ``FAILED`` – Amazon Pinpoint was unable to locate the DKIM records in the DNS settings for the domain, and won't continue to search for them. 
+                * ``FAILED`` – Amazon Pinpoint was unable to locate the DKIM records in the DNS settings for the domain, and won\'t continue to search for them. 
                  
                 * ``TEMPORARY_FAILURE`` – A temporary issue occurred, which prevented Amazon Pinpoint from determining the DKIM status for the domain. 
                  
-                * ``NOT_STARTED`` – Amazon Pinpoint hasn't yet started searching for the DKIM records in the DKIM records for the domain. 
+                * ``NOT_STARTED`` – Amazon Pinpoint hasn\'t yet started searching for the DKIM records in the DKIM records for the domain. 
                  
               - **Tokens** *(list) --* 
         
@@ -1109,17 +1109,17 @@ class Client(BaseClient):
         
                 The status of the MAIL FROM domain. This status can have the following values:
         
-                * ``PENDING`` – Amazon Pinpoint hasn't started searching for the MX record yet. 
+                * ``PENDING`` – Amazon Pinpoint hasn\'t started searching for the MX record yet. 
                  
                 * ``SUCCESS`` – Amazon Pinpoint detected the required MX record for the MAIL FROM domain. 
                  
-                * ``FAILED`` – Amazon Pinpoint can't find the required MX record, or the record no longer exists. 
+                * ``FAILED`` – Amazon Pinpoint can\'t find the required MX record, or the record no longer exists. 
                  
                 * ``TEMPORARY_FAILURE`` – A temporary issue occurred, which prevented Amazon Pinpoint from determining the status of the MAIL FROM domain. 
                  
               - **BehaviorOnMxFailure** *(string) --* 
         
-                The action that Amazon Pinpoint to takes if it can't read the required MX record for a custom MAIL FROM domain. When you set this value to ``UseDefaultValue`` , Amazon Pinpoint uses *amazonses.com* as the MAIL FROM domain. When you set this value to ``RejectMessage`` , Amazon Pinpoint returns a ``MailFromDomainNotVerified`` error, and doesn't attempt to deliver the email.
+                The action that Amazon Pinpoint to takes if it can\'t read the required MX record for a custom MAIL FROM domain. When you set this value to ``UseDefaultValue`` , Amazon Pinpoint uses *amazonses.com* as the MAIL FROM domain. When you set this value to ``RejectMessage`` , Amazon Pinpoint returns a ``MailFromDomainNotVerified`` error, and doesn\'t attempt to deliver the email.
         
                 These behaviors are taken when the custom MAIL FROM domain configuration is in the ``Pending`` , ``Failed`` , and ``TemporaryFailure`` states.
         
@@ -1132,10 +1132,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1169,7 +1169,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_configuration_sets(
-              NextToken='string',
+              NextToken=\'string\',
               PageSize=123
           )
         :type NextToken: string
@@ -1190,10 +1190,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigurationSets': [
-                    'string',
+                \'ConfigurationSets\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1227,7 +1227,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_dedicated_ip_pools(
-              NextToken='string',
+              NextToken=\'string\',
               PageSize=123
           )
         :type NextToken: string
@@ -1248,10 +1248,10 @@ class Client(BaseClient):
           ::
         
             {
-                'DedicatedIpPools': [
-                    'string',
+                \'DedicatedIpPools\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1283,7 +1283,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_email_identities(
-              NextToken='string',
+              NextToken=\'string\',
               PageSize=123
           )
         :type NextToken: string
@@ -1306,20 +1306,20 @@ class Client(BaseClient):
           ::
         
             {
-                'EmailIdentities': [
+                \'EmailIdentities\': [
                     {
-                        'IdentityType': 'EMAIL_ADDRESS'|'DOMAIN'|'MANAGED_DOMAIN',
-                        'IdentityName': 'string',
-                        'SendingEnabled': True|False
+                        \'IdentityType\': \'EMAIL_ADDRESS\'|\'DOMAIN\'|\'MANAGED_DOMAIN\',
+                        \'IdentityName\': \'string\',
+                        \'SendingEnabled\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* 
         
-            A list of all of the identities that you've attempted to verify for use with Amazon Pinpoint, regardless of whether or not those identities were successfully verified.
+            A list of all of the identities that you\'ve attempted to verify for use with Amazon Pinpoint, regardless of whether or not those identities were successfully verified.
         
             - **EmailIdentities** *(list) --* 
         
@@ -1403,11 +1403,11 @@ class Client(BaseClient):
         :type SendingEnabled: boolean
         :param SendingEnabled: 
         
-          Enables or disables your account's ability to send email. Set to ``true`` to enable email sending, or set to ``false`` to disable email sending.
+          Enables or disables your account\'s ability to send email. Set to ``true`` to enable email sending, or set to ``false`` to disable email sending.
         
           .. note::
         
-            If AWS paused your account's ability to send email, you can't use this operation to resume your account's ability to send email.
+            If AWS paused your account\'s ability to send email, you can\'t use this operation to resume your account\'s ability to send email.
         
         :rtype: dict
         :returns: 
@@ -1435,8 +1435,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_configuration_set_delivery_options(
-              ConfigurationSetName='string',
-              SendingPoolName='string'
+              ConfigurationSetName=\'string\',
+              SendingPoolName=\'string\'
           )
         :type ConfigurationSetName: string
         :param ConfigurationSetName: **[REQUIRED]** 
@@ -1474,7 +1474,7 @@ class Client(BaseClient):
         ::
         
           response = client.put_configuration_set_reputation_options(
-              ConfigurationSetName='string',
+              ConfigurationSetName=\'string\',
               ReputationMetricsEnabled=True|False
           )
         :type ConfigurationSetName: string
@@ -1513,7 +1513,7 @@ class Client(BaseClient):
         ::
         
           response = client.put_configuration_set_sending_options(
-              ConfigurationSetName='string',
+              ConfigurationSetName=\'string\',
               SendingEnabled=True|False
           )
         :type ConfigurationSetName: string
@@ -1552,8 +1552,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_configuration_set_tracking_options(
-              ConfigurationSetName='string',
-              CustomRedirectDomain='string'
+              ConfigurationSetName=\'string\',
+              CustomRedirectDomain=\'string\'
           )
         :type ConfigurationSetName: string
         :param ConfigurationSetName: **[REQUIRED]** 
@@ -1597,13 +1597,13 @@ class Client(BaseClient):
         ::
         
           response = client.put_dedicated_ip_in_pool(
-              Ip='string',
-              DestinationPoolName='string'
+              Ip=\'string\',
+              DestinationPoolName=\'string\'
           )
         :type Ip: string
         :param Ip: **[REQUIRED]** 
         
-          The IP address that you want to move to the dedicated IP pool. The value you specify has to be a dedicated IP address that's associated with your Amazon Pinpoint account.
+          The IP address that you want to move to the dedicated IP pool. The value you specify has to be a dedicated IP address that\'s associated with your Amazon Pinpoint account.
         
         :type DestinationPoolName: string
         :param DestinationPoolName: **[REQUIRED]** 
@@ -1631,7 +1631,7 @@ class Client(BaseClient):
         ::
         
           response = client.put_dedicated_ip_warmup_attributes(
-              Ip='string',
+              Ip=\'string\',
               WarmupPercentage=123
           )
         :type Ip: string
@@ -1670,7 +1670,7 @@ class Client(BaseClient):
         ::
         
           response = client.put_email_identity_dkim_attributes(
-              EmailIdentity='string',
+              EmailIdentity=\'string\',
               SigningEnabled=True|False
           )
         :type EmailIdentity: string
@@ -1683,7 +1683,7 @@ class Client(BaseClient):
         
           Sets the DKIM signing configuration for the identity.
         
-          When you set this value ``true`` , then the messages that Amazon Pinpoint sends from the identity are DKIM-signed. When you set this value to ``false`` , then the messages that Amazon Pinpoint sends from the identity aren't DKIM-signed.
+          When you set this value ``true`` , then the messages that Amazon Pinpoint sends from the identity are DKIM-signed. When you set this value to ``false`` , then the messages that Amazon Pinpoint sends from the identity aren\'t DKIM-signed.
         
         :rtype: dict
         :returns: 
@@ -1707,7 +1707,7 @@ class Client(BaseClient):
         
         When you enable feedback forwarding, Amazon Pinpoint sends you email notifications when bounce or complaint events occur. Amazon Pinpoint sends this notification to the address that you specified in the Return-Path header of the original email.
         
-        When you disable feedback forwarding, Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic. You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).
+        When you disable feedback forwarding, Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic. You\'re required to have a method of tracking bounces and complaints. If you haven\'t set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/pinpoint-email-2018-07-26/PutEmailIdentityFeedbackAttributes>`_
         
@@ -1715,7 +1715,7 @@ class Client(BaseClient):
         ::
         
           response = client.put_email_identity_feedback_attributes(
-              EmailIdentity='string',
+              EmailIdentity=\'string\',
               EmailForwardingEnabled=True|False
           )
         :type EmailIdentity: string
@@ -1730,7 +1730,7 @@ class Client(BaseClient):
         
           If the value is ``true`` , Amazon Pinpoint sends you email notifications when bounce or complaint events occur. Amazon Pinpoint sends this notification to the address that you specified in the Return-Path header of the original email.
         
-          When you set this value to ``false`` , Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic or another event destination. You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).
+          When you set this value to ``false`` , Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic or another event destination. You\'re required to have a method of tracking bounces and complaints. If you haven\'t set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).
         
         :rtype: dict
         :returns: 
@@ -1758,9 +1758,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_email_identity_mail_from_attributes(
-              EmailIdentity='string',
-              MailFromDomain='string',
-              BehaviorOnMxFailure='USE_DEFAULT_VALUE'|'REJECT_MESSAGE'
+              EmailIdentity=\'string\',
+              MailFromDomain=\'string\',
+              BehaviorOnMxFailure=\'USE_DEFAULT_VALUE\'|\'REJECT_MESSAGE\'
           )
         :type EmailIdentity: string
         :param EmailIdentity: **[REQUIRED]** 
@@ -1774,14 +1774,14 @@ class Client(BaseClient):
         
           * It has to be a subdomain of the verified identity. 
            
-          * It can't be used to receive email. 
+          * It can\'t be used to receive email. 
            
-          * It can't be used in a "From" address if the MAIL FROM domain is a destination for feedback forwarding emails. 
+          * It can\'t be used in a \"From\" address if the MAIL FROM domain is a destination for feedback forwarding emails. 
            
         :type BehaviorOnMxFailure: string
         :param BehaviorOnMxFailure: 
         
-          The action that you want Amazon Pinpoint to take if it can't read the required MX record when you send an email. When you set this value to ``UseDefaultValue`` , Amazon Pinpoint uses *amazonses.com* as the MAIL FROM domain. When you set this value to ``RejectMessage`` , Amazon Pinpoint returns a ``MailFromDomainNotVerified`` error, and doesn't attempt to deliver the email.
+          The action that you want Amazon Pinpoint to take if it can\'t read the required MX record when you send an email. When you set this value to ``UseDefaultValue`` , Amazon Pinpoint uses *amazonses.com* as the MAIL FROM domain. When you set this value to ``RejectMessage`` , Amazon Pinpoint returns a ``MailFromDomainNotVerified`` error, and doesn\'t attempt to deliver the email.
         
           These behaviors are taken when the custom MAIL FROM domain configuration is in the ``Pending`` , ``Failed`` , and ``TemporaryFailure`` states.
         
@@ -1816,55 +1816,55 @@ class Client(BaseClient):
         ::
         
           response = client.send_email(
-              FromEmailAddress='string',
+              FromEmailAddress=\'string\',
               Destination={
-                  'ToAddresses': [
-                      'string',
+                  \'ToAddresses\': [
+                      \'string\',
                   ],
-                  'CcAddresses': [
-                      'string',
+                  \'CcAddresses\': [
+                      \'string\',
                   ],
-                  'BccAddresses': [
-                      'string',
+                  \'BccAddresses\': [
+                      \'string\',
                   ]
               },
               ReplyToAddresses=[
-                  'string',
+                  \'string\',
               ],
-              FeedbackForwardingEmailAddress='string',
+              FeedbackForwardingEmailAddress=\'string\',
               Content={
-                  'Simple': {
-                      'Subject': {
-                          'Data': 'string',
-                          'Charset': 'string'
+                  \'Simple\': {
+                      \'Subject\': {
+                          \'Data\': \'string\',
+                          \'Charset\': \'string\'
                       },
-                      'Body': {
-                          'Text': {
-                              'Data': 'string',
-                              'Charset': 'string'
+                      \'Body\': {
+                          \'Text\': {
+                              \'Data\': \'string\',
+                              \'Charset\': \'string\'
                           },
-                          'Html': {
-                              'Data': 'string',
-                              'Charset': 'string'
+                          \'Html\': {
+                              \'Data\': \'string\',
+                              \'Charset\': \'string\'
                           }
                       }
                   },
-                  'Raw': {
-                      'Data': b'bytes'
+                  \'Raw\': {
+                      \'Data\': b\'bytes\'
                   }
               },
               EmailTags=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              ConfigurationSetName='string'
+              ConfigurationSetName=\'string\'
           )
         :type FromEmailAddress: string
         :param FromEmailAddress: 
         
-          The email address that you want to use as the "From" address for the email. The address that you specify has to be verified. 
+          The email address that you want to use as the \"From\" address for the email. The address that you specify has to be verified. 
         
         :type Destination: dict
         :param Destination: **[REQUIRED]** 
@@ -1873,26 +1873,26 @@ class Client(BaseClient):
         
           - **ToAddresses** *(list) --* 
         
-            An array that contains the email addresses of the "To" recipients for the email.
+            An array that contains the email addresses of the \"To\" recipients for the email.
         
             - *(string) --* 
         
           - **CcAddresses** *(list) --* 
         
-            An array that contains the email addresses of the "CC" (carbon copy) recipients for the email.
+            An array that contains the email addresses of the \"CC\" (carbon copy) recipients for the email.
         
             - *(string) --* 
         
           - **BccAddresses** *(list) --* 
         
-            An array that contains the email addresses of the "BCC" (blind carbon copy) recipients for the email.
+            An array that contains the email addresses of the \"BCC\" (blind carbon copy) recipients for the email.
         
             - *(string) --* 
         
         :type ReplyToAddresses: list
         :param ReplyToAddresses: 
         
-          The "Reply-to" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.
+          The \"Reply-to\" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.
         
           - *(string) --* 
         
@@ -1928,7 +1928,7 @@ class Client(BaseClient):
         
               - **Text** *(dict) --* 
         
-                An object that represents the version of the message that is displayed in email clients that don't support HTML, or clients where the recipient has disabled HTML rendering.
+                An object that represents the version of the message that is displayed in email clients that don\'t support HTML, or clients where the recipient has disabled HTML rendering.
         
                 - **Data** *(string) --* **[REQUIRED]** 
         
@@ -1964,9 +1964,9 @@ class Client(BaseClient):
              
             * The entire message must be Base64 encoded. 
              
-            * If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, you should encode that content to ensure that recipients' email clients render the message properly. 
+            * If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, you should encode that content to ensure that recipients\' email clients render the message properly. 
              
-            * The length of any single line of text in the message can't exceed 1,000 characters. This restriction is defined in `RFC 5321 <https://tools.ietf.org/html/rfc5321>`__ . 
+            * The length of any single line of text in the message can\'t exceed 1,000 characters. This restriction is defined in `RFC 5321 <https://tools.ietf.org/html/rfc5321>`__ . 
              
             - **Data** *(bytes) --* **[REQUIRED]** 
         
@@ -1982,9 +1982,9 @@ class Client(BaseClient):
                
               * The entire message must be Base64 encoded. 
                
-              * If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, you should encode that content to ensure that recipients' email clients render the message properly. 
+              * If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, you should encode that content to ensure that recipients\' email clients render the message properly. 
                
-              * The length of any single line of text in the message can't exceed 1,000 characters. This restriction is defined in `RFC 5321 <https://tools.ietf.org/html/rfc5321>`__ . 
+              * The length of any single line of text in the message can\'t exceed 1,000 characters. This restriction is defined in `RFC 5321 <https://tools.ietf.org/html/rfc5321>`__ . 
                
         :type EmailTags: list
         :param EmailTags: 
@@ -2024,7 +2024,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MessageId': 'string'
+                \'MessageId\': \'string\'
             }
           **Response Structure** 
         
@@ -2038,7 +2038,7 @@ class Client(BaseClient):
         
               .. note::
         
-                It is possible for Amazon Pinpoint to accept a message without sending it. This can happen when the message you're trying to send has an attachment doesn't pass a virus check, or when you send a templated email that contains invalid personalization content, for example.
+                It is possible for Amazon Pinpoint to accept a message without sending it. This can happen when the message you\'re trying to send has an attachment doesn\'t pass a virus check, or when you send a templated email that contains invalid personalization content, for example.
         
         """
         pass
@@ -2054,31 +2054,31 @@ class Client(BaseClient):
         ::
         
           response = client.update_configuration_set_event_destination(
-              ConfigurationSetName='string',
-              EventDestinationName='string',
+              ConfigurationSetName=\'string\',
+              EventDestinationName=\'string\',
               EventDestination={
-                  'Enabled': True|False,
-                  'MatchingEventTypes': [
-                      'SEND'|'REJECT'|'BOUNCE'|'COMPLAINT'|'DELIVERY'|'OPEN'|'CLICK'|'RENDERING_FAILURE',
+                  \'Enabled\': True|False,
+                  \'MatchingEventTypes\': [
+                      \'SEND\'|\'REJECT\'|\'BOUNCE\'|\'COMPLAINT\'|\'DELIVERY\'|\'OPEN\'|\'CLICK\'|\'RENDERING_FAILURE\',
                   ],
-                  'KinesisFirehoseDestination': {
-                      'IamRoleArn': 'string',
-                      'DeliveryStreamArn': 'string'
+                  \'KinesisFirehoseDestination\': {
+                      \'IamRoleArn\': \'string\',
+                      \'DeliveryStreamArn\': \'string\'
                   },
-                  'CloudWatchDestination': {
-                      'DimensionConfigurations': [
+                  \'CloudWatchDestination\': {
+                      \'DimensionConfigurations\': [
                           {
-                              'DimensionName': 'string',
-                              'DimensionValueSource': 'MESSAGE_TAG'|'EMAIL_HEADER'|'LINK_TAG',
-                              'DefaultDimensionValue': 'string'
+                              \'DimensionName\': \'string\',
+                              \'DimensionValueSource\': \'MESSAGE_TAG\'|\'EMAIL_HEADER\'|\'LINK_TAG\',
+                              \'DefaultDimensionValue\': \'string\'
                           },
                       ]
                   },
-                  'SnsDestination': {
-                      'TopicArn': 'string'
+                  \'SnsDestination\': {
+                      \'TopicArn\': \'string\'
                   },
-                  'PinpointDestination': {
-                      'ApplicationArn': 'string'
+                  \'PinpointDestination\': {
+                      \'ApplicationArn\': \'string\'
                   }
               }
           )
@@ -2101,7 +2101,7 @@ class Client(BaseClient):
         
             If ``true`` , the event destination is enabled. When the event destination is enabled, the specified event types are sent to the destinations in this ``EventDestinationDefinition`` .
         
-            If ``false`` , the event destination is disabled. When the event destination is disabled, events aren't sent to the specified destinations.
+            If ``false`` , the event destination is disabled. When the event destination is disabled, events aren\'t sent to the specified destinations.
         
           - **MatchingEventTypes** *(list) --* 
         
@@ -2149,7 +2149,7 @@ class Client(BaseClient):
         
                 - **DefaultDimensionValue** *(string) --* **[REQUIRED]** 
         
-                  The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email. This value has to meet the following criteria:
+                  The default value of the dimension that is published to Amazon CloudWatch if you don\'t provide the value of the dimension when you send an email. This value has to meet the following criteria:
         
                   * It can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). 
                    

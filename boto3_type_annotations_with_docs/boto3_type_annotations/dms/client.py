@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -18,11 +18,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags_to_resource(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -40,11 +40,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -67,10 +67,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -86,55 +86,55 @@ class Client(BaseClient):
         ::
         
           response = client.create_endpoint(
-              EndpointIdentifier='string',
-              EndpointType='source'|'target',
-              EngineName='string',
-              Username='string',
-              Password='string',
-              ServerName='string',
+              EndpointIdentifier=\'string\',
+              EndpointType=\'source\'|\'target\',
+              EngineName=\'string\',
+              Username=\'string\',
+              Password=\'string\',
+              ServerName=\'string\',
               Port=123,
-              DatabaseName='string',
-              ExtraConnectionAttributes='string',
-              KmsKeyId='string',
+              DatabaseName=\'string\',
+              ExtraConnectionAttributes=\'string\',
+              KmsKeyId=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              CertificateArn='string',
-              SslMode='none'|'require'|'verify-ca'|'verify-full',
-              ServiceAccessRoleArn='string',
-              ExternalTableDefinition='string',
+              CertificateArn=\'string\',
+              SslMode=\'none\'|\'require\'|\'verify-ca\'|\'verify-full\',
+              ServiceAccessRoleArn=\'string\',
+              ExternalTableDefinition=\'string\',
               DynamoDbSettings={
-                  'ServiceAccessRoleArn': 'string'
+                  \'ServiceAccessRoleArn\': \'string\'
               },
               S3Settings={
-                  'ServiceAccessRoleArn': 'string',
-                  'ExternalTableDefinition': 'string',
-                  'CsvRowDelimiter': 'string',
-                  'CsvDelimiter': 'string',
-                  'BucketFolder': 'string',
-                  'BucketName': 'string',
-                  'CompressionType': 'none'|'gzip'
+                  \'ServiceAccessRoleArn\': \'string\',
+                  \'ExternalTableDefinition\': \'string\',
+                  \'CsvRowDelimiter\': \'string\',
+                  \'CsvDelimiter\': \'string\',
+                  \'BucketFolder\': \'string\',
+                  \'BucketName\': \'string\',
+                  \'CompressionType\': \'none\'|\'gzip\'
               },
               DmsTransferSettings={
-                  'ServiceAccessRoleArn': 'string',
-                  'BucketName': 'string'
+                  \'ServiceAccessRoleArn\': \'string\',
+                  \'BucketName\': \'string\'
               },
               MongoDbSettings={
-                  'Username': 'string',
-                  'Password': 'string',
-                  'ServerName': 'string',
-                  'Port': 123,
-                  'DatabaseName': 'string',
-                  'AuthType': 'no'|'password',
-                  'AuthMechanism': 'default'|'mongodb_cr'|'scram_sha_1',
-                  'NestingLevel': 'none'|'one',
-                  'ExtractDocId': 'string',
-                  'DocsToInvestigate': 'string',
-                  'AuthSource': 'string',
-                  'KmsKeyId': 'string'
+                  \'Username\': \'string\',
+                  \'Password\': \'string\',
+                  \'ServerName\': \'string\',
+                  \'Port\': 123,
+                  \'DatabaseName\': \'string\',
+                  \'AuthType\': \'no\'|\'password\',
+                  \'AuthMechanism\': \'default\'|\'mongodb_cr\'|\'scram_sha_1\',
+                  \'NestingLevel\': \'none\'|\'one\',
+                  \'ExtractDocId\': \'string\',
+                  \'DocsToInvestigate\': \'string\',
+                  \'AuthSource\': \'string\',
+                  \'KmsKeyId\': \'string\'
               }
           )
         :type EndpointIdentifier: string
@@ -196,11 +196,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :type CertificateArn: string
         :param CertificateArn: 
@@ -285,7 +285,7 @@ class Client(BaseClient):
         
           JSON syntax:
         
-          { "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } 
+          { \"ServiceAccessRoleArn\": \"string\", \"BucketName\": \"string\", \"CompressionType\": \"none\"|\"gzip\" } 
         
           - **ServiceAccessRoleArn** *(string) --* 
         
@@ -374,53 +374,53 @@ class Client(BaseClient):
           ::
         
             {
-                'Endpoint': {
-                    'EndpointIdentifier': 'string',
-                    'EndpointType': 'source'|'target',
-                    'EngineName': 'string',
-                    'EngineDisplayName': 'string',
-                    'Username': 'string',
-                    'ServerName': 'string',
-                    'Port': 123,
-                    'DatabaseName': 'string',
-                    'ExtraConnectionAttributes': 'string',
-                    'Status': 'string',
-                    'KmsKeyId': 'string',
-                    'EndpointArn': 'string',
-                    'CertificateArn': 'string',
-                    'SslMode': 'none'|'require'|'verify-ca'|'verify-full',
-                    'ServiceAccessRoleArn': 'string',
-                    'ExternalTableDefinition': 'string',
-                    'ExternalId': 'string',
-                    'DynamoDbSettings': {
-                        'ServiceAccessRoleArn': 'string'
+                \'Endpoint\': {
+                    \'EndpointIdentifier\': \'string\',
+                    \'EndpointType\': \'source\'|\'target\',
+                    \'EngineName\': \'string\',
+                    \'EngineDisplayName\': \'string\',
+                    \'Username\': \'string\',
+                    \'ServerName\': \'string\',
+                    \'Port\': 123,
+                    \'DatabaseName\': \'string\',
+                    \'ExtraConnectionAttributes\': \'string\',
+                    \'Status\': \'string\',
+                    \'KmsKeyId\': \'string\',
+                    \'EndpointArn\': \'string\',
+                    \'CertificateArn\': \'string\',
+                    \'SslMode\': \'none\'|\'require\'|\'verify-ca\'|\'verify-full\',
+                    \'ServiceAccessRoleArn\': \'string\',
+                    \'ExternalTableDefinition\': \'string\',
+                    \'ExternalId\': \'string\',
+                    \'DynamoDbSettings\': {
+                        \'ServiceAccessRoleArn\': \'string\'
                     },
-                    'S3Settings': {
-                        'ServiceAccessRoleArn': 'string',
-                        'ExternalTableDefinition': 'string',
-                        'CsvRowDelimiter': 'string',
-                        'CsvDelimiter': 'string',
-                        'BucketFolder': 'string',
-                        'BucketName': 'string',
-                        'CompressionType': 'none'|'gzip'
+                    \'S3Settings\': {
+                        \'ServiceAccessRoleArn\': \'string\',
+                        \'ExternalTableDefinition\': \'string\',
+                        \'CsvRowDelimiter\': \'string\',
+                        \'CsvDelimiter\': \'string\',
+                        \'BucketFolder\': \'string\',
+                        \'BucketName\': \'string\',
+                        \'CompressionType\': \'none\'|\'gzip\'
                     },
-                    'DmsTransferSettings': {
-                        'ServiceAccessRoleArn': 'string',
-                        'BucketName': 'string'
+                    \'DmsTransferSettings\': {
+                        \'ServiceAccessRoleArn\': \'string\',
+                        \'BucketName\': \'string\'
                     },
-                    'MongoDbSettings': {
-                        'Username': 'string',
-                        'Password': 'string',
-                        'ServerName': 'string',
-                        'Port': 123,
-                        'DatabaseName': 'string',
-                        'AuthType': 'no'|'password',
-                        'AuthMechanism': 'default'|'mongodb_cr'|'scram_sha_1',
-                        'NestingLevel': 'none'|'one',
-                        'ExtractDocId': 'string',
-                        'DocsToInvestigate': 'string',
-                        'AuthSource': 'string',
-                        'KmsKeyId': 'string'
+                    \'MongoDbSettings\': {
+                        \'Username\': \'string\',
+                        \'Password\': \'string\',
+                        \'ServerName\': \'string\',
+                        \'Port\': 123,
+                        \'DatabaseName\': \'string\',
+                        \'AuthType\': \'no\'|\'password\',
+                        \'AuthMechanism\': \'default\'|\'mongodb_cr\'|\'scram_sha_1\',
+                        \'NestingLevel\': \'none\'|\'one\',
+                        \'ExtractDocId\': \'string\',
+                        \'DocsToInvestigate\': \'string\',
+                        \'AuthSource\': \'string\',
+                        \'KmsKeyId\': \'string\'
                     }
                 }
             }
@@ -446,7 +446,7 @@ class Client(BaseClient):
         
               - **EngineDisplayName** *(string) --* 
         
-                The expanded name for the engine name. For example, if the ``EngineName`` parameter is "aurora," this value would be "Amazon Aurora MySQL."
+                The expanded name for the engine name. For example, if the ``EngineName`` parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
         
               - **Username** *(string) --* 
         
@@ -560,7 +560,7 @@ class Client(BaseClient):
         
                 JSON syntax:
         
-                { "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } 
+                { \"ServiceAccessRoleArn\": \"string\", \"BucketName\": \"string\", \"CompressionType\": \"none\"|\"gzip\" } 
         
                 - **ServiceAccessRoleArn** *(string) --* 
         
@@ -646,7 +646,7 @@ class Client(BaseClient):
     def create_event_subscription(self, SubscriptionName: str, SnsTopicArn: str, SourceType: str = None, EventCategories: List = None, SourceIds: List = None, Enabled: bool = None, Tags: List = None) -> Dict:
         """
         
-        You can specify the type of source (``SourceType`` ) you want to be notified of, provide a list of AWS DMS source IDs (``SourceIds`` ) that triggers the events, and provide a list of event categories (``EventCategories`` ) for events you want to be notified of. If you specify both the ``SourceType`` and ``SourceIds`` , such as ``SourceType = replication-instance`` and ``SourceIdentifier = my-replinstance`` , you will be notified of all the replication instance events for the specified source. If you specify a ``SourceType`` but don't specify a ``SourceIdentifier`` , you receive notice of the events for that source type for all your AWS DMS sources. If you don't specify either ``SourceType`` nor ``SourceIdentifier`` , you will be notified of events generated from all AWS DMS sources belonging to your customer account.
+        You can specify the type of source (``SourceType`` ) you want to be notified of, provide a list of AWS DMS source IDs (``SourceIds`` ) that triggers the events, and provide a list of event categories (``EventCategories`` ) for events you want to be notified of. If you specify both the ``SourceType`` and ``SourceIds`` , such as ``SourceType = replication-instance`` and ``SourceIdentifier = my-replinstance`` , you will be notified of all the replication instance events for the specified source. If you specify a ``SourceType`` but don\'t specify a ``SourceIdentifier`` , you receive notice of the events for that source type for all your AWS DMS sources. If you don\'t specify either ``SourceType`` nor ``SourceIdentifier`` , you will be notified of events generated from all AWS DMS sources belonging to your customer account.
         
         For more information about AWS DMS events, see `Working with Events and Notifications <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html>`__ in the AWS Database MIgration Service User Guide.
         
@@ -656,20 +656,20 @@ class Client(BaseClient):
         ::
         
           response = client.create_event_subscription(
-              SubscriptionName='string',
-              SnsTopicArn='string',
-              SourceType='string',
+              SubscriptionName=\'string\',
+              SnsTopicArn=\'string\',
+              SourceType=\'string\',
               EventCategories=[
-                  'string',
+                  \'string\',
               ],
               SourceIds=[
-                  'string',
+                  \'string\',
               ],
               Enabled=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -720,11 +720,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -734,20 +734,20 @@ class Client(BaseClient):
           ::
         
             {
-                'EventSubscription': {
-                    'CustomerAwsId': 'string',
-                    'CustSubscriptionId': 'string',
-                    'SnsTopicArn': 'string',
-                    'Status': 'string',
-                    'SubscriptionCreationTime': 'string',
-                    'SourceType': 'string',
-                    'SourceIdsList': [
-                        'string',
+                \'EventSubscription\': {
+                    \'CustomerAwsId\': \'string\',
+                    \'CustSubscriptionId\': \'string\',
+                    \'SnsTopicArn\': \'string\',
+                    \'Status\': \'string\',
+                    \'SubscriptionCreationTime\': \'string\',
+                    \'SourceType\': \'string\',
+                    \'SourceIdsList\': [
+                        \'string\',
                     ],
-                    'EventCategoriesList': [
-                        'string',
+                    \'EventCategoriesList\': [
+                        \'string\',
                     ],
-                    'Enabled': True|False
+                    \'Enabled\': True|False
                 }
             }
           **Response Structure** 
@@ -778,7 +778,7 @@ class Client(BaseClient):
         
                 Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                The status "no-permission" indicates that AWS DMS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                The status \"no-permission\" indicates that AWS DMS no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
               - **SubscriptionCreationTime** *(string) --* 
         
@@ -818,25 +818,25 @@ class Client(BaseClient):
         ::
         
           response = client.create_replication_instance(
-              ReplicationInstanceIdentifier='string',
+              ReplicationInstanceIdentifier=\'string\',
               AllocatedStorage=123,
-              ReplicationInstanceClass='string',
+              ReplicationInstanceClass=\'string\',
               VpcSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              AvailabilityZone='string',
-              ReplicationSubnetGroupIdentifier='string',
-              PreferredMaintenanceWindow='string',
+              AvailabilityZone=\'string\',
+              ReplicationSubnetGroupIdentifier=\'string\',
+              PreferredMaintenanceWindow=\'string\',
               MultiAZ=True|False,
-              EngineVersion='string',
+              EngineVersion=\'string\',
               AutoMinorVersionUpgrade=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              KmsKeyId='string',
+              KmsKeyId=\'string\',
               PubliclyAccessible=True|False
           )
         :type ReplicationInstanceIdentifier: string
@@ -878,7 +878,7 @@ class Client(BaseClient):
         
           The EC2 Availability Zone that the replication instance will be created in.
         
-          Default: A random, system-chosen Availability Zone in the endpoint's region.
+          Default: A random, system-chosen Availability Zone in the endpoint\'s region.
         
           Example: ``us-east-1d``  
         
@@ -926,11 +926,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :type KmsKeyId: string
         :param KmsKeyId: 
@@ -950,57 +950,57 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationInstance': {
-                    'ReplicationInstanceIdentifier': 'string',
-                    'ReplicationInstanceClass': 'string',
-                    'ReplicationInstanceStatus': 'string',
-                    'AllocatedStorage': 123,
-                    'InstanceCreateTime': datetime(2015, 1, 1),
-                    'VpcSecurityGroups': [
+                \'ReplicationInstance\': {
+                    \'ReplicationInstanceIdentifier\': \'string\',
+                    \'ReplicationInstanceClass\': \'string\',
+                    \'ReplicationInstanceStatus\': \'string\',
+                    \'AllocatedStorage\': 123,
+                    \'InstanceCreateTime\': datetime(2015, 1, 1),
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'AvailabilityZone': 'string',
-                    'ReplicationSubnetGroup': {
-                        'ReplicationSubnetGroupIdentifier': 'string',
-                        'ReplicationSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                    \'AvailabilityZone\': \'string\',
+                    \'ReplicationSubnetGroup\': {
+                        \'ReplicationSubnetGroupIdentifier\': \'string\',
+                        \'ReplicationSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ]
                     },
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'ReplicationInstanceClass': 'string',
-                        'AllocatedStorage': 123,
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string'
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'ReplicationInstanceClass\': \'string\',
+                        \'AllocatedStorage\': 123,
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\'
                     },
-                    'MultiAZ': True|False,
-                    'EngineVersion': 'string',
-                    'AutoMinorVersionUpgrade': True|False,
-                    'KmsKeyId': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'ReplicationInstancePublicIpAddress': 'string',
-                    'ReplicationInstancePrivateIpAddress': 'string',
-                    'ReplicationInstancePublicIpAddresses': [
-                        'string',
+                    \'MultiAZ\': True|False,
+                    \'EngineVersion\': \'string\',
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'ReplicationInstancePublicIpAddress\': \'string\',
+                    \'ReplicationInstancePrivateIpAddress\': \'string\',
+                    \'ReplicationInstancePublicIpAddresses\': [
+                        \'string\',
                     ],
-                    'ReplicationInstancePrivateIpAddresses': [
-                        'string',
+                    \'ReplicationInstancePrivateIpAddresses\': [
+                        \'string\',
                     ],
-                    'PubliclyAccessible': True|False,
-                    'SecondaryAvailabilityZone': 'string',
-                    'FreeUntil': datetime(2015, 1, 1)
+                    \'PubliclyAccessible\': True|False,
+                    \'SecondaryAvailabilityZone\': \'string\',
+                    \'FreeUntil\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1193,15 +1193,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_replication_subnet_group(
-              ReplicationSubnetGroupIdentifier='string',
-              ReplicationSubnetGroupDescription='string',
+              ReplicationSubnetGroupIdentifier=\'string\',
+              ReplicationSubnetGroupDescription=\'string\',
               SubnetIds=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1210,7 +1210,7 @@ class Client(BaseClient):
         
           The name for the replication subnet group. This value is stored as a lowercase string.
         
-          Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens. Must not be "default".
+          Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens. Must not be \"default\".
         
           Example: ``mySubnetgroup``  
         
@@ -1235,11 +1235,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -1249,18 +1249,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationSubnetGroup': {
-                    'ReplicationSubnetGroupIdentifier': 'string',
-                    'ReplicationSubnetGroupDescription': 'string',
-                    'VpcId': 'string',
-                    'SubnetGroupStatus': 'string',
-                    'Subnets': [
+                \'ReplicationSubnetGroup\': {
+                    \'ReplicationSubnetGroupIdentifier\': \'string\',
+                    \'ReplicationSubnetGroupDescription\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'SubnetGroupStatus\': \'string\',
+                    \'Subnets\': [
                         {
-                            'SubnetIdentifier': 'string',
-                            'SubnetAvailabilityZone': {
-                                'Name': 'string'
+                            \'SubnetIdentifier\': \'string\',
+                            \'SubnetAvailabilityZone\': {
+                                \'Name\': \'string\'
                             },
-                            'SubnetStatus': 'string'
+                            \'SubnetStatus\': \'string\'
                         },
                     ]
                 }
@@ -1323,20 +1323,20 @@ class Client(BaseClient):
         ::
         
           response = client.create_replication_task(
-              ReplicationTaskIdentifier='string',
-              SourceEndpointArn='string',
-              TargetEndpointArn='string',
-              ReplicationInstanceArn='string',
-              MigrationType='full-load'|'cdc'|'full-load-and-cdc',
-              TableMappings='string',
-              ReplicationTaskSettings='string',
+              ReplicationTaskIdentifier=\'string\',
+              SourceEndpointArn=\'string\',
+              TargetEndpointArn=\'string\',
+              ReplicationInstanceArn=\'string\',
+              MigrationType=\'full-load\'|\'cdc\'|\'full-load-and-cdc\',
+              TableMappings=\'string\',
+              ReplicationTaskSettings=\'string\',
               CdcStartTime=datetime(2015, 1, 1),
-              CdcStartPosition='string',
-              CdcStopPosition='string',
+              CdcStartPosition=\'string\',
+              CdcStopPosition=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1376,7 +1376,7 @@ class Client(BaseClient):
         :type TableMappings: string
         :param TableMappings: **[REQUIRED]** 
         
-          When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with "file://". When working with the DMS API, provide the JSON as the parameter value.
+          When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with \"file://\". When working with the DMS API, provide the JSON as the parameter value.
         
           For example, --table-mappings file://mappingfile.json
         
@@ -1401,7 +1401,7 @@ class Client(BaseClient):
         
           Date Example: --cdc-start-position “2018-03-08T12:12:12”
         
-          Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+          Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
         
           LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
         
@@ -1423,11 +1423,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -1437,30 +1437,30 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationTask': {
-                    'ReplicationTaskIdentifier': 'string',
-                    'SourceEndpointArn': 'string',
-                    'TargetEndpointArn': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'MigrationType': 'full-load'|'cdc'|'full-load-and-cdc',
-                    'TableMappings': 'string',
-                    'ReplicationTaskSettings': 'string',
-                    'Status': 'string',
-                    'LastFailureMessage': 'string',
-                    'StopReason': 'string',
-                    'ReplicationTaskCreationDate': datetime(2015, 1, 1),
-                    'ReplicationTaskStartDate': datetime(2015, 1, 1),
-                    'CdcStartPosition': 'string',
-                    'CdcStopPosition': 'string',
-                    'RecoveryCheckpoint': 'string',
-                    'ReplicationTaskArn': 'string',
-                    'ReplicationTaskStats': {
-                        'FullLoadProgressPercent': 123,
-                        'ElapsedTimeMillis': 123,
-                        'TablesLoaded': 123,
-                        'TablesLoading': 123,
-                        'TablesQueued': 123,
-                        'TablesErrored': 123
+                \'ReplicationTask\': {
+                    \'ReplicationTaskIdentifier\': \'string\',
+                    \'SourceEndpointArn\': \'string\',
+                    \'TargetEndpointArn\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'MigrationType\': \'full-load\'|\'cdc\'|\'full-load-and-cdc\',
+                    \'TableMappings\': \'string\',
+                    \'ReplicationTaskSettings\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastFailureMessage\': \'string\',
+                    \'StopReason\': \'string\',
+                    \'ReplicationTaskCreationDate\': datetime(2015, 1, 1),
+                    \'ReplicationTaskStartDate\': datetime(2015, 1, 1),
+                    \'CdcStartPosition\': \'string\',
+                    \'CdcStopPosition\': \'string\',
+                    \'RecoveryCheckpoint\': \'string\',
+                    \'ReplicationTaskArn\': \'string\',
+                    \'ReplicationTaskStats\': {
+                        \'FullLoadProgressPercent\': 123,
+                        \'ElapsedTimeMillis\': 123,
+                        \'TablesLoaded\': 123,
+                        \'TablesLoading\': 123,
+                        \'TablesQueued\': 123,
+                        \'TablesErrored\': 123
                     }
                 }
             }
@@ -1536,7 +1536,7 @@ class Client(BaseClient):
         
                 Date Example: --cdc-start-position “2018-03-08T12:12:12”
         
-                Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+                Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
         
                 LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
         
@@ -1596,7 +1596,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_certificate(
-              CertificateArn='string'
+              CertificateArn=\'string\'
           )
         :type CertificateArn: string
         :param CertificateArn: **[REQUIRED]** 
@@ -1611,17 +1611,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificate': {
-                    'CertificateIdentifier': 'string',
-                    'CertificateCreationDate': datetime(2015, 1, 1),
-                    'CertificatePem': 'string',
-                    'CertificateWallet': b'bytes',
-                    'CertificateArn': 'string',
-                    'CertificateOwner': 'string',
-                    'ValidFromDate': datetime(2015, 1, 1),
-                    'ValidToDate': datetime(2015, 1, 1),
-                    'SigningAlgorithm': 'string',
-                    'KeyLength': 123
+                \'Certificate\': {
+                    \'CertificateIdentifier\': \'string\',
+                    \'CertificateCreationDate\': datetime(2015, 1, 1),
+                    \'CertificatePem\': \'string\',
+                    \'CertificateWallet\': b\'bytes\',
+                    \'CertificateArn\': \'string\',
+                    \'CertificateOwner\': \'string\',
+                    \'ValidFromDate\': datetime(2015, 1, 1),
+                    \'ValidToDate\': datetime(2015, 1, 1),
+                    \'SigningAlgorithm\': \'string\',
+                    \'KeyLength\': 123
                 }
             }
           **Response Structure** 
@@ -1688,7 +1688,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_endpoint(
-              EndpointArn='string'
+              EndpointArn=\'string\'
           )
         :type EndpointArn: string
         :param EndpointArn: **[REQUIRED]** 
@@ -1703,53 +1703,53 @@ class Client(BaseClient):
           ::
         
             {
-                'Endpoint': {
-                    'EndpointIdentifier': 'string',
-                    'EndpointType': 'source'|'target',
-                    'EngineName': 'string',
-                    'EngineDisplayName': 'string',
-                    'Username': 'string',
-                    'ServerName': 'string',
-                    'Port': 123,
-                    'DatabaseName': 'string',
-                    'ExtraConnectionAttributes': 'string',
-                    'Status': 'string',
-                    'KmsKeyId': 'string',
-                    'EndpointArn': 'string',
-                    'CertificateArn': 'string',
-                    'SslMode': 'none'|'require'|'verify-ca'|'verify-full',
-                    'ServiceAccessRoleArn': 'string',
-                    'ExternalTableDefinition': 'string',
-                    'ExternalId': 'string',
-                    'DynamoDbSettings': {
-                        'ServiceAccessRoleArn': 'string'
+                \'Endpoint\': {
+                    \'EndpointIdentifier\': \'string\',
+                    \'EndpointType\': \'source\'|\'target\',
+                    \'EngineName\': \'string\',
+                    \'EngineDisplayName\': \'string\',
+                    \'Username\': \'string\',
+                    \'ServerName\': \'string\',
+                    \'Port\': 123,
+                    \'DatabaseName\': \'string\',
+                    \'ExtraConnectionAttributes\': \'string\',
+                    \'Status\': \'string\',
+                    \'KmsKeyId\': \'string\',
+                    \'EndpointArn\': \'string\',
+                    \'CertificateArn\': \'string\',
+                    \'SslMode\': \'none\'|\'require\'|\'verify-ca\'|\'verify-full\',
+                    \'ServiceAccessRoleArn\': \'string\',
+                    \'ExternalTableDefinition\': \'string\',
+                    \'ExternalId\': \'string\',
+                    \'DynamoDbSettings\': {
+                        \'ServiceAccessRoleArn\': \'string\'
                     },
-                    'S3Settings': {
-                        'ServiceAccessRoleArn': 'string',
-                        'ExternalTableDefinition': 'string',
-                        'CsvRowDelimiter': 'string',
-                        'CsvDelimiter': 'string',
-                        'BucketFolder': 'string',
-                        'BucketName': 'string',
-                        'CompressionType': 'none'|'gzip'
+                    \'S3Settings\': {
+                        \'ServiceAccessRoleArn\': \'string\',
+                        \'ExternalTableDefinition\': \'string\',
+                        \'CsvRowDelimiter\': \'string\',
+                        \'CsvDelimiter\': \'string\',
+                        \'BucketFolder\': \'string\',
+                        \'BucketName\': \'string\',
+                        \'CompressionType\': \'none\'|\'gzip\'
                     },
-                    'DmsTransferSettings': {
-                        'ServiceAccessRoleArn': 'string',
-                        'BucketName': 'string'
+                    \'DmsTransferSettings\': {
+                        \'ServiceAccessRoleArn\': \'string\',
+                        \'BucketName\': \'string\'
                     },
-                    'MongoDbSettings': {
-                        'Username': 'string',
-                        'Password': 'string',
-                        'ServerName': 'string',
-                        'Port': 123,
-                        'DatabaseName': 'string',
-                        'AuthType': 'no'|'password',
-                        'AuthMechanism': 'default'|'mongodb_cr'|'scram_sha_1',
-                        'NestingLevel': 'none'|'one',
-                        'ExtractDocId': 'string',
-                        'DocsToInvestigate': 'string',
-                        'AuthSource': 'string',
-                        'KmsKeyId': 'string'
+                    \'MongoDbSettings\': {
+                        \'Username\': \'string\',
+                        \'Password\': \'string\',
+                        \'ServerName\': \'string\',
+                        \'Port\': 123,
+                        \'DatabaseName\': \'string\',
+                        \'AuthType\': \'no\'|\'password\',
+                        \'AuthMechanism\': \'default\'|\'mongodb_cr\'|\'scram_sha_1\',
+                        \'NestingLevel\': \'none\'|\'one\',
+                        \'ExtractDocId\': \'string\',
+                        \'DocsToInvestigate\': \'string\',
+                        \'AuthSource\': \'string\',
+                        \'KmsKeyId\': \'string\'
                     }
                 }
             }
@@ -1775,7 +1775,7 @@ class Client(BaseClient):
         
               - **EngineDisplayName** *(string) --* 
         
-                The expanded name for the engine name. For example, if the ``EngineName`` parameter is "aurora," this value would be "Amazon Aurora MySQL."
+                The expanded name for the engine name. For example, if the ``EngineName`` parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
         
               - **Username** *(string) --* 
         
@@ -1889,7 +1889,7 @@ class Client(BaseClient):
         
                 JSON syntax:
         
-                { "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } 
+                { \"ServiceAccessRoleArn\": \"string\", \"BucketName\": \"string\", \"CompressionType\": \"none\"|\"gzip\" } 
         
                 - **ServiceAccessRoleArn** *(string) --* 
         
@@ -1981,7 +1981,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_event_subscription(
-              SubscriptionName='string'
+              SubscriptionName=\'string\'
           )
         :type SubscriptionName: string
         :param SubscriptionName: **[REQUIRED]** 
@@ -1996,20 +1996,20 @@ class Client(BaseClient):
           ::
         
             {
-                'EventSubscription': {
-                    'CustomerAwsId': 'string',
-                    'CustSubscriptionId': 'string',
-                    'SnsTopicArn': 'string',
-                    'Status': 'string',
-                    'SubscriptionCreationTime': 'string',
-                    'SourceType': 'string',
-                    'SourceIdsList': [
-                        'string',
+                \'EventSubscription\': {
+                    \'CustomerAwsId\': \'string\',
+                    \'CustSubscriptionId\': \'string\',
+                    \'SnsTopicArn\': \'string\',
+                    \'Status\': \'string\',
+                    \'SubscriptionCreationTime\': \'string\',
+                    \'SourceType\': \'string\',
+                    \'SourceIdsList\': [
+                        \'string\',
                     ],
-                    'EventCategoriesList': [
-                        'string',
+                    \'EventCategoriesList\': [
+                        \'string\',
                     ],
-                    'Enabled': True|False
+                    \'Enabled\': True|False
                 }
             }
           **Response Structure** 
@@ -2040,7 +2040,7 @@ class Client(BaseClient):
         
                 Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                The status "no-permission" indicates that AWS DMS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                The status \"no-permission\" indicates that AWS DMS no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
               - **SubscriptionCreationTime** *(string) --* 
         
@@ -2084,7 +2084,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_replication_instance(
-              ReplicationInstanceArn='string'
+              ReplicationInstanceArn=\'string\'
           )
         :type ReplicationInstanceArn: string
         :param ReplicationInstanceArn: **[REQUIRED]** 
@@ -2099,57 +2099,57 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationInstance': {
-                    'ReplicationInstanceIdentifier': 'string',
-                    'ReplicationInstanceClass': 'string',
-                    'ReplicationInstanceStatus': 'string',
-                    'AllocatedStorage': 123,
-                    'InstanceCreateTime': datetime(2015, 1, 1),
-                    'VpcSecurityGroups': [
+                \'ReplicationInstance\': {
+                    \'ReplicationInstanceIdentifier\': \'string\',
+                    \'ReplicationInstanceClass\': \'string\',
+                    \'ReplicationInstanceStatus\': \'string\',
+                    \'AllocatedStorage\': 123,
+                    \'InstanceCreateTime\': datetime(2015, 1, 1),
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'AvailabilityZone': 'string',
-                    'ReplicationSubnetGroup': {
-                        'ReplicationSubnetGroupIdentifier': 'string',
-                        'ReplicationSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                    \'AvailabilityZone\': \'string\',
+                    \'ReplicationSubnetGroup\': {
+                        \'ReplicationSubnetGroupIdentifier\': \'string\',
+                        \'ReplicationSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ]
                     },
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'ReplicationInstanceClass': 'string',
-                        'AllocatedStorage': 123,
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string'
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'ReplicationInstanceClass\': \'string\',
+                        \'AllocatedStorage\': 123,
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\'
                     },
-                    'MultiAZ': True|False,
-                    'EngineVersion': 'string',
-                    'AutoMinorVersionUpgrade': True|False,
-                    'KmsKeyId': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'ReplicationInstancePublicIpAddress': 'string',
-                    'ReplicationInstancePrivateIpAddress': 'string',
-                    'ReplicationInstancePublicIpAddresses': [
-                        'string',
+                    \'MultiAZ\': True|False,
+                    \'EngineVersion\': \'string\',
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'ReplicationInstancePublicIpAddress\': \'string\',
+                    \'ReplicationInstancePrivateIpAddress\': \'string\',
+                    \'ReplicationInstancePublicIpAddresses\': [
+                        \'string\',
                     ],
-                    'ReplicationInstancePrivateIpAddresses': [
-                        'string',
+                    \'ReplicationInstancePrivateIpAddresses\': [
+                        \'string\',
                     ],
-                    'PubliclyAccessible': True|False,
-                    'SecondaryAvailabilityZone': 'string',
-                    'FreeUntil': datetime(2015, 1, 1)
+                    \'PubliclyAccessible\': True|False,
+                    \'SecondaryAvailabilityZone\': \'string\',
+                    \'FreeUntil\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -2342,7 +2342,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_replication_subnet_group(
-              ReplicationSubnetGroupIdentifier='string'
+              ReplicationSubnetGroupIdentifier=\'string\'
           )
         :type ReplicationSubnetGroupIdentifier: string
         :param ReplicationSubnetGroupIdentifier: **[REQUIRED]** 
@@ -2373,7 +2373,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_replication_task(
-              ReplicationTaskArn='string'
+              ReplicationTaskArn=\'string\'
           )
         :type ReplicationTaskArn: string
         :param ReplicationTaskArn: **[REQUIRED]** 
@@ -2388,30 +2388,30 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationTask': {
-                    'ReplicationTaskIdentifier': 'string',
-                    'SourceEndpointArn': 'string',
-                    'TargetEndpointArn': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'MigrationType': 'full-load'|'cdc'|'full-load-and-cdc',
-                    'TableMappings': 'string',
-                    'ReplicationTaskSettings': 'string',
-                    'Status': 'string',
-                    'LastFailureMessage': 'string',
-                    'StopReason': 'string',
-                    'ReplicationTaskCreationDate': datetime(2015, 1, 1),
-                    'ReplicationTaskStartDate': datetime(2015, 1, 1),
-                    'CdcStartPosition': 'string',
-                    'CdcStopPosition': 'string',
-                    'RecoveryCheckpoint': 'string',
-                    'ReplicationTaskArn': 'string',
-                    'ReplicationTaskStats': {
-                        'FullLoadProgressPercent': 123,
-                        'ElapsedTimeMillis': 123,
-                        'TablesLoaded': 123,
-                        'TablesLoading': 123,
-                        'TablesQueued': 123,
-                        'TablesErrored': 123
+                \'ReplicationTask\': {
+                    \'ReplicationTaskIdentifier\': \'string\',
+                    \'SourceEndpointArn\': \'string\',
+                    \'TargetEndpointArn\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'MigrationType\': \'full-load\'|\'cdc\'|\'full-load-and-cdc\',
+                    \'TableMappings\': \'string\',
+                    \'ReplicationTaskSettings\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastFailureMessage\': \'string\',
+                    \'StopReason\': \'string\',
+                    \'ReplicationTaskCreationDate\': datetime(2015, 1, 1),
+                    \'ReplicationTaskStartDate\': datetime(2015, 1, 1),
+                    \'CdcStartPosition\': \'string\',
+                    \'CdcStopPosition\': \'string\',
+                    \'RecoveryCheckpoint\': \'string\',
+                    \'ReplicationTaskArn\': \'string\',
+                    \'ReplicationTaskStats\': {
+                        \'FullLoadProgressPercent\': 123,
+                        \'ElapsedTimeMillis\': 123,
+                        \'TablesLoaded\': 123,
+                        \'TablesLoading\': 123,
+                        \'TablesQueued\': 123,
+                        \'TablesErrored\': 123
                     }
                 }
             }
@@ -2487,7 +2487,7 @@ class Client(BaseClient):
         
                 Date Example: --cdc-start-position “2018-03-08T12:12:12”
         
-                Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+                Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
         
                 LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
         
@@ -2558,11 +2558,11 @@ class Client(BaseClient):
           ::
         
             {
-                'AccountQuotas': [
+                \'AccountQuotas\': [
                     {
-                        'AccountQuotaName': 'string',
-                        'Used': 123,
-                        'Max': 123
+                        \'AccountQuotaName\': \'string\',
+                        \'Used\': 123,
+                        \'Max\': 123
                     },
                 ]
             }
@@ -2604,14 +2604,14 @@ class Client(BaseClient):
           response = client.describe_certificates(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -2650,19 +2650,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Certificates': [
+                \'Marker\': \'string\',
+                \'Certificates\': [
                     {
-                        'CertificateIdentifier': 'string',
-                        'CertificateCreationDate': datetime(2015, 1, 1),
-                        'CertificatePem': 'string',
-                        'CertificateWallet': b'bytes',
-                        'CertificateArn': 'string',
-                        'CertificateOwner': 'string',
-                        'ValidFromDate': datetime(2015, 1, 1),
-                        'ValidToDate': datetime(2015, 1, 1),
-                        'SigningAlgorithm': 'string',
-                        'KeyLength': 123
+                        \'CertificateIdentifier\': \'string\',
+                        \'CertificateCreationDate\': datetime(2015, 1, 1),
+                        \'CertificatePem\': \'string\',
+                        \'CertificateWallet\': b\'bytes\',
+                        \'CertificateArn\': \'string\',
+                        \'CertificateOwner\': \'string\',
+                        \'ValidFromDate\': datetime(2015, 1, 1),
+                        \'ValidToDate\': datetime(2015, 1, 1),
+                        \'SigningAlgorithm\': \'string\',
+                        \'KeyLength\': 123
                     },
                 ]
             }
@@ -2736,14 +2736,14 @@ class Client(BaseClient):
           response = client.describe_connections(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -2786,15 +2786,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Connections': [
+                \'Marker\': \'string\',
+                \'Connections\': [
                     {
-                        'ReplicationInstanceArn': 'string',
-                        'EndpointArn': 'string',
-                        'Status': 'string',
-                        'LastFailureMessage': 'string',
-                        'EndpointIdentifier': 'string',
-                        'ReplicationInstanceIdentifier': 'string'
+                        \'ReplicationInstanceArn\': \'string\',
+                        \'EndpointArn\': \'string\',
+                        \'Status\': \'string\',
+                        \'LastFailureMessage\': \'string\',
+                        \'EndpointIdentifier\': \'string\',
+                        \'ReplicationInstanceIdentifier\': \'string\'
                     },
                 ]
             }
@@ -2850,14 +2850,14 @@ class Client(BaseClient):
           response = client.describe_endpoint_types(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -2900,13 +2900,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'SupportedEndpointTypes': [
+                \'Marker\': \'string\',
+                \'SupportedEndpointTypes\': [
                     {
-                        'EngineName': 'string',
-                        'SupportsCDC': True|False,
-                        'EndpointType': 'source'|'target',
-                        'EngineDisplayName': 'string'
+                        \'EngineName\': \'string\',
+                        \'SupportsCDC\': True|False,
+                        \'EndpointType\': \'source\'|\'target\',
+                        \'EngineDisplayName\': \'string\'
                     },
                 ]
             }
@@ -2938,7 +2938,7 @@ class Client(BaseClient):
         
                 - **EngineDisplayName** *(string) --* 
         
-                  The expanded name for the engine name. For example, if the ``EngineName`` parameter is "aurora," this value would be "Amazon Aurora MySQL."
+                  The expanded name for the engine name. For example, if the ``EngineName`` parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
         
         """
         pass
@@ -2954,14 +2954,14 @@ class Client(BaseClient):
           response = client.describe_endpoints(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -3004,55 +3004,55 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Endpoints': [
+                \'Marker\': \'string\',
+                \'Endpoints\': [
                     {
-                        'EndpointIdentifier': 'string',
-                        'EndpointType': 'source'|'target',
-                        'EngineName': 'string',
-                        'EngineDisplayName': 'string',
-                        'Username': 'string',
-                        'ServerName': 'string',
-                        'Port': 123,
-                        'DatabaseName': 'string',
-                        'ExtraConnectionAttributes': 'string',
-                        'Status': 'string',
-                        'KmsKeyId': 'string',
-                        'EndpointArn': 'string',
-                        'CertificateArn': 'string',
-                        'SslMode': 'none'|'require'|'verify-ca'|'verify-full',
-                        'ServiceAccessRoleArn': 'string',
-                        'ExternalTableDefinition': 'string',
-                        'ExternalId': 'string',
-                        'DynamoDbSettings': {
-                            'ServiceAccessRoleArn': 'string'
+                        \'EndpointIdentifier\': \'string\',
+                        \'EndpointType\': \'source\'|\'target\',
+                        \'EngineName\': \'string\',
+                        \'EngineDisplayName\': \'string\',
+                        \'Username\': \'string\',
+                        \'ServerName\': \'string\',
+                        \'Port\': 123,
+                        \'DatabaseName\': \'string\',
+                        \'ExtraConnectionAttributes\': \'string\',
+                        \'Status\': \'string\',
+                        \'KmsKeyId\': \'string\',
+                        \'EndpointArn\': \'string\',
+                        \'CertificateArn\': \'string\',
+                        \'SslMode\': \'none\'|\'require\'|\'verify-ca\'|\'verify-full\',
+                        \'ServiceAccessRoleArn\': \'string\',
+                        \'ExternalTableDefinition\': \'string\',
+                        \'ExternalId\': \'string\',
+                        \'DynamoDbSettings\': {
+                            \'ServiceAccessRoleArn\': \'string\'
                         },
-                        'S3Settings': {
-                            'ServiceAccessRoleArn': 'string',
-                            'ExternalTableDefinition': 'string',
-                            'CsvRowDelimiter': 'string',
-                            'CsvDelimiter': 'string',
-                            'BucketFolder': 'string',
-                            'BucketName': 'string',
-                            'CompressionType': 'none'|'gzip'
+                        \'S3Settings\': {
+                            \'ServiceAccessRoleArn\': \'string\',
+                            \'ExternalTableDefinition\': \'string\',
+                            \'CsvRowDelimiter\': \'string\',
+                            \'CsvDelimiter\': \'string\',
+                            \'BucketFolder\': \'string\',
+                            \'BucketName\': \'string\',
+                            \'CompressionType\': \'none\'|\'gzip\'
                         },
-                        'DmsTransferSettings': {
-                            'ServiceAccessRoleArn': 'string',
-                            'BucketName': 'string'
+                        \'DmsTransferSettings\': {
+                            \'ServiceAccessRoleArn\': \'string\',
+                            \'BucketName\': \'string\'
                         },
-                        'MongoDbSettings': {
-                            'Username': 'string',
-                            'Password': 'string',
-                            'ServerName': 'string',
-                            'Port': 123,
-                            'DatabaseName': 'string',
-                            'AuthType': 'no'|'password',
-                            'AuthMechanism': 'default'|'mongodb_cr'|'scram_sha_1',
-                            'NestingLevel': 'none'|'one',
-                            'ExtractDocId': 'string',
-                            'DocsToInvestigate': 'string',
-                            'AuthSource': 'string',
-                            'KmsKeyId': 'string'
+                        \'MongoDbSettings\': {
+                            \'Username\': \'string\',
+                            \'Password\': \'string\',
+                            \'ServerName\': \'string\',
+                            \'Port\': 123,
+                            \'DatabaseName\': \'string\',
+                            \'AuthType\': \'no\'|\'password\',
+                            \'AuthMechanism\': \'default\'|\'mongodb_cr\'|\'scram_sha_1\',
+                            \'NestingLevel\': \'none\'|\'one\',
+                            \'ExtractDocId\': \'string\',
+                            \'DocsToInvestigate\': \'string\',
+                            \'AuthSource\': \'string\',
+                            \'KmsKeyId\': \'string\'
                         }
                     },
                 ]
@@ -3085,7 +3085,7 @@ class Client(BaseClient):
         
                 - **EngineDisplayName** *(string) --* 
         
-                  The expanded name for the engine name. For example, if the ``EngineName`` parameter is "aurora," this value would be "Amazon Aurora MySQL."
+                  The expanded name for the engine name. For example, if the ``EngineName`` parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
         
                 - **Username** *(string) --* 
         
@@ -3199,7 +3199,7 @@ class Client(BaseClient):
         
                   JSON syntax:
         
-                  { "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } 
+                  { \"ServiceAccessRoleArn\": \"string\", \"BucketName\": \"string\", \"CompressionType\": \"none\"|\"gzip\" } 
         
                   - **ServiceAccessRoleArn** *(string) --* 
         
@@ -3291,12 +3291,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_event_categories(
-              SourceType='string',
+              SourceType=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ]
@@ -3333,11 +3333,11 @@ class Client(BaseClient):
           ::
         
             {
-                'EventCategoryGroupList': [
+                \'EventCategoryGroupList\': [
                     {
-                        'SourceType': 'string',
-                        'EventCategories': [
-                            'string',
+                        \'SourceType\': \'string\',
+                        \'EventCategories\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -3378,17 +3378,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_event_subscriptions(
-              SubscriptionName='string',
+              SubscriptionName=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type SubscriptionName: string
         :param SubscriptionName: 
@@ -3434,22 +3434,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'EventSubscriptionsList': [
+                \'Marker\': \'string\',
+                \'EventSubscriptionsList\': [
                     {
-                        'CustomerAwsId': 'string',
-                        'CustSubscriptionId': 'string',
-                        'SnsTopicArn': 'string',
-                        'Status': 'string',
-                        'SubscriptionCreationTime': 'string',
-                        'SourceType': 'string',
-                        'SourceIdsList': [
-                            'string',
+                        \'CustomerAwsId\': \'string\',
+                        \'CustSubscriptionId\': \'string\',
+                        \'SnsTopicArn\': \'string\',
+                        \'Status\': \'string\',
+                        \'SubscriptionCreationTime\': \'string\',
+                        \'SourceType\': \'string\',
+                        \'SourceIdsList\': [
+                            \'string\',
                         ],
-                        'EventCategoriesList': [
-                            'string',
+                        \'EventCategoriesList\': [
+                            \'string\',
                         ],
-                        'Enabled': True|False
+                        \'Enabled\': True|False
                     },
                 ]
             }
@@ -3487,7 +3487,7 @@ class Client(BaseClient):
         
                   Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                  The status "no-permission" indicates that AWS DMS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                  The status \"no-permission\" indicates that AWS DMS no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
                 - **SubscriptionCreationTime** *(string) --* 
         
@@ -3527,24 +3527,24 @@ class Client(BaseClient):
         ::
         
           response = client.describe_events(
-              SourceIdentifier='string',
-              SourceType='replication-instance',
+              SourceIdentifier=\'string\',
+              SourceType=\'replication-instance\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Duration=123,
               EventCategories=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type SourceIdentifier: string
         :param SourceIdentifier: 
@@ -3619,16 +3619,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Events': [
+                \'Marker\': \'string\',
+                \'Events\': [
                     {
-                        'SourceIdentifier': 'string',
-                        'SourceType': 'replication-instance',
-                        'Message': 'string',
-                        'EventCategories': [
-                            'string',
+                        \'SourceIdentifier\': \'string\',
+                        \'SourceType\': \'replication-instance\',
+                        \'Message\': \'string\',
+                        \'EventCategories\': [
+                            \'string\',
                         ],
-                        'Date': datetime(2015, 1, 1)
+                        \'Date\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -3685,7 +3685,7 @@ class Client(BaseClient):
         
           response = client.describe_orderable_replication_instances(
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type MaxRecords: integer
         :param MaxRecords: 
@@ -3709,18 +3709,18 @@ class Client(BaseClient):
           ::
         
             {
-                'OrderableReplicationInstances': [
+                \'OrderableReplicationInstances\': [
                     {
-                        'EngineVersion': 'string',
-                        'ReplicationInstanceClass': 'string',
-                        'StorageType': 'string',
-                        'MinAllocatedStorage': 123,
-                        'MaxAllocatedStorage': 123,
-                        'DefaultAllocatedStorage': 123,
-                        'IncludedAllocatedStorage': 123
+                        \'EngineVersion\': \'string\',
+                        \'ReplicationInstanceClass\': \'string\',
+                        \'StorageType\': \'string\',
+                        \'MinAllocatedStorage\': 123,
+                        \'MaxAllocatedStorage\': 123,
+                        \'DefaultAllocatedStorage\': 123,
+                        \'IncludedAllocatedStorage\': 123
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -3778,7 +3778,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_refresh_schemas_status(
-              EndpointArn='string'
+              EndpointArn=\'string\'
           )
         :type EndpointArn: string
         :param EndpointArn: **[REQUIRED]** 
@@ -3793,12 +3793,12 @@ class Client(BaseClient):
           ::
         
             {
-                'RefreshSchemasStatus': {
-                    'EndpointArn': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'Status': 'successful'|'failed'|'refreshing',
-                    'LastRefreshDate': datetime(2015, 1, 1),
-                    'LastFailureMessage': 'string'
+                \'RefreshSchemasStatus\': {
+                    \'EndpointArn\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'Status\': \'successful\'|\'failed\'|\'refreshing\',
+                    \'LastRefreshDate\': datetime(2015, 1, 1),
+                    \'LastFailureMessage\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3841,9 +3841,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_replication_instance_task_logs(
-              ReplicationInstanceArn='string',
+              ReplicationInstanceArn=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ReplicationInstanceArn: string
         :param ReplicationInstanceArn: **[REQUIRED]** 
@@ -3872,15 +3872,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationInstanceArn': 'string',
-                'ReplicationInstanceTaskLogs': [
+                \'ReplicationInstanceArn\': \'string\',
+                \'ReplicationInstanceTaskLogs\': [
                     {
-                        'ReplicationTaskName': 'string',
-                        'ReplicationTaskArn': 'string',
-                        'ReplicationInstanceTaskLogSize': 123
+                        \'ReplicationTaskName\': \'string\',
+                        \'ReplicationTaskArn\': \'string\',
+                        \'ReplicationInstanceTaskLogSize\': 123
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -3928,14 +3928,14 @@ class Client(BaseClient):
           response = client.describe_replication_instances(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -3978,59 +3978,59 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ReplicationInstances': [
+                \'Marker\': \'string\',
+                \'ReplicationInstances\': [
                     {
-                        'ReplicationInstanceIdentifier': 'string',
-                        'ReplicationInstanceClass': 'string',
-                        'ReplicationInstanceStatus': 'string',
-                        'AllocatedStorage': 123,
-                        'InstanceCreateTime': datetime(2015, 1, 1),
-                        'VpcSecurityGroups': [
+                        \'ReplicationInstanceIdentifier\': \'string\',
+                        \'ReplicationInstanceClass\': \'string\',
+                        \'ReplicationInstanceStatus\': \'string\',
+                        \'AllocatedStorage\': 123,
+                        \'InstanceCreateTime\': datetime(2015, 1, 1),
+                        \'VpcSecurityGroups\': [
                             {
-                                'VpcSecurityGroupId': 'string',
-                                'Status': 'string'
+                                \'VpcSecurityGroupId\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'AvailabilityZone': 'string',
-                        'ReplicationSubnetGroup': {
-                            'ReplicationSubnetGroupIdentifier': 'string',
-                            'ReplicationSubnetGroupDescription': 'string',
-                            'VpcId': 'string',
-                            'SubnetGroupStatus': 'string',
-                            'Subnets': [
+                        \'AvailabilityZone\': \'string\',
+                        \'ReplicationSubnetGroup\': {
+                            \'ReplicationSubnetGroupIdentifier\': \'string\',
+                            \'ReplicationSubnetGroupDescription\': \'string\',
+                            \'VpcId\': \'string\',
+                            \'SubnetGroupStatus\': \'string\',
+                            \'Subnets\': [
                                 {
-                                    'SubnetIdentifier': 'string',
-                                    'SubnetAvailabilityZone': {
-                                        'Name': 'string'
+                                    \'SubnetIdentifier\': \'string\',
+                                    \'SubnetAvailabilityZone\': {
+                                        \'Name\': \'string\'
                                     },
-                                    'SubnetStatus': 'string'
+                                    \'SubnetStatus\': \'string\'
                                 },
                             ]
                         },
-                        'PreferredMaintenanceWindow': 'string',
-                        'PendingModifiedValues': {
-                            'ReplicationInstanceClass': 'string',
-                            'AllocatedStorage': 123,
-                            'MultiAZ': True|False,
-                            'EngineVersion': 'string'
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'PendingModifiedValues\': {
+                            \'ReplicationInstanceClass\': \'string\',
+                            \'AllocatedStorage\': 123,
+                            \'MultiAZ\': True|False,
+                            \'EngineVersion\': \'string\'
                         },
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string',
-                        'AutoMinorVersionUpgrade': True|False,
-                        'KmsKeyId': 'string',
-                        'ReplicationInstanceArn': 'string',
-                        'ReplicationInstancePublicIpAddress': 'string',
-                        'ReplicationInstancePrivateIpAddress': 'string',
-                        'ReplicationInstancePublicIpAddresses': [
-                            'string',
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\',
+                        \'AutoMinorVersionUpgrade\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'ReplicationInstanceArn\': \'string\',
+                        \'ReplicationInstancePublicIpAddress\': \'string\',
+                        \'ReplicationInstancePrivateIpAddress\': \'string\',
+                        \'ReplicationInstancePublicIpAddresses\': [
+                            \'string\',
                         ],
-                        'ReplicationInstancePrivateIpAddresses': [
-                            'string',
+                        \'ReplicationInstancePrivateIpAddresses\': [
+                            \'string\',
                         ],
-                        'PubliclyAccessible': True|False,
-                        'SecondaryAvailabilityZone': 'string',
-                        'FreeUntil': datetime(2015, 1, 1)
+                        \'PubliclyAccessible\': True|False,
+                        \'SecondaryAvailabilityZone\': \'string\',
+                        \'FreeUntil\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -4232,14 +4232,14 @@ class Client(BaseClient):
           response = client.describe_replication_subnet_groups(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -4280,20 +4280,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ReplicationSubnetGroups': [
+                \'Marker\': \'string\',
+                \'ReplicationSubnetGroups\': [
                     {
-                        'ReplicationSubnetGroupIdentifier': 'string',
-                        'ReplicationSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                        \'ReplicationSubnetGroupIdentifier\': \'string\',
+                        \'ReplicationSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ]
                     },
@@ -4363,9 +4363,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_replication_task_assessment_results(
-              ReplicationTaskArn='string',
+              ReplicationTaskArn=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ReplicationTaskArn: string
         :param ReplicationTaskArn: 
@@ -4394,17 +4394,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'BucketName': 'string',
-                'ReplicationTaskAssessmentResults': [
+                \'Marker\': \'string\',
+                \'BucketName\': \'string\',
+                \'ReplicationTaskAssessmentResults\': [
                     {
-                        'ReplicationTaskIdentifier': 'string',
-                        'ReplicationTaskArn': 'string',
-                        'ReplicationTaskLastAssessmentDate': datetime(2015, 1, 1),
-                        'AssessmentStatus': 'string',
-                        'AssessmentResultsFile': 'string',
-                        'AssessmentResults': 'string',
-                        'S3ObjectUrl': 'string'
+                        \'ReplicationTaskIdentifier\': \'string\',
+                        \'ReplicationTaskArn\': \'string\',
+                        \'ReplicationTaskLastAssessmentDate\': datetime(2015, 1, 1),
+                        \'AssessmentStatus\': \'string\',
+                        \'AssessmentResultsFile\': \'string\',
+                        \'AssessmentResults\': \'string\',
+                        \'S3ObjectUrl\': \'string\'
                     },
                 ]
             }
@@ -4470,14 +4470,14 @@ class Client(BaseClient):
           response = client.describe_replication_tasks(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -4520,32 +4520,32 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ReplicationTasks': [
+                \'Marker\': \'string\',
+                \'ReplicationTasks\': [
                     {
-                        'ReplicationTaskIdentifier': 'string',
-                        'SourceEndpointArn': 'string',
-                        'TargetEndpointArn': 'string',
-                        'ReplicationInstanceArn': 'string',
-                        'MigrationType': 'full-load'|'cdc'|'full-load-and-cdc',
-                        'TableMappings': 'string',
-                        'ReplicationTaskSettings': 'string',
-                        'Status': 'string',
-                        'LastFailureMessage': 'string',
-                        'StopReason': 'string',
-                        'ReplicationTaskCreationDate': datetime(2015, 1, 1),
-                        'ReplicationTaskStartDate': datetime(2015, 1, 1),
-                        'CdcStartPosition': 'string',
-                        'CdcStopPosition': 'string',
-                        'RecoveryCheckpoint': 'string',
-                        'ReplicationTaskArn': 'string',
-                        'ReplicationTaskStats': {
-                            'FullLoadProgressPercent': 123,
-                            'ElapsedTimeMillis': 123,
-                            'TablesLoaded': 123,
-                            'TablesLoading': 123,
-                            'TablesQueued': 123,
-                            'TablesErrored': 123
+                        \'ReplicationTaskIdentifier\': \'string\',
+                        \'SourceEndpointArn\': \'string\',
+                        \'TargetEndpointArn\': \'string\',
+                        \'ReplicationInstanceArn\': \'string\',
+                        \'MigrationType\': \'full-load\'|\'cdc\'|\'full-load-and-cdc\',
+                        \'TableMappings\': \'string\',
+                        \'ReplicationTaskSettings\': \'string\',
+                        \'Status\': \'string\',
+                        \'LastFailureMessage\': \'string\',
+                        \'StopReason\': \'string\',
+                        \'ReplicationTaskCreationDate\': datetime(2015, 1, 1),
+                        \'ReplicationTaskStartDate\': datetime(2015, 1, 1),
+                        \'CdcStartPosition\': \'string\',
+                        \'CdcStopPosition\': \'string\',
+                        \'RecoveryCheckpoint\': \'string\',
+                        \'ReplicationTaskArn\': \'string\',
+                        \'ReplicationTaskStats\': {
+                            \'FullLoadProgressPercent\': 123,
+                            \'ElapsedTimeMillis\': 123,
+                            \'TablesLoaded\': 123,
+                            \'TablesLoading\': 123,
+                            \'TablesQueued\': 123,
+                            \'TablesErrored\': 123
                         }
                     },
                 ]
@@ -4628,7 +4628,7 @@ class Client(BaseClient):
         
                   Date Example: --cdc-start-position “2018-03-08T12:12:12”
         
-                  Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+                  Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
         
                   LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
         
@@ -4688,9 +4688,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_schemas(
-              EndpointArn='string',
+              EndpointArn=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type EndpointArn: string
         :param EndpointArn: **[REQUIRED]** 
@@ -4719,9 +4719,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Schemas': [
-                    'string',
+                \'Marker\': \'string\',
+                \'Schemas\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -4744,7 +4744,7 @@ class Client(BaseClient):
     def describe_table_statistics(self, ReplicationTaskArn: str, MaxRecords: int = None, Marker: str = None, Filters: List = None) -> Dict:
         """
         
-        Note that the "last updated" column the DMS console only indicates the time that AWS DMS last updated the table statistics record for a table. It does not indicate the time of the last update to the table.
+        Note that the \"last updated\" column the DMS console only indicates the time that AWS DMS last updated the table statistics record for a table. It does not indicate the time of the last update to the table.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/DescribeTableStatistics>`_
         
@@ -4752,14 +4752,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_table_statistics(
-              ReplicationTaskArn='string',
+              ReplicationTaskArn=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ]
@@ -4812,28 +4812,28 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationTaskArn': 'string',
-                'TableStatistics': [
+                \'ReplicationTaskArn\': \'string\',
+                \'TableStatistics\': [
                     {
-                        'SchemaName': 'string',
-                        'TableName': 'string',
-                        'Inserts': 123,
-                        'Deletes': 123,
-                        'Updates': 123,
-                        'Ddls': 123,
-                        'FullLoadRows': 123,
-                        'FullLoadCondtnlChkFailedRows': 123,
-                        'FullLoadErrorRows': 123,
-                        'LastUpdateTime': datetime(2015, 1, 1),
-                        'TableState': 'string',
-                        'ValidationPendingRecords': 123,
-                        'ValidationFailedRecords': 123,
-                        'ValidationSuspendedRecords': 123,
-                        'ValidationState': 'string',
-                        'ValidationStateDetails': 'string'
+                        \'SchemaName\': \'string\',
+                        \'TableName\': \'string\',
+                        \'Inserts\': 123,
+                        \'Deletes\': 123,
+                        \'Updates\': 123,
+                        \'Ddls\': 123,
+                        \'FullLoadRows\': 123,
+                        \'FullLoadCondtnlChkFailedRows\': 123,
+                        \'FullLoadErrorRows\': 123,
+                        \'LastUpdateTime\': datetime(2015, 1, 1),
+                        \'TableState\': \'string\',
+                        \'ValidationPendingRecords\': 123,
+                        \'ValidationFailedRecords\': 123,
+                        \'ValidationSuspendedRecords\': 123,
+                        \'ValidationState\': \'string\',
+                        \'ValidationStateDetails\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -4956,7 +4956,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -4968,10 +4968,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -5003,13 +5003,13 @@ class Client(BaseClient):
         ::
         
           response = client.import_certificate(
-              CertificateIdentifier='string',
-              CertificatePem='string',
-              CertificateWallet=b'bytes',
+              CertificateIdentifier=\'string\',
+              CertificatePem=\'string\',
+              CertificateWallet=b\'bytes\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -5037,11 +5037,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -5051,17 +5051,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificate': {
-                    'CertificateIdentifier': 'string',
-                    'CertificateCreationDate': datetime(2015, 1, 1),
-                    'CertificatePem': 'string',
-                    'CertificateWallet': b'bytes',
-                    'CertificateArn': 'string',
-                    'CertificateOwner': 'string',
-                    'ValidFromDate': datetime(2015, 1, 1),
-                    'ValidToDate': datetime(2015, 1, 1),
-                    'SigningAlgorithm': 'string',
-                    'KeyLength': 123
+                \'Certificate\': {
+                    \'CertificateIdentifier\': \'string\',
+                    \'CertificateCreationDate\': datetime(2015, 1, 1),
+                    \'CertificatePem\': \'string\',
+                    \'CertificateWallet\': b\'bytes\',
+                    \'CertificateArn\': \'string\',
+                    \'CertificateOwner\': \'string\',
+                    \'ValidFromDate\': datetime(2015, 1, 1),
+                    \'ValidToDate\': datetime(2015, 1, 1),
+                    \'SigningAlgorithm\': \'string\',
+                    \'KeyLength\': 123
                 }
             }
           **Response Structure** 
@@ -5124,7 +5124,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              ResourceArn='string'
+              ResourceArn=\'string\'
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
@@ -5139,10 +5139,10 @@ class Client(BaseClient):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -5158,11 +5158,11 @@ class Client(BaseClient):
         
                 - **Key** *(string) --* 
         
-                  A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+                  A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
                 - **Value** *(string) --* 
         
-                  A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+                  A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         """
         pass
@@ -5176,49 +5176,49 @@ class Client(BaseClient):
         ::
         
           response = client.modify_endpoint(
-              EndpointArn='string',
-              EndpointIdentifier='string',
-              EndpointType='source'|'target',
-              EngineName='string',
-              Username='string',
-              Password='string',
-              ServerName='string',
+              EndpointArn=\'string\',
+              EndpointIdentifier=\'string\',
+              EndpointType=\'source\'|\'target\',
+              EngineName=\'string\',
+              Username=\'string\',
+              Password=\'string\',
+              ServerName=\'string\',
               Port=123,
-              DatabaseName='string',
-              ExtraConnectionAttributes='string',
-              CertificateArn='string',
-              SslMode='none'|'require'|'verify-ca'|'verify-full',
-              ServiceAccessRoleArn='string',
-              ExternalTableDefinition='string',
+              DatabaseName=\'string\',
+              ExtraConnectionAttributes=\'string\',
+              CertificateArn=\'string\',
+              SslMode=\'none\'|\'require\'|\'verify-ca\'|\'verify-full\',
+              ServiceAccessRoleArn=\'string\',
+              ExternalTableDefinition=\'string\',
               DynamoDbSettings={
-                  'ServiceAccessRoleArn': 'string'
+                  \'ServiceAccessRoleArn\': \'string\'
               },
               S3Settings={
-                  'ServiceAccessRoleArn': 'string',
-                  'ExternalTableDefinition': 'string',
-                  'CsvRowDelimiter': 'string',
-                  'CsvDelimiter': 'string',
-                  'BucketFolder': 'string',
-                  'BucketName': 'string',
-                  'CompressionType': 'none'|'gzip'
+                  \'ServiceAccessRoleArn\': \'string\',
+                  \'ExternalTableDefinition\': \'string\',
+                  \'CsvRowDelimiter\': \'string\',
+                  \'CsvDelimiter\': \'string\',
+                  \'BucketFolder\': \'string\',
+                  \'BucketName\': \'string\',
+                  \'CompressionType\': \'none\'|\'gzip\'
               },
               DmsTransferSettings={
-                  'ServiceAccessRoleArn': 'string',
-                  'BucketName': 'string'
+                  \'ServiceAccessRoleArn\': \'string\',
+                  \'BucketName\': \'string\'
               },
               MongoDbSettings={
-                  'Username': 'string',
-                  'Password': 'string',
-                  'ServerName': 'string',
-                  'Port': 123,
-                  'DatabaseName': 'string',
-                  'AuthType': 'no'|'password',
-                  'AuthMechanism': 'default'|'mongodb_cr'|'scram_sha_1',
-                  'NestingLevel': 'none'|'one',
-                  'ExtractDocId': 'string',
-                  'DocsToInvestigate': 'string',
-                  'AuthSource': 'string',
-                  'KmsKeyId': 'string'
+                  \'Username\': \'string\',
+                  \'Password\': \'string\',
+                  \'ServerName\': \'string\',
+                  \'Port\': 123,
+                  \'DatabaseName\': \'string\',
+                  \'AuthType\': \'no\'|\'password\',
+                  \'AuthMechanism\': \'default\'|\'mongodb_cr\'|\'scram_sha_1\',
+                  \'NestingLevel\': \'none\'|\'one\',
+                  \'ExtractDocId\': \'string\',
+                  \'DocsToInvestigate\': \'string\',
+                  \'AuthSource\': \'string\',
+                  \'KmsKeyId\': \'string\'
               }
           )
         :type EndpointArn: string
@@ -5269,7 +5269,7 @@ class Client(BaseClient):
         :type ExtraConnectionAttributes: string
         :param ExtraConnectionAttributes: 
         
-          Additional attributes associated with the connection. To reset this parameter, pass the empty string ("") as an argument.
+          Additional attributes associated with the connection. To reset this parameter, pass the empty string (\"\") as an argument.
         
         :type CertificateArn: string
         :param CertificateArn: 
@@ -5354,7 +5354,7 @@ class Client(BaseClient):
         
           JSON syntax:
         
-          { "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } 
+          { \"ServiceAccessRoleArn\": \"string\", \"BucketName\": \"string\", \"CompressionType\": \"none\"|\"gzip\" } 
         
           - **ServiceAccessRoleArn** *(string) --* 
         
@@ -5443,53 +5443,53 @@ class Client(BaseClient):
           ::
         
             {
-                'Endpoint': {
-                    'EndpointIdentifier': 'string',
-                    'EndpointType': 'source'|'target',
-                    'EngineName': 'string',
-                    'EngineDisplayName': 'string',
-                    'Username': 'string',
-                    'ServerName': 'string',
-                    'Port': 123,
-                    'DatabaseName': 'string',
-                    'ExtraConnectionAttributes': 'string',
-                    'Status': 'string',
-                    'KmsKeyId': 'string',
-                    'EndpointArn': 'string',
-                    'CertificateArn': 'string',
-                    'SslMode': 'none'|'require'|'verify-ca'|'verify-full',
-                    'ServiceAccessRoleArn': 'string',
-                    'ExternalTableDefinition': 'string',
-                    'ExternalId': 'string',
-                    'DynamoDbSettings': {
-                        'ServiceAccessRoleArn': 'string'
+                \'Endpoint\': {
+                    \'EndpointIdentifier\': \'string\',
+                    \'EndpointType\': \'source\'|\'target\',
+                    \'EngineName\': \'string\',
+                    \'EngineDisplayName\': \'string\',
+                    \'Username\': \'string\',
+                    \'ServerName\': \'string\',
+                    \'Port\': 123,
+                    \'DatabaseName\': \'string\',
+                    \'ExtraConnectionAttributes\': \'string\',
+                    \'Status\': \'string\',
+                    \'KmsKeyId\': \'string\',
+                    \'EndpointArn\': \'string\',
+                    \'CertificateArn\': \'string\',
+                    \'SslMode\': \'none\'|\'require\'|\'verify-ca\'|\'verify-full\',
+                    \'ServiceAccessRoleArn\': \'string\',
+                    \'ExternalTableDefinition\': \'string\',
+                    \'ExternalId\': \'string\',
+                    \'DynamoDbSettings\': {
+                        \'ServiceAccessRoleArn\': \'string\'
                     },
-                    'S3Settings': {
-                        'ServiceAccessRoleArn': 'string',
-                        'ExternalTableDefinition': 'string',
-                        'CsvRowDelimiter': 'string',
-                        'CsvDelimiter': 'string',
-                        'BucketFolder': 'string',
-                        'BucketName': 'string',
-                        'CompressionType': 'none'|'gzip'
+                    \'S3Settings\': {
+                        \'ServiceAccessRoleArn\': \'string\',
+                        \'ExternalTableDefinition\': \'string\',
+                        \'CsvRowDelimiter\': \'string\',
+                        \'CsvDelimiter\': \'string\',
+                        \'BucketFolder\': \'string\',
+                        \'BucketName\': \'string\',
+                        \'CompressionType\': \'none\'|\'gzip\'
                     },
-                    'DmsTransferSettings': {
-                        'ServiceAccessRoleArn': 'string',
-                        'BucketName': 'string'
+                    \'DmsTransferSettings\': {
+                        \'ServiceAccessRoleArn\': \'string\',
+                        \'BucketName\': \'string\'
                     },
-                    'MongoDbSettings': {
-                        'Username': 'string',
-                        'Password': 'string',
-                        'ServerName': 'string',
-                        'Port': 123,
-                        'DatabaseName': 'string',
-                        'AuthType': 'no'|'password',
-                        'AuthMechanism': 'default'|'mongodb_cr'|'scram_sha_1',
-                        'NestingLevel': 'none'|'one',
-                        'ExtractDocId': 'string',
-                        'DocsToInvestigate': 'string',
-                        'AuthSource': 'string',
-                        'KmsKeyId': 'string'
+                    \'MongoDbSettings\': {
+                        \'Username\': \'string\',
+                        \'Password\': \'string\',
+                        \'ServerName\': \'string\',
+                        \'Port\': 123,
+                        \'DatabaseName\': \'string\',
+                        \'AuthType\': \'no\'|\'password\',
+                        \'AuthMechanism\': \'default\'|\'mongodb_cr\'|\'scram_sha_1\',
+                        \'NestingLevel\': \'none\'|\'one\',
+                        \'ExtractDocId\': \'string\',
+                        \'DocsToInvestigate\': \'string\',
+                        \'AuthSource\': \'string\',
+                        \'KmsKeyId\': \'string\'
                     }
                 }
             }
@@ -5515,7 +5515,7 @@ class Client(BaseClient):
         
               - **EngineDisplayName** *(string) --* 
         
-                The expanded name for the engine name. For example, if the ``EngineName`` parameter is "aurora," this value would be "Amazon Aurora MySQL."
+                The expanded name for the engine name. For example, if the ``EngineName`` parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
         
               - **Username** *(string) --* 
         
@@ -5629,7 +5629,7 @@ class Client(BaseClient):
         
                 JSON syntax:
         
-                { "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } 
+                { \"ServiceAccessRoleArn\": \"string\", \"BucketName\": \"string\", \"CompressionType\": \"none\"|\"gzip\" } 
         
                 - **ServiceAccessRoleArn** *(string) --* 
         
@@ -5721,11 +5721,11 @@ class Client(BaseClient):
         ::
         
           response = client.modify_event_subscription(
-              SubscriptionName='string',
-              SnsTopicArn='string',
-              SourceType='string',
+              SubscriptionName=\'string\',
+              SnsTopicArn=\'string\',
+              SourceType=\'string\',
               EventCategories=[
-                  'string',
+                  \'string\',
               ],
               Enabled=True|False
           )
@@ -5766,20 +5766,20 @@ class Client(BaseClient):
           ::
         
             {
-                'EventSubscription': {
-                    'CustomerAwsId': 'string',
-                    'CustSubscriptionId': 'string',
-                    'SnsTopicArn': 'string',
-                    'Status': 'string',
-                    'SubscriptionCreationTime': 'string',
-                    'SourceType': 'string',
-                    'SourceIdsList': [
-                        'string',
+                \'EventSubscription\': {
+                    \'CustomerAwsId\': \'string\',
+                    \'CustSubscriptionId\': \'string\',
+                    \'SnsTopicArn\': \'string\',
+                    \'Status\': \'string\',
+                    \'SubscriptionCreationTime\': \'string\',
+                    \'SourceType\': \'string\',
+                    \'SourceIdsList\': [
+                        \'string\',
                     ],
-                    'EventCategoriesList': [
-                        'string',
+                    \'EventCategoriesList\': [
+                        \'string\',
                     ],
-                    'Enabled': True|False
+                    \'Enabled\': True|False
                 }
             }
           **Response Structure** 
@@ -5810,7 +5810,7 @@ class Client(BaseClient):
         
                 Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                The status "no-permission" indicates that AWS DMS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                The status \"no-permission\" indicates that AWS DMS no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
               - **SubscriptionCreationTime** *(string) --* 
         
@@ -5852,19 +5852,19 @@ class Client(BaseClient):
         ::
         
           response = client.modify_replication_instance(
-              ReplicationInstanceArn='string',
+              ReplicationInstanceArn=\'string\',
               AllocatedStorage=123,
               ApplyImmediately=True|False,
-              ReplicationInstanceClass='string',
+              ReplicationInstanceClass=\'string\',
               VpcSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              PreferredMaintenanceWindow='string',
+              PreferredMaintenanceWindow=\'string\',
               MultiAZ=True|False,
-              EngineVersion='string',
+              EngineVersion=\'string\',
               AllowMajorVersionUpgrade=True|False,
               AutoMinorVersionUpgrade=True|False,
-              ReplicationInstanceIdentifier='string'
+              ReplicationInstanceIdentifier=\'string\'
           )
         :type ReplicationInstanceArn: string
         :param ReplicationInstanceArn: **[REQUIRED]** 
@@ -5923,7 +5923,7 @@ class Client(BaseClient):
         
           Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.
         
-          Constraints: This parameter must be set to true when specifying a value for the ``EngineVersion`` parameter that is a different major version than the replication instance's current version.
+          Constraints: This parameter must be set to true when specifying a value for the ``EngineVersion`` parameter that is a different major version than the replication instance\'s current version.
         
         :type AutoMinorVersionUpgrade: boolean
         :param AutoMinorVersionUpgrade: 
@@ -5943,57 +5943,57 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationInstance': {
-                    'ReplicationInstanceIdentifier': 'string',
-                    'ReplicationInstanceClass': 'string',
-                    'ReplicationInstanceStatus': 'string',
-                    'AllocatedStorage': 123,
-                    'InstanceCreateTime': datetime(2015, 1, 1),
-                    'VpcSecurityGroups': [
+                \'ReplicationInstance\': {
+                    \'ReplicationInstanceIdentifier\': \'string\',
+                    \'ReplicationInstanceClass\': \'string\',
+                    \'ReplicationInstanceStatus\': \'string\',
+                    \'AllocatedStorage\': 123,
+                    \'InstanceCreateTime\': datetime(2015, 1, 1),
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'AvailabilityZone': 'string',
-                    'ReplicationSubnetGroup': {
-                        'ReplicationSubnetGroupIdentifier': 'string',
-                        'ReplicationSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                    \'AvailabilityZone\': \'string\',
+                    \'ReplicationSubnetGroup\': {
+                        \'ReplicationSubnetGroupIdentifier\': \'string\',
+                        \'ReplicationSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ]
                     },
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'ReplicationInstanceClass': 'string',
-                        'AllocatedStorage': 123,
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string'
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'ReplicationInstanceClass\': \'string\',
+                        \'AllocatedStorage\': 123,
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\'
                     },
-                    'MultiAZ': True|False,
-                    'EngineVersion': 'string',
-                    'AutoMinorVersionUpgrade': True|False,
-                    'KmsKeyId': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'ReplicationInstancePublicIpAddress': 'string',
-                    'ReplicationInstancePrivateIpAddress': 'string',
-                    'ReplicationInstancePublicIpAddresses': [
-                        'string',
+                    \'MultiAZ\': True|False,
+                    \'EngineVersion\': \'string\',
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'ReplicationInstancePublicIpAddress\': \'string\',
+                    \'ReplicationInstancePrivateIpAddress\': \'string\',
+                    \'ReplicationInstancePublicIpAddresses\': [
+                        \'string\',
                     ],
-                    'ReplicationInstancePrivateIpAddresses': [
-                        'string',
+                    \'ReplicationInstancePrivateIpAddresses\': [
+                        \'string\',
                     ],
-                    'PubliclyAccessible': True|False,
-                    'SecondaryAvailabilityZone': 'string',
-                    'FreeUntil': datetime(2015, 1, 1)
+                    \'PubliclyAccessible\': True|False,
+                    \'SecondaryAvailabilityZone\': \'string\',
+                    \'FreeUntil\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -6186,10 +6186,10 @@ class Client(BaseClient):
         ::
         
           response = client.modify_replication_subnet_group(
-              ReplicationSubnetGroupIdentifier='string',
-              ReplicationSubnetGroupDescription='string',
+              ReplicationSubnetGroupIdentifier=\'string\',
+              ReplicationSubnetGroupDescription=\'string\',
               SubnetIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ReplicationSubnetGroupIdentifier: string
@@ -6217,18 +6217,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationSubnetGroup': {
-                    'ReplicationSubnetGroupIdentifier': 'string',
-                    'ReplicationSubnetGroupDescription': 'string',
-                    'VpcId': 'string',
-                    'SubnetGroupStatus': 'string',
-                    'Subnets': [
+                \'ReplicationSubnetGroup\': {
+                    \'ReplicationSubnetGroupIdentifier\': \'string\',
+                    \'ReplicationSubnetGroupDescription\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'SubnetGroupStatus\': \'string\',
+                    \'Subnets\': [
                         {
-                            'SubnetIdentifier': 'string',
-                            'SubnetAvailabilityZone': {
-                                'Name': 'string'
+                            \'SubnetIdentifier\': \'string\',
+                            \'SubnetAvailabilityZone\': {
+                                \'Name\': \'string\'
                             },
-                            'SubnetStatus': 'string'
+                            \'SubnetStatus\': \'string\'
                         },
                     ]
                 }
@@ -6285,7 +6285,7 @@ class Client(BaseClient):
     def modify_replication_task(self, ReplicationTaskArn: str, ReplicationTaskIdentifier: str = None, MigrationType: str = None, TableMappings: str = None, ReplicationTaskSettings: str = None, CdcStartTime: datetime = None, CdcStartPosition: str = None, CdcStopPosition: str = None) -> Dict:
         """
         
-        You can't modify the task endpoints. The task must be stopped before you can modify it. 
+        You can\'t modify the task endpoints. The task must be stopped before you can modify it. 
         
         For more information about AWS DMS tasks, see the AWS DMS user guide at `Working with Migration Tasks <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html>`__  
         
@@ -6295,14 +6295,14 @@ class Client(BaseClient):
         ::
         
           response = client.modify_replication_task(
-              ReplicationTaskArn='string',
-              ReplicationTaskIdentifier='string',
-              MigrationType='full-load'|'cdc'|'full-load-and-cdc',
-              TableMappings='string',
-              ReplicationTaskSettings='string',
+              ReplicationTaskArn=\'string\',
+              ReplicationTaskIdentifier=\'string\',
+              MigrationType=\'full-load\'|\'cdc\'|\'full-load-and-cdc\',
+              TableMappings=\'string\',
+              ReplicationTaskSettings=\'string\',
               CdcStartTime=datetime(2015, 1, 1),
-              CdcStartPosition='string',
-              CdcStopPosition='string'
+              CdcStartPosition=\'string\',
+              CdcStopPosition=\'string\'
           )
         :type ReplicationTaskArn: string
         :param ReplicationTaskArn: **[REQUIRED]** 
@@ -6332,7 +6332,7 @@ class Client(BaseClient):
         :type TableMappings: string
         :param TableMappings: 
         
-          When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with "file://". When working with the DMS API, provide the JSON as the parameter value.
+          When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with \"file://\". When working with the DMS API, provide the JSON as the parameter value.
         
           For example, --table-mappings file://mappingfile.json
         
@@ -6357,7 +6357,7 @@ class Client(BaseClient):
         
           Date Example: --cdc-start-position “2018-03-08T12:12:12”
         
-          Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+          Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
         
           LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
         
@@ -6378,30 +6378,30 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationTask': {
-                    'ReplicationTaskIdentifier': 'string',
-                    'SourceEndpointArn': 'string',
-                    'TargetEndpointArn': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'MigrationType': 'full-load'|'cdc'|'full-load-and-cdc',
-                    'TableMappings': 'string',
-                    'ReplicationTaskSettings': 'string',
-                    'Status': 'string',
-                    'LastFailureMessage': 'string',
-                    'StopReason': 'string',
-                    'ReplicationTaskCreationDate': datetime(2015, 1, 1),
-                    'ReplicationTaskStartDate': datetime(2015, 1, 1),
-                    'CdcStartPosition': 'string',
-                    'CdcStopPosition': 'string',
-                    'RecoveryCheckpoint': 'string',
-                    'ReplicationTaskArn': 'string',
-                    'ReplicationTaskStats': {
-                        'FullLoadProgressPercent': 123,
-                        'ElapsedTimeMillis': 123,
-                        'TablesLoaded': 123,
-                        'TablesLoading': 123,
-                        'TablesQueued': 123,
-                        'TablesErrored': 123
+                \'ReplicationTask\': {
+                    \'ReplicationTaskIdentifier\': \'string\',
+                    \'SourceEndpointArn\': \'string\',
+                    \'TargetEndpointArn\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'MigrationType\': \'full-load\'|\'cdc\'|\'full-load-and-cdc\',
+                    \'TableMappings\': \'string\',
+                    \'ReplicationTaskSettings\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastFailureMessage\': \'string\',
+                    \'StopReason\': \'string\',
+                    \'ReplicationTaskCreationDate\': datetime(2015, 1, 1),
+                    \'ReplicationTaskStartDate\': datetime(2015, 1, 1),
+                    \'CdcStartPosition\': \'string\',
+                    \'CdcStopPosition\': \'string\',
+                    \'RecoveryCheckpoint\': \'string\',
+                    \'ReplicationTaskArn\': \'string\',
+                    \'ReplicationTaskStats\': {
+                        \'FullLoadProgressPercent\': 123,
+                        \'ElapsedTimeMillis\': 123,
+                        \'TablesLoaded\': 123,
+                        \'TablesLoading\': 123,
+                        \'TablesQueued\': 123,
+                        \'TablesErrored\': 123
                     }
                 }
             }
@@ -6477,7 +6477,7 @@ class Client(BaseClient):
         
                 Date Example: --cdc-start-position “2018-03-08T12:12:12”
         
-                Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+                Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
         
                 LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
         
@@ -6537,7 +6537,7 @@ class Client(BaseClient):
         ::
         
           response = client.reboot_replication_instance(
-              ReplicationInstanceArn='string',
+              ReplicationInstanceArn=\'string\',
               ForceFailover=True|False
           )
         :type ReplicationInstanceArn: string
@@ -6548,7 +6548,7 @@ class Client(BaseClient):
         :type ForceFailover: boolean
         :param ForceFailover: 
         
-          If this parameter is ``true`` , the reboot is conducted through a Multi-AZ failover. (If the instance isn't configured for Multi-AZ, then you can't specify ``true`` .)
+          If this parameter is ``true`` , the reboot is conducted through a Multi-AZ failover. (If the instance isn\'t configured for Multi-AZ, then you can\'t specify ``true`` .)
         
         :rtype: dict
         :returns: 
@@ -6558,57 +6558,57 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationInstance': {
-                    'ReplicationInstanceIdentifier': 'string',
-                    'ReplicationInstanceClass': 'string',
-                    'ReplicationInstanceStatus': 'string',
-                    'AllocatedStorage': 123,
-                    'InstanceCreateTime': datetime(2015, 1, 1),
-                    'VpcSecurityGroups': [
+                \'ReplicationInstance\': {
+                    \'ReplicationInstanceIdentifier\': \'string\',
+                    \'ReplicationInstanceClass\': \'string\',
+                    \'ReplicationInstanceStatus\': \'string\',
+                    \'AllocatedStorage\': 123,
+                    \'InstanceCreateTime\': datetime(2015, 1, 1),
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'AvailabilityZone': 'string',
-                    'ReplicationSubnetGroup': {
-                        'ReplicationSubnetGroupIdentifier': 'string',
-                        'ReplicationSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                    \'AvailabilityZone\': \'string\',
+                    \'ReplicationSubnetGroup\': {
+                        \'ReplicationSubnetGroupIdentifier\': \'string\',
+                        \'ReplicationSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ]
                     },
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'ReplicationInstanceClass': 'string',
-                        'AllocatedStorage': 123,
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string'
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'ReplicationInstanceClass\': \'string\',
+                        \'AllocatedStorage\': 123,
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\'
                     },
-                    'MultiAZ': True|False,
-                    'EngineVersion': 'string',
-                    'AutoMinorVersionUpgrade': True|False,
-                    'KmsKeyId': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'ReplicationInstancePublicIpAddress': 'string',
-                    'ReplicationInstancePrivateIpAddress': 'string',
-                    'ReplicationInstancePublicIpAddresses': [
-                        'string',
+                    \'MultiAZ\': True|False,
+                    \'EngineVersion\': \'string\',
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'ReplicationInstancePublicIpAddress\': \'string\',
+                    \'ReplicationInstancePrivateIpAddress\': \'string\',
+                    \'ReplicationInstancePublicIpAddresses\': [
+                        \'string\',
                     ],
-                    'ReplicationInstancePrivateIpAddresses': [
-                        'string',
+                    \'ReplicationInstancePrivateIpAddresses\': [
+                        \'string\',
                     ],
-                    'PubliclyAccessible': True|False,
-                    'SecondaryAvailabilityZone': 'string',
-                    'FreeUntil': datetime(2015, 1, 1)
+                    \'PubliclyAccessible\': True|False,
+                    \'SecondaryAvailabilityZone\': \'string\',
+                    \'FreeUntil\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -6801,8 +6801,8 @@ class Client(BaseClient):
         ::
         
           response = client.refresh_schemas(
-              EndpointArn='string',
-              ReplicationInstanceArn='string'
+              EndpointArn=\'string\',
+              ReplicationInstanceArn=\'string\'
           )
         :type EndpointArn: string
         :param EndpointArn: **[REQUIRED]** 
@@ -6822,12 +6822,12 @@ class Client(BaseClient):
           ::
         
             {
-                'RefreshSchemasStatus': {
-                    'EndpointArn': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'Status': 'successful'|'failed'|'refreshing',
-                    'LastRefreshDate': datetime(2015, 1, 1),
-                    'LastFailureMessage': 'string'
+                \'RefreshSchemasStatus\': {
+                    \'EndpointArn\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'Status\': \'successful\'|\'failed\'|\'refreshing\',
+                    \'LastRefreshDate\': datetime(2015, 1, 1),
+                    \'LastFailureMessage\': \'string\'
                 }
             }
           **Response Structure** 
@@ -6870,14 +6870,14 @@ class Client(BaseClient):
         ::
         
           response = client.reload_tables(
-              ReplicationTaskArn='string',
+              ReplicationTaskArn=\'string\',
               TablesToReload=[
                   {
-                      'SchemaName': 'string',
-                      'TableName': 'string'
+                      \'SchemaName\': \'string\',
+                      \'TableName\': \'string\'
                   },
               ],
-              ReloadOption='data-reload'|'validate-only'
+              ReloadOption=\'data-reload\'|\'validate-only\'
           )
         :type ReplicationTaskArn: string
         :param ReplicationTaskArn: **[REQUIRED]** 
@@ -6916,7 +6916,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationTaskArn': 'string'
+                \'ReplicationTaskArn\': \'string\'
             }
           **Response Structure** 
         
@@ -6938,9 +6938,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags_from_resource(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceArn: string
@@ -6981,11 +6981,11 @@ class Client(BaseClient):
         ::
         
           response = client.start_replication_task(
-              ReplicationTaskArn='string',
-              StartReplicationTaskType='start-replication'|'resume-processing'|'reload-target',
+              ReplicationTaskArn=\'string\',
+              StartReplicationTaskType=\'start-replication\'|\'resume-processing\'|\'reload-target\',
               CdcStartTime=datetime(2015, 1, 1),
-              CdcStartPosition='string',
-              CdcStopPosition='string'
+              CdcStartPosition=\'string\',
+              CdcStopPosition=\'string\'
           )
         :type ReplicationTaskArn: string
         :param ReplicationTaskArn: **[REQUIRED]** 
@@ -7013,7 +7013,7 @@ class Client(BaseClient):
         
           Date Example: --cdc-start-position “2018-03-08T12:12:12”
         
-          Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+          Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
         
           LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
         
@@ -7034,30 +7034,30 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationTask': {
-                    'ReplicationTaskIdentifier': 'string',
-                    'SourceEndpointArn': 'string',
-                    'TargetEndpointArn': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'MigrationType': 'full-load'|'cdc'|'full-load-and-cdc',
-                    'TableMappings': 'string',
-                    'ReplicationTaskSettings': 'string',
-                    'Status': 'string',
-                    'LastFailureMessage': 'string',
-                    'StopReason': 'string',
-                    'ReplicationTaskCreationDate': datetime(2015, 1, 1),
-                    'ReplicationTaskStartDate': datetime(2015, 1, 1),
-                    'CdcStartPosition': 'string',
-                    'CdcStopPosition': 'string',
-                    'RecoveryCheckpoint': 'string',
-                    'ReplicationTaskArn': 'string',
-                    'ReplicationTaskStats': {
-                        'FullLoadProgressPercent': 123,
-                        'ElapsedTimeMillis': 123,
-                        'TablesLoaded': 123,
-                        'TablesLoading': 123,
-                        'TablesQueued': 123,
-                        'TablesErrored': 123
+                \'ReplicationTask\': {
+                    \'ReplicationTaskIdentifier\': \'string\',
+                    \'SourceEndpointArn\': \'string\',
+                    \'TargetEndpointArn\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'MigrationType\': \'full-load\'|\'cdc\'|\'full-load-and-cdc\',
+                    \'TableMappings\': \'string\',
+                    \'ReplicationTaskSettings\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastFailureMessage\': \'string\',
+                    \'StopReason\': \'string\',
+                    \'ReplicationTaskCreationDate\': datetime(2015, 1, 1),
+                    \'ReplicationTaskStartDate\': datetime(2015, 1, 1),
+                    \'CdcStartPosition\': \'string\',
+                    \'CdcStopPosition\': \'string\',
+                    \'RecoveryCheckpoint\': \'string\',
+                    \'ReplicationTaskArn\': \'string\',
+                    \'ReplicationTaskStats\': {
+                        \'FullLoadProgressPercent\': 123,
+                        \'ElapsedTimeMillis\': 123,
+                        \'TablesLoaded\': 123,
+                        \'TablesLoading\': 123,
+                        \'TablesQueued\': 123,
+                        \'TablesErrored\': 123
                     }
                 }
             }
@@ -7133,7 +7133,7 @@ class Client(BaseClient):
         
                 Date Example: --cdc-start-position “2018-03-08T12:12:12”
         
-                Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+                Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
         
                 LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
         
@@ -7193,7 +7193,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_replication_task_assessment(
-              ReplicationTaskArn='string'
+              ReplicationTaskArn=\'string\'
           )
         :type ReplicationTaskArn: string
         :param ReplicationTaskArn: **[REQUIRED]** 
@@ -7208,30 +7208,30 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationTask': {
-                    'ReplicationTaskIdentifier': 'string',
-                    'SourceEndpointArn': 'string',
-                    'TargetEndpointArn': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'MigrationType': 'full-load'|'cdc'|'full-load-and-cdc',
-                    'TableMappings': 'string',
-                    'ReplicationTaskSettings': 'string',
-                    'Status': 'string',
-                    'LastFailureMessage': 'string',
-                    'StopReason': 'string',
-                    'ReplicationTaskCreationDate': datetime(2015, 1, 1),
-                    'ReplicationTaskStartDate': datetime(2015, 1, 1),
-                    'CdcStartPosition': 'string',
-                    'CdcStopPosition': 'string',
-                    'RecoveryCheckpoint': 'string',
-                    'ReplicationTaskArn': 'string',
-                    'ReplicationTaskStats': {
-                        'FullLoadProgressPercent': 123,
-                        'ElapsedTimeMillis': 123,
-                        'TablesLoaded': 123,
-                        'TablesLoading': 123,
-                        'TablesQueued': 123,
-                        'TablesErrored': 123
+                \'ReplicationTask\': {
+                    \'ReplicationTaskIdentifier\': \'string\',
+                    \'SourceEndpointArn\': \'string\',
+                    \'TargetEndpointArn\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'MigrationType\': \'full-load\'|\'cdc\'|\'full-load-and-cdc\',
+                    \'TableMappings\': \'string\',
+                    \'ReplicationTaskSettings\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastFailureMessage\': \'string\',
+                    \'StopReason\': \'string\',
+                    \'ReplicationTaskCreationDate\': datetime(2015, 1, 1),
+                    \'ReplicationTaskStartDate\': datetime(2015, 1, 1),
+                    \'CdcStartPosition\': \'string\',
+                    \'CdcStopPosition\': \'string\',
+                    \'RecoveryCheckpoint\': \'string\',
+                    \'ReplicationTaskArn\': \'string\',
+                    \'ReplicationTaskStats\': {
+                        \'FullLoadProgressPercent\': 123,
+                        \'ElapsedTimeMillis\': 123,
+                        \'TablesLoaded\': 123,
+                        \'TablesLoading\': 123,
+                        \'TablesQueued\': 123,
+                        \'TablesErrored\': 123
                     }
                 }
             }
@@ -7307,7 +7307,7 @@ class Client(BaseClient):
         
                 Date Example: --cdc-start-position “2018-03-08T12:12:12”
         
-                Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+                Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
         
                 LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
         
@@ -7367,7 +7367,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_replication_task(
-              ReplicationTaskArn='string'
+              ReplicationTaskArn=\'string\'
           )
         :type ReplicationTaskArn: string
         :param ReplicationTaskArn: **[REQUIRED]** 
@@ -7382,30 +7382,30 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationTask': {
-                    'ReplicationTaskIdentifier': 'string',
-                    'SourceEndpointArn': 'string',
-                    'TargetEndpointArn': 'string',
-                    'ReplicationInstanceArn': 'string',
-                    'MigrationType': 'full-load'|'cdc'|'full-load-and-cdc',
-                    'TableMappings': 'string',
-                    'ReplicationTaskSettings': 'string',
-                    'Status': 'string',
-                    'LastFailureMessage': 'string',
-                    'StopReason': 'string',
-                    'ReplicationTaskCreationDate': datetime(2015, 1, 1),
-                    'ReplicationTaskStartDate': datetime(2015, 1, 1),
-                    'CdcStartPosition': 'string',
-                    'CdcStopPosition': 'string',
-                    'RecoveryCheckpoint': 'string',
-                    'ReplicationTaskArn': 'string',
-                    'ReplicationTaskStats': {
-                        'FullLoadProgressPercent': 123,
-                        'ElapsedTimeMillis': 123,
-                        'TablesLoaded': 123,
-                        'TablesLoading': 123,
-                        'TablesQueued': 123,
-                        'TablesErrored': 123
+                \'ReplicationTask\': {
+                    \'ReplicationTaskIdentifier\': \'string\',
+                    \'SourceEndpointArn\': \'string\',
+                    \'TargetEndpointArn\': \'string\',
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'MigrationType\': \'full-load\'|\'cdc\'|\'full-load-and-cdc\',
+                    \'TableMappings\': \'string\',
+                    \'ReplicationTaskSettings\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastFailureMessage\': \'string\',
+                    \'StopReason\': \'string\',
+                    \'ReplicationTaskCreationDate\': datetime(2015, 1, 1),
+                    \'ReplicationTaskStartDate\': datetime(2015, 1, 1),
+                    \'CdcStartPosition\': \'string\',
+                    \'CdcStopPosition\': \'string\',
+                    \'RecoveryCheckpoint\': \'string\',
+                    \'ReplicationTaskArn\': \'string\',
+                    \'ReplicationTaskStats\': {
+                        \'FullLoadProgressPercent\': 123,
+                        \'ElapsedTimeMillis\': 123,
+                        \'TablesLoaded\': 123,
+                        \'TablesLoading\': 123,
+                        \'TablesQueued\': 123,
+                        \'TablesErrored\': 123
                     }
                 }
             }
@@ -7481,7 +7481,7 @@ class Client(BaseClient):
         
                 Date Example: --cdc-start-position “2018-03-08T12:12:12”
         
-                Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+                Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
         
                 LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
         
@@ -7541,8 +7541,8 @@ class Client(BaseClient):
         ::
         
           response = client.test_connection(
-              ReplicationInstanceArn='string',
-              EndpointArn='string'
+              ReplicationInstanceArn=\'string\',
+              EndpointArn=\'string\'
           )
         :type ReplicationInstanceArn: string
         :param ReplicationInstanceArn: **[REQUIRED]** 
@@ -7562,13 +7562,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Connection': {
-                    'ReplicationInstanceArn': 'string',
-                    'EndpointArn': 'string',
-                    'Status': 'string',
-                    'LastFailureMessage': 'string',
-                    'EndpointIdentifier': 'string',
-                    'ReplicationInstanceIdentifier': 'string'
+                \'Connection\': {
+                    \'ReplicationInstanceArn\': \'string\',
+                    \'EndpointArn\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastFailureMessage\': \'string\',
+                    \'EndpointIdentifier\': \'string\',
+                    \'ReplicationInstanceIdentifier\': \'string\'
                 }
             }
           **Response Structure** 

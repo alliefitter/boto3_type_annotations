@@ -13,9 +13,9 @@ class DescribeReportDefinitions(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,20 +43,20 @@ class DescribeReportDefinitions(Paginator):
           ::
         
             {
-                'ReportDefinitions': [
+                \'ReportDefinitions\': [
                     {
-                        'ReportName': 'string',
-                        'TimeUnit': 'HOURLY'|'DAILY',
-                        'Format': 'textORcsv',
-                        'Compression': 'ZIP'|'GZIP',
-                        'AdditionalSchemaElements': [
-                            'RESOURCES',
+                        \'ReportName\': \'string\',
+                        \'TimeUnit\': \'HOURLY\'|\'DAILY\',
+                        \'Format\': \'textORcsv\',
+                        \'Compression\': \'ZIP\'|\'GZIP\',
+                        \'AdditionalSchemaElements\': [
+                            \'RESOURCES\',
                         ],
-                        'S3Bucket': 'string',
-                        'S3Prefix': 'string',
-                        'S3Region': 'us-east-1'|'us-west-1'|'us-west-2'|'eu-central-1'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1',
-                        'AdditionalArtifacts': [
-                            'REDSHIFT'|'QUICKSIGHT',
+                        \'S3Bucket\': \'string\',
+                        \'S3Prefix\': \'string\',
+                        \'S3Region\': \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-central-1\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\',
+                        \'AdditionalArtifacts\': [
+                            \'REDSHIFT\'|\'QUICKSIGHT\',
                         ]
                     },
                 ],

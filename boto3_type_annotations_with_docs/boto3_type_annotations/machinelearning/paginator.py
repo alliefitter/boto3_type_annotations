@@ -12,19 +12,19 @@ class DescribeBatchPredictions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'IAMUser'|'MLModelId'|'DataSourceId'|'DataURI',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'IAMUser\'|\'MLModelId\'|\'DataSourceId\'|\'DataURI\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type FilterVariable: string
@@ -125,24 +125,24 @@ class DescribeBatchPredictions(Paginator):
           ::
         
             {
-                'Results': [
+                \'Results\': [
                     {
-                        'BatchPredictionId': 'string',
-                        'MLModelId': 'string',
-                        'BatchPredictionDataSourceId': 'string',
-                        'InputDataLocationS3': 'string',
-                        'CreatedByIamUser': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'LastUpdatedAt': datetime(2015, 1, 1),
-                        'Name': 'string',
-                        'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                        'OutputUri': 'string',
-                        'Message': 'string',
-                        'ComputeTime': 123,
-                        'FinishedAt': datetime(2015, 1, 1),
-                        'StartedAt': datetime(2015, 1, 1),
-                        'TotalRecordCount': 123,
-                        'InvalidRecordCount': 123
+                        \'BatchPredictionId\': \'string\',
+                        \'MLModelId\': \'string\',
+                        \'BatchPredictionDataSourceId\': \'string\',
+                        \'InputDataLocationS3\': \'string\',
+                        \'CreatedByIamUser\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'LastUpdatedAt\': datetime(2015, 1, 1),
+                        \'Name\': \'string\',
+                        \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                        \'OutputUri\': \'string\',
+                        \'Message\': \'string\',
+                        \'ComputeTime\': 123,
+                        \'FinishedAt\': datetime(2015, 1, 1),
+                        \'StartedAt\': datetime(2015, 1, 1),
+                        \'TotalRecordCount\': 123,
+                        \'InvalidRecordCount\': 123
                     },
                 ],
                 
@@ -211,7 +211,7 @@ class DescribeBatchPredictions(Paginator):
                    
                 - **OutputUri** *(string) --* 
         
-                  The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the ``s3 key`` portion of the ``outputURI`` field: ':', '//', '/./', '/../'.
+                  The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the ``s3 key`` portion of the ``outputURI`` field: \':\', \'//\', \'/./\', \'/../\'.
         
                 - **Message** *(string) --* 
         
@@ -251,19 +251,19 @@ class DescribeDataSources(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'DataLocationS3'|'IAMUser',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'DataLocationS3\'|\'IAMUser\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type FilterVariable: string
@@ -360,43 +360,43 @@ class DescribeDataSources(Paginator):
           ::
         
             {
-                'Results': [
+                \'Results\': [
                     {
-                        'DataSourceId': 'string',
-                        'DataLocationS3': 'string',
-                        'DataRearrangement': 'string',
-                        'CreatedByIamUser': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'LastUpdatedAt': datetime(2015, 1, 1),
-                        'DataSizeInBytes': 123,
-                        'NumberOfFiles': 123,
-                        'Name': 'string',
-                        'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                        'Message': 'string',
-                        'RedshiftMetadata': {
-                            'RedshiftDatabase': {
-                                'DatabaseName': 'string',
-                                'ClusterIdentifier': 'string'
+                        \'DataSourceId\': \'string\',
+                        \'DataLocationS3\': \'string\',
+                        \'DataRearrangement\': \'string\',
+                        \'CreatedByIamUser\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'LastUpdatedAt\': datetime(2015, 1, 1),
+                        \'DataSizeInBytes\': 123,
+                        \'NumberOfFiles\': 123,
+                        \'Name\': \'string\',
+                        \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                        \'Message\': \'string\',
+                        \'RedshiftMetadata\': {
+                            \'RedshiftDatabase\': {
+                                \'DatabaseName\': \'string\',
+                                \'ClusterIdentifier\': \'string\'
                             },
-                            'DatabaseUserName': 'string',
-                            'SelectSqlQuery': 'string'
+                            \'DatabaseUserName\': \'string\',
+                            \'SelectSqlQuery\': \'string\'
                         },
-                        'RDSMetadata': {
-                            'Database': {
-                                'InstanceIdentifier': 'string',
-                                'DatabaseName': 'string'
+                        \'RDSMetadata\': {
+                            \'Database\': {
+                                \'InstanceIdentifier\': \'string\',
+                                \'DatabaseName\': \'string\'
                             },
-                            'DatabaseUserName': 'string',
-                            'SelectSqlQuery': 'string',
-                            'ResourceRole': 'string',
-                            'ServiceRole': 'string',
-                            'DataPipelineId': 'string'
+                            \'DatabaseUserName\': \'string\',
+                            \'SelectSqlQuery\': \'string\',
+                            \'ResourceRole\': \'string\',
+                            \'ServiceRole\': \'string\',
+                            \'DataPipelineId\': \'string\'
                         },
-                        'RoleARN': 'string',
-                        'ComputeStatistics': True|False,
-                        'ComputeTime': 123,
-                        'FinishedAt': datetime(2015, 1, 1),
-                        'StartedAt': datetime(2015, 1, 1)
+                        \'RoleARN\': \'string\',
+                        \'ComputeStatistics\': True|False,
+                        \'ComputeTime\': 123,
+                        \'FinishedAt\': datetime(2015, 1, 1),
+                        \'StartedAt\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -565,19 +565,19 @@ class DescribeEvaluations(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'IAMUser'|'MLModelId'|'DataSourceId'|'DataURI',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'IAMUser\'|\'MLModelId\'|\'DataSourceId\'|\'DataURI\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type FilterVariable: string
@@ -678,26 +678,26 @@ class DescribeEvaluations(Paginator):
           ::
         
             {
-                'Results': [
+                \'Results\': [
                     {
-                        'EvaluationId': 'string',
-                        'MLModelId': 'string',
-                        'EvaluationDataSourceId': 'string',
-                        'InputDataLocationS3': 'string',
-                        'CreatedByIamUser': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'LastUpdatedAt': datetime(2015, 1, 1),
-                        'Name': 'string',
-                        'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                        'PerformanceMetrics': {
-                            'Properties': {
-                                'string': 'string'
+                        \'EvaluationId\': \'string\',
+                        \'MLModelId\': \'string\',
+                        \'EvaluationDataSourceId\': \'string\',
+                        \'InputDataLocationS3\': \'string\',
+                        \'CreatedByIamUser\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'LastUpdatedAt\': datetime(2015, 1, 1),
+                        \'Name\': \'string\',
+                        \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                        \'PerformanceMetrics\': {
+                            \'Properties\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'Message': 'string',
-                        'ComputeTime': 123,
-                        'FinishedAt': datetime(2015, 1, 1),
-                        'StartedAt': datetime(2015, 1, 1)
+                        \'Message\': \'string\',
+                        \'ComputeTime\': 123,
+                        \'FinishedAt\': datetime(2015, 1, 1),
+                        \'StartedAt\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -812,19 +812,19 @@ class DescribeMLModels(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'IAMUser'|'TrainingDataSourceId'|'RealtimeEndpointStatus'|'MLModelType'|'Algorithm'|'TrainingDataURI',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'IAMUser\'|\'TrainingDataSourceId\'|\'RealtimeEndpointStatus\'|\'MLModelType\'|\'Algorithm\'|\'TrainingDataURI\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type FilterVariable: string
@@ -929,34 +929,34 @@ class DescribeMLModels(Paginator):
           ::
         
             {
-                'Results': [
+                \'Results\': [
                     {
-                        'MLModelId': 'string',
-                        'TrainingDataSourceId': 'string',
-                        'CreatedByIamUser': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'LastUpdatedAt': datetime(2015, 1, 1),
-                        'Name': 'string',
-                        'Status': 'PENDING'|'INPROGRESS'|'FAILED'|'COMPLETED'|'DELETED',
-                        'SizeInBytes': 123,
-                        'EndpointInfo': {
-                            'PeakRequestsPerSecond': 123,
-                            'CreatedAt': datetime(2015, 1, 1),
-                            'EndpointUrl': 'string',
-                            'EndpointStatus': 'NONE'|'READY'|'UPDATING'|'FAILED'
+                        \'MLModelId\': \'string\',
+                        \'TrainingDataSourceId\': \'string\',
+                        \'CreatedByIamUser\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'LastUpdatedAt\': datetime(2015, 1, 1),
+                        \'Name\': \'string\',
+                        \'Status\': \'PENDING\'|\'INPROGRESS\'|\'FAILED\'|\'COMPLETED\'|\'DELETED\',
+                        \'SizeInBytes\': 123,
+                        \'EndpointInfo\': {
+                            \'PeakRequestsPerSecond\': 123,
+                            \'CreatedAt\': datetime(2015, 1, 1),
+                            \'EndpointUrl\': \'string\',
+                            \'EndpointStatus\': \'NONE\'|\'READY\'|\'UPDATING\'|\'FAILED\'
                         },
-                        'TrainingParameters': {
-                            'string': 'string'
+                        \'TrainingParameters\': {
+                            \'string\': \'string\'
                         },
-                        'InputDataLocationS3': 'string',
-                        'Algorithm': 'sgd',
-                        'MLModelType': 'REGRESSION'|'BINARY'|'MULTICLASS',
-                        'ScoreThreshold': ...,
-                        'ScoreThresholdLastUpdatedAt': datetime(2015, 1, 1),
-                        'Message': 'string',
-                        'ComputeTime': 123,
-                        'FinishedAt': datetime(2015, 1, 1),
-                        'StartedAt': datetime(2015, 1, 1)
+                        \'InputDataLocationS3\': \'string\',
+                        \'Algorithm\': \'sgd\',
+                        \'MLModelType\': \'REGRESSION\'|\'BINARY\'|\'MULTICLASS\',
+                        \'ScoreThreshold\': ...,
+                        \'ScoreThresholdLastUpdatedAt\': datetime(2015, 1, 1),
+                        \'Message\': \'string\',
+                        \'ComputeTime\': 123,
+                        \'FinishedAt\': datetime(2015, 1, 1),
+                        \'StartedAt\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -1009,11 +1009,11 @@ class DescribeMLModels(Paginator):
                    
                   * ``INPROGRESS`` - The creation process is underway.
                    
-                  * ``FAILED`` - The request to create an ``MLModel`` didn't run to completion. The model isn't usable.
+                  * ``FAILED`` - The request to create an ``MLModel`` didn\'t run to completion. The model isn\'t usable.
                    
                   * ``COMPLETED`` - The creation process completed successfully.
                    
-                  * ``DELETED`` - The ``MLModel`` is marked as deleted. It isn't usable.
+                  * ``DELETED`` - The ``MLModel`` is marked as deleted. It isn\'t usable.
                    
                 - **SizeInBytes** *(integer) --* 
         
@@ -1061,11 +1061,11 @@ class DescribeMLModels(Paginator):
                    
                   * ``sgd.maxPasses`` - The number of times that the training process traverses the observations to build the ``MLModel`` . The value is an integer that ranges from ``1`` to ``10000`` . The default value is ``10`` .
                    
-                  * ``sgd.shuffleType`` - Whether Amazon ML shuffles the training data. Shuffling the data improves a model's ability to find the optimal solution for a variety of data types. The valid values are ``auto`` and ``none`` . The default value is ``none`` .
+                  * ``sgd.shuffleType`` - Whether Amazon ML shuffles the training data. Shuffling the data improves a model\'s ability to find the optimal solution for a variety of data types. The valid values are ``auto`` and ``none`` . The default value is ``none`` .
                    
-                  * ``sgd.l1RegularizationAmount`` - The coefficient regularization L1 norm, which controls overfitting the data by penalizing large coefficients. This parameter tends to drive coefficients to zero, resulting in sparse feature set. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L1 normalization. This parameter can't be used when ``L2`` is specified. Use this parameter sparingly. 
+                  * ``sgd.l1RegularizationAmount`` - The coefficient regularization L1 norm, which controls overfitting the data by penalizing large coefficients. This parameter tends to drive coefficients to zero, resulting in sparse feature set. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L1 normalization. This parameter can\'t be used when ``L2`` is specified. Use this parameter sparingly. 
                    
-                  * ``sgd.l2RegularizationAmount`` - The coefficient regularization L2 norm, which controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L2 normalization. This parameter can't be used when ``L1`` is specified. Use this parameter sparingly. 
+                  * ``sgd.l2RegularizationAmount`` - The coefficient regularization L2 norm, which controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as ``1.0E-08`` . The value is a double that ranges from ``0`` to ``MAX_DOUBLE`` . The default is to not use L2 normalization. This parameter can\'t be used when ``L1`` is specified. Use this parameter sparingly. 
                    
                   - *(string) --* 
         
@@ -1089,11 +1089,11 @@ class DescribeMLModels(Paginator):
         
                   Identifies the ``MLModel`` category. The following are the available types:
         
-                  * ``REGRESSION`` - Produces a numeric result. For example, "What price should a house be listed at?"
+                  * ``REGRESSION`` - Produces a numeric result. For example, \"What price should a house be listed at?\"
                    
-                  * ``BINARY`` - Produces one of two possible results. For example, "Is this a child-friendly web site?".
+                  * ``BINARY`` - Produces one of two possible results. For example, \"Is this a child-friendly web site?\".
                    
-                  * ``MULTICLASS`` - Produces one of several possible results. For example, "Is this a HIGH-, LOW-, or MEDIUM-risk trade?".
+                  * ``MULTICLASS`` - Produces one of several possible results. For example, \"Is this a HIGH-, LOW-, or MEDIUM-risk trade?\".
                    
                 - **ScoreThreshold** *(float) --* 
                 

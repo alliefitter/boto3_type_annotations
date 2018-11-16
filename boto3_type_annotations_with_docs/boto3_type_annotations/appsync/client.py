@@ -1,9 +1,9 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
-from typing import Union
 from typing import Optional
-from botocore.client import BaseClient
+from typing import Union
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -13,10 +13,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -32,8 +32,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_api_key(
-              apiId='string',
-              description='string',
+              apiId=\'string\',
+              description=\'string\',
               expires=123
           )
         :type apiId: string
@@ -59,10 +59,10 @@ class Client(BaseClient):
           ::
         
             {
-                'apiKey': {
-                    'id': 'string',
-                    'description': 'string',
-                    'expires': 123
+                \'apiKey\': {
+                    \'id\': \'string\',
+                    \'description\': \'string\',
+                    \'expires\': 123
                 }
             }
           **Response Structure** 
@@ -97,25 +97,25 @@ class Client(BaseClient):
         ::
         
           response = client.create_data_source(
-              apiId='string',
-              name='string',
-              description='string',
-              type='AWS_LAMBDA'|'AMAZON_DYNAMODB'|'AMAZON_ELASTICSEARCH'|'NONE'|'HTTP',
-              serviceRoleArn='string',
+              apiId=\'string\',
+              name=\'string\',
+              description=\'string\',
+              type=\'AWS_LAMBDA\'|\'AMAZON_DYNAMODB\'|\'AMAZON_ELASTICSEARCH\'|\'NONE\'|\'HTTP\',
+              serviceRoleArn=\'string\',
               dynamodbConfig={
-                  'tableName': 'string',
-                  'awsRegion': 'string',
-                  'useCallerCredentials': True|False
+                  \'tableName\': \'string\',
+                  \'awsRegion\': \'string\',
+                  \'useCallerCredentials\': True|False
               },
               lambdaConfig={
-                  'lambdaFunctionArn': 'string'
+                  \'lambdaFunctionArn\': \'string\'
               },
               elasticsearchConfig={
-                  'endpoint': 'string',
-                  'awsRegion': 'string'
+                  \'endpoint\': \'string\',
+                  \'awsRegion\': \'string\'
               },
               httpConfig={
-                  'endpoint': 'string'
+                  \'endpoint\': \'string\'
               }
           )
         :type apiId: string
@@ -199,26 +199,26 @@ class Client(BaseClient):
           ::
         
             {
-                'dataSource': {
-                    'dataSourceArn': 'string',
-                    'name': 'string',
-                    'description': 'string',
-                    'type': 'AWS_LAMBDA'|'AMAZON_DYNAMODB'|'AMAZON_ELASTICSEARCH'|'NONE'|'HTTP',
-                    'serviceRoleArn': 'string',
-                    'dynamodbConfig': {
-                        'tableName': 'string',
-                        'awsRegion': 'string',
-                        'useCallerCredentials': True|False
+                \'dataSource\': {
+                    \'dataSourceArn\': \'string\',
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'type\': \'AWS_LAMBDA\'|\'AMAZON_DYNAMODB\'|\'AMAZON_ELASTICSEARCH\'|\'NONE\'|\'HTTP\',
+                    \'serviceRoleArn\': \'string\',
+                    \'dynamodbConfig\': {
+                        \'tableName\': \'string\',
+                        \'awsRegion\': \'string\',
+                        \'useCallerCredentials\': True|False
                     },
-                    'lambdaConfig': {
-                        'lambdaFunctionArn': 'string'
+                    \'lambdaConfig\': {
+                        \'lambdaFunctionArn\': \'string\'
                     },
-                    'elasticsearchConfig': {
-                        'endpoint': 'string',
-                        'awsRegion': 'string'
+                    \'elasticsearchConfig\': {
+                        \'endpoint\': \'string\',
+                        \'awsRegion\': \'string\'
                     },
-                    'httpConfig': {
-                        'endpoint': 'string'
+                    \'httpConfig\': {
+                        \'endpoint\': \'string\'
                     }
                 }
             }
@@ -316,23 +316,23 @@ class Client(BaseClient):
         ::
         
           response = client.create_graphql_api(
-              name='string',
+              name=\'string\',
               logConfig={
-                  'fieldLogLevel': 'NONE'|'ERROR'|'ALL',
-                  'cloudWatchLogsRoleArn': 'string'
+                  \'fieldLogLevel\': \'NONE\'|\'ERROR\'|\'ALL\',
+                  \'cloudWatchLogsRoleArn\': \'string\'
               },
-              authenticationType='API_KEY'|'AWS_IAM'|'AMAZON_COGNITO_USER_POOLS'|'OPENID_CONNECT',
+              authenticationType=\'API_KEY\'|\'AWS_IAM\'|\'AMAZON_COGNITO_USER_POOLS\'|\'OPENID_CONNECT\',
               userPoolConfig={
-                  'userPoolId': 'string',
-                  'awsRegion': 'string',
-                  'defaultAction': 'ALLOW'|'DENY',
-                  'appIdClientRegex': 'string'
+                  \'userPoolId\': \'string\',
+                  \'awsRegion\': \'string\',
+                  \'defaultAction\': \'ALLOW\'|\'DENY\',
+                  \'appIdClientRegex\': \'string\'
               },
               openIDConnectConfig={
-                  'issuer': 'string',
-                  'clientId': 'string',
-                  'iatTTL': 123,
-                  'authTTL': 123
+                  \'issuer\': \'string\',
+                  \'clientId\': \'string\',
+                  \'iatTTL\': 123,
+                  \'authTTL\': 123
               }
           )
         :type name: string
@@ -389,7 +389,7 @@ class Client(BaseClient):
         
           - **defaultAction** *(string) --* **[REQUIRED]** 
         
-            The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration.
+            The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn\'t match the Amazon Cognito User Pool configuration.
         
           - **appIdClientRegex** *(string) --* 
         
@@ -424,29 +424,29 @@ class Client(BaseClient):
           ::
         
             {
-                'graphqlApi': {
-                    'name': 'string',
-                    'apiId': 'string',
-                    'authenticationType': 'API_KEY'|'AWS_IAM'|'AMAZON_COGNITO_USER_POOLS'|'OPENID_CONNECT',
-                    'logConfig': {
-                        'fieldLogLevel': 'NONE'|'ERROR'|'ALL',
-                        'cloudWatchLogsRoleArn': 'string'
+                \'graphqlApi\': {
+                    \'name\': \'string\',
+                    \'apiId\': \'string\',
+                    \'authenticationType\': \'API_KEY\'|\'AWS_IAM\'|\'AMAZON_COGNITO_USER_POOLS\'|\'OPENID_CONNECT\',
+                    \'logConfig\': {
+                        \'fieldLogLevel\': \'NONE\'|\'ERROR\'|\'ALL\',
+                        \'cloudWatchLogsRoleArn\': \'string\'
                     },
-                    'userPoolConfig': {
-                        'userPoolId': 'string',
-                        'awsRegion': 'string',
-                        'defaultAction': 'ALLOW'|'DENY',
-                        'appIdClientRegex': 'string'
+                    \'userPoolConfig\': {
+                        \'userPoolId\': \'string\',
+                        \'awsRegion\': \'string\',
+                        \'defaultAction\': \'ALLOW\'|\'DENY\',
+                        \'appIdClientRegex\': \'string\'
                     },
-                    'openIDConnectConfig': {
-                        'issuer': 'string',
-                        'clientId': 'string',
-                        'iatTTL': 123,
-                        'authTTL': 123
+                    \'openIDConnectConfig\': {
+                        \'issuer\': \'string\',
+                        \'clientId\': \'string\',
+                        \'iatTTL\': 123,
+                        \'authTTL\': 123
                     },
-                    'arn': 'string',
-                    'uris': {
-                        'string': 'string'
+                    \'arn\': \'string\',
+                    \'uris\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -512,7 +512,7 @@ class Client(BaseClient):
         
                 - **defaultAction** *(string) --* 
         
-                  The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration.
+                  The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn\'t match the Amazon Cognito User Pool configuration.
         
                 - **appIdClientRegex** *(string) --* 
         
@@ -556,7 +556,7 @@ class Client(BaseClient):
     def create_resolver(self, apiId: str, typeName: str, fieldName: str, dataSourceName: str, requestMappingTemplate: str, responseMappingTemplate: str = None) -> Dict:
         """
         
-        A resolver converts incoming requests into a format that a data source can understand and converts the data source's responses into GraphQL.
+        A resolver converts incoming requests into a format that a data source can understand and converts the data source\'s responses into GraphQL.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/appsync-2017-07-25/CreateResolver>`_
         
@@ -564,12 +564,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_resolver(
-              apiId='string',
-              typeName='string',
-              fieldName='string',
-              dataSourceName='string',
-              requestMappingTemplate='string',
-              responseMappingTemplate='string'
+              apiId=\'string\',
+              typeName=\'string\',
+              fieldName=\'string\',
+              dataSourceName=\'string\',
+              requestMappingTemplate=\'string\',
+              responseMappingTemplate=\'string\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -611,13 +611,13 @@ class Client(BaseClient):
           ::
         
             {
-                'resolver': {
-                    'typeName': 'string',
-                    'fieldName': 'string',
-                    'dataSourceName': 'string',
-                    'resolverArn': 'string',
-                    'requestMappingTemplate': 'string',
-                    'responseMappingTemplate': 'string'
+                \'resolver\': {
+                    \'typeName\': \'string\',
+                    \'fieldName\': \'string\',
+                    \'dataSourceName\': \'string\',
+                    \'resolverArn\': \'string\',
+                    \'requestMappingTemplate\': \'string\',
+                    \'responseMappingTemplate\': \'string\'
                 }
             }
           **Response Structure** 
@@ -664,9 +664,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_type(
-              apiId='string',
-              definition='string',
-              format='SDL'|'JSON'
+              apiId=\'string\',
+              definition=\'string\',
+              format=\'SDL\'|\'JSON\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -693,12 +693,12 @@ class Client(BaseClient):
           ::
         
             {
-                'type': {
-                    'name': 'string',
-                    'description': 'string',
-                    'arn': 'string',
-                    'definition': 'string',
-                    'format': 'SDL'|'JSON'
+                \'type\': {
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'arn\': \'string\',
+                    \'definition\': \'string\',
+                    \'format\': \'SDL\'|\'JSON\'
                 }
             }
           **Response Structure** 
@@ -741,8 +741,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_api_key(
-              apiId='string',
-              id='string'
+              apiId=\'string\',
+              id=\'string\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -777,8 +777,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_data_source(
-              apiId='string',
-              name='string'
+              apiId=\'string\',
+              name=\'string\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -813,7 +813,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_graphql_api(
-              apiId='string'
+              apiId=\'string\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -843,9 +843,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_resolver(
-              apiId='string',
-              typeName='string',
-              fieldName='string'
+              apiId=\'string\',
+              typeName=\'string\',
+              fieldName=\'string\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -885,8 +885,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_type(
-              apiId='string',
-              typeName='string'
+              apiId=\'string\',
+              typeName=\'string\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -928,7 +928,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -943,8 +943,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_data_source(
-              apiId='string',
-              name='string'
+              apiId=\'string\',
+              name=\'string\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -964,26 +964,26 @@ class Client(BaseClient):
           ::
         
             {
-                'dataSource': {
-                    'dataSourceArn': 'string',
-                    'name': 'string',
-                    'description': 'string',
-                    'type': 'AWS_LAMBDA'|'AMAZON_DYNAMODB'|'AMAZON_ELASTICSEARCH'|'NONE'|'HTTP',
-                    'serviceRoleArn': 'string',
-                    'dynamodbConfig': {
-                        'tableName': 'string',
-                        'awsRegion': 'string',
-                        'useCallerCredentials': True|False
+                \'dataSource\': {
+                    \'dataSourceArn\': \'string\',
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'type\': \'AWS_LAMBDA\'|\'AMAZON_DYNAMODB\'|\'AMAZON_ELASTICSEARCH\'|\'NONE\'|\'HTTP\',
+                    \'serviceRoleArn\': \'string\',
+                    \'dynamodbConfig\': {
+                        \'tableName\': \'string\',
+                        \'awsRegion\': \'string\',
+                        \'useCallerCredentials\': True|False
                     },
-                    'lambdaConfig': {
-                        'lambdaFunctionArn': 'string'
+                    \'lambdaConfig\': {
+                        \'lambdaFunctionArn\': \'string\'
                     },
-                    'elasticsearchConfig': {
-                        'endpoint': 'string',
-                        'awsRegion': 'string'
+                    \'elasticsearchConfig\': {
+                        \'endpoint\': \'string\',
+                        \'awsRegion\': \'string\'
                     },
-                    'httpConfig': {
-                        'endpoint': 'string'
+                    \'httpConfig\': {
+                        \'endpoint\': \'string\'
                     }
                 }
             }
@@ -1081,7 +1081,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_graphql_api(
-              apiId='string'
+              apiId=\'string\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -1096,29 +1096,29 @@ class Client(BaseClient):
           ::
         
             {
-                'graphqlApi': {
-                    'name': 'string',
-                    'apiId': 'string',
-                    'authenticationType': 'API_KEY'|'AWS_IAM'|'AMAZON_COGNITO_USER_POOLS'|'OPENID_CONNECT',
-                    'logConfig': {
-                        'fieldLogLevel': 'NONE'|'ERROR'|'ALL',
-                        'cloudWatchLogsRoleArn': 'string'
+                \'graphqlApi\': {
+                    \'name\': \'string\',
+                    \'apiId\': \'string\',
+                    \'authenticationType\': \'API_KEY\'|\'AWS_IAM\'|\'AMAZON_COGNITO_USER_POOLS\'|\'OPENID_CONNECT\',
+                    \'logConfig\': {
+                        \'fieldLogLevel\': \'NONE\'|\'ERROR\'|\'ALL\',
+                        \'cloudWatchLogsRoleArn\': \'string\'
                     },
-                    'userPoolConfig': {
-                        'userPoolId': 'string',
-                        'awsRegion': 'string',
-                        'defaultAction': 'ALLOW'|'DENY',
-                        'appIdClientRegex': 'string'
+                    \'userPoolConfig\': {
+                        \'userPoolId\': \'string\',
+                        \'awsRegion\': \'string\',
+                        \'defaultAction\': \'ALLOW\'|\'DENY\',
+                        \'appIdClientRegex\': \'string\'
                     },
-                    'openIDConnectConfig': {
-                        'issuer': 'string',
-                        'clientId': 'string',
-                        'iatTTL': 123,
-                        'authTTL': 123
+                    \'openIDConnectConfig\': {
+                        \'issuer\': \'string\',
+                        \'clientId\': \'string\',
+                        \'iatTTL\': 123,
+                        \'authTTL\': 123
                     },
-                    'arn': 'string',
-                    'uris': {
-                        'string': 'string'
+                    \'arn\': \'string\',
+                    \'uris\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -1184,7 +1184,7 @@ class Client(BaseClient):
         
                 - **defaultAction** *(string) --* 
         
-                  The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration.
+                  The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn\'t match the Amazon Cognito User Pool configuration.
         
                 - **appIdClientRegex** *(string) --* 
         
@@ -1234,8 +1234,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_introspection_schema(
-              apiId='string',
-              format='SDL'|'JSON'
+              apiId=\'string\',
+              format=\'SDL\'|\'JSON\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -1255,7 +1255,7 @@ class Client(BaseClient):
           ::
         
             {
-                'schema': StreamingBody()
+                \'schema\': StreamingBody()
             }
           **Response Structure** 
         
@@ -1276,10 +1276,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1299,9 +1299,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_resolver(
-              apiId='string',
-              typeName='string',
-              fieldName='string'
+              apiId=\'string\',
+              typeName=\'string\',
+              fieldName=\'string\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -1326,13 +1326,13 @@ class Client(BaseClient):
           ::
         
             {
-                'resolver': {
-                    'typeName': 'string',
-                    'fieldName': 'string',
-                    'dataSourceName': 'string',
-                    'resolverArn': 'string',
-                    'requestMappingTemplate': 'string',
-                    'responseMappingTemplate': 'string'
+                \'resolver\': {
+                    \'typeName\': \'string\',
+                    \'fieldName\': \'string\',
+                    \'dataSourceName\': \'string\',
+                    \'resolverArn\': \'string\',
+                    \'requestMappingTemplate\': \'string\',
+                    \'responseMappingTemplate\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1379,7 +1379,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_schema_creation_status(
-              apiId='string'
+              apiId=\'string\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -1394,8 +1394,8 @@ class Client(BaseClient):
           ::
         
             {
-                'status': 'PROCESSING'|'ACTIVE'|'DELETING',
-                'details': 'string'
+                \'status\': \'PROCESSING\'|\'ACTIVE\'|\'DELETING\',
+                \'details\': \'string\'
             }
           **Response Structure** 
         
@@ -1421,9 +1421,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_type(
-              apiId='string',
-              typeName='string',
-              format='SDL'|'JSON'
+              apiId=\'string\',
+              typeName=\'string\',
+              format=\'SDL\'|\'JSON\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -1448,12 +1448,12 @@ class Client(BaseClient):
           ::
         
             {
-                'type': {
-                    'name': 'string',
-                    'description': 'string',
-                    'arn': 'string',
-                    'definition': 'string',
-                    'format': 'SDL'|'JSON'
+                \'type\': {
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'arn\': \'string\',
+                    \'definition\': \'string\',
+                    \'format\': \'SDL\'|\'JSON\'
                 }
             }
           **Response Structure** 
@@ -1504,7 +1504,7 @@ class Client(BaseClient):
         
         .. note::
         
-          API keys are deleted automatically sometime after they expire. However, they may still be included in the response until they have actually been deleted. You can safely call ``DeleteApiKey`` to manually delete a key before it's automatically deleted.
+          API keys are deleted automatically sometime after they expire. However, they may still be included in the response until they have actually been deleted. You can safely call ``DeleteApiKey`` to manually delete a key before it\'s automatically deleted.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/appsync-2017-07-25/ListApiKeys>`_
         
@@ -1512,8 +1512,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_api_keys(
-              apiId='string',
-              nextToken='string',
+              apiId=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type apiId: string
@@ -1539,14 +1539,14 @@ class Client(BaseClient):
           ::
         
             {
-                'apiKeys': [
+                \'apiKeys\': [
                     {
-                        'id': 'string',
-                        'description': 'string',
-                        'expires': 123
+                        \'id\': \'string\',
+                        \'description\': \'string\',
+                        \'expires\': 123
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1614,8 +1614,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_data_sources(
-              apiId='string',
-              nextToken='string',
+              apiId=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type apiId: string
@@ -1641,31 +1641,31 @@ class Client(BaseClient):
           ::
         
             {
-                'dataSources': [
+                \'dataSources\': [
                     {
-                        'dataSourceArn': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'type': 'AWS_LAMBDA'|'AMAZON_DYNAMODB'|'AMAZON_ELASTICSEARCH'|'NONE'|'HTTP',
-                        'serviceRoleArn': 'string',
-                        'dynamodbConfig': {
-                            'tableName': 'string',
-                            'awsRegion': 'string',
-                            'useCallerCredentials': True|False
+                        \'dataSourceArn\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'type\': \'AWS_LAMBDA\'|\'AMAZON_DYNAMODB\'|\'AMAZON_ELASTICSEARCH\'|\'NONE\'|\'HTTP\',
+                        \'serviceRoleArn\': \'string\',
+                        \'dynamodbConfig\': {
+                            \'tableName\': \'string\',
+                            \'awsRegion\': \'string\',
+                            \'useCallerCredentials\': True|False
                         },
-                        'lambdaConfig': {
-                            'lambdaFunctionArn': 'string'
+                        \'lambdaConfig\': {
+                            \'lambdaFunctionArn\': \'string\'
                         },
-                        'elasticsearchConfig': {
-                            'endpoint': 'string',
-                            'awsRegion': 'string'
+                        \'elasticsearchConfig\': {
+                            \'endpoint\': \'string\',
+                            \'awsRegion\': \'string\'
                         },
-                        'httpConfig': {
-                            'endpoint': 'string'
+                        \'httpConfig\': {
+                            \'endpoint\': \'string\'
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1769,7 +1769,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_graphql_apis(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -1790,34 +1790,34 @@ class Client(BaseClient):
           ::
         
             {
-                'graphqlApis': [
+                \'graphqlApis\': [
                     {
-                        'name': 'string',
-                        'apiId': 'string',
-                        'authenticationType': 'API_KEY'|'AWS_IAM'|'AMAZON_COGNITO_USER_POOLS'|'OPENID_CONNECT',
-                        'logConfig': {
-                            'fieldLogLevel': 'NONE'|'ERROR'|'ALL',
-                            'cloudWatchLogsRoleArn': 'string'
+                        \'name\': \'string\',
+                        \'apiId\': \'string\',
+                        \'authenticationType\': \'API_KEY\'|\'AWS_IAM\'|\'AMAZON_COGNITO_USER_POOLS\'|\'OPENID_CONNECT\',
+                        \'logConfig\': {
+                            \'fieldLogLevel\': \'NONE\'|\'ERROR\'|\'ALL\',
+                            \'cloudWatchLogsRoleArn\': \'string\'
                         },
-                        'userPoolConfig': {
-                            'userPoolId': 'string',
-                            'awsRegion': 'string',
-                            'defaultAction': 'ALLOW'|'DENY',
-                            'appIdClientRegex': 'string'
+                        \'userPoolConfig\': {
+                            \'userPoolId\': \'string\',
+                            \'awsRegion\': \'string\',
+                            \'defaultAction\': \'ALLOW\'|\'DENY\',
+                            \'appIdClientRegex\': \'string\'
                         },
-                        'openIDConnectConfig': {
-                            'issuer': 'string',
-                            'clientId': 'string',
-                            'iatTTL': 123,
-                            'authTTL': 123
+                        \'openIDConnectConfig\': {
+                            \'issuer\': \'string\',
+                            \'clientId\': \'string\',
+                            \'iatTTL\': 123,
+                            \'authTTL\': 123
                         },
-                        'arn': 'string',
-                        'uris': {
-                            'string': 'string'
+                        \'arn\': \'string\',
+                        \'uris\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1885,7 +1885,7 @@ class Client(BaseClient):
         
                   - **defaultAction** *(string) --* 
         
-                    The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration.
+                    The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn\'t match the Amazon Cognito User Pool configuration.
         
                   - **appIdClientRegex** *(string) --* 
         
@@ -1939,9 +1939,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_resolvers(
-              apiId='string',
-              typeName='string',
-              nextToken='string',
+              apiId=\'string\',
+              typeName=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type apiId: string
@@ -1972,17 +1972,17 @@ class Client(BaseClient):
           ::
         
             {
-                'resolvers': [
+                \'resolvers\': [
                     {
-                        'typeName': 'string',
-                        'fieldName': 'string',
-                        'dataSourceName': 'string',
-                        'resolverArn': 'string',
-                        'requestMappingTemplate': 'string',
-                        'responseMappingTemplate': 'string'
+                        \'typeName\': \'string\',
+                        \'fieldName\': \'string\',
+                        \'dataSourceName\': \'string\',
+                        \'resolverArn\': \'string\',
+                        \'requestMappingTemplate\': \'string\',
+                        \'responseMappingTemplate\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2036,9 +2036,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_types(
-              apiId='string',
-              format='SDL'|'JSON',
-              nextToken='string',
+              apiId=\'string\',
+              format=\'SDL\'|\'JSON\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type apiId: string
@@ -2069,16 +2069,16 @@ class Client(BaseClient):
           ::
         
             {
-                'types': [
+                \'types\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'arn': 'string',
-                        'definition': 'string',
-                        'format': 'SDL'|'JSON'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'arn\': \'string\',
+                        \'definition\': \'string\',
+                        \'format\': \'SDL\'|\'JSON\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2130,8 +2130,8 @@ class Client(BaseClient):
         ::
         
           response = client.start_schema_creation(
-              apiId='string',
-              definition=b'bytes'
+              apiId=\'string\',
+              definition=b\'bytes\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -2151,7 +2151,7 @@ class Client(BaseClient):
           ::
         
             {
-                'status': 'PROCESSING'|'ACTIVE'|'DELETING'
+                \'status\': \'PROCESSING\'|\'ACTIVE\'|\'DELETING\'
             }
           **Response Structure** 
         
@@ -2173,9 +2173,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_api_key(
-              apiId='string',
-              id='string',
-              description='string',
+              apiId=\'string\',
+              id=\'string\',
+              description=\'string\',
               expires=123
           )
         :type apiId: string
@@ -2206,10 +2206,10 @@ class Client(BaseClient):
           ::
         
             {
-                'apiKey': {
-                    'id': 'string',
-                    'description': 'string',
-                    'expires': 123
+                \'apiKey\': {
+                    \'id\': \'string\',
+                    \'description\': \'string\',
+                    \'expires\': 123
                 }
             }
           **Response Structure** 
@@ -2244,25 +2244,25 @@ class Client(BaseClient):
         ::
         
           response = client.update_data_source(
-              apiId='string',
-              name='string',
-              description='string',
-              type='AWS_LAMBDA'|'AMAZON_DYNAMODB'|'AMAZON_ELASTICSEARCH'|'NONE'|'HTTP',
-              serviceRoleArn='string',
+              apiId=\'string\',
+              name=\'string\',
+              description=\'string\',
+              type=\'AWS_LAMBDA\'|\'AMAZON_DYNAMODB\'|\'AMAZON_ELASTICSEARCH\'|\'NONE\'|\'HTTP\',
+              serviceRoleArn=\'string\',
               dynamodbConfig={
-                  'tableName': 'string',
-                  'awsRegion': 'string',
-                  'useCallerCredentials': True|False
+                  \'tableName\': \'string\',
+                  \'awsRegion\': \'string\',
+                  \'useCallerCredentials\': True|False
               },
               lambdaConfig={
-                  'lambdaFunctionArn': 'string'
+                  \'lambdaFunctionArn\': \'string\'
               },
               elasticsearchConfig={
-                  'endpoint': 'string',
-                  'awsRegion': 'string'
+                  \'endpoint\': \'string\',
+                  \'awsRegion\': \'string\'
               },
               httpConfig={
-                  'endpoint': 'string'
+                  \'endpoint\': \'string\'
               }
           )
         :type apiId: string
@@ -2346,26 +2346,26 @@ class Client(BaseClient):
           ::
         
             {
-                'dataSource': {
-                    'dataSourceArn': 'string',
-                    'name': 'string',
-                    'description': 'string',
-                    'type': 'AWS_LAMBDA'|'AMAZON_DYNAMODB'|'AMAZON_ELASTICSEARCH'|'NONE'|'HTTP',
-                    'serviceRoleArn': 'string',
-                    'dynamodbConfig': {
-                        'tableName': 'string',
-                        'awsRegion': 'string',
-                        'useCallerCredentials': True|False
+                \'dataSource\': {
+                    \'dataSourceArn\': \'string\',
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'type\': \'AWS_LAMBDA\'|\'AMAZON_DYNAMODB\'|\'AMAZON_ELASTICSEARCH\'|\'NONE\'|\'HTTP\',
+                    \'serviceRoleArn\': \'string\',
+                    \'dynamodbConfig\': {
+                        \'tableName\': \'string\',
+                        \'awsRegion\': \'string\',
+                        \'useCallerCredentials\': True|False
                     },
-                    'lambdaConfig': {
-                        'lambdaFunctionArn': 'string'
+                    \'lambdaConfig\': {
+                        \'lambdaFunctionArn\': \'string\'
                     },
-                    'elasticsearchConfig': {
-                        'endpoint': 'string',
-                        'awsRegion': 'string'
+                    \'elasticsearchConfig\': {
+                        \'endpoint\': \'string\',
+                        \'awsRegion\': \'string\'
                     },
-                    'httpConfig': {
-                        'endpoint': 'string'
+                    \'httpConfig\': {
+                        \'endpoint\': \'string\'
                     }
                 }
             }
@@ -2463,24 +2463,24 @@ class Client(BaseClient):
         ::
         
           response = client.update_graphql_api(
-              apiId='string',
-              name='string',
+              apiId=\'string\',
+              name=\'string\',
               logConfig={
-                  'fieldLogLevel': 'NONE'|'ERROR'|'ALL',
-                  'cloudWatchLogsRoleArn': 'string'
+                  \'fieldLogLevel\': \'NONE\'|\'ERROR\'|\'ALL\',
+                  \'cloudWatchLogsRoleArn\': \'string\'
               },
-              authenticationType='API_KEY'|'AWS_IAM'|'AMAZON_COGNITO_USER_POOLS'|'OPENID_CONNECT',
+              authenticationType=\'API_KEY\'|\'AWS_IAM\'|\'AMAZON_COGNITO_USER_POOLS\'|\'OPENID_CONNECT\',
               userPoolConfig={
-                  'userPoolId': 'string',
-                  'awsRegion': 'string',
-                  'defaultAction': 'ALLOW'|'DENY',
-                  'appIdClientRegex': 'string'
+                  \'userPoolId\': \'string\',
+                  \'awsRegion\': \'string\',
+                  \'defaultAction\': \'ALLOW\'|\'DENY\',
+                  \'appIdClientRegex\': \'string\'
               },
               openIDConnectConfig={
-                  'issuer': 'string',
-                  'clientId': 'string',
-                  'iatTTL': 123,
-                  'authTTL': 123
+                  \'issuer\': \'string\',
+                  \'clientId\': \'string\',
+                  \'iatTTL\': 123,
+                  \'authTTL\': 123
               }
           )
         :type apiId: string
@@ -2542,7 +2542,7 @@ class Client(BaseClient):
         
           - **defaultAction** *(string) --* **[REQUIRED]** 
         
-            The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration.
+            The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn\'t match the Amazon Cognito User Pool configuration.
         
           - **appIdClientRegex** *(string) --* 
         
@@ -2577,29 +2577,29 @@ class Client(BaseClient):
           ::
         
             {
-                'graphqlApi': {
-                    'name': 'string',
-                    'apiId': 'string',
-                    'authenticationType': 'API_KEY'|'AWS_IAM'|'AMAZON_COGNITO_USER_POOLS'|'OPENID_CONNECT',
-                    'logConfig': {
-                        'fieldLogLevel': 'NONE'|'ERROR'|'ALL',
-                        'cloudWatchLogsRoleArn': 'string'
+                \'graphqlApi\': {
+                    \'name\': \'string\',
+                    \'apiId\': \'string\',
+                    \'authenticationType\': \'API_KEY\'|\'AWS_IAM\'|\'AMAZON_COGNITO_USER_POOLS\'|\'OPENID_CONNECT\',
+                    \'logConfig\': {
+                        \'fieldLogLevel\': \'NONE\'|\'ERROR\'|\'ALL\',
+                        \'cloudWatchLogsRoleArn\': \'string\'
                     },
-                    'userPoolConfig': {
-                        'userPoolId': 'string',
-                        'awsRegion': 'string',
-                        'defaultAction': 'ALLOW'|'DENY',
-                        'appIdClientRegex': 'string'
+                    \'userPoolConfig\': {
+                        \'userPoolId\': \'string\',
+                        \'awsRegion\': \'string\',
+                        \'defaultAction\': \'ALLOW\'|\'DENY\',
+                        \'appIdClientRegex\': \'string\'
                     },
-                    'openIDConnectConfig': {
-                        'issuer': 'string',
-                        'clientId': 'string',
-                        'iatTTL': 123,
-                        'authTTL': 123
+                    \'openIDConnectConfig\': {
+                        \'issuer\': \'string\',
+                        \'clientId\': \'string\',
+                        \'iatTTL\': 123,
+                        \'authTTL\': 123
                     },
-                    'arn': 'string',
-                    'uris': {
-                        'string': 'string'
+                    \'arn\': \'string\',
+                    \'uris\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -2665,7 +2665,7 @@ class Client(BaseClient):
         
                 - **defaultAction** *(string) --* 
         
-                  The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration.
+                  The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn\'t match the Amazon Cognito User Pool configuration.
         
                 - **appIdClientRegex** *(string) --* 
         
@@ -2715,12 +2715,12 @@ class Client(BaseClient):
         ::
         
           response = client.update_resolver(
-              apiId='string',
-              typeName='string',
-              fieldName='string',
-              dataSourceName='string',
-              requestMappingTemplate='string',
-              responseMappingTemplate='string'
+              apiId=\'string\',
+              typeName=\'string\',
+              fieldName=\'string\',
+              dataSourceName=\'string\',
+              requestMappingTemplate=\'string\',
+              responseMappingTemplate=\'string\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -2760,13 +2760,13 @@ class Client(BaseClient):
           ::
         
             {
-                'resolver': {
-                    'typeName': 'string',
-                    'fieldName': 'string',
-                    'dataSourceName': 'string',
-                    'resolverArn': 'string',
-                    'requestMappingTemplate': 'string',
-                    'responseMappingTemplate': 'string'
+                \'resolver\': {
+                    \'typeName\': \'string\',
+                    \'fieldName\': \'string\',
+                    \'dataSourceName\': \'string\',
+                    \'resolverArn\': \'string\',
+                    \'requestMappingTemplate\': \'string\',
+                    \'responseMappingTemplate\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2813,10 +2813,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_type(
-              apiId='string',
-              typeName='string',
-              definition='string',
-              format='SDL'|'JSON'
+              apiId=\'string\',
+              typeName=\'string\',
+              definition=\'string\',
+              format=\'SDL\'|\'JSON\'
           )
         :type apiId: string
         :param apiId: **[REQUIRED]** 
@@ -2846,12 +2846,12 @@ class Client(BaseClient):
           ::
         
             {
-                'type': {
-                    'name': 'string',
-                    'description': 'string',
-                    'arn': 'string',
-                    'definition': 'string',
-                    'format': 'SDL'|'JSON'
+                \'type\': {
+                    \'name\': \'string\',
+                    \'description\': \'string\',
+                    \'arn\': \'string\',
+                    \'definition\': \'string\',
+                    \'format\': \'SDL\'|\'JSON\'
                 }
             }
           **Response Structure** 

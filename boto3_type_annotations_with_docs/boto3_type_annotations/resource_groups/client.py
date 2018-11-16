@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,14 +33,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_group(
-              Name='string',
-              Description='string',
+              Name=\'string\',
+              Description=\'string\',
               ResourceQuery={
-                  'Type': 'TAG_FILTERS_1_0',
-                  'Query': 'string'
+                  \'Type\': \'TAG_FILTERS_1_0\',
+                  \'Query\': \'string\'
               },
               Tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type Name: string
@@ -85,17 +85,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Group': {
-                    'GroupArn': 'string',
-                    'Name': 'string',
-                    'Description': 'string'
+                \'Group\': {
+                    \'GroupArn\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\'
                 },
-                'ResourceQuery': {
-                    'Type': 'TAG_FILTERS_1_0',
-                    'Query': 'string'
+                \'ResourceQuery\': {
+                    \'Type\': \'TAG_FILTERS_1_0\',
+                    \'Query\': \'string\'
                 },
-                'Tags': {
-                    'string': 'string'
+                \'Tags\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -152,7 +152,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_group(
-              GroupName='string'
+              GroupName=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -167,10 +167,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Group': {
-                    'GroupArn': 'string',
-                    'Name': 'string',
-                    'Description': 'string'
+                \'Group\': {
+                    \'GroupArn\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\'
                 }
             }
           **Response Structure** 
@@ -212,7 +212,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -227,7 +227,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_group(
-              GroupName='string'
+              GroupName=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -242,10 +242,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Group': {
-                    'GroupArn': 'string',
-                    'Name': 'string',
-                    'Description': 'string'
+                \'Group\': {
+                    \'GroupArn\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\'
                 }
             }
           **Response Structure** 
@@ -280,7 +280,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_group_query(
-              GroupName='string'
+              GroupName=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -295,11 +295,11 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupQuery': {
-                    'GroupName': 'string',
-                    'ResourceQuery': {
-                        'Type': 'TAG_FILTERS_1_0',
-                        'Query': 'string'
+                \'GroupQuery\': {
+                    \'GroupName\': \'string\',
+                    \'ResourceQuery\': {
+                        \'Type\': \'TAG_FILTERS_1_0\',
+                        \'Query\': \'string\'
                     }
                 }
             }
@@ -338,10 +338,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -361,7 +361,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_tags(
-              Arn='string'
+              Arn=\'string\'
           )
         :type Arn: string
         :param Arn: **[REQUIRED]** 
@@ -376,9 +376,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'Tags': {
-                    'string': 'string'
+                \'Arn\': \'string\',
+                \'Tags\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -421,17 +421,17 @@ class Client(BaseClient):
         ::
         
           response = client.list_group_resources(
-              GroupName='string',
+              GroupName=\'string\',
               Filters=[
                   {
-                      'Name': 'resource-type',
-                      'Values': [
-                          'string',
+                      \'Name\': \'resource-type\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -477,13 +477,13 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceIdentifiers': [
+                \'ResourceIdentifiers\': [
                     {
-                        'ResourceArn': 'string',
-                        'ResourceType': 'string'
+                        \'ResourceArn\': \'string\',
+                        \'ResourceType\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -523,14 +523,14 @@ class Client(BaseClient):
           response = client.list_groups(
               Filters=[
                   {
-                      'Name': 'resource-type',
-                      'Values': [
-                          'string',
+                      \'Name\': \'resource-type\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -571,20 +571,20 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupIdentifiers': [
+                \'GroupIdentifiers\': [
                     {
-                        'GroupName': 'string',
-                        'GroupArn': 'string'
+                        \'GroupName\': \'string\',
+                        \'GroupArn\': \'string\'
                     },
                 ],
-                'Groups': [
+                \'Groups\': [
                     {
-                        'GroupArn': 'string',
-                        'Name': 'string',
-                        'Description': 'string'
+                        \'GroupArn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -643,11 +643,11 @@ class Client(BaseClient):
         
           response = client.search_resources(
               ResourceQuery={
-                  'Type': 'TAG_FILTERS_1_0',
-                  'Query': 'string'
+                  \'Type\': \'TAG_FILTERS_1_0\',
+                  \'Query\': \'string\'
               },
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ResourceQuery: dict
         :param ResourceQuery: **[REQUIRED]** 
@@ -682,13 +682,13 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceIdentifiers': [
+                \'ResourceIdentifiers\': [
                     {
-                        'ResourceArn': 'string',
-                        'ResourceType': 'string'
+                        \'ResourceArn\': \'string\',
+                        \'ResourceType\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -726,9 +726,9 @@ class Client(BaseClient):
         ::
         
           response = client.tag(
-              Arn='string',
+              Arn=\'string\',
               Tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type Arn: string
@@ -753,9 +753,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'Tags': {
-                    'string': 'string'
+                \'Arn\': \'string\',
+                \'Tags\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -786,9 +786,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag(
-              Arn='string',
+              Arn=\'string\',
               Keys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Arn: string
@@ -811,9 +811,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'Keys': [
-                    'string',
+                \'Arn\': \'string\',
+                \'Keys\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -842,8 +842,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_group(
-              GroupName='string',
-              Description='string'
+              GroupName=\'string\',
+              Description=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -863,10 +863,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Group': {
-                    'GroupArn': 'string',
-                    'Name': 'string',
-                    'Description': 'string'
+                \'Group\': {
+                    \'GroupArn\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\'
                 }
             }
           **Response Structure** 
@@ -901,10 +901,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_group_query(
-              GroupName='string',
+              GroupName=\'string\',
               ResourceQuery={
-                  'Type': 'TAG_FILTERS_1_0',
-                  'Query': 'string'
+                  \'Type\': \'TAG_FILTERS_1_0\',
+                  \'Query\': \'string\'
               }
           )
         :type GroupName: string
@@ -935,11 +935,11 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupQuery': {
-                    'GroupName': 'string',
-                    'ResourceQuery': {
-                        'Type': 'TAG_FILTERS_1_0',
-                        'Query': 'string'
+                \'GroupQuery\': {
+                    \'GroupName\': \'string\',
+                    \'ResourceQuery\': {
+                        \'Type\': \'TAG_FILTERS_1_0\',
+                        \'Query\': \'string\'
                     }
                 }
             }

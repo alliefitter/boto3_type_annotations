@@ -12,11 +12,11 @@ class ListEndpointsByPlatformApplication(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              PlatformApplicationArn='string',
+              PlatformApplicationArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PlatformApplicationArn: string
@@ -49,11 +49,11 @@ class ListEndpointsByPlatformApplication(Paginator):
           ::
         
             {
-                'Endpoints': [
+                \'Endpoints\': [
                     {
-                        'EndpointArn': 'string',
-                        'Attributes': {
-                            'string': 'string'
+                        \'EndpointArn\': \'string\',
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
@@ -100,9 +100,9 @@ class ListPlatformApplications(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -130,11 +130,11 @@ class ListPlatformApplications(Paginator):
           ::
         
             {
-                'PlatformApplications': [
+                \'PlatformApplications\': [
                     {
-                        'PlatformApplicationArn': 'string',
-                        'Attributes': {
-                            'string': 'string'
+                        \'PlatformApplicationArn\': \'string\',
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
@@ -181,9 +181,9 @@ class ListSubscriptions(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -211,13 +211,13 @@ class ListSubscriptions(Paginator):
           ::
         
             {
-                'Subscriptions': [
+                \'Subscriptions\': [
                     {
-                        'SubscriptionArn': 'string',
-                        'Owner': 'string',
-                        'Protocol': 'string',
-                        'Endpoint': 'string',
-                        'TopicArn': 'string'
+                        \'SubscriptionArn\': \'string\',
+                        \'Owner\': \'string\',
+                        \'Protocol\': \'string\',
+                        \'Endpoint\': \'string\',
+                        \'TopicArn\': \'string\'
                     },
                 ],
                 
@@ -238,23 +238,23 @@ class ListSubscriptions(Paginator):
         
                 - **SubscriptionArn** *(string) --* 
         
-                  The subscription's ARN.
+                  The subscription\'s ARN.
         
                 - **Owner** *(string) --* 
         
-                  The subscription's owner.
+                  The subscription\'s owner.
         
                 - **Protocol** *(string) --* 
         
-                  The subscription's protocol.
+                  The subscription\'s protocol.
         
                 - **Endpoint** *(string) --* 
         
-                  The subscription's endpoint (format depends on the protocol).
+                  The subscription\'s endpoint (format depends on the protocol).
         
                 - **TopicArn** *(string) --* 
         
-                  The ARN of the subscription's topic.
+                  The ARN of the subscription\'s topic.
         
         """
         pass
@@ -270,11 +270,11 @@ class ListSubscriptionsByTopic(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              TopicArn='string',
+              TopicArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type TopicArn: string
@@ -307,13 +307,13 @@ class ListSubscriptionsByTopic(Paginator):
           ::
         
             {
-                'Subscriptions': [
+                \'Subscriptions\': [
                     {
-                        'SubscriptionArn': 'string',
-                        'Owner': 'string',
-                        'Protocol': 'string',
-                        'Endpoint': 'string',
-                        'TopicArn': 'string'
+                        \'SubscriptionArn\': \'string\',
+                        \'Owner\': \'string\',
+                        \'Protocol\': \'string\',
+                        \'Endpoint\': \'string\',
+                        \'TopicArn\': \'string\'
                     },
                 ],
                 
@@ -334,23 +334,23 @@ class ListSubscriptionsByTopic(Paginator):
         
                 - **SubscriptionArn** *(string) --* 
         
-                  The subscription's ARN.
+                  The subscription\'s ARN.
         
                 - **Owner** *(string) --* 
         
-                  The subscription's owner.
+                  The subscription\'s owner.
         
                 - **Protocol** *(string) --* 
         
-                  The subscription's protocol.
+                  The subscription\'s protocol.
         
                 - **Endpoint** *(string) --* 
         
-                  The subscription's endpoint (format depends on the protocol).
+                  The subscription\'s endpoint (format depends on the protocol).
         
                 - **TopicArn** *(string) --* 
         
-                  The ARN of the subscription's topic.
+                  The ARN of the subscription\'s topic.
         
         """
         pass
@@ -367,9 +367,9 @@ class ListTopics(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -397,9 +397,9 @@ class ListTopics(Paginator):
           ::
         
             {
-                'Topics': [
+                \'Topics\': [
                     {
-                        'TopicArn': 'string'
+                        \'TopicArn\': \'string\'
                     },
                 ],
                 
@@ -416,11 +416,11 @@ class ListTopics(Paginator):
         
               - *(dict) --* 
         
-                A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's attributes, use ``GetTopicAttributes`` .
+                A wrapper type for the topic\'s Amazon Resource Name (ARN). To retrieve a topic\'s attributes, use ``GetTopicAttributes`` .
         
                 - **TopicArn** *(string) --* 
         
-                  The topic's ARN.
+                  The topic\'s ARN.
         
         """
         pass

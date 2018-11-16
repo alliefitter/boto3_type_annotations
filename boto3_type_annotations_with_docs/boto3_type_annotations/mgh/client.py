@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
+from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import Dict
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -17,7 +17,7 @@ class Client(BaseClient):
          
         * The created artifact name must be provided in ARN (Amazon Resource Name) format which will contain information about type and region; for example: ``arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b`` . 
          
-        * Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance, or DMS endpoint, etc. 
+        * Examples of the AWS resource behind the created artifact are, AMI\'s, EC2 instance, or DMS endpoint, etc. 
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/AWSMigrationHub-2017-05-31/AssociateCreatedArtifact>`_
         
@@ -25,11 +25,11 @@ class Client(BaseClient):
         ::
         
           response = client.associate_created_artifact(
-              ProgressUpdateStream='string',
-              MigrationTaskName='string',
+              ProgressUpdateStream=\'string\',
+              MigrationTaskName=\'string\',
               CreatedArtifact={
-                  'Name': 'string',
-                  'Description': 'string'
+                  \'Name\': \'string\',
+                  \'Description\': \'string\'
               },
               DryRun=True|False
           )
@@ -84,11 +84,11 @@ class Client(BaseClient):
         ::
         
           response = client.associate_discovered_resource(
-              ProgressUpdateStream='string',
-              MigrationTaskName='string',
+              ProgressUpdateStream=\'string\',
+              MigrationTaskName=\'string\',
               DiscoveredResource={
-                  'ConfigurationId': 'string',
-                  'Description': 'string'
+                  \'ConfigurationId\': \'string\',
+                  \'Description\': \'string\'
               },
               DryRun=True|False
           )
@@ -140,10 +140,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -159,7 +159,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_progress_update_stream(
-              ProgressUpdateStreamName='string',
+              ProgressUpdateStreamName=\'string\',
               DryRun=True|False
           )
         :type ProgressUpdateStreamName: string
@@ -196,7 +196,7 @@ class Client(BaseClient):
          
         * If the stream takes time to be deleted, it might still show up on a ``ListProgressUpdateStreams`` call. 
          
-        * ``CreateProgressUpdateStream`` , ``ImportMigrationTask`` , ``NotifyMigrationTaskState`` , and all Associate[*] APIs realted to the tasks belonging to the stream will throw "InvalidInputException" if the stream of the same name is in the process of being deleted. 
+        * ``CreateProgressUpdateStream`` , ``ImportMigrationTask`` , ``NotifyMigrationTaskState`` , and all Associate[*] APIs realted to the tasks belonging to the stream will throw \"InvalidInputException\" if the stream of the same name is in the process of being deleted. 
          
         * Once the stream and all of its resources are deleted, ``CreateProgressUpdateStream`` for a stream of the same name will succeed, and that stream will be an entirely new logical resource (without any resources associated with the old stream). 
          
@@ -206,7 +206,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_progress_update_stream(
-              ProgressUpdateStreamName='string',
+              ProgressUpdateStreamName=\'string\',
               DryRun=True|False
           )
         :type ProgressUpdateStreamName: string
@@ -242,7 +242,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_application_state(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** 
@@ -257,8 +257,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationStatus': 'NOT_STARTED'|'IN_PROGRESS'|'COMPLETED',
-                'LastUpdatedTime': datetime(2015, 1, 1)
+                \'ApplicationStatus\': \'NOT_STARTED\'|\'IN_PROGRESS\'|\'COMPLETED\',
+                \'LastUpdatedTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -284,8 +284,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_migration_task(
-              ProgressUpdateStream='string',
-              MigrationTaskName='string'
+              ProgressUpdateStream=\'string\',
+              MigrationTaskName=\'string\'
           )
         :type ProgressUpdateStream: string
         :param ProgressUpdateStream: **[REQUIRED]** 
@@ -305,19 +305,19 @@ class Client(BaseClient):
           ::
         
             {
-                'MigrationTask': {
-                    'ProgressUpdateStream': 'string',
-                    'MigrationTaskName': 'string',
-                    'Task': {
-                        'Status': 'NOT_STARTED'|'IN_PROGRESS'|'FAILED'|'COMPLETED',
-                        'StatusDetail': 'string',
-                        'ProgressPercent': 123
+                \'MigrationTask\': {
+                    \'ProgressUpdateStream\': \'string\',
+                    \'MigrationTaskName\': \'string\',
+                    \'Task\': {
+                        \'Status\': \'NOT_STARTED\'|\'IN_PROGRESS\'|\'FAILED\'|\'COMPLETED\',
+                        \'StatusDetail\': \'string\',
+                        \'ProgressPercent\': 123
                     },
-                    'UpdateDateTime': datetime(2015, 1, 1),
-                    'ResourceAttributeList': [
+                    \'UpdateDateTime\': datetime(2015, 1, 1),
+                    \'ResourceAttributeList\': [
                         {
-                            'Type': 'IPV4_ADDRESS'|'IPV6_ADDRESS'|'MAC_ADDRESS'|'FQDN'|'VM_MANAGER_ID'|'VM_MANAGED_OBJECT_REFERENCE'|'VM_NAME'|'VM_PATH'|'BIOS_ID'|'MOTHERBOARD_SERIAL_NUMBER',
-                            'Value': 'string'
+                            \'Type\': \'IPV4_ADDRESS\'|\'IPV6_ADDRESS\'|\'MAC_ADDRESS\'|\'FQDN\'|\'VM_MANAGER_ID\'|\'VM_MANAGED_OBJECT_REFERENCE\'|\'VM_NAME\'|\'VM_PATH\'|\'BIOS_ID\'|\'MOTHERBOARD_SERIAL_NUMBER\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -405,7 +405,7 @@ class Client(BaseClient):
          
         * The created artifact name must be provided in ARN (Amazon Resource Name) format which will contain information about type and region; for example: ``arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b`` . 
          
-        * Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance, or RDS instance, etc. 
+        * Examples of the AWS resource behind the created artifact are, AMI\'s, EC2 instance, or RDS instance, etc. 
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact>`_
         
@@ -413,9 +413,9 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_created_artifact(
-              ProgressUpdateStream='string',
-              MigrationTaskName='string',
-              CreatedArtifactName='string',
+              ProgressUpdateStream=\'string\',
+              MigrationTaskName=\'string\',
+              CreatedArtifactName=\'string\',
               DryRun=True|False
           )
         :type ProgressUpdateStream: string
@@ -461,9 +461,9 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_discovered_resource(
-              ProgressUpdateStream='string',
-              MigrationTaskName='string',
-              ConfigurationId='string',
+              ProgressUpdateStream=\'string\',
+              MigrationTaskName=\'string\',
+              ConfigurationId=\'string\',
               DryRun=True|False
           )
         :type ProgressUpdateStream: string
@@ -516,7 +516,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -528,10 +528,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -565,8 +565,8 @@ class Client(BaseClient):
         ::
         
           response = client.import_migration_task(
-              ProgressUpdateStream='string',
-              MigrationTaskName='string',
+              ProgressUpdateStream=\'string\',
+              MigrationTaskName=\'string\',
               DryRun=True|False
           )
         :type ProgressUpdateStream: string
@@ -614,9 +614,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_created_artifacts(
-              ProgressUpdateStream='string',
-              MigrationTaskName='string',
-              NextToken='string',
+              ProgressUpdateStream=\'string\',
+              MigrationTaskName=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ProgressUpdateStream: string
@@ -647,11 +647,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'CreatedArtifactList': [
+                \'NextToken\': \'string\',
+                \'CreatedArtifactList\': [
                     {
-                        'Name': 'string',
-                        'Description': 'string'
+                        \'Name\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ]
             }
@@ -691,9 +691,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_discovered_resources(
-              ProgressUpdateStream='string',
-              MigrationTaskName='string',
-              NextToken='string',
+              ProgressUpdateStream=\'string\',
+              MigrationTaskName=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ProgressUpdateStream: string
@@ -724,11 +724,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'DiscoveredResourceList': [
+                \'NextToken\': \'string\',
+                \'DiscoveredResourceList\': [
                     {
-                        'ConfigurationId': 'string',
-                        'Description': 'string'
+                        \'ConfigurationId\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ]
             }
@@ -775,9 +775,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_migration_tasks(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              ResourceName='string'
+              ResourceName=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -802,15 +802,15 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'MigrationTaskSummaryList': [
+                \'NextToken\': \'string\',
+                \'MigrationTaskSummaryList\': [
                     {
-                        'ProgressUpdateStream': 'string',
-                        'MigrationTaskName': 'string',
-                        'Status': 'NOT_STARTED'|'IN_PROGRESS'|'FAILED'|'COMPLETED',
-                        'ProgressPercent': 123,
-                        'StatusDetail': 'string',
-                        'UpdateDateTime': datetime(2015, 1, 1)
+                        \'ProgressUpdateStream\': \'string\',
+                        \'MigrationTaskName\': \'string\',
+                        \'Status\': \'NOT_STARTED\'|\'IN_PROGRESS\'|\'FAILED\'|\'COMPLETED\',
+                        \'ProgressPercent\': 123,
+                        \'StatusDetail\': \'string\',
+                        \'UpdateDateTime\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -824,7 +824,7 @@ class Client(BaseClient):
         
             - **MigrationTaskSummaryList** *(list) --* 
         
-              Lists the migration task's summary which includes: ``MigrationTaskName`` , ``ProgressPercent`` , ``ProgressUpdateStream`` , ``Status`` , and the ``UpdateDateTime`` for each task.
+              Lists the migration task\'s summary which includes: ``MigrationTaskName`` , ``ProgressPercent`` , ``ProgressUpdateStream`` , ``Status`` , and the ``UpdateDateTime`` for each task.
         
               - *(dict) --* 
         
@@ -864,7 +864,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_progress_update_streams(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -885,12 +885,12 @@ class Client(BaseClient):
           ::
         
             {
-                'ProgressUpdateStreamSummaryList': [
+                \'ProgressUpdateStreamSummaryList\': [
                     {
-                        'ProgressUpdateStreamName': 'string'
+                        \'ProgressUpdateStreamName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -924,8 +924,8 @@ class Client(BaseClient):
         ::
         
           response = client.notify_application_state(
-              ApplicationId='string',
-              Status='NOT_STARTED'|'IN_PROGRESS'|'COMPLETED',
+              ApplicationId=\'string\',
+              Status=\'NOT_STARTED\'|\'IN_PROGRESS\'|\'COMPLETED\',
               DryRun=True|False
           )
         :type ApplicationId: string
@@ -973,12 +973,12 @@ class Client(BaseClient):
         ::
         
           response = client.notify_migration_task_state(
-              ProgressUpdateStream='string',
-              MigrationTaskName='string',
+              ProgressUpdateStream=\'string\',
+              MigrationTaskName=\'string\',
               Task={
-                  'Status': 'NOT_STARTED'|'IN_PROGRESS'|'FAILED'|'COMPLETED',
-                  'StatusDetail': 'string',
-                  'ProgressPercent': 123
+                  \'Status\': \'NOT_STARTED\'|\'IN_PROGRESS\'|\'FAILED\'|\'COMPLETED\',
+                  \'StatusDetail\': \'string\',
+                  \'ProgressPercent\': 123
               },
               UpdateDateTime=datetime(2015, 1, 1),
               NextUpdateSeconds=123,
@@ -997,7 +997,7 @@ class Client(BaseClient):
         :type Task: dict
         :param Task: **[REQUIRED]** 
         
-          Information about the task's progress and status.
+          Information about the task\'s progress and status.
         
           - **Status** *(string) --* **[REQUIRED]** 
         
@@ -1043,13 +1043,13 @@ class Client(BaseClient):
     def put_resource_attributes(self, ProgressUpdateStream: str, MigrationTaskName: str, ResourceAttributeList: List, DryRun: bool = None) -> Dict:
         """
         
-        Provides identifying details of the resource being migrated so that it can be associated in the Application Discovery Service (ADS)'s repository. This association occurs asynchronously after ``PutResourceAttributes`` returns.
+        Provides identifying details of the resource being migrated so that it can be associated in the Application Discovery Service (ADS)\'s repository. This association occurs asynchronously after ``PutResourceAttributes`` returns.
         
         .. warning::
         
           * Keep in mind that subsequent calls to PutResourceAttributes will override previously stored attributes. For example, if it is first called with a MAC address, but later, it is desired to *add* an IP address, it will then be required to call it with *both* the IP and MAC addresses to prevent overiding the MAC address. 
            
-          * Note the instructions regarding the special use case of the ` ``ResourceAttributeList`` https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList`__ parameter when specifying any "VM" related value.  
+          * Note the instructions regarding the special use case of the ` ``ResourceAttributeList`` https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList`__ parameter when specifying any \"VM\" related value.  
            
         .. note::
         
@@ -1061,12 +1061,12 @@ class Client(BaseClient):
         ::
         
           response = client.put_resource_attributes(
-              ProgressUpdateStream='string',
-              MigrationTaskName='string',
+              ProgressUpdateStream=\'string\',
+              MigrationTaskName=\'string\',
               ResourceAttributeList=[
                   {
-                      'Type': 'IPV4_ADDRESS'|'IPV6_ADDRESS'|'MAC_ADDRESS'|'FQDN'|'VM_MANAGER_ID'|'VM_MANAGED_OBJECT_REFERENCE'|'VM_NAME'|'VM_PATH'|'BIOS_ID'|'MOTHERBOARD_SERIAL_NUMBER',
-                      'Value': 'string'
+                      \'Type\': \'IPV4_ADDRESS\'|\'IPV6_ADDRESS\'|\'MAC_ADDRESS\'|\'FQDN\'|\'VM_MANAGER_ID\'|\'VM_MANAGED_OBJECT_REFERENCE\'|\'VM_NAME\'|\'VM_PATH\'|\'BIOS_ID\'|\'MOTHERBOARD_SERIAL_NUMBER\',
+                      \'Value\': \'string\'
                   },
               ],
               DryRun=True|False
@@ -1084,7 +1084,7 @@ class Client(BaseClient):
         :type ResourceAttributeList: list
         :param ResourceAttributeList: **[REQUIRED]** 
         
-          Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service (ADS)'s repository.
+          Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service (ADS)\'s repository.
         
           .. note::
         
@@ -1092,7 +1092,7 @@ class Client(BaseClient):
         
           .. warning::
         
-            * If any "VM" related value is set for a ``ResourceAttribute`` object, it is required that ``VM_MANAGER_ID`` , as a minimum, is always set. If ``VM_MANAGER_ID`` is not set, then all "VM" fields will be discarded and "VM" fields will not be used for matching the migration task to a server in Application Discovery Service (ADS)'s repository. See the `Example <https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#API_PutResourceAttributes_Examples>`__ section below for a use case of specifying "VM" related values. 
+            * If any \"VM\" related value is set for a ``ResourceAttribute`` object, it is required that ``VM_MANAGER_ID`` , as a minimum, is always set. If ``VM_MANAGER_ID`` is not set, then all \"VM\" fields will be discarded and \"VM\" fields will not be used for matching the migration task to a server in Application Discovery Service (ADS)\'s repository. See the `Example <https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#API_PutResourceAttributes_Examples>`__ section below for a use case of specifying \"VM\" related values. 
              
             * If a server you are trying to match has multiple IP or MAC addresses, you should provide as many as you know in separate type/value pairs passed to the ``ResourceAttributeList`` parameter to maximize the chances of matching. 
              

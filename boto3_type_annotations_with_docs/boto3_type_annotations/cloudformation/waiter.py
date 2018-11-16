@@ -12,12 +12,12 @@ class ChangeSetCreateComplete(Waiter):
         ::
         
           waiter.wait(
-              ChangeSetName='string',
-              StackName='string',
-              NextToken='string',
+              ChangeSetName=\'string\',
+              StackName=\'string\',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ChangeSetName: string
@@ -63,11 +63,11 @@ class StackCreateComplete(Waiter):
         ::
         
           waiter.wait(
-              StackName='string',
-              NextToken='string',
+              StackName=\'string\',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StackName: string
@@ -75,7 +75,7 @@ class StackCreateComplete(Waiter):
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -114,11 +114,11 @@ class StackDeleteComplete(Waiter):
         ::
         
           waiter.wait(
-              StackName='string',
-              NextToken='string',
+              StackName=\'string\',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StackName: string
@@ -126,7 +126,7 @@ class StackDeleteComplete(Waiter):
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -165,11 +165,11 @@ class StackExists(Waiter):
         ::
         
           waiter.wait(
-              StackName='string',
-              NextToken='string',
+              StackName=\'string\',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StackName: string
@@ -177,7 +177,7 @@ class StackExists(Waiter):
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -216,11 +216,11 @@ class StackUpdateComplete(Waiter):
         ::
         
           waiter.wait(
-              StackName='string',
-              NextToken='string',
+              StackName=\'string\',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StackName: string
@@ -228,7 +228,7 @@ class StackUpdateComplete(Waiter):
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            

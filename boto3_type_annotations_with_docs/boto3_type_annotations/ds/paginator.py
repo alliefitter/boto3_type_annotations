@@ -13,14 +13,14 @@ class DescribeDomainControllers(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               DomainControllerIds=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DirectoryId: string
@@ -60,18 +60,18 @@ class DescribeDomainControllers(Paginator):
           ::
         
             {
-                'DomainControllers': [
+                \'DomainControllers\': [
                     {
-                        'DirectoryId': 'string',
-                        'DomainControllerId': 'string',
-                        'DnsIpAddr': 'string',
-                        'VpcId': 'string',
-                        'SubnetId': 'string',
-                        'AvailabilityZone': 'string',
-                        'Status': 'Creating'|'Active'|'Impaired'|'Restoring'|'Deleting'|'Deleted'|'Failed',
-                        'StatusReason': 'string',
-                        'LaunchTime': datetime(2015, 1, 1),
-                        'StatusLastUpdatedDateTime': datetime(2015, 1, 1)
+                        \'DirectoryId\': \'string\',
+                        \'DomainControllerId\': \'string\',
+                        \'DnsIpAddr\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetId\': \'string\',
+                        \'AvailabilityZone\': \'string\',
+                        \'Status\': \'Creating\'|\'Active\'|\'Impaired\'|\'Restoring\'|\'Deleting\'|\'Deleted\'|\'Failed\',
+                        \'StatusReason\': \'string\',
+                        \'LaunchTime\': datetime(2015, 1, 1),
+                        \'StatusLastUpdatedDateTime\': datetime(2015, 1, 1)
                     },
                 ],
                 

@@ -1,8 +1,8 @@
-from boto3.resources.collection import ResourceCollection
+from typing import Optional
 from typing import Union
 from typing import List
+from boto3.resources.collection import ResourceCollection
 from datetime import datetime
-from typing import Optional
 from typing import Dict
 from boto3.resources import base
 
@@ -14,10 +14,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Event resource.::
         
-          event = cloudformation.Event('id')
+          event = cloudformation.Event(\'id\')
         
         :type id: string
-        :param id: The Event's id identifier. This **must** be set.
+        :param id: The Event\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`CloudFormation.Event`
         :returns: A Event resource
@@ -28,10 +28,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Stack resource.::
         
-          stack = cloudformation.Stack('name')
+          stack = cloudformation.Stack(\'name\')
         
         :type name: string
-        :param name: The Stack's name identifier. This **must** be set.
+        :param name: The Stack\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`CloudFormation.Stack`
         :returns: A Stack resource
@@ -42,12 +42,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a StackResource resource.::
         
-          stack_resource = cloudformation.StackResource('stack_name','logical_id')
+          stack_resource = cloudformation.StackResource(\'stack_name\',\'logical_id\')
         
         :type stack_name: string
-        :param stack_name: The StackResource's stack_name identifier. This **must** be set.
+        :param stack_name: The StackResource\'s stack_name identifier. This **must** be set.
         :type logical_id: string
-        :param logical_id: The StackResource's logical_id identifier. This **must** be set.
+        :param logical_id: The StackResource\'s logical_id identifier. This **must** be set.
         
         :rtype: :py:class:`CloudFormation.StackResource`
         :returns: A StackResource resource
@@ -58,12 +58,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a StackResourceSummary resource.::
         
-          stack_resource_summary = cloudformation.StackResourceSummary('stack_name','logical_id')
+          stack_resource_summary = cloudformation.StackResourceSummary(\'stack_name\',\'logical_id\')
         
         :type stack_name: string
-        :param stack_name: The StackResourceSummary's stack_name identifier. This **must** be set.
+        :param stack_name: The StackResourceSummary\'s stack_name identifier. This **must** be set.
         :type logical_id: string
-        :param logical_id: The StackResourceSummary's logical_id identifier. This **must** be set.
+        :param logical_id: The StackResourceSummary\'s logical_id identifier. This **must** be set.
         
         :rtype: :py:class:`CloudFormation.StackResourceSummary`
         :returns: A StackResourceSummary resource
@@ -79,48 +79,48 @@ class ServiceResource(base.ServiceResource):
         ::
         
           stack = cloudformation.create_stack(
-              StackName='string',
-              TemplateBody='string',
-              TemplateURL='string',
+              StackName=\'string\',
+              TemplateBody=\'string\',
+              TemplateURL=\'string\',
               Parameters=[
                   {
-                      'ParameterKey': 'string',
-                      'ParameterValue': 'string',
-                      'UsePreviousValue': True|False,
-                      'ResolvedValue': 'string'
+                      \'ParameterKey\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'UsePreviousValue\': True|False,
+                      \'ResolvedValue\': \'string\'
                   },
               ],
               DisableRollback=True|False,
               RollbackConfiguration={
-                  'RollbackTriggers': [
+                  \'RollbackTriggers\': [
                       {
-                          'Arn': 'string',
-                          'Type': 'string'
+                          \'Arn\': \'string\',
+                          \'Type\': \'string\'
                       },
                   ],
-                  'MonitoringTimeInMinutes': 123
+                  \'MonitoringTimeInMinutes\': 123
               },
               TimeoutInMinutes=123,
               NotificationARNs=[
-                  'string',
+                  \'string\',
               ],
               Capabilities=[
-                  'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                  \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
               ],
               ResourceTypes=[
-                  'string',
+                  \'string\',
               ],
-              RoleARN='string',
-              OnFailure='DO_NOTHING'|'ROLLBACK'|'DELETE',
-              StackPolicyBody='string',
-              StackPolicyURL='string',
+              RoleARN=\'string\',
+              OnFailure=\'DO_NOTHING\'|\'ROLLBACK\'|\'DELETE\',
+              StackPolicyBody=\'string\',
+              StackPolicyURL=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              ClientRequestToken='string',
+              ClientRequestToken=\'string\',
               EnableTerminationProtection=True|False
           )
         :type StackName: string
@@ -157,7 +157,7 @@ class ServiceResource(base.ServiceResource):
         
             - **ParameterKey** *(string) --* 
         
-              The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+              The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
             - **ParameterValue** *(string) --* 
         
@@ -189,9 +189,9 @@ class ServiceResource(base.ServiceResource):
         
             By default, AWS CloudFormation saves the rollback triggers specified for a stack and applies them to any subsequent update operations for the stack, unless you specify otherwise. If you do specify rollback triggers for this parameter, those triggers replace any list of triggers previously specified for the stack. This means:
         
-            * To use the rollback triggers previously specified for this stack, if any, don't specify this parameter. 
+            * To use the rollback triggers previously specified for this stack, if any, don\'t specify this parameter. 
              
-            * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you've specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don't include in the updated list of triggers are no longer applied to the stack. 
+            * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you\'ve specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don\'t include in the updated list of triggers are no longer applied to the stack. 
              
             * To remove all currently specified triggers, specify an empty list for this parameter. 
              
@@ -240,7 +240,7 @@ class ServiceResource(base.ServiceResource):
         
           The only valid values are ``CAPABILITY_IAM`` and ``CAPABILITY_NAMED_IAM`` . The following resources require you to specify this parameter: `AWS\:\:IAM\:\:AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__ , `AWS\:\:IAM\:\:Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__ , `AWS\:\:IAM\:\:InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__ , `AWS\:\:IAM\:\:Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__ , `AWS\:\:IAM\:\:Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__ , `AWS\:\:IAM\:\:User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__ , and `AWS\:\:IAM\:\:UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__ . If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
         
-          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify ``CAPABILITY_NAMED_IAM`` . If you don't specify this parameter, this action returns an ``InsufficientCapabilities`` error.
+          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify ``CAPABILITY_NAMED_IAM`` . If you don\'t specify this parameter, this action returns an ``InsufficientCapabilities`` error.
         
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
         
@@ -251,16 +251,16 @@ class ServiceResource(base.ServiceResource):
         
           The template resource types that you have permissions to work with for this create stack action, such as ``AWS::EC2::Instance`` , ``AWS::EC2::*`` , or ``Custom::MyCustomInstance`` . Use the following syntax to describe template resource types: ``AWS::*`` (for all AWS resource), ``Custom::*`` (for all custom resources), ``Custom::*logical_ID* `` (for a specific custom resource), ``AWS::*service_name* ::*`` (for all resources of a particular AWS service), and ``AWS::*service_name* ::*resource_logical_ID* `` (for a specific AWS resource).
         
-          If the list of resource types doesn't include a resource that you're creating, the stack creation fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
+          If the list of resource types doesn\'t include a resource that you\'re creating, the stack creation fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
         
           - *(string) --* 
         
         :type RoleARN: string
         :param RoleARN: 
         
-          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
+          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role\'s credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don\'t have permission to pass it. Ensure that the role grants least privilege.
         
-          If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+          If you don\'t specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         
         :type OnFailure: string
         :param OnFailure: 
@@ -299,7 +299,7 @@ class ServiceResource(base.ServiceResource):
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for this ``CreateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to create a stack with the same name. You might retry ``CreateStack`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``CreateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to create a stack with the same name. You might retry ``CreateStack`` requests to ensure that AWS CloudFormation successfully received them.
         
           All events triggered by a given stack operation are assigned the same client request token, which you can use to track operations. For example, if you execute a ``CreateStack`` operation with the token ``token1`` , then all the ``StackEvents`` generated by that operation will have ``ClientRequestToken`` set as ``token1`` .
         
@@ -393,12 +393,12 @@ class Stack(base.ServiceResource):
         ::
         
           response = stack.cancel_update(
-              ClientRequestToken='string'
+              ClientRequestToken=\'string\'
           )
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for this ``CancelUpdateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry ``CancelUpdateStack`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``CancelUpdateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to cancel an update on a stack with the same name. You might retry ``CancelUpdateStack`` requests to ensure that AWS CloudFormation successfully received them.
         
         :returns: None
         """
@@ -414,10 +414,10 @@ class Stack(base.ServiceResource):
         
           response = stack.delete(
               RetainResources=[
-                  'string',
+                  \'string\',
               ],
-              RoleARN='string',
-              ClientRequestToken='string'
+              RoleARN=\'string\',
+              ClientRequestToken=\'string\'
           )
         :type RetainResources: list
         :param RetainResources: 
@@ -431,14 +431,14 @@ class Stack(base.ServiceResource):
         :type RoleARN: string
         :param RoleARN: 
         
-          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to delete the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf.
+          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to delete the stack. AWS CloudFormation uses the role\'s credentials to make calls on your behalf.
         
-          If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+          If you don\'t specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for this ``DeleteStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to delete a stack with the same name. You might retry ``DeleteStack`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``DeleteStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to delete a stack with the same name. You might retry ``DeleteStack`` requests to ensure that AWS CloudFormation successfully received them.
         
           All events triggered by a given stack operation are assigned the same client request token, which you can use to track operations. For example, if you execute a ``CreateStack`` operation with the token ``token1`` , then all the ``StackEvents`` generated by that operation will have ``ClientRequestToken`` set as ``token1`` .
         
@@ -499,47 +499,47 @@ class Stack(base.ServiceResource):
         ::
         
           response = stack.update(
-              TemplateBody='string',
-              TemplateURL='string',
+              TemplateBody=\'string\',
+              TemplateURL=\'string\',
               UsePreviousTemplate=True|False,
-              StackPolicyDuringUpdateBody='string',
-              StackPolicyDuringUpdateURL='string',
+              StackPolicyDuringUpdateBody=\'string\',
+              StackPolicyDuringUpdateURL=\'string\',
               Parameters=[
                   {
-                      'ParameterKey': 'string',
-                      'ParameterValue': 'string',
-                      'UsePreviousValue': True|False,
-                      'ResolvedValue': 'string'
+                      \'ParameterKey\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'UsePreviousValue\': True|False,
+                      \'ResolvedValue\': \'string\'
                   },
               ],
               Capabilities=[
-                  'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                  \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
               ],
               ResourceTypes=[
-                  'string',
+                  \'string\',
               ],
-              RoleARN='string',
+              RoleARN=\'string\',
               RollbackConfiguration={
-                  'RollbackTriggers': [
+                  \'RollbackTriggers\': [
                       {
-                          'Arn': 'string',
-                          'Type': 'string'
+                          \'Arn\': \'string\',
+                          \'Type\': \'string\'
                       },
                   ],
-                  'MonitoringTimeInMinutes': 123
+                  \'MonitoringTimeInMinutes\': 123
               },
-              StackPolicyBody='string',
-              StackPolicyURL='string',
+              StackPolicyBody=\'string\',
+              StackPolicyURL=\'string\',
               NotificationARNs=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              ClientRequestToken='string'
+              ClientRequestToken=\'string\'
           )
         :type TemplateBody: string
         :param TemplateBody: 
@@ -587,7 +587,7 @@ class Stack(base.ServiceResource):
         
             - **ParameterKey** *(string) --* 
         
-              The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+              The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
             - **ParameterValue** *(string) --* 
         
@@ -608,7 +608,7 @@ class Stack(base.ServiceResource):
         
           The only valid values are ``CAPABILITY_IAM`` and ``CAPABILITY_NAMED_IAM`` . The following resources require you to specify this parameter: `AWS\:\:IAM\:\:AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__ , `AWS\:\:IAM\:\:Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__ , `AWS\:\:IAM\:\:InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__ , `AWS\:\:IAM\:\:Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__ , `AWS\:\:IAM\:\:Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__ , `AWS\:\:IAM\:\:User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__ , and `AWS\:\:IAM\:\:UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__ . If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
         
-          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify ``CAPABILITY_NAMED_IAM`` . If you don't specify this parameter, this action returns an ``InsufficientCapabilities`` error.
+          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify ``CAPABILITY_NAMED_IAM`` . If you don\'t specify this parameter, this action returns an ``InsufficientCapabilities`` error.
         
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
         
@@ -619,16 +619,16 @@ class Stack(base.ServiceResource):
         
           The template resource types that you have permissions to work with for this update stack action, such as ``AWS::EC2::Instance`` , ``AWS::EC2::*`` , or ``Custom::MyCustomInstance`` .
         
-          If the list of resource types doesn't include a resource that you're updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
+          If the list of resource types doesn\'t include a resource that you\'re updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
         
           - *(string) --* 
         
         :type RoleARN: string
         :param RoleARN: 
         
-          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to update the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
+          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to update the stack. AWS CloudFormation uses the role\'s credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don\'t have permission to pass it. Ensure that the role grants least privilege.
         
-          If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+          If you don\'t specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         
         :type RollbackConfiguration: dict
         :param RollbackConfiguration: 
@@ -641,9 +641,9 @@ class Stack(base.ServiceResource):
         
             By default, AWS CloudFormation saves the rollback triggers specified for a stack and applies them to any subsequent update operations for the stack, unless you specify otherwise. If you do specify rollback triggers for this parameter, those triggers replace any list of triggers previously specified for the stack. This means:
         
-            * To use the rollback triggers previously specified for this stack, if any, don't specify this parameter. 
+            * To use the rollback triggers previously specified for this stack, if any, don\'t specify this parameter. 
              
-            * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you've specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don't include in the updated list of triggers are no longer applied to the stack. 
+            * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you\'ve specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don\'t include in the updated list of triggers are no longer applied to the stack. 
              
             * To remove all currently specified triggers, specify an empty list for this parameter. 
              
@@ -699,7 +699,7 @@ class Stack(base.ServiceResource):
         
           Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to supported resources in the stack. You can specify a maximum number of 50 tags.
         
-          If you don't specify this parameter, AWS CloudFormation doesn't modify the stack's tags. If you specify an empty value, AWS CloudFormation removes all associated tags.
+          If you don\'t specify this parameter, AWS CloudFormation doesn\'t modify the stack\'s tags. If you specify an empty value, AWS CloudFormation removes all associated tags.
         
           - *(dict) --* 
         
@@ -716,7 +716,7 @@ class Stack(base.ServiceResource):
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for this ``UpdateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to update a stack with the same name. You might retry ``UpdateStack`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``UpdateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to update a stack with the same name. You might retry ``UpdateStack`` requests to ensure that AWS CloudFormation successfully received them.
         
           All events triggered by a given stack operation are assigned the same client request token, which you can use to track operations. For example, if you execute a ``CreateStack`` operation with the token ``token1`` , then all the ``StackEvents`` generated by that operation will have ``ClientRequestToken`` set as ``token1`` .
         
@@ -730,7 +730,7 @@ class Stack(base.ServiceResource):
           ::
         
             {
-                'StackId': 'string'
+                \'StackId\': \'string\'
             }
           **Response Structure** 
         
@@ -850,15 +850,15 @@ class stacks(ResourceCollection):
         ::
         
           stack_iterator = cloudformation.stacks.filter(
-              StackName='string',
-              NextToken='string'
+              StackName=\'string\',
+              NextToken=\'string\'
           )
         :type StackName: string
         :param StackName: 
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -937,13 +937,13 @@ class stacks(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances

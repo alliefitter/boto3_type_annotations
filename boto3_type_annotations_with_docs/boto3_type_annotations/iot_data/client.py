@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from typing import IO
-from botocore.paginate import Paginator
-from typing import Union
 from typing import Optional
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import Dict
+from botocore.client import BaseClient
+from typing import IO
 
 
 class Client(BaseClient):
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -35,7 +35,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_thing_shadow(
-              thingName='string'
+              thingName=\'string\'
           )
         :type thingName: string
         :param thingName: **[REQUIRED]** 
@@ -50,7 +50,7 @@ class Client(BaseClient):
           ::
         
             {
-                'payload': StreamingBody()
+                \'payload\': StreamingBody()
             }
           **Response Structure** 
         
@@ -81,7 +81,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -93,10 +93,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -118,7 +118,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_thing_shadow(
-              thingName='string'
+              thingName=\'string\'
           )
         :type thingName: string
         :param thingName: **[REQUIRED]** 
@@ -133,7 +133,7 @@ class Client(BaseClient):
           ::
         
             {
-                'payload': StreamingBody()
+                \'payload\': StreamingBody()
             }
           **Response Structure** 
         
@@ -171,9 +171,9 @@ class Client(BaseClient):
         ::
         
           response = client.publish(
-              topic='string',
+              topic=\'string\',
               qos=123,
-              payload=b'bytes'|file
+              payload=b\'bytes\'|file
           )
         :type topic: string
         :param topic: **[REQUIRED]** 
@@ -205,8 +205,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_thing_shadow(
-              thingName='string',
-              payload=b'bytes'|file
+              thingName=\'string\',
+              payload=b\'bytes\'|file
           )
         :type thingName: string
         :param thingName: **[REQUIRED]** 
@@ -226,7 +226,7 @@ class Client(BaseClient):
           ::
         
             {
-                'payload': StreamingBody()
+                \'payload\': StreamingBody()
             }
           **Response Structure** 
         

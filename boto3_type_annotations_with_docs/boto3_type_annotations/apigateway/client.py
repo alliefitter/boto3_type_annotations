@@ -1,11 +1,11 @@
-from botocore.waiter import Waiter
-from typing import IO
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
+from typing import IO
 
 
 class Client(BaseClient):
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -36,18 +36,18 @@ class Client(BaseClient):
         ::
         
           response = client.create_api_key(
-              name='string',
-              description='string',
+              name=\'string\',
+              description=\'string\',
               enabled=True|False,
               generateDistinctId=True|False,
-              value='string',
+              value=\'string\',
               stageKeys=[
                   {
-                      'restApiId': 'string',
-                      'stageName': 'string'
+                      \'restApiId\': \'string\',
+                      \'stageName\': \'string\'
                   },
               ],
-              customerId='string'
+              customerId=\'string\'
           )
         :type name: string
         :param name: 
@@ -104,16 +104,16 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'value': 'string',
-                'name': 'string',
-                'customerId': 'string',
-                'description': 'string',
-                'enabled': True|False,
-                'createdDate': datetime(2015, 1, 1),
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'stageKeys': [
-                    'string',
+                \'id\': \'string\',
+                \'value\': \'string\',
+                \'name\': \'string\',
+                \'customerId\': \'string\',
+                \'description\': \'string\',
+                \'enabled\': True|False,
+                \'createdDate\': datetime(2015, 1, 1),
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'stageKeys\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -176,17 +176,17 @@ class Client(BaseClient):
         ::
         
           response = client.create_authorizer(
-              restApiId='string',
-              name='string',
-              type='TOKEN'|'REQUEST'|'COGNITO_USER_POOLS',
+              restApiId=\'string\',
+              name=\'string\',
+              type=\'TOKEN\'|\'REQUEST\'|\'COGNITO_USER_POOLS\',
               providerARNs=[
-                  'string',
+                  \'string\',
               ],
-              authType='string',
-              authorizerUri='string',
-              authorizerCredentials='string',
-              identitySource='string',
-              identityValidationExpression='string',
+              authType=\'string\',
+              authorizerUri=\'string\',
+              authorizerCredentials=\'string\',
+              identitySource=\'string\',
+              identityValidationExpression=\'string\',
               authorizerResultTtlInSeconds=123
           )
         :type restApiId: string
@@ -219,12 +219,12 @@ class Client(BaseClient):
         :type authorizerUri: string
         :param authorizerUri: 
         
-          Specifies the authorizer's Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations`` . In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}`` , where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/`` . For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations`` .
+          Specifies the authorizer\'s Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations`` . In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}`` , where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/`` . For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations`` .
         
         :type authorizerCredentials: string
         :param authorizerCredentials: 
         
-          Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
+          Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
         
         :type identitySource: string
         :param identitySource: 
@@ -238,7 +238,7 @@ class Client(BaseClient):
         :type identityValidationExpression: string
         :param identityValidationExpression: 
         
-          A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
+          A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer\'s Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
         
         :type authorizerResultTtlInSeconds: integer
         :param authorizerResultTtlInSeconds: 
@@ -253,18 +253,18 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'type': 'TOKEN'|'REQUEST'|'COGNITO_USER_POOLS',
-                'providerARNs': [
-                    'string',
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'type\': \'TOKEN\'|\'REQUEST\'|\'COGNITO_USER_POOLS\',
+                \'providerARNs\': [
+                    \'string\',
                 ],
-                'authType': 'string',
-                'authorizerUri': 'string',
-                'authorizerCredentials': 'string',
-                'identitySource': 'string',
-                'identityValidationExpression': 'string',
-                'authorizerResultTtlInSeconds': 123
+                \'authType\': \'string\',
+                \'authorizerUri\': \'string\',
+                \'authorizerCredentials\': \'string\',
+                \'identitySource\': \'string\',
+                \'identityValidationExpression\': \'string\',
+                \'authorizerResultTtlInSeconds\': 123
             }
           **Response Structure** 
         
@@ -298,11 +298,11 @@ class Client(BaseClient):
         
             - **authorizerUri** *(string) --* 
         
-              Specifies the authorizer's Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations`` . In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}`` , where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/`` . For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations`` .
+              Specifies the authorizer\'s Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations`` . In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}`` , where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/`` . For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations`` .
         
             - **authorizerCredentials** *(string) --* 
         
-              Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
+              Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
         
             - **identitySource** *(string) --* 
         
@@ -314,7 +314,7 @@ class Client(BaseClient):
               
             - **identityValidationExpression** *(string) --* 
         
-              A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
+              A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer\'s Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
         
             - **authorizerResultTtlInSeconds** *(integer) --* 
         
@@ -332,10 +332,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_base_path_mapping(
-              domainName='string',
-              basePath='string',
-              restApiId='string',
-              stage='string'
+              domainName=\'string\',
+              basePath=\'string\',
+              restApiId=\'string\',
+              stage=\'string\'
           )
         :type domainName: string
         :param domainName: **[REQUIRED]** 
@@ -355,7 +355,7 @@ class Client(BaseClient):
         :type stage: string
         :param stage: 
         
-          The name of the API's stage that you want to use for this mapping. Leave this blank if you do not want callers to explicitly specify the stage name after any base path name.
+          The name of the API\'s stage that you want to use for this mapping. Leave this blank if you do not want callers to explicitly specify the stage name after any base path name.
         
         :rtype: dict
         :returns: 
@@ -365,9 +365,9 @@ class Client(BaseClient):
           ::
         
             {
-                'basePath': 'string',
-                'restApiId': 'string',
-                'stage': 'string'
+                \'basePath\': \'string\',
+                \'restApiId\': \'string\',
+                \'stage\': \'string\'
             }
           **Response Structure** 
         
@@ -401,21 +401,21 @@ class Client(BaseClient):
         ::
         
           response = client.create_deployment(
-              restApiId='string',
-              stageName='string',
-              stageDescription='string',
-              description='string',
+              restApiId=\'string\',
+              stageName=\'string\',
+              stageDescription=\'string\',
+              description=\'string\',
               cacheClusterEnabled=True|False,
-              cacheClusterSize='0.5'|'1.6'|'6.1'|'13.5'|'28.4'|'58.2'|'118'|'237',
+              cacheClusterSize=\'0.5\'|\'1.6\'|\'6.1\'|\'13.5\'|\'28.4\'|\'58.2\'|\'118\'|\'237\',
               variables={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               canarySettings={
-                  'percentTraffic': 123.0,
-                  'stageVariableOverrides': {
-                      'string': 'string'
+                  \'percentTraffic\': 123.0,
+                  \'stageVariableOverrides\': {
+                      \'string\': \'string\'
                   },
-                  'useStageCache': True|False
+                  \'useStageCache\': True|False
               },
               tracingEnabled=True|False
           )
@@ -492,14 +492,14 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'description': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'apiSummary': {
-                    'string': {
-                        'string': {
-                            'authorizationType': 'string',
-                            'apiKeyRequired': True|False
+                \'id\': \'string\',
+                \'description\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'apiSummary\': {
+                    \'string\': {
+                        \'string\': {
+                            \'authorizationType\': \'string\',
+                            \'apiKeyRequired\': True|False
                         }
                     }
                 }
@@ -540,7 +540,7 @@ class Client(BaseClient):
         
                       - **authorizationType** *(string) --* 
         
-                        The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+                        The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
                       - **apiKeyRequired** *(boolean) --* 
         
@@ -556,15 +556,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_documentation_part(
-              restApiId='string',
+              restApiId=\'string\',
               location={
-                  'type': 'API'|'AUTHORIZER'|'MODEL'|'RESOURCE'|'METHOD'|'PATH_PARAMETER'|'QUERY_PARAMETER'|'REQUEST_HEADER'|'REQUEST_BODY'|'RESPONSE'|'RESPONSE_HEADER'|'RESPONSE_BODY',
-                  'path': 'string',
-                  'method': 'string',
-                  'statusCode': 'string',
-                  'name': 'string'
+                  \'type\': \'API\'|\'AUTHORIZER\'|\'MODEL\'|\'RESOURCE\'|\'METHOD\'|\'PATH_PARAMETER\'|\'QUERY_PARAMETER\'|\'REQUEST_HEADER\'|\'REQUEST_BODY\'|\'RESPONSE\'|\'RESPONSE_HEADER\'|\'RESPONSE_BODY\',
+                  \'path\': \'string\',
+                  \'method\': \'string\',
+                  \'statusCode\': \'string\',
+                  \'name\': \'string\'
               },
-              properties='string'
+              properties=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -582,15 +582,15 @@ class Client(BaseClient):
         
           - **path** *(string) --* 
         
-            The URL path of the target. It is a valid field for the API entity types of ``RESOURCE`` , ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``path`` attribute must match that of the parent entity as a prefix.
+            The URL path of the target. It is a valid field for the API entity types of ``RESOURCE`` , ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``path`` attribute must match that of the parent entity as a prefix.
         
           - **method** *(string) --* 
         
-            The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``method`` attribute must match that of the parent entity exactly.
+            The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``method`` attribute must match that of the parent entity exactly.
         
           - **statusCode** *(string) --* 
         
-            The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``statusCode`` attribute must match that of the parent entity exactly.
+            The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``statusCode`` attribute must match that of the parent entity exactly.
         
           - **name** *(string) --* 
         
@@ -609,15 +609,15 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'location': {
-                    'type': 'API'|'AUTHORIZER'|'MODEL'|'RESOURCE'|'METHOD'|'PATH_PARAMETER'|'QUERY_PARAMETER'|'REQUEST_HEADER'|'REQUEST_BODY'|'RESPONSE'|'RESPONSE_HEADER'|'RESPONSE_BODY',
-                    'path': 'string',
-                    'method': 'string',
-                    'statusCode': 'string',
-                    'name': 'string'
+                \'id\': \'string\',
+                \'location\': {
+                    \'type\': \'API\'|\'AUTHORIZER\'|\'MODEL\'|\'RESOURCE\'|\'METHOD\'|\'PATH_PARAMETER\'|\'QUERY_PARAMETER\'|\'REQUEST_HEADER\'|\'REQUEST_BODY\'|\'RESPONSE\'|\'RESPONSE_HEADER\'|\'RESPONSE_BODY\',
+                    \'path\': \'string\',
+                    \'method\': \'string\',
+                    \'statusCode\': \'string\',
+                    \'name\': \'string\'
                 },
-                'properties': 'string'
+                \'properties\': \'string\'
             }
           **Response Structure** 
         
@@ -645,15 +645,15 @@ class Client(BaseClient):
         
               - **path** *(string) --* 
         
-                The URL path of the target. It is a valid field for the API entity types of ``RESOURCE`` , ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``path`` attribute must match that of the parent entity as a prefix.
+                The URL path of the target. It is a valid field for the API entity types of ``RESOURCE`` , ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``path`` attribute must match that of the parent entity as a prefix.
         
               - **method** *(string) --* 
         
-                The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``method`` attribute must match that of the parent entity exactly.
+                The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``method`` attribute must match that of the parent entity exactly.
         
               - **statusCode** *(string) --* 
         
-                The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``statusCode`` attribute must match that of the parent entity exactly.
+                The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``statusCode`` attribute must match that of the parent entity exactly.
         
               - **name** *(string) --* 
         
@@ -661,7 +661,7 @@ class Client(BaseClient):
         
             - **properties** *(string) --* 
         
-              A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., ``"{ \"description\": \"The API does ...\" }"`` . Only OpenAPI-compliant documentation-related fields from the propertiesmap are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of ``x-amazon-apigateway-documentation`` .
+              A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., ``\"{ \\"description\\": \\"The API does ...\\" }\"`` . Only OpenAPI-compliant documentation-related fields from the propertiesmap are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of ``x-amazon-apigateway-documentation`` .
         
         """
         pass
@@ -673,10 +673,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_documentation_version(
-              restApiId='string',
-              documentationVersion='string',
-              stageName='string',
-              description='string'
+              restApiId=\'string\',
+              documentationVersion=\'string\',
+              stageName=\'string\',
+              description=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -706,9 +706,9 @@ class Client(BaseClient):
           ::
         
             {
-                'version': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'description': 'string'
+                \'version\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'description\': \'string\'
             }
           **Response Structure** 
         
@@ -744,17 +744,17 @@ class Client(BaseClient):
         ::
         
           response = client.create_domain_name(
-              domainName='string',
-              certificateName='string',
-              certificateBody='string',
-              certificatePrivateKey='string',
-              certificateChain='string',
-              certificateArn='string',
-              regionalCertificateName='string',
-              regionalCertificateArn='string',
+              domainName=\'string\',
+              certificateName=\'string\',
+              certificateBody=\'string\',
+              certificatePrivateKey=\'string\',
+              certificateChain=\'string\',
+              certificateArn=\'string\',
+              regionalCertificateName=\'string\',
+              regionalCertificateArn=\'string\',
               endpointConfiguration={
-                  'types': [
-                      'REGIONAL'|'EDGE'|'PRIVATE',
+                  \'types\': [
+                      \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                   ]
               }
           )
@@ -776,7 +776,7 @@ class Client(BaseClient):
         :type certificatePrivateKey: string
         :param certificatePrivateKey: 
         
-          [Deprecated] Your edge-optimized endpoint's domain name certificate's private key.
+          [Deprecated] Your edge-optimized endpoint\'s domain name certificate\'s private key.
         
         :type certificateChain: string
         :param certificateChain: 
@@ -805,7 +805,7 @@ class Client(BaseClient):
         
           - **types** *(list) --* 
         
-            A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+            A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
             - *(string) --* 
         
@@ -819,19 +819,19 @@ class Client(BaseClient):
           ::
         
             {
-                'domainName': 'string',
-                'certificateName': 'string',
-                'certificateArn': 'string',
-                'certificateUploadDate': datetime(2015, 1, 1),
-                'regionalDomainName': 'string',
-                'regionalHostedZoneId': 'string',
-                'regionalCertificateName': 'string',
-                'regionalCertificateArn': 'string',
-                'distributionDomainName': 'string',
-                'distributionHostedZoneId': 'string',
-                'endpointConfiguration': {
-                    'types': [
-                        'REGIONAL'|'EDGE'|'PRIVATE',
+                \'domainName\': \'string\',
+                \'certificateName\': \'string\',
+                \'certificateArn\': \'string\',
+                \'certificateUploadDate\': datetime(2015, 1, 1),
+                \'regionalDomainName\': \'string\',
+                \'regionalHostedZoneId\': \'string\',
+                \'regionalCertificateName\': \'string\',
+                \'regionalCertificateArn\': \'string\',
+                \'distributionDomainName\': \'string\',
+                \'distributionHostedZoneId\': \'string\',
+                \'endpointConfiguration\': {
+                    \'types\': [
+                        \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                     ]
                 }
             }
@@ -841,7 +841,7 @@ class Client(BaseClient):
         
             Represents a custom domain name as a user-friendly host name of an API ( RestApi ).
         
-            When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the ``{restapi-id}.execute-api.{region}.amazonaws.com`` format. With the default host name, you can access the API's root resource with the URL of ``https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/`` . When you set up a custom domain name of ``apis.example.com`` for this API, you can then access the same resource using the URL of the ``https://apis.examples.com/myApi`` , where ``myApi`` is the base path mapping ( BasePathMapping ) of your API under the custom domain name. 
+            When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the ``{restapi-id}.execute-api.{region}.amazonaws.com`` format. With the default host name, you can access the API\'s root resource with the URL of ``https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/`` . When you set up a custom domain name of ``apis.example.com`` for this API, you can then access the same resource using the URL of the ``https://apis.examples.com/myApi`` , where ``myApi`` is the base path mapping ( BasePathMapping ) of your API under the custom domain name. 
         
                `Set a Custom Host Name for an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html>`__  
             
@@ -891,7 +891,7 @@ class Client(BaseClient):
         
               - **types** *(list) --* 
         
-                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                 - *(string) --* 
         
@@ -909,11 +909,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_model(
-              restApiId='string',
-              name='string',
-              description='string',
-              schema='string',
-              contentType='string'
+              restApiId=\'string\',
+              name=\'string\',
+              description=\'string\',
+              schema=\'string\',
+              contentType=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -948,21 +948,21 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'schema': 'string',
-                'contentType': 'string'
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'schema\': \'string\',
+                \'contentType\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* 
         
-            Represents the data structure of a method's request or response payload.
+            Represents the data structure of a method\'s request or response payload.
         
             A request model defines the data structure of the client-supplied request payload. A response model defines the data structure of the response payload returned by the back end. Although not required, models are useful for mapping payloads between the front end and back end.
         
-            A model is used for generating an API's SDK, validating the input request body, and creating a skeletal mapping template.
+            A model is used for generating an API\'s SDK, validating the input request body, and creating a skeletal mapping template.
         
                 Method ,  MethodResponse , `Models and Mappings <https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html>`__  
             
@@ -980,7 +980,7 @@ class Client(BaseClient):
         
             - **schema** *(string) --* 
         
-              The schema for the model. For ``application/json`` models, this should be `JSON schema draft 4 <https://tools.ietf.org/html/draft-zyp-json-schema-04>`__ model. Do not include "\*/" characters in the description of any properties because such "\*/" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail.
+              The schema for the model. For ``application/json`` models, this should be `JSON schema draft 4 <https://tools.ietf.org/html/draft-zyp-json-schema-04>`__ model. Do not include \"\*/\" characters in the description of any properties because such \"\*/\" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API\'s SDK generated by API Gateway to fail.
         
             - **contentType** *(string) --* 
         
@@ -998,8 +998,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_request_validator(
-              restApiId='string',
-              name='string',
+              restApiId=\'string\',
+              name=\'string\',
               validateRequestBody=True|False,
               validateRequestParameters=True|False
           )
@@ -1031,10 +1031,10 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'validateRequestBody': True|False,
-                'validateRequestParameters': True|False
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'validateRequestBody\': True|False,
+                \'validateRequestParameters\': True|False
             }
           **Response Structure** 
         
@@ -1074,9 +1074,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_resource(
-              restApiId='string',
-              parentId='string',
-              pathPart='string'
+              restApiId=\'string\',
+              parentId=\'string\',
+              pathPart=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -1086,7 +1086,7 @@ class Client(BaseClient):
         :type parentId: string
         :param parentId: **[REQUIRED]** 
         
-          [Required] The parent resource's identifier.
+          [Required] The parent resource\'s identifier.
         
         :type pathPart: string
         :param pathPart: **[REQUIRED]** 
@@ -1101,71 +1101,71 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'parentId': 'string',
-                'pathPart': 'string',
-                'path': 'string',
-                'resourceMethods': {
-                    'string': {
-                        'httpMethod': 'string',
-                        'authorizationType': 'string',
-                        'authorizerId': 'string',
-                        'apiKeyRequired': True|False,
-                        'requestValidatorId': 'string',
-                        'operationName': 'string',
-                        'requestParameters': {
-                            'string': True|False
+                \'id\': \'string\',
+                \'parentId\': \'string\',
+                \'pathPart\': \'string\',
+                \'path\': \'string\',
+                \'resourceMethods\': {
+                    \'string\': {
+                        \'httpMethod\': \'string\',
+                        \'authorizationType\': \'string\',
+                        \'authorizerId\': \'string\',
+                        \'apiKeyRequired\': True|False,
+                        \'requestValidatorId\': \'string\',
+                        \'operationName\': \'string\',
+                        \'requestParameters\': {
+                            \'string\': True|False
                         },
-                        'requestModels': {
-                            'string': 'string'
+                        \'requestModels\': {
+                            \'string\': \'string\'
                         },
-                        'methodResponses': {
-                            'string': {
-                                'statusCode': 'string',
-                                'responseParameters': {
-                                    'string': True|False
+                        \'methodResponses\': {
+                            \'string\': {
+                                \'statusCode\': \'string\',
+                                \'responseParameters\': {
+                                    \'string\': True|False
                                 },
-                                'responseModels': {
-                                    'string': 'string'
+                                \'responseModels\': {
+                                    \'string\': \'string\'
                                 }
                             }
                         },
-                        'methodIntegration': {
-                            'type': 'HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-                            'httpMethod': 'string',
-                            'uri': 'string',
-                            'connectionType': 'INTERNET'|'VPC_LINK',
-                            'connectionId': 'string',
-                            'credentials': 'string',
-                            'requestParameters': {
-                                'string': 'string'
+                        \'methodIntegration\': {
+                            \'type\': \'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+                            \'httpMethod\': \'string\',
+                            \'uri\': \'string\',
+                            \'connectionType\': \'INTERNET\'|\'VPC_LINK\',
+                            \'connectionId\': \'string\',
+                            \'credentials\': \'string\',
+                            \'requestParameters\': {
+                                \'string\': \'string\'
                             },
-                            'requestTemplates': {
-                                'string': 'string'
+                            \'requestTemplates\': {
+                                \'string\': \'string\'
                             },
-                            'passthroughBehavior': 'string',
-                            'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
-                            'timeoutInMillis': 123,
-                            'cacheNamespace': 'string',
-                            'cacheKeyParameters': [
-                                'string',
+                            \'passthroughBehavior\': \'string\',
+                            \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
+                            \'timeoutInMillis\': 123,
+                            \'cacheNamespace\': \'string\',
+                            \'cacheKeyParameters\': [
+                                \'string\',
                             ],
-                            'integrationResponses': {
-                                'string': {
-                                    'statusCode': 'string',
-                                    'selectionPattern': 'string',
-                                    'responseParameters': {
-                                        'string': 'string'
+                            \'integrationResponses\': {
+                                \'string\': {
+                                    \'statusCode\': \'string\',
+                                    \'selectionPattern\': \'string\',
+                                    \'responseParameters\': {
+                                        \'string\': \'string\'
                                     },
-                                    'responseTemplates': {
-                                        'string': 'string'
+                                    \'responseTemplates\': {
+                                        \'string\': \'string\'
                                     },
-                                    'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                                    \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
                                 }
                             }
                         },
-                        'authorizationScopes': [
-                            'string',
+                        \'authorizationScopes\': [
+                            \'string\',
                         ]
                     }
                 }
@@ -1180,11 +1180,11 @@ class Client(BaseClient):
             
             - **id** *(string) --* 
         
-              The resource's identifier.
+              The resource\'s identifier.
         
             - **parentId** *(string) --* 
         
-              The parent resource's identifier.
+              The parent resource\'s identifier.
         
             - **pathPart** *(string) --* 
         
@@ -1196,11 +1196,11 @@ class Client(BaseClient):
         
             - **resourceMethods** *(dict) --* 
         
-              Gets an API resource's method of a given HTTP verb.
+              Gets an API resource\'s method of a given HTTP verb.
         
-              The resource methods are a map of methods indexed by methods' HTTP verbs enabled on the resource. This method map is included in the ``200 OK`` response of the ``GET /restapis/{restapi_id}/resources/{resource_id}`` or ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` request.
+              The resource methods are a map of methods indexed by methods\' HTTP verbs enabled on the resource. This method map is included in the ``200 OK`` response of the ``GET /restapis/{restapi_id}/resources/{resource_id}`` or ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` request.
         
-               Example: Get the GET method of an API resource Request ``GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20170223T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20170223/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}``  Response ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": false, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+               Example: Get the GET method of an API resource Request ``GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20170223T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20170223/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}``  Response ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": false, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
               If the ``OPTIONS`` is enabled on the resource, you can follow the example here to get that method. Just replace the ``GET`` of the last path segment in the request URL with ``OPTIONS`` .
         
@@ -1218,19 +1218,19 @@ class Client(BaseClient):
         
                   The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                   ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+                   ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": true, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\\")\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
                   In the example above, the response template for the ``200 OK`` response maps the JSON output from the ``ListStreams`` action in the back end to an XML output. The mapping template is URL-encoded as ``%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E`` and the output is decoded using the `$util.urlDecode() <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference>`__ helper function.
         
-                      MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API's method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
+                      MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API\'s method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
                   
                   - **httpMethod** *(string) --* 
         
-                    The method's HTTP verb.
+                    The method\'s HTTP verb.
         
                   - **authorizationType** *(string) --* 
         
-                    The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+                    The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
                   - **authorizerId** *(string) --* 
         
@@ -1268,7 +1268,7 @@ class Client(BaseClient):
         
                     Gets a method response associated with a given HTTP status code. 
         
-                    The collection of method responses are encapsulated in a key-value map, where the key is a response's HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
+                    The collection of method responses are encapsulated in a key-value map, where the key is a response\'s HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
         
                      Example: Get a 200 OK response of a GET method Request 
         
@@ -1276,7 +1276,7 @@ class Client(BaseClient):
         
                     The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                     ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.operator": false, "method.response.header.operand_2": false, "method.response.header.operand_1": false }, "statusCode": "200" }``  
+                     ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.operator\": false, \"method.response.header.operand_2\": false, \"method.response.header.operand_1\": false }, \"statusCode\": \"200\" }``  
         
                        `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html>`__  
                     
@@ -1294,17 +1294,17 @@ class Client(BaseClient):
         
                         The successful response returns ``200 OK`` status and a payload as follows:
         
-                         ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }``  
+                         ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" }``  
         
                             Method ,  IntegrationResponse ,  Integration  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                         
                         - **statusCode** *(string) --* 
         
-                          The method response's status code.
+                          The method response\'s status code.
         
                         - **responseParameters** *(dict) --* 
         
-                          A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+                          A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
                           - *(string) --* 
                             
@@ -1312,7 +1312,7 @@ class Client(BaseClient):
                       
                         - **responseModels** *(dict) --* 
         
-                          Specifies the  Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
+                          Specifies the  Model resources used for the response\'s content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
         
                           - *(string) --* 
                             
@@ -1320,7 +1320,7 @@ class Client(BaseClient):
                       
                   - **methodIntegration** *(dict) --* 
         
-                    Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
+                    Gets the method\'s integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
         
                      Example:  Request 
         
@@ -1328,7 +1328,7 @@ class Client(BaseClient):
         
                     The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                     ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }``  
+                     ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"0cjtch\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestTemplates\": { \"application/json\": \"{\n \\"a\\": \\"$input.params(\'operand1\')\\",\n \\"b\\": \\"$input.params(\'operand2\')\\", \n \\"op\\": \\"$input.params(\'operator\')\\" \n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.operator\": \"integration.response.body.op\", \"method.response.header.operand_2\": \"integration.response.body.b\", \"method.response.header.operand_1\": \"integration.response.body.a\" }, \"responseTemplates\": { \"application/json\": \"#set($res = $input.path(\'$\'))\n{\n \\"result\\": \\"$res.a, $res.b, $res.op => $res.c\\",\n \\"a\\" : \\"$res.a\\",\n \\"b\\" : \\"$res.b\\",\n \\"op\\" : \\"$res.op\\",\n \\"c\\" : \\"$res.c\\"\n}\" }, \"selectionPattern\": \"\", \"statusCode\": \"200\" } } }``  
         
                        `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html>`__  
                     
@@ -1344,13 +1344,13 @@ class Client(BaseClient):
                        
                       * ``HTTP_PROXY`` : for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.
                        
-                      * ``MOCK`` : for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.
+                      * ``MOCK`` : for integrating the API method request with API Gateway as a \"loop-back\" endpoint without invoking any backend.
                        
                       For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https`` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a  VpcLink to connect API Gateway to a network load balancer of a VPC.
         
                     - **httpMethod** *(string) --* 
         
-                      Specifies the integration's HTTP method type.
+                      Specifies the integration\'s HTTP method type.
         
                     - **uri** *(string) --* 
         
@@ -1370,7 +1370,7 @@ class Client(BaseClient):
         
                     - **credentials** *(string) --* 
         
-                      Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
+                      Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
         
                     - **requestParameters** *(dict) --* 
         
@@ -1414,17 +1414,17 @@ class Client(BaseClient):
         
                     - **cacheNamespace** *(string) --* 
         
-                      Specifies the integration's cache namespace.
+                      Specifies the integration\'s cache namespace.
         
                     - **cacheKeyParameters** *(list) --* 
         
-                      Specifies the integration's cache key parameters.
+                      Specifies the integration\'s cache key parameters.
         
                       - *(string) --* 
                   
                     - **integrationResponses** *(dict) --* 
         
-                      Specifies the integration's responses.
+                      Specifies the integration\'s responses.
         
                        Example: Get integration responses of a method Request 
         
@@ -1432,7 +1432,7 @@ class Client(BaseClient):
         
                       The successful response returns ``200 OK`` status and a payload as follows:
         
-                       ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }``  
+                       ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" }``  
         
                          `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                       
@@ -1496,21 +1496,21 @@ class Client(BaseClient):
         ::
         
           response = client.create_rest_api(
-              name='string',
-              description='string',
-              version='string',
-              cloneFrom='string',
+              name=\'string\',
+              description=\'string\',
+              version=\'string\',
+              cloneFrom=\'string\',
               binaryMediaTypes=[
-                  'string',
+                  \'string\',
               ],
               minimumCompressionSize=123,
-              apiKeySource='HEADER'|'AUTHORIZER',
+              apiKeySource=\'HEADER\'|\'AUTHORIZER\',
               endpointConfiguration={
-                  'types': [
-                      'REGIONAL'|'EDGE'|'PRIVATE',
+                  \'types\': [
+                      \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                   ]
               },
-              policy='string'
+              policy=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -1560,7 +1560,7 @@ class Client(BaseClient):
         
           - **types** *(list) --* 
         
-            A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+            A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
             - *(string) --* 
         
@@ -1577,25 +1577,25 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'version': 'string',
-                'warnings': [
-                    'string',
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'version\': \'string\',
+                \'warnings\': [
+                    \'string\',
                 ],
-                'binaryMediaTypes': [
-                    'string',
+                \'binaryMediaTypes\': [
+                    \'string\',
                 ],
-                'minimumCompressionSize': 123,
-                'apiKeySource': 'HEADER'|'AUTHORIZER',
-                'endpointConfiguration': {
-                    'types': [
-                        'REGIONAL'|'EDGE'|'PRIVATE',
+                \'minimumCompressionSize\': 123,
+                \'apiKeySource\': \'HEADER\'|\'AUTHORIZER\',
+                \'endpointConfiguration\': {
+                    \'types\': [
+                        \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                     ]
                 },
-                'policy': 'string'
+                \'policy\': \'string\'
             }
           **Response Structure** 
         
@@ -1607,15 +1607,15 @@ class Client(BaseClient):
             
             - **id** *(string) --* 
         
-              The API's identifier. This identifier is unique across all of your APIs in API Gateway.
+              The API\'s identifier. This identifier is unique across all of your APIs in API Gateway.
         
             - **name** *(string) --* 
         
-              The API's name.
+              The API\'s name.
         
             - **description** *(string) --* 
         
-              The API's description.
+              The API\'s description.
         
             - **createdDate** *(datetime) --* 
         
@@ -1655,7 +1655,7 @@ class Client(BaseClient):
         
               - **types** *(list) --* 
         
-                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                 - *(string) --* 
         
@@ -1674,27 +1674,27 @@ class Client(BaseClient):
         ::
         
           response = client.create_stage(
-              restApiId='string',
-              stageName='string',
-              deploymentId='string',
-              description='string',
+              restApiId=\'string\',
+              stageName=\'string\',
+              deploymentId=\'string\',
+              description=\'string\',
               cacheClusterEnabled=True|False,
-              cacheClusterSize='0.5'|'1.6'|'6.1'|'13.5'|'28.4'|'58.2'|'118'|'237',
+              cacheClusterSize=\'0.5\'|\'1.6\'|\'6.1\'|\'13.5\'|\'28.4\'|\'58.2\'|\'118\'|\'237\',
               variables={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              documentationVersion='string',
+              documentationVersion=\'string\',
               canarySettings={
-                  'percentTraffic': 123.0,
-                  'deploymentId': 'string',
-                  'stageVariableOverrides': {
-                      'string': 'string'
+                  \'percentTraffic\': 123.0,
+                  \'deploymentId\': \'string\',
+                  \'stageVariableOverrides\': {
+                      \'string\': \'string\'
                   },
-                  'useStageCache': True|False
+                  \'useStageCache\': True|False
               },
               tracingEnabled=True|False,
               tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type restApiId: string
@@ -1725,7 +1725,7 @@ class Client(BaseClient):
         :type cacheClusterSize: string
         :param cacheClusterSize: 
         
-          The stage's cache cluster size.
+          The stage\'s cache cluster size.
         
         :type variables: dict
         :param variables: 
@@ -1788,50 +1788,50 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentId': 'string',
-                'clientCertificateId': 'string',
-                'stageName': 'string',
-                'description': 'string',
-                'cacheClusterEnabled': True|False,
-                'cacheClusterSize': '0.5'|'1.6'|'6.1'|'13.5'|'28.4'|'58.2'|'118'|'237',
-                'cacheClusterStatus': 'CREATE_IN_PROGRESS'|'AVAILABLE'|'DELETE_IN_PROGRESS'|'NOT_AVAILABLE'|'FLUSH_IN_PROGRESS',
-                'methodSettings': {
-                    'string': {
-                        'metricsEnabled': True|False,
-                        'loggingLevel': 'string',
-                        'dataTraceEnabled': True|False,
-                        'throttlingBurstLimit': 123,
-                        'throttlingRateLimit': 123.0,
-                        'cachingEnabled': True|False,
-                        'cacheTtlInSeconds': 123,
-                        'cacheDataEncrypted': True|False,
-                        'requireAuthorizationForCacheControl': True|False,
-                        'unauthorizedCacheControlHeaderStrategy': 'FAIL_WITH_403'|'SUCCEED_WITH_RESPONSE_HEADER'|'SUCCEED_WITHOUT_RESPONSE_HEADER'
+                \'deploymentId\': \'string\',
+                \'clientCertificateId\': \'string\',
+                \'stageName\': \'string\',
+                \'description\': \'string\',
+                \'cacheClusterEnabled\': True|False,
+                \'cacheClusterSize\': \'0.5\'|\'1.6\'|\'6.1\'|\'13.5\'|\'28.4\'|\'58.2\'|\'118\'|\'237\',
+                \'cacheClusterStatus\': \'CREATE_IN_PROGRESS\'|\'AVAILABLE\'|\'DELETE_IN_PROGRESS\'|\'NOT_AVAILABLE\'|\'FLUSH_IN_PROGRESS\',
+                \'methodSettings\': {
+                    \'string\': {
+                        \'metricsEnabled\': True|False,
+                        \'loggingLevel\': \'string\',
+                        \'dataTraceEnabled\': True|False,
+                        \'throttlingBurstLimit\': 123,
+                        \'throttlingRateLimit\': 123.0,
+                        \'cachingEnabled\': True|False,
+                        \'cacheTtlInSeconds\': 123,
+                        \'cacheDataEncrypted\': True|False,
+                        \'requireAuthorizationForCacheControl\': True|False,
+                        \'unauthorizedCacheControlHeaderStrategy\': \'FAIL_WITH_403\'|\'SUCCEED_WITH_RESPONSE_HEADER\'|\'SUCCEED_WITHOUT_RESPONSE_HEADER\'
                     }
                 },
-                'variables': {
-                    'string': 'string'
+                \'variables\': {
+                    \'string\': \'string\'
                 },
-                'documentationVersion': 'string',
-                'accessLogSettings': {
-                    'format': 'string',
-                    'destinationArn': 'string'
+                \'documentationVersion\': \'string\',
+                \'accessLogSettings\': {
+                    \'format\': \'string\',
+                    \'destinationArn\': \'string\'
                 },
-                'canarySettings': {
-                    'percentTraffic': 123.0,
-                    'deploymentId': 'string',
-                    'stageVariableOverrides': {
-                        'string': 'string'
+                \'canarySettings\': {
+                    \'percentTraffic\': 123.0,
+                    \'deploymentId\': \'string\',
+                    \'stageVariableOverrides\': {
+                        \'string\': \'string\'
                     },
-                    'useStageCache': True|False
+                    \'useStageCache\': True|False
                 },
-                'tracingEnabled': True|False,
-                'webAclArn': 'string',
-                'tags': {
-                    'string': 'string'
+                \'tracingEnabled\': True|False,
+                \'webAclArn\': \'string\',
+                \'tags\': {
+                    \'string\': \'string\'
                 },
-                'createdDate': datetime(2015, 1, 1),
-                'lastUpdatedDate': datetime(2015, 1, 1)
+                \'createdDate\': datetime(2015, 1, 1),
+                \'lastUpdatedDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1855,7 +1855,7 @@ class Client(BaseClient):
         
             - **description** *(string) --* 
         
-              The stage's description.
+              The stage\'s description.
         
             - **cacheClusterEnabled** *(boolean) --* 
         
@@ -2003,28 +2003,28 @@ class Client(BaseClient):
         ::
         
           response = client.create_usage_plan(
-              name='string',
-              description='string',
+              name=\'string\',
+              description=\'string\',
               apiStages=[
                   {
-                      'apiId': 'string',
-                      'stage': 'string',
-                      'throttle': {
-                          'string': {
-                              'burstLimit': 123,
-                              'rateLimit': 123.0
+                      \'apiId\': \'string\',
+                      \'stage\': \'string\',
+                      \'throttle\': {
+                          \'string\': {
+                              \'burstLimit\': 123,
+                              \'rateLimit\': 123.0
                           }
                       }
                   },
               ],
               throttle={
-                  'burstLimit': 123,
-                  'rateLimit': 123.0
+                  \'burstLimit\': 123,
+                  \'rateLimit\': 123.0
               },
               quota={
-                  'limit': 123,
-                  'offset': 123,
-                  'period': 'DAY'|'WEEK'|'MONTH'
+                  \'limit\': 123,
+                  \'offset\': 123,
+                  \'period\': \'DAY\'|\'WEEK\'|\'MONTH\'
               }
           )
         :type name: string
@@ -2100,7 +2100,7 @@ class Client(BaseClient):
         
           - **period** *(string) --* 
         
-            The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+            The time period in which the limit applies. Valid values are \"DAY\", \"WEEK\" or \"MONTH\".
         
         :rtype: dict
         :returns: 
@@ -2110,31 +2110,31 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'apiStages': [
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'apiStages\': [
                     {
-                        'apiId': 'string',
-                        'stage': 'string',
-                        'throttle': {
-                            'string': {
-                                'burstLimit': 123,
-                                'rateLimit': 123.0
+                        \'apiId\': \'string\',
+                        \'stage\': \'string\',
+                        \'throttle\': {
+                            \'string\': {
+                                \'burstLimit\': 123,
+                                \'rateLimit\': 123.0
                             }
                         }
                     },
                 ],
-                'throttle': {
-                    'burstLimit': 123,
-                    'rateLimit': 123.0
+                \'throttle\': {
+                    \'burstLimit\': 123,
+                    \'rateLimit\': 123.0
                 },
-                'quota': {
-                    'limit': 123,
-                    'offset': 123,
-                    'period': 'DAY'|'WEEK'|'MONTH'
+                \'quota\': {
+                    \'limit\': 123,
+                    \'offset\': 123,
+                    \'period\': \'DAY\'|\'WEEK\'|\'MONTH\'
                 },
-                'productCode': 'string'
+                \'productCode\': \'string\'
             }
           **Response Structure** 
         
@@ -2142,7 +2142,7 @@ class Client(BaseClient):
         
             Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.
         
-            In a usage plan, you associate an API by specifying the API's Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. 
+            In a usage plan, you associate an API by specifying the API\'s Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. 
         
                `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
             
@@ -2218,7 +2218,7 @@ class Client(BaseClient):
         
               - **period** *(string) --* 
         
-                The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+                The time period in which the limit applies. Valid values are \"DAY\", \"WEEK\" or \"MONTH\".
         
             - **productCode** *(string) --* 
         
@@ -2236,9 +2236,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_usage_plan_key(
-              usagePlanId='string',
-              keyId='string',
-              keyType='string'
+              usagePlanId=\'string\',
+              keyId=\'string\',
+              keyType=\'string\'
           )
         :type usagePlanId: string
         :param usagePlanId: **[REQUIRED]** 
@@ -2263,10 +2263,10 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'type': 'string',
-                'value': 'string',
-                'name': 'string'
+                \'id\': \'string\',
+                \'type\': \'string\',
+                \'value\': \'string\',
+                \'name\': \'string\'
             }
           **Response Structure** 
         
@@ -2276,7 +2276,7 @@ class Client(BaseClient):
         
             To associate an API stage with a selected API key in a usage plan, you must create a UsagePlanKey resource to represent the selected  ApiKey .
         
-             "  `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
+             \"  `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
             
             - **id** *(string) --* 
         
@@ -2306,10 +2306,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_vpc_link(
-              name='string',
-              description='string',
+              name=\'string\',
+              description=\'string\',
               targetArns=[
-                  'string',
+                  \'string\',
               ]
           )
         :type name: string
@@ -2337,14 +2337,14 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'targetArns': [
-                    'string',
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'targetArns\': [
+                    \'string\',
                 ],
-                'status': 'AVAILABLE'|'PENDING'|'DELETING'|'FAILED',
-                'statusMessage': 'string'
+                \'status\': \'AVAILABLE\'|\'PENDING\'|\'DELETING\'|\'FAILED\',
+                \'statusMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -2392,7 +2392,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_api_key(
-              apiKey='string'
+              apiKey=\'string\'
           )
         :type apiKey: string
         :param apiKey: **[REQUIRED]** 
@@ -2414,8 +2414,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_authorizer(
-              restApiId='string',
-              authorizerId='string'
+              restApiId=\'string\',
+              authorizerId=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2440,8 +2440,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_base_path_mapping(
-              domainName='string',
-              basePath='string'
+              domainName=\'string\',
+              basePath=\'string\'
           )
         :type domainName: string
         :param domainName: **[REQUIRED]** 
@@ -2466,7 +2466,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_client_certificate(
-              clientCertificateId='string'
+              clientCertificateId=\'string\'
           )
         :type clientCertificateId: string
         :param clientCertificateId: **[REQUIRED]** 
@@ -2486,8 +2486,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_deployment(
-              restApiId='string',
-              deploymentId='string'
+              restApiId=\'string\',
+              deploymentId=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2510,8 +2510,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_documentation_part(
-              restApiId='string',
-              documentationPartId='string'
+              restApiId=\'string\',
+              documentationPartId=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2534,8 +2534,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_documentation_version(
-              restApiId='string',
-              documentationVersion='string'
+              restApiId=\'string\',
+              documentationVersion=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2560,7 +2560,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_domain_name(
-              domainName='string'
+              domainName=\'string\'
           )
         :type domainName: string
         :param domainName: **[REQUIRED]** 
@@ -2580,8 +2580,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_gateway_response(
-              restApiId='string',
-              responseType='DEFAULT_4XX'|'DEFAULT_5XX'|'RESOURCE_NOT_FOUND'|'UNAUTHORIZED'|'INVALID_API_KEY'|'ACCESS_DENIED'|'AUTHORIZER_FAILURE'|'AUTHORIZER_CONFIGURATION_ERROR'|'INVALID_SIGNATURE'|'EXPIRED_TOKEN'|'MISSING_AUTHENTICATION_TOKEN'|'INTEGRATION_FAILURE'|'INTEGRATION_TIMEOUT'|'API_CONFIGURATION_ERROR'|'UNSUPPORTED_MEDIA_TYPE'|'BAD_REQUEST_PARAMETERS'|'BAD_REQUEST_BODY'|'REQUEST_TOO_LARGE'|'THROTTLED'|'QUOTA_EXCEEDED'
+              restApiId=\'string\',
+              responseType=\'DEFAULT_4XX\'|\'DEFAULT_5XX\'|\'RESOURCE_NOT_FOUND\'|\'UNAUTHORIZED\'|\'INVALID_API_KEY\'|\'ACCESS_DENIED\'|\'AUTHORIZER_FAILURE\'|\'AUTHORIZER_CONFIGURATION_ERROR\'|\'INVALID_SIGNATURE\'|\'EXPIRED_TOKEN\'|\'MISSING_AUTHENTICATION_TOKEN\'|\'INTEGRATION_FAILURE\'|\'INTEGRATION_TIMEOUT\'|\'API_CONFIGURATION_ERROR\'|\'UNSUPPORTED_MEDIA_TYPE\'|\'BAD_REQUEST_PARAMETERS\'|\'BAD_REQUEST_BODY\'|\'REQUEST_TOO_LARGE\'|\'THROTTLED\'|\'QUOTA_EXCEEDED\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2648,9 +2648,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_integration(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string'
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2660,12 +2660,12 @@ class Client(BaseClient):
         :type resourceId: string
         :param resourceId: **[REQUIRED]** 
         
-          [Required] Specifies a delete integration request's resource identifier.
+          [Required] Specifies a delete integration request\'s resource identifier.
         
         :type httpMethod: string
         :param httpMethod: **[REQUIRED]** 
         
-          [Required] Specifies a delete integration request's HTTP method.
+          [Required] Specifies a delete integration request\'s HTTP method.
         
         :returns: None
         """
@@ -2680,10 +2680,10 @@ class Client(BaseClient):
         ::
         
           response = client.delete_integration_response(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
-              statusCode='string'
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
+              statusCode=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2693,17 +2693,17 @@ class Client(BaseClient):
         :type resourceId: string
         :param resourceId: **[REQUIRED]** 
         
-          [Required] Specifies a delete integration response request's resource identifier.
+          [Required] Specifies a delete integration response request\'s resource identifier.
         
         :type httpMethod: string
         :param httpMethod: **[REQUIRED]** 
         
-          [Required] Specifies a delete integration response request's HTTP method.
+          [Required] Specifies a delete integration response request\'s HTTP method.
         
         :type statusCode: string
         :param statusCode: **[REQUIRED]** 
         
-          [Required] Specifies a delete integration response request's status code.
+          [Required] Specifies a delete integration response request\'s status code.
         
         :returns: None
         """
@@ -2718,9 +2718,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_method(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string'
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2750,10 +2750,10 @@ class Client(BaseClient):
         ::
         
           response = client.delete_method_response(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
-              statusCode='string'
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
+              statusCode=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2788,8 +2788,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_model(
-              restApiId='string',
-              modelName='string'
+              restApiId=\'string\',
+              modelName=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2814,8 +2814,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_request_validator(
-              restApiId='string',
-              requestValidatorId='string'
+              restApiId=\'string\',
+              requestValidatorId=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2840,8 +2840,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_resource(
-              restApiId='string',
-              resourceId='string'
+              restApiId=\'string\',
+              resourceId=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2866,7 +2866,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_rest_api(
-              restApiId='string'
+              restApiId=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2886,8 +2886,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_stage(
-              restApiId='string',
-              stageName='string'
+              restApiId=\'string\',
+              stageName=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -2912,7 +2912,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_usage_plan(
-              usagePlanId='string'
+              usagePlanId=\'string\'
           )
         :type usagePlanId: string
         :param usagePlanId: **[REQUIRED]** 
@@ -2932,8 +2932,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_usage_plan_key(
-              usagePlanId='string',
-              keyId='string'
+              usagePlanId=\'string\',
+              keyId=\'string\'
           )
         :type usagePlanId: string
         :param usagePlanId: **[REQUIRED]** 
@@ -2958,7 +2958,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vpc_link(
-              vpcLinkId='string'
+              vpcLinkId=\'string\'
           )
         :type vpcLinkId: string
         :param vpcLinkId: **[REQUIRED]** 
@@ -2978,8 +2978,8 @@ class Client(BaseClient):
         ::
         
           response = client.flush_stage_authorizers_cache(
-              restApiId='string',
-              stageName='string'
+              restApiId=\'string\',
+              stageName=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -3004,8 +3004,8 @@ class Client(BaseClient):
         ::
         
           response = client.flush_stage_cache(
-              restApiId='string',
-              stageName='string'
+              restApiId=\'string\',
+              stageName=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -3030,7 +3030,7 @@ class Client(BaseClient):
         ::
         
           response = client.generate_client_certificate(
-              description='string'
+              description=\'string\'
           )
         :type description: string
         :param description: 
@@ -3045,11 +3045,11 @@ class Client(BaseClient):
           ::
         
             {
-                'clientCertificateId': 'string',
-                'description': 'string',
-                'pemEncodedCertificate': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'expirationDate': datetime(2015, 1, 1)
+                \'clientCertificateId\': \'string\',
+                \'description\': \'string\',
+                \'pemEncodedCertificate\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'expirationDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -3098,7 +3098,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3122,15 +3122,15 @@ class Client(BaseClient):
           ::
         
             {
-                'cloudwatchRoleArn': 'string',
-                'throttleSettings': {
-                    'burstLimit': 123,
-                    'rateLimit': 123.0
+                \'cloudwatchRoleArn\': \'string\',
+                \'throttleSettings\': {
+                    \'burstLimit\': 123,
+                    \'rateLimit\': 123.0
                 },
-                'features': [
-                    'string',
+                \'features\': [
+                    \'string\',
                 ],
-                'apiKeyVersion': 'string'
+                \'apiKeyVersion\': \'string\'
             }
           **Response Structure** 
         
@@ -3156,7 +3156,7 @@ class Client(BaseClient):
         
             The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-             ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/account-apigateway-{rel}.html", "name": "account", "templated": true }, "self": { "href": "/account" }, "account:update": { "href": "/account" } }, "cloudwatchRoleArn": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "throttleSettings": { "rateLimit": 500, "burstLimit": 1000 } }``  
+             ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/account-apigateway-{rel}.html\", \"name\": \"account\", \"templated\": true }, \"self\": { \"href\": \"/account\" }, \"account:update\": { \"href\": \"/account\" } }, \"cloudwatchRoleArn\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"throttleSettings\": { \"rateLimit\": 500, \"burstLimit\": 1000 } }``  
         
             In addition to making the REST API call directly, you can use the AWS CLI and an AWS SDK to access this resource.
         
@@ -3180,7 +3180,7 @@ class Client(BaseClient):
         
             - **features** *(list) --* 
         
-              A list of features supported for the account. When usage plans are enabled, the features list will include an entry of ``"UsagePlans"`` .
+              A list of features supported for the account. When usage plans are enabled, the features list will include an entry of ``\"UsagePlans\"`` .
         
               - *(string) --* 
           
@@ -3200,7 +3200,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_api_key(
-              apiKey='string',
+              apiKey=\'string\',
               includeValue=True|False
           )
         :type apiKey: string
@@ -3221,16 +3221,16 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'value': 'string',
-                'name': 'string',
-                'customerId': 'string',
-                'description': 'string',
-                'enabled': True|False,
-                'createdDate': datetime(2015, 1, 1),
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'stageKeys': [
-                    'string',
+                \'id\': \'string\',
+                \'value\': \'string\',
+                \'name\': \'string\',
+                \'customerId\': \'string\',
+                \'description\': \'string\',
+                \'enabled\': True|False,
+                \'createdDate\': datetime(2015, 1, 1),
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'stageKeys\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -3291,10 +3291,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_api_keys(
-              position='string',
+              position=\'string\',
               limit=123,
-              nameQuery='string',
-              customerId='string',
+              nameQuery=\'string\',
+              customerId=\'string\',
               includeValues=True|False
           )
         :type position: string
@@ -3330,22 +3330,22 @@ class Client(BaseClient):
           ::
         
             {
-                'warnings': [
-                    'string',
+                \'warnings\': [
+                    \'string\',
                 ],
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'value': 'string',
-                        'name': 'string',
-                        'customerId': 'string',
-                        'description': 'string',
-                        'enabled': True|False,
-                        'createdDate': datetime(2015, 1, 1),
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'stageKeys': [
-                            'string',
+                        \'id\': \'string\',
+                        \'value\': \'string\',
+                        \'name\': \'string\',
+                        \'customerId\': \'string\',
+                        \'description\': \'string\',
+                        \'enabled\': True|False,
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'stageKeys\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -3428,8 +3428,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_authorizer(
-              restApiId='string',
-              authorizerId='string'
+              restApiId=\'string\',
+              authorizerId=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -3449,18 +3449,18 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'type': 'TOKEN'|'REQUEST'|'COGNITO_USER_POOLS',
-                'providerARNs': [
-                    'string',
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'type\': \'TOKEN\'|\'REQUEST\'|\'COGNITO_USER_POOLS\',
+                \'providerARNs\': [
+                    \'string\',
                 ],
-                'authType': 'string',
-                'authorizerUri': 'string',
-                'authorizerCredentials': 'string',
-                'identitySource': 'string',
-                'identityValidationExpression': 'string',
-                'authorizerResultTtlInSeconds': 123
+                \'authType\': \'string\',
+                \'authorizerUri\': \'string\',
+                \'authorizerCredentials\': \'string\',
+                \'identitySource\': \'string\',
+                \'identityValidationExpression\': \'string\',
+                \'authorizerResultTtlInSeconds\': 123
             }
           **Response Structure** 
         
@@ -3494,11 +3494,11 @@ class Client(BaseClient):
         
             - **authorizerUri** *(string) --* 
         
-              Specifies the authorizer's Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations`` . In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}`` , where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/`` . For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations`` .
+              Specifies the authorizer\'s Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations`` . In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}`` , where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/`` . For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations`` .
         
             - **authorizerCredentials** *(string) --* 
         
-              Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
+              Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
         
             - **identitySource** *(string) --* 
         
@@ -3510,7 +3510,7 @@ class Client(BaseClient):
               
             - **identityValidationExpression** *(string) --* 
         
-              A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
+              A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer\'s Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
         
             - **authorizerResultTtlInSeconds** *(integer) --* 
         
@@ -3530,8 +3530,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_authorizers(
-              restApiId='string',
-              position='string',
+              restApiId=\'string\',
+              position=\'string\',
               limit=123
           )
         :type restApiId: string
@@ -3557,21 +3557,21 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'type': 'TOKEN'|'REQUEST'|'COGNITO_USER_POOLS',
-                        'providerARNs': [
-                            'string',
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'type\': \'TOKEN\'|\'REQUEST\'|\'COGNITO_USER_POOLS\',
+                        \'providerARNs\': [
+                            \'string\',
                         ],
-                        'authType': 'string',
-                        'authorizerUri': 'string',
-                        'authorizerCredentials': 'string',
-                        'identitySource': 'string',
-                        'identityValidationExpression': 'string',
-                        'authorizerResultTtlInSeconds': 123
+                        \'authType\': \'string\',
+                        \'authorizerUri\': \'string\',
+                        \'authorizerCredentials\': \'string\',
+                        \'identitySource\': \'string\',
+                        \'identityValidationExpression\': \'string\',
+                        \'authorizerResultTtlInSeconds\': 123
                     },
                 ]
             }
@@ -3619,11 +3619,11 @@ class Client(BaseClient):
         
                 - **authorizerUri** *(string) --* 
         
-                  Specifies the authorizer's Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations`` . In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}`` , where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/`` . For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations`` .
+                  Specifies the authorizer\'s Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations`` . In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}`` , where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/`` . For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations`` .
         
                 - **authorizerCredentials** *(string) --* 
         
-                  Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
+                  Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
         
                 - **identitySource** *(string) --* 
         
@@ -3635,7 +3635,7 @@ class Client(BaseClient):
                   
                 - **identityValidationExpression** *(string) --* 
         
-                  A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
+                  A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer\'s Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
         
                 - **authorizerResultTtlInSeconds** *(integer) --* 
         
@@ -3653,8 +3653,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_base_path_mapping(
-              domainName='string',
-              basePath='string'
+              domainName=\'string\',
+              basePath=\'string\'
           )
         :type domainName: string
         :param domainName: **[REQUIRED]** 
@@ -3674,9 +3674,9 @@ class Client(BaseClient):
           ::
         
             {
-                'basePath': 'string',
-                'restApiId': 'string',
-                'stage': 'string'
+                \'basePath\': \'string\',
+                \'restApiId\': \'string\',
+                \'stage\': \'string\'
             }
           **Response Structure** 
         
@@ -3710,8 +3710,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_base_path_mappings(
-              domainName='string',
-              position='string',
+              domainName=\'string\',
+              position=\'string\',
               limit=123
           )
         :type domainName: string
@@ -3737,12 +3737,12 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'basePath': 'string',
-                        'restApiId': 'string',
-                        'stage': 'string'
+                        \'basePath\': \'string\',
+                        \'restApiId\': \'string\',
+                        \'stage\': \'string\'
                     },
                 ]
             }
@@ -3790,7 +3790,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_client_certificate(
-              clientCertificateId='string'
+              clientCertificateId=\'string\'
           )
         :type clientCertificateId: string
         :param clientCertificateId: **[REQUIRED]** 
@@ -3805,11 +3805,11 @@ class Client(BaseClient):
           ::
         
             {
-                'clientCertificateId': 'string',
-                'description': 'string',
-                'pemEncodedCertificate': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'expirationDate': datetime(2015, 1, 1)
+                \'clientCertificateId\': \'string\',
+                \'description\': \'string\',
+                \'pemEncodedCertificate\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'expirationDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -3851,7 +3851,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_client_certificates(
-              position='string',
+              position=\'string\',
               limit=123
           )
         :type position: string
@@ -3872,14 +3872,14 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'clientCertificateId': 'string',
-                        'description': 'string',
-                        'pemEncodedCertificate': 'string',
-                        'createdDate': datetime(2015, 1, 1),
-                        'expirationDate': datetime(2015, 1, 1)
+                        \'clientCertificateId\': \'string\',
+                        \'description\': \'string\',
+                        \'pemEncodedCertificate\': \'string\',
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'expirationDate\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -3935,10 +3935,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_deployment(
-              restApiId='string',
-              deploymentId='string',
+              restApiId=\'string\',
+              deploymentId=\'string\',
               embed=[
-                  'string',
+                  \'string\',
               ]
           )
         :type restApiId: string
@@ -3954,7 +3954,7 @@ class Client(BaseClient):
         :type embed: list
         :param embed: 
         
-          A query parameter to retrieve the specified embedded resources of the returned  Deployment resource in the response. In a REST API call, this ``embed`` parameter value is a list of comma-separated strings, as in ``GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2`` . The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the ``"apisummary"`` string. For example, ``GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary`` .
+          A query parameter to retrieve the specified embedded resources of the returned  Deployment resource in the response. In a REST API call, this ``embed`` parameter value is a list of comma-separated strings, as in ``GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2`` . The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the ``\"apisummary\"`` string. For example, ``GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary`` .
         
           - *(string) --* 
         
@@ -3966,14 +3966,14 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'description': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'apiSummary': {
-                    'string': {
-                        'string': {
-                            'authorizationType': 'string',
-                            'apiKeyRequired': True|False
+                \'id\': \'string\',
+                \'description\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'apiSummary\': {
+                    \'string\': {
+                        \'string\': {
+                            \'authorizationType\': \'string\',
+                            \'apiKeyRequired\': True|False
                         }
                     }
                 }
@@ -4014,7 +4014,7 @@ class Client(BaseClient):
         
                       - **authorizationType** *(string) --* 
         
-                        The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+                        The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
                       - **apiKeyRequired** *(boolean) --* 
         
@@ -4032,8 +4032,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_deployments(
-              restApiId='string',
-              position='string',
+              restApiId=\'string\',
+              position=\'string\',
               limit=123
           )
         :type restApiId: string
@@ -4059,17 +4059,17 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'description': 'string',
-                        'createdDate': datetime(2015, 1, 1),
-                        'apiSummary': {
-                            'string': {
-                                'string': {
-                                    'authorizationType': 'string',
-                                    'apiKeyRequired': True|False
+                        \'id\': \'string\',
+                        \'description\': \'string\',
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'apiSummary\': {
+                            \'string\': {
+                                \'string\': {
+                                    \'authorizationType\': \'string\',
+                                    \'apiKeyRequired\': True|False
                                 }
                             }
                         }
@@ -4124,7 +4124,7 @@ class Client(BaseClient):
         
                           - **authorizationType** *(string) --* 
         
-                            The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+                            The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
                           - **apiKeyRequired** *(boolean) --* 
         
@@ -4140,8 +4140,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_documentation_part(
-              restApiId='string',
-              documentationPartId='string'
+              restApiId=\'string\',
+              documentationPartId=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -4161,15 +4161,15 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'location': {
-                    'type': 'API'|'AUTHORIZER'|'MODEL'|'RESOURCE'|'METHOD'|'PATH_PARAMETER'|'QUERY_PARAMETER'|'REQUEST_HEADER'|'REQUEST_BODY'|'RESPONSE'|'RESPONSE_HEADER'|'RESPONSE_BODY',
-                    'path': 'string',
-                    'method': 'string',
-                    'statusCode': 'string',
-                    'name': 'string'
+                \'id\': \'string\',
+                \'location\': {
+                    \'type\': \'API\'|\'AUTHORIZER\'|\'MODEL\'|\'RESOURCE\'|\'METHOD\'|\'PATH_PARAMETER\'|\'QUERY_PARAMETER\'|\'REQUEST_HEADER\'|\'REQUEST_BODY\'|\'RESPONSE\'|\'RESPONSE_HEADER\'|\'RESPONSE_BODY\',
+                    \'path\': \'string\',
+                    \'method\': \'string\',
+                    \'statusCode\': \'string\',
+                    \'name\': \'string\'
                 },
-                'properties': 'string'
+                \'properties\': \'string\'
             }
           **Response Structure** 
         
@@ -4197,15 +4197,15 @@ class Client(BaseClient):
         
               - **path** *(string) --* 
         
-                The URL path of the target. It is a valid field for the API entity types of ``RESOURCE`` , ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``path`` attribute must match that of the parent entity as a prefix.
+                The URL path of the target. It is a valid field for the API entity types of ``RESOURCE`` , ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``path`` attribute must match that of the parent entity as a prefix.
         
               - **method** *(string) --* 
         
-                The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``method`` attribute must match that of the parent entity exactly.
+                The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``method`` attribute must match that of the parent entity exactly.
         
               - **statusCode** *(string) --* 
         
-                The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``statusCode`` attribute must match that of the parent entity exactly.
+                The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``statusCode`` attribute must match that of the parent entity exactly.
         
               - **name** *(string) --* 
         
@@ -4213,7 +4213,7 @@ class Client(BaseClient):
         
             - **properties** *(string) --* 
         
-              A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., ``"{ \"description\": \"The API does ...\" }"`` . Only OpenAPI-compliant documentation-related fields from the propertiesmap are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of ``x-amazon-apigateway-documentation`` .
+              A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., ``\"{ \\"description\\": \\"The API does ...\\" }\"`` . Only OpenAPI-compliant documentation-related fields from the propertiesmap are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of ``x-amazon-apigateway-documentation`` .
         
         """
         pass
@@ -4225,13 +4225,13 @@ class Client(BaseClient):
         ::
         
           response = client.get_documentation_parts(
-              restApiId='string',
-              type='API'|'AUTHORIZER'|'MODEL'|'RESOURCE'|'METHOD'|'PATH_PARAMETER'|'QUERY_PARAMETER'|'REQUEST_HEADER'|'REQUEST_BODY'|'RESPONSE'|'RESPONSE_HEADER'|'RESPONSE_BODY',
-              nameQuery='string',
-              path='string',
-              position='string',
+              restApiId=\'string\',
+              type=\'API\'|\'AUTHORIZER\'|\'MODEL\'|\'RESOURCE\'|\'METHOD\'|\'PATH_PARAMETER\'|\'QUERY_PARAMETER\'|\'REQUEST_HEADER\'|\'REQUEST_BODY\'|\'RESPONSE\'|\'RESPONSE_HEADER\'|\'RESPONSE_BODY\',
+              nameQuery=\'string\',
+              path=\'string\',
+              position=\'string\',
               limit=123,
-              locationStatus='DOCUMENTED'|'UNDOCUMENTED'
+              locationStatus=\'DOCUMENTED\'|\'UNDOCUMENTED\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -4276,18 +4276,18 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'location': {
-                            'type': 'API'|'AUTHORIZER'|'MODEL'|'RESOURCE'|'METHOD'|'PATH_PARAMETER'|'QUERY_PARAMETER'|'REQUEST_HEADER'|'REQUEST_BODY'|'RESPONSE'|'RESPONSE_HEADER'|'RESPONSE_BODY',
-                            'path': 'string',
-                            'method': 'string',
-                            'statusCode': 'string',
-                            'name': 'string'
+                        \'id\': \'string\',
+                        \'location\': {
+                            \'type\': \'API\'|\'AUTHORIZER\'|\'MODEL\'|\'RESOURCE\'|\'METHOD\'|\'PATH_PARAMETER\'|\'QUERY_PARAMETER\'|\'REQUEST_HEADER\'|\'REQUEST_BODY\'|\'RESPONSE\'|\'RESPONSE_HEADER\'|\'RESPONSE_BODY\',
+                            \'path\': \'string\',
+                            \'method\': \'string\',
+                            \'statusCode\': \'string\',
+                            \'name\': \'string\'
                         },
-                        'properties': 'string'
+                        \'properties\': \'string\'
                     },
                 ]
             }
@@ -4329,15 +4329,15 @@ class Client(BaseClient):
         
                   - **path** *(string) --* 
         
-                    The URL path of the target. It is a valid field for the API entity types of ``RESOURCE`` , ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``path`` attribute must match that of the parent entity as a prefix.
+                    The URL path of the target. It is a valid field for the API entity types of ``RESOURCE`` , ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``path`` attribute must match that of the parent entity as a prefix.
         
                   - **method** *(string) --* 
         
-                    The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``method`` attribute must match that of the parent entity exactly.
+                    The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``method`` attribute must match that of the parent entity exactly.
         
                   - **statusCode** *(string) --* 
         
-                    The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``statusCode`` attribute must match that of the parent entity exactly.
+                    The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``statusCode`` attribute must match that of the parent entity exactly.
         
                   - **name** *(string) --* 
         
@@ -4345,7 +4345,7 @@ class Client(BaseClient):
         
                 - **properties** *(string) --* 
         
-                  A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., ``"{ \"description\": \"The API does ...\" }"`` . Only OpenAPI-compliant documentation-related fields from the propertiesmap are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of ``x-amazon-apigateway-documentation`` .
+                  A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., ``\"{ \\"description\\": \\"The API does ...\\" }\"`` . Only OpenAPI-compliant documentation-related fields from the propertiesmap are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of ``x-amazon-apigateway-documentation`` .
         
         """
         pass
@@ -4357,8 +4357,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_documentation_version(
-              restApiId='string',
-              documentationVersion='string'
+              restApiId=\'string\',
+              documentationVersion=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -4378,9 +4378,9 @@ class Client(BaseClient):
           ::
         
             {
-                'version': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'description': 'string'
+                \'version\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'description\': \'string\'
             }
           **Response Structure** 
         
@@ -4414,8 +4414,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_documentation_versions(
-              restApiId='string',
-              position='string',
+              restApiId=\'string\',
+              position=\'string\',
               limit=123
           )
         :type restApiId: string
@@ -4441,12 +4441,12 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'version': 'string',
-                        'createdDate': datetime(2015, 1, 1),
-                        'description': 'string'
+                        \'version\': \'string\',
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'description\': \'string\'
                     },
                 ]
             }
@@ -4498,7 +4498,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_domain_name(
-              domainName='string'
+              domainName=\'string\'
           )
         :type domainName: string
         :param domainName: **[REQUIRED]** 
@@ -4513,19 +4513,19 @@ class Client(BaseClient):
           ::
         
             {
-                'domainName': 'string',
-                'certificateName': 'string',
-                'certificateArn': 'string',
-                'certificateUploadDate': datetime(2015, 1, 1),
-                'regionalDomainName': 'string',
-                'regionalHostedZoneId': 'string',
-                'regionalCertificateName': 'string',
-                'regionalCertificateArn': 'string',
-                'distributionDomainName': 'string',
-                'distributionHostedZoneId': 'string',
-                'endpointConfiguration': {
-                    'types': [
-                        'REGIONAL'|'EDGE'|'PRIVATE',
+                \'domainName\': \'string\',
+                \'certificateName\': \'string\',
+                \'certificateArn\': \'string\',
+                \'certificateUploadDate\': datetime(2015, 1, 1),
+                \'regionalDomainName\': \'string\',
+                \'regionalHostedZoneId\': \'string\',
+                \'regionalCertificateName\': \'string\',
+                \'regionalCertificateArn\': \'string\',
+                \'distributionDomainName\': \'string\',
+                \'distributionHostedZoneId\': \'string\',
+                \'endpointConfiguration\': {
+                    \'types\': [
+                        \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                     ]
                 }
             }
@@ -4535,7 +4535,7 @@ class Client(BaseClient):
         
             Represents a custom domain name as a user-friendly host name of an API ( RestApi ).
         
-            When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the ``{restapi-id}.execute-api.{region}.amazonaws.com`` format. With the default host name, you can access the API's root resource with the URL of ``https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/`` . When you set up a custom domain name of ``apis.example.com`` for this API, you can then access the same resource using the URL of the ``https://apis.examples.com/myApi`` , where ``myApi`` is the base path mapping ( BasePathMapping ) of your API under the custom domain name. 
+            When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the ``{restapi-id}.execute-api.{region}.amazonaws.com`` format. With the default host name, you can access the API\'s root resource with the URL of ``https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/`` . When you set up a custom domain name of ``apis.example.com`` for this API, you can then access the same resource using the URL of the ``https://apis.examples.com/myApi`` , where ``myApi`` is the base path mapping ( BasePathMapping ) of your API under the custom domain name. 
         
                `Set a Custom Host Name for an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html>`__  
             
@@ -4585,7 +4585,7 @@ class Client(BaseClient):
         
               - **types** *(list) --* 
         
-                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                 - *(string) --* 
         
@@ -4603,7 +4603,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_domain_names(
-              position='string',
+              position=\'string\',
               limit=123
           )
         :type position: string
@@ -4624,22 +4624,22 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'domainName': 'string',
-                        'certificateName': 'string',
-                        'certificateArn': 'string',
-                        'certificateUploadDate': datetime(2015, 1, 1),
-                        'regionalDomainName': 'string',
-                        'regionalHostedZoneId': 'string',
-                        'regionalCertificateName': 'string',
-                        'regionalCertificateArn': 'string',
-                        'distributionDomainName': 'string',
-                        'distributionHostedZoneId': 'string',
-                        'endpointConfiguration': {
-                            'types': [
-                                'REGIONAL'|'EDGE'|'PRIVATE',
+                        \'domainName\': \'string\',
+                        \'certificateName\': \'string\',
+                        \'certificateArn\': \'string\',
+                        \'certificateUploadDate\': datetime(2015, 1, 1),
+                        \'regionalDomainName\': \'string\',
+                        \'regionalHostedZoneId\': \'string\',
+                        \'regionalCertificateName\': \'string\',
+                        \'regionalCertificateArn\': \'string\',
+                        \'distributionDomainName\': \'string\',
+                        \'distributionHostedZoneId\': \'string\',
+                        \'endpointConfiguration\': {
+                            \'types\': [
+                                \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                             ]
                         }
                     },
@@ -4663,7 +4663,7 @@ class Client(BaseClient):
         
                 Represents a custom domain name as a user-friendly host name of an API ( RestApi ).
         
-                When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the ``{restapi-id}.execute-api.{region}.amazonaws.com`` format. With the default host name, you can access the API's root resource with the URL of ``https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/`` . When you set up a custom domain name of ``apis.example.com`` for this API, you can then access the same resource using the URL of the ``https://apis.examples.com/myApi`` , where ``myApi`` is the base path mapping ( BasePathMapping ) of your API under the custom domain name. 
+                When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the ``{restapi-id}.execute-api.{region}.amazonaws.com`` format. With the default host name, you can access the API\'s root resource with the URL of ``https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/`` . When you set up a custom domain name of ``apis.example.com`` for this API, you can then access the same resource using the URL of the ``https://apis.examples.com/myApi`` , where ``myApi`` is the base path mapping ( BasePathMapping ) of your API under the custom domain name. 
         
                    `Set a Custom Host Name for an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html>`__  
                 
@@ -4713,7 +4713,7 @@ class Client(BaseClient):
         
                   - **types** *(list) --* 
         
-                    A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                    A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                     - *(string) --* 
         
@@ -4731,13 +4731,13 @@ class Client(BaseClient):
         ::
         
           response = client.get_export(
-              restApiId='string',
-              stageName='string',
-              exportType='string',
+              restApiId=\'string\',
+              stageName=\'string\',
+              exportType=\'string\',
               parameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              accepts='string'
+              accepts=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -4752,12 +4752,12 @@ class Client(BaseClient):
         :type exportType: string
         :param exportType: **[REQUIRED]** 
         
-          [Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
+          [Required] The type of export. Acceptable values are \'oas30\' for OpenAPI 3.0.x and \'swagger\' for Swagger/OpenAPI 2.0.
         
         :type parameters: dict
         :param parameters: 
         
-          A key-value map of query string parameters that specify properties of the export, depending on the requested ``exportType`` . For ``exportType``  ``oas30`` and ``swagger`` , any combination of the following parameters are supported: ``extensions='integrations'`` or ``extensions='apigateway'`` will export the API with x-amazon-apigateway-integration extensions. ``extensions='authorizers'`` will export the API with x-amazon-apigateway-authorizer extensions. ``postman`` will export the API with Postman extensions, allowing for import to the Postman tool
+          A key-value map of query string parameters that specify properties of the export, depending on the requested ``exportType`` . For ``exportType``  ``oas30`` and ``swagger`` , any combination of the following parameters are supported: ``extensions=\'integrations\'`` or ``extensions=\'apigateway\'`` will export the API with x-amazon-apigateway-integration extensions. ``extensions=\'authorizers\'`` will export the API with x-amazon-apigateway-authorizer extensions. ``postman`` will export the API with Postman extensions, allowing for import to the Postman tool
         
           - *(string) --* 
         
@@ -4776,9 +4776,9 @@ class Client(BaseClient):
           ::
         
             {
-                'contentType': 'string',
-                'contentDisposition': 'string',
-                'body': StreamingBody()
+                \'contentType\': \'string\',
+                \'contentDisposition\': \'string\',
+                \'body\': StreamingBody()
             }
           **Response Structure** 
         
@@ -4788,7 +4788,7 @@ class Client(BaseClient):
         
             - **contentType** *(string) --* 
         
-              The content-type header value in the HTTP response. This will correspond to a valid 'accept' type in the request.
+              The content-type header value in the HTTP response. This will correspond to a valid \'accept\' type in the request.
         
             - **contentDisposition** *(string) --* 
         
@@ -4810,8 +4810,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_gateway_response(
-              restApiId='string',
-              responseType='DEFAULT_4XX'|'DEFAULT_5XX'|'RESOURCE_NOT_FOUND'|'UNAUTHORIZED'|'INVALID_API_KEY'|'ACCESS_DENIED'|'AUTHORIZER_FAILURE'|'AUTHORIZER_CONFIGURATION_ERROR'|'INVALID_SIGNATURE'|'EXPIRED_TOKEN'|'MISSING_AUTHENTICATION_TOKEN'|'INTEGRATION_FAILURE'|'INTEGRATION_TIMEOUT'|'API_CONFIGURATION_ERROR'|'UNSUPPORTED_MEDIA_TYPE'|'BAD_REQUEST_PARAMETERS'|'BAD_REQUEST_BODY'|'REQUEST_TOO_LARGE'|'THROTTLED'|'QUOTA_EXCEEDED'
+              restApiId=\'string\',
+              responseType=\'DEFAULT_4XX\'|\'DEFAULT_5XX\'|\'RESOURCE_NOT_FOUND\'|\'UNAUTHORIZED\'|\'INVALID_API_KEY\'|\'ACCESS_DENIED\'|\'AUTHORIZER_FAILURE\'|\'AUTHORIZER_CONFIGURATION_ERROR\'|\'INVALID_SIGNATURE\'|\'EXPIRED_TOKEN\'|\'MISSING_AUTHENTICATION_TOKEN\'|\'INTEGRATION_FAILURE\'|\'INTEGRATION_TIMEOUT\'|\'API_CONFIGURATION_ERROR\'|\'UNSUPPORTED_MEDIA_TYPE\'|\'BAD_REQUEST_PARAMETERS\'|\'BAD_REQUEST_BODY\'|\'REQUEST_TOO_LARGE\'|\'THROTTLED\'|\'QUOTA_EXCEEDED\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -4873,15 +4873,15 @@ class Client(BaseClient):
           ::
         
             {
-                'responseType': 'DEFAULT_4XX'|'DEFAULT_5XX'|'RESOURCE_NOT_FOUND'|'UNAUTHORIZED'|'INVALID_API_KEY'|'ACCESS_DENIED'|'AUTHORIZER_FAILURE'|'AUTHORIZER_CONFIGURATION_ERROR'|'INVALID_SIGNATURE'|'EXPIRED_TOKEN'|'MISSING_AUTHENTICATION_TOKEN'|'INTEGRATION_FAILURE'|'INTEGRATION_TIMEOUT'|'API_CONFIGURATION_ERROR'|'UNSUPPORTED_MEDIA_TYPE'|'BAD_REQUEST_PARAMETERS'|'BAD_REQUEST_BODY'|'REQUEST_TOO_LARGE'|'THROTTLED'|'QUOTA_EXCEEDED',
-                'statusCode': 'string',
-                'responseParameters': {
-                    'string': 'string'
+                \'responseType\': \'DEFAULT_4XX\'|\'DEFAULT_5XX\'|\'RESOURCE_NOT_FOUND\'|\'UNAUTHORIZED\'|\'INVALID_API_KEY\'|\'ACCESS_DENIED\'|\'AUTHORIZER_FAILURE\'|\'AUTHORIZER_CONFIGURATION_ERROR\'|\'INVALID_SIGNATURE\'|\'EXPIRED_TOKEN\'|\'MISSING_AUTHENTICATION_TOKEN\'|\'INTEGRATION_FAILURE\'|\'INTEGRATION_TIMEOUT\'|\'API_CONFIGURATION_ERROR\'|\'UNSUPPORTED_MEDIA_TYPE\'|\'BAD_REQUEST_PARAMETERS\'|\'BAD_REQUEST_BODY\'|\'REQUEST_TOO_LARGE\'|\'THROTTLED\'|\'QUOTA_EXCEEDED\',
+                \'statusCode\': \'string\',
+                \'responseParameters\': {
+                    \'string\': \'string\'
                 },
-                'responseTemplates': {
-                    'string': 'string'
+                \'responseTemplates\': {
+                    \'string\': \'string\'
                 },
-                'defaultResponse': True|False
+                \'defaultResponse\': True|False
             }
           **Response Structure** 
         
@@ -4901,7 +4901,7 @@ class Client(BaseClient):
         
             The successful operation returns the ``200 OK`` status code and a payload similar to the following:
         
-             ``{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:delete": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": false, "responseParameters": { "gatewayresponse.header.x-request-path": "method.request.path.petId", "gatewayresponse.header.Access-Control-Allow-Origin": "'a.b.c'", "gatewayresponse.header.x-request-query": "method.request.querystring.q", "gatewayresponse.header.x-request-header": "method.request.header.Accept" }, "responseTemplates": { "application/json": "{\n \"message\": $context.error.messageString,\n \"type\": \"$context.error.responseType\",\n \"stage\": \"$context.stage\",\n \"resourcePath\": \"$context.resourcePath\",\n \"stageVariables.a\": \"$stageVariables.a\",\n \"statusCode\": \"'404'\"\n}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "404" }``  
+             ``{ \"_links\": { \"curies\": { \"href\": \"http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html\", \"name\": \"gatewayresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" }, \"gatewayresponse:delete\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" } }, \"defaultResponse\": false, \"responseParameters\": { \"gatewayresponse.header.x-request-path\": \"method.request.path.petId\", \"gatewayresponse.header.Access-Control-Allow-Origin\": \"\'a.b.c\'\", \"gatewayresponse.header.x-request-query\": \"method.request.querystring.q\", \"gatewayresponse.header.x-request-header\": \"method.request.header.Accept\" }, \"responseTemplates\": { \"application/json\": \"{\n \\"message\\": $context.error.messageString,\n \\"type\\": \\"$context.error.responseType\\",\n \\"stage\\": \\"$context.stage\\",\n \\"resourcePath\\": \\"$context.resourcePath\\",\n \\"stageVariables.a\\": \\"$stageVariables.a\\",\n \\"statusCode\\": \\"\'404\'\\"\n}\" }, \"responseType\": \"MISSING_AUTHENTICATION_TOKEN\", \"statusCode\": \"404\" }``  
         
                 `Customize Gateway Responses <https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html>`__  
             
@@ -4985,8 +4985,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_gateway_responses(
-              restApiId='string',
-              position='string',
+              restApiId=\'string\',
+              position=\'string\',
               limit=123
           )
         :type restApiId: string
@@ -5012,18 +5012,18 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'responseType': 'DEFAULT_4XX'|'DEFAULT_5XX'|'RESOURCE_NOT_FOUND'|'UNAUTHORIZED'|'INVALID_API_KEY'|'ACCESS_DENIED'|'AUTHORIZER_FAILURE'|'AUTHORIZER_CONFIGURATION_ERROR'|'INVALID_SIGNATURE'|'EXPIRED_TOKEN'|'MISSING_AUTHENTICATION_TOKEN'|'INTEGRATION_FAILURE'|'INTEGRATION_TIMEOUT'|'API_CONFIGURATION_ERROR'|'UNSUPPORTED_MEDIA_TYPE'|'BAD_REQUEST_PARAMETERS'|'BAD_REQUEST_BODY'|'REQUEST_TOO_LARGE'|'THROTTLED'|'QUOTA_EXCEEDED',
-                        'statusCode': 'string',
-                        'responseParameters': {
-                            'string': 'string'
+                        \'responseType\': \'DEFAULT_4XX\'|\'DEFAULT_5XX\'|\'RESOURCE_NOT_FOUND\'|\'UNAUTHORIZED\'|\'INVALID_API_KEY\'|\'ACCESS_DENIED\'|\'AUTHORIZER_FAILURE\'|\'AUTHORIZER_CONFIGURATION_ERROR\'|\'INVALID_SIGNATURE\'|\'EXPIRED_TOKEN\'|\'MISSING_AUTHENTICATION_TOKEN\'|\'INTEGRATION_FAILURE\'|\'INTEGRATION_TIMEOUT\'|\'API_CONFIGURATION_ERROR\'|\'UNSUPPORTED_MEDIA_TYPE\'|\'BAD_REQUEST_PARAMETERS\'|\'BAD_REQUEST_BODY\'|\'REQUEST_TOO_LARGE\'|\'THROTTLED\'|\'QUOTA_EXCEEDED\',
+                        \'statusCode\': \'string\',
+                        \'responseParameters\': {
+                            \'string\': \'string\'
                         },
-                        'responseTemplates': {
-                            'string': 'string'
+                        \'responseTemplates\': {
+                            \'string\': \'string\'
                         },
-                        'defaultResponse': True|False
+                        \'defaultResponse\': True|False
                     },
                 ]
             }
@@ -5043,7 +5043,7 @@ class Client(BaseClient):
         
             The successful operation returns the ``200 OK`` status code and a payload similar to the following:
         
-             ``{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "first": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "gatewayresponse:by-type": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "item": [ { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } ] }, "_embedded": { "item": [ { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_FAILURE", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "RESOURCE_NOT_FOUND", "statusCode": "404" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "REQUEST_TOO_LARGE", "statusCode": "413" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "THROTTLED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNSUPPORTED_MEDIA_TYPE", "statusCode": "415" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_5XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_4XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_PARAMETERS", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_BODY", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "EXPIRED_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "ACCESS_DENIED", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_API_KEY", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNAUTHORIZED", "statusCode": "401" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "API_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "QUOTA_EXCEEDED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_TIMEOUT", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_SIGNATURE", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_FAILURE", "statusCode": "500" } ] } }``  
+             ``{ \"_links\": { \"curies\": { \"href\": \"http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html\", \"name\": \"gatewayresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses\" }, \"first\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses\" }, \"gatewayresponse:by-type\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"item\": [ { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/THROTTLED\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE\" }, { \"href\": \"/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE\" } ] }, \"_embedded\": { \"item\": [ { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"INTEGRATION_FAILURE\", \"statusCode\": \"504\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"RESOURCE_NOT_FOUND\", \"statusCode\": \"404\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"REQUEST_TOO_LARGE\", \"statusCode\": \"413\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/THROTTLED\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/THROTTLED\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"THROTTLED\", \"statusCode\": \"429\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"UNSUPPORTED_MEDIA_TYPE\", \"statusCode\": \"415\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"AUTHORIZER_CONFIGURATION_ERROR\", \"statusCode\": \"500\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"DEFAULT_5XX\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"DEFAULT_4XX\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"BAD_REQUEST_PARAMETERS\", \"statusCode\": \"400\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"BAD_REQUEST_BODY\", \"statusCode\": \"400\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"EXPIRED_TOKEN\", \"statusCode\": \"403\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"ACCESS_DENIED\", \"statusCode\": \"403\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"INVALID_API_KEY\", \"statusCode\": \"403\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"UNAUTHORIZED\", \"statusCode\": \"401\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"API_CONFIGURATION_ERROR\", \"statusCode\": \"500\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"QUOTA_EXCEEDED\", \"statusCode\": \"429\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"INTEGRATION_TIMEOUT\", \"statusCode\": \"504\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"MISSING_AUTHENTICATION_TOKEN\", \"statusCode\": \"403\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"INVALID_SIGNATURE\", \"statusCode\": \"403\" }, { \"_links\": { \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE\" } }, \"defaultResponse\": true, \"responseParameters\": {}, \"responseTemplates\": { \"application/json\": \"{\\"message\\":$context.error.messageString}\" }, \"responseType\": \"AUTHORIZER_FAILURE\", \"statusCode\": \"500\" } ] } }``  
         
                 `Customize Gateway Responses <https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html>`__  
             
@@ -5069,7 +5069,7 @@ class Client(BaseClient):
         
                 The successful operation returns the ``200 OK`` status code and a payload similar to the following:
         
-                 ``{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:delete": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": false, "responseParameters": { "gatewayresponse.header.x-request-path": "method.request.path.petId", "gatewayresponse.header.Access-Control-Allow-Origin": "'a.b.c'", "gatewayresponse.header.x-request-query": "method.request.querystring.q", "gatewayresponse.header.x-request-header": "method.request.header.Accept" }, "responseTemplates": { "application/json": "{\n \"message\": $context.error.messageString,\n \"type\": \"$context.error.responseType\",\n \"stage\": \"$context.stage\",\n \"resourcePath\": \"$context.resourcePath\",\n \"stageVariables.a\": \"$stageVariables.a\",\n \"statusCode\": \"'404'\"\n}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "404" }``  
+                 ``{ \"_links\": { \"curies\": { \"href\": \"http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html\", \"name\": \"gatewayresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" }, \"gatewayresponse:delete\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" } }, \"defaultResponse\": false, \"responseParameters\": { \"gatewayresponse.header.x-request-path\": \"method.request.path.petId\", \"gatewayresponse.header.Access-Control-Allow-Origin\": \"\'a.b.c\'\", \"gatewayresponse.header.x-request-query\": \"method.request.querystring.q\", \"gatewayresponse.header.x-request-header\": \"method.request.header.Accept\" }, \"responseTemplates\": { \"application/json\": \"{\n \\"message\\": $context.error.messageString,\n \\"type\\": \\"$context.error.responseType\\",\n \\"stage\\": \\"$context.stage\\",\n \\"resourcePath\\": \\"$context.resourcePath\\",\n \\"stageVariables.a\\": \\"$stageVariables.a\\",\n \\"statusCode\\": \\"\'404\'\\"\n}\" }, \"responseType\": \"MISSING_AUTHENTICATION_TOKEN\", \"statusCode\": \"404\" }``  
         
                     `Customize Gateway Responses <https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html>`__  
                 
@@ -5153,9 +5153,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_integration(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string'
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -5165,12 +5165,12 @@ class Client(BaseClient):
         :type resourceId: string
         :param resourceId: **[REQUIRED]** 
         
-          [Required] Specifies a get integration request's resource identifier
+          [Required] Specifies a get integration request\'s resource identifier
         
         :type httpMethod: string
         :param httpMethod: **[REQUIRED]** 
         
-          [Required] Specifies a get integration request's HTTP method.
+          [Required] Specifies a get integration request\'s HTTP method.
         
         :rtype: dict
         :returns: 
@@ -5180,36 +5180,36 @@ class Client(BaseClient):
           ::
         
             {
-                'type': 'HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-                'httpMethod': 'string',
-                'uri': 'string',
-                'connectionType': 'INTERNET'|'VPC_LINK',
-                'connectionId': 'string',
-                'credentials': 'string',
-                'requestParameters': {
-                    'string': 'string'
+                \'type\': \'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+                \'httpMethod\': \'string\',
+                \'uri\': \'string\',
+                \'connectionType\': \'INTERNET\'|\'VPC_LINK\',
+                \'connectionId\': \'string\',
+                \'credentials\': \'string\',
+                \'requestParameters\': {
+                    \'string\': \'string\'
                 },
-                'requestTemplates': {
-                    'string': 'string'
+                \'requestTemplates\': {
+                    \'string\': \'string\'
                 },
-                'passthroughBehavior': 'string',
-                'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
-                'timeoutInMillis': 123,
-                'cacheNamespace': 'string',
-                'cacheKeyParameters': [
-                    'string',
+                \'passthroughBehavior\': \'string\',
+                \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
+                \'timeoutInMillis\': 123,
+                \'cacheNamespace\': \'string\',
+                \'cacheKeyParameters\': [
+                    \'string\',
                 ],
-                'integrationResponses': {
-                    'string': {
-                        'statusCode': 'string',
-                        'selectionPattern': 'string',
-                        'responseParameters': {
-                            'string': 'string'
+                \'integrationResponses\': {
+                    \'string\': {
+                        \'statusCode\': \'string\',
+                        \'selectionPattern\': \'string\',
+                        \'responseParameters\': {
+                            \'string\': \'string\'
                         },
-                        'responseTemplates': {
-                            'string': 'string'
+                        \'responseTemplates\': {
+                            \'string\': \'string\'
                         },
-                        'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                        \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
                     }
                 }
             }
@@ -5233,13 +5233,13 @@ class Client(BaseClient):
                
               * ``HTTP_PROXY`` : for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.
                
-              * ``MOCK`` : for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.
+              * ``MOCK`` : for integrating the API method request with API Gateway as a \"loop-back\" endpoint without invoking any backend.
                
               For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https`` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a  VpcLink to connect API Gateway to a network load balancer of a VPC.
         
             - **httpMethod** *(string) --* 
         
-              Specifies the integration's HTTP method type.
+              Specifies the integration\'s HTTP method type.
         
             - **uri** *(string) --* 
         
@@ -5259,7 +5259,7 @@ class Client(BaseClient):
         
             - **credentials** *(string) --* 
         
-              Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
+              Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
         
             - **requestParameters** *(dict) --* 
         
@@ -5303,17 +5303,17 @@ class Client(BaseClient):
         
             - **cacheNamespace** *(string) --* 
         
-              Specifies the integration's cache namespace.
+              Specifies the integration\'s cache namespace.
         
             - **cacheKeyParameters** *(list) --* 
         
-              Specifies the integration's cache key parameters.
+              Specifies the integration\'s cache key parameters.
         
               - *(string) --* 
           
             - **integrationResponses** *(dict) --* 
         
-              Specifies the integration's responses.
+              Specifies the integration\'s responses.
         
                Example: Get integration responses of a method Request 
         
@@ -5321,7 +5321,7 @@ class Client(BaseClient):
         
               The successful response returns ``200 OK`` status and a payload as follows:
         
-               ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }``  
+               ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" }``  
         
                  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
               
@@ -5379,10 +5379,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_integration_response(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
-              statusCode='string'
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
+              statusCode=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -5392,17 +5392,17 @@ class Client(BaseClient):
         :type resourceId: string
         :param resourceId: **[REQUIRED]** 
         
-          [Required] Specifies a get integration response request's resource identifier.
+          [Required] Specifies a get integration response request\'s resource identifier.
         
         :type httpMethod: string
         :param httpMethod: **[REQUIRED]** 
         
-          [Required] Specifies a get integration response request's HTTP method.
+          [Required] Specifies a get integration response request\'s HTTP method.
         
         :type statusCode: string
         :param statusCode: **[REQUIRED]** 
         
-          [Required] Specifies a get integration response request's status code.
+          [Required] Specifies a get integration response request\'s status code.
         
         :rtype: dict
         :returns: 
@@ -5412,15 +5412,15 @@ class Client(BaseClient):
           ::
         
             {
-                'statusCode': 'string',
-                'selectionPattern': 'string',
-                'responseParameters': {
-                    'string': 'string'
+                \'statusCode\': \'string\',
+                \'selectionPattern\': \'string\',
+                \'responseParameters\': {
+                    \'string\': \'string\'
                 },
-                'responseTemplates': {
-                    'string': 'string'
+                \'responseTemplates\': {
+                    \'string\': \'string\'
                 },
-                'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
             }
           **Response Structure** 
         
@@ -5476,9 +5476,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_method(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string'
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -5493,7 +5493,7 @@ class Client(BaseClient):
         :type httpMethod: string
         :param httpMethod: **[REQUIRED]** 
         
-          [Required] Specifies the method request's HTTP method type.
+          [Required] Specifies the method request\'s HTTP method type.
         
         :rtype: dict
         :returns: 
@@ -5503,65 +5503,65 @@ class Client(BaseClient):
           ::
         
             {
-                'httpMethod': 'string',
-                'authorizationType': 'string',
-                'authorizerId': 'string',
-                'apiKeyRequired': True|False,
-                'requestValidatorId': 'string',
-                'operationName': 'string',
-                'requestParameters': {
-                    'string': True|False
+                \'httpMethod\': \'string\',
+                \'authorizationType\': \'string\',
+                \'authorizerId\': \'string\',
+                \'apiKeyRequired\': True|False,
+                \'requestValidatorId\': \'string\',
+                \'operationName\': \'string\',
+                \'requestParameters\': {
+                    \'string\': True|False
                 },
-                'requestModels': {
-                    'string': 'string'
+                \'requestModels\': {
+                    \'string\': \'string\'
                 },
-                'methodResponses': {
-                    'string': {
-                        'statusCode': 'string',
-                        'responseParameters': {
-                            'string': True|False
+                \'methodResponses\': {
+                    \'string\': {
+                        \'statusCode\': \'string\',
+                        \'responseParameters\': {
+                            \'string\': True|False
                         },
-                        'responseModels': {
-                            'string': 'string'
+                        \'responseModels\': {
+                            \'string\': \'string\'
                         }
                     }
                 },
-                'methodIntegration': {
-                    'type': 'HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-                    'httpMethod': 'string',
-                    'uri': 'string',
-                    'connectionType': 'INTERNET'|'VPC_LINK',
-                    'connectionId': 'string',
-                    'credentials': 'string',
-                    'requestParameters': {
-                        'string': 'string'
+                \'methodIntegration\': {
+                    \'type\': \'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+                    \'httpMethod\': \'string\',
+                    \'uri\': \'string\',
+                    \'connectionType\': \'INTERNET\'|\'VPC_LINK\',
+                    \'connectionId\': \'string\',
+                    \'credentials\': \'string\',
+                    \'requestParameters\': {
+                        \'string\': \'string\'
                     },
-                    'requestTemplates': {
-                        'string': 'string'
+                    \'requestTemplates\': {
+                        \'string\': \'string\'
                     },
-                    'passthroughBehavior': 'string',
-                    'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
-                    'timeoutInMillis': 123,
-                    'cacheNamespace': 'string',
-                    'cacheKeyParameters': [
-                        'string',
+                    \'passthroughBehavior\': \'string\',
+                    \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
+                    \'timeoutInMillis\': 123,
+                    \'cacheNamespace\': \'string\',
+                    \'cacheKeyParameters\': [
+                        \'string\',
                     ],
-                    'integrationResponses': {
-                        'string': {
-                            'statusCode': 'string',
-                            'selectionPattern': 'string',
-                            'responseParameters': {
-                                'string': 'string'
+                    \'integrationResponses\': {
+                        \'string\': {
+                            \'statusCode\': \'string\',
+                            \'selectionPattern\': \'string\',
+                            \'responseParameters\': {
+                                \'string\': \'string\'
                             },
-                            'responseTemplates': {
-                                'string': 'string'
+                            \'responseTemplates\': {
+                                \'string\': \'string\'
                             },
-                            'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                            \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
                         }
                     }
                 },
-                'authorizationScopes': [
-                    'string',
+                \'authorizationScopes\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -5578,19 +5578,19 @@ class Client(BaseClient):
         
             The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-             ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+             ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": true, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\\")\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
             In the example above, the response template for the ``200 OK`` response maps the JSON output from the ``ListStreams`` action in the back end to an XML output. The mapping template is URL-encoded as ``%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E`` and the output is decoded using the `$util.urlDecode() <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference>`__ helper function.
         
-                MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API's method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
+                MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API\'s method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
             
             - **httpMethod** *(string) --* 
         
-              The method's HTTP verb.
+              The method\'s HTTP verb.
         
             - **authorizationType** *(string) --* 
         
-              The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+              The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
             - **authorizerId** *(string) --* 
         
@@ -5628,7 +5628,7 @@ class Client(BaseClient):
         
               Gets a method response associated with a given HTTP status code. 
         
-              The collection of method responses are encapsulated in a key-value map, where the key is a response's HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
+              The collection of method responses are encapsulated in a key-value map, where the key is a response\'s HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
         
                Example: Get a 200 OK response of a GET method Request 
         
@@ -5636,7 +5636,7 @@ class Client(BaseClient):
         
               The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-               ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.operator": false, "method.response.header.operand_2": false, "method.response.header.operand_1": false }, "statusCode": "200" }``  
+               ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.operator\": false, \"method.response.header.operand_2\": false, \"method.response.header.operand_1\": false }, \"statusCode\": \"200\" }``  
         
                  `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html>`__  
               
@@ -5654,17 +5654,17 @@ class Client(BaseClient):
         
                   The successful response returns ``200 OK`` status and a payload as follows:
         
-                   ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }``  
+                   ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" }``  
         
                       Method ,  IntegrationResponse ,  Integration  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                   
                   - **statusCode** *(string) --* 
         
-                    The method response's status code.
+                    The method response\'s status code.
         
                   - **responseParameters** *(dict) --* 
         
-                    A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+                    A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
                     - *(string) --* 
                       
@@ -5672,7 +5672,7 @@ class Client(BaseClient):
                 
                   - **responseModels** *(dict) --* 
         
-                    Specifies the  Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
+                    Specifies the  Model resources used for the response\'s content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
         
                     - *(string) --* 
                       
@@ -5680,7 +5680,7 @@ class Client(BaseClient):
                 
             - **methodIntegration** *(dict) --* 
         
-              Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
+              Gets the method\'s integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
         
                Example:  Request 
         
@@ -5688,7 +5688,7 @@ class Client(BaseClient):
         
               The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-               ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }``  
+               ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"0cjtch\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestTemplates\": { \"application/json\": \"{\n \\"a\\": \\"$input.params(\'operand1\')\\",\n \\"b\\": \\"$input.params(\'operand2\')\\", \n \\"op\\": \\"$input.params(\'operator\')\\" \n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.operator\": \"integration.response.body.op\", \"method.response.header.operand_2\": \"integration.response.body.b\", \"method.response.header.operand_1\": \"integration.response.body.a\" }, \"responseTemplates\": { \"application/json\": \"#set($res = $input.path(\'$\'))\n{\n \\"result\\": \\"$res.a, $res.b, $res.op => $res.c\\",\n \\"a\\" : \\"$res.a\\",\n \\"b\\" : \\"$res.b\\",\n \\"op\\" : \\"$res.op\\",\n \\"c\\" : \\"$res.c\\"\n}\" }, \"selectionPattern\": \"\", \"statusCode\": \"200\" } } }``  
         
                  `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html>`__  
               
@@ -5704,13 +5704,13 @@ class Client(BaseClient):
                  
                 * ``HTTP_PROXY`` : for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.
                  
-                * ``MOCK`` : for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.
+                * ``MOCK`` : for integrating the API method request with API Gateway as a \"loop-back\" endpoint without invoking any backend.
                  
                 For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https`` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a  VpcLink to connect API Gateway to a network load balancer of a VPC.
         
               - **httpMethod** *(string) --* 
         
-                Specifies the integration's HTTP method type.
+                Specifies the integration\'s HTTP method type.
         
               - **uri** *(string) --* 
         
@@ -5730,7 +5730,7 @@ class Client(BaseClient):
         
               - **credentials** *(string) --* 
         
-                Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
+                Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
         
               - **requestParameters** *(dict) --* 
         
@@ -5774,17 +5774,17 @@ class Client(BaseClient):
         
               - **cacheNamespace** *(string) --* 
         
-                Specifies the integration's cache namespace.
+                Specifies the integration\'s cache namespace.
         
               - **cacheKeyParameters** *(list) --* 
         
-                Specifies the integration's cache key parameters.
+                Specifies the integration\'s cache key parameters.
         
                 - *(string) --* 
             
               - **integrationResponses** *(dict) --* 
         
-                Specifies the integration's responses.
+                Specifies the integration\'s responses.
         
                  Example: Get integration responses of a method Request 
         
@@ -5792,7 +5792,7 @@ class Client(BaseClient):
         
                 The successful response returns ``200 OK`` status and a payload as follows:
         
-                 ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }``  
+                 ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" }``  
         
                    `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                 
@@ -5856,10 +5856,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_method_response(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
-              statusCode='string'
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
+              statusCode=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -5889,12 +5889,12 @@ class Client(BaseClient):
           ::
         
             {
-                'statusCode': 'string',
-                'responseParameters': {
-                    'string': True|False
+                \'statusCode\': \'string\',
+                \'responseParameters\': {
+                    \'string\': True|False
                 },
-                'responseModels': {
-                    'string': 'string'
+                \'responseModels\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5911,17 +5911,17 @@ class Client(BaseClient):
         
             The successful response returns ``200 OK`` status and a payload as follows:
         
-             ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }``  
+             ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" }``  
         
                 Method ,  IntegrationResponse ,  Integration  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
             
             - **statusCode** *(string) --* 
         
-              The method response's status code.
+              The method response\'s status code.
         
             - **responseParameters** *(dict) --* 
         
-              A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+              A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
               - *(string) --* 
                 
@@ -5929,7 +5929,7 @@ class Client(BaseClient):
           
             - **responseModels** *(dict) --* 
         
-              Specifies the  Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
+              Specifies the  Model resources used for the response\'s content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
         
               - *(string) --* 
                 
@@ -5947,8 +5947,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_model(
-              restApiId='string',
-              modelName='string',
+              restApiId=\'string\',
+              modelName=\'string\',
               flatten=True|False
           )
         :type restApiId: string
@@ -5974,21 +5974,21 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'schema': 'string',
-                'contentType': 'string'
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'schema\': \'string\',
+                \'contentType\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* 
         
-            Represents the data structure of a method's request or response payload.
+            Represents the data structure of a method\'s request or response payload.
         
             A request model defines the data structure of the client-supplied request payload. A response model defines the data structure of the response payload returned by the back end. Although not required, models are useful for mapping payloads between the front end and back end.
         
-            A model is used for generating an API's SDK, validating the input request body, and creating a skeletal mapping template.
+            A model is used for generating an API\'s SDK, validating the input request body, and creating a skeletal mapping template.
         
                 Method ,  MethodResponse , `Models and Mappings <https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html>`__  
             
@@ -6006,7 +6006,7 @@ class Client(BaseClient):
         
             - **schema** *(string) --* 
         
-              The schema for the model. For ``application/json`` models, this should be `JSON schema draft 4 <https://tools.ietf.org/html/draft-zyp-json-schema-04>`__ model. Do not include "\*/" characters in the description of any properties because such "\*/" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail.
+              The schema for the model. For ``application/json`` models, this should be `JSON schema draft 4 <https://tools.ietf.org/html/draft-zyp-json-schema-04>`__ model. Do not include \"\*/\" characters in the description of any properties because such \"\*/\" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API\'s SDK generated by API Gateway to fail.
         
             - **contentType** *(string) --* 
         
@@ -6024,8 +6024,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_model_template(
-              restApiId='string',
-              modelName='string'
+              restApiId=\'string\',
+              modelName=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -6045,7 +6045,7 @@ class Client(BaseClient):
           ::
         
             {
-                'value': 'string'
+                \'value\': \'string\'
             }
           **Response Structure** 
         
@@ -6071,8 +6071,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_models(
-              restApiId='string',
-              position='string',
+              restApiId=\'string\',
+              position=\'string\',
               limit=123
           )
         :type restApiId: string
@@ -6098,14 +6098,14 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'schema': 'string',
-                        'contentType': 'string'
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'schema\': \'string\',
+                        \'contentType\': \'string\'
                     },
                 ]
             }
@@ -6125,11 +6125,11 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Represents the data structure of a method's request or response payload.
+                Represents the data structure of a method\'s request or response payload.
         
                 A request model defines the data structure of the client-supplied request payload. A response model defines the data structure of the response payload returned by the back end. Although not required, models are useful for mapping payloads between the front end and back end.
         
-                A model is used for generating an API's SDK, validating the input request body, and creating a skeletal mapping template.
+                A model is used for generating an API\'s SDK, validating the input request body, and creating a skeletal mapping template.
         
                     Method ,  MethodResponse , `Models and Mappings <https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html>`__  
                 
@@ -6147,7 +6147,7 @@ class Client(BaseClient):
         
                 - **schema** *(string) --* 
         
-                  The schema for the model. For ``application/json`` models, this should be `JSON schema draft 4 <https://tools.ietf.org/html/draft-zyp-json-schema-04>`__ model. Do not include "\*/" characters in the description of any properties because such "\*/" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail.
+                  The schema for the model. For ``application/json`` models, this should be `JSON schema draft 4 <https://tools.ietf.org/html/draft-zyp-json-schema-04>`__ model. Do not include \"\*/\" characters in the description of any properties because such \"\*/\" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API\'s SDK generated by API Gateway to fail.
         
                 - **contentType** *(string) --* 
         
@@ -6162,10 +6162,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -6185,8 +6185,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_request_validator(
-              restApiId='string',
-              requestValidatorId='string'
+              restApiId=\'string\',
+              requestValidatorId=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -6206,10 +6206,10 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'validateRequestBody': True|False,
-                'validateRequestParameters': True|False
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'validateRequestBody\': True|False,
+                \'validateRequestParameters\': True|False
             }
           **Response Structure** 
         
@@ -6249,8 +6249,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_request_validators(
-              restApiId='string',
-              position='string',
+              restApiId=\'string\',
+              position=\'string\',
               limit=123
           )
         :type restApiId: string
@@ -6276,13 +6276,13 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'validateRequestBody': True|False,
-                        'validateRequestParameters': True|False
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'validateRequestBody\': True|False,
+                        \'validateRequestParameters\': True|False
                     },
                 ]
             }
@@ -6338,10 +6338,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_resource(
-              restApiId='string',
-              resourceId='string',
+              restApiId=\'string\',
+              resourceId=\'string\',
               embed=[
-                  'string',
+                  \'string\',
               ]
           )
         :type restApiId: string
@@ -6357,7 +6357,7 @@ class Client(BaseClient):
         :type embed: list
         :param embed: 
         
-          A query parameter to retrieve the specified resources embedded in the returned  Resource representation in the response. This ``embed`` parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded  Method resources this way. The query parameter value must be a single-valued list and contain the ``"methods"`` string. For example, ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` .
+          A query parameter to retrieve the specified resources embedded in the returned  Resource representation in the response. This ``embed`` parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded  Method resources this way. The query parameter value must be a single-valued list and contain the ``\"methods\"`` string. For example, ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` .
         
           - *(string) --* 
         
@@ -6369,71 +6369,71 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'parentId': 'string',
-                'pathPart': 'string',
-                'path': 'string',
-                'resourceMethods': {
-                    'string': {
-                        'httpMethod': 'string',
-                        'authorizationType': 'string',
-                        'authorizerId': 'string',
-                        'apiKeyRequired': True|False,
-                        'requestValidatorId': 'string',
-                        'operationName': 'string',
-                        'requestParameters': {
-                            'string': True|False
+                \'id\': \'string\',
+                \'parentId\': \'string\',
+                \'pathPart\': \'string\',
+                \'path\': \'string\',
+                \'resourceMethods\': {
+                    \'string\': {
+                        \'httpMethod\': \'string\',
+                        \'authorizationType\': \'string\',
+                        \'authorizerId\': \'string\',
+                        \'apiKeyRequired\': True|False,
+                        \'requestValidatorId\': \'string\',
+                        \'operationName\': \'string\',
+                        \'requestParameters\': {
+                            \'string\': True|False
                         },
-                        'requestModels': {
-                            'string': 'string'
+                        \'requestModels\': {
+                            \'string\': \'string\'
                         },
-                        'methodResponses': {
-                            'string': {
-                                'statusCode': 'string',
-                                'responseParameters': {
-                                    'string': True|False
+                        \'methodResponses\': {
+                            \'string\': {
+                                \'statusCode\': \'string\',
+                                \'responseParameters\': {
+                                    \'string\': True|False
                                 },
-                                'responseModels': {
-                                    'string': 'string'
+                                \'responseModels\': {
+                                    \'string\': \'string\'
                                 }
                             }
                         },
-                        'methodIntegration': {
-                            'type': 'HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-                            'httpMethod': 'string',
-                            'uri': 'string',
-                            'connectionType': 'INTERNET'|'VPC_LINK',
-                            'connectionId': 'string',
-                            'credentials': 'string',
-                            'requestParameters': {
-                                'string': 'string'
+                        \'methodIntegration\': {
+                            \'type\': \'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+                            \'httpMethod\': \'string\',
+                            \'uri\': \'string\',
+                            \'connectionType\': \'INTERNET\'|\'VPC_LINK\',
+                            \'connectionId\': \'string\',
+                            \'credentials\': \'string\',
+                            \'requestParameters\': {
+                                \'string\': \'string\'
                             },
-                            'requestTemplates': {
-                                'string': 'string'
+                            \'requestTemplates\': {
+                                \'string\': \'string\'
                             },
-                            'passthroughBehavior': 'string',
-                            'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
-                            'timeoutInMillis': 123,
-                            'cacheNamespace': 'string',
-                            'cacheKeyParameters': [
-                                'string',
+                            \'passthroughBehavior\': \'string\',
+                            \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
+                            \'timeoutInMillis\': 123,
+                            \'cacheNamespace\': \'string\',
+                            \'cacheKeyParameters\': [
+                                \'string\',
                             ],
-                            'integrationResponses': {
-                                'string': {
-                                    'statusCode': 'string',
-                                    'selectionPattern': 'string',
-                                    'responseParameters': {
-                                        'string': 'string'
+                            \'integrationResponses\': {
+                                \'string\': {
+                                    \'statusCode\': \'string\',
+                                    \'selectionPattern\': \'string\',
+                                    \'responseParameters\': {
+                                        \'string\': \'string\'
                                     },
-                                    'responseTemplates': {
-                                        'string': 'string'
+                                    \'responseTemplates\': {
+                                        \'string\': \'string\'
                                     },
-                                    'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                                    \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
                                 }
                             }
                         },
-                        'authorizationScopes': [
-                            'string',
+                        \'authorizationScopes\': [
+                            \'string\',
                         ]
                     }
                 }
@@ -6448,11 +6448,11 @@ class Client(BaseClient):
             
             - **id** *(string) --* 
         
-              The resource's identifier.
+              The resource\'s identifier.
         
             - **parentId** *(string) --* 
         
-              The parent resource's identifier.
+              The parent resource\'s identifier.
         
             - **pathPart** *(string) --* 
         
@@ -6464,11 +6464,11 @@ class Client(BaseClient):
         
             - **resourceMethods** *(dict) --* 
         
-              Gets an API resource's method of a given HTTP verb.
+              Gets an API resource\'s method of a given HTTP verb.
         
-              The resource methods are a map of methods indexed by methods' HTTP verbs enabled on the resource. This method map is included in the ``200 OK`` response of the ``GET /restapis/{restapi_id}/resources/{resource_id}`` or ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` request.
+              The resource methods are a map of methods indexed by methods\' HTTP verbs enabled on the resource. This method map is included in the ``200 OK`` response of the ``GET /restapis/{restapi_id}/resources/{resource_id}`` or ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` request.
         
-               Example: Get the GET method of an API resource Request ``GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20170223T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20170223/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}``  Response ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": false, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+               Example: Get the GET method of an API resource Request ``GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20170223T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20170223/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}``  Response ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": false, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
               If the ``OPTIONS`` is enabled on the resource, you can follow the example here to get that method. Just replace the ``GET`` of the last path segment in the request URL with ``OPTIONS`` .
         
@@ -6486,19 +6486,19 @@ class Client(BaseClient):
         
                   The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                   ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+                   ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": true, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\\")\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
                   In the example above, the response template for the ``200 OK`` response maps the JSON output from the ``ListStreams`` action in the back end to an XML output. The mapping template is URL-encoded as ``%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E`` and the output is decoded using the `$util.urlDecode() <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference>`__ helper function.
         
-                      MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API's method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
+                      MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API\'s method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
                   
                   - **httpMethod** *(string) --* 
         
-                    The method's HTTP verb.
+                    The method\'s HTTP verb.
         
                   - **authorizationType** *(string) --* 
         
-                    The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+                    The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
                   - **authorizerId** *(string) --* 
         
@@ -6536,7 +6536,7 @@ class Client(BaseClient):
         
                     Gets a method response associated with a given HTTP status code. 
         
-                    The collection of method responses are encapsulated in a key-value map, where the key is a response's HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
+                    The collection of method responses are encapsulated in a key-value map, where the key is a response\'s HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
         
                      Example: Get a 200 OK response of a GET method Request 
         
@@ -6544,7 +6544,7 @@ class Client(BaseClient):
         
                     The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                     ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.operator": false, "method.response.header.operand_2": false, "method.response.header.operand_1": false }, "statusCode": "200" }``  
+                     ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.operator\": false, \"method.response.header.operand_2\": false, \"method.response.header.operand_1\": false }, \"statusCode\": \"200\" }``  
         
                        `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html>`__  
                     
@@ -6562,17 +6562,17 @@ class Client(BaseClient):
         
                         The successful response returns ``200 OK`` status and a payload as follows:
         
-                         ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }``  
+                         ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" }``  
         
                             Method ,  IntegrationResponse ,  Integration  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                         
                         - **statusCode** *(string) --* 
         
-                          The method response's status code.
+                          The method response\'s status code.
         
                         - **responseParameters** *(dict) --* 
         
-                          A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+                          A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
                           - *(string) --* 
                             
@@ -6580,7 +6580,7 @@ class Client(BaseClient):
                       
                         - **responseModels** *(dict) --* 
         
-                          Specifies the  Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
+                          Specifies the  Model resources used for the response\'s content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
         
                           - *(string) --* 
                             
@@ -6588,7 +6588,7 @@ class Client(BaseClient):
                       
                   - **methodIntegration** *(dict) --* 
         
-                    Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
+                    Gets the method\'s integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
         
                      Example:  Request 
         
@@ -6596,7 +6596,7 @@ class Client(BaseClient):
         
                     The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                     ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }``  
+                     ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"0cjtch\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestTemplates\": { \"application/json\": \"{\n \\"a\\": \\"$input.params(\'operand1\')\\",\n \\"b\\": \\"$input.params(\'operand2\')\\", \n \\"op\\": \\"$input.params(\'operator\')\\" \n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.operator\": \"integration.response.body.op\", \"method.response.header.operand_2\": \"integration.response.body.b\", \"method.response.header.operand_1\": \"integration.response.body.a\" }, \"responseTemplates\": { \"application/json\": \"#set($res = $input.path(\'$\'))\n{\n \\"result\\": \\"$res.a, $res.b, $res.op => $res.c\\",\n \\"a\\" : \\"$res.a\\",\n \\"b\\" : \\"$res.b\\",\n \\"op\\" : \\"$res.op\\",\n \\"c\\" : \\"$res.c\\"\n}\" }, \"selectionPattern\": \"\", \"statusCode\": \"200\" } } }``  
         
                        `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html>`__  
                     
@@ -6612,13 +6612,13 @@ class Client(BaseClient):
                        
                       * ``HTTP_PROXY`` : for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.
                        
-                      * ``MOCK`` : for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.
+                      * ``MOCK`` : for integrating the API method request with API Gateway as a \"loop-back\" endpoint without invoking any backend.
                        
                       For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https`` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a  VpcLink to connect API Gateway to a network load balancer of a VPC.
         
                     - **httpMethod** *(string) --* 
         
-                      Specifies the integration's HTTP method type.
+                      Specifies the integration\'s HTTP method type.
         
                     - **uri** *(string) --* 
         
@@ -6638,7 +6638,7 @@ class Client(BaseClient):
         
                     - **credentials** *(string) --* 
         
-                      Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
+                      Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
         
                     - **requestParameters** *(dict) --* 
         
@@ -6682,17 +6682,17 @@ class Client(BaseClient):
         
                     - **cacheNamespace** *(string) --* 
         
-                      Specifies the integration's cache namespace.
+                      Specifies the integration\'s cache namespace.
         
                     - **cacheKeyParameters** *(list) --* 
         
-                      Specifies the integration's cache key parameters.
+                      Specifies the integration\'s cache key parameters.
         
                       - *(string) --* 
                   
                     - **integrationResponses** *(dict) --* 
         
-                      Specifies the integration's responses.
+                      Specifies the integration\'s responses.
         
                        Example: Get integration responses of a method Request 
         
@@ -6700,7 +6700,7 @@ class Client(BaseClient):
         
                       The successful response returns ``200 OK`` status and a payload as follows:
         
-                       ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }``  
+                       ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" }``  
         
                          `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                       
@@ -6764,11 +6764,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_resources(
-              restApiId='string',
-              position='string',
+              restApiId=\'string\',
+              position=\'string\',
               limit=123,
               embed=[
-                  'string',
+                  \'string\',
               ]
           )
         :type restApiId: string
@@ -6789,7 +6789,7 @@ class Client(BaseClient):
         :type embed: list
         :param embed: 
         
-          A query parameter used to retrieve the specified resources embedded in the returned  Resources resource in the response. This ``embed`` parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded  Method resources this way. The query parameter value must be a single-valued list and contain the ``"methods"`` string. For example, ``GET /restapis/{restapi_id}/resources?embed=methods`` .
+          A query parameter used to retrieve the specified resources embedded in the returned  Resources resource in the response. This ``embed`` parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded  Method resources this way. The query parameter value must be a single-valued list and contain the ``\"methods\"`` string. For example, ``GET /restapis/{restapi_id}/resources?embed=methods`` .
         
           - *(string) --* 
         
@@ -6801,74 +6801,74 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'parentId': 'string',
-                        'pathPart': 'string',
-                        'path': 'string',
-                        'resourceMethods': {
-                            'string': {
-                                'httpMethod': 'string',
-                                'authorizationType': 'string',
-                                'authorizerId': 'string',
-                                'apiKeyRequired': True|False,
-                                'requestValidatorId': 'string',
-                                'operationName': 'string',
-                                'requestParameters': {
-                                    'string': True|False
+                        \'id\': \'string\',
+                        \'parentId\': \'string\',
+                        \'pathPart\': \'string\',
+                        \'path\': \'string\',
+                        \'resourceMethods\': {
+                            \'string\': {
+                                \'httpMethod\': \'string\',
+                                \'authorizationType\': \'string\',
+                                \'authorizerId\': \'string\',
+                                \'apiKeyRequired\': True|False,
+                                \'requestValidatorId\': \'string\',
+                                \'operationName\': \'string\',
+                                \'requestParameters\': {
+                                    \'string\': True|False
                                 },
-                                'requestModels': {
-                                    'string': 'string'
+                                \'requestModels\': {
+                                    \'string\': \'string\'
                                 },
-                                'methodResponses': {
-                                    'string': {
-                                        'statusCode': 'string',
-                                        'responseParameters': {
-                                            'string': True|False
+                                \'methodResponses\': {
+                                    \'string\': {
+                                        \'statusCode\': \'string\',
+                                        \'responseParameters\': {
+                                            \'string\': True|False
                                         },
-                                        'responseModels': {
-                                            'string': 'string'
+                                        \'responseModels\': {
+                                            \'string\': \'string\'
                                         }
                                     }
                                 },
-                                'methodIntegration': {
-                                    'type': 'HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-                                    'httpMethod': 'string',
-                                    'uri': 'string',
-                                    'connectionType': 'INTERNET'|'VPC_LINK',
-                                    'connectionId': 'string',
-                                    'credentials': 'string',
-                                    'requestParameters': {
-                                        'string': 'string'
+                                \'methodIntegration\': {
+                                    \'type\': \'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+                                    \'httpMethod\': \'string\',
+                                    \'uri\': \'string\',
+                                    \'connectionType\': \'INTERNET\'|\'VPC_LINK\',
+                                    \'connectionId\': \'string\',
+                                    \'credentials\': \'string\',
+                                    \'requestParameters\': {
+                                        \'string\': \'string\'
                                     },
-                                    'requestTemplates': {
-                                        'string': 'string'
+                                    \'requestTemplates\': {
+                                        \'string\': \'string\'
                                     },
-                                    'passthroughBehavior': 'string',
-                                    'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
-                                    'timeoutInMillis': 123,
-                                    'cacheNamespace': 'string',
-                                    'cacheKeyParameters': [
-                                        'string',
+                                    \'passthroughBehavior\': \'string\',
+                                    \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
+                                    \'timeoutInMillis\': 123,
+                                    \'cacheNamespace\': \'string\',
+                                    \'cacheKeyParameters\': [
+                                        \'string\',
                                     ],
-                                    'integrationResponses': {
-                                        'string': {
-                                            'statusCode': 'string',
-                                            'selectionPattern': 'string',
-                                            'responseParameters': {
-                                                'string': 'string'
+                                    \'integrationResponses\': {
+                                        \'string\': {
+                                            \'statusCode\': \'string\',
+                                            \'selectionPattern\': \'string\',
+                                            \'responseParameters\': {
+                                                \'string\': \'string\'
                                             },
-                                            'responseTemplates': {
-                                                'string': 'string'
+                                            \'responseTemplates\': {
+                                                \'string\': \'string\'
                                             },
-                                            'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                                            \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
                                         }
                                     }
                                 },
-                                'authorizationScopes': [
-                                    'string',
+                                \'authorizationScopes\': [
+                                    \'string\',
                                 ]
                             }
                         }
@@ -6897,11 +6897,11 @@ class Client(BaseClient):
                 
                 - **id** *(string) --* 
         
-                  The resource's identifier.
+                  The resource\'s identifier.
         
                 - **parentId** *(string) --* 
         
-                  The parent resource's identifier.
+                  The parent resource\'s identifier.
         
                 - **pathPart** *(string) --* 
         
@@ -6913,11 +6913,11 @@ class Client(BaseClient):
         
                 - **resourceMethods** *(dict) --* 
         
-                  Gets an API resource's method of a given HTTP verb.
+                  Gets an API resource\'s method of a given HTTP verb.
         
-                  The resource methods are a map of methods indexed by methods' HTTP verbs enabled on the resource. This method map is included in the ``200 OK`` response of the ``GET /restapis/{restapi_id}/resources/{resource_id}`` or ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` request.
+                  The resource methods are a map of methods indexed by methods\' HTTP verbs enabled on the resource. This method map is included in the ``200 OK`` response of the ``GET /restapis/{restapi_id}/resources/{resource_id}`` or ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` request.
         
-                   Example: Get the GET method of an API resource Request ``GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20170223T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20170223/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}``  Response ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": false, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+                   Example: Get the GET method of an API resource Request ``GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20170223T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20170223/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}``  Response ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": false, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
                   If the ``OPTIONS`` is enabled on the resource, you can follow the example here to get that method. Just replace the ``GET`` of the last path segment in the request URL with ``OPTIONS`` .
         
@@ -6935,19 +6935,19 @@ class Client(BaseClient):
         
                       The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                       ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+                       ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": true, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\\")\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
                       In the example above, the response template for the ``200 OK`` response maps the JSON output from the ``ListStreams`` action in the back end to an XML output. The mapping template is URL-encoded as ``%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E`` and the output is decoded using the `$util.urlDecode() <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference>`__ helper function.
         
-                          MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API's method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
+                          MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API\'s method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
                       
                       - **httpMethod** *(string) --* 
         
-                        The method's HTTP verb.
+                        The method\'s HTTP verb.
         
                       - **authorizationType** *(string) --* 
         
-                        The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+                        The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
                       - **authorizerId** *(string) --* 
         
@@ -6985,7 +6985,7 @@ class Client(BaseClient):
         
                         Gets a method response associated with a given HTTP status code. 
         
-                        The collection of method responses are encapsulated in a key-value map, where the key is a response's HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
+                        The collection of method responses are encapsulated in a key-value map, where the key is a response\'s HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
         
                          Example: Get a 200 OK response of a GET method Request 
         
@@ -6993,7 +6993,7 @@ class Client(BaseClient):
         
                         The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                         ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.operator": false, "method.response.header.operand_2": false, "method.response.header.operand_1": false }, "statusCode": "200" }``  
+                         ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.operator\": false, \"method.response.header.operand_2\": false, \"method.response.header.operand_1\": false }, \"statusCode\": \"200\" }``  
         
                            `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html>`__  
                         
@@ -7011,17 +7011,17 @@ class Client(BaseClient):
         
                             The successful response returns ``200 OK`` status and a payload as follows:
         
-                             ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }``  
+                             ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" }``  
         
                                 Method ,  IntegrationResponse ,  Integration  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                             
                             - **statusCode** *(string) --* 
         
-                              The method response's status code.
+                              The method response\'s status code.
         
                             - **responseParameters** *(dict) --* 
         
-                              A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+                              A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
                               - *(string) --* 
                                 
@@ -7029,7 +7029,7 @@ class Client(BaseClient):
                           
                             - **responseModels** *(dict) --* 
         
-                              Specifies the  Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
+                              Specifies the  Model resources used for the response\'s content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
         
                               - *(string) --* 
                                 
@@ -7037,7 +7037,7 @@ class Client(BaseClient):
                           
                       - **methodIntegration** *(dict) --* 
         
-                        Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
+                        Gets the method\'s integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
         
                          Example:  Request 
         
@@ -7045,7 +7045,7 @@ class Client(BaseClient):
         
                         The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                         ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }``  
+                         ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"0cjtch\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestTemplates\": { \"application/json\": \"{\n \\"a\\": \\"$input.params(\'operand1\')\\",\n \\"b\\": \\"$input.params(\'operand2\')\\", \n \\"op\\": \\"$input.params(\'operator\')\\" \n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.operator\": \"integration.response.body.op\", \"method.response.header.operand_2\": \"integration.response.body.b\", \"method.response.header.operand_1\": \"integration.response.body.a\" }, \"responseTemplates\": { \"application/json\": \"#set($res = $input.path(\'$\'))\n{\n \\"result\\": \\"$res.a, $res.b, $res.op => $res.c\\",\n \\"a\\" : \\"$res.a\\",\n \\"b\\" : \\"$res.b\\",\n \\"op\\" : \\"$res.op\\",\n \\"c\\" : \\"$res.c\\"\n}\" }, \"selectionPattern\": \"\", \"statusCode\": \"200\" } } }``  
         
                            `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html>`__  
                         
@@ -7061,13 +7061,13 @@ class Client(BaseClient):
                            
                           * ``HTTP_PROXY`` : for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.
                            
-                          * ``MOCK`` : for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.
+                          * ``MOCK`` : for integrating the API method request with API Gateway as a \"loop-back\" endpoint without invoking any backend.
                            
                           For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https`` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a  VpcLink to connect API Gateway to a network load balancer of a VPC.
         
                         - **httpMethod** *(string) --* 
         
-                          Specifies the integration's HTTP method type.
+                          Specifies the integration\'s HTTP method type.
         
                         - **uri** *(string) --* 
         
@@ -7087,7 +7087,7 @@ class Client(BaseClient):
         
                         - **credentials** *(string) --* 
         
-                          Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
+                          Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
         
                         - **requestParameters** *(dict) --* 
         
@@ -7131,17 +7131,17 @@ class Client(BaseClient):
         
                         - **cacheNamespace** *(string) --* 
         
-                          Specifies the integration's cache namespace.
+                          Specifies the integration\'s cache namespace.
         
                         - **cacheKeyParameters** *(list) --* 
         
-                          Specifies the integration's cache key parameters.
+                          Specifies the integration\'s cache key parameters.
         
                           - *(string) --* 
                       
                         - **integrationResponses** *(dict) --* 
         
-                          Specifies the integration's responses.
+                          Specifies the integration\'s responses.
         
                            Example: Get integration responses of a method Request 
         
@@ -7149,7 +7149,7 @@ class Client(BaseClient):
         
                           The successful response returns ``200 OK`` status and a payload as follows:
         
-                           ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }``  
+                           ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" }``  
         
                              `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                           
@@ -7213,7 +7213,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_rest_api(
-              restApiId='string'
+              restApiId=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -7228,25 +7228,25 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'version': 'string',
-                'warnings': [
-                    'string',
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'version\': \'string\',
+                \'warnings\': [
+                    \'string\',
                 ],
-                'binaryMediaTypes': [
-                    'string',
+                \'binaryMediaTypes\': [
+                    \'string\',
                 ],
-                'minimumCompressionSize': 123,
-                'apiKeySource': 'HEADER'|'AUTHORIZER',
-                'endpointConfiguration': {
-                    'types': [
-                        'REGIONAL'|'EDGE'|'PRIVATE',
+                \'minimumCompressionSize\': 123,
+                \'apiKeySource\': \'HEADER\'|\'AUTHORIZER\',
+                \'endpointConfiguration\': {
+                    \'types\': [
+                        \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                     ]
                 },
-                'policy': 'string'
+                \'policy\': \'string\'
             }
           **Response Structure** 
         
@@ -7258,15 +7258,15 @@ class Client(BaseClient):
             
             - **id** *(string) --* 
         
-              The API's identifier. This identifier is unique across all of your APIs in API Gateway.
+              The API\'s identifier. This identifier is unique across all of your APIs in API Gateway.
         
             - **name** *(string) --* 
         
-              The API's name.
+              The API\'s name.
         
             - **description** *(string) --* 
         
-              The API's description.
+              The API\'s description.
         
             - **createdDate** *(datetime) --* 
         
@@ -7306,7 +7306,7 @@ class Client(BaseClient):
         
               - **types** *(list) --* 
         
-                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                 - *(string) --* 
         
@@ -7325,7 +7325,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_rest_apis(
-              position='string',
+              position=\'string\',
               limit=123
           )
         :type position: string
@@ -7346,28 +7346,28 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string',
-                        'warnings': [
-                            'string',
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\',
+                        \'warnings\': [
+                            \'string\',
                         ],
-                        'binaryMediaTypes': [
-                            'string',
+                        \'binaryMediaTypes\': [
+                            \'string\',
                         ],
-                        'minimumCompressionSize': 123,
-                        'apiKeySource': 'HEADER'|'AUTHORIZER',
-                        'endpointConfiguration': {
-                            'types': [
-                                'REGIONAL'|'EDGE'|'PRIVATE',
+                        \'minimumCompressionSize\': 123,
+                        \'apiKeySource\': \'HEADER\'|\'AUTHORIZER\',
+                        \'endpointConfiguration\': {
+                            \'types\': [
+                                \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                             ]
                         },
-                        'policy': 'string'
+                        \'policy\': \'string\'
                     },
                 ]
             }
@@ -7393,15 +7393,15 @@ class Client(BaseClient):
                 
                 - **id** *(string) --* 
         
-                  The API's identifier. This identifier is unique across all of your APIs in API Gateway.
+                  The API\'s identifier. This identifier is unique across all of your APIs in API Gateway.
         
                 - **name** *(string) --* 
         
-                  The API's name.
+                  The API\'s name.
         
                 - **description** *(string) --* 
         
-                  The API's description.
+                  The API\'s description.
         
                 - **createdDate** *(datetime) --* 
         
@@ -7441,7 +7441,7 @@ class Client(BaseClient):
         
                   - **types** *(list) --* 
         
-                    A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                    A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                     - *(string) --* 
         
@@ -7461,11 +7461,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_sdk(
-              restApiId='string',
-              stageName='string',
-              sdkType='string',
+              restApiId=\'string\',
+              stageName=\'string\',
+              sdkType=\'string\',
               parameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type restApiId: string
@@ -7500,9 +7500,9 @@ class Client(BaseClient):
           ::
         
             {
-                'contentType': 'string',
-                'contentDisposition': 'string',
-                'body': StreamingBody()
+                \'contentType\': \'string\',
+                \'contentDisposition\': \'string\',
+                \'body\': StreamingBody()
             }
           **Response Structure** 
         
@@ -7532,7 +7532,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_sdk_type(
-              id='string'
+              id=\'string\'
           )
         :type id: string
         :param id: **[REQUIRED]** 
@@ -7547,16 +7547,16 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'friendlyName': 'string',
-                'description': 'string',
-                'configurationProperties': [
+                \'id\': \'string\',
+                \'friendlyName\': \'string\',
+                \'description\': \'string\',
+                \'configurationProperties\': [
                     {
-                        'name': 'string',
-                        'friendlyName': 'string',
-                        'description': 'string',
-                        'required': True|False,
-                        'defaultValue': 'string'
+                        \'name\': \'string\',
+                        \'friendlyName\': \'string\',
+                        \'description\': \'string\',
+                        \'required\': True|False,
+                        \'defaultValue\': \'string\'
                     },
                 ]
             }
@@ -7616,7 +7616,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_sdk_types(
-              position='string',
+              position=\'string\',
               limit=123
           )
         :type position: string
@@ -7637,19 +7637,19 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'friendlyName': 'string',
-                        'description': 'string',
-                        'configurationProperties': [
+                        \'id\': \'string\',
+                        \'friendlyName\': \'string\',
+                        \'description\': \'string\',
+                        \'configurationProperties\': [
                             {
-                                'name': 'string',
-                                'friendlyName': 'string',
-                                'description': 'string',
-                                'required': True|False,
-                                'defaultValue': 'string'
+                                \'name\': \'string\',
+                                \'friendlyName\': \'string\',
+                                \'description\': \'string\',
+                                \'required\': True|False,
+                                \'defaultValue\': \'string\'
                             },
                         ]
                     },
@@ -7723,8 +7723,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_stage(
-              restApiId='string',
-              stageName='string'
+              restApiId=\'string\',
+              stageName=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -7744,50 +7744,50 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentId': 'string',
-                'clientCertificateId': 'string',
-                'stageName': 'string',
-                'description': 'string',
-                'cacheClusterEnabled': True|False,
-                'cacheClusterSize': '0.5'|'1.6'|'6.1'|'13.5'|'28.4'|'58.2'|'118'|'237',
-                'cacheClusterStatus': 'CREATE_IN_PROGRESS'|'AVAILABLE'|'DELETE_IN_PROGRESS'|'NOT_AVAILABLE'|'FLUSH_IN_PROGRESS',
-                'methodSettings': {
-                    'string': {
-                        'metricsEnabled': True|False,
-                        'loggingLevel': 'string',
-                        'dataTraceEnabled': True|False,
-                        'throttlingBurstLimit': 123,
-                        'throttlingRateLimit': 123.0,
-                        'cachingEnabled': True|False,
-                        'cacheTtlInSeconds': 123,
-                        'cacheDataEncrypted': True|False,
-                        'requireAuthorizationForCacheControl': True|False,
-                        'unauthorizedCacheControlHeaderStrategy': 'FAIL_WITH_403'|'SUCCEED_WITH_RESPONSE_HEADER'|'SUCCEED_WITHOUT_RESPONSE_HEADER'
+                \'deploymentId\': \'string\',
+                \'clientCertificateId\': \'string\',
+                \'stageName\': \'string\',
+                \'description\': \'string\',
+                \'cacheClusterEnabled\': True|False,
+                \'cacheClusterSize\': \'0.5\'|\'1.6\'|\'6.1\'|\'13.5\'|\'28.4\'|\'58.2\'|\'118\'|\'237\',
+                \'cacheClusterStatus\': \'CREATE_IN_PROGRESS\'|\'AVAILABLE\'|\'DELETE_IN_PROGRESS\'|\'NOT_AVAILABLE\'|\'FLUSH_IN_PROGRESS\',
+                \'methodSettings\': {
+                    \'string\': {
+                        \'metricsEnabled\': True|False,
+                        \'loggingLevel\': \'string\',
+                        \'dataTraceEnabled\': True|False,
+                        \'throttlingBurstLimit\': 123,
+                        \'throttlingRateLimit\': 123.0,
+                        \'cachingEnabled\': True|False,
+                        \'cacheTtlInSeconds\': 123,
+                        \'cacheDataEncrypted\': True|False,
+                        \'requireAuthorizationForCacheControl\': True|False,
+                        \'unauthorizedCacheControlHeaderStrategy\': \'FAIL_WITH_403\'|\'SUCCEED_WITH_RESPONSE_HEADER\'|\'SUCCEED_WITHOUT_RESPONSE_HEADER\'
                     }
                 },
-                'variables': {
-                    'string': 'string'
+                \'variables\': {
+                    \'string\': \'string\'
                 },
-                'documentationVersion': 'string',
-                'accessLogSettings': {
-                    'format': 'string',
-                    'destinationArn': 'string'
+                \'documentationVersion\': \'string\',
+                \'accessLogSettings\': {
+                    \'format\': \'string\',
+                    \'destinationArn\': \'string\'
                 },
-                'canarySettings': {
-                    'percentTraffic': 123.0,
-                    'deploymentId': 'string',
-                    'stageVariableOverrides': {
-                        'string': 'string'
+                \'canarySettings\': {
+                    \'percentTraffic\': 123.0,
+                    \'deploymentId\': \'string\',
+                    \'stageVariableOverrides\': {
+                        \'string\': \'string\'
                     },
-                    'useStageCache': True|False
+                    \'useStageCache\': True|False
                 },
-                'tracingEnabled': True|False,
-                'webAclArn': 'string',
-                'tags': {
-                    'string': 'string'
+                \'tracingEnabled\': True|False,
+                \'webAclArn\': \'string\',
+                \'tags\': {
+                    \'string\': \'string\'
                 },
-                'createdDate': datetime(2015, 1, 1),
-                'lastUpdatedDate': datetime(2015, 1, 1)
+                \'createdDate\': datetime(2015, 1, 1),
+                \'lastUpdatedDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -7811,7 +7811,7 @@ class Client(BaseClient):
         
             - **description** *(string) --* 
         
-              The stage's description.
+              The stage\'s description.
         
             - **cacheClusterEnabled** *(boolean) --* 
         
@@ -7959,8 +7959,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_stages(
-              restApiId='string',
-              deploymentId='string'
+              restApiId=\'string\',
+              deploymentId=\'string\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -7970,7 +7970,7 @@ class Client(BaseClient):
         :type deploymentId: string
         :param deploymentId: 
         
-          The stages' deployment identifiers.
+          The stages\' deployment identifiers.
         
         :rtype: dict
         :returns: 
@@ -7980,52 +7980,52 @@ class Client(BaseClient):
           ::
         
             {
-                'item': [
+                \'item\': [
                     {
-                        'deploymentId': 'string',
-                        'clientCertificateId': 'string',
-                        'stageName': 'string',
-                        'description': 'string',
-                        'cacheClusterEnabled': True|False,
-                        'cacheClusterSize': '0.5'|'1.6'|'6.1'|'13.5'|'28.4'|'58.2'|'118'|'237',
-                        'cacheClusterStatus': 'CREATE_IN_PROGRESS'|'AVAILABLE'|'DELETE_IN_PROGRESS'|'NOT_AVAILABLE'|'FLUSH_IN_PROGRESS',
-                        'methodSettings': {
-                            'string': {
-                                'metricsEnabled': True|False,
-                                'loggingLevel': 'string',
-                                'dataTraceEnabled': True|False,
-                                'throttlingBurstLimit': 123,
-                                'throttlingRateLimit': 123.0,
-                                'cachingEnabled': True|False,
-                                'cacheTtlInSeconds': 123,
-                                'cacheDataEncrypted': True|False,
-                                'requireAuthorizationForCacheControl': True|False,
-                                'unauthorizedCacheControlHeaderStrategy': 'FAIL_WITH_403'|'SUCCEED_WITH_RESPONSE_HEADER'|'SUCCEED_WITHOUT_RESPONSE_HEADER'
+                        \'deploymentId\': \'string\',
+                        \'clientCertificateId\': \'string\',
+                        \'stageName\': \'string\',
+                        \'description\': \'string\',
+                        \'cacheClusterEnabled\': True|False,
+                        \'cacheClusterSize\': \'0.5\'|\'1.6\'|\'6.1\'|\'13.5\'|\'28.4\'|\'58.2\'|\'118\'|\'237\',
+                        \'cacheClusterStatus\': \'CREATE_IN_PROGRESS\'|\'AVAILABLE\'|\'DELETE_IN_PROGRESS\'|\'NOT_AVAILABLE\'|\'FLUSH_IN_PROGRESS\',
+                        \'methodSettings\': {
+                            \'string\': {
+                                \'metricsEnabled\': True|False,
+                                \'loggingLevel\': \'string\',
+                                \'dataTraceEnabled\': True|False,
+                                \'throttlingBurstLimit\': 123,
+                                \'throttlingRateLimit\': 123.0,
+                                \'cachingEnabled\': True|False,
+                                \'cacheTtlInSeconds\': 123,
+                                \'cacheDataEncrypted\': True|False,
+                                \'requireAuthorizationForCacheControl\': True|False,
+                                \'unauthorizedCacheControlHeaderStrategy\': \'FAIL_WITH_403\'|\'SUCCEED_WITH_RESPONSE_HEADER\'|\'SUCCEED_WITHOUT_RESPONSE_HEADER\'
                             }
                         },
-                        'variables': {
-                            'string': 'string'
+                        \'variables\': {
+                            \'string\': \'string\'
                         },
-                        'documentationVersion': 'string',
-                        'accessLogSettings': {
-                            'format': 'string',
-                            'destinationArn': 'string'
+                        \'documentationVersion\': \'string\',
+                        \'accessLogSettings\': {
+                            \'format\': \'string\',
+                            \'destinationArn\': \'string\'
                         },
-                        'canarySettings': {
-                            'percentTraffic': 123.0,
-                            'deploymentId': 'string',
-                            'stageVariableOverrides': {
-                                'string': 'string'
+                        \'canarySettings\': {
+                            \'percentTraffic\': 123.0,
+                            \'deploymentId\': \'string\',
+                            \'stageVariableOverrides\': {
+                                \'string\': \'string\'
                             },
-                            'useStageCache': True|False
+                            \'useStageCache\': True|False
                         },
-                        'tracingEnabled': True|False,
-                        'webAclArn': 'string',
-                        'tags': {
-                            'string': 'string'
+                        \'tracingEnabled\': True|False,
+                        \'webAclArn\': \'string\',
+                        \'tags\': {
+                            \'string\': \'string\'
                         },
-                        'createdDate': datetime(2015, 1, 1),
-                        'lastUpdatedDate': datetime(2015, 1, 1)
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'lastUpdatedDate\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -8061,7 +8061,7 @@ class Client(BaseClient):
         
                 - **description** *(string) --* 
         
-                  The stage's description.
+                  The stage\'s description.
         
                 - **cacheClusterEnabled** *(boolean) --* 
         
@@ -8209,8 +8209,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_tags(
-              resourceArn='string',
-              position='string',
+              resourceArn=\'string\',
+              position=\'string\',
               limit=123
           )
         :type resourceArn: string
@@ -8236,8 +8236,8 @@ class Client(BaseClient):
           ::
         
             {
-                'tags': {
-                    'string': 'string'
+                \'tags\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -8266,11 +8266,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_usage(
-              usagePlanId='string',
-              keyId='string',
-              startDate='string',
-              endDate='string',
-              position='string',
+              usagePlanId=\'string\',
+              keyId=\'string\',
+              startDate=\'string\',
+              endDate=\'string\',
+              position=\'string\',
               limit=123
           )
         :type usagePlanId: string
@@ -8311,12 +8311,12 @@ class Client(BaseClient):
           ::
         
             {
-                'usagePlanId': 'string',
-                'startDate': 'string',
-                'endDate': 'string',
-                'position': 'string',
-                'items': {
-                    'string': [
+                \'usagePlanId\': \'string\',
+                \'startDate\': \'string\',
+                \'endDate\': \'string\',
+                \'position\': \'string\',
+                \'items\': {
+                    \'string\': [
                         [
                             123,
                         ],
@@ -8347,7 +8347,7 @@ class Client(BaseClient):
             
             - **items** *(dict) --* 
         
-              The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, ``{..., "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}`` , where ``{api_key}`` stands for an API key value and the daily log entry is of the format ``[used quota, remaining quota]`` .
+              The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, ``{..., \"values\" : { \"{api_key}\" : [ [0, 100], [10, 90], [100, 10]]}`` , where ``{api_key}`` stands for an API key value and the daily log entry is of the format ``[used quota, remaining quota]`` .
         
               - *(string) --* 
                 
@@ -8369,7 +8369,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_usage_plan(
-              usagePlanId='string'
+              usagePlanId=\'string\'
           )
         :type usagePlanId: string
         :param usagePlanId: **[REQUIRED]** 
@@ -8384,31 +8384,31 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'apiStages': [
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'apiStages\': [
                     {
-                        'apiId': 'string',
-                        'stage': 'string',
-                        'throttle': {
-                            'string': {
-                                'burstLimit': 123,
-                                'rateLimit': 123.0
+                        \'apiId\': \'string\',
+                        \'stage\': \'string\',
+                        \'throttle\': {
+                            \'string\': {
+                                \'burstLimit\': 123,
+                                \'rateLimit\': 123.0
                             }
                         }
                     },
                 ],
-                'throttle': {
-                    'burstLimit': 123,
-                    'rateLimit': 123.0
+                \'throttle\': {
+                    \'burstLimit\': 123,
+                    \'rateLimit\': 123.0
                 },
-                'quota': {
-                    'limit': 123,
-                    'offset': 123,
-                    'period': 'DAY'|'WEEK'|'MONTH'
+                \'quota\': {
+                    \'limit\': 123,
+                    \'offset\': 123,
+                    \'period\': \'DAY\'|\'WEEK\'|\'MONTH\'
                 },
-                'productCode': 'string'
+                \'productCode\': \'string\'
             }
           **Response Structure** 
         
@@ -8416,7 +8416,7 @@ class Client(BaseClient):
         
             Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.
         
-            In a usage plan, you associate an API by specifying the API's Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. 
+            In a usage plan, you associate an API by specifying the API\'s Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. 
         
                `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
             
@@ -8492,7 +8492,7 @@ class Client(BaseClient):
         
               - **period** *(string) --* 
         
-                The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+                The time period in which the limit applies. Valid values are \"DAY\", \"WEEK\" or \"MONTH\".
         
             - **productCode** *(string) --* 
         
@@ -8510,8 +8510,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_usage_plan_key(
-              usagePlanId='string',
-              keyId='string'
+              usagePlanId=\'string\',
+              keyId=\'string\'
           )
         :type usagePlanId: string
         :param usagePlanId: **[REQUIRED]** 
@@ -8531,10 +8531,10 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'type': 'string',
-                'value': 'string',
-                'name': 'string'
+                \'id\': \'string\',
+                \'type\': \'string\',
+                \'value\': \'string\',
+                \'name\': \'string\'
             }
           **Response Structure** 
         
@@ -8544,7 +8544,7 @@ class Client(BaseClient):
         
             To associate an API stage with a selected API key in a usage plan, you must create a UsagePlanKey resource to represent the selected  ApiKey .
         
-             "  `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
+             \"  `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
             
             - **id** *(string) --* 
         
@@ -8574,10 +8574,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_usage_plan_keys(
-              usagePlanId='string',
-              position='string',
+              usagePlanId=\'string\',
+              position=\'string\',
               limit=123,
-              nameQuery='string'
+              nameQuery=\'string\'
           )
         :type usagePlanId: string
         :param usagePlanId: **[REQUIRED]** 
@@ -8607,13 +8607,13 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'type': 'string',
-                        'value': 'string',
-                        'name': 'string'
+                        \'id\': \'string\',
+                        \'type\': \'string\',
+                        \'value\': \'string\',
+                        \'name\': \'string\'
                     },
                 ]
             }
@@ -8637,7 +8637,7 @@ class Client(BaseClient):
         
                 To associate an API stage with a selected API key in a usage plan, you must create a UsagePlanKey resource to represent the selected  ApiKey .
         
-                 "  `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
+                 \"  `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
                 
                 - **id** *(string) --* 
         
@@ -8667,8 +8667,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_usage_plans(
-              position='string',
-              keyId='string',
+              position=\'string\',
+              keyId=\'string\',
               limit=123
           )
         :type position: string
@@ -8694,34 +8694,34 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'apiStages': [
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'apiStages\': [
                             {
-                                'apiId': 'string',
-                                'stage': 'string',
-                                'throttle': {
-                                    'string': {
-                                        'burstLimit': 123,
-                                        'rateLimit': 123.0
+                                \'apiId\': \'string\',
+                                \'stage\': \'string\',
+                                \'throttle\': {
+                                    \'string\': {
+                                        \'burstLimit\': 123,
+                                        \'rateLimit\': 123.0
                                     }
                                 }
                             },
                         ],
-                        'throttle': {
-                            'burstLimit': 123,
-                            'rateLimit': 123.0
+                        \'throttle\': {
+                            \'burstLimit\': 123,
+                            \'rateLimit\': 123.0
                         },
-                        'quota': {
-                            'limit': 123,
-                            'offset': 123,
-                            'period': 'DAY'|'WEEK'|'MONTH'
+                        \'quota\': {
+                            \'limit\': 123,
+                            \'offset\': 123,
+                            \'period\': \'DAY\'|\'WEEK\'|\'MONTH\'
                         },
-                        'productCode': 'string'
+                        \'productCode\': \'string\'
                     },
                 ]
             }
@@ -8743,7 +8743,7 @@ class Client(BaseClient):
         
                 Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.
         
-                In a usage plan, you associate an API by specifying the API's Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. 
+                In a usage plan, you associate an API by specifying the API\'s Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. 
         
                    `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
                 
@@ -8819,7 +8819,7 @@ class Client(BaseClient):
         
                   - **period** *(string) --* 
         
-                    The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+                    The time period in which the limit applies. Valid values are \"DAY\", \"WEEK\" or \"MONTH\".
         
                 - **productCode** *(string) --* 
         
@@ -8837,7 +8837,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_vpc_link(
-              vpcLinkId='string'
+              vpcLinkId=\'string\'
           )
         :type vpcLinkId: string
         :param vpcLinkId: **[REQUIRED]** 
@@ -8852,14 +8852,14 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'targetArns': [
-                    'string',
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'targetArns\': [
+                    \'string\',
                 ],
-                'status': 'AVAILABLE'|'PENDING'|'DELETING'|'FAILED',
-                'statusMessage': 'string'
+                \'status\': \'AVAILABLE\'|\'PENDING\'|\'DELETING\'|\'FAILED\',
+                \'statusMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -8907,7 +8907,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_vpc_links(
-              position='string',
+              position=\'string\',
               limit=123
           )
         :type position: string
@@ -8928,17 +8928,17 @@ class Client(BaseClient):
           ::
         
             {
-                'position': 'string',
-                'items': [
+                \'position\': \'string\',
+                \'items\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'targetArns': [
-                            'string',
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'targetArns\': [
+                            \'string\',
                         ],
-                        'status': 'AVAILABLE'|'PENDING'|'DELETING'|'FAILED',
-                        'statusMessage': 'string'
+                        \'status\': \'AVAILABLE\'|\'PENDING\'|\'DELETING\'|\'FAILED\',
+                        \'statusMessage\': \'string\'
                     },
                 ]
             }
@@ -8946,7 +8946,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            The collection of VPC links under the caller's account in a region.
+            The collection of VPC links under the caller\'s account in a region.
         
               `Getting Started with Private Integrations <https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-private-integration.html>`__ , `Set up Private Integrations <https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-private-integration.html>`__  
             
@@ -9012,8 +9012,8 @@ class Client(BaseClient):
         ::
         
           response = client.import_api_keys(
-              body=b'bytes'|file,
-              format='csv',
+              body=b\'bytes\'|file,
+              format=\'csv\',
               failOnWarnings=True|False
           )
         :type body: bytes or seekable file-like object
@@ -9039,11 +9039,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ids': [
-                    'string',
+                \'ids\': [
+                    \'string\',
                 ],
-                'warnings': [
-                    'string',
+                \'warnings\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -9074,10 +9074,10 @@ class Client(BaseClient):
         ::
         
           response = client.import_documentation_parts(
-              restApiId='string',
-              mode='merge'|'overwrite',
+              restApiId=\'string\',
+              mode=\'merge\'|\'overwrite\',
               failOnWarnings=True|False,
-              body=b'bytes'|file
+              body=b\'bytes\'|file
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -9107,11 +9107,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ids': [
-                    'string',
+                \'ids\': [
+                    \'string\',
                 ],
-                'warnings': [
-                    'string',
+                \'warnings\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -9148,9 +9148,9 @@ class Client(BaseClient):
           response = client.import_rest_api(
               failOnWarnings=True|False,
               parameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              body=b'bytes'|file
+              body=b\'bytes\'|file
           )
         :type failOnWarnings: boolean
         :param failOnWarnings: 
@@ -9170,11 +9170,11 @@ class Client(BaseClient):
         
           For example, the AWS CLI command to exclude documentation from the imported API is:
         
-           ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``  
+           ``aws apigateway import-rest-api --parameters ignore=documentation --body \'file:///path/to/imported-api-body.json\'``  
         
           The AWS CLI command to set the regional endpoint on the imported API is:
         
-           ``aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'`` 
+           ``aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body \'file:///path/to/imported-api-body.json\'`` 
         
           - *(string) --* 
         
@@ -9193,25 +9193,25 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'version': 'string',
-                'warnings': [
-                    'string',
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'version\': \'string\',
+                \'warnings\': [
+                    \'string\',
                 ],
-                'binaryMediaTypes': [
-                    'string',
+                \'binaryMediaTypes\': [
+                    \'string\',
                 ],
-                'minimumCompressionSize': 123,
-                'apiKeySource': 'HEADER'|'AUTHORIZER',
-                'endpointConfiguration': {
-                    'types': [
-                        'REGIONAL'|'EDGE'|'PRIVATE',
+                \'minimumCompressionSize\': 123,
+                \'apiKeySource\': \'HEADER\'|\'AUTHORIZER\',
+                \'endpointConfiguration\': {
+                    \'types\': [
+                        \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                     ]
                 },
-                'policy': 'string'
+                \'policy\': \'string\'
             }
           **Response Structure** 
         
@@ -9223,15 +9223,15 @@ class Client(BaseClient):
             
             - **id** *(string) --* 
         
-              The API's identifier. This identifier is unique across all of your APIs in API Gateway.
+              The API\'s identifier. This identifier is unique across all of your APIs in API Gateway.
         
             - **name** *(string) --* 
         
-              The API's name.
+              The API\'s name.
         
             - **description** *(string) --* 
         
-              The API's description.
+              The API\'s description.
         
             - **createdDate** *(datetime) --* 
         
@@ -9271,7 +9271,7 @@ class Client(BaseClient):
         
               - **types** *(list) --* 
         
-                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                 - *(string) --* 
         
@@ -9290,14 +9290,14 @@ class Client(BaseClient):
         ::
         
           response = client.put_gateway_response(
-              restApiId='string',
-              responseType='DEFAULT_4XX'|'DEFAULT_5XX'|'RESOURCE_NOT_FOUND'|'UNAUTHORIZED'|'INVALID_API_KEY'|'ACCESS_DENIED'|'AUTHORIZER_FAILURE'|'AUTHORIZER_CONFIGURATION_ERROR'|'INVALID_SIGNATURE'|'EXPIRED_TOKEN'|'MISSING_AUTHENTICATION_TOKEN'|'INTEGRATION_FAILURE'|'INTEGRATION_TIMEOUT'|'API_CONFIGURATION_ERROR'|'UNSUPPORTED_MEDIA_TYPE'|'BAD_REQUEST_PARAMETERS'|'BAD_REQUEST_BODY'|'REQUEST_TOO_LARGE'|'THROTTLED'|'QUOTA_EXCEEDED',
-              statusCode='string',
+              restApiId=\'string\',
+              responseType=\'DEFAULT_4XX\'|\'DEFAULT_5XX\'|\'RESOURCE_NOT_FOUND\'|\'UNAUTHORIZED\'|\'INVALID_API_KEY\'|\'ACCESS_DENIED\'|\'AUTHORIZER_FAILURE\'|\'AUTHORIZER_CONFIGURATION_ERROR\'|\'INVALID_SIGNATURE\'|\'EXPIRED_TOKEN\'|\'MISSING_AUTHENTICATION_TOKEN\'|\'INTEGRATION_FAILURE\'|\'INTEGRATION_TIMEOUT\'|\'API_CONFIGURATION_ERROR\'|\'UNSUPPORTED_MEDIA_TYPE\'|\'BAD_REQUEST_PARAMETERS\'|\'BAD_REQUEST_BODY\'|\'REQUEST_TOO_LARGE\'|\'THROTTLED\'|\'QUOTA_EXCEEDED\',
+              statusCode=\'string\',
               responseParameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               responseTemplates={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type restApiId: string
@@ -9381,15 +9381,15 @@ class Client(BaseClient):
           ::
         
             {
-                'responseType': 'DEFAULT_4XX'|'DEFAULT_5XX'|'RESOURCE_NOT_FOUND'|'UNAUTHORIZED'|'INVALID_API_KEY'|'ACCESS_DENIED'|'AUTHORIZER_FAILURE'|'AUTHORIZER_CONFIGURATION_ERROR'|'INVALID_SIGNATURE'|'EXPIRED_TOKEN'|'MISSING_AUTHENTICATION_TOKEN'|'INTEGRATION_FAILURE'|'INTEGRATION_TIMEOUT'|'API_CONFIGURATION_ERROR'|'UNSUPPORTED_MEDIA_TYPE'|'BAD_REQUEST_PARAMETERS'|'BAD_REQUEST_BODY'|'REQUEST_TOO_LARGE'|'THROTTLED'|'QUOTA_EXCEEDED',
-                'statusCode': 'string',
-                'responseParameters': {
-                    'string': 'string'
+                \'responseType\': \'DEFAULT_4XX\'|\'DEFAULT_5XX\'|\'RESOURCE_NOT_FOUND\'|\'UNAUTHORIZED\'|\'INVALID_API_KEY\'|\'ACCESS_DENIED\'|\'AUTHORIZER_FAILURE\'|\'AUTHORIZER_CONFIGURATION_ERROR\'|\'INVALID_SIGNATURE\'|\'EXPIRED_TOKEN\'|\'MISSING_AUTHENTICATION_TOKEN\'|\'INTEGRATION_FAILURE\'|\'INTEGRATION_TIMEOUT\'|\'API_CONFIGURATION_ERROR\'|\'UNSUPPORTED_MEDIA_TYPE\'|\'BAD_REQUEST_PARAMETERS\'|\'BAD_REQUEST_BODY\'|\'REQUEST_TOO_LARGE\'|\'THROTTLED\'|\'QUOTA_EXCEEDED\',
+                \'statusCode\': \'string\',
+                \'responseParameters\': {
+                    \'string\': \'string\'
                 },
-                'responseTemplates': {
-                    'string': 'string'
+                \'responseTemplates\': {
+                    \'string\': \'string\'
                 },
-                'defaultResponse': True|False
+                \'defaultResponse\': True|False
             }
           **Response Structure** 
         
@@ -9409,7 +9409,7 @@ class Client(BaseClient):
         
             The successful operation returns the ``200 OK`` status code and a payload similar to the following:
         
-             ``{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:delete": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": false, "responseParameters": { "gatewayresponse.header.x-request-path": "method.request.path.petId", "gatewayresponse.header.Access-Control-Allow-Origin": "'a.b.c'", "gatewayresponse.header.x-request-query": "method.request.querystring.q", "gatewayresponse.header.x-request-header": "method.request.header.Accept" }, "responseTemplates": { "application/json": "{\n \"message\": $context.error.messageString,\n \"type\": \"$context.error.responseType\",\n \"stage\": \"$context.stage\",\n \"resourcePath\": \"$context.resourcePath\",\n \"stageVariables.a\": \"$stageVariables.a\",\n \"statusCode\": \"'404'\"\n}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "404" }``  
+             ``{ \"_links\": { \"curies\": { \"href\": \"http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html\", \"name\": \"gatewayresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" }, \"gatewayresponse:delete\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" } }, \"defaultResponse\": false, \"responseParameters\": { \"gatewayresponse.header.x-request-path\": \"method.request.path.petId\", \"gatewayresponse.header.Access-Control-Allow-Origin\": \"\'a.b.c\'\", \"gatewayresponse.header.x-request-query\": \"method.request.querystring.q\", \"gatewayresponse.header.x-request-header\": \"method.request.header.Accept\" }, \"responseTemplates\": { \"application/json\": \"{\n \\"message\\": $context.error.messageString,\n \\"type\\": \\"$context.error.responseType\\",\n \\"stage\\": \\"$context.stage\\",\n \\"resourcePath\\": \\"$context.resourcePath\\",\n \\"stageVariables.a\\": \\"$stageVariables.a\\",\n \\"statusCode\\": \\"\'404\'\\"\n}\" }, \"responseType\": \"MISSING_AUTHENTICATION_TOKEN\", \"statusCode\": \"404\" }``  
         
                 `Customize Gateway Responses <https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html>`__  
             
@@ -9493,27 +9493,27 @@ class Client(BaseClient):
         ::
         
           response = client.put_integration(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
-              type='HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-              integrationHttpMethod='string',
-              uri='string',
-              connectionType='INTERNET'|'VPC_LINK',
-              connectionId='string',
-              credentials='string',
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
+              type=\'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+              integrationHttpMethod=\'string\',
+              uri=\'string\',
+              connectionType=\'INTERNET\'|\'VPC_LINK\',
+              connectionId=\'string\',
+              credentials=\'string\',
               requestParameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               requestTemplates={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              passthroughBehavior='string',
-              cacheNamespace='string',
+              passthroughBehavior=\'string\',
+              cacheNamespace=\'string\',
               cacheKeyParameters=[
-                  'string',
+                  \'string\',
               ],
-              contentHandling='CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
+              contentHandling=\'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
               timeoutInMillis=123
           )
         :type restApiId: string
@@ -9524,17 +9524,17 @@ class Client(BaseClient):
         :type resourceId: string
         :param resourceId: **[REQUIRED]** 
         
-          [Required] Specifies a put integration request's resource ID.
+          [Required] Specifies a put integration request\'s resource ID.
         
         :type httpMethod: string
         :param httpMethod: **[REQUIRED]** 
         
-          [Required] Specifies a put integration request's HTTP method.
+          [Required] Specifies a put integration request\'s HTTP method.
         
         :type type: string
         :param type: **[REQUIRED]** 
         
-          [Required] Specifies a put integration input's type.
+          [Required] Specifies a put integration input\'s type.
         
         :type integrationHttpMethod: string
         :param integrationHttpMethod: 
@@ -9590,19 +9590,19 @@ class Client(BaseClient):
         
           * ``WHEN_NO_MATCH`` passes the request body for unmapped content types through to the integration back end without transformation.
            
-          * ``NEVER`` rejects unmapped content types with an HTTP 415 'Unsupported Media Type' response.
+          * ``NEVER`` rejects unmapped content types with an HTTP 415 \'Unsupported Media Type\' response.
            
           * ``WHEN_NO_TEMPLATES`` allows pass-through when the integration has NO content types mapped to templates. However if there is at least one content type defined, unmapped content types will be rejected with the same 415 response.
            
         :type cacheNamespace: string
         :param cacheNamespace: 
         
-          Specifies a put integration input's cache namespace.
+          Specifies a put integration input\'s cache namespace.
         
         :type cacheKeyParameters: list
         :param cacheKeyParameters: 
         
-          Specifies a put integration input's cache key parameters.
+          Specifies a put integration input\'s cache key parameters.
         
           - *(string) --* 
         
@@ -9630,36 +9630,36 @@ class Client(BaseClient):
           ::
         
             {
-                'type': 'HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-                'httpMethod': 'string',
-                'uri': 'string',
-                'connectionType': 'INTERNET'|'VPC_LINK',
-                'connectionId': 'string',
-                'credentials': 'string',
-                'requestParameters': {
-                    'string': 'string'
+                \'type\': \'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+                \'httpMethod\': \'string\',
+                \'uri\': \'string\',
+                \'connectionType\': \'INTERNET\'|\'VPC_LINK\',
+                \'connectionId\': \'string\',
+                \'credentials\': \'string\',
+                \'requestParameters\': {
+                    \'string\': \'string\'
                 },
-                'requestTemplates': {
-                    'string': 'string'
+                \'requestTemplates\': {
+                    \'string\': \'string\'
                 },
-                'passthroughBehavior': 'string',
-                'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
-                'timeoutInMillis': 123,
-                'cacheNamespace': 'string',
-                'cacheKeyParameters': [
-                    'string',
+                \'passthroughBehavior\': \'string\',
+                \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
+                \'timeoutInMillis\': 123,
+                \'cacheNamespace\': \'string\',
+                \'cacheKeyParameters\': [
+                    \'string\',
                 ],
-                'integrationResponses': {
-                    'string': {
-                        'statusCode': 'string',
-                        'selectionPattern': 'string',
-                        'responseParameters': {
-                            'string': 'string'
+                \'integrationResponses\': {
+                    \'string\': {
+                        \'statusCode\': \'string\',
+                        \'selectionPattern\': \'string\',
+                        \'responseParameters\': {
+                            \'string\': \'string\'
                         },
-                        'responseTemplates': {
-                            'string': 'string'
+                        \'responseTemplates\': {
+                            \'string\': \'string\'
                         },
-                        'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                        \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
                     }
                 }
             }
@@ -9683,13 +9683,13 @@ class Client(BaseClient):
                
               * ``HTTP_PROXY`` : for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.
                
-              * ``MOCK`` : for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.
+              * ``MOCK`` : for integrating the API method request with API Gateway as a \"loop-back\" endpoint without invoking any backend.
                
               For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https`` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a  VpcLink to connect API Gateway to a network load balancer of a VPC.
         
             - **httpMethod** *(string) --* 
         
-              Specifies the integration's HTTP method type.
+              Specifies the integration\'s HTTP method type.
         
             - **uri** *(string) --* 
         
@@ -9709,7 +9709,7 @@ class Client(BaseClient):
         
             - **credentials** *(string) --* 
         
-              Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
+              Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
         
             - **requestParameters** *(dict) --* 
         
@@ -9753,17 +9753,17 @@ class Client(BaseClient):
         
             - **cacheNamespace** *(string) --* 
         
-              Specifies the integration's cache namespace.
+              Specifies the integration\'s cache namespace.
         
             - **cacheKeyParameters** *(list) --* 
         
-              Specifies the integration's cache key parameters.
+              Specifies the integration\'s cache key parameters.
         
               - *(string) --* 
           
             - **integrationResponses** *(dict) --* 
         
-              Specifies the integration's responses.
+              Specifies the integration\'s responses.
         
                Example: Get integration responses of a method Request 
         
@@ -9771,7 +9771,7 @@ class Client(BaseClient):
         
               The successful response returns ``200 OK`` status and a payload as follows:
         
-               ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }``  
+               ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" }``  
         
                  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
               
@@ -9829,18 +9829,18 @@ class Client(BaseClient):
         ::
         
           response = client.put_integration_response(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
-              statusCode='string',
-              selectionPattern='string',
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
+              statusCode=\'string\',
+              selectionPattern=\'string\',
               responseParameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               responseTemplates={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              contentHandling='CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+              contentHandling=\'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -9850,12 +9850,12 @@ class Client(BaseClient):
         :type resourceId: string
         :param resourceId: **[REQUIRED]** 
         
-          [Required] Specifies a put integration response request's resource identifier.
+          [Required] Specifies a put integration response request\'s resource identifier.
         
         :type httpMethod: string
         :param httpMethod: **[REQUIRED]** 
         
-          [Required] Specifies a put integration response request's HTTP method.
+          [Required] Specifies a put integration response request\'s HTTP method.
         
         :type statusCode: string
         :param statusCode: **[REQUIRED]** 
@@ -9879,7 +9879,7 @@ class Client(BaseClient):
         :type responseTemplates: dict
         :param responseTemplates: 
         
-          Specifies a put integration response's templates.
+          Specifies a put integration response\'s templates.
         
           - *(string) --* 
         
@@ -9904,15 +9904,15 @@ class Client(BaseClient):
           ::
         
             {
-                'statusCode': 'string',
-                'selectionPattern': 'string',
-                'responseParameters': {
-                    'string': 'string'
+                \'statusCode\': \'string\',
+                \'selectionPattern\': \'string\',
+                \'responseParameters\': {
+                    \'string\': \'string\'
                 },
-                'responseTemplates': {
-                    'string': 'string'
+                \'responseTemplates\': {
+                    \'string\': \'string\'
                 },
-                'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
             }
           **Response Structure** 
         
@@ -9968,22 +9968,22 @@ class Client(BaseClient):
         ::
         
           response = client.put_method(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
-              authorizationType='string',
-              authorizerId='string',
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
+              authorizationType=\'string\',
+              authorizerId=\'string\',
               apiKeyRequired=True|False,
-              operationName='string',
+              operationName=\'string\',
               requestParameters={
-                  'string': True|False
+                  \'string\': True|False
               },
               requestModels={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              requestValidatorId='string',
+              requestValidatorId=\'string\',
               authorizationScopes=[
-                  'string',
+                  \'string\',
               ]
           )
         :type restApiId: string
@@ -9999,12 +9999,12 @@ class Client(BaseClient):
         :type httpMethod: string
         :param httpMethod: **[REQUIRED]** 
         
-          [Required] Specifies the method request's HTTP method type.
+          [Required] Specifies the method request\'s HTTP method type.
         
         :type authorizationType: string
         :param authorizationType: **[REQUIRED]** 
         
-          [Required] The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+          [Required] The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
         :type authorizerId: string
         :param authorizerId: 
@@ -10033,7 +10033,7 @@ class Client(BaseClient):
         :type requestModels: dict
         :param requestModels: 
         
-          Specifies the  Model resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a  Model name as the value.
+          Specifies the  Model resources used for the request\'s content type. Request models are represented as a key/value map, with a content type as the key and a  Model name as the value.
         
           - *(string) --* 
         
@@ -10059,65 +10059,65 @@ class Client(BaseClient):
           ::
         
             {
-                'httpMethod': 'string',
-                'authorizationType': 'string',
-                'authorizerId': 'string',
-                'apiKeyRequired': True|False,
-                'requestValidatorId': 'string',
-                'operationName': 'string',
-                'requestParameters': {
-                    'string': True|False
+                \'httpMethod\': \'string\',
+                \'authorizationType\': \'string\',
+                \'authorizerId\': \'string\',
+                \'apiKeyRequired\': True|False,
+                \'requestValidatorId\': \'string\',
+                \'operationName\': \'string\',
+                \'requestParameters\': {
+                    \'string\': True|False
                 },
-                'requestModels': {
-                    'string': 'string'
+                \'requestModels\': {
+                    \'string\': \'string\'
                 },
-                'methodResponses': {
-                    'string': {
-                        'statusCode': 'string',
-                        'responseParameters': {
-                            'string': True|False
+                \'methodResponses\': {
+                    \'string\': {
+                        \'statusCode\': \'string\',
+                        \'responseParameters\': {
+                            \'string\': True|False
                         },
-                        'responseModels': {
-                            'string': 'string'
+                        \'responseModels\': {
+                            \'string\': \'string\'
                         }
                     }
                 },
-                'methodIntegration': {
-                    'type': 'HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-                    'httpMethod': 'string',
-                    'uri': 'string',
-                    'connectionType': 'INTERNET'|'VPC_LINK',
-                    'connectionId': 'string',
-                    'credentials': 'string',
-                    'requestParameters': {
-                        'string': 'string'
+                \'methodIntegration\': {
+                    \'type\': \'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+                    \'httpMethod\': \'string\',
+                    \'uri\': \'string\',
+                    \'connectionType\': \'INTERNET\'|\'VPC_LINK\',
+                    \'connectionId\': \'string\',
+                    \'credentials\': \'string\',
+                    \'requestParameters\': {
+                        \'string\': \'string\'
                     },
-                    'requestTemplates': {
-                        'string': 'string'
+                    \'requestTemplates\': {
+                        \'string\': \'string\'
                     },
-                    'passthroughBehavior': 'string',
-                    'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
-                    'timeoutInMillis': 123,
-                    'cacheNamespace': 'string',
-                    'cacheKeyParameters': [
-                        'string',
+                    \'passthroughBehavior\': \'string\',
+                    \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
+                    \'timeoutInMillis\': 123,
+                    \'cacheNamespace\': \'string\',
+                    \'cacheKeyParameters\': [
+                        \'string\',
                     ],
-                    'integrationResponses': {
-                        'string': {
-                            'statusCode': 'string',
-                            'selectionPattern': 'string',
-                            'responseParameters': {
-                                'string': 'string'
+                    \'integrationResponses\': {
+                        \'string\': {
+                            \'statusCode\': \'string\',
+                            \'selectionPattern\': \'string\',
+                            \'responseParameters\': {
+                                \'string\': \'string\'
                             },
-                            'responseTemplates': {
-                                'string': 'string'
+                            \'responseTemplates\': {
+                                \'string\': \'string\'
                             },
-                            'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                            \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
                         }
                     }
                 },
-                'authorizationScopes': [
-                    'string',
+                \'authorizationScopes\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -10134,19 +10134,19 @@ class Client(BaseClient):
         
             The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-             ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+             ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": true, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\\")\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
             In the example above, the response template for the ``200 OK`` response maps the JSON output from the ``ListStreams`` action in the back end to an XML output. The mapping template is URL-encoded as ``%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E`` and the output is decoded using the `$util.urlDecode() <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference>`__ helper function.
         
-                MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API's method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
+                MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API\'s method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
             
             - **httpMethod** *(string) --* 
         
-              The method's HTTP verb.
+              The method\'s HTTP verb.
         
             - **authorizationType** *(string) --* 
         
-              The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+              The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
             - **authorizerId** *(string) --* 
         
@@ -10184,7 +10184,7 @@ class Client(BaseClient):
         
               Gets a method response associated with a given HTTP status code. 
         
-              The collection of method responses are encapsulated in a key-value map, where the key is a response's HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
+              The collection of method responses are encapsulated in a key-value map, where the key is a response\'s HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
         
                Example: Get a 200 OK response of a GET method Request 
         
@@ -10192,7 +10192,7 @@ class Client(BaseClient):
         
               The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-               ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.operator": false, "method.response.header.operand_2": false, "method.response.header.operand_1": false }, "statusCode": "200" }``  
+               ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.operator\": false, \"method.response.header.operand_2\": false, \"method.response.header.operand_1\": false }, \"statusCode\": \"200\" }``  
         
                  `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html>`__  
               
@@ -10210,17 +10210,17 @@ class Client(BaseClient):
         
                   The successful response returns ``200 OK`` status and a payload as follows:
         
-                   ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }``  
+                   ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" }``  
         
                       Method ,  IntegrationResponse ,  Integration  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                   
                   - **statusCode** *(string) --* 
         
-                    The method response's status code.
+                    The method response\'s status code.
         
                   - **responseParameters** *(dict) --* 
         
-                    A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+                    A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
                     - *(string) --* 
                       
@@ -10228,7 +10228,7 @@ class Client(BaseClient):
                 
                   - **responseModels** *(dict) --* 
         
-                    Specifies the  Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
+                    Specifies the  Model resources used for the response\'s content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
         
                     - *(string) --* 
                       
@@ -10236,7 +10236,7 @@ class Client(BaseClient):
                 
             - **methodIntegration** *(dict) --* 
         
-              Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
+              Gets the method\'s integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
         
                Example:  Request 
         
@@ -10244,7 +10244,7 @@ class Client(BaseClient):
         
               The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-               ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }``  
+               ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"0cjtch\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestTemplates\": { \"application/json\": \"{\n \\"a\\": \\"$input.params(\'operand1\')\\",\n \\"b\\": \\"$input.params(\'operand2\')\\", \n \\"op\\": \\"$input.params(\'operator\')\\" \n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.operator\": \"integration.response.body.op\", \"method.response.header.operand_2\": \"integration.response.body.b\", \"method.response.header.operand_1\": \"integration.response.body.a\" }, \"responseTemplates\": { \"application/json\": \"#set($res = $input.path(\'$\'))\n{\n \\"result\\": \\"$res.a, $res.b, $res.op => $res.c\\",\n \\"a\\" : \\"$res.a\\",\n \\"b\\" : \\"$res.b\\",\n \\"op\\" : \\"$res.op\\",\n \\"c\\" : \\"$res.c\\"\n}\" }, \"selectionPattern\": \"\", \"statusCode\": \"200\" } } }``  
         
                  `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html>`__  
               
@@ -10260,13 +10260,13 @@ class Client(BaseClient):
                  
                 * ``HTTP_PROXY`` : for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.
                  
-                * ``MOCK`` : for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.
+                * ``MOCK`` : for integrating the API method request with API Gateway as a \"loop-back\" endpoint without invoking any backend.
                  
                 For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https`` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a  VpcLink to connect API Gateway to a network load balancer of a VPC.
         
               - **httpMethod** *(string) --* 
         
-                Specifies the integration's HTTP method type.
+                Specifies the integration\'s HTTP method type.
         
               - **uri** *(string) --* 
         
@@ -10286,7 +10286,7 @@ class Client(BaseClient):
         
               - **credentials** *(string) --* 
         
-                Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
+                Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
         
               - **requestParameters** *(dict) --* 
         
@@ -10330,17 +10330,17 @@ class Client(BaseClient):
         
               - **cacheNamespace** *(string) --* 
         
-                Specifies the integration's cache namespace.
+                Specifies the integration\'s cache namespace.
         
               - **cacheKeyParameters** *(list) --* 
         
-                Specifies the integration's cache key parameters.
+                Specifies the integration\'s cache key parameters.
         
                 - *(string) --* 
             
               - **integrationResponses** *(dict) --* 
         
-                Specifies the integration's responses.
+                Specifies the integration\'s responses.
         
                  Example: Get integration responses of a method Request 
         
@@ -10348,7 +10348,7 @@ class Client(BaseClient):
         
                 The successful response returns ``200 OK`` status and a payload as follows:
         
-                 ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }``  
+                 ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" }``  
         
                    `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                 
@@ -10412,15 +10412,15 @@ class Client(BaseClient):
         ::
         
           response = client.put_method_response(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
-              statusCode='string',
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
+              statusCode=\'string\',
               responseParameters={
-                  'string': True|False
+                  \'string\': True|False
               },
               responseModels={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type restApiId: string
@@ -10441,12 +10441,12 @@ class Client(BaseClient):
         :type statusCode: string
         :param statusCode: **[REQUIRED]** 
         
-          [Required] The method response's status code.
+          [Required] The method response\'s status code.
         
         :type responseParameters: dict
         :param responseParameters: 
         
-          A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+          A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
           - *(string) --* 
         
@@ -10455,7 +10455,7 @@ class Client(BaseClient):
         :type responseModels: dict
         :param responseModels: 
         
-          Specifies the  Model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a  Model name as the value.
+          Specifies the  Model resources used for the response\'s content type. Response models are represented as a key/value map, with a content type as the key and a  Model name as the value.
         
           - *(string) --* 
         
@@ -10469,12 +10469,12 @@ class Client(BaseClient):
           ::
         
             {
-                'statusCode': 'string',
-                'responseParameters': {
-                    'string': True|False
+                \'statusCode\': \'string\',
+                \'responseParameters\': {
+                    \'string\': True|False
                 },
-                'responseModels': {
-                    'string': 'string'
+                \'responseModels\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10491,17 +10491,17 @@ class Client(BaseClient):
         
             The successful response returns ``200 OK`` status and a payload as follows:
         
-             ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }``  
+             ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" }``  
         
                 Method ,  IntegrationResponse ,  Integration  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
             
             - **statusCode** *(string) --* 
         
-              The method response's status code.
+              The method response\'s status code.
         
             - **responseParameters** *(dict) --* 
         
-              A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+              A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
               - *(string) --* 
                 
@@ -10509,7 +10509,7 @@ class Client(BaseClient):
           
             - **responseModels** *(dict) --* 
         
-              Specifies the  Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
+              Specifies the  Model resources used for the response\'s content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
         
               - *(string) --* 
                 
@@ -10527,13 +10527,13 @@ class Client(BaseClient):
         ::
         
           response = client.put_rest_api(
-              restApiId='string',
-              mode='merge'|'overwrite',
+              restApiId=\'string\',
+              mode=\'merge\'|\'overwrite\',
               failOnWarnings=True|False,
               parameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              body=b'bytes'|file
+              body=b\'bytes\'|file
           )
         :type restApiId: string
         :param restApiId: **[REQUIRED]** 
@@ -10543,7 +10543,7 @@ class Client(BaseClient):
         :type mode: string
         :param mode: 
         
-          The ``mode`` query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default, the update mode is "merge".
+          The ``mode`` query parameter to specify the update mode. Valid values are \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
         
         :type failOnWarnings: boolean
         :param failOnWarnings: 
@@ -10553,7 +10553,7 @@ class Client(BaseClient):
         :type parameters: dict
         :param parameters: 
         
-          Custom header parameters as part of the request. For example, to exclude  DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'`` .
+          Custom header parameters as part of the request. For example, to exclude  DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body \'file:///path/to/imported-api-body.json\'`` .
         
           - *(string) --* 
         
@@ -10572,25 +10572,25 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'version': 'string',
-                'warnings': [
-                    'string',
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'version\': \'string\',
+                \'warnings\': [
+                    \'string\',
                 ],
-                'binaryMediaTypes': [
-                    'string',
+                \'binaryMediaTypes\': [
+                    \'string\',
                 ],
-                'minimumCompressionSize': 123,
-                'apiKeySource': 'HEADER'|'AUTHORIZER',
-                'endpointConfiguration': {
-                    'types': [
-                        'REGIONAL'|'EDGE'|'PRIVATE',
+                \'minimumCompressionSize\': 123,
+                \'apiKeySource\': \'HEADER\'|\'AUTHORIZER\',
+                \'endpointConfiguration\': {
+                    \'types\': [
+                        \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                     ]
                 },
-                'policy': 'string'
+                \'policy\': \'string\'
             }
           **Response Structure** 
         
@@ -10602,15 +10602,15 @@ class Client(BaseClient):
             
             - **id** *(string) --* 
         
-              The API's identifier. This identifier is unique across all of your APIs in API Gateway.
+              The API\'s identifier. This identifier is unique across all of your APIs in API Gateway.
         
             - **name** *(string) --* 
         
-              The API's name.
+              The API\'s name.
         
             - **description** *(string) --* 
         
-              The API's description.
+              The API\'s description.
         
             - **createdDate** *(datetime) --* 
         
@@ -10650,7 +10650,7 @@ class Client(BaseClient):
         
               - **types** *(list) --* 
         
-                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                 - *(string) --* 
         
@@ -10669,9 +10669,9 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              resourceArn='string',
+              resourceArn=\'string\',
               tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type resourceArn: string
@@ -10703,23 +10703,23 @@ class Client(BaseClient):
         ::
         
           response = client.test_invoke_authorizer(
-              restApiId='string',
-              authorizerId='string',
+              restApiId=\'string\',
+              authorizerId=\'string\',
               headers={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               multiValueHeaders={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
-              pathWithQueryString='string',
-              body='string',
+              pathWithQueryString=\'string\',
+              body=\'string\',
               stageVariables={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               additionalContext={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type restApiId: string
@@ -10730,7 +10730,7 @@ class Client(BaseClient):
         :type authorizerId: string
         :param authorizerId: **[REQUIRED]** 
         
-          [Required] Specifies a test invoke authorizer request's  Authorizer ID.
+          [Required] Specifies a test invoke authorizer request\'s  Authorizer ID.
         
         :type headers: dict
         :param headers: 
@@ -10788,18 +10788,18 @@ class Client(BaseClient):
           ::
         
             {
-                'clientStatus': 123,
-                'log': 'string',
-                'latency': 123,
-                'principalId': 'string',
-                'policy': 'string',
-                'authorization': {
-                    'string': [
-                        'string',
+                \'clientStatus\': 123,
+                \'log\': \'string\',
+                \'latency\': 123,
+                \'principalId\': \'string\',
+                \'policy\': \'string\',
+                \'authorization\': {
+                    \'string\': [
+                        \'string\',
                     ]
                 },
-                'claims': {
-                    'string': 'string'
+                \'claims\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10856,22 +10856,22 @@ class Client(BaseClient):
         ::
         
           response = client.test_invoke_method(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
-              pathWithQueryString='string',
-              body='string',
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
+              pathWithQueryString=\'string\',
+              body=\'string\',
               headers={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               multiValueHeaders={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
-              clientCertificateId='string',
+              clientCertificateId=\'string\',
               stageVariables={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type restApiId: string
@@ -10882,12 +10882,12 @@ class Client(BaseClient):
         :type resourceId: string
         :param resourceId: **[REQUIRED]** 
         
-          [Required] Specifies a test invoke method request's resource ID.
+          [Required] Specifies a test invoke method request\'s resource ID.
         
         :type httpMethod: string
         :param httpMethod: **[REQUIRED]** 
         
-          [Required] Specifies a test invoke method request's HTTP method.
+          [Required] Specifies a test invoke method request\'s HTTP method.
         
         :type pathWithQueryString: string
         :param pathWithQueryString: 
@@ -10941,18 +10941,18 @@ class Client(BaseClient):
           ::
         
             {
-                'status': 123,
-                'body': 'string',
-                'headers': {
-                    'string': 'string'
+                \'status\': 123,
+                \'body\': \'string\',
+                \'headers\': {
+                    \'string\': \'string\'
                 },
-                'multiValueHeaders': {
-                    'string': [
-                        'string',
+                \'multiValueHeaders\': {
+                    \'string\': [
+                        \'string\',
                     ]
                 },
-                'log': 'string',
-                'latency': 123
+                \'log\': \'string\',
+                \'latency\': 123
             }
           **Response Structure** 
         
@@ -11008,9 +11008,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              resourceArn='string',
+              resourceArn=\'string\',
               tagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type resourceArn: string
@@ -11040,10 +11040,10 @@ class Client(BaseClient):
           response = client.update_account(
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -11060,15 +11060,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -11078,15 +11078,15 @@ class Client(BaseClient):
           ::
         
             {
-                'cloudwatchRoleArn': 'string',
-                'throttleSettings': {
-                    'burstLimit': 123,
-                    'rateLimit': 123.0
+                \'cloudwatchRoleArn\': \'string\',
+                \'throttleSettings\': {
+                    \'burstLimit\': 123,
+                    \'rateLimit\': 123.0
                 },
-                'features': [
-                    'string',
+                \'features\': [
+                    \'string\',
                 ],
-                'apiKeyVersion': 'string'
+                \'apiKeyVersion\': \'string\'
             }
           **Response Structure** 
         
@@ -11112,7 +11112,7 @@ class Client(BaseClient):
         
             The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-             ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/account-apigateway-{rel}.html", "name": "account", "templated": true }, "self": { "href": "/account" }, "account:update": { "href": "/account" } }, "cloudwatchRoleArn": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "throttleSettings": { "rateLimit": 500, "burstLimit": 1000 } }``  
+             ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/account-apigateway-{rel}.html\", \"name\": \"account\", \"templated\": true }, \"self\": { \"href\": \"/account\" }, \"account:update\": { \"href\": \"/account\" } }, \"cloudwatchRoleArn\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"throttleSettings\": { \"rateLimit\": 500, \"burstLimit\": 1000 } }``  
         
             In addition to making the REST API call directly, you can use the AWS CLI and an AWS SDK to access this resource.
         
@@ -11136,7 +11136,7 @@ class Client(BaseClient):
         
             - **features** *(list) --* 
         
-              A list of features supported for the account. When usage plans are enabled, the features list will include an entry of ``"UsagePlans"`` .
+              A list of features supported for the account. When usage plans are enabled, the features list will include an entry of ``\"UsagePlans\"`` .
         
               - *(string) --* 
           
@@ -11156,13 +11156,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_api_key(
-              apiKey='string',
+              apiKey=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -11184,15 +11184,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -11202,16 +11202,16 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'value': 'string',
-                'name': 'string',
-                'customerId': 'string',
-                'description': 'string',
-                'enabled': True|False,
-                'createdDate': datetime(2015, 1, 1),
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'stageKeys': [
-                    'string',
+                \'id\': \'string\',
+                \'value\': \'string\',
+                \'name\': \'string\',
+                \'customerId\': \'string\',
+                \'description\': \'string\',
+                \'enabled\': True|False,
+                \'createdDate\': datetime(2015, 1, 1),
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'stageKeys\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -11274,14 +11274,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_authorizer(
-              restApiId='string',
-              authorizerId='string',
+              restApiId=\'string\',
+              authorizerId=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -11308,15 +11308,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -11326,18 +11326,18 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'type': 'TOKEN'|'REQUEST'|'COGNITO_USER_POOLS',
-                'providerARNs': [
-                    'string',
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'type\': \'TOKEN\'|\'REQUEST\'|\'COGNITO_USER_POOLS\',
+                \'providerARNs\': [
+                    \'string\',
                 ],
-                'authType': 'string',
-                'authorizerUri': 'string',
-                'authorizerCredentials': 'string',
-                'identitySource': 'string',
-                'identityValidationExpression': 'string',
-                'authorizerResultTtlInSeconds': 123
+                \'authType\': \'string\',
+                \'authorizerUri\': \'string\',
+                \'authorizerCredentials\': \'string\',
+                \'identitySource\': \'string\',
+                \'identityValidationExpression\': \'string\',
+                \'authorizerResultTtlInSeconds\': 123
             }
           **Response Structure** 
         
@@ -11371,11 +11371,11 @@ class Client(BaseClient):
         
             - **authorizerUri** *(string) --* 
         
-              Specifies the authorizer's Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations`` . In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}`` , where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/`` . For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations`` .
+              Specifies the authorizer\'s Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations`` . In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}`` , where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/`` . For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations`` .
         
             - **authorizerCredentials** *(string) --* 
         
-              Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
+              Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
         
             - **identitySource** *(string) --* 
         
@@ -11387,7 +11387,7 @@ class Client(BaseClient):
               
             - **identityValidationExpression** *(string) --* 
         
-              A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
+              A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer\'s Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
         
             - **authorizerResultTtlInSeconds** *(integer) --* 
         
@@ -11405,14 +11405,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_base_path_mapping(
-              domainName='string',
-              basePath='string',
+              domainName=\'string\',
+              basePath=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -11439,15 +11439,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -11457,9 +11457,9 @@ class Client(BaseClient):
           ::
         
             {
-                'basePath': 'string',
-                'restApiId': 'string',
-                'stage': 'string'
+                \'basePath\': \'string\',
+                \'restApiId\': \'string\',
+                \'stage\': \'string\'
             }
           **Response Structure** 
         
@@ -11493,13 +11493,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_client_certificate(
-              clientCertificateId='string',
+              clientCertificateId=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -11521,15 +11521,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -11539,11 +11539,11 @@ class Client(BaseClient):
           ::
         
             {
-                'clientCertificateId': 'string',
-                'description': 'string',
-                'pemEncodedCertificate': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'expirationDate': datetime(2015, 1, 1)
+                \'clientCertificateId\': \'string\',
+                \'description\': \'string\',
+                \'pemEncodedCertificate\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'expirationDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -11585,14 +11585,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_deployment(
-              restApiId='string',
-              deploymentId='string',
+              restApiId=\'string\',
+              deploymentId=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -11619,15 +11619,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -11637,14 +11637,14 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'description': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'apiSummary': {
-                    'string': {
-                        'string': {
-                            'authorizationType': 'string',
-                            'apiKeyRequired': True|False
+                \'id\': \'string\',
+                \'description\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'apiSummary\': {
+                    \'string\': {
+                        \'string\': {
+                            \'authorizationType\': \'string\',
+                            \'apiKeyRequired\': True|False
                         }
                     }
                 }
@@ -11685,7 +11685,7 @@ class Client(BaseClient):
         
                       - **authorizationType** *(string) --* 
         
-                        The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+                        The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
                       - **apiKeyRequired** *(boolean) --* 
         
@@ -11701,14 +11701,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_documentation_part(
-              restApiId='string',
-              documentationPartId='string',
+              restApiId=\'string\',
+              documentationPartId=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -11735,15 +11735,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -11753,15 +11753,15 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'location': {
-                    'type': 'API'|'AUTHORIZER'|'MODEL'|'RESOURCE'|'METHOD'|'PATH_PARAMETER'|'QUERY_PARAMETER'|'REQUEST_HEADER'|'REQUEST_BODY'|'RESPONSE'|'RESPONSE_HEADER'|'RESPONSE_BODY',
-                    'path': 'string',
-                    'method': 'string',
-                    'statusCode': 'string',
-                    'name': 'string'
+                \'id\': \'string\',
+                \'location\': {
+                    \'type\': \'API\'|\'AUTHORIZER\'|\'MODEL\'|\'RESOURCE\'|\'METHOD\'|\'PATH_PARAMETER\'|\'QUERY_PARAMETER\'|\'REQUEST_HEADER\'|\'REQUEST_BODY\'|\'RESPONSE\'|\'RESPONSE_HEADER\'|\'RESPONSE_BODY\',
+                    \'path\': \'string\',
+                    \'method\': \'string\',
+                    \'statusCode\': \'string\',
+                    \'name\': \'string\'
                 },
-                'properties': 'string'
+                \'properties\': \'string\'
             }
           **Response Structure** 
         
@@ -11789,15 +11789,15 @@ class Client(BaseClient):
         
               - **path** *(string) --* 
         
-                The URL path of the target. It is a valid field for the API entity types of ``RESOURCE`` , ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``path`` attribute must match that of the parent entity as a prefix.
+                The URL path of the target. It is a valid field for the API entity types of ``RESOURCE`` , ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``path`` attribute must match that of the parent entity as a prefix.
         
               - **method** *(string) --* 
         
-                The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``method`` attribute must match that of the parent entity exactly.
+                The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD`` , ``PATH_PARAMETER`` , ``QUERY_PARAMETER`` , ``REQUEST_HEADER`` , ``REQUEST_BODY`` , ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``method`` attribute must match that of the parent entity exactly.
         
               - **statusCode** *(string) --* 
         
-                The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``statusCode`` attribute must match that of the parent entity exactly.
+                The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE`` , ``RESPONSE_HEADER`` , and ``RESPONSE_BODY`` . The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity\'s ``statusCode`` attribute must match that of the parent entity exactly.
         
               - **name** *(string) --* 
         
@@ -11805,7 +11805,7 @@ class Client(BaseClient):
         
             - **properties** *(string) --* 
         
-              A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., ``"{ \"description\": \"The API does ...\" }"`` . Only OpenAPI-compliant documentation-related fields from the propertiesmap are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of ``x-amazon-apigateway-documentation`` .
+              A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., ``\"{ \\"description\\": \\"The API does ...\\" }\"`` . Only OpenAPI-compliant documentation-related fields from the propertiesmap are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of ``x-amazon-apigateway-documentation`` .
         
         """
         pass
@@ -11817,14 +11817,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_documentation_version(
-              restApiId='string',
-              documentationVersion='string',
+              restApiId=\'string\',
+              documentationVersion=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -11851,15 +11851,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -11869,9 +11869,9 @@ class Client(BaseClient):
           ::
         
             {
-                'version': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'description': 'string'
+                \'version\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'description\': \'string\'
             }
           **Response Structure** 
         
@@ -11907,13 +11907,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_domain_name(
-              domainName='string',
+              domainName=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -11935,15 +11935,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -11953,19 +11953,19 @@ class Client(BaseClient):
           ::
         
             {
-                'domainName': 'string',
-                'certificateName': 'string',
-                'certificateArn': 'string',
-                'certificateUploadDate': datetime(2015, 1, 1),
-                'regionalDomainName': 'string',
-                'regionalHostedZoneId': 'string',
-                'regionalCertificateName': 'string',
-                'regionalCertificateArn': 'string',
-                'distributionDomainName': 'string',
-                'distributionHostedZoneId': 'string',
-                'endpointConfiguration': {
-                    'types': [
-                        'REGIONAL'|'EDGE'|'PRIVATE',
+                \'domainName\': \'string\',
+                \'certificateName\': \'string\',
+                \'certificateArn\': \'string\',
+                \'certificateUploadDate\': datetime(2015, 1, 1),
+                \'regionalDomainName\': \'string\',
+                \'regionalHostedZoneId\': \'string\',
+                \'regionalCertificateName\': \'string\',
+                \'regionalCertificateArn\': \'string\',
+                \'distributionDomainName\': \'string\',
+                \'distributionHostedZoneId\': \'string\',
+                \'endpointConfiguration\': {
+                    \'types\': [
+                        \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                     ]
                 }
             }
@@ -11975,7 +11975,7 @@ class Client(BaseClient):
         
             Represents a custom domain name as a user-friendly host name of an API ( RestApi ).
         
-            When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the ``{restapi-id}.execute-api.{region}.amazonaws.com`` format. With the default host name, you can access the API's root resource with the URL of ``https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/`` . When you set up a custom domain name of ``apis.example.com`` for this API, you can then access the same resource using the URL of the ``https://apis.examples.com/myApi`` , where ``myApi`` is the base path mapping ( BasePathMapping ) of your API under the custom domain name. 
+            When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the ``{restapi-id}.execute-api.{region}.amazonaws.com`` format. With the default host name, you can access the API\'s root resource with the URL of ``https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/`` . When you set up a custom domain name of ``apis.example.com`` for this API, you can then access the same resource using the URL of the ``https://apis.examples.com/myApi`` , where ``myApi`` is the base path mapping ( BasePathMapping ) of your API under the custom domain name. 
         
                `Set a Custom Host Name for an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html>`__  
             
@@ -12025,7 +12025,7 @@ class Client(BaseClient):
         
               - **types** *(list) --* 
         
-                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                 - *(string) --* 
         
@@ -12043,14 +12043,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_gateway_response(
-              restApiId='string',
-              responseType='DEFAULT_4XX'|'DEFAULT_5XX'|'RESOURCE_NOT_FOUND'|'UNAUTHORIZED'|'INVALID_API_KEY'|'ACCESS_DENIED'|'AUTHORIZER_FAILURE'|'AUTHORIZER_CONFIGURATION_ERROR'|'INVALID_SIGNATURE'|'EXPIRED_TOKEN'|'MISSING_AUTHENTICATION_TOKEN'|'INTEGRATION_FAILURE'|'INTEGRATION_TIMEOUT'|'API_CONFIGURATION_ERROR'|'UNSUPPORTED_MEDIA_TYPE'|'BAD_REQUEST_PARAMETERS'|'BAD_REQUEST_BODY'|'REQUEST_TOO_LARGE'|'THROTTLED'|'QUOTA_EXCEEDED',
+              restApiId=\'string\',
+              responseType=\'DEFAULT_4XX\'|\'DEFAULT_5XX\'|\'RESOURCE_NOT_FOUND\'|\'UNAUTHORIZED\'|\'INVALID_API_KEY\'|\'ACCESS_DENIED\'|\'AUTHORIZER_FAILURE\'|\'AUTHORIZER_CONFIGURATION_ERROR\'|\'INVALID_SIGNATURE\'|\'EXPIRED_TOKEN\'|\'MISSING_AUTHENTICATION_TOKEN\'|\'INTEGRATION_FAILURE\'|\'INTEGRATION_TIMEOUT\'|\'API_CONFIGURATION_ERROR\'|\'UNSUPPORTED_MEDIA_TYPE\'|\'BAD_REQUEST_PARAMETERS\'|\'BAD_REQUEST_BODY\'|\'REQUEST_TOO_LARGE\'|\'THROTTLED\'|\'QUOTA_EXCEEDED\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -12119,15 +12119,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -12137,15 +12137,15 @@ class Client(BaseClient):
           ::
         
             {
-                'responseType': 'DEFAULT_4XX'|'DEFAULT_5XX'|'RESOURCE_NOT_FOUND'|'UNAUTHORIZED'|'INVALID_API_KEY'|'ACCESS_DENIED'|'AUTHORIZER_FAILURE'|'AUTHORIZER_CONFIGURATION_ERROR'|'INVALID_SIGNATURE'|'EXPIRED_TOKEN'|'MISSING_AUTHENTICATION_TOKEN'|'INTEGRATION_FAILURE'|'INTEGRATION_TIMEOUT'|'API_CONFIGURATION_ERROR'|'UNSUPPORTED_MEDIA_TYPE'|'BAD_REQUEST_PARAMETERS'|'BAD_REQUEST_BODY'|'REQUEST_TOO_LARGE'|'THROTTLED'|'QUOTA_EXCEEDED',
-                'statusCode': 'string',
-                'responseParameters': {
-                    'string': 'string'
+                \'responseType\': \'DEFAULT_4XX\'|\'DEFAULT_5XX\'|\'RESOURCE_NOT_FOUND\'|\'UNAUTHORIZED\'|\'INVALID_API_KEY\'|\'ACCESS_DENIED\'|\'AUTHORIZER_FAILURE\'|\'AUTHORIZER_CONFIGURATION_ERROR\'|\'INVALID_SIGNATURE\'|\'EXPIRED_TOKEN\'|\'MISSING_AUTHENTICATION_TOKEN\'|\'INTEGRATION_FAILURE\'|\'INTEGRATION_TIMEOUT\'|\'API_CONFIGURATION_ERROR\'|\'UNSUPPORTED_MEDIA_TYPE\'|\'BAD_REQUEST_PARAMETERS\'|\'BAD_REQUEST_BODY\'|\'REQUEST_TOO_LARGE\'|\'THROTTLED\'|\'QUOTA_EXCEEDED\',
+                \'statusCode\': \'string\',
+                \'responseParameters\': {
+                    \'string\': \'string\'
                 },
-                'responseTemplates': {
-                    'string': 'string'
+                \'responseTemplates\': {
+                    \'string\': \'string\'
                 },
-                'defaultResponse': True|False
+                \'defaultResponse\': True|False
             }
           **Response Structure** 
         
@@ -12165,7 +12165,7 @@ class Client(BaseClient):
         
             The successful operation returns the ``200 OK`` status code and a payload similar to the following:
         
-             ``{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:delete": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": false, "responseParameters": { "gatewayresponse.header.x-request-path": "method.request.path.petId", "gatewayresponse.header.Access-Control-Allow-Origin": "'a.b.c'", "gatewayresponse.header.x-request-query": "method.request.querystring.q", "gatewayresponse.header.x-request-header": "method.request.header.Accept" }, "responseTemplates": { "application/json": "{\n \"message\": $context.error.messageString,\n \"type\": \"$context.error.responseType\",\n \"stage\": \"$context.stage\",\n \"resourcePath\": \"$context.resourcePath\",\n \"stageVariables.a\": \"$stageVariables.a\",\n \"statusCode\": \"'404'\"\n}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "404" }``  
+             ``{ \"_links\": { \"curies\": { \"href\": \"http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html\", \"name\": \"gatewayresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" }, \"gatewayresponse:delete\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" }, \"gatewayresponse:put\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/{response_type}\", \"templated\": true }, \"gatewayresponse:update\": { \"href\": \"/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN\" } }, \"defaultResponse\": false, \"responseParameters\": { \"gatewayresponse.header.x-request-path\": \"method.request.path.petId\", \"gatewayresponse.header.Access-Control-Allow-Origin\": \"\'a.b.c\'\", \"gatewayresponse.header.x-request-query\": \"method.request.querystring.q\", \"gatewayresponse.header.x-request-header\": \"method.request.header.Accept\" }, \"responseTemplates\": { \"application/json\": \"{\n \\"message\\": $context.error.messageString,\n \\"type\\": \\"$context.error.responseType\\",\n \\"stage\\": \\"$context.stage\\",\n \\"resourcePath\\": \\"$context.resourcePath\\",\n \\"stageVariables.a\\": \\"$stageVariables.a\\",\n \\"statusCode\\": \\"\'404\'\\"\n}\" }, \"responseType\": \"MISSING_AUTHENTICATION_TOKEN\", \"statusCode\": \"404\" }``  
         
                 `Customize Gateway Responses <https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html>`__  
             
@@ -12249,15 +12249,15 @@ class Client(BaseClient):
         ::
         
           response = client.update_integration(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -12269,12 +12269,12 @@ class Client(BaseClient):
         :type resourceId: string
         :param resourceId: **[REQUIRED]** 
         
-          [Required] Represents an update integration request's resource identifier.
+          [Required] Represents an update integration request\'s resource identifier.
         
         :type httpMethod: string
         :param httpMethod: **[REQUIRED]** 
         
-          [Required] Represents an update integration request's HTTP method.
+          [Required] Represents an update integration request\'s HTTP method.
         
         :type patchOperations: list
         :param patchOperations: 
@@ -12289,15 +12289,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -12307,36 +12307,36 @@ class Client(BaseClient):
           ::
         
             {
-                'type': 'HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-                'httpMethod': 'string',
-                'uri': 'string',
-                'connectionType': 'INTERNET'|'VPC_LINK',
-                'connectionId': 'string',
-                'credentials': 'string',
-                'requestParameters': {
-                    'string': 'string'
+                \'type\': \'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+                \'httpMethod\': \'string\',
+                \'uri\': \'string\',
+                \'connectionType\': \'INTERNET\'|\'VPC_LINK\',
+                \'connectionId\': \'string\',
+                \'credentials\': \'string\',
+                \'requestParameters\': {
+                    \'string\': \'string\'
                 },
-                'requestTemplates': {
-                    'string': 'string'
+                \'requestTemplates\': {
+                    \'string\': \'string\'
                 },
-                'passthroughBehavior': 'string',
-                'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
-                'timeoutInMillis': 123,
-                'cacheNamespace': 'string',
-                'cacheKeyParameters': [
-                    'string',
+                \'passthroughBehavior\': \'string\',
+                \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
+                \'timeoutInMillis\': 123,
+                \'cacheNamespace\': \'string\',
+                \'cacheKeyParameters\': [
+                    \'string\',
                 ],
-                'integrationResponses': {
-                    'string': {
-                        'statusCode': 'string',
-                        'selectionPattern': 'string',
-                        'responseParameters': {
-                            'string': 'string'
+                \'integrationResponses\': {
+                    \'string\': {
+                        \'statusCode\': \'string\',
+                        \'selectionPattern\': \'string\',
+                        \'responseParameters\': {
+                            \'string\': \'string\'
                         },
-                        'responseTemplates': {
-                            'string': 'string'
+                        \'responseTemplates\': {
+                            \'string\': \'string\'
                         },
-                        'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                        \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
                     }
                 }
             }
@@ -12360,13 +12360,13 @@ class Client(BaseClient):
                
               * ``HTTP_PROXY`` : for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.
                
-              * ``MOCK`` : for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.
+              * ``MOCK`` : for integrating the API method request with API Gateway as a \"loop-back\" endpoint without invoking any backend.
                
               For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https`` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a  VpcLink to connect API Gateway to a network load balancer of a VPC.
         
             - **httpMethod** *(string) --* 
         
-              Specifies the integration's HTTP method type.
+              Specifies the integration\'s HTTP method type.
         
             - **uri** *(string) --* 
         
@@ -12386,7 +12386,7 @@ class Client(BaseClient):
         
             - **credentials** *(string) --* 
         
-              Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
+              Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
         
             - **requestParameters** *(dict) --* 
         
@@ -12430,17 +12430,17 @@ class Client(BaseClient):
         
             - **cacheNamespace** *(string) --* 
         
-              Specifies the integration's cache namespace.
+              Specifies the integration\'s cache namespace.
         
             - **cacheKeyParameters** *(list) --* 
         
-              Specifies the integration's cache key parameters.
+              Specifies the integration\'s cache key parameters.
         
               - *(string) --* 
           
             - **integrationResponses** *(dict) --* 
         
-              Specifies the integration's responses.
+              Specifies the integration\'s responses.
         
                Example: Get integration responses of a method Request 
         
@@ -12448,7 +12448,7 @@ class Client(BaseClient):
         
               The successful response returns ``200 OK`` status and a payload as follows:
         
-               ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }``  
+               ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" }``  
         
                  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
               
@@ -12506,16 +12506,16 @@ class Client(BaseClient):
         ::
         
           response = client.update_integration_response(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
-              statusCode='string',
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
+              statusCode=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -12527,17 +12527,17 @@ class Client(BaseClient):
         :type resourceId: string
         :param resourceId: **[REQUIRED]** 
         
-          [Required] Specifies an update integration response request's resource identifier.
+          [Required] Specifies an update integration response request\'s resource identifier.
         
         :type httpMethod: string
         :param httpMethod: **[REQUIRED]** 
         
-          [Required] Specifies an update integration response request's HTTP method.
+          [Required] Specifies an update integration response request\'s HTTP method.
         
         :type statusCode: string
         :param statusCode: **[REQUIRED]** 
         
-          [Required] Specifies an update integration response request's status code.
+          [Required] Specifies an update integration response request\'s status code.
         
         :type patchOperations: list
         :param patchOperations: 
@@ -12552,15 +12552,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -12570,15 +12570,15 @@ class Client(BaseClient):
           ::
         
             {
-                'statusCode': 'string',
-                'selectionPattern': 'string',
-                'responseParameters': {
-                    'string': 'string'
+                \'statusCode\': \'string\',
+                \'selectionPattern\': \'string\',
+                \'responseParameters\': {
+                    \'string\': \'string\'
                 },
-                'responseTemplates': {
-                    'string': 'string'
+                \'responseTemplates\': {
+                    \'string\': \'string\'
                 },
-                'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
             }
           **Response Structure** 
         
@@ -12634,15 +12634,15 @@ class Client(BaseClient):
         ::
         
           response = client.update_method(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -12674,15 +12674,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -12692,65 +12692,65 @@ class Client(BaseClient):
           ::
         
             {
-                'httpMethod': 'string',
-                'authorizationType': 'string',
-                'authorizerId': 'string',
-                'apiKeyRequired': True|False,
-                'requestValidatorId': 'string',
-                'operationName': 'string',
-                'requestParameters': {
-                    'string': True|False
+                \'httpMethod\': \'string\',
+                \'authorizationType\': \'string\',
+                \'authorizerId\': \'string\',
+                \'apiKeyRequired\': True|False,
+                \'requestValidatorId\': \'string\',
+                \'operationName\': \'string\',
+                \'requestParameters\': {
+                    \'string\': True|False
                 },
-                'requestModels': {
-                    'string': 'string'
+                \'requestModels\': {
+                    \'string\': \'string\'
                 },
-                'methodResponses': {
-                    'string': {
-                        'statusCode': 'string',
-                        'responseParameters': {
-                            'string': True|False
+                \'methodResponses\': {
+                    \'string\': {
+                        \'statusCode\': \'string\',
+                        \'responseParameters\': {
+                            \'string\': True|False
                         },
-                        'responseModels': {
-                            'string': 'string'
+                        \'responseModels\': {
+                            \'string\': \'string\'
                         }
                     }
                 },
-                'methodIntegration': {
-                    'type': 'HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-                    'httpMethod': 'string',
-                    'uri': 'string',
-                    'connectionType': 'INTERNET'|'VPC_LINK',
-                    'connectionId': 'string',
-                    'credentials': 'string',
-                    'requestParameters': {
-                        'string': 'string'
+                \'methodIntegration\': {
+                    \'type\': \'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+                    \'httpMethod\': \'string\',
+                    \'uri\': \'string\',
+                    \'connectionType\': \'INTERNET\'|\'VPC_LINK\',
+                    \'connectionId\': \'string\',
+                    \'credentials\': \'string\',
+                    \'requestParameters\': {
+                        \'string\': \'string\'
                     },
-                    'requestTemplates': {
-                        'string': 'string'
+                    \'requestTemplates\': {
+                        \'string\': \'string\'
                     },
-                    'passthroughBehavior': 'string',
-                    'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
-                    'timeoutInMillis': 123,
-                    'cacheNamespace': 'string',
-                    'cacheKeyParameters': [
-                        'string',
+                    \'passthroughBehavior\': \'string\',
+                    \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
+                    \'timeoutInMillis\': 123,
+                    \'cacheNamespace\': \'string\',
+                    \'cacheKeyParameters\': [
+                        \'string\',
                     ],
-                    'integrationResponses': {
-                        'string': {
-                            'statusCode': 'string',
-                            'selectionPattern': 'string',
-                            'responseParameters': {
-                                'string': 'string'
+                    \'integrationResponses\': {
+                        \'string\': {
+                            \'statusCode\': \'string\',
+                            \'selectionPattern\': \'string\',
+                            \'responseParameters\': {
+                                \'string\': \'string\'
                             },
-                            'responseTemplates': {
-                                'string': 'string'
+                            \'responseTemplates\': {
+                                \'string\': \'string\'
                             },
-                            'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                            \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
                         }
                     }
                 },
-                'authorizationScopes': [
-                    'string',
+                \'authorizationScopes\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -12767,19 +12767,19 @@ class Client(BaseClient):
         
             The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-             ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+             ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": true, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\\")\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
             In the example above, the response template for the ``200 OK`` response maps the JSON output from the ``ListStreams`` action in the back end to an XML output. The mapping template is URL-encoded as ``%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E`` and the output is decoded using the `$util.urlDecode() <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference>`__ helper function.
         
-                MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API's method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
+                MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API\'s method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
             
             - **httpMethod** *(string) --* 
         
-              The method's HTTP verb.
+              The method\'s HTTP verb.
         
             - **authorizationType** *(string) --* 
         
-              The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+              The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
             - **authorizerId** *(string) --* 
         
@@ -12817,7 +12817,7 @@ class Client(BaseClient):
         
               Gets a method response associated with a given HTTP status code. 
         
-              The collection of method responses are encapsulated in a key-value map, where the key is a response's HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
+              The collection of method responses are encapsulated in a key-value map, where the key is a response\'s HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
         
                Example: Get a 200 OK response of a GET method Request 
         
@@ -12825,7 +12825,7 @@ class Client(BaseClient):
         
               The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-               ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.operator": false, "method.response.header.operand_2": false, "method.response.header.operand_1": false }, "statusCode": "200" }``  
+               ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.operator\": false, \"method.response.header.operand_2\": false, \"method.response.header.operand_1\": false }, \"statusCode\": \"200\" }``  
         
                  `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html>`__  
               
@@ -12843,17 +12843,17 @@ class Client(BaseClient):
         
                   The successful response returns ``200 OK`` status and a payload as follows:
         
-                   ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }``  
+                   ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" }``  
         
                       Method ,  IntegrationResponse ,  Integration  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                   
                   - **statusCode** *(string) --* 
         
-                    The method response's status code.
+                    The method response\'s status code.
         
                   - **responseParameters** *(dict) --* 
         
-                    A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+                    A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
                     - *(string) --* 
                       
@@ -12861,7 +12861,7 @@ class Client(BaseClient):
                 
                   - **responseModels** *(dict) --* 
         
-                    Specifies the  Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
+                    Specifies the  Model resources used for the response\'s content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
         
                     - *(string) --* 
                       
@@ -12869,7 +12869,7 @@ class Client(BaseClient):
                 
             - **methodIntegration** *(dict) --* 
         
-              Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
+              Gets the method\'s integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
         
                Example:  Request 
         
@@ -12877,7 +12877,7 @@ class Client(BaseClient):
         
               The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-               ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }``  
+               ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"0cjtch\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestTemplates\": { \"application/json\": \"{\n \\"a\\": \\"$input.params(\'operand1\')\\",\n \\"b\\": \\"$input.params(\'operand2\')\\", \n \\"op\\": \\"$input.params(\'operator\')\\" \n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.operator\": \"integration.response.body.op\", \"method.response.header.operand_2\": \"integration.response.body.b\", \"method.response.header.operand_1\": \"integration.response.body.a\" }, \"responseTemplates\": { \"application/json\": \"#set($res = $input.path(\'$\'))\n{\n \\"result\\": \\"$res.a, $res.b, $res.op => $res.c\\",\n \\"a\\" : \\"$res.a\\",\n \\"b\\" : \\"$res.b\\",\n \\"op\\" : \\"$res.op\\",\n \\"c\\" : \\"$res.c\\"\n}\" }, \"selectionPattern\": \"\", \"statusCode\": \"200\" } } }``  
         
                  `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html>`__  
               
@@ -12893,13 +12893,13 @@ class Client(BaseClient):
                  
                 * ``HTTP_PROXY`` : for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.
                  
-                * ``MOCK`` : for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.
+                * ``MOCK`` : for integrating the API method request with API Gateway as a \"loop-back\" endpoint without invoking any backend.
                  
                 For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https`` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a  VpcLink to connect API Gateway to a network load balancer of a VPC.
         
               - **httpMethod** *(string) --* 
         
-                Specifies the integration's HTTP method type.
+                Specifies the integration\'s HTTP method type.
         
               - **uri** *(string) --* 
         
@@ -12919,7 +12919,7 @@ class Client(BaseClient):
         
               - **credentials** *(string) --* 
         
-                Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
+                Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
         
               - **requestParameters** *(dict) --* 
         
@@ -12963,17 +12963,17 @@ class Client(BaseClient):
         
               - **cacheNamespace** *(string) --* 
         
-                Specifies the integration's cache namespace.
+                Specifies the integration\'s cache namespace.
         
               - **cacheKeyParameters** *(list) --* 
         
-                Specifies the integration's cache key parameters.
+                Specifies the integration\'s cache key parameters.
         
                 - *(string) --* 
             
               - **integrationResponses** *(dict) --* 
         
-                Specifies the integration's responses.
+                Specifies the integration\'s responses.
         
                  Example: Get integration responses of a method Request 
         
@@ -12981,7 +12981,7 @@ class Client(BaseClient):
         
                 The successful response returns ``200 OK`` status and a payload as follows:
         
-                 ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }``  
+                 ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" }``  
         
                    `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                 
@@ -13045,16 +13045,16 @@ class Client(BaseClient):
         ::
         
           response = client.update_method_response(
-              restApiId='string',
-              resourceId='string',
-              httpMethod='string',
-              statusCode='string',
+              restApiId=\'string\',
+              resourceId=\'string\',
+              httpMethod=\'string\',
+              statusCode=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -13091,15 +13091,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -13109,12 +13109,12 @@ class Client(BaseClient):
           ::
         
             {
-                'statusCode': 'string',
-                'responseParameters': {
-                    'string': True|False
+                \'statusCode\': \'string\',
+                \'responseParameters\': {
+                    \'string\': True|False
                 },
-                'responseModels': {
-                    'string': 'string'
+                \'responseModels\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -13131,17 +13131,17 @@ class Client(BaseClient):
         
             The successful response returns ``200 OK`` status and a payload as follows:
         
-             ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }``  
+             ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" }``  
         
                 Method ,  IntegrationResponse ,  Integration  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
             
             - **statusCode** *(string) --* 
         
-              The method response's status code.
+              The method response\'s status code.
         
             - **responseParameters** *(dict) --* 
         
-              A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+              A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
               - *(string) --* 
                 
@@ -13149,7 +13149,7 @@ class Client(BaseClient):
           
             - **responseModels** *(dict) --* 
         
-              Specifies the  Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
+              Specifies the  Model resources used for the response\'s content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
         
               - *(string) --* 
                 
@@ -13167,14 +13167,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_model(
-              restApiId='string',
-              modelName='string',
+              restApiId=\'string\',
+              modelName=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -13201,15 +13201,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -13219,21 +13219,21 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'schema': 'string',
-                'contentType': 'string'
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'schema\': \'string\',
+                \'contentType\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* 
         
-            Represents the data structure of a method's request or response payload.
+            Represents the data structure of a method\'s request or response payload.
         
             A request model defines the data structure of the client-supplied request payload. A response model defines the data structure of the response payload returned by the back end. Although not required, models are useful for mapping payloads between the front end and back end.
         
-            A model is used for generating an API's SDK, validating the input request body, and creating a skeletal mapping template.
+            A model is used for generating an API\'s SDK, validating the input request body, and creating a skeletal mapping template.
         
                 Method ,  MethodResponse , `Models and Mappings <https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html>`__  
             
@@ -13251,7 +13251,7 @@ class Client(BaseClient):
         
             - **schema** *(string) --* 
         
-              The schema for the model. For ``application/json`` models, this should be `JSON schema draft 4 <https://tools.ietf.org/html/draft-zyp-json-schema-04>`__ model. Do not include "\*/" characters in the description of any properties because such "\*/" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail.
+              The schema for the model. For ``application/json`` models, this should be `JSON schema draft 4 <https://tools.ietf.org/html/draft-zyp-json-schema-04>`__ model. Do not include \"\*/\" characters in the description of any properties because such \"\*/\" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API\'s SDK generated by API Gateway to fail.
         
             - **contentType** *(string) --* 
         
@@ -13269,14 +13269,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_request_validator(
-              restApiId='string',
-              requestValidatorId='string',
+              restApiId=\'string\',
+              requestValidatorId=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -13303,15 +13303,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -13321,10 +13321,10 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'validateRequestBody': True|False,
-                'validateRequestParameters': True|False
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'validateRequestBody\': True|False,
+                \'validateRequestParameters\': True|False
             }
           **Response Structure** 
         
@@ -13364,14 +13364,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_resource(
-              restApiId='string',
-              resourceId='string',
+              restApiId=\'string\',
+              resourceId=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -13398,15 +13398,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -13416,71 +13416,71 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'parentId': 'string',
-                'pathPart': 'string',
-                'path': 'string',
-                'resourceMethods': {
-                    'string': {
-                        'httpMethod': 'string',
-                        'authorizationType': 'string',
-                        'authorizerId': 'string',
-                        'apiKeyRequired': True|False,
-                        'requestValidatorId': 'string',
-                        'operationName': 'string',
-                        'requestParameters': {
-                            'string': True|False
+                \'id\': \'string\',
+                \'parentId\': \'string\',
+                \'pathPart\': \'string\',
+                \'path\': \'string\',
+                \'resourceMethods\': {
+                    \'string\': {
+                        \'httpMethod\': \'string\',
+                        \'authorizationType\': \'string\',
+                        \'authorizerId\': \'string\',
+                        \'apiKeyRequired\': True|False,
+                        \'requestValidatorId\': \'string\',
+                        \'operationName\': \'string\',
+                        \'requestParameters\': {
+                            \'string\': True|False
                         },
-                        'requestModels': {
-                            'string': 'string'
+                        \'requestModels\': {
+                            \'string\': \'string\'
                         },
-                        'methodResponses': {
-                            'string': {
-                                'statusCode': 'string',
-                                'responseParameters': {
-                                    'string': True|False
+                        \'methodResponses\': {
+                            \'string\': {
+                                \'statusCode\': \'string\',
+                                \'responseParameters\': {
+                                    \'string\': True|False
                                 },
-                                'responseModels': {
-                                    'string': 'string'
+                                \'responseModels\': {
+                                    \'string\': \'string\'
                                 }
                             }
                         },
-                        'methodIntegration': {
-                            'type': 'HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-                            'httpMethod': 'string',
-                            'uri': 'string',
-                            'connectionType': 'INTERNET'|'VPC_LINK',
-                            'connectionId': 'string',
-                            'credentials': 'string',
-                            'requestParameters': {
-                                'string': 'string'
+                        \'methodIntegration\': {
+                            \'type\': \'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+                            \'httpMethod\': \'string\',
+                            \'uri\': \'string\',
+                            \'connectionType\': \'INTERNET\'|\'VPC_LINK\',
+                            \'connectionId\': \'string\',
+                            \'credentials\': \'string\',
+                            \'requestParameters\': {
+                                \'string\': \'string\'
                             },
-                            'requestTemplates': {
-                                'string': 'string'
+                            \'requestTemplates\': {
+                                \'string\': \'string\'
                             },
-                            'passthroughBehavior': 'string',
-                            'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
-                            'timeoutInMillis': 123,
-                            'cacheNamespace': 'string',
-                            'cacheKeyParameters': [
-                                'string',
+                            \'passthroughBehavior\': \'string\',
+                            \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
+                            \'timeoutInMillis\': 123,
+                            \'cacheNamespace\': \'string\',
+                            \'cacheKeyParameters\': [
+                                \'string\',
                             ],
-                            'integrationResponses': {
-                                'string': {
-                                    'statusCode': 'string',
-                                    'selectionPattern': 'string',
-                                    'responseParameters': {
-                                        'string': 'string'
+                            \'integrationResponses\': {
+                                \'string\': {
+                                    \'statusCode\': \'string\',
+                                    \'selectionPattern\': \'string\',
+                                    \'responseParameters\': {
+                                        \'string\': \'string\'
                                     },
-                                    'responseTemplates': {
-                                        'string': 'string'
+                                    \'responseTemplates\': {
+                                        \'string\': \'string\'
                                     },
-                                    'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                                    \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
                                 }
                             }
                         },
-                        'authorizationScopes': [
-                            'string',
+                        \'authorizationScopes\': [
+                            \'string\',
                         ]
                     }
                 }
@@ -13495,11 +13495,11 @@ class Client(BaseClient):
             
             - **id** *(string) --* 
         
-              The resource's identifier.
+              The resource\'s identifier.
         
             - **parentId** *(string) --* 
         
-              The parent resource's identifier.
+              The parent resource\'s identifier.
         
             - **pathPart** *(string) --* 
         
@@ -13511,11 +13511,11 @@ class Client(BaseClient):
         
             - **resourceMethods** *(dict) --* 
         
-              Gets an API resource's method of a given HTTP verb.
+              Gets an API resource\'s method of a given HTTP verb.
         
-              The resource methods are a map of methods indexed by methods' HTTP verbs enabled on the resource. This method map is included in the ``200 OK`` response of the ``GET /restapis/{restapi_id}/resources/{resource_id}`` or ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` request.
+              The resource methods are a map of methods indexed by methods\' HTTP verbs enabled on the resource. This method map is included in the ``200 OK`` response of the ``GET /restapis/{restapi_id}/resources/{resource_id}`` or ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` request.
         
-               Example: Get the GET method of an API resource Request ``GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20170223T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20170223/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}``  Response ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": false, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+               Example: Get the GET method of an API resource Request ``GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20170223T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20170223/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}``  Response ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": false, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
               If the ``OPTIONS`` is enabled on the resource, you can follow the example here to get that method. Just replace the ``GET`` of the last path segment in the request URL with ``OPTIONS`` .
         
@@ -13533,19 +13533,19 @@ class Client(BaseClient):
         
                   The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                   ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+                   ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": true, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\\")\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
                   In the example above, the response template for the ``200 OK`` response maps the JSON output from the ``ListStreams`` action in the back end to an XML output. The mapping template is URL-encoded as ``%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E`` and the output is decoded using the `$util.urlDecode() <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference>`__ helper function.
         
-                      MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API's method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
+                      MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API\'s method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
                   
                   - **httpMethod** *(string) --* 
         
-                    The method's HTTP verb.
+                    The method\'s HTTP verb.
         
                   - **authorizationType** *(string) --* 
         
-                    The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+                    The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
                   - **authorizerId** *(string) --* 
         
@@ -13583,7 +13583,7 @@ class Client(BaseClient):
         
                     Gets a method response associated with a given HTTP status code. 
         
-                    The collection of method responses are encapsulated in a key-value map, where the key is a response's HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
+                    The collection of method responses are encapsulated in a key-value map, where the key is a response\'s HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
         
                      Example: Get a 200 OK response of a GET method Request 
         
@@ -13591,7 +13591,7 @@ class Client(BaseClient):
         
                     The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                     ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.operator": false, "method.response.header.operand_2": false, "method.response.header.operand_1": false }, "statusCode": "200" }``  
+                     ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.operator\": false, \"method.response.header.operand_2\": false, \"method.response.header.operand_1\": false }, \"statusCode\": \"200\" }``  
         
                        `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html>`__  
                     
@@ -13609,17 +13609,17 @@ class Client(BaseClient):
         
                         The successful response returns ``200 OK`` status and a payload as follows:
         
-                         ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }``  
+                         ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" }``  
         
                             Method ,  IntegrationResponse ,  Integration  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                         
                         - **statusCode** *(string) --* 
         
-                          The method response's status code.
+                          The method response\'s status code.
         
                         - **responseParameters** *(dict) --* 
         
-                          A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+                          A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
                           - *(string) --* 
                             
@@ -13627,7 +13627,7 @@ class Client(BaseClient):
                       
                         - **responseModels** *(dict) --* 
         
-                          Specifies the  Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
+                          Specifies the  Model resources used for the response\'s content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
         
                           - *(string) --* 
                             
@@ -13635,7 +13635,7 @@ class Client(BaseClient):
                       
                   - **methodIntegration** *(dict) --* 
         
-                    Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
+                    Gets the method\'s integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
         
                      Example:  Request 
         
@@ -13643,7 +13643,7 @@ class Client(BaseClient):
         
                     The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                     ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }``  
+                     ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"0cjtch\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestTemplates\": { \"application/json\": \"{\n \\"a\\": \\"$input.params(\'operand1\')\\",\n \\"b\\": \\"$input.params(\'operand2\')\\", \n \\"op\\": \\"$input.params(\'operator\')\\" \n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.operator\": \"integration.response.body.op\", \"method.response.header.operand_2\": \"integration.response.body.b\", \"method.response.header.operand_1\": \"integration.response.body.a\" }, \"responseTemplates\": { \"application/json\": \"#set($res = $input.path(\'$\'))\n{\n \\"result\\": \\"$res.a, $res.b, $res.op => $res.c\\",\n \\"a\\" : \\"$res.a\\",\n \\"b\\" : \\"$res.b\\",\n \\"op\\" : \\"$res.op\\",\n \\"c\\" : \\"$res.c\\"\n}\" }, \"selectionPattern\": \"\", \"statusCode\": \"200\" } } }``  
         
                        `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html>`__  
                     
@@ -13659,13 +13659,13 @@ class Client(BaseClient):
                        
                       * ``HTTP_PROXY`` : for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.
                        
-                      * ``MOCK`` : for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.
+                      * ``MOCK`` : for integrating the API method request with API Gateway as a \"loop-back\" endpoint without invoking any backend.
                        
                       For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https`` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a  VpcLink to connect API Gateway to a network load balancer of a VPC.
         
                     - **httpMethod** *(string) --* 
         
-                      Specifies the integration's HTTP method type.
+                      Specifies the integration\'s HTTP method type.
         
                     - **uri** *(string) --* 
         
@@ -13685,7 +13685,7 @@ class Client(BaseClient):
         
                     - **credentials** *(string) --* 
         
-                      Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
+                      Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
         
                     - **requestParameters** *(dict) --* 
         
@@ -13729,17 +13729,17 @@ class Client(BaseClient):
         
                     - **cacheNamespace** *(string) --* 
         
-                      Specifies the integration's cache namespace.
+                      Specifies the integration\'s cache namespace.
         
                     - **cacheKeyParameters** *(list) --* 
         
-                      Specifies the integration's cache key parameters.
+                      Specifies the integration\'s cache key parameters.
         
                       - *(string) --* 
                   
                     - **integrationResponses** *(dict) --* 
         
-                      Specifies the integration's responses.
+                      Specifies the integration\'s responses.
         
                        Example: Get integration responses of a method Request 
         
@@ -13747,7 +13747,7 @@ class Client(BaseClient):
         
                       The successful response returns ``200 OK`` status and a payload as follows:
         
-                       ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }``  
+                       ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" }``  
         
                          `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                       
@@ -13811,13 +13811,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_rest_api(
-              restApiId='string',
+              restApiId=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -13839,15 +13839,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -13857,25 +13857,25 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'version': 'string',
-                'warnings': [
-                    'string',
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'version\': \'string\',
+                \'warnings\': [
+                    \'string\',
                 ],
-                'binaryMediaTypes': [
-                    'string',
+                \'binaryMediaTypes\': [
+                    \'string\',
                 ],
-                'minimumCompressionSize': 123,
-                'apiKeySource': 'HEADER'|'AUTHORIZER',
-                'endpointConfiguration': {
-                    'types': [
-                        'REGIONAL'|'EDGE'|'PRIVATE',
+                \'minimumCompressionSize\': 123,
+                \'apiKeySource\': \'HEADER\'|\'AUTHORIZER\',
+                \'endpointConfiguration\': {
+                    \'types\': [
+                        \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                     ]
                 },
-                'policy': 'string'
+                \'policy\': \'string\'
             }
           **Response Structure** 
         
@@ -13887,15 +13887,15 @@ class Client(BaseClient):
             
             - **id** *(string) --* 
         
-              The API's identifier. This identifier is unique across all of your APIs in API Gateway.
+              The API\'s identifier. This identifier is unique across all of your APIs in API Gateway.
         
             - **name** *(string) --* 
         
-              The API's name.
+              The API\'s name.
         
             - **description** *(string) --* 
         
-              The API's description.
+              The API\'s description.
         
             - **createdDate** *(datetime) --* 
         
@@ -13935,7 +13935,7 @@ class Client(BaseClient):
         
               - **types** *(list) --* 
         
-                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                 - *(string) --* 
         
@@ -13954,14 +13954,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_stage(
-              restApiId='string',
-              stageName='string',
+              restApiId=\'string\',
+              stageName=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -13988,15 +13988,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -14006,50 +14006,50 @@ class Client(BaseClient):
           ::
         
             {
-                'deploymentId': 'string',
-                'clientCertificateId': 'string',
-                'stageName': 'string',
-                'description': 'string',
-                'cacheClusterEnabled': True|False,
-                'cacheClusterSize': '0.5'|'1.6'|'6.1'|'13.5'|'28.4'|'58.2'|'118'|'237',
-                'cacheClusterStatus': 'CREATE_IN_PROGRESS'|'AVAILABLE'|'DELETE_IN_PROGRESS'|'NOT_AVAILABLE'|'FLUSH_IN_PROGRESS',
-                'methodSettings': {
-                    'string': {
-                        'metricsEnabled': True|False,
-                        'loggingLevel': 'string',
-                        'dataTraceEnabled': True|False,
-                        'throttlingBurstLimit': 123,
-                        'throttlingRateLimit': 123.0,
-                        'cachingEnabled': True|False,
-                        'cacheTtlInSeconds': 123,
-                        'cacheDataEncrypted': True|False,
-                        'requireAuthorizationForCacheControl': True|False,
-                        'unauthorizedCacheControlHeaderStrategy': 'FAIL_WITH_403'|'SUCCEED_WITH_RESPONSE_HEADER'|'SUCCEED_WITHOUT_RESPONSE_HEADER'
+                \'deploymentId\': \'string\',
+                \'clientCertificateId\': \'string\',
+                \'stageName\': \'string\',
+                \'description\': \'string\',
+                \'cacheClusterEnabled\': True|False,
+                \'cacheClusterSize\': \'0.5\'|\'1.6\'|\'6.1\'|\'13.5\'|\'28.4\'|\'58.2\'|\'118\'|\'237\',
+                \'cacheClusterStatus\': \'CREATE_IN_PROGRESS\'|\'AVAILABLE\'|\'DELETE_IN_PROGRESS\'|\'NOT_AVAILABLE\'|\'FLUSH_IN_PROGRESS\',
+                \'methodSettings\': {
+                    \'string\': {
+                        \'metricsEnabled\': True|False,
+                        \'loggingLevel\': \'string\',
+                        \'dataTraceEnabled\': True|False,
+                        \'throttlingBurstLimit\': 123,
+                        \'throttlingRateLimit\': 123.0,
+                        \'cachingEnabled\': True|False,
+                        \'cacheTtlInSeconds\': 123,
+                        \'cacheDataEncrypted\': True|False,
+                        \'requireAuthorizationForCacheControl\': True|False,
+                        \'unauthorizedCacheControlHeaderStrategy\': \'FAIL_WITH_403\'|\'SUCCEED_WITH_RESPONSE_HEADER\'|\'SUCCEED_WITHOUT_RESPONSE_HEADER\'
                     }
                 },
-                'variables': {
-                    'string': 'string'
+                \'variables\': {
+                    \'string\': \'string\'
                 },
-                'documentationVersion': 'string',
-                'accessLogSettings': {
-                    'format': 'string',
-                    'destinationArn': 'string'
+                \'documentationVersion\': \'string\',
+                \'accessLogSettings\': {
+                    \'format\': \'string\',
+                    \'destinationArn\': \'string\'
                 },
-                'canarySettings': {
-                    'percentTraffic': 123.0,
-                    'deploymentId': 'string',
-                    'stageVariableOverrides': {
-                        'string': 'string'
+                \'canarySettings\': {
+                    \'percentTraffic\': 123.0,
+                    \'deploymentId\': \'string\',
+                    \'stageVariableOverrides\': {
+                        \'string\': \'string\'
                     },
-                    'useStageCache': True|False
+                    \'useStageCache\': True|False
                 },
-                'tracingEnabled': True|False,
-                'webAclArn': 'string',
-                'tags': {
-                    'string': 'string'
+                \'tracingEnabled\': True|False,
+                \'webAclArn\': \'string\',
+                \'tags\': {
+                    \'string\': \'string\'
                 },
-                'createdDate': datetime(2015, 1, 1),
-                'lastUpdatedDate': datetime(2015, 1, 1)
+                \'createdDate\': datetime(2015, 1, 1),
+                \'lastUpdatedDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -14073,7 +14073,7 @@ class Client(BaseClient):
         
             - **description** *(string) --* 
         
-              The stage's description.
+              The stage\'s description.
         
             - **cacheClusterEnabled** *(boolean) --* 
         
@@ -14221,14 +14221,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_usage(
-              usagePlanId='string',
-              keyId='string',
+              usagePlanId=\'string\',
+              keyId=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -14255,15 +14255,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -14273,12 +14273,12 @@ class Client(BaseClient):
           ::
         
             {
-                'usagePlanId': 'string',
-                'startDate': 'string',
-                'endDate': 'string',
-                'position': 'string',
-                'items': {
-                    'string': [
+                \'usagePlanId\': \'string\',
+                \'startDate\': \'string\',
+                \'endDate\': \'string\',
+                \'position\': \'string\',
+                \'items\': {
+                    \'string\': [
                         [
                             123,
                         ],
@@ -14309,7 +14309,7 @@ class Client(BaseClient):
             
             - **items** *(dict) --* 
         
-              The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, ``{..., "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}`` , where ``{api_key}`` stands for an API key value and the daily log entry is of the format ``[used quota, remaining quota]`` .
+              The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, ``{..., \"values\" : { \"{api_key}\" : [ [0, 100], [10, 90], [100, 10]]}`` , where ``{api_key}`` stands for an API key value and the daily log entry is of the format ``[used quota, remaining quota]`` .
         
               - *(string) --* 
                 
@@ -14331,13 +14331,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_usage_plan(
-              usagePlanId='string',
+              usagePlanId=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -14359,15 +14359,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -14377,31 +14377,31 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'apiStages': [
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'apiStages\': [
                     {
-                        'apiId': 'string',
-                        'stage': 'string',
-                        'throttle': {
-                            'string': {
-                                'burstLimit': 123,
-                                'rateLimit': 123.0
+                        \'apiId\': \'string\',
+                        \'stage\': \'string\',
+                        \'throttle\': {
+                            \'string\': {
+                                \'burstLimit\': 123,
+                                \'rateLimit\': 123.0
                             }
                         }
                     },
                 ],
-                'throttle': {
-                    'burstLimit': 123,
-                    'rateLimit': 123.0
+                \'throttle\': {
+                    \'burstLimit\': 123,
+                    \'rateLimit\': 123.0
                 },
-                'quota': {
-                    'limit': 123,
-                    'offset': 123,
-                    'period': 'DAY'|'WEEK'|'MONTH'
+                \'quota\': {
+                    \'limit\': 123,
+                    \'offset\': 123,
+                    \'period\': \'DAY\'|\'WEEK\'|\'MONTH\'
                 },
-                'productCode': 'string'
+                \'productCode\': \'string\'
             }
           **Response Structure** 
         
@@ -14409,7 +14409,7 @@ class Client(BaseClient):
         
             Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.
         
-            In a usage plan, you associate an API by specifying the API's Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. 
+            In a usage plan, you associate an API by specifying the API\'s Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. 
         
                `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
             
@@ -14485,7 +14485,7 @@ class Client(BaseClient):
         
               - **period** *(string) --* 
         
-                The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+                The time period in which the limit applies. Valid values are \"DAY\", \"WEEK\" or \"MONTH\".
         
             - **productCode** *(string) --* 
         
@@ -14503,13 +14503,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_vpc_link(
-              vpcLinkId='string',
+              vpcLinkId=\'string\',
               patchOperations=[
                   {
-                      'op': 'add'|'remove'|'replace'|'move'|'copy'|'test',
-                      'path': 'string',
-                      'value': 'string',
-                      'from': 'string'
+                      \'op\': \'add\'|\'remove\'|\'replace\'|\'move\'|\'copy\'|\'test\',
+                      \'path\': \'string\',
+                      \'value\': \'string\',
+                      \'from\': \'string\'
                   },
               ]
           )
@@ -14531,15 +14531,15 @@ class Client(BaseClient):
         
             - **path** *(string) --* 
         
-              The ``op`` operation's target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{"name":"value"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{"name": {"child/name": "child-value"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
+              The ``op`` operation\'s target, as identified by a `JSON Pointer <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08>`__ value that references a location within the targeted resource. For example, if the target resource has an updateable property of ``{\"name\":\"value\"}`` , the path for this property is ``/name`` . If the ``name`` property value is a JSON object (e.g., ``{\"name\": {\"child/name\": \"child-value\"}}`` ), the path for the ``child/name`` property will be ``/name/child~1name`` . Any slash (\"/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each ``op`` operation can have only one ``path`` associated with it.
         
             - **value** *(string) --* 
         
-              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
+              The new target value of the update operation. It is applicable for the ``add`` or ``replace`` operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see `Using JSON for Parameters <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ .
         
             - **from** *(string) --* 
         
-              The ``copy`` update operation's source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``"op":"copy"`` , ``"from":"/canarySettings/deploymentId"`` and ``"path":"/deploymentId"`` .
+              The ``copy`` update operation\'s source as identified by a ``JSON-Pointer`` value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a  Stage resource with ``\"op\":\"copy\"`` , ``\"from\":\"/canarySettings/deploymentId\"`` and ``\"path\":\"/deploymentId\"`` .
         
         :rtype: dict
         :returns: 
@@ -14549,14 +14549,14 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'name': 'string',
-                'description': 'string',
-                'targetArns': [
-                    'string',
+                \'id\': \'string\',
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'targetArns\': [
+                    \'string\',
                 ],
-                'status': 'AVAILABLE'|'PENDING'|'DELETING'|'FAILED',
-                'statusMessage': 'string'
+                \'status\': \'AVAILABLE\'|\'PENDING\'|\'DELETING\'|\'FAILED\',
+                \'statusMessage\': \'string\'
             }
           **Response Structure** 
         

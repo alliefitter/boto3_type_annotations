@@ -12,17 +12,17 @@ class ListAliases(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              KeyId='string',
+              KeyId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type KeyId: string
         :param KeyId: 
         
-          Lists only aliases that refer to the specified CMK. The value of this parameter can be the ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region. You cannot use an alias name or alias ARN in this value.
+          Lists only aliases that refer to the specified CMK. The value of this parameter can be the ID or Amazon Resource Name (ARN) of a CMK in the caller\'s account and region. You cannot use an alias name or alias ARN in this value.
         
           This parameter is optional. If you omit it, ``ListAliases`` returns all aliases in the account and region.
         
@@ -51,15 +51,15 @@ class ListAliases(Paginator):
           ::
         
             {
-                'Aliases': [
+                \'Aliases\': [
                     {
-                        'AliasName': 'string',
-                        'AliasArn': 'string',
-                        'TargetKeyId': 'string'
+                        \'AliasName\': \'string\',
+                        \'AliasArn\': \'string\',
+                        \'TargetKeyId\': \'string\'
                     },
                 ],
-                'Truncated': True|False,
-                'NextToken': 'string'
+                \'Truncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -107,11 +107,11 @@ class ListGrants(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              KeyId='string',
+              KeyId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type KeyId: string
@@ -154,30 +154,30 @@ class ListGrants(Paginator):
           ::
         
             {
-                'Grants': [
+                \'Grants\': [
                     {
-                        'KeyId': 'string',
-                        'GrantId': 'string',
-                        'Name': 'string',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'GranteePrincipal': 'string',
-                        'RetiringPrincipal': 'string',
-                        'IssuingAccount': 'string',
-                        'Operations': [
-                            'Decrypt'|'Encrypt'|'GenerateDataKey'|'GenerateDataKeyWithoutPlaintext'|'ReEncryptFrom'|'ReEncryptTo'|'CreateGrant'|'RetireGrant'|'DescribeKey',
+                        \'KeyId\': \'string\',
+                        \'GrantId\': \'string\',
+                        \'Name\': \'string\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'GranteePrincipal\': \'string\',
+                        \'RetiringPrincipal\': \'string\',
+                        \'IssuingAccount\': \'string\',
+                        \'Operations\': [
+                            \'Decrypt\'|\'Encrypt\'|\'GenerateDataKey\'|\'GenerateDataKeyWithoutPlaintext\'|\'ReEncryptFrom\'|\'ReEncryptTo\'|\'CreateGrant\'|\'RetireGrant\'|\'DescribeKey\',
                         ],
-                        'Constraints': {
-                            'EncryptionContextSubset': {
-                                'string': 'string'
+                        \'Constraints\': {
+                            \'EncryptionContextSubset\': {
+                                \'string\': \'string\'
                             },
-                            'EncryptionContextEquals': {
-                                'string': 'string'
+                            \'EncryptionContextEquals\': {
+                                \'string\': \'string\'
                             }
                         }
                     },
                 ],
-                'Truncated': True|False,
-                'NextToken': 'string'
+                \'Truncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -209,7 +209,7 @@ class ListGrants(Paginator):
         
                 - **GranteePrincipal** *(string) --* 
         
-                  The principal that receives the grant's permissions.
+                  The principal that receives the grant\'s permissions.
         
                 - **RetiringPrincipal** *(string) --* 
         
@@ -267,11 +267,11 @@ class ListKeyPolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              KeyId='string',
+              KeyId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type KeyId: string
@@ -314,11 +314,11 @@ class ListKeyPolicies(Paginator):
           ::
         
             {
-                'PolicyNames': [
-                    'string',
+                \'PolicyNames\': [
+                    \'string\',
                 ],
-                'Truncated': True|False,
-                'NextToken': 'string'
+                \'Truncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -353,9 +353,9 @@ class ListKeys(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -383,14 +383,14 @@ class ListKeys(Paginator):
           ::
         
             {
-                'Keys': [
+                \'Keys\': [
                     {
-                        'KeyId': 'string',
-                        'KeyArn': 'string'
+                        \'KeyId\': \'string\',
+                        \'KeyArn\': \'string\'
                     },
                 ],
-                'Truncated': True|False,
-                'NextToken': 'string'
+                \'Truncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

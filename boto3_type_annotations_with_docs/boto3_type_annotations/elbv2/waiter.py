@@ -14,16 +14,16 @@ class LoadBalancerAvailable(Waiter):
         
           waiter.wait(
               LoadBalancerArns=[
-                  'string',
+                  \'string\',
               ],
               Names=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               PageSize=123,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type LoadBalancerArns: list
@@ -79,16 +79,16 @@ class LoadBalancerExists(Waiter):
         
           waiter.wait(
               LoadBalancerArns=[
-                  'string',
+                  \'string\',
               ],
               Names=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               PageSize=123,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type LoadBalancerArns: list
@@ -144,16 +144,16 @@ class LoadBalancersDeleted(Waiter):
         
           waiter.wait(
               LoadBalancerArns=[
-                  'string',
+                  \'string\',
               ],
               Names=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               PageSize=123,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type LoadBalancerArns: list
@@ -208,17 +208,17 @@ class TargetDeregistered(Waiter):
         ::
         
           waiter.wait(
-              TargetGroupArn='string',
+              TargetGroupArn=\'string\',
               Targets=[
                   {
-                      'Id': 'string',
-                      'Port': 123,
-                      'AvailabilityZone': 'string'
+                      \'Id\': \'string\',
+                      \'Port\': 123,
+                      \'AvailabilityZone\': \'string\'
                   },
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type TargetGroupArn: string
@@ -279,17 +279,17 @@ class TargetInService(Waiter):
         ::
         
           waiter.wait(
-              TargetGroupArn='string',
+              TargetGroupArn=\'string\',
               Targets=[
                   {
-                      'Id': 'string',
-                      'Port': 123,
-                      'AvailabilityZone': 'string'
+                      \'Id\': \'string\',
+                      \'Port\': 123,
+                      \'AvailabilityZone\': \'string\'
                   },
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type TargetGroupArn: string

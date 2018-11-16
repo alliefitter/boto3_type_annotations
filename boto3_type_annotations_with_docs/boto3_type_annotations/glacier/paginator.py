@@ -12,21 +12,21 @@ class ListJobs(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              vaultName='string',
-              statuscode='string',
-              completed='string',
+              vaultName=\'string\',
+              statuscode=\'string\',
+              completed=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -68,90 +68,90 @@ class ListJobs(Paginator):
           ::
         
             {
-                'JobList': [
+                \'JobList\': [
                     {
-                        'JobId': 'string',
-                        'JobDescription': 'string',
-                        'Action': 'ArchiveRetrieval'|'InventoryRetrieval'|'Select',
-                        'ArchiveId': 'string',
-                        'VaultARN': 'string',
-                        'CreationDate': 'string',
-                        'Completed': True|False,
-                        'StatusCode': 'InProgress'|'Succeeded'|'Failed',
-                        'StatusMessage': 'string',
-                        'ArchiveSizeInBytes': 123,
-                        'InventorySizeInBytes': 123,
-                        'SNSTopic': 'string',
-                        'CompletionDate': 'string',
-                        'SHA256TreeHash': 'string',
-                        'ArchiveSHA256TreeHash': 'string',
-                        'RetrievalByteRange': 'string',
-                        'Tier': 'string',
-                        'InventoryRetrievalParameters': {
-                            'Format': 'string',
-                            'StartDate': 'string',
-                            'EndDate': 'string',
-                            'Limit': 'string',
-                            'Marker': 'string'
+                        \'JobId\': \'string\',
+                        \'JobDescription\': \'string\',
+                        \'Action\': \'ArchiveRetrieval\'|\'InventoryRetrieval\'|\'Select\',
+                        \'ArchiveId\': \'string\',
+                        \'VaultARN\': \'string\',
+                        \'CreationDate\': \'string\',
+                        \'Completed\': True|False,
+                        \'StatusCode\': \'InProgress\'|\'Succeeded\'|\'Failed\',
+                        \'StatusMessage\': \'string\',
+                        \'ArchiveSizeInBytes\': 123,
+                        \'InventorySizeInBytes\': 123,
+                        \'SNSTopic\': \'string\',
+                        \'CompletionDate\': \'string\',
+                        \'SHA256TreeHash\': \'string\',
+                        \'ArchiveSHA256TreeHash\': \'string\',
+                        \'RetrievalByteRange\': \'string\',
+                        \'Tier\': \'string\',
+                        \'InventoryRetrievalParameters\': {
+                            \'Format\': \'string\',
+                            \'StartDate\': \'string\',
+                            \'EndDate\': \'string\',
+                            \'Limit\': \'string\',
+                            \'Marker\': \'string\'
                         },
-                        'JobOutputPath': 'string',
-                        'SelectParameters': {
-                            'InputSerialization': {
-                                'csv': {
-                                    'FileHeaderInfo': 'USE'|'IGNORE'|'NONE',
-                                    'Comments': 'string',
-                                    'QuoteEscapeCharacter': 'string',
-                                    'RecordDelimiter': 'string',
-                                    'FieldDelimiter': 'string',
-                                    'QuoteCharacter': 'string'
+                        \'JobOutputPath\': \'string\',
+                        \'SelectParameters\': {
+                            \'InputSerialization\': {
+                                \'csv\': {
+                                    \'FileHeaderInfo\': \'USE\'|\'IGNORE\'|\'NONE\',
+                                    \'Comments\': \'string\',
+                                    \'QuoteEscapeCharacter\': \'string\',
+                                    \'RecordDelimiter\': \'string\',
+                                    \'FieldDelimiter\': \'string\',
+                                    \'QuoteCharacter\': \'string\'
                                 }
                             },
-                            'ExpressionType': 'SQL',
-                            'Expression': 'string',
-                            'OutputSerialization': {
-                                'csv': {
-                                    'QuoteFields': 'ALWAYS'|'ASNEEDED',
-                                    'QuoteEscapeCharacter': 'string',
-                                    'RecordDelimiter': 'string',
-                                    'FieldDelimiter': 'string',
-                                    'QuoteCharacter': 'string'
+                            \'ExpressionType\': \'SQL\',
+                            \'Expression\': \'string\',
+                            \'OutputSerialization\': {
+                                \'csv\': {
+                                    \'QuoteFields\': \'ALWAYS\'|\'ASNEEDED\',
+                                    \'QuoteEscapeCharacter\': \'string\',
+                                    \'RecordDelimiter\': \'string\',
+                                    \'FieldDelimiter\': \'string\',
+                                    \'QuoteCharacter\': \'string\'
                                 }
                             }
                         },
-                        'OutputLocation': {
-                            'S3': {
-                                'BucketName': 'string',
-                                'Prefix': 'string',
-                                'Encryption': {
-                                    'EncryptionType': 'aws:kms'|'AES256',
-                                    'KMSKeyId': 'string',
-                                    'KMSContext': 'string'
+                        \'OutputLocation\': {
+                            \'S3\': {
+                                \'BucketName\': \'string\',
+                                \'Prefix\': \'string\',
+                                \'Encryption\': {
+                                    \'EncryptionType\': \'aws:kms\'|\'AES256\',
+                                    \'KMSKeyId\': \'string\',
+                                    \'KMSContext\': \'string\'
                                 },
-                                'CannedACL': 'private'|'public-read'|'public-read-write'|'aws-exec-read'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control',
-                                'AccessControlList': [
+                                \'CannedACL\': \'private\'|\'public-read\'|\'public-read-write\'|\'aws-exec-read\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+                                \'AccessControlList\': [
                                     {
-                                        'Grantee': {
-                                            'Type': 'AmazonCustomerByEmail'|'CanonicalUser'|'Group',
-                                            'DisplayName': 'string',
-                                            'URI': 'string',
-                                            'ID': 'string',
-                                            'EmailAddress': 'string'
+                                        \'Grantee\': {
+                                            \'Type\': \'AmazonCustomerByEmail\'|\'CanonicalUser\'|\'Group\',
+                                            \'DisplayName\': \'string\',
+                                            \'URI\': \'string\',
+                                            \'ID\': \'string\',
+                                            \'EmailAddress\': \'string\'
                                         },
-                                        'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                                        \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                                     },
                                 ],
-                                'Tagging': {
-                                    'string': 'string'
+                                \'Tagging\': {
+                                    \'string\': \'string\'
                                 },
-                                'UserMetadata': {
-                                    'string': 'string'
+                                \'UserMetadata\': {
+                                    \'string\': \'string\'
                                 },
-                                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'
+                                \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -189,11 +189,11 @@ class ListJobs(Paginator):
         
                 - **CreationDate** *(string) --* 
         
-                  The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example ``"2012-03-20T17:03:43.221Z"`` .
+                  The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example ``\"2012-03-20T17:03:43.221Z\"`` .
         
                 - **Completed** *(boolean) --* 
         
-                  The job status. When a job is completed, you get the job's output using Get Job Output (GET output).
+                  The job status. When a job is completed, you get the job\'s output using Get Job Output (GET output).
         
                 - **StatusCode** *(string) --* 
         
@@ -459,19 +459,19 @@ class ListMultipartUploads(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              vaultName='string',
+              vaultName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -503,16 +503,16 @@ class ListMultipartUploads(Paginator):
           ::
         
             {
-                'UploadsList': [
+                \'UploadsList\': [
                     {
-                        'MultipartUploadId': 'string',
-                        'VaultARN': 'string',
-                        'ArchiveDescription': 'string',
-                        'PartSizeInBytes': 123,
-                        'CreationDate': 'string'
+                        \'MultipartUploadId\': \'string\',
+                        \'VaultARN\': \'string\',
+                        \'ArchiveDescription\': \'string\',
+                        \'PartSizeInBytes\': 123,
+                        \'CreationDate\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -566,20 +566,20 @@ class ListParts(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              vaultName='string',
-              uploadId='string',
+              vaultName=\'string\',
+              uploadId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -616,18 +616,18 @@ class ListParts(Paginator):
           ::
         
             {
-                'MultipartUploadId': 'string',
-                'VaultARN': 'string',
-                'ArchiveDescription': 'string',
-                'PartSizeInBytes': 123,
-                'CreationDate': 'string',
-                'Parts': [
+                \'MultipartUploadId\': \'string\',
+                \'VaultARN\': \'string\',
+                \'ArchiveDescription\': \'string\',
+                \'PartSizeInBytes\': 123,
+                \'CreationDate\': \'string\',
+                \'Parts\': [
                     {
-                        'RangeInBytes': 'string',
-                        'SHA256TreeHash': 'string'
+                        \'RangeInBytes\': \'string\',
+                        \'SHA256TreeHash\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -690,17 +690,17 @@ class ListVaults(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -727,17 +727,17 @@ class ListVaults(Paginator):
           ::
         
             {
-                'VaultList': [
+                \'VaultList\': [
                     {
-                        'VaultARN': 'string',
-                        'VaultName': 'string',
-                        'CreationDate': 'string',
-                        'LastInventoryDate': 'string',
-                        'NumberOfArchives': 123,
-                        'SizeInBytes': 123
+                        \'VaultARN\': \'string\',
+                        \'VaultName\': \'string\',
+                        \'CreationDate\': \'string\',
+                        \'LastInventoryDate\': \'string\',
+                        \'NumberOfArchives\': 123,
+                        \'SizeInBytes\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

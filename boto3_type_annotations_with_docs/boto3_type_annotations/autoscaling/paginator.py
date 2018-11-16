@@ -15,12 +15,12 @@ class DescribeAutoScalingGroups(Paginator):
         
           response_iterator = paginator.paginate(
               AutoScalingGroupNames=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AutoScalingGroupNames: list
@@ -55,76 +55,76 @@ class DescribeAutoScalingGroups(Paginator):
           ::
         
             {
-                'AutoScalingGroups': [
+                \'AutoScalingGroups\': [
                     {
-                        'AutoScalingGroupName': 'string',
-                        'AutoScalingGroupARN': 'string',
-                        'LaunchConfigurationName': 'string',
-                        'LaunchTemplate': {
-                            'LaunchTemplateId': 'string',
-                            'LaunchTemplateName': 'string',
-                            'Version': 'string'
+                        \'AutoScalingGroupName\': \'string\',
+                        \'AutoScalingGroupARN\': \'string\',
+                        \'LaunchConfigurationName\': \'string\',
+                        \'LaunchTemplate\': {
+                            \'LaunchTemplateId\': \'string\',
+                            \'LaunchTemplateName\': \'string\',
+                            \'Version\': \'string\'
                         },
-                        'MinSize': 123,
-                        'MaxSize': 123,
-                        'DesiredCapacity': 123,
-                        'DefaultCooldown': 123,
-                        'AvailabilityZones': [
-                            'string',
+                        \'MinSize\': 123,
+                        \'MaxSize\': 123,
+                        \'DesiredCapacity\': 123,
+                        \'DefaultCooldown\': 123,
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'LoadBalancerNames': [
-                            'string',
+                        \'LoadBalancerNames\': [
+                            \'string\',
                         ],
-                        'TargetGroupARNs': [
-                            'string',
+                        \'TargetGroupARNs\': [
+                            \'string\',
                         ],
-                        'HealthCheckType': 'string',
-                        'HealthCheckGracePeriod': 123,
-                        'Instances': [
+                        \'HealthCheckType\': \'string\',
+                        \'HealthCheckGracePeriod\': 123,
+                        \'Instances\': [
                             {
-                                'InstanceId': 'string',
-                                'AvailabilityZone': 'string',
-                                'LifecycleState': 'Pending'|'Pending:Wait'|'Pending:Proceed'|'Quarantined'|'InService'|'Terminating'|'Terminating:Wait'|'Terminating:Proceed'|'Terminated'|'Detaching'|'Detached'|'EnteringStandby'|'Standby',
-                                'HealthStatus': 'string',
-                                'LaunchConfigurationName': 'string',
-                                'LaunchTemplate': {
-                                    'LaunchTemplateId': 'string',
-                                    'LaunchTemplateName': 'string',
-                                    'Version': 'string'
+                                \'InstanceId\': \'string\',
+                                \'AvailabilityZone\': \'string\',
+                                \'LifecycleState\': \'Pending\'|\'Pending:Wait\'|\'Pending:Proceed\'|\'Quarantined\'|\'InService\'|\'Terminating\'|\'Terminating:Wait\'|\'Terminating:Proceed\'|\'Terminated\'|\'Detaching\'|\'Detached\'|\'EnteringStandby\'|\'Standby\',
+                                \'HealthStatus\': \'string\',
+                                \'LaunchConfigurationName\': \'string\',
+                                \'LaunchTemplate\': {
+                                    \'LaunchTemplateId\': \'string\',
+                                    \'LaunchTemplateName\': \'string\',
+                                    \'Version\': \'string\'
                                 },
-                                'ProtectedFromScaleIn': True|False
+                                \'ProtectedFromScaleIn\': True|False
                             },
                         ],
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'SuspendedProcesses': [
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'SuspendedProcesses\': [
                             {
-                                'ProcessName': 'string',
-                                'SuspensionReason': 'string'
+                                \'ProcessName\': \'string\',
+                                \'SuspensionReason\': \'string\'
                             },
                         ],
-                        'PlacementGroup': 'string',
-                        'VPCZoneIdentifier': 'string',
-                        'EnabledMetrics': [
+                        \'PlacementGroup\': \'string\',
+                        \'VPCZoneIdentifier\': \'string\',
+                        \'EnabledMetrics\': [
                             {
-                                'Metric': 'string',
-                                'Granularity': 'string'
+                                \'Metric\': \'string\',
+                                \'Granularity\': \'string\'
                             },
                         ],
-                        'Status': 'string',
-                        'Tags': [
+                        \'Status\': \'string\',
+                        \'Tags\': [
                             {
-                                'ResourceId': 'string',
-                                'ResourceType': 'string',
-                                'Key': 'string',
-                                'Value': 'string',
-                                'PropagateAtLaunch': True|False
+                                \'ResourceId\': \'string\',
+                                \'ResourceType\': \'string\',
+                                \'Key\': \'string\',
+                                \'Value\': \'string\',
+                                \'PropagateAtLaunch\': True|False
                             },
                         ],
-                        'TerminationPolicies': [
-                            'string',
+                        \'TerminationPolicies\': [
+                            \'string\',
                         ],
-                        'NewInstancesProtectedFromScaleIn': True|False,
-                        'ServiceLinkedRoleARN': 'string'
+                        \'NewInstancesProtectedFromScaleIn\': True|False,
+                        \'ServiceLinkedRoleARN\': \'string\'
                     },
                 ],
                 
@@ -233,7 +233,7 @@ class DescribeAutoScalingGroups(Paginator):
         
                     - **HealthStatus** *(string) --* 
         
-                      The last reported health status of the instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
+                      The last reported health status of the instance. \"Healthy\" means that the instance is healthy and should remain in service. \"Unhealthy\" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
         
                     - **LaunchConfigurationName** *(string) --* 
         
@@ -281,7 +281,7 @@ class DescribeAutoScalingGroups(Paginator):
         
                 - **PlacementGroup** *(string) --* 
         
-                  The name of the placement group into which you'll launch your instances, if any. For more information, see `Placement Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                  The name of the placement group into which you\'ll launch your instances, if any. For more information, see `Placement Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
                 - **VPCZoneIdentifier** *(string) --* 
         
@@ -382,12 +382,12 @@ class DescribeAutoScalingInstances(Paginator):
         
           response_iterator = paginator.paginate(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type InstanceIds: list
@@ -422,20 +422,20 @@ class DescribeAutoScalingInstances(Paginator):
           ::
         
             {
-                'AutoScalingInstances': [
+                \'AutoScalingInstances\': [
                     {
-                        'InstanceId': 'string',
-                        'AutoScalingGroupName': 'string',
-                        'AvailabilityZone': 'string',
-                        'LifecycleState': 'string',
-                        'HealthStatus': 'string',
-                        'LaunchConfigurationName': 'string',
-                        'LaunchTemplate': {
-                            'LaunchTemplateId': 'string',
-                            'LaunchTemplateName': 'string',
-                            'Version': 'string'
+                        \'InstanceId\': \'string\',
+                        \'AutoScalingGroupName\': \'string\',
+                        \'AvailabilityZone\': \'string\',
+                        \'LifecycleState\': \'string\',
+                        \'HealthStatus\': \'string\',
+                        \'LaunchConfigurationName\': \'string\',
+                        \'LaunchTemplate\': {
+                            \'LaunchTemplateId\': \'string\',
+                            \'LaunchTemplateName\': \'string\',
+                            \'Version\': \'string\'
                         },
-                        'ProtectedFromScaleIn': True|False
+                        \'ProtectedFromScaleIn\': True|False
                     },
                 ],
                 
@@ -470,7 +470,7 @@ class DescribeAutoScalingInstances(Paginator):
         
                 - **HealthStatus** *(string) --* 
         
-                  The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
+                  The last reported health status of this instance. \"Healthy\" means that the instance is healthy and should remain in service. \"Unhealthy\" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
         
                 - **LaunchConfigurationName** *(string) --* 
         
@@ -511,12 +511,12 @@ class DescribeLaunchConfigurations(Paginator):
         
           response_iterator = paginator.paginate(
               LaunchConfigurationNames=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type LaunchConfigurationNames: list
@@ -551,47 +551,47 @@ class DescribeLaunchConfigurations(Paginator):
           ::
         
             {
-                'LaunchConfigurations': [
+                \'LaunchConfigurations\': [
                     {
-                        'LaunchConfigurationName': 'string',
-                        'LaunchConfigurationARN': 'string',
-                        'ImageId': 'string',
-                        'KeyName': 'string',
-                        'SecurityGroups': [
-                            'string',
+                        \'LaunchConfigurationName\': \'string\',
+                        \'LaunchConfigurationARN\': \'string\',
+                        \'ImageId\': \'string\',
+                        \'KeyName\': \'string\',
+                        \'SecurityGroups\': [
+                            \'string\',
                         ],
-                        'ClassicLinkVPCId': 'string',
-                        'ClassicLinkVPCSecurityGroups': [
-                            'string',
+                        \'ClassicLinkVPCId\': \'string\',
+                        \'ClassicLinkVPCSecurityGroups\': [
+                            \'string\',
                         ],
-                        'UserData': 'string',
-                        'InstanceType': 'string',
-                        'KernelId': 'string',
-                        'RamdiskId': 'string',
-                        'BlockDeviceMappings': [
+                        \'UserData\': \'string\',
+                        \'InstanceType\': \'string\',
+                        \'KernelId\': \'string\',
+                        \'RamdiskId\': \'string\',
+                        \'BlockDeviceMappings\': [
                             {
-                                'VirtualName': 'string',
-                                'DeviceName': 'string',
-                                'Ebs': {
-                                    'SnapshotId': 'string',
-                                    'VolumeSize': 123,
-                                    'VolumeType': 'string',
-                                    'DeleteOnTermination': True|False,
-                                    'Iops': 123,
-                                    'Encrypted': True|False
+                                \'VirtualName\': \'string\',
+                                \'DeviceName\': \'string\',
+                                \'Ebs\': {
+                                    \'SnapshotId\': \'string\',
+                                    \'VolumeSize\': 123,
+                                    \'VolumeType\': \'string\',
+                                    \'DeleteOnTermination\': True|False,
+                                    \'Iops\': 123,
+                                    \'Encrypted\': True|False
                                 },
-                                'NoDevice': True|False
+                                \'NoDevice\': True|False
                             },
                         ],
-                        'InstanceMonitoring': {
-                            'Enabled': True|False
+                        \'InstanceMonitoring\': {
+                            \'Enabled\': True|False
                         },
-                        'SpotPrice': 'string',
-                        'IamInstanceProfile': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'EbsOptimized': True|False,
-                        'AssociatePublicIpAddress': True|False,
-                        'PlacementTenancy': 'string'
+                        \'SpotPrice\': \'string\',
+                        \'IamInstanceProfile\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'EbsOptimized\': True|False,
+                        \'AssociatePublicIpAddress\': True|False,
+                        \'PlacementTenancy\': \'string\'
                     },
                 ],
                 
@@ -684,7 +684,7 @@ class DescribeLaunchConfigurations(Paginator):
         
                         The volume size, in GiB. For ``standard`` volumes, specify a value from 1 to 1,024. For ``io1`` volumes, specify a value from 4 to 16,384. For ``gp2`` volumes, specify a value from 1 to 16,384. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                        Default: If you create a volume from a snapshot and you don't specify a volume size, the default is the snapshot size.
+                        Default: If you create a volume from a snapshot and you don\'t specify a volume size, the default is the snapshot size.
         
                       - **VolumeType** *(string) --* 
         
@@ -759,12 +759,12 @@ class DescribeNotificationConfigurations(Paginator):
         
           response_iterator = paginator.paginate(
               AutoScalingGroupNames=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AutoScalingGroupNames: list
@@ -799,11 +799,11 @@ class DescribeNotificationConfigurations(Paginator):
           ::
         
             {
-                'NotificationConfigurations': [
+                \'NotificationConfigurations\': [
                     {
-                        'AutoScalingGroupName': 'string',
-                        'TopicARN': 'string',
-                        'NotificationType': 'string'
+                        \'AutoScalingGroupName\': \'string\',
+                        \'TopicARN\': \'string\',
+                        \'NotificationType\': \'string\'
                     },
                 ],
                 
@@ -856,17 +856,17 @@ class DescribePolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               PolicyNames=[
-                  'string',
+                  \'string\',
               ],
               PolicyTypes=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AutoScalingGroupName: string
@@ -913,51 +913,51 @@ class DescribePolicies(Paginator):
           ::
         
             {
-                'ScalingPolicies': [
+                \'ScalingPolicies\': [
                     {
-                        'AutoScalingGroupName': 'string',
-                        'PolicyName': 'string',
-                        'PolicyARN': 'string',
-                        'PolicyType': 'string',
-                        'AdjustmentType': 'string',
-                        'MinAdjustmentStep': 123,
-                        'MinAdjustmentMagnitude': 123,
-                        'ScalingAdjustment': 123,
-                        'Cooldown': 123,
-                        'StepAdjustments': [
+                        \'AutoScalingGroupName\': \'string\',
+                        \'PolicyName\': \'string\',
+                        \'PolicyARN\': \'string\',
+                        \'PolicyType\': \'string\',
+                        \'AdjustmentType\': \'string\',
+                        \'MinAdjustmentStep\': 123,
+                        \'MinAdjustmentMagnitude\': 123,
+                        \'ScalingAdjustment\': 123,
+                        \'Cooldown\': 123,
+                        \'StepAdjustments\': [
                             {
-                                'MetricIntervalLowerBound': 123.0,
-                                'MetricIntervalUpperBound': 123.0,
-                                'ScalingAdjustment': 123
+                                \'MetricIntervalLowerBound\': 123.0,
+                                \'MetricIntervalUpperBound\': 123.0,
+                                \'ScalingAdjustment\': 123
                             },
                         ],
-                        'MetricAggregationType': 'string',
-                        'EstimatedInstanceWarmup': 123,
-                        'Alarms': [
+                        \'MetricAggregationType\': \'string\',
+                        \'EstimatedInstanceWarmup\': 123,
+                        \'Alarms\': [
                             {
-                                'AlarmName': 'string',
-                                'AlarmARN': 'string'
+                                \'AlarmName\': \'string\',
+                                \'AlarmARN\': \'string\'
                             },
                         ],
-                        'TargetTrackingConfiguration': {
-                            'PredefinedMetricSpecification': {
-                                'PredefinedMetricType': 'ASGAverageCPUUtilization'|'ASGAverageNetworkIn'|'ASGAverageNetworkOut'|'ALBRequestCountPerTarget',
-                                'ResourceLabel': 'string'
+                        \'TargetTrackingConfiguration\': {
+                            \'PredefinedMetricSpecification\': {
+                                \'PredefinedMetricType\': \'ASGAverageCPUUtilization\'|\'ASGAverageNetworkIn\'|\'ASGAverageNetworkOut\'|\'ALBRequestCountPerTarget\',
+                                \'ResourceLabel\': \'string\'
                             },
-                            'CustomizedMetricSpecification': {
-                                'MetricName': 'string',
-                                'Namespace': 'string',
-                                'Dimensions': [
+                            \'CustomizedMetricSpecification\': {
+                                \'MetricName\': \'string\',
+                                \'Namespace\': \'string\',
+                                \'Dimensions\': [
                                     {
-                                        'Name': 'string',
-                                        'Value': 'string'
+                                        \'Name\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ],
-                                'Statistic': 'Average'|'Minimum'|'Maximum'|'SampleCount'|'Sum',
-                                'Unit': 'string'
+                                \'Statistic\': \'Average\'|\'Minimum\'|\'Maximum\'|\'SampleCount\'|\'Sum\',
+                                \'Unit\': \'string\'
                             },
-                            'TargetValue': 123.0,
-                            'DisableScaleIn': True|False
+                            \'TargetValue\': 123.0,
+                            \'DisableScaleIn\': True|False
                         }
                     },
                 ],
@@ -1017,7 +1017,7 @@ class DescribePolicies(Paginator):
         
                   - *(dict) --* 
         
-                    Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
+                    Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you\'ve defined for the alarm.
         
                     For the following examples, suppose that you have an alarm with a breach threshold of 50:
         
@@ -1027,13 +1027,13 @@ class DescribePolicies(Paginator):
                      
                     There are a few rules for the step adjustments for your step policy:
         
-                    * The ranges of your step adjustments can't overlap or have a gap. 
+                    * The ranges of your step adjustments can\'t overlap or have a gap. 
                      
                     * At most one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then there must be a step adjustment with a null lower bound. 
                      
                     * At most one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then there must be a step adjustment with a null upper bound. 
                      
-                    * The upper and lower bound can't be null in the same step adjustment. 
+                    * The upper and lower bound can\'t be null in the same step adjustment. 
                      
                     - **MetricIntervalLowerBound** *(float) --* 
         
@@ -1141,7 +1141,7 @@ class DescribePolicies(Paginator):
         
                   - **DisableScaleIn** *(boolean) --* 
         
-                    Indicates whether scale in by the target tracking policy is disabled. If scale in is disabled, the target tracking policy won't remove instances from the Auto Scaling group. Otherwise, the target tracking policy can remove instances from the Auto Scaling group. The default is disabled.
+                    Indicates whether scale in by the target tracking policy is disabled. If scale in is disabled, the target tracking policy won\'t remove instances from the Auto Scaling group. Otherwise, the target tracking policy can remove instances from the Auto Scaling group. The default is disabled.
         
         """
         pass
@@ -1158,13 +1158,13 @@ class DescribeScalingActivities(Paginator):
         
           response_iterator = paginator.paginate(
               ActivityIds=[
-                  'string',
+                  \'string\',
               ],
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ActivityIds: list
@@ -1204,18 +1204,18 @@ class DescribeScalingActivities(Paginator):
           ::
         
             {
-                'Activities': [
+                \'Activities\': [
                     {
-                        'ActivityId': 'string',
-                        'AutoScalingGroupName': 'string',
-                        'Description': 'string',
-                        'Cause': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'StatusCode': 'PendingSpotBidPlacement'|'WaitingForSpotInstanceRequestId'|'WaitingForSpotInstanceId'|'WaitingForInstanceId'|'PreInService'|'InProgress'|'WaitingForELBConnectionDraining'|'MidLifecycleAction'|'WaitingForInstanceWarmup'|'Successful'|'Failed'|'Cancelled',
-                        'StatusMessage': 'string',
-                        'Progress': 123,
-                        'Details': 'string'
+                        \'ActivityId\': \'string\',
+                        \'AutoScalingGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Cause\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'StatusCode\': \'PendingSpotBidPlacement\'|\'WaitingForSpotInstanceRequestId\'|\'WaitingForSpotInstanceId\'|\'WaitingForInstanceId\'|\'PreInService\'|\'InProgress\'|\'WaitingForELBConnectionDraining\'|\'MidLifecycleAction\'|\'WaitingForInstanceWarmup\'|\'Successful\'|\'Failed\'|\'Cancelled\',
+                        \'StatusMessage\': \'string\',
+                        \'Progress\': 123,
+                        \'Details\': \'string\'
                     },
                 ],
                 
@@ -1286,16 +1286,16 @@ class DescribeScheduledActions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AutoScalingGroupName='string',
+              AutoScalingGroupName=\'string\',
               ScheduledActionNames=[
-                  'string',
+                  \'string\',
               ],
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AutoScalingGroupName: string
@@ -1345,18 +1345,18 @@ class DescribeScheduledActions(Paginator):
           ::
         
             {
-                'ScheduledUpdateGroupActions': [
+                \'ScheduledUpdateGroupActions\': [
                     {
-                        'AutoScalingGroupName': 'string',
-                        'ScheduledActionName': 'string',
-                        'ScheduledActionARN': 'string',
-                        'Time': datetime(2015, 1, 1),
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'Recurrence': 'string',
-                        'MinSize': 123,
-                        'MaxSize': 123,
-                        'DesiredCapacity': 123
+                        \'AutoScalingGroupName\': \'string\',
+                        \'ScheduledActionName\': \'string\',
+                        \'ScheduledActionARN\': \'string\',
+                        \'Time\': datetime(2015, 1, 1),
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'Recurrence\': \'string\',
+                        \'MinSize\': 123,
+                        \'MaxSize\': 123,
+                        \'DesiredCapacity\': 123
                     },
                 ],
                 
@@ -1431,16 +1431,16 @@ class DescribeTags(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -1454,7 +1454,7 @@ class DescribeTags(Paginator):
         
             - **Name** *(string) --* 
         
-              The name of the filter. The valid values are: ``"auto-scaling-group"`` , ``"key"`` , ``"value"`` , and ``"propagate-at-launch"`` .
+              The name of the filter. The valid values are: ``\"auto-scaling-group\"`` , ``\"key\"`` , ``\"value\"`` , and ``\"propagate-at-launch\"`` .
         
             - **Values** *(list) --* 
         
@@ -1487,13 +1487,13 @@ class DescribeTags(Paginator):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'ResourceId': 'string',
-                        'ResourceType': 'string',
-                        'Key': 'string',
-                        'Value': 'string',
-                        'PropagateAtLaunch': True|False
+                        \'ResourceId\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'Key\': \'string\',
+                        \'Value\': \'string\',
+                        \'PropagateAtLaunch\': True|False
                     },
                 ],
                 

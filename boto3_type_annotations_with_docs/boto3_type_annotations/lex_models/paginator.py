@@ -12,12 +12,12 @@ class GetBotAliases(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              botName='string',
-              nameContains='string',
+              botName=\'string\',
+              nameContains=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type botName: string
@@ -28,7 +28,7 @@ class GetBotAliases(Paginator):
         :type nameContains: string
         :param nameContains: 
         
-          Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+          Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -55,18 +55,18 @@ class GetBotAliases(Paginator):
           ::
         
             {
-                'BotAliases': [
+                \'BotAliases\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'botVersion': 'string',
-                        'botName': 'string',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'checksum': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'botVersion\': \'string\',
+                        \'botName\': \'string\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'checksum\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -126,13 +126,13 @@ class GetBotChannelAssociations(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              botName='string',
-              botAlias='string',
-              nameContains='string',
+              botName=\'string\',
+              botAlias=\'string\',
+              nameContains=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type botName: string
@@ -148,7 +148,7 @@ class GetBotChannelAssociations(Paginator):
         :type nameContains: string
         :param nameContains: 
         
-          Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the ``nameContains`` parameter.
+          Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To return all bot channel associations, use a hyphen (\"-\") as the ``nameContains`` parameter.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -175,22 +175,22 @@ class GetBotChannelAssociations(Paginator):
           ::
         
             {
-                'botChannelAssociations': [
+                \'botChannelAssociations\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'botAlias': 'string',
-                        'botName': 'string',
-                        'createdDate': datetime(2015, 1, 1),
-                        'type': 'Facebook'|'Slack'|'Twilio-Sms'|'Kik',
-                        'botConfiguration': {
-                            'string': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'botAlias\': \'string\',
+                        \'botName\': \'string\',
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'type\': \'Facebook\'|\'Slack\'|\'Twilio-Sms\'|\'Kik\',
+                        \'botConfiguration\': {
+                            \'string\': \'string\'
                         },
-                        'status': 'IN_PROGRESS'|'CREATED'|'FAILED',
-                        'failureReason': 'string'
+                        \'status\': \'IN_PROGRESS\'|\'CREATED\'|\'FAILED\',
+                        \'failureReason\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -272,11 +272,11 @@ class GetBotVersions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              name='string',
+              name=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type name: string
@@ -309,17 +309,17 @@ class GetBotVersions(Paginator):
           ::
         
             {
-                'bots': [
+                \'bots\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'status': 'BUILDING'|'READY'|'READY_BASIC_TESTING'|'FAILED'|'NOT_BUILT',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'status\': \'BUILDING\'|\'READY\'|\'READY_BASIC_TESTING\'|\'FAILED\'|\'NOT_BUILT\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -375,17 +375,17 @@ class GetBots(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              nameContains='string',
+              nameContains=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type nameContains: string
         :param nameContains: 
         
-          Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+          Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -412,17 +412,17 @@ class GetBots(Paginator):
           ::
         
             {
-                'bots': [
+                \'bots\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'status': 'BUILDING'|'READY'|'READY_BASIC_TESTING'|'FAILED'|'NOT_BUILT',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'status\': \'BUILDING\'|\'READY\'|\'READY_BASIC_TESTING\'|\'FAILED\'|\'NOT_BUILT\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -478,12 +478,12 @@ class GetBuiltinIntents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              locale='en-US'|'en-GB'|'de-DE',
-              signatureContains='string',
+              locale=\'en-US\'|\'en-GB\'|\'de-DE\',
+              signatureContains=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type locale: string
@@ -494,7 +494,7 @@ class GetBuiltinIntents(Paginator):
         :type signatureContains: string
         :param signatureContains: 
         
-          Substring to match in built-in intent signatures. An intent will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To find the signature for an intent, see `Standard Built-in Intents <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents>`__ in the *Alexa Skills Kit* .
+          Substring to match in built-in intent signatures. An intent will be returned if any part of its signature matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To find the signature for an intent, see `Standard Built-in Intents <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents>`__ in the *Alexa Skills Kit* .
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -521,15 +521,15 @@ class GetBuiltinIntents(Paginator):
           ::
         
             {
-                'intents': [
+                \'intents\': [
                     {
-                        'signature': 'string',
-                        'supportedLocales': [
-                            'en-US'|'en-GB'|'de-DE',
+                        \'signature\': \'string\',
+                        \'supportedLocales\': [
+                            \'en-US\'|\'en-GB\'|\'de-DE\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -571,12 +571,12 @@ class GetBuiltinSlotTypes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              locale='en-US'|'en-GB'|'de-DE',
-              signatureContains='string',
+              locale=\'en-US\'|\'en-GB\'|\'de-DE\',
+              signatureContains=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type locale: string
@@ -587,7 +587,7 @@ class GetBuiltinSlotTypes(Paginator):
         :type signatureContains: string
         :param signatureContains: 
         
-          Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+          Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -614,15 +614,15 @@ class GetBuiltinSlotTypes(Paginator):
           ::
         
             {
-                'slotTypes': [
+                \'slotTypes\': [
                     {
-                        'signature': 'string',
-                        'supportedLocales': [
-                            'en-US'|'en-GB'|'de-DE',
+                        \'signature\': \'string\',
+                        \'supportedLocales\': [
+                            \'en-US\'|\'en-GB\'|\'de-DE\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -664,11 +664,11 @@ class GetIntentVersions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              name='string',
+              name=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type name: string
@@ -701,16 +701,16 @@ class GetIntentVersions(Paginator):
           ::
         
             {
-                'intents': [
+                \'intents\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -762,17 +762,17 @@ class GetIntents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              nameContains='string',
+              nameContains=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type nameContains: string
         :param nameContains: 
         
-          Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+          Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -799,16 +799,16 @@ class GetIntents(Paginator):
           ::
         
             {
-                'intents': [
+                \'intents\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -860,11 +860,11 @@ class GetSlotTypeVersions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              name='string',
+              name=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type name: string
@@ -897,16 +897,16 @@ class GetSlotTypeVersions(Paginator):
           ::
         
             {
-                'slotTypes': [
+                \'slotTypes\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -958,17 +958,17 @@ class GetSlotTypes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              nameContains='string',
+              nameContains=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type nameContains: string
         :param nameContains: 
         
-          Substring to match in slot type names. A slot type will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+          Substring to match in slot type names. A slot type will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -995,16 +995,16 @@ class GetSlotTypes(Paginator):
           ::
         
             {
-                'slotTypes': [
+                \'slotTypes\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

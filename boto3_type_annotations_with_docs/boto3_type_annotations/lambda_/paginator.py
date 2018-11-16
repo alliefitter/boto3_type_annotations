@@ -12,12 +12,12 @@ class ListAliases(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              FunctionName='string',
-              FunctionVersion='string',
+              FunctionName=\'string\',
+              FunctionVersion=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type FunctionName: string
@@ -65,21 +65,21 @@ class ListAliases(Paginator):
           ::
         
             {
-                'Aliases': [
+                \'Aliases\': [
                     {
-                        'AliasArn': 'string',
-                        'Name': 'string',
-                        'FunctionVersion': 'string',
-                        'Description': 'string',
-                        'RoutingConfig': {
-                            'AdditionalVersionWeights': {
-                                'string': 123.0
+                        \'AliasArn\': \'string\',
+                        \'Name\': \'string\',
+                        \'FunctionVersion\': \'string\',
+                        \'Description\': \'string\',
+                        \'RoutingConfig\': {
+                            \'AdditionalVersionWeights\': {
+                                \'string\': 123.0
                             }
                         },
-                        'RevisionId': 'string'
+                        \'RevisionId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -143,12 +143,12 @@ class ListEventSourceMappings(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              EventSourceArn='string',
-              FunctionName='string',
+              EventSourceArn=\'string\',
+              FunctionName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type EventSourceArn: string
@@ -198,19 +198,19 @@ class ListEventSourceMappings(Paginator):
           ::
         
             {
-                'EventSourceMappings': [
+                \'EventSourceMappings\': [
                     {
-                        'UUID': 'string',
-                        'BatchSize': 123,
-                        'EventSourceArn': 'string',
-                        'FunctionArn': 'string',
-                        'LastModified': datetime(2015, 1, 1),
-                        'LastProcessingResult': 'string',
-                        'State': 'string',
-                        'StateTransitionReason': 'string'
+                        \'UUID\': \'string\',
+                        \'BatchSize\': 123,
+                        \'EventSourceArn\': \'string\',
+                        \'FunctionArn\': \'string\',
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'LastProcessingResult\': \'string\',
+                        \'State\': \'string\',
+                        \'StateTransitionReason\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -276,12 +276,12 @@ class ListFunctions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              MasterRegion='string',
-              FunctionVersion='ALL',
+              MasterRegion=\'string\',
+              FunctionVersion=\'ALL\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type MasterRegion: string
@@ -319,50 +319,50 @@ class ListFunctions(Paginator):
           ::
         
             {
-                'Functions': [
+                \'Functions\': [
                     {
-                        'FunctionName': 'string',
-                        'FunctionArn': 'string',
-                        'Runtime': 'nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x',
-                        'Role': 'string',
-                        'Handler': 'string',
-                        'CodeSize': 123,
-                        'Description': 'string',
-                        'Timeout': 123,
-                        'MemorySize': 123,
-                        'LastModified': 'string',
-                        'CodeSha256': 'string',
-                        'Version': 'string',
-                        'VpcConfig': {
-                            'SubnetIds': [
-                                'string',
+                        \'FunctionName\': \'string\',
+                        \'FunctionArn\': \'string\',
+                        \'Runtime\': \'nodejs\'|\'nodejs4.3\'|\'nodejs6.10\'|\'nodejs8.10\'|\'java8\'|\'python2.7\'|\'python3.6\'|\'dotnetcore1.0\'|\'dotnetcore2.0\'|\'dotnetcore2.1\'|\'nodejs4.3-edge\'|\'go1.x\',
+                        \'Role\': \'string\',
+                        \'Handler\': \'string\',
+                        \'CodeSize\': 123,
+                        \'Description\': \'string\',
+                        \'Timeout\': 123,
+                        \'MemorySize\': 123,
+                        \'LastModified\': \'string\',
+                        \'CodeSha256\': \'string\',
+                        \'Version\': \'string\',
+                        \'VpcConfig\': {
+                            \'SubnetIds\': [
+                                \'string\',
                             ],
-                            'SecurityGroupIds': [
-                                'string',
+                            \'SecurityGroupIds\': [
+                                \'string\',
                             ],
-                            'VpcId': 'string'
+                            \'VpcId\': \'string\'
                         },
-                        'DeadLetterConfig': {
-                            'TargetArn': 'string'
+                        \'DeadLetterConfig\': {
+                            \'TargetArn\': \'string\'
                         },
-                        'Environment': {
-                            'Variables': {
-                                'string': 'string'
+                        \'Environment\': {
+                            \'Variables\': {
+                                \'string\': \'string\'
                             },
-                            'Error': {
-                                'ErrorCode': 'string',
-                                'Message': 'string'
+                            \'Error\': {
+                                \'ErrorCode\': \'string\',
+                                \'Message\': \'string\'
                             }
                         },
-                        'KMSKeyArn': 'string',
-                        'TracingConfig': {
-                            'Mode': 'Active'|'PassThrough'
+                        \'KMSKeyArn\': \'string\',
+                        \'TracingConfig\': {
+                            \'Mode\': \'Active\'|\'PassThrough\'
                         },
-                        'MasterArn': 'string',
-                        'RevisionId': 'string'
+                        \'MasterArn\': \'string\',
+                        \'RevisionId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -376,7 +376,7 @@ class ListFunctions(Paginator):
         
               - *(dict) --* 
         
-                A Lambda function's configuration settings.
+                A Lambda function\'s configuration settings.
         
                 - **FunctionName** *(string) --* 
         
@@ -384,7 +384,7 @@ class ListFunctions(Paginator):
         
                 - **FunctionArn** *(string) --* 
         
-                  The function's Amazon Resource Name.
+                  The function\'s Amazon Resource Name.
         
                 - **Runtime** *(string) --* 
         
@@ -392,7 +392,7 @@ class ListFunctions(Paginator):
         
                 - **Role** *(string) --* 
         
-                  The function's execution role.
+                  The function\'s execution role.
         
                 - **Handler** *(string) --* 
         
@@ -400,11 +400,11 @@ class ListFunctions(Paginator):
         
                 - **CodeSize** *(integer) --* 
         
-                  The size of the function's deployment package in bytes.
+                  The size of the function\'s deployment package in bytes.
         
                 - **Description** *(string) --* 
         
-                  The function's description.
+                  The function\'s description.
         
                 - **Timeout** *(integer) --* 
         
@@ -420,7 +420,7 @@ class ListFunctions(Paginator):
         
                 - **CodeSha256** *(string) --* 
         
-                  The SHA256 hash of the function's deployment package.
+                  The SHA256 hash of the function\'s deployment package.
         
                 - **Version** *(string) --* 
         
@@ -428,7 +428,7 @@ class ListFunctions(Paginator):
         
                 - **VpcConfig** *(dict) --* 
         
-                  The function's networking configuration.
+                  The function\'s networking configuration.
         
                   - **SubnetIds** *(list) --* 
         
@@ -448,7 +448,7 @@ class ListFunctions(Paginator):
         
                 - **DeadLetterConfig** *(dict) --* 
         
-                  The function's dead letter queue.
+                  The function\'s dead letter queue.
         
                   - **TargetArn** *(string) --* 
         
@@ -456,7 +456,7 @@ class ListFunctions(Paginator):
         
                 - **Environment** *(dict) --* 
         
-                  The function's environment variables.
+                  The function\'s environment variables.
         
                   - **Variables** *(dict) --* 
         
@@ -480,11 +480,11 @@ class ListFunctions(Paginator):
         
                 - **KMSKeyArn** *(string) --* 
         
-                  The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer managed CMK.
+                  The KMS key used to encrypt the function\'s environment variables. Only returned if you\'ve configured a customer managed CMK.
         
                 - **TracingConfig** *(dict) --* 
         
-                  The function's AWS X-Ray tracing configuration.
+                  The function\'s AWS X-Ray tracing configuration.
         
                   - **Mode** *(string) --* 
         

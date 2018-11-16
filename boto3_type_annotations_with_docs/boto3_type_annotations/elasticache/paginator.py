@@ -13,19 +13,19 @@ class DescribeCacheClusters(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CacheClusterId='string',
+              CacheClusterId=\'string\',
               ShowCacheNodeInfo=True|False,
               ShowCacheClustersNotInReplicationGroups=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CacheClusterId: string
         :param CacheClusterId: 
         
-          The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
+          The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn\'t case sensitive.
         
         :type ShowCacheNodeInfo: boolean
         :param ShowCacheNodeInfo: 
@@ -62,78 +62,78 @@ class DescribeCacheClusters(Paginator):
           ::
         
             {
-                'CacheClusters': [
+                \'CacheClusters\': [
                     {
-                        'CacheClusterId': 'string',
-                        'ConfigurationEndpoint': {
-                            'Address': 'string',
-                            'Port': 123
+                        \'CacheClusterId\': \'string\',
+                        \'ConfigurationEndpoint\': {
+                            \'Address\': \'string\',
+                            \'Port\': 123
                         },
-                        'ClientDownloadLandingPage': 'string',
-                        'CacheNodeType': 'string',
-                        'Engine': 'string',
-                        'EngineVersion': 'string',
-                        'CacheClusterStatus': 'string',
-                        'NumCacheNodes': 123,
-                        'PreferredAvailabilityZone': 'string',
-                        'CacheClusterCreateTime': datetime(2015, 1, 1),
-                        'PreferredMaintenanceWindow': 'string',
-                        'PendingModifiedValues': {
-                            'NumCacheNodes': 123,
-                            'CacheNodeIdsToRemove': [
-                                'string',
+                        \'ClientDownloadLandingPage\': \'string\',
+                        \'CacheNodeType\': \'string\',
+                        \'Engine\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'CacheClusterStatus\': \'string\',
+                        \'NumCacheNodes\': 123,
+                        \'PreferredAvailabilityZone\': \'string\',
+                        \'CacheClusterCreateTime\': datetime(2015, 1, 1),
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'PendingModifiedValues\': {
+                            \'NumCacheNodes\': 123,
+                            \'CacheNodeIdsToRemove\': [
+                                \'string\',
                             ],
-                            'EngineVersion': 'string',
-                            'CacheNodeType': 'string'
+                            \'EngineVersion\': \'string\',
+                            \'CacheNodeType\': \'string\'
                         },
-                        'NotificationConfiguration': {
-                            'TopicArn': 'string',
-                            'TopicStatus': 'string'
+                        \'NotificationConfiguration\': {
+                            \'TopicArn\': \'string\',
+                            \'TopicStatus\': \'string\'
                         },
-                        'CacheSecurityGroups': [
+                        \'CacheSecurityGroups\': [
                             {
-                                'CacheSecurityGroupName': 'string',
-                                'Status': 'string'
+                                \'CacheSecurityGroupName\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'CacheParameterGroup': {
-                            'CacheParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'CacheNodeIdsToReboot': [
-                                'string',
+                        \'CacheParameterGroup\': {
+                            \'CacheParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'CacheNodeIdsToReboot\': [
+                                \'string\',
                             ]
                         },
-                        'CacheSubnetGroupName': 'string',
-                        'CacheNodes': [
+                        \'CacheSubnetGroupName\': \'string\',
+                        \'CacheNodes\': [
                             {
-                                'CacheNodeId': 'string',
-                                'CacheNodeStatus': 'string',
-                                'CacheNodeCreateTime': datetime(2015, 1, 1),
-                                'Endpoint': {
-                                    'Address': 'string',
-                                    'Port': 123
+                                \'CacheNodeId\': \'string\',
+                                \'CacheNodeStatus\': \'string\',
+                                \'CacheNodeCreateTime\': datetime(2015, 1, 1),
+                                \'Endpoint\': {
+                                    \'Address\': \'string\',
+                                    \'Port\': 123
                                 },
-                                'ParameterGroupStatus': 'string',
-                                'SourceCacheNodeId': 'string',
-                                'CustomerAvailabilityZone': 'string'
+                                \'ParameterGroupStatus\': \'string\',
+                                \'SourceCacheNodeId\': \'string\',
+                                \'CustomerAvailabilityZone\': \'string\'
                             },
                         ],
-                        'AutoMinorVersionUpgrade': True|False,
-                        'SecurityGroups': [
+                        \'AutoMinorVersionUpgrade\': True|False,
+                        \'SecurityGroups\': [
                             {
-                                'SecurityGroupId': 'string',
-                                'Status': 'string'
+                                \'SecurityGroupId\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'ReplicationGroupId': 'string',
-                        'SnapshotRetentionLimit': 123,
-                        'SnapshotWindow': 'string',
-                        'AuthTokenEnabled': True|False,
-                        'TransitEncryptionEnabled': True|False,
-                        'AtRestEncryptionEnabled': True|False
+                        \'ReplicationGroupId\': \'string\',
+                        \'SnapshotRetentionLimit\': 123,
+                        \'SnapshotWindow\': \'string\',
+                        \'AuthTokenEnabled\': True|False,
+                        \'TransitEncryptionEnabled\': True|False,
+                        \'AtRestEncryptionEnabled\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -231,7 +231,7 @@ class DescribeCacheClusters(Paginator):
         
                 - **PreferredAvailabilityZone** *(string) --* 
         
-                  The name of the Availability Zone in which the cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
+                  The name of the Availability Zone in which the cluster is located or \"Multiple\" if the cache nodes are located in different Availability Zones.
         
                 - **CacheClusterCreateTime** *(datetime) --* 
         
@@ -301,7 +301,7 @@ class DescribeCacheClusters(Paginator):
         
                   - *(dict) --* 
         
-                    Represents a cluster's status within a particular cache security group.
+                    Represents a cluster\'s status within a particular cache security group.
         
                     - **CacheSecurityGroupName** *(string) --* 
         
@@ -339,7 +339,7 @@ class DescribeCacheClusters(Paginator):
         
                   - *(dict) --* 
         
-                    Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster's protocol-compliant caching software - either Memcached or Redis.
+                    Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster\'s protocol-compliant caching software - either Memcached or Redis.
         
                     The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
         
@@ -379,7 +379,7 @@ class DescribeCacheClusters(Paginator):
                      
                     - **CacheNodeId** *(string) --* 
         
-                      The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
+                      The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer\'s AWS account.
         
                     - **CacheNodeStatus** *(string) --* 
         
@@ -495,14 +495,14 @@ class DescribeCacheEngineVersions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Engine='string',
-              EngineVersion='string',
-              CacheParameterGroupFamily='string',
+              Engine=\'string\',
+              EngineVersion=\'string\',
+              CacheParameterGroupFamily=\'string\',
               DefaultOnly=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Engine: string
@@ -562,16 +562,16 @@ class DescribeCacheEngineVersions(Paginator):
           ::
         
             {
-                'CacheEngineVersions': [
+                \'CacheEngineVersions\': [
                     {
-                        'Engine': 'string',
-                        'EngineVersion': 'string',
-                        'CacheParameterGroupFamily': 'string',
-                        'CacheEngineDescription': 'string',
-                        'CacheEngineVersionDescription': 'string'
+                        \'Engine\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'CacheParameterGroupFamily\': \'string\',
+                        \'CacheEngineDescription\': \'string\',
+                        \'CacheEngineVersionDescription\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -627,11 +627,11 @@ class DescribeCacheParameterGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CacheParameterGroupName='string',
+              CacheParameterGroupName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CacheParameterGroupName: string
@@ -664,14 +664,14 @@ class DescribeCacheParameterGroups(Paginator):
           ::
         
             {
-                'CacheParameterGroups': [
+                \'CacheParameterGroups\': [
                     {
-                        'CacheParameterGroupName': 'string',
-                        'CacheParameterGroupFamily': 'string',
-                        'Description': 'string'
+                        \'CacheParameterGroupName\': \'string\',
+                        \'CacheParameterGroupFamily\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -719,12 +719,12 @@ class DescribeCacheParameters(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CacheParameterGroupName='string',
-              Source='string',
+              CacheParameterGroupName=\'string\',
+              Source=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CacheParameterGroupName: string
@@ -764,38 +764,38 @@ class DescribeCacheParameters(Paginator):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'ParameterName': 'string',
-                        'ParameterValue': 'string',
-                        'Description': 'string',
-                        'Source': 'string',
-                        'DataType': 'string',
-                        'AllowedValues': 'string',
-                        'IsModifiable': True|False,
-                        'MinimumEngineVersion': 'string',
-                        'ChangeType': 'immediate'|'requires-reboot'
+                        \'ParameterName\': \'string\',
+                        \'ParameterValue\': \'string\',
+                        \'Description\': \'string\',
+                        \'Source\': \'string\',
+                        \'DataType\': \'string\',
+                        \'AllowedValues\': \'string\',
+                        \'IsModifiable\': True|False,
+                        \'MinimumEngineVersion\': \'string\',
+                        \'ChangeType\': \'immediate\'|\'requires-reboot\'
                     },
                 ],
-                'CacheNodeTypeSpecificParameters': [
+                \'CacheNodeTypeSpecificParameters\': [
                     {
-                        'ParameterName': 'string',
-                        'Description': 'string',
-                        'Source': 'string',
-                        'DataType': 'string',
-                        'AllowedValues': 'string',
-                        'IsModifiable': True|False,
-                        'MinimumEngineVersion': 'string',
-                        'CacheNodeTypeSpecificValues': [
+                        \'ParameterName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Source\': \'string\',
+                        \'DataType\': \'string\',
+                        \'AllowedValues\': \'string\',
+                        \'IsModifiable\': True|False,
+                        \'MinimumEngineVersion\': \'string\',
+                        \'CacheNodeTypeSpecificValues\': [
                             {
-                                'CacheNodeType': 'string',
-                                'Value': 'string'
+                                \'CacheNodeType\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'ChangeType': 'immediate'|'requires-reboot'
+                        \'ChangeType\': \'immediate\'|\'requires-reboot\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -845,7 +845,7 @@ class DescribeCacheParameters(Paginator):
         
                 - **ChangeType** *(string) --* 
         
-                  Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
+                  Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window\'s reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
         
             - **CacheNodeTypeSpecificParameters** *(list) --* 
         
@@ -901,7 +901,7 @@ class DescribeCacheParameters(Paginator):
         
                 - **ChangeType** *(string) --* 
         
-                  Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
+                  Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window\'s reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
         
             - **NextToken** *(string) --* 
         
@@ -921,11 +921,11 @@ class DescribeCacheSecurityGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CacheSecurityGroupName='string',
+              CacheSecurityGroupName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CacheSecurityGroupName: string
@@ -958,21 +958,21 @@ class DescribeCacheSecurityGroups(Paginator):
           ::
         
             {
-                'CacheSecurityGroups': [
+                \'CacheSecurityGroups\': [
                     {
-                        'OwnerId': 'string',
-                        'CacheSecurityGroupName': 'string',
-                        'Description': 'string',
-                        'EC2SecurityGroups': [
+                        \'OwnerId\': \'string\',
+                        \'CacheSecurityGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'EC2SecurityGroups\': [
                             {
-                                'Status': 'string',
-                                'EC2SecurityGroupName': 'string',
-                                'EC2SecurityGroupOwnerId': 'string'
+                                \'Status\': \'string\',
+                                \'EC2SecurityGroupName\': \'string\',
+                                \'EC2SecurityGroupOwnerId\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1044,11 +1044,11 @@ class DescribeCacheSubnetGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CacheSubnetGroupName='string',
+              CacheSubnetGroupName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CacheSubnetGroupName: string
@@ -1081,22 +1081,22 @@ class DescribeCacheSubnetGroups(Paginator):
           ::
         
             {
-                'CacheSubnetGroups': [
+                \'CacheSubnetGroups\': [
                     {
-                        'CacheSubnetGroupName': 'string',
-                        'CacheSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'Subnets': [
+                        \'CacheSubnetGroupName\': \'string\',
+                        \'CacheSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 }
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1166,11 +1166,11 @@ class DescribeEngineDefaultParameters(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CacheParameterGroupFamily='string',
+              CacheParameterGroupFamily=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CacheParameterGroupFamily: string
@@ -1205,42 +1205,42 @@ class DescribeEngineDefaultParameters(Paginator):
           ::
         
             {
-                'EngineDefaults': {
-                    'CacheParameterGroupFamily': 'string',
-                    'Marker': 'string',
-                    'Parameters': [
+                \'EngineDefaults\': {
+                    \'CacheParameterGroupFamily\': \'string\',
+                    \'Marker\': \'string\',
+                    \'Parameters\': [
                         {
-                            'ParameterName': 'string',
-                            'ParameterValue': 'string',
-                            'Description': 'string',
-                            'Source': 'string',
-                            'DataType': 'string',
-                            'AllowedValues': 'string',
-                            'IsModifiable': True|False,
-                            'MinimumEngineVersion': 'string',
-                            'ChangeType': 'immediate'|'requires-reboot'
+                            \'ParameterName\': \'string\',
+                            \'ParameterValue\': \'string\',
+                            \'Description\': \'string\',
+                            \'Source\': \'string\',
+                            \'DataType\': \'string\',
+                            \'AllowedValues\': \'string\',
+                            \'IsModifiable\': True|False,
+                            \'MinimumEngineVersion\': \'string\',
+                            \'ChangeType\': \'immediate\'|\'requires-reboot\'
                         },
                     ],
-                    'CacheNodeTypeSpecificParameters': [
+                    \'CacheNodeTypeSpecificParameters\': [
                         {
-                            'ParameterName': 'string',
-                            'Description': 'string',
-                            'Source': 'string',
-                            'DataType': 'string',
-                            'AllowedValues': 'string',
-                            'IsModifiable': True|False,
-                            'MinimumEngineVersion': 'string',
-                            'CacheNodeTypeSpecificValues': [
+                            \'ParameterName\': \'string\',
+                            \'Description\': \'string\',
+                            \'Source\': \'string\',
+                            \'DataType\': \'string\',
+                            \'AllowedValues\': \'string\',
+                            \'IsModifiable\': True|False,
+                            \'MinimumEngineVersion\': \'string\',
+                            \'CacheNodeTypeSpecificValues\': [
                                 {
-                                    'CacheNodeType': 'string',
-                                    'Value': 'string'
+                                    \'CacheNodeType\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ],
-                            'ChangeType': 'immediate'|'requires-reboot'
+                            \'ChangeType\': \'immediate\'|\'requires-reboot\'
                         },
                     ]
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1302,7 +1302,7 @@ class DescribeEngineDefaultParameters(Paginator):
         
                   - **ChangeType** *(string) --* 
         
-                    Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
+                    Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window\'s reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
         
               - **CacheNodeTypeSpecificParameters** *(list) --* 
         
@@ -1358,7 +1358,7 @@ class DescribeEngineDefaultParameters(Paginator):
         
                   - **ChangeType** *(string) --* 
         
-                    Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
+                    Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window\'s reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
         
             - **NextToken** *(string) --* 
         
@@ -1378,15 +1378,15 @@ class DescribeEvents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SourceIdentifier='string',
-              SourceType='cache-cluster'|'cache-parameter-group'|'cache-security-group'|'cache-subnet-group'|'replication-group',
+              SourceIdentifier=\'string\',
+              SourceType=\'cache-cluster\'|\'cache-parameter-group\'|\'cache-security-group\'|\'cache-subnet-group\'|\'replication-group\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Duration=123,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SourceIdentifier: string
@@ -1443,15 +1443,15 @@ class DescribeEvents(Paginator):
           ::
         
             {
-                'Events': [
+                \'Events\': [
                     {
-                        'SourceIdentifier': 'string',
-                        'SourceType': 'cache-cluster'|'cache-parameter-group'|'cache-security-group'|'cache-subnet-group'|'replication-group',
-                        'Message': 'string',
-                        'Date': datetime(2015, 1, 1)
+                        \'SourceIdentifier\': \'string\',
+                        \'SourceType\': \'cache-cluster\'|\'cache-parameter-group\'|\'cache-security-group\'|\'cache-subnet-group\'|\'replication-group\',
+                        \'Message\': \'string\',
+                        \'Date\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1501,11 +1501,11 @@ class DescribeReplicationGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ReplicationGroupId='string',
+              ReplicationGroupId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ReplicationGroupId: string
@@ -1540,62 +1540,62 @@ class DescribeReplicationGroups(Paginator):
           ::
         
             {
-                'ReplicationGroups': [
+                \'ReplicationGroups\': [
                     {
-                        'ReplicationGroupId': 'string',
-                        'Description': 'string',
-                        'Status': 'string',
-                        'PendingModifiedValues': {
-                            'PrimaryClusterId': 'string',
-                            'AutomaticFailoverStatus': 'enabled'|'disabled',
-                            'Resharding': {
-                                'SlotMigration': {
-                                    'ProgressPercentage': 123.0
+                        \'ReplicationGroupId\': \'string\',
+                        \'Description\': \'string\',
+                        \'Status\': \'string\',
+                        \'PendingModifiedValues\': {
+                            \'PrimaryClusterId\': \'string\',
+                            \'AutomaticFailoverStatus\': \'enabled\'|\'disabled\',
+                            \'Resharding\': {
+                                \'SlotMigration\': {
+                                    \'ProgressPercentage\': 123.0
                                 }
                             }
                         },
-                        'MemberClusters': [
-                            'string',
+                        \'MemberClusters\': [
+                            \'string\',
                         ],
-                        'NodeGroups': [
+                        \'NodeGroups\': [
                             {
-                                'NodeGroupId': 'string',
-                                'Status': 'string',
-                                'PrimaryEndpoint': {
-                                    'Address': 'string',
-                                    'Port': 123
+                                \'NodeGroupId\': \'string\',
+                                \'Status\': \'string\',
+                                \'PrimaryEndpoint\': {
+                                    \'Address\': \'string\',
+                                    \'Port\': 123
                                 },
-                                'Slots': 'string',
-                                'NodeGroupMembers': [
+                                \'Slots\': \'string\',
+                                \'NodeGroupMembers\': [
                                     {
-                                        'CacheClusterId': 'string',
-                                        'CacheNodeId': 'string',
-                                        'ReadEndpoint': {
-                                            'Address': 'string',
-                                            'Port': 123
+                                        \'CacheClusterId\': \'string\',
+                                        \'CacheNodeId\': \'string\',
+                                        \'ReadEndpoint\': {
+                                            \'Address\': \'string\',
+                                            \'Port\': 123
                                         },
-                                        'PreferredAvailabilityZone': 'string',
-                                        'CurrentRole': 'string'
+                                        \'PreferredAvailabilityZone\': \'string\',
+                                        \'CurrentRole\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'SnapshottingClusterId': 'string',
-                        'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                        'ConfigurationEndpoint': {
-                            'Address': 'string',
-                            'Port': 123
+                        \'SnapshottingClusterId\': \'string\',
+                        \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                        \'ConfigurationEndpoint\': {
+                            \'Address\': \'string\',
+                            \'Port\': 123
                         },
-                        'SnapshotRetentionLimit': 123,
-                        'SnapshotWindow': 'string',
-                        'ClusterEnabled': True|False,
-                        'CacheNodeType': 'string',
-                        'AuthTokenEnabled': True|False,
-                        'TransitEncryptionEnabled': True|False,
-                        'AtRestEncryptionEnabled': True|False
+                        \'SnapshotRetentionLimit\': 123,
+                        \'SnapshotWindow\': \'string\',
+                        \'ClusterEnabled\': True|False,
+                        \'CacheNodeType\': \'string\',
+                        \'AuthTokenEnabled\': True|False,
+                        \'TransitEncryptionEnabled\': True|False,
+                        \'AtRestEncryptionEnabled\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1831,16 +1831,16 @@ class DescribeReservedCacheNodes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ReservedCacheNodeId='string',
-              ReservedCacheNodesOfferingId='string',
-              CacheNodeType='string',
-              Duration='string',
-              ProductDescription='string',
-              OfferingType='string',
+              ReservedCacheNodeId=\'string\',
+              ReservedCacheNodesOfferingId=\'string\',
+              CacheNodeType=\'string\',
+              Duration=\'string\',
+              ProductDescription=\'string\',
+              OfferingType=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ReservedCacheNodeId: string
@@ -1911,7 +1911,7 @@ class DescribeReservedCacheNodes(Paginator):
         
           The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type.
         
-          Valid values: ``"Light Utilization"|"Medium Utilization"|"Heavy Utilization"``  
+          Valid values: ``\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"``  
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -1938,29 +1938,29 @@ class DescribeReservedCacheNodes(Paginator):
           ::
         
             {
-                'ReservedCacheNodes': [
+                \'ReservedCacheNodes\': [
                     {
-                        'ReservedCacheNodeId': 'string',
-                        'ReservedCacheNodesOfferingId': 'string',
-                        'CacheNodeType': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'Duration': 123,
-                        'FixedPrice': 123.0,
-                        'UsagePrice': 123.0,
-                        'CacheNodeCount': 123,
-                        'ProductDescription': 'string',
-                        'OfferingType': 'string',
-                        'State': 'string',
-                        'RecurringCharges': [
+                        \'ReservedCacheNodeId\': \'string\',
+                        \'ReservedCacheNodesOfferingId\': \'string\',
+                        \'CacheNodeType\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'Duration\': 123,
+                        \'FixedPrice\': 123.0,
+                        \'UsagePrice\': 123.0,
+                        \'CacheNodeCount\': 123,
+                        \'ProductDescription\': \'string\',
+                        \'OfferingType\': \'string\',
+                        \'State\': \'string\',
+                        \'RecurringCharges\': [
                             {
-                                'RecurringChargeAmount': 123.0,
-                                'RecurringChargeFrequency': 'string'
+                                \'RecurringChargeAmount\': 123.0,
+                                \'RecurringChargeFrequency\': \'string\'
                             },
                         ],
-                        'ReservationARN': 'string'
+                        \'ReservationARN\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2096,15 +2096,15 @@ class DescribeReservedCacheNodesOfferings(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ReservedCacheNodesOfferingId='string',
-              CacheNodeType='string',
-              Duration='string',
-              ProductDescription='string',
-              OfferingType='string',
+              ReservedCacheNodesOfferingId=\'string\',
+              CacheNodeType=\'string\',
+              Duration=\'string\',
+              ProductDescription=\'string\',
+              OfferingType=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ReservedCacheNodesOfferingId: string
@@ -2172,7 +2172,7 @@ class DescribeReservedCacheNodesOfferings(Paginator):
         
           The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type.
         
-          Valid Values: ``"Light Utilization"|"Medium Utilization"|"Heavy Utilization"``  
+          Valid Values: ``\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"``  
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -2199,24 +2199,24 @@ class DescribeReservedCacheNodesOfferings(Paginator):
           ::
         
             {
-                'ReservedCacheNodesOfferings': [
+                \'ReservedCacheNodesOfferings\': [
                     {
-                        'ReservedCacheNodesOfferingId': 'string',
-                        'CacheNodeType': 'string',
-                        'Duration': 123,
-                        'FixedPrice': 123.0,
-                        'UsagePrice': 123.0,
-                        'ProductDescription': 'string',
-                        'OfferingType': 'string',
-                        'RecurringCharges': [
+                        \'ReservedCacheNodesOfferingId\': \'string\',
+                        \'CacheNodeType\': \'string\',
+                        \'Duration\': 123,
+                        \'FixedPrice\': 123.0,
+                        \'UsagePrice\': 123.0,
+                        \'ProductDescription\': \'string\',
+                        \'OfferingType\': \'string\',
+                        \'RecurringCharges\': [
                             {
-                                'RecurringChargeAmount': 123.0,
-                                'RecurringChargeFrequency': 'string'
+                                \'RecurringChargeAmount\': 123.0,
+                                \'RecurringChargeFrequency\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2330,15 +2330,15 @@ class DescribeSnapshots(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ReplicationGroupId='string',
-              CacheClusterId='string',
-              SnapshotName='string',
-              SnapshotSource='string',
+              ReplicationGroupId=\'string\',
+              CacheClusterId=\'string\',
+              SnapshotName=\'string\',
+              SnapshotSource=\'string\',
               ShowNodeGroupConfig=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ReplicationGroupId: string
@@ -2391,53 +2391,53 @@ class DescribeSnapshots(Paginator):
           ::
         
             {
-                'Snapshots': [
+                \'Snapshots\': [
                     {
-                        'SnapshotName': 'string',
-                        'ReplicationGroupId': 'string',
-                        'ReplicationGroupDescription': 'string',
-                        'CacheClusterId': 'string',
-                        'SnapshotStatus': 'string',
-                        'SnapshotSource': 'string',
-                        'CacheNodeType': 'string',
-                        'Engine': 'string',
-                        'EngineVersion': 'string',
-                        'NumCacheNodes': 123,
-                        'PreferredAvailabilityZone': 'string',
-                        'CacheClusterCreateTime': datetime(2015, 1, 1),
-                        'PreferredMaintenanceWindow': 'string',
-                        'TopicArn': 'string',
-                        'Port': 123,
-                        'CacheParameterGroupName': 'string',
-                        'CacheSubnetGroupName': 'string',
-                        'VpcId': 'string',
-                        'AutoMinorVersionUpgrade': True|False,
-                        'SnapshotRetentionLimit': 123,
-                        'SnapshotWindow': 'string',
-                        'NumNodeGroups': 123,
-                        'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                        'NodeSnapshots': [
+                        \'SnapshotName\': \'string\',
+                        \'ReplicationGroupId\': \'string\',
+                        \'ReplicationGroupDescription\': \'string\',
+                        \'CacheClusterId\': \'string\',
+                        \'SnapshotStatus\': \'string\',
+                        \'SnapshotSource\': \'string\',
+                        \'CacheNodeType\': \'string\',
+                        \'Engine\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'NumCacheNodes\': 123,
+                        \'PreferredAvailabilityZone\': \'string\',
+                        \'CacheClusterCreateTime\': datetime(2015, 1, 1),
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'TopicArn\': \'string\',
+                        \'Port\': 123,
+                        \'CacheParameterGroupName\': \'string\',
+                        \'CacheSubnetGroupName\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'AutoMinorVersionUpgrade\': True|False,
+                        \'SnapshotRetentionLimit\': 123,
+                        \'SnapshotWindow\': \'string\',
+                        \'NumNodeGroups\': 123,
+                        \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                        \'NodeSnapshots\': [
                             {
-                                'CacheClusterId': 'string',
-                                'NodeGroupId': 'string',
-                                'CacheNodeId': 'string',
-                                'NodeGroupConfiguration': {
-                                    'NodeGroupId': 'string',
-                                    'Slots': 'string',
-                                    'ReplicaCount': 123,
-                                    'PrimaryAvailabilityZone': 'string',
-                                    'ReplicaAvailabilityZones': [
-                                        'string',
+                                \'CacheClusterId\': \'string\',
+                                \'NodeGroupId\': \'string\',
+                                \'CacheNodeId\': \'string\',
+                                \'NodeGroupConfiguration\': {
+                                    \'NodeGroupId\': \'string\',
+                                    \'Slots\': \'string\',
+                                    \'ReplicaCount\': 123,
+                                    \'PrimaryAvailabilityZone\': \'string\',
+                                    \'ReplicaAvailabilityZones\': [
+                                        \'string\',
                                     ]
                                 },
-                                'CacheSize': 'string',
-                                'CacheNodeCreateTime': datetime(2015, 1, 1),
-                                'SnapshotCreateTime': datetime(2015, 1, 1)
+                                \'CacheSize\': \'string\',
+                                \'CacheNodeCreateTime\': datetime(2015, 1, 1),
+                                \'SnapshotCreateTime\': datetime(2015, 1, 1)
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2645,7 +2645,7 @@ class DescribeSnapshots(Paginator):
         
                         A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format ``startkey-endkey`` .
         
-                        Example: ``"0-3999"``  
+                        Example: ``\"0-3999\"``  
         
                       - **ReplicaCount** *(integer) --* 
         
@@ -2671,7 +2671,7 @@ class DescribeSnapshots(Paginator):
         
                     - **SnapshotCreateTime** *(datetime) --* 
         
-                      The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+                      The date and time when the source node\'s metadata and cache data set was obtained for the snapshot.
         
             - **NextToken** *(string) --* 
         

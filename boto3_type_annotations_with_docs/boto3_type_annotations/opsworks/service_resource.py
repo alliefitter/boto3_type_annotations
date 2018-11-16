@@ -1,7 +1,7 @@
-from boto3.resources.collection import ResourceCollection
-from typing import Union
-from typing import List
 from typing import Optional
+from typing import Union
+from boto3.resources.collection import ResourceCollection
+from typing import List
 from typing import Dict
 from boto3.resources import base
 
@@ -13,10 +13,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Layer resource.::
         
-          layer = opsworks.Layer('id')
+          layer = opsworks.Layer(\'id\')
         
         :type id: string
-        :param id: The Layer's id identifier. This **must** be set.
+        :param id: The Layer\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`OpsWorks.Layer`
         :returns: A Layer resource
@@ -27,10 +27,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Stack resource.::
         
-          stack = opsworks.Stack('id')
+          stack = opsworks.Stack(\'id\')
         
         :type id: string
-        :param id: The Stack's id identifier. This **must** be set.
+        :param id: The Stack\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`OpsWorks.Stack`
         :returns: A Stack resource
@@ -41,10 +41,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a StackSummary resource.::
         
-          stack_summary = opsworks.StackSummary('stack_id')
+          stack_summary = opsworks.StackSummary(\'stack_id\')
         
         :type stack_id: string
-        :param stack_id: The StackSummary's stack_id identifier. This **must** be set.
+        :param stack_id: The StackSummary\'s stack_id identifier. This **must** be set.
         
         :rtype: :py:class:`OpsWorks.StackSummary`
         :returns: A StackSummary resource
@@ -62,40 +62,40 @@ class ServiceResource(base.ServiceResource):
         ::
         
           stack = opsworks.create_stack(
-              Name='string',
-              Region='string',
-              VpcId='string',
+              Name=\'string\',
+              Region=\'string\',
+              VpcId=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              ServiceRoleArn='string',
-              DefaultInstanceProfileArn='string',
-              DefaultOs='string',
-              HostnameTheme='string',
-              DefaultAvailabilityZone='string',
-              DefaultSubnetId='string',
-              CustomJson='string',
+              ServiceRoleArn=\'string\',
+              DefaultInstanceProfileArn=\'string\',
+              DefaultOs=\'string\',
+              HostnameTheme=\'string\',
+              DefaultAvailabilityZone=\'string\',
+              DefaultSubnetId=\'string\',
+              CustomJson=\'string\',
               ConfigurationManager={
-                  'Name': 'string',
-                  'Version': 'string'
+                  \'Name\': \'string\',
+                  \'Version\': \'string\'
               },
               ChefConfiguration={
-                  'ManageBerkshelf': True|False,
-                  'BerkshelfVersion': 'string'
+                  \'ManageBerkshelf\': True|False,
+                  \'BerkshelfVersion\': \'string\'
               },
               UseCustomCookbooks=True|False,
               UseOpsworksSecurityGroups=True|False,
               CustomCookbooksSource={
-                  'Type': 'git'|'svn'|'archive'|'s3',
-                  'Url': 'string',
-                  'Username': 'string',
-                  'Password': 'string',
-                  'SshKey': 'string',
-                  'Revision': 'string'
+                  \'Type\': \'git\'|\'svn\'|\'archive\'|\'s3\',
+                  \'Url\': \'string\',
+                  \'Username\': \'string\',
+                  \'Password\': \'string\',
+                  \'SshKey\': \'string\',
+                  \'Revision\': \'string\'
               },
-              DefaultSshKeyName='string',
-              DefaultRootDeviceType='ebs'|'instance-store',
-              AgentVersion='string'
+              DefaultSshKeyName=\'string\',
+              DefaultRootDeviceType=\'ebs\'|\'instance-store\',
+              AgentVersion=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -105,7 +105,7 @@ class ServiceResource(base.ServiceResource):
         :type Region: string
         :param Region: **[REQUIRED]** 
         
-          The stack's AWS region, such as ``ap-south-1`` . For more information about Amazon regions, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
+          The stack\'s AWS region, such as ``ap-south-1`` . For more information about Amazon regions, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ .
         
           .. note::
         
@@ -114,7 +114,7 @@ class ServiceResource(base.ServiceResource):
         :type VpcId: string
         :param VpcId: 
         
-          The ID of the VPC that the stack is to be launched into. The VPC must be in the stack's region. All instances are launched into this VPC. You cannot change the ID later.
+          The ID of the VPC that the stack is to be launched into. The VPC must be in the stack\'s region. All instances are launched into this VPC. You cannot change the ID later.
         
           * If your account supports EC2-Classic, the default value is ``no VPC`` . 
            
@@ -142,17 +142,17 @@ class ServiceResource(base.ServiceResource):
         :type ServiceRoleArn: string
         :param ServiceRoleArn: **[REQUIRED]** 
         
-          The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+          The stack\'s AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
         :type DefaultInstanceProfileArn: string
         :param DefaultInstanceProfileArn: **[REQUIRED]** 
         
-          The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+          The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack\'s EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
         :type DefaultOs: string
         :param DefaultOs: 
         
-          The stack's default operating system, which is installed on every instance unless you specify a different operating system when you create the instance. You can specify one of the following.
+          The stack\'s default operating system, which is installed on every instance unless you specify a different operating system when you create the instance. You can specify one of the following.
         
           * A supported Linux operating system: An Amazon Linux version, such as ``Amazon Linux 2017.09`` , ``Amazon Linux 2017.03`` , ``Amazon Linux 2016.09`` , ``Amazon Linux 2016.03`` , ``Amazon Linux 2015.09`` , or ``Amazon Linux 2015.03`` . 
            
@@ -171,7 +171,7 @@ class ServiceResource(base.ServiceResource):
         :type HostnameTheme: string
         :param HostnameTheme: 
         
-          The stack's host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, ``HostnameTheme`` is set to ``Layer_Dependent`` , which creates host names by appending integers to the layer's short name. The other themes are:
+          The stack\'s host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack\'s instances. By default, ``HostnameTheme`` is set to ``Layer_Dependent`` , which creates host names by appending integers to the layer\'s short name. The other themes are:
         
           * ``Baked_Goods``   
            
@@ -200,19 +200,19 @@ class ServiceResource(base.ServiceResource):
         :type DefaultAvailabilityZone: string
         :param DefaultAvailabilityZone: 
         
-          The stack's default Availability Zone, which must be in the specified region. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ . If you also specify a value for ``DefaultSubnetId`` , the subnet must be in the same zone. For more information, see the ``VpcId`` parameter description. 
+          The stack\'s default Availability Zone, which must be in the specified region. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ . If you also specify a value for ``DefaultSubnetId`` , the subnet must be in the same zone. For more information, see the ``VpcId`` parameter description. 
         
         :type DefaultSubnetId: string
         :param DefaultSubnetId: 
         
-          The stack's default VPC subnet ID. This parameter is required if you specify a value for the ``VpcId`` parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for ``DefaultAvailabilityZone`` , the subnet must be in that zone. For information on default values and when this parameter is required, see the ``VpcId`` parameter description. 
+          The stack\'s default VPC subnet ID. This parameter is required if you specify a value for the ``VpcId`` parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for ``DefaultAvailabilityZone`` , the subnet must be in that zone. For information on default values and when this parameter is required, see the ``VpcId`` parameter description. 
         
         :type CustomJson: string
         :param CustomJson: 
         
           A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:
         
-           ``"{\"key1\": \"value1\", \"key2\": \"value2\",...}"``  
+           ``\"{\\"key1\\": \\"value1\\", \\"key2\\": \\"value2\\",...}\"``  
         
           For more information about custom JSON, see `Use Custom JSON to Modify the Stack Configuration Attributes <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html>`__ .
         
@@ -223,7 +223,7 @@ class ServiceResource(base.ServiceResource):
         
           - **Name** *(string) --* 
         
-            The name. This parameter must be set to "Chef".
+            The name. This parameter must be set to \"Chef\".
         
           - **Version** *(string) --* 
         
@@ -250,7 +250,7 @@ class ServiceResource(base.ServiceResource):
         :type UseOpsworksSecurityGroups: boolean
         :param UseOpsworksSecurityGroups: 
         
-          Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.
+          Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack\'s layers.
         
           AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. With ``UseOpsworksSecurityGroups`` you can instead provide your own custom security groups. ``UseOpsworksSecurityGroups`` has the following settings: 
         
@@ -295,13 +295,13 @@ class ServiceResource(base.ServiceResource):
         
           - **SshKey** *(string) --* 
         
-            In requests, the repository's SSH key.
+            In requests, the repository\'s SSH key.
         
             In responses, AWS OpsWorks Stacks returns ``*****FILTERED*****`` instead of the actual value.
         
           - **Revision** *(string) --* 
         
-            The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+            The application\'s version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
         
         :type DefaultSshKeyName: string
         :param DefaultSshKeyName: 
@@ -318,15 +318,15 @@ class ServiceResource(base.ServiceResource):
         
           The default AWS OpsWorks Stacks agent version. You have the following options:
         
-          * Auto-update - Set this parameter to ``LATEST`` . AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available. 
+          * Auto-update - Set this parameter to ``LATEST`` . AWS OpsWorks Stacks automatically installs new agent versions on the stack\'s instances as soon as they are available. 
            
-          * Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances. 
+          * Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack\'s instances. 
            
           The default setting is the most recent release of the agent. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call  DescribeAgentVersions . AgentVersion cannot be set to Chef 12.2.
         
           .. note::
         
-            You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.
+            You can also specify an agent version when you create or update an instance, which overrides the stack\'s default setting.
         
         :rtype: :py:class:`opsworks.Stack`
         :returns: Stack resource
@@ -466,75 +466,75 @@ class Stack(base.ServiceResource):
         ::
         
           layer = stack.create_layer(
-              Type='aws-flow-ruby'|'ecs-cluster'|'java-app'|'lb'|'web'|'php-app'|'rails-app'|'nodejs-app'|'memcached'|'db-master'|'monitoring-master'|'custom',
-              Name='string',
-              Shortname='string',
+              Type=\'aws-flow-ruby\'|\'ecs-cluster\'|\'java-app\'|\'lb\'|\'web\'|\'php-app\'|\'rails-app\'|\'nodejs-app\'|\'memcached\'|\'db-master\'|\'monitoring-master\'|\'custom\',
+              Name=\'string\',
+              Shortname=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               CloudWatchLogsConfiguration={
-                  'Enabled': True|False,
-                  'LogStreams': [
+                  \'Enabled\': True|False,
+                  \'LogStreams\': [
                       {
-                          'LogGroupName': 'string',
-                          'DatetimeFormat': 'string',
-                          'TimeZone': 'LOCAL'|'UTC',
-                          'File': 'string',
-                          'FileFingerprintLines': 'string',
-                          'MultiLineStartPattern': 'string',
-                          'InitialPosition': 'start_of_file'|'end_of_file',
-                          'Encoding': 'ascii'|'big5'|'big5hkscs'|'cp037'|'cp424'|'cp437'|'cp500'|'cp720'|'cp737'|'cp775'|'cp850'|'cp852'|'cp855'|'cp856'|'cp857'|'cp858'|'cp860'|'cp861'|'cp862'|'cp863'|'cp864'|'cp865'|'cp866'|'cp869'|'cp874'|'cp875'|'cp932'|'cp949'|'cp950'|'cp1006'|'cp1026'|'cp1140'|'cp1250'|'cp1251'|'cp1252'|'cp1253'|'cp1254'|'cp1255'|'cp1256'|'cp1257'|'cp1258'|'euc_jp'|'euc_jis_2004'|'euc_jisx0213'|'euc_kr'|'gb2312'|'gbk'|'gb18030'|'hz'|'iso2022_jp'|'iso2022_jp_1'|'iso2022_jp_2'|'iso2022_jp_2004'|'iso2022_jp_3'|'iso2022_jp_ext'|'iso2022_kr'|'latin_1'|'iso8859_2'|'iso8859_3'|'iso8859_4'|'iso8859_5'|'iso8859_6'|'iso8859_7'|'iso8859_8'|'iso8859_9'|'iso8859_10'|'iso8859_13'|'iso8859_14'|'iso8859_15'|'iso8859_16'|'johab'|'koi8_r'|'koi8_u'|'mac_cyrillic'|'mac_greek'|'mac_iceland'|'mac_latin2'|'mac_roman'|'mac_turkish'|'ptcp154'|'shift_jis'|'shift_jis_2004'|'shift_jisx0213'|'utf_32'|'utf_32_be'|'utf_32_le'|'utf_16'|'utf_16_be'|'utf_16_le'|'utf_7'|'utf_8'|'utf_8_sig',
-                          'BufferDuration': 123,
-                          'BatchCount': 123,
-                          'BatchSize': 123
+                          \'LogGroupName\': \'string\',
+                          \'DatetimeFormat\': \'string\',
+                          \'TimeZone\': \'LOCAL\'|\'UTC\',
+                          \'File\': \'string\',
+                          \'FileFingerprintLines\': \'string\',
+                          \'MultiLineStartPattern\': \'string\',
+                          \'InitialPosition\': \'start_of_file\'|\'end_of_file\',
+                          \'Encoding\': \'ascii\'|\'big5\'|\'big5hkscs\'|\'cp037\'|\'cp424\'|\'cp437\'|\'cp500\'|\'cp720\'|\'cp737\'|\'cp775\'|\'cp850\'|\'cp852\'|\'cp855\'|\'cp856\'|\'cp857\'|\'cp858\'|\'cp860\'|\'cp861\'|\'cp862\'|\'cp863\'|\'cp864\'|\'cp865\'|\'cp866\'|\'cp869\'|\'cp874\'|\'cp875\'|\'cp932\'|\'cp949\'|\'cp950\'|\'cp1006\'|\'cp1026\'|\'cp1140\'|\'cp1250\'|\'cp1251\'|\'cp1252\'|\'cp1253\'|\'cp1254\'|\'cp1255\'|\'cp1256\'|\'cp1257\'|\'cp1258\'|\'euc_jp\'|\'euc_jis_2004\'|\'euc_jisx0213\'|\'euc_kr\'|\'gb2312\'|\'gbk\'|\'gb18030\'|\'hz\'|\'iso2022_jp\'|\'iso2022_jp_1\'|\'iso2022_jp_2\'|\'iso2022_jp_2004\'|\'iso2022_jp_3\'|\'iso2022_jp_ext\'|\'iso2022_kr\'|\'latin_1\'|\'iso8859_2\'|\'iso8859_3\'|\'iso8859_4\'|\'iso8859_5\'|\'iso8859_6\'|\'iso8859_7\'|\'iso8859_8\'|\'iso8859_9\'|\'iso8859_10\'|\'iso8859_13\'|\'iso8859_14\'|\'iso8859_15\'|\'iso8859_16\'|\'johab\'|\'koi8_r\'|\'koi8_u\'|\'mac_cyrillic\'|\'mac_greek\'|\'mac_iceland\'|\'mac_latin2\'|\'mac_roman\'|\'mac_turkish\'|\'ptcp154\'|\'shift_jis\'|\'shift_jis_2004\'|\'shift_jisx0213\'|\'utf_32\'|\'utf_32_be\'|\'utf_32_le\'|\'utf_16\'|\'utf_16_be\'|\'utf_16_le\'|\'utf_7\'|\'utf_8\'|\'utf_8_sig\',
+                          \'BufferDuration\': 123,
+                          \'BatchCount\': 123,
+                          \'BatchSize\': 123
                       },
                   ]
               },
-              CustomInstanceProfileArn='string',
-              CustomJson='string',
+              CustomInstanceProfileArn=\'string\',
+              CustomJson=\'string\',
               CustomSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               Packages=[
-                  'string',
+                  \'string\',
               ],
               VolumeConfigurations=[
                   {
-                      'MountPoint': 'string',
-                      'RaidLevel': 123,
-                      'NumberOfDisks': 123,
-                      'Size': 123,
-                      'VolumeType': 'string',
-                      'Iops': 123,
-                      'Encrypted': True|False
+                      \'MountPoint\': \'string\',
+                      \'RaidLevel\': 123,
+                      \'NumberOfDisks\': 123,
+                      \'Size\': 123,
+                      \'VolumeType\': \'string\',
+                      \'Iops\': 123,
+                      \'Encrypted\': True|False
                   },
               ],
               EnableAutoHealing=True|False,
               AutoAssignElasticIps=True|False,
               AutoAssignPublicIps=True|False,
               CustomRecipes={
-                  'Setup': [
-                      'string',
+                  \'Setup\': [
+                      \'string\',
                   ],
-                  'Configure': [
-                      'string',
+                  \'Configure\': [
+                      \'string\',
                   ],
-                  'Deploy': [
-                      'string',
+                  \'Deploy\': [
+                      \'string\',
                   ],
-                  'Undeploy': [
-                      'string',
+                  \'Undeploy\': [
+                      \'string\',
                   ],
-                  'Shutdown': [
-                      'string',
+                  \'Shutdown\': [
+                      \'string\',
                   ]
               },
               InstallUpdatesOnBoot=True|False,
               UseEbsOptimizedInstances=True|False,
               LifecycleEventConfiguration={
-                  'Shutdown': {
-                      'ExecutionTimeout': 123,
-                      'DelayUntilElbConnectionsDrained': True|False
+                  \'Shutdown\': {
+                      \'ExecutionTimeout\': 123,
+                      \'DelayUntilElbConnectionsDrained\': True|False
                   }
               }
           )
@@ -551,16 +551,16 @@ class Stack(base.ServiceResource):
         :type Shortname: string
         :param Shortname: **[REQUIRED]** 
         
-          For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.
+          For custom layers only, use this parameter to specify the layer\'s short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, \'-\', \'_\', and \'.\'.
         
-          The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the `Layer Reference <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html>`__ .
+          The built-in layers\' short names are defined by AWS OpsWorks Stacks. For more information, see the `Layer Reference <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html>`__ .
         
         :type Attributes: dict
         :param Attributes: 
         
           One or more user-defined key-value pairs to be added to the stack attributes.
         
-          To create a cluster layer, set the ``EcsClusterArn`` attribute to the cluster's ARN.
+          To create a cluster layer, set the ``EcsClusterArn`` attribute to the cluster\'s ARN.
         
           - *(string) --* 
         
@@ -585,7 +585,7 @@ class Stack(base.ServiceResource):
         
               - **LogGroupName** *(string) --* 
         
-                Specifies the destination log group. A log group is created automatically if it doesn't already exist. Log group names can be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
+                Specifies the destination log group. A log group is created automatically if it doesn\'t already exist. Log group names can be between 1 and 512 characters long. Allowed characters include a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (hyphen), \'/\' (forward slash), and \'.\' (period).
         
               - **DatetimeFormat** *(string) --* 
         
@@ -599,13 +599,13 @@ class Stack(base.ServiceResource):
         
                 Specifies log files that you want to push to CloudWatch Logs.
         
-                 ``File`` can point to a specific file or multiple files (by using wild card characters such as ``/var/log/system.log*`` ). Only the latest file is pushed to CloudWatch Logs, based on file modification time. We recommend that you use wild card characters to specify a series of files of the same type, such as ``access_log.2014-06-01-01`` , ``access_log.2014-06-01-02`` , and so on by using a pattern like ``access_log.*`` . Don't use a wildcard to match multiple file types, such as ``access_log_80`` and ``access_log_443`` . To specify multiple, different file types, add another log stream entry to the configuration file, so that each log file type is stored in a different log group.
+                 ``File`` can point to a specific file or multiple files (by using wild card characters such as ``/var/log/system.log*`` ). Only the latest file is pushed to CloudWatch Logs, based on file modification time. We recommend that you use wild card characters to specify a series of files of the same type, such as ``access_log.2014-06-01-01`` , ``access_log.2014-06-01-02`` , and so on by using a pattern like ``access_log.*`` . Don\'t use a wildcard to match multiple file types, such as ``access_log_80`` and ``access_log_443`` . To specify multiple, different file types, add another log stream entry to the configuration file, so that each log file type is stored in a different log group.
         
                 Zipped files are not supported.
         
               - **FileFingerprintLines** *(string) --* 
         
-                Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as '1', '2-5'. The default value is '1', meaning the first line is used to calculate the fingerprint. Fingerprint lines are not sent to CloudWatch Logs unless all specified lines are available.
+                Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as \'1\', \'2-5\'. The default value is \'1\', meaning the first line is used to calculate the fingerprint. Fingerprint lines are not sent to CloudWatch Logs unless all specified lines are available.
         
               - **MultiLineStartPattern** *(string) --* 
         
@@ -634,12 +634,12 @@ class Stack(base.ServiceResource):
         :type CustomInstanceProfileArn: string
         :param CustomInstanceProfileArn: 
         
-          The ARN of an IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
+          The ARN of an IAM profile to be used for the layer\'s EC2 instances. For more information about IAM ARNs, see `Using Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ .
         
         :type CustomJson: string
         :param CustomJson: 
         
-          A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see `Using Custom JSON <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html>`__ . This feature is supported as of version 1.7.42 of the AWS CLI. 
+          A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer\'s instances. For more information, see `Using Custom JSON <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html>`__ . This feature is supported as of version 1.7.42 of the AWS CLI. 
         
         :type CustomSecurityGroupIds: list
         :param CustomSecurityGroupIds: 
@@ -658,7 +658,7 @@ class Stack(base.ServiceResource):
         :type VolumeConfigurations: list
         :param VolumeConfigurations: 
         
-          A ``VolumeConfigurations`` object that describes the layer's Amazon EBS volumes.
+          A ``VolumeConfigurations`` object that describes the layer\'s Amazon EBS volumes.
         
           - *(dict) --* 
         
@@ -666,7 +666,7 @@ class Stack(base.ServiceResource):
         
             - **MountPoint** *(string) --* **[REQUIRED]** 
         
-              The volume mount point. For example "/dev/sdh".
+              The volume mount point. For example \"/dev/sdh\".
         
             - **RaidLevel** *(integer) --* 
         
@@ -710,12 +710,12 @@ class Stack(base.ServiceResource):
         :type AutoAssignElasticIps: boolean
         :param AutoAssignElasticIps: 
         
-          Whether to automatically assign an `Elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ to the layer's instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
+          Whether to automatically assign an `Elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ to the layer\'s instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
         
         :type AutoAssignPublicIps: boolean
         :param AutoAssignPublicIps: 
         
-          For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
+          For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer\'s instances. For more information, see `How to Edit a Layer <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html>`__ .
         
         :type CustomRecipes: dict
         :param CustomRecipes: 
@@ -920,7 +920,7 @@ class stacks(ResourceCollection):
         
           stack_iterator = opsworks.stacks.filter(
               StackIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StackIds: list
@@ -998,13 +998,13 @@ class stacks(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances

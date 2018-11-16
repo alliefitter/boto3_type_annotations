@@ -12,15 +12,15 @@ class DescribeEndpoints(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Mode='DEFAULT'|'GET_ONLY',
+              Mode=\'DEFAULT\'|\'GET_ONLY\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Mode: string
-        :param Mode: Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
+        :param Mode: Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn\'t already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -47,9 +47,9 @@ class DescribeEndpoints(Paginator):
           ::
         
             {
-                'Endpoints': [
+                \'Endpoints\': [
                     {
-                        'Url': 'string'
+                        \'Url\': \'string\'
                     },
                 ],
                 
@@ -78,20 +78,20 @@ class ListJobTemplates(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Category='string',
-              ListBy='NAME'|'CREATION_DATE'|'SYSTEM',
-              Order='ASCENDING'|'DESCENDING',
+              Category=\'string\',
+              ListBy=\'NAME\'|\'CREATION_DATE\'|\'SYSTEM\',
+              Order=\'ASCENDING\'|\'DESCENDING\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Category: string
         :param Category: Optionally, specify a job template category to limit responses to only job templates from that category.
         
         :type ListBy: string
-        :param ListBy: Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
+        :param ListBy: Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don\'t specify, the service will list them by name.
         
         :type Order: string
         :param Order: When you request lists of resources, you can optionally specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
@@ -121,754 +121,754 @@ class ListJobTemplates(Paginator):
           ::
         
             {
-                'JobTemplates': [
+                \'JobTemplates\': [
                     {
-                        'Arn': 'string',
-                        'Category': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'Description': 'string',
-                        'LastUpdated': datetime(2015, 1, 1),
-                        'Name': 'string',
-                        'Queue': 'string',
-                        'Settings': {
-                            'AdAvailOffset': 123,
-                            'AvailBlanking': {
-                                'AvailBlankingImage': 'string'
+                        \'Arn\': \'string\',
+                        \'Category\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'Description\': \'string\',
+                        \'LastUpdated\': datetime(2015, 1, 1),
+                        \'Name\': \'string\',
+                        \'Queue\': \'string\',
+                        \'Settings\': {
+                            \'AdAvailOffset\': 123,
+                            \'AvailBlanking\': {
+                                \'AvailBlankingImage\': \'string\'
                             },
-                            'Inputs': [
+                            \'Inputs\': [
                                 {
-                                    'AudioSelectorGroups': {
-                                        'string': {
-                                            'AudioSelectorNames': [
-                                                'string',
+                                    \'AudioSelectorGroups\': {
+                                        \'string\': {
+                                            \'AudioSelectorNames\': [
+                                                \'string\',
                                             ]
                                         }
                                     },
-                                    'AudioSelectors': {
-                                        'string': {
-                                            'CustomLanguageCode': 'string',
-                                            'DefaultSelection': 'DEFAULT'|'NOT_DEFAULT',
-                                            'ExternalAudioFileInput': 'string',
-                                            'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                            'Offset': 123,
-                                            'Pids': [
+                                    \'AudioSelectors\': {
+                                        \'string\': {
+                                            \'CustomLanguageCode\': \'string\',
+                                            \'DefaultSelection\': \'DEFAULT\'|\'NOT_DEFAULT\',
+                                            \'ExternalAudioFileInput\': \'string\',
+                                            \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                            \'Offset\': 123,
+                                            \'Pids\': [
                                                 123,
                                             ],
-                                            'ProgramSelection': 123,
-                                            'RemixSettings': {
-                                                'ChannelMapping': {
-                                                    'OutputChannels': [
+                                            \'ProgramSelection\': 123,
+                                            \'RemixSettings\': {
+                                                \'ChannelMapping\': {
+                                                    \'OutputChannels\': [
                                                         {
-                                                            'InputChannels': [
+                                                            \'InputChannels\': [
                                                                 123,
                                                             ]
                                                         },
                                                     ]
                                                 },
-                                                'ChannelsIn': 123,
-                                                'ChannelsOut': 123
+                                                \'ChannelsIn\': 123,
+                                                \'ChannelsOut\': 123
                                             },
-                                            'SelectorType': 'PID'|'TRACK'|'LANGUAGE_CODE',
-                                            'Tracks': [
+                                            \'SelectorType\': \'PID\'|\'TRACK\'|\'LANGUAGE_CODE\',
+                                            \'Tracks\': [
                                                 123,
                                             ]
                                         }
                                     },
-                                    'CaptionSelectors': {
-                                        'string': {
-                                            'CustomLanguageCode': 'string',
-                                            'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                            'SourceSettings': {
-                                                'AncillarySourceSettings': {
-                                                    'SourceAncillaryChannelNumber': 123
+                                    \'CaptionSelectors\': {
+                                        \'string\': {
+                                            \'CustomLanguageCode\': \'string\',
+                                            \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                            \'SourceSettings\': {
+                                                \'AncillarySourceSettings\': {
+                                                    \'SourceAncillaryChannelNumber\': 123
                                                 },
-                                                'DvbSubSourceSettings': {
-                                                    'Pid': 123
+                                                \'DvbSubSourceSettings\': {
+                                                    \'Pid\': 123
                                                 },
-                                                'EmbeddedSourceSettings': {
-                                                    'Convert608To708': 'UPCONVERT'|'DISABLED',
-                                                    'Source608ChannelNumber': 123,
-                                                    'Source608TrackNumber': 123
+                                                \'EmbeddedSourceSettings\': {
+                                                    \'Convert608To708\': \'UPCONVERT\'|\'DISABLED\',
+                                                    \'Source608ChannelNumber\': 123,
+                                                    \'Source608TrackNumber\': 123
                                                 },
-                                                'FileSourceSettings': {
-                                                    'Convert608To708': 'UPCONVERT'|'DISABLED',
-                                                    'SourceFile': 'string',
-                                                    'TimeDelta': 123
+                                                \'FileSourceSettings\': {
+                                                    \'Convert608To708\': \'UPCONVERT\'|\'DISABLED\',
+                                                    \'SourceFile\': \'string\',
+                                                    \'TimeDelta\': 123
                                                 },
-                                                'SourceType': 'ANCILLARY'|'DVB_SUB'|'EMBEDDED'|'SCC'|'TTML'|'STL'|'SRT'|'TELETEXT'|'NULL_SOURCE',
-                                                'TeletextSourceSettings': {
-                                                    'PageNumber': 'string'
+                                                \'SourceType\': \'ANCILLARY\'|\'DVB_SUB\'|\'EMBEDDED\'|\'SCC\'|\'TTML\'|\'STL\'|\'SRT\'|\'TELETEXT\'|\'NULL_SOURCE\',
+                                                \'TeletextSourceSettings\': {
+                                                    \'PageNumber\': \'string\'
                                                 }
                                             }
                                         }
                                     },
-                                    'DeblockFilter': 'ENABLED'|'DISABLED',
-                                    'DenoiseFilter': 'ENABLED'|'DISABLED',
-                                    'FilterEnable': 'AUTO'|'DISABLE'|'FORCE',
-                                    'FilterStrength': 123,
-                                    'InputClippings': [
+                                    \'DeblockFilter\': \'ENABLED\'|\'DISABLED\',
+                                    \'DenoiseFilter\': \'ENABLED\'|\'DISABLED\',
+                                    \'FilterEnable\': \'AUTO\'|\'DISABLE\'|\'FORCE\',
+                                    \'FilterStrength\': 123,
+                                    \'InputClippings\': [
                                         {
-                                            'EndTimecode': 'string',
-                                            'StartTimecode': 'string'
+                                            \'EndTimecode\': \'string\',
+                                            \'StartTimecode\': \'string\'
                                         },
                                     ],
-                                    'ProgramNumber': 123,
-                                    'PsiControl': 'IGNORE_PSI'|'USE_PSI',
-                                    'TimecodeSource': 'EMBEDDED'|'ZEROBASED'|'SPECIFIEDSTART',
-                                    'VideoSelector': {
-                                        'ColorSpace': 'FOLLOW'|'REC_601'|'REC_709'|'HDR10'|'HLG_2020',
-                                        'ColorSpaceUsage': 'FORCE'|'FALLBACK',
-                                        'Hdr10Metadata': {
-                                            'BluePrimaryX': 123,
-                                            'BluePrimaryY': 123,
-                                            'GreenPrimaryX': 123,
-                                            'GreenPrimaryY': 123,
-                                            'MaxContentLightLevel': 123,
-                                            'MaxFrameAverageLightLevel': 123,
-                                            'MaxLuminance': 123,
-                                            'MinLuminance': 123,
-                                            'RedPrimaryX': 123,
-                                            'RedPrimaryY': 123,
-                                            'WhitePointX': 123,
-                                            'WhitePointY': 123
+                                    \'ProgramNumber\': 123,
+                                    \'PsiControl\': \'IGNORE_PSI\'|\'USE_PSI\',
+                                    \'TimecodeSource\': \'EMBEDDED\'|\'ZEROBASED\'|\'SPECIFIEDSTART\',
+                                    \'VideoSelector\': {
+                                        \'ColorSpace\': \'FOLLOW\'|\'REC_601\'|\'REC_709\'|\'HDR10\'|\'HLG_2020\',
+                                        \'ColorSpaceUsage\': \'FORCE\'|\'FALLBACK\',
+                                        \'Hdr10Metadata\': {
+                                            \'BluePrimaryX\': 123,
+                                            \'BluePrimaryY\': 123,
+                                            \'GreenPrimaryX\': 123,
+                                            \'GreenPrimaryY\': 123,
+                                            \'MaxContentLightLevel\': 123,
+                                            \'MaxFrameAverageLightLevel\': 123,
+                                            \'MaxLuminance\': 123,
+                                            \'MinLuminance\': 123,
+                                            \'RedPrimaryX\': 123,
+                                            \'RedPrimaryY\': 123,
+                                            \'WhitePointX\': 123,
+                                            \'WhitePointY\': 123
                                         },
-                                        'Pid': 123,
-                                        'ProgramNumber': 123
+                                        \'Pid\': 123,
+                                        \'ProgramNumber\': 123
                                     }
                                 },
                             ],
-                            'NielsenConfiguration': {
-                                'BreakoutCode': 123,
-                                'DistributorId': 'string'
+                            \'NielsenConfiguration\': {
+                                \'BreakoutCode\': 123,
+                                \'DistributorId\': \'string\'
                             },
-                            'OutputGroups': [
+                            \'OutputGroups\': [
                                 {
-                                    'CustomName': 'string',
-                                    'Name': 'string',
-                                    'OutputGroupSettings': {
-                                        'CmafGroupSettings': {
-                                            'BaseUrl': 'string',
-                                            'ClientCache': 'DISABLED'|'ENABLED',
-                                            'CodecSpecification': 'RFC_6381'|'RFC_4281',
-                                            'Destination': 'string',
-                                            'Encryption': {
-                                                'ConstantInitializationVector': 'string',
-                                                'EncryptionMethod': 'SAMPLE_AES',
-                                                'InitializationVectorInManifest': 'INCLUDE'|'EXCLUDE',
-                                                'StaticKeyProvider': {
-                                                    'KeyFormat': 'string',
-                                                    'KeyFormatVersions': 'string',
-                                                    'StaticKeyValue': 'string',
-                                                    'Url': 'string'
+                                    \'CustomName\': \'string\',
+                                    \'Name\': \'string\',
+                                    \'OutputGroupSettings\': {
+                                        \'CmafGroupSettings\': {
+                                            \'BaseUrl\': \'string\',
+                                            \'ClientCache\': \'DISABLED\'|\'ENABLED\',
+                                            \'CodecSpecification\': \'RFC_6381\'|\'RFC_4281\',
+                                            \'Destination\': \'string\',
+                                            \'Encryption\': {
+                                                \'ConstantInitializationVector\': \'string\',
+                                                \'EncryptionMethod\': \'SAMPLE_AES\',
+                                                \'InitializationVectorInManifest\': \'INCLUDE\'|\'EXCLUDE\',
+                                                \'StaticKeyProvider\': {
+                                                    \'KeyFormat\': \'string\',
+                                                    \'KeyFormatVersions\': \'string\',
+                                                    \'StaticKeyValue\': \'string\',
+                                                    \'Url\': \'string\'
                                                 },
-                                                'Type': 'STATIC_KEY'
+                                                \'Type\': \'STATIC_KEY\'
                                             },
-                                            'FragmentLength': 123,
-                                            'ManifestCompression': 'GZIP'|'NONE',
-                                            'ManifestDurationFormat': 'FLOATING_POINT'|'INTEGER',
-                                            'MinBufferTime': 123,
-                                            'MinFinalSegmentLength': 123.0,
-                                            'SegmentControl': 'SINGLE_FILE'|'SEGMENTED_FILES',
-                                            'SegmentLength': 123,
-                                            'StreamInfResolution': 'INCLUDE'|'EXCLUDE',
-                                            'WriteDashManifest': 'DISABLED'|'ENABLED',
-                                            'WriteHlsManifest': 'DISABLED'|'ENABLED'
+                                            \'FragmentLength\': 123,
+                                            \'ManifestCompression\': \'GZIP\'|\'NONE\',
+                                            \'ManifestDurationFormat\': \'FLOATING_POINT\'|\'INTEGER\',
+                                            \'MinBufferTime\': 123,
+                                            \'MinFinalSegmentLength\': 123.0,
+                                            \'SegmentControl\': \'SINGLE_FILE\'|\'SEGMENTED_FILES\',
+                                            \'SegmentLength\': 123,
+                                            \'StreamInfResolution\': \'INCLUDE\'|\'EXCLUDE\',
+                                            \'WriteDashManifest\': \'DISABLED\'|\'ENABLED\',
+                                            \'WriteHlsManifest\': \'DISABLED\'|\'ENABLED\'
                                         },
-                                        'DashIsoGroupSettings': {
-                                            'BaseUrl': 'string',
-                                            'Destination': 'string',
-                                            'Encryption': {
-                                                'SpekeKeyProvider': {
-                                                    'ResourceId': 'string',
-                                                    'SystemIds': [
-                                                        'string',
+                                        \'DashIsoGroupSettings\': {
+                                            \'BaseUrl\': \'string\',
+                                            \'Destination\': \'string\',
+                                            \'Encryption\': {
+                                                \'SpekeKeyProvider\': {
+                                                    \'ResourceId\': \'string\',
+                                                    \'SystemIds\': [
+                                                        \'string\',
                                                     ],
-                                                    'Url': 'string'
+                                                    \'Url\': \'string\'
                                                 }
                                             },
-                                            'FragmentLength': 123,
-                                            'HbbtvCompliance': 'HBBTV_1_5'|'NONE',
-                                            'MinBufferTime': 123,
-                                            'SegmentControl': 'SINGLE_FILE'|'SEGMENTED_FILES',
-                                            'SegmentLength': 123,
-                                            'WriteSegmentTimelineInRepresentation': 'ENABLED'|'DISABLED'
+                                            \'FragmentLength\': 123,
+                                            \'HbbtvCompliance\': \'HBBTV_1_5\'|\'NONE\',
+                                            \'MinBufferTime\': 123,
+                                            \'SegmentControl\': \'SINGLE_FILE\'|\'SEGMENTED_FILES\',
+                                            \'SegmentLength\': 123,
+                                            \'WriteSegmentTimelineInRepresentation\': \'ENABLED\'|\'DISABLED\'
                                         },
-                                        'FileGroupSettings': {
-                                            'Destination': 'string'
+                                        \'FileGroupSettings\': {
+                                            \'Destination\': \'string\'
                                         },
-                                        'HlsGroupSettings': {
-                                            'AdMarkers': [
-                                                'ELEMENTAL'|'ELEMENTAL_SCTE35',
+                                        \'HlsGroupSettings\': {
+                                            \'AdMarkers\': [
+                                                \'ELEMENTAL\'|\'ELEMENTAL_SCTE35\',
                                             ],
-                                            'BaseUrl': 'string',
-                                            'CaptionLanguageMappings': [
+                                            \'BaseUrl\': \'string\',
+                                            \'CaptionLanguageMappings\': [
                                                 {
-                                                    'CaptionChannel': 123,
-                                                    'CustomLanguageCode': 'string',
-                                                    'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                                    'LanguageDescription': 'string'
+                                                    \'CaptionChannel\': 123,
+                                                    \'CustomLanguageCode\': \'string\',
+                                                    \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                                    \'LanguageDescription\': \'string\'
                                                 },
                                             ],
-                                            'CaptionLanguageSetting': 'INSERT'|'OMIT'|'NONE',
-                                            'ClientCache': 'DISABLED'|'ENABLED',
-                                            'CodecSpecification': 'RFC_6381'|'RFC_4281',
-                                            'Destination': 'string',
-                                            'DirectoryStructure': 'SINGLE_DIRECTORY'|'SUBDIRECTORY_PER_STREAM',
-                                            'Encryption': {
-                                                'ConstantInitializationVector': 'string',
-                                                'EncryptionMethod': 'AES128'|'SAMPLE_AES',
-                                                'InitializationVectorInManifest': 'INCLUDE'|'EXCLUDE',
-                                                'SpekeKeyProvider': {
-                                                    'ResourceId': 'string',
-                                                    'SystemIds': [
-                                                        'string',
+                                            \'CaptionLanguageSetting\': \'INSERT\'|\'OMIT\'|\'NONE\',
+                                            \'ClientCache\': \'DISABLED\'|\'ENABLED\',
+                                            \'CodecSpecification\': \'RFC_6381\'|\'RFC_4281\',
+                                            \'Destination\': \'string\',
+                                            \'DirectoryStructure\': \'SINGLE_DIRECTORY\'|\'SUBDIRECTORY_PER_STREAM\',
+                                            \'Encryption\': {
+                                                \'ConstantInitializationVector\': \'string\',
+                                                \'EncryptionMethod\': \'AES128\'|\'SAMPLE_AES\',
+                                                \'InitializationVectorInManifest\': \'INCLUDE\'|\'EXCLUDE\',
+                                                \'SpekeKeyProvider\': {
+                                                    \'ResourceId\': \'string\',
+                                                    \'SystemIds\': [
+                                                        \'string\',
                                                     ],
-                                                    'Url': 'string'
+                                                    \'Url\': \'string\'
                                                 },
-                                                'StaticKeyProvider': {
-                                                    'KeyFormat': 'string',
-                                                    'KeyFormatVersions': 'string',
-                                                    'StaticKeyValue': 'string',
-                                                    'Url': 'string'
+                                                \'StaticKeyProvider\': {
+                                                    \'KeyFormat\': \'string\',
+                                                    \'KeyFormatVersions\': \'string\',
+                                                    \'StaticKeyValue\': \'string\',
+                                                    \'Url\': \'string\'
                                                 },
-                                                'Type': 'SPEKE'|'STATIC_KEY'
+                                                \'Type\': \'SPEKE\'|\'STATIC_KEY\'
                                             },
-                                            'ManifestCompression': 'GZIP'|'NONE',
-                                            'ManifestDurationFormat': 'FLOATING_POINT'|'INTEGER',
-                                            'MinFinalSegmentLength': 123.0,
-                                            'MinSegmentLength': 123,
-                                            'OutputSelection': 'MANIFESTS_AND_SEGMENTS'|'SEGMENTS_ONLY',
-                                            'ProgramDateTime': 'INCLUDE'|'EXCLUDE',
-                                            'ProgramDateTimePeriod': 123,
-                                            'SegmentControl': 'SINGLE_FILE'|'SEGMENTED_FILES',
-                                            'SegmentLength': 123,
-                                            'SegmentsPerSubdirectory': 123,
-                                            'StreamInfResolution': 'INCLUDE'|'EXCLUDE',
-                                            'TimedMetadataId3Frame': 'NONE'|'PRIV'|'TDRL',
-                                            'TimedMetadataId3Period': 123,
-                                            'TimestampDeltaMilliseconds': 123
+                                            \'ManifestCompression\': \'GZIP\'|\'NONE\',
+                                            \'ManifestDurationFormat\': \'FLOATING_POINT\'|\'INTEGER\',
+                                            \'MinFinalSegmentLength\': 123.0,
+                                            \'MinSegmentLength\': 123,
+                                            \'OutputSelection\': \'MANIFESTS_AND_SEGMENTS\'|\'SEGMENTS_ONLY\',
+                                            \'ProgramDateTime\': \'INCLUDE\'|\'EXCLUDE\',
+                                            \'ProgramDateTimePeriod\': 123,
+                                            \'SegmentControl\': \'SINGLE_FILE\'|\'SEGMENTED_FILES\',
+                                            \'SegmentLength\': 123,
+                                            \'SegmentsPerSubdirectory\': 123,
+                                            \'StreamInfResolution\': \'INCLUDE\'|\'EXCLUDE\',
+                                            \'TimedMetadataId3Frame\': \'NONE\'|\'PRIV\'|\'TDRL\',
+                                            \'TimedMetadataId3Period\': 123,
+                                            \'TimestampDeltaMilliseconds\': 123
                                         },
-                                        'MsSmoothGroupSettings': {
-                                            'AudioDeduplication': 'COMBINE_DUPLICATE_STREAMS'|'NONE',
-                                            'Destination': 'string',
-                                            'Encryption': {
-                                                'SpekeKeyProvider': {
-                                                    'ResourceId': 'string',
-                                                    'SystemIds': [
-                                                        'string',
+                                        \'MsSmoothGroupSettings\': {
+                                            \'AudioDeduplication\': \'COMBINE_DUPLICATE_STREAMS\'|\'NONE\',
+                                            \'Destination\': \'string\',
+                                            \'Encryption\': {
+                                                \'SpekeKeyProvider\': {
+                                                    \'ResourceId\': \'string\',
+                                                    \'SystemIds\': [
+                                                        \'string\',
                                                     ],
-                                                    'Url': 'string'
+                                                    \'Url\': \'string\'
                                                 }
                                             },
-                                            'FragmentLength': 123,
-                                            'ManifestEncoding': 'UTF8'|'UTF16'
+                                            \'FragmentLength\': 123,
+                                            \'ManifestEncoding\': \'UTF8\'|\'UTF16\'
                                         },
-                                        'Type': 'HLS_GROUP_SETTINGS'|'DASH_ISO_GROUP_SETTINGS'|'FILE_GROUP_SETTINGS'|'MS_SMOOTH_GROUP_SETTINGS'|'CMAF_GROUP_SETTINGS'
+                                        \'Type\': \'HLS_GROUP_SETTINGS\'|\'DASH_ISO_GROUP_SETTINGS\'|\'FILE_GROUP_SETTINGS\'|\'MS_SMOOTH_GROUP_SETTINGS\'|\'CMAF_GROUP_SETTINGS\'
                                     },
-                                    'Outputs': [
+                                    \'Outputs\': [
                                         {
-                                            'AudioDescriptions': [
+                                            \'AudioDescriptions\': [
                                                 {
-                                                    'AudioNormalizationSettings': {
-                                                        'Algorithm': 'ITU_BS_1770_1'|'ITU_BS_1770_2',
-                                                        'AlgorithmControl': 'CORRECT_AUDIO'|'MEASURE_ONLY',
-                                                        'CorrectionGateLevel': 123,
-                                                        'LoudnessLogging': 'LOG'|'DONT_LOG',
-                                                        'PeakCalculation': 'TRUE_PEAK'|'NONE',
-                                                        'TargetLkfs': 123.0
+                                                    \'AudioNormalizationSettings\': {
+                                                        \'Algorithm\': \'ITU_BS_1770_1\'|\'ITU_BS_1770_2\',
+                                                        \'AlgorithmControl\': \'CORRECT_AUDIO\'|\'MEASURE_ONLY\',
+                                                        \'CorrectionGateLevel\': 123,
+                                                        \'LoudnessLogging\': \'LOG\'|\'DONT_LOG\',
+                                                        \'PeakCalculation\': \'TRUE_PEAK\'|\'NONE\',
+                                                        \'TargetLkfs\': 123.0
                                                     },
-                                                    'AudioSourceName': 'string',
-                                                    'AudioType': 123,
-                                                    'AudioTypeControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                                    'CodecSettings': {
-                                                        'AacSettings': {
-                                                            'AudioDescriptionBroadcasterMix': 'BROADCASTER_MIXED_AD'|'NORMAL',
-                                                            'Bitrate': 123,
-                                                            'CodecProfile': 'LC'|'HEV1'|'HEV2',
-                                                            'CodingMode': 'AD_RECEIVER_MIX'|'CODING_MODE_1_0'|'CODING_MODE_1_1'|'CODING_MODE_2_0'|'CODING_MODE_5_1',
-                                                            'RateControlMode': 'CBR'|'VBR',
-                                                            'RawFormat': 'LATM_LOAS'|'NONE',
-                                                            'SampleRate': 123,
-                                                            'Specification': 'MPEG2'|'MPEG4',
-                                                            'VbrQuality': 'LOW'|'MEDIUM_LOW'|'MEDIUM_HIGH'|'HIGH'
+                                                    \'AudioSourceName\': \'string\',
+                                                    \'AudioType\': 123,
+                                                    \'AudioTypeControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                                    \'CodecSettings\': {
+                                                        \'AacSettings\': {
+                                                            \'AudioDescriptionBroadcasterMix\': \'BROADCASTER_MIXED_AD\'|\'NORMAL\',
+                                                            \'Bitrate\': 123,
+                                                            \'CodecProfile\': \'LC\'|\'HEV1\'|\'HEV2\',
+                                                            \'CodingMode\': \'AD_RECEIVER_MIX\'|\'CODING_MODE_1_0\'|\'CODING_MODE_1_1\'|\'CODING_MODE_2_0\'|\'CODING_MODE_5_1\',
+                                                            \'RateControlMode\': \'CBR\'|\'VBR\',
+                                                            \'RawFormat\': \'LATM_LOAS\'|\'NONE\',
+                                                            \'SampleRate\': 123,
+                                                            \'Specification\': \'MPEG2\'|\'MPEG4\',
+                                                            \'VbrQuality\': \'LOW\'|\'MEDIUM_LOW\'|\'MEDIUM_HIGH\'|\'HIGH\'
                                                         },
-                                                        'Ac3Settings': {
-                                                            'Bitrate': 123,
-                                                            'BitstreamMode': 'COMPLETE_MAIN'|'COMMENTARY'|'DIALOGUE'|'EMERGENCY'|'HEARING_IMPAIRED'|'MUSIC_AND_EFFECTS'|'VISUALLY_IMPAIRED'|'VOICE_OVER',
-                                                            'CodingMode': 'CODING_MODE_1_0'|'CODING_MODE_1_1'|'CODING_MODE_2_0'|'CODING_MODE_3_2_LFE',
-                                                            'Dialnorm': 123,
-                                                            'DynamicRangeCompressionProfile': 'FILM_STANDARD'|'NONE',
-                                                            'LfeFilter': 'ENABLED'|'DISABLED',
-                                                            'MetadataControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                                            'SampleRate': 123
+                                                        \'Ac3Settings\': {
+                                                            \'Bitrate\': 123,
+                                                            \'BitstreamMode\': \'COMPLETE_MAIN\'|\'COMMENTARY\'|\'DIALOGUE\'|\'EMERGENCY\'|\'HEARING_IMPAIRED\'|\'MUSIC_AND_EFFECTS\'|\'VISUALLY_IMPAIRED\'|\'VOICE_OVER\',
+                                                            \'CodingMode\': \'CODING_MODE_1_0\'|\'CODING_MODE_1_1\'|\'CODING_MODE_2_0\'|\'CODING_MODE_3_2_LFE\',
+                                                            \'Dialnorm\': 123,
+                                                            \'DynamicRangeCompressionProfile\': \'FILM_STANDARD\'|\'NONE\',
+                                                            \'LfeFilter\': \'ENABLED\'|\'DISABLED\',
+                                                            \'MetadataControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                                            \'SampleRate\': 123
                                                         },
-                                                        'AiffSettings': {
-                                                            'BitDepth': 123,
-                                                            'Channels': 123,
-                                                            'SampleRate': 123
+                                                        \'AiffSettings\': {
+                                                            \'BitDepth\': 123,
+                                                            \'Channels\': 123,
+                                                            \'SampleRate\': 123
                                                         },
-                                                        'Codec': 'AAC'|'MP2'|'WAV'|'AIFF'|'AC3'|'EAC3'|'PASSTHROUGH',
-                                                        'Eac3Settings': {
-                                                            'AttenuationControl': 'ATTENUATE_3_DB'|'NONE',
-                                                            'Bitrate': 123,
-                                                            'BitstreamMode': 'COMPLETE_MAIN'|'COMMENTARY'|'EMERGENCY'|'HEARING_IMPAIRED'|'VISUALLY_IMPAIRED',
-                                                            'CodingMode': 'CODING_MODE_1_0'|'CODING_MODE_2_0'|'CODING_MODE_3_2',
-                                                            'DcFilter': 'ENABLED'|'DISABLED',
-                                                            'Dialnorm': 123,
-                                                            'DynamicRangeCompressionLine': 'NONE'|'FILM_STANDARD'|'FILM_LIGHT'|'MUSIC_STANDARD'|'MUSIC_LIGHT'|'SPEECH',
-                                                            'DynamicRangeCompressionRf': 'NONE'|'FILM_STANDARD'|'FILM_LIGHT'|'MUSIC_STANDARD'|'MUSIC_LIGHT'|'SPEECH',
-                                                            'LfeControl': 'LFE'|'NO_LFE',
-                                                            'LfeFilter': 'ENABLED'|'DISABLED',
-                                                            'LoRoCenterMixLevel': 123.0,
-                                                            'LoRoSurroundMixLevel': 123.0,
-                                                            'LtRtCenterMixLevel': 123.0,
-                                                            'LtRtSurroundMixLevel': 123.0,
-                                                            'MetadataControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                                            'PassthroughControl': 'WHEN_POSSIBLE'|'NO_PASSTHROUGH',
-                                                            'PhaseControl': 'SHIFT_90_DEGREES'|'NO_SHIFT',
-                                                            'SampleRate': 123,
-                                                            'StereoDownmix': 'NOT_INDICATED'|'LO_RO'|'LT_RT'|'DPL2',
-                                                            'SurroundExMode': 'NOT_INDICATED'|'ENABLED'|'DISABLED',
-                                                            'SurroundMode': 'NOT_INDICATED'|'ENABLED'|'DISABLED'
+                                                        \'Codec\': \'AAC\'|\'MP2\'|\'WAV\'|\'AIFF\'|\'AC3\'|\'EAC3\'|\'PASSTHROUGH\',
+                                                        \'Eac3Settings\': {
+                                                            \'AttenuationControl\': \'ATTENUATE_3_DB\'|\'NONE\',
+                                                            \'Bitrate\': 123,
+                                                            \'BitstreamMode\': \'COMPLETE_MAIN\'|\'COMMENTARY\'|\'EMERGENCY\'|\'HEARING_IMPAIRED\'|\'VISUALLY_IMPAIRED\',
+                                                            \'CodingMode\': \'CODING_MODE_1_0\'|\'CODING_MODE_2_0\'|\'CODING_MODE_3_2\',
+                                                            \'DcFilter\': \'ENABLED\'|\'DISABLED\',
+                                                            \'Dialnorm\': 123,
+                                                            \'DynamicRangeCompressionLine\': \'NONE\'|\'FILM_STANDARD\'|\'FILM_LIGHT\'|\'MUSIC_STANDARD\'|\'MUSIC_LIGHT\'|\'SPEECH\',
+                                                            \'DynamicRangeCompressionRf\': \'NONE\'|\'FILM_STANDARD\'|\'FILM_LIGHT\'|\'MUSIC_STANDARD\'|\'MUSIC_LIGHT\'|\'SPEECH\',
+                                                            \'LfeControl\': \'LFE\'|\'NO_LFE\',
+                                                            \'LfeFilter\': \'ENABLED\'|\'DISABLED\',
+                                                            \'LoRoCenterMixLevel\': 123.0,
+                                                            \'LoRoSurroundMixLevel\': 123.0,
+                                                            \'LtRtCenterMixLevel\': 123.0,
+                                                            \'LtRtSurroundMixLevel\': 123.0,
+                                                            \'MetadataControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                                            \'PassthroughControl\': \'WHEN_POSSIBLE\'|\'NO_PASSTHROUGH\',
+                                                            \'PhaseControl\': \'SHIFT_90_DEGREES\'|\'NO_SHIFT\',
+                                                            \'SampleRate\': 123,
+                                                            \'StereoDownmix\': \'NOT_INDICATED\'|\'LO_RO\'|\'LT_RT\'|\'DPL2\',
+                                                            \'SurroundExMode\': \'NOT_INDICATED\'|\'ENABLED\'|\'DISABLED\',
+                                                            \'SurroundMode\': \'NOT_INDICATED\'|\'ENABLED\'|\'DISABLED\'
                                                         },
-                                                        'Mp2Settings': {
-                                                            'Bitrate': 123,
-                                                            'Channels': 123,
-                                                            'SampleRate': 123
+                                                        \'Mp2Settings\': {
+                                                            \'Bitrate\': 123,
+                                                            \'Channels\': 123,
+                                                            \'SampleRate\': 123
                                                         },
-                                                        'WavSettings': {
-                                                            'BitDepth': 123,
-                                                            'Channels': 123,
-                                                            'Format': 'RIFF'|'RF64',
-                                                            'SampleRate': 123
+                                                        \'WavSettings\': {
+                                                            \'BitDepth\': 123,
+                                                            \'Channels\': 123,
+                                                            \'Format\': \'RIFF\'|\'RF64\',
+                                                            \'SampleRate\': 123
                                                         }
                                                     },
-                                                    'CustomLanguageCode': 'string',
-                                                    'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                                    'LanguageCodeControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                                    'RemixSettings': {
-                                                        'ChannelMapping': {
-                                                            'OutputChannels': [
+                                                    \'CustomLanguageCode\': \'string\',
+                                                    \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                                    \'LanguageCodeControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                                    \'RemixSettings\': {
+                                                        \'ChannelMapping\': {
+                                                            \'OutputChannels\': [
                                                                 {
-                                                                    'InputChannels': [
+                                                                    \'InputChannels\': [
                                                                         123,
                                                                     ]
                                                                 },
                                                             ]
                                                         },
-                                                        'ChannelsIn': 123,
-                                                        'ChannelsOut': 123
+                                                        \'ChannelsIn\': 123,
+                                                        \'ChannelsOut\': 123
                                                     },
-                                                    'StreamName': 'string'
+                                                    \'StreamName\': \'string\'
                                                 },
                                             ],
-                                            'CaptionDescriptions': [
+                                            \'CaptionDescriptions\': [
                                                 {
-                                                    'CaptionSelectorName': 'string',
-                                                    'CustomLanguageCode': 'string',
-                                                    'DestinationSettings': {
-                                                        'BurninDestinationSettings': {
-                                                            'Alignment': 'CENTERED'|'LEFT',
-                                                            'BackgroundColor': 'NONE'|'BLACK'|'WHITE',
-                                                            'BackgroundOpacity': 123,
-                                                            'FontColor': 'WHITE'|'BLACK'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                                            'FontOpacity': 123,
-                                                            'FontResolution': 123,
-                                                            'FontSize': 123,
-                                                            'OutlineColor': 'BLACK'|'WHITE'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                                            'OutlineSize': 123,
-                                                            'ShadowColor': 'NONE'|'BLACK'|'WHITE',
-                                                            'ShadowOpacity': 123,
-                                                            'ShadowXOffset': 123,
-                                                            'ShadowYOffset': 123,
-                                                            'TeletextSpacing': 'FIXED_GRID'|'PROPORTIONAL',
-                                                            'XPosition': 123,
-                                                            'YPosition': 123
+                                                    \'CaptionSelectorName\': \'string\',
+                                                    \'CustomLanguageCode\': \'string\',
+                                                    \'DestinationSettings\': {
+                                                        \'BurninDestinationSettings\': {
+                                                            \'Alignment\': \'CENTERED\'|\'LEFT\',
+                                                            \'BackgroundColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                                            \'BackgroundOpacity\': 123,
+                                                            \'FontColor\': \'WHITE\'|\'BLACK\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                                            \'FontOpacity\': 123,
+                                                            \'FontResolution\': 123,
+                                                            \'FontSize\': 123,
+                                                            \'OutlineColor\': \'BLACK\'|\'WHITE\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                                            \'OutlineSize\': 123,
+                                                            \'ShadowColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                                            \'ShadowOpacity\': 123,
+                                                            \'ShadowXOffset\': 123,
+                                                            \'ShadowYOffset\': 123,
+                                                            \'TeletextSpacing\': \'FIXED_GRID\'|\'PROPORTIONAL\',
+                                                            \'XPosition\': 123,
+                                                            \'YPosition\': 123
                                                         },
-                                                        'DestinationType': 'BURN_IN'|'DVB_SUB'|'EMBEDDED'|'SCC'|'SRT'|'TELETEXT'|'TTML'|'WEBVTT',
-                                                        'DvbSubDestinationSettings': {
-                                                            'Alignment': 'CENTERED'|'LEFT',
-                                                            'BackgroundColor': 'NONE'|'BLACK'|'WHITE',
-                                                            'BackgroundOpacity': 123,
-                                                            'FontColor': 'WHITE'|'BLACK'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                                            'FontOpacity': 123,
-                                                            'FontResolution': 123,
-                                                            'FontSize': 123,
-                                                            'OutlineColor': 'BLACK'|'WHITE'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                                            'OutlineSize': 123,
-                                                            'ShadowColor': 'NONE'|'BLACK'|'WHITE',
-                                                            'ShadowOpacity': 123,
-                                                            'ShadowXOffset': 123,
-                                                            'ShadowYOffset': 123,
-                                                            'TeletextSpacing': 'FIXED_GRID'|'PROPORTIONAL',
-                                                            'XPosition': 123,
-                                                            'YPosition': 123
+                                                        \'DestinationType\': \'BURN_IN\'|\'DVB_SUB\'|\'EMBEDDED\'|\'SCC\'|\'SRT\'|\'TELETEXT\'|\'TTML\'|\'WEBVTT\',
+                                                        \'DvbSubDestinationSettings\': {
+                                                            \'Alignment\': \'CENTERED\'|\'LEFT\',
+                                                            \'BackgroundColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                                            \'BackgroundOpacity\': 123,
+                                                            \'FontColor\': \'WHITE\'|\'BLACK\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                                            \'FontOpacity\': 123,
+                                                            \'FontResolution\': 123,
+                                                            \'FontSize\': 123,
+                                                            \'OutlineColor\': \'BLACK\'|\'WHITE\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                                            \'OutlineSize\': 123,
+                                                            \'ShadowColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                                            \'ShadowOpacity\': 123,
+                                                            \'ShadowXOffset\': 123,
+                                                            \'ShadowYOffset\': 123,
+                                                            \'TeletextSpacing\': \'FIXED_GRID\'|\'PROPORTIONAL\',
+                                                            \'XPosition\': 123,
+                                                            \'YPosition\': 123
                                                         },
-                                                        'SccDestinationSettings': {
-                                                            'Framerate': 'FRAMERATE_23_97'|'FRAMERATE_24'|'FRAMERATE_29_97_DROPFRAME'|'FRAMERATE_29_97_NON_DROPFRAME'
+                                                        \'SccDestinationSettings\': {
+                                                            \'Framerate\': \'FRAMERATE_23_97\'|\'FRAMERATE_24\'|\'FRAMERATE_29_97_DROPFRAME\'|\'FRAMERATE_29_97_NON_DROPFRAME\'
                                                         },
-                                                        'TeletextDestinationSettings': {
-                                                            'PageNumber': 'string'
+                                                        \'TeletextDestinationSettings\': {
+                                                            \'PageNumber\': \'string\'
                                                         },
-                                                        'TtmlDestinationSettings': {
-                                                            'StylePassthrough': 'ENABLED'|'DISABLED'
+                                                        \'TtmlDestinationSettings\': {
+                                                            \'StylePassthrough\': \'ENABLED\'|\'DISABLED\'
                                                         }
                                                     },
-                                                    'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                                    'LanguageDescription': 'string'
+                                                    \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                                    \'LanguageDescription\': \'string\'
                                                 },
                                             ],
-                                            'ContainerSettings': {
-                                                'Container': 'F4V'|'ISMV'|'M2TS'|'M3U8'|'CMFC'|'MOV'|'MP4'|'MPD'|'MXF'|'RAW',
-                                                'F4vSettings': {
-                                                    'MoovPlacement': 'PROGRESSIVE_DOWNLOAD'|'NORMAL'
+                                            \'ContainerSettings\': {
+                                                \'Container\': \'F4V\'|\'ISMV\'|\'M2TS\'|\'M3U8\'|\'CMFC\'|\'MOV\'|\'MP4\'|\'MPD\'|\'MXF\'|\'RAW\',
+                                                \'F4vSettings\': {
+                                                    \'MoovPlacement\': \'PROGRESSIVE_DOWNLOAD\'|\'NORMAL\'
                                                 },
-                                                'M2tsSettings': {
-                                                    'AudioBufferModel': 'DVB'|'ATSC',
-                                                    'AudioFramesPerPes': 123,
-                                                    'AudioPids': [
+                                                \'M2tsSettings\': {
+                                                    \'AudioBufferModel\': \'DVB\'|\'ATSC\',
+                                                    \'AudioFramesPerPes\': 123,
+                                                    \'AudioPids\': [
                                                         123,
                                                     ],
-                                                    'Bitrate': 123,
-                                                    'BufferModel': 'MULTIPLEX'|'NONE',
-                                                    'DvbNitSettings': {
-                                                        'NetworkId': 123,
-                                                        'NetworkName': 'string',
-                                                        'NitInterval': 123
+                                                    \'Bitrate\': 123,
+                                                    \'BufferModel\': \'MULTIPLEX\'|\'NONE\',
+                                                    \'DvbNitSettings\': {
+                                                        \'NetworkId\': 123,
+                                                        \'NetworkName\': \'string\',
+                                                        \'NitInterval\': 123
                                                     },
-                                                    'DvbSdtSettings': {
-                                                        'OutputSdt': 'SDT_FOLLOW'|'SDT_FOLLOW_IF_PRESENT'|'SDT_MANUAL'|'SDT_NONE',
-                                                        'SdtInterval': 123,
-                                                        'ServiceName': 'string',
-                                                        'ServiceProviderName': 'string'
+                                                    \'DvbSdtSettings\': {
+                                                        \'OutputSdt\': \'SDT_FOLLOW\'|\'SDT_FOLLOW_IF_PRESENT\'|\'SDT_MANUAL\'|\'SDT_NONE\',
+                                                        \'SdtInterval\': 123,
+                                                        \'ServiceName\': \'string\',
+                                                        \'ServiceProviderName\': \'string\'
                                                     },
-                                                    'DvbSubPids': [
+                                                    \'DvbSubPids\': [
                                                         123,
                                                     ],
-                                                    'DvbTdtSettings': {
-                                                        'TdtInterval': 123
+                                                    \'DvbTdtSettings\': {
+                                                        \'TdtInterval\': 123
                                                     },
-                                                    'DvbTeletextPid': 123,
-                                                    'EbpAudioInterval': 'VIDEO_AND_FIXED_INTERVALS'|'VIDEO_INTERVAL',
-                                                    'EbpPlacement': 'VIDEO_AND_AUDIO_PIDS'|'VIDEO_PID',
-                                                    'EsRateInPes': 'INCLUDE'|'EXCLUDE',
-                                                    'FragmentTime': 123.0,
-                                                    'MaxPcrInterval': 123,
-                                                    'MinEbpInterval': 123,
-                                                    'NielsenId3': 'INSERT'|'NONE',
-                                                    'NullPacketBitrate': 123.0,
-                                                    'PatInterval': 123,
-                                                    'PcrControl': 'PCR_EVERY_PES_PACKET'|'CONFIGURED_PCR_PERIOD',
-                                                    'PcrPid': 123,
-                                                    'PmtInterval': 123,
-                                                    'PmtPid': 123,
-                                                    'PrivateMetadataPid': 123,
-                                                    'ProgramNumber': 123,
-                                                    'RateMode': 'VBR'|'CBR',
-                                                    'Scte35Pid': 123,
-                                                    'Scte35Source': 'PASSTHROUGH'|'NONE',
-                                                    'SegmentationMarkers': 'NONE'|'RAI_SEGSTART'|'RAI_ADAPT'|'PSI_SEGSTART'|'EBP'|'EBP_LEGACY',
-                                                    'SegmentationStyle': 'MAINTAIN_CADENCE'|'RESET_CADENCE',
-                                                    'SegmentationTime': 123.0,
-                                                    'TimedMetadataPid': 123,
-                                                    'TransportStreamId': 123,
-                                                    'VideoPid': 123
+                                                    \'DvbTeletextPid\': 123,
+                                                    \'EbpAudioInterval\': \'VIDEO_AND_FIXED_INTERVALS\'|\'VIDEO_INTERVAL\',
+                                                    \'EbpPlacement\': \'VIDEO_AND_AUDIO_PIDS\'|\'VIDEO_PID\',
+                                                    \'EsRateInPes\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'FragmentTime\': 123.0,
+                                                    \'MaxPcrInterval\': 123,
+                                                    \'MinEbpInterval\': 123,
+                                                    \'NielsenId3\': \'INSERT\'|\'NONE\',
+                                                    \'NullPacketBitrate\': 123.0,
+                                                    \'PatInterval\': 123,
+                                                    \'PcrControl\': \'PCR_EVERY_PES_PACKET\'|\'CONFIGURED_PCR_PERIOD\',
+                                                    \'PcrPid\': 123,
+                                                    \'PmtInterval\': 123,
+                                                    \'PmtPid\': 123,
+                                                    \'PrivateMetadataPid\': 123,
+                                                    \'ProgramNumber\': 123,
+                                                    \'RateMode\': \'VBR\'|\'CBR\',
+                                                    \'Scte35Pid\': 123,
+                                                    \'Scte35Source\': \'PASSTHROUGH\'|\'NONE\',
+                                                    \'SegmentationMarkers\': \'NONE\'|\'RAI_SEGSTART\'|\'RAI_ADAPT\'|\'PSI_SEGSTART\'|\'EBP\'|\'EBP_LEGACY\',
+                                                    \'SegmentationStyle\': \'MAINTAIN_CADENCE\'|\'RESET_CADENCE\',
+                                                    \'SegmentationTime\': 123.0,
+                                                    \'TimedMetadataPid\': 123,
+                                                    \'TransportStreamId\': 123,
+                                                    \'VideoPid\': 123
                                                 },
-                                                'M3u8Settings': {
-                                                    'AudioFramesPerPes': 123,
-                                                    'AudioPids': [
+                                                \'M3u8Settings\': {
+                                                    \'AudioFramesPerPes\': 123,
+                                                    \'AudioPids\': [
                                                         123,
                                                     ],
-                                                    'NielsenId3': 'INSERT'|'NONE',
-                                                    'PatInterval': 123,
-                                                    'PcrControl': 'PCR_EVERY_PES_PACKET'|'CONFIGURED_PCR_PERIOD',
-                                                    'PcrPid': 123,
-                                                    'PmtInterval': 123,
-                                                    'PmtPid': 123,
-                                                    'PrivateMetadataPid': 123,
-                                                    'ProgramNumber': 123,
-                                                    'Scte35Pid': 123,
-                                                    'Scte35Source': 'PASSTHROUGH'|'NONE',
-                                                    'TimedMetadata': 'PASSTHROUGH'|'NONE',
-                                                    'TimedMetadataPid': 123,
-                                                    'TransportStreamId': 123,
-                                                    'VideoPid': 123
+                                                    \'NielsenId3\': \'INSERT\'|\'NONE\',
+                                                    \'PatInterval\': 123,
+                                                    \'PcrControl\': \'PCR_EVERY_PES_PACKET\'|\'CONFIGURED_PCR_PERIOD\',
+                                                    \'PcrPid\': 123,
+                                                    \'PmtInterval\': 123,
+                                                    \'PmtPid\': 123,
+                                                    \'PrivateMetadataPid\': 123,
+                                                    \'ProgramNumber\': 123,
+                                                    \'Scte35Pid\': 123,
+                                                    \'Scte35Source\': \'PASSTHROUGH\'|\'NONE\',
+                                                    \'TimedMetadata\': \'PASSTHROUGH\'|\'NONE\',
+                                                    \'TimedMetadataPid\': 123,
+                                                    \'TransportStreamId\': 123,
+                                                    \'VideoPid\': 123
                                                 },
-                                                'MovSettings': {
-                                                    'ClapAtom': 'INCLUDE'|'EXCLUDE',
-                                                    'CslgAtom': 'INCLUDE'|'EXCLUDE',
-                                                    'Mpeg2FourCCControl': 'XDCAM'|'MPEG',
-                                                    'PaddingControl': 'OMNEON'|'NONE',
-                                                    'Reference': 'SELF_CONTAINED'|'EXTERNAL'
+                                                \'MovSettings\': {
+                                                    \'ClapAtom\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'CslgAtom\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'Mpeg2FourCCControl\': \'XDCAM\'|\'MPEG\',
+                                                    \'PaddingControl\': \'OMNEON\'|\'NONE\',
+                                                    \'Reference\': \'SELF_CONTAINED\'|\'EXTERNAL\'
                                                 },
-                                                'Mp4Settings': {
-                                                    'CslgAtom': 'INCLUDE'|'EXCLUDE',
-                                                    'FreeSpaceBox': 'INCLUDE'|'EXCLUDE',
-                                                    'MoovPlacement': 'PROGRESSIVE_DOWNLOAD'|'NORMAL',
-                                                    'Mp4MajorBrand': 'string'
+                                                \'Mp4Settings\': {
+                                                    \'CslgAtom\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'FreeSpaceBox\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'MoovPlacement\': \'PROGRESSIVE_DOWNLOAD\'|\'NORMAL\',
+                                                    \'Mp4MajorBrand\': \'string\'
                                                 }
                                             },
-                                            'Extension': 'string',
-                                            'NameModifier': 'string',
-                                            'OutputSettings': {
-                                                'HlsSettings': {
-                                                    'AudioGroupId': 'string',
-                                                    'AudioRenditionSets': 'string',
-                                                    'AudioTrackType': 'ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT'|'ALTERNATE_AUDIO_AUTO_SELECT'|'ALTERNATE_AUDIO_NOT_AUTO_SELECT'|'AUDIO_ONLY_VARIANT_STREAM',
-                                                    'IFrameOnlyManifest': 'INCLUDE'|'EXCLUDE',
-                                                    'SegmentModifier': 'string'
+                                            \'Extension\': \'string\',
+                                            \'NameModifier\': \'string\',
+                                            \'OutputSettings\': {
+                                                \'HlsSettings\': {
+                                                    \'AudioGroupId\': \'string\',
+                                                    \'AudioRenditionSets\': \'string\',
+                                                    \'AudioTrackType\': \'ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT\'|\'ALTERNATE_AUDIO_AUTO_SELECT\'|\'ALTERNATE_AUDIO_NOT_AUTO_SELECT\'|\'AUDIO_ONLY_VARIANT_STREAM\',
+                                                    \'IFrameOnlyManifest\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'SegmentModifier\': \'string\'
                                                 }
                                             },
-                                            'Preset': 'string',
-                                            'VideoDescription': {
-                                                'AfdSignaling': 'NONE'|'AUTO'|'FIXED',
-                                                'AntiAlias': 'DISABLED'|'ENABLED',
-                                                'CodecSettings': {
-                                                    'Codec': 'FRAME_CAPTURE'|'H_264'|'H_265'|'MPEG2'|'PRORES',
-                                                    'FrameCaptureSettings': {
-                                                        'FramerateDenominator': 123,
-                                                        'FramerateNumerator': 123,
-                                                        'MaxCaptures': 123,
-                                                        'Quality': 123
+                                            \'Preset\': \'string\',
+                                            \'VideoDescription\': {
+                                                \'AfdSignaling\': \'NONE\'|\'AUTO\'|\'FIXED\',
+                                                \'AntiAlias\': \'DISABLED\'|\'ENABLED\',
+                                                \'CodecSettings\': {
+                                                    \'Codec\': \'FRAME_CAPTURE\'|\'H_264\'|\'H_265\'|\'MPEG2\'|\'PRORES\',
+                                                    \'FrameCaptureSettings\': {
+                                                        \'FramerateDenominator\': 123,
+                                                        \'FramerateNumerator\': 123,
+                                                        \'MaxCaptures\': 123,
+                                                        \'Quality\': 123
                                                     },
-                                                    'H264Settings': {
-                                                        'AdaptiveQuantization': 'OFF'|'LOW'|'MEDIUM'|'HIGH'|'HIGHER'|'MAX',
-                                                        'Bitrate': 123,
-                                                        'CodecLevel': 'AUTO'|'LEVEL_1'|'LEVEL_1_1'|'LEVEL_1_2'|'LEVEL_1_3'|'LEVEL_2'|'LEVEL_2_1'|'LEVEL_2_2'|'LEVEL_3'|'LEVEL_3_1'|'LEVEL_3_2'|'LEVEL_4'|'LEVEL_4_1'|'LEVEL_4_2'|'LEVEL_5'|'LEVEL_5_1'|'LEVEL_5_2',
-                                                        'CodecProfile': 'BASELINE'|'HIGH'|'HIGH_10BIT'|'HIGH_422'|'HIGH_422_10BIT'|'MAIN',
-                                                        'DynamicSubGop': 'ADAPTIVE'|'STATIC',
-                                                        'EntropyEncoding': 'CABAC'|'CAVLC',
-                                                        'FieldEncoding': 'PAFF'|'FORCE_FIELD',
-                                                        'FlickerAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                                        'FramerateDenominator': 123,
-                                                        'FramerateNumerator': 123,
-                                                        'GopBReference': 'DISABLED'|'ENABLED',
-                                                        'GopClosedCadence': 123,
-                                                        'GopSize': 123.0,
-                                                        'GopSizeUnits': 'FRAMES'|'SECONDS',
-                                                        'HrdBufferInitialFillPercentage': 123,
-                                                        'HrdBufferSize': 123,
-                                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                                        'MaxBitrate': 123,
-                                                        'MinIInterval': 123,
-                                                        'NumberBFramesBetweenReferenceFrames': 123,
-                                                        'NumberReferenceFrames': 123,
-                                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'ParDenominator': 123,
-                                                        'ParNumerator': 123,
-                                                        'QualityTuningLevel': 'SINGLE_PASS'|'SINGLE_PASS_HQ'|'MULTI_PASS_HQ',
-                                                        'QvbrSettings': {
-                                                            'MaxAverageBitrate': 123,
-                                                            'QvbrQualityLevel': 123
+                                                    \'H264Settings\': {
+                                                        \'AdaptiveQuantization\': \'OFF\'|\'LOW\'|\'MEDIUM\'|\'HIGH\'|\'HIGHER\'|\'MAX\',
+                                                        \'Bitrate\': 123,
+                                                        \'CodecLevel\': \'AUTO\'|\'LEVEL_1\'|\'LEVEL_1_1\'|\'LEVEL_1_2\'|\'LEVEL_1_3\'|\'LEVEL_2\'|\'LEVEL_2_1\'|\'LEVEL_2_2\'|\'LEVEL_3\'|\'LEVEL_3_1\'|\'LEVEL_3_2\'|\'LEVEL_4\'|\'LEVEL_4_1\'|\'LEVEL_4_2\'|\'LEVEL_5\'|\'LEVEL_5_1\'|\'LEVEL_5_2\',
+                                                        \'CodecProfile\': \'BASELINE\'|\'HIGH\'|\'HIGH_10BIT\'|\'HIGH_422\'|\'HIGH_422_10BIT\'|\'MAIN\',
+                                                        \'DynamicSubGop\': \'ADAPTIVE\'|\'STATIC\',
+                                                        \'EntropyEncoding\': \'CABAC\'|\'CAVLC\',
+                                                        \'FieldEncoding\': \'PAFF\'|\'FORCE_FIELD\',
+                                                        \'FlickerAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                                        \'FramerateDenominator\': 123,
+                                                        \'FramerateNumerator\': 123,
+                                                        \'GopBReference\': \'DISABLED\'|\'ENABLED\',
+                                                        \'GopClosedCadence\': 123,
+                                                        \'GopSize\': 123.0,
+                                                        \'GopSizeUnits\': \'FRAMES\'|\'SECONDS\',
+                                                        \'HrdBufferInitialFillPercentage\': 123,
+                                                        \'HrdBufferSize\': 123,
+                                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                                        \'MaxBitrate\': 123,
+                                                        \'MinIInterval\': 123,
+                                                        \'NumberBFramesBetweenReferenceFrames\': 123,
+                                                        \'NumberReferenceFrames\': 123,
+                                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'ParDenominator\': 123,
+                                                        \'ParNumerator\': 123,
+                                                        \'QualityTuningLevel\': \'SINGLE_PASS\'|\'SINGLE_PASS_HQ\'|\'MULTI_PASS_HQ\',
+                                                        \'QvbrSettings\': {
+                                                            \'MaxAverageBitrate\': 123,
+                                                            \'QvbrQualityLevel\': 123
                                                         },
-                                                        'RateControlMode': 'VBR'|'CBR'|'QVBR',
-                                                        'RepeatPps': 'DISABLED'|'ENABLED',
-                                                        'SceneChangeDetect': 'DISABLED'|'ENABLED',
-                                                        'Slices': 123,
-                                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                                        'Softness': 123,
-                                                        'SpatialAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'Syntax': 'DEFAULT'|'RP2027',
-                                                        'Telecine': 'NONE'|'SOFT'|'HARD',
-                                                        'TemporalAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'UnregisteredSeiTimecode': 'DISABLED'|'ENABLED'
+                                                        \'RateControlMode\': \'VBR\'|\'CBR\'|\'QVBR\',
+                                                        \'RepeatPps\': \'DISABLED\'|\'ENABLED\',
+                                                        \'SceneChangeDetect\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Slices\': 123,
+                                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Softness\': 123,
+                                                        \'SpatialAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Syntax\': \'DEFAULT\'|\'RP2027\',
+                                                        \'Telecine\': \'NONE\'|\'SOFT\'|\'HARD\',
+                                                        \'TemporalAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'UnregisteredSeiTimecode\': \'DISABLED\'|\'ENABLED\'
                                                     },
-                                                    'H265Settings': {
-                                                        'AdaptiveQuantization': 'OFF'|'LOW'|'MEDIUM'|'HIGH'|'HIGHER'|'MAX',
-                                                        'AlternateTransferFunctionSei': 'DISABLED'|'ENABLED',
-                                                        'Bitrate': 123,
-                                                        'CodecLevel': 'AUTO'|'LEVEL_1'|'LEVEL_2'|'LEVEL_2_1'|'LEVEL_3'|'LEVEL_3_1'|'LEVEL_4'|'LEVEL_4_1'|'LEVEL_5'|'LEVEL_5_1'|'LEVEL_5_2'|'LEVEL_6'|'LEVEL_6_1'|'LEVEL_6_2',
-                                                        'CodecProfile': 'MAIN_MAIN'|'MAIN_HIGH'|'MAIN10_MAIN'|'MAIN10_HIGH'|'MAIN_422_8BIT_MAIN'|'MAIN_422_8BIT_HIGH'|'MAIN_422_10BIT_MAIN'|'MAIN_422_10BIT_HIGH',
-                                                        'DynamicSubGop': 'ADAPTIVE'|'STATIC',
-                                                        'FlickerAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                                        'FramerateDenominator': 123,
-                                                        'FramerateNumerator': 123,
-                                                        'GopBReference': 'DISABLED'|'ENABLED',
-                                                        'GopClosedCadence': 123,
-                                                        'GopSize': 123.0,
-                                                        'GopSizeUnits': 'FRAMES'|'SECONDS',
-                                                        'HrdBufferInitialFillPercentage': 123,
-                                                        'HrdBufferSize': 123,
-                                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                                        'MaxBitrate': 123,
-                                                        'MinIInterval': 123,
-                                                        'NumberBFramesBetweenReferenceFrames': 123,
-                                                        'NumberReferenceFrames': 123,
-                                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'ParDenominator': 123,
-                                                        'ParNumerator': 123,
-                                                        'QualityTuningLevel': 'SINGLE_PASS'|'SINGLE_PASS_HQ'|'MULTI_PASS_HQ',
-                                                        'QvbrSettings': {
-                                                            'MaxAverageBitrate': 123,
-                                                            'QvbrQualityLevel': 123
+                                                    \'H265Settings\': {
+                                                        \'AdaptiveQuantization\': \'OFF\'|\'LOW\'|\'MEDIUM\'|\'HIGH\'|\'HIGHER\'|\'MAX\',
+                                                        \'AlternateTransferFunctionSei\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Bitrate\': 123,
+                                                        \'CodecLevel\': \'AUTO\'|\'LEVEL_1\'|\'LEVEL_2\'|\'LEVEL_2_1\'|\'LEVEL_3\'|\'LEVEL_3_1\'|\'LEVEL_4\'|\'LEVEL_4_1\'|\'LEVEL_5\'|\'LEVEL_5_1\'|\'LEVEL_5_2\'|\'LEVEL_6\'|\'LEVEL_6_1\'|\'LEVEL_6_2\',
+                                                        \'CodecProfile\': \'MAIN_MAIN\'|\'MAIN_HIGH\'|\'MAIN10_MAIN\'|\'MAIN10_HIGH\'|\'MAIN_422_8BIT_MAIN\'|\'MAIN_422_8BIT_HIGH\'|\'MAIN_422_10BIT_MAIN\'|\'MAIN_422_10BIT_HIGH\',
+                                                        \'DynamicSubGop\': \'ADAPTIVE\'|\'STATIC\',
+                                                        \'FlickerAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                                        \'FramerateDenominator\': 123,
+                                                        \'FramerateNumerator\': 123,
+                                                        \'GopBReference\': \'DISABLED\'|\'ENABLED\',
+                                                        \'GopClosedCadence\': 123,
+                                                        \'GopSize\': 123.0,
+                                                        \'GopSizeUnits\': \'FRAMES\'|\'SECONDS\',
+                                                        \'HrdBufferInitialFillPercentage\': 123,
+                                                        \'HrdBufferSize\': 123,
+                                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                                        \'MaxBitrate\': 123,
+                                                        \'MinIInterval\': 123,
+                                                        \'NumberBFramesBetweenReferenceFrames\': 123,
+                                                        \'NumberReferenceFrames\': 123,
+                                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'ParDenominator\': 123,
+                                                        \'ParNumerator\': 123,
+                                                        \'QualityTuningLevel\': \'SINGLE_PASS\'|\'SINGLE_PASS_HQ\'|\'MULTI_PASS_HQ\',
+                                                        \'QvbrSettings\': {
+                                                            \'MaxAverageBitrate\': 123,
+                                                            \'QvbrQualityLevel\': 123
                                                         },
-                                                        'RateControlMode': 'VBR'|'CBR'|'QVBR',
-                                                        'SampleAdaptiveOffsetFilterMode': 'DEFAULT'|'ADAPTIVE'|'OFF',
-                                                        'SceneChangeDetect': 'DISABLED'|'ENABLED',
-                                                        'Slices': 123,
-                                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                                        'SpatialAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'Telecine': 'NONE'|'SOFT'|'HARD',
-                                                        'TemporalAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'TemporalIds': 'DISABLED'|'ENABLED',
-                                                        'Tiles': 'DISABLED'|'ENABLED',
-                                                        'UnregisteredSeiTimecode': 'DISABLED'|'ENABLED',
-                                                        'WriteMp4PackagingType': 'HVC1'|'HEV1'
+                                                        \'RateControlMode\': \'VBR\'|\'CBR\'|\'QVBR\',
+                                                        \'SampleAdaptiveOffsetFilterMode\': \'DEFAULT\'|\'ADAPTIVE\'|\'OFF\',
+                                                        \'SceneChangeDetect\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Slices\': 123,
+                                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                                        \'SpatialAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Telecine\': \'NONE\'|\'SOFT\'|\'HARD\',
+                                                        \'TemporalAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'TemporalIds\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Tiles\': \'DISABLED\'|\'ENABLED\',
+                                                        \'UnregisteredSeiTimecode\': \'DISABLED\'|\'ENABLED\',
+                                                        \'WriteMp4PackagingType\': \'HVC1\'|\'HEV1\'
                                                     },
-                                                    'Mpeg2Settings': {
-                                                        'AdaptiveQuantization': 'OFF'|'LOW'|'MEDIUM'|'HIGH',
-                                                        'Bitrate': 123,
-                                                        'CodecLevel': 'AUTO'|'LOW'|'MAIN'|'HIGH1440'|'HIGH',
-                                                        'CodecProfile': 'MAIN'|'PROFILE_422',
-                                                        'DynamicSubGop': 'ADAPTIVE'|'STATIC',
-                                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                                        'FramerateDenominator': 123,
-                                                        'FramerateNumerator': 123,
-                                                        'GopClosedCadence': 123,
-                                                        'GopSize': 123.0,
-                                                        'GopSizeUnits': 'FRAMES'|'SECONDS',
-                                                        'HrdBufferInitialFillPercentage': 123,
-                                                        'HrdBufferSize': 123,
-                                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                                        'IntraDcPrecision': 'AUTO'|'INTRA_DC_PRECISION_8'|'INTRA_DC_PRECISION_9'|'INTRA_DC_PRECISION_10'|'INTRA_DC_PRECISION_11',
-                                                        'MaxBitrate': 123,
-                                                        'MinIInterval': 123,
-                                                        'NumberBFramesBetweenReferenceFrames': 123,
-                                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'ParDenominator': 123,
-                                                        'ParNumerator': 123,
-                                                        'QualityTuningLevel': 'SINGLE_PASS'|'MULTI_PASS',
-                                                        'RateControlMode': 'VBR'|'CBR',
-                                                        'SceneChangeDetect': 'DISABLED'|'ENABLED',
-                                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                                        'Softness': 123,
-                                                        'SpatialAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'Syntax': 'DEFAULT'|'D_10',
-                                                        'Telecine': 'NONE'|'SOFT'|'HARD',
-                                                        'TemporalAdaptiveQuantization': 'DISABLED'|'ENABLED'
+                                                    \'Mpeg2Settings\': {
+                                                        \'AdaptiveQuantization\': \'OFF\'|\'LOW\'|\'MEDIUM\'|\'HIGH\',
+                                                        \'Bitrate\': 123,
+                                                        \'CodecLevel\': \'AUTO\'|\'LOW\'|\'MAIN\'|\'HIGH1440\'|\'HIGH\',
+                                                        \'CodecProfile\': \'MAIN\'|\'PROFILE_422\',
+                                                        \'DynamicSubGop\': \'ADAPTIVE\'|\'STATIC\',
+                                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                                        \'FramerateDenominator\': 123,
+                                                        \'FramerateNumerator\': 123,
+                                                        \'GopClosedCadence\': 123,
+                                                        \'GopSize\': 123.0,
+                                                        \'GopSizeUnits\': \'FRAMES\'|\'SECONDS\',
+                                                        \'HrdBufferInitialFillPercentage\': 123,
+                                                        \'HrdBufferSize\': 123,
+                                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                                        \'IntraDcPrecision\': \'AUTO\'|\'INTRA_DC_PRECISION_8\'|\'INTRA_DC_PRECISION_9\'|\'INTRA_DC_PRECISION_10\'|\'INTRA_DC_PRECISION_11\',
+                                                        \'MaxBitrate\': 123,
+                                                        \'MinIInterval\': 123,
+                                                        \'NumberBFramesBetweenReferenceFrames\': 123,
+                                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'ParDenominator\': 123,
+                                                        \'ParNumerator\': 123,
+                                                        \'QualityTuningLevel\': \'SINGLE_PASS\'|\'MULTI_PASS\',
+                                                        \'RateControlMode\': \'VBR\'|\'CBR\',
+                                                        \'SceneChangeDetect\': \'DISABLED\'|\'ENABLED\',
+                                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Softness\': 123,
+                                                        \'SpatialAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Syntax\': \'DEFAULT\'|\'D_10\',
+                                                        \'Telecine\': \'NONE\'|\'SOFT\'|\'HARD\',
+                                                        \'TemporalAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\'
                                                     },
-                                                    'ProresSettings': {
-                                                        'CodecProfile': 'APPLE_PRORES_422'|'APPLE_PRORES_422_HQ'|'APPLE_PRORES_422_LT'|'APPLE_PRORES_422_PROXY',
-                                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                                        'FramerateDenominator': 123,
-                                                        'FramerateNumerator': 123,
-                                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'ParDenominator': 123,
-                                                        'ParNumerator': 123,
-                                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                                        'Telecine': 'NONE'|'HARD'
+                                                    \'ProresSettings\': {
+                                                        \'CodecProfile\': \'APPLE_PRORES_422\'|\'APPLE_PRORES_422_HQ\'|\'APPLE_PRORES_422_LT\'|\'APPLE_PRORES_422_PROXY\',
+                                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                                        \'FramerateDenominator\': 123,
+                                                        \'FramerateNumerator\': 123,
+                                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'ParDenominator\': 123,
+                                                        \'ParNumerator\': 123,
+                                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Telecine\': \'NONE\'|\'HARD\'
                                                     }
                                                 },
-                                                'ColorMetadata': 'IGNORE'|'INSERT',
-                                                'Crop': {
-                                                    'Height': 123,
-                                                    'Width': 123,
-                                                    'X': 123,
-                                                    'Y': 123
+                                                \'ColorMetadata\': \'IGNORE\'|\'INSERT\',
+                                                \'Crop\': {
+                                                    \'Height\': 123,
+                                                    \'Width\': 123,
+                                                    \'X\': 123,
+                                                    \'Y\': 123
                                                 },
-                                                'DropFrameTimecode': 'DISABLED'|'ENABLED',
-                                                'FixedAfd': 123,
-                                                'Height': 123,
-                                                'Position': {
-                                                    'Height': 123,
-                                                    'Width': 123,
-                                                    'X': 123,
-                                                    'Y': 123
+                                                \'DropFrameTimecode\': \'DISABLED\'|\'ENABLED\',
+                                                \'FixedAfd\': 123,
+                                                \'Height\': 123,
+                                                \'Position\': {
+                                                    \'Height\': 123,
+                                                    \'Width\': 123,
+                                                    \'X\': 123,
+                                                    \'Y\': 123
                                                 },
-                                                'RespondToAfd': 'NONE'|'RESPOND'|'PASSTHROUGH',
-                                                'ScalingBehavior': 'DEFAULT'|'STRETCH_TO_OUTPUT',
-                                                'Sharpness': 123,
-                                                'TimecodeInsertion': 'DISABLED'|'PIC_TIMING_SEI',
-                                                'VideoPreprocessors': {
-                                                    'ColorCorrector': {
-                                                        'Brightness': 123,
-                                                        'ColorSpaceConversion': 'NONE'|'FORCE_601'|'FORCE_709'|'FORCE_HDR10'|'FORCE_HLG_2020',
-                                                        'Contrast': 123,
-                                                        'Hdr10Metadata': {
-                                                            'BluePrimaryX': 123,
-                                                            'BluePrimaryY': 123,
-                                                            'GreenPrimaryX': 123,
-                                                            'GreenPrimaryY': 123,
-                                                            'MaxContentLightLevel': 123,
-                                                            'MaxFrameAverageLightLevel': 123,
-                                                            'MaxLuminance': 123,
-                                                            'MinLuminance': 123,
-                                                            'RedPrimaryX': 123,
-                                                            'RedPrimaryY': 123,
-                                                            'WhitePointX': 123,
-                                                            'WhitePointY': 123
+                                                \'RespondToAfd\': \'NONE\'|\'RESPOND\'|\'PASSTHROUGH\',
+                                                \'ScalingBehavior\': \'DEFAULT\'|\'STRETCH_TO_OUTPUT\',
+                                                \'Sharpness\': 123,
+                                                \'TimecodeInsertion\': \'DISABLED\'|\'PIC_TIMING_SEI\',
+                                                \'VideoPreprocessors\': {
+                                                    \'ColorCorrector\': {
+                                                        \'Brightness\': 123,
+                                                        \'ColorSpaceConversion\': \'NONE\'|\'FORCE_601\'|\'FORCE_709\'|\'FORCE_HDR10\'|\'FORCE_HLG_2020\',
+                                                        \'Contrast\': 123,
+                                                        \'Hdr10Metadata\': {
+                                                            \'BluePrimaryX\': 123,
+                                                            \'BluePrimaryY\': 123,
+                                                            \'GreenPrimaryX\': 123,
+                                                            \'GreenPrimaryY\': 123,
+                                                            \'MaxContentLightLevel\': 123,
+                                                            \'MaxFrameAverageLightLevel\': 123,
+                                                            \'MaxLuminance\': 123,
+                                                            \'MinLuminance\': 123,
+                                                            \'RedPrimaryX\': 123,
+                                                            \'RedPrimaryY\': 123,
+                                                            \'WhitePointX\': 123,
+                                                            \'WhitePointY\': 123
                                                         },
-                                                        'Hue': 123,
-                                                        'Saturation': 123
+                                                        \'Hue\': 123,
+                                                        \'Saturation\': 123
                                                     },
-                                                    'Deinterlacer': {
-                                                        'Algorithm': 'INTERPOLATE'|'INTERPOLATE_TICKER'|'BLEND'|'BLEND_TICKER',
-                                                        'Control': 'FORCE_ALL_FRAMES'|'NORMAL',
-                                                        'Mode': 'DEINTERLACE'|'INVERSE_TELECINE'|'ADAPTIVE'
+                                                    \'Deinterlacer\': {
+                                                        \'Algorithm\': \'INTERPOLATE\'|\'INTERPOLATE_TICKER\'|\'BLEND\'|\'BLEND_TICKER\',
+                                                        \'Control\': \'FORCE_ALL_FRAMES\'|\'NORMAL\',
+                                                        \'Mode\': \'DEINTERLACE\'|\'INVERSE_TELECINE\'|\'ADAPTIVE\'
                                                     },
-                                                    'ImageInserter': {
-                                                        'InsertableImages': [
+                                                    \'ImageInserter\': {
+                                                        \'InsertableImages\': [
                                                             {
-                                                                'Duration': 123,
-                                                                'FadeIn': 123,
-                                                                'FadeOut': 123,
-                                                                'Height': 123,
-                                                                'ImageInserterInput': 'string',
-                                                                'ImageX': 123,
-                                                                'ImageY': 123,
-                                                                'Layer': 123,
-                                                                'Opacity': 123,
-                                                                'StartTime': 'string',
-                                                                'Width': 123
+                                                                \'Duration\': 123,
+                                                                \'FadeIn\': 123,
+                                                                \'FadeOut\': 123,
+                                                                \'Height\': 123,
+                                                                \'ImageInserterInput\': \'string\',
+                                                                \'ImageX\': 123,
+                                                                \'ImageY\': 123,
+                                                                \'Layer\': 123,
+                                                                \'Opacity\': 123,
+                                                                \'StartTime\': \'string\',
+                                                                \'Width\': 123
                                                             },
                                                         ]
                                                     },
-                                                    'NoiseReducer': {
-                                                        'Filter': 'BILATERAL'|'MEAN'|'GAUSSIAN'|'LANCZOS'|'SHARPEN'|'CONSERVE'|'SPATIAL',
-                                                        'FilterSettings': {
-                                                            'Strength': 123
+                                                    \'NoiseReducer\': {
+                                                        \'Filter\': \'BILATERAL\'|\'MEAN\'|\'GAUSSIAN\'|\'LANCZOS\'|\'SHARPEN\'|\'CONSERVE\'|\'SPATIAL\',
+                                                        \'FilterSettings\': {
+                                                            \'Strength\': 123
                                                         },
-                                                        'SpatialFilterSettings': {
-                                                            'PostFilterSharpenStrength': 123,
-                                                            'Speed': 123,
-                                                            'Strength': 123
+                                                        \'SpatialFilterSettings\': {
+                                                            \'PostFilterSharpenStrength\': 123,
+                                                            \'Speed\': 123,
+                                                            \'Strength\': 123
                                                         }
                                                     },
-                                                    'TimecodeBurnin': {
-                                                        'FontSize': 123,
-                                                        'Position': 'TOP_CENTER'|'TOP_LEFT'|'TOP_RIGHT'|'MIDDLE_LEFT'|'MIDDLE_CENTER'|'MIDDLE_RIGHT'|'BOTTOM_LEFT'|'BOTTOM_CENTER'|'BOTTOM_RIGHT',
-                                                        'Prefix': 'string'
+                                                    \'TimecodeBurnin\': {
+                                                        \'FontSize\': 123,
+                                                        \'Position\': \'TOP_CENTER\'|\'TOP_LEFT\'|\'TOP_RIGHT\'|\'MIDDLE_LEFT\'|\'MIDDLE_CENTER\'|\'MIDDLE_RIGHT\'|\'BOTTOM_LEFT\'|\'BOTTOM_CENTER\'|\'BOTTOM_RIGHT\',
+                                                        \'Prefix\': \'string\'
                                                     }
                                                 },
-                                                'Width': 123
+                                                \'Width\': 123
                                             }
                                         },
                                     ]
                                 },
                             ],
-                            'TimecodeConfig': {
-                                'Anchor': 'string',
-                                'Source': 'EMBEDDED'|'ZEROBASED'|'SPECIFIEDSTART',
-                                'Start': 'string',
-                                'TimestampOffset': 'string'
+                            \'TimecodeConfig\': {
+                                \'Anchor\': \'string\',
+                                \'Source\': \'EMBEDDED\'|\'ZEROBASED\'|\'SPECIFIEDSTART\',
+                                \'Start\': \'string\',
+                                \'TimestampOffset\': \'string\'
                             },
-                            'TimedMetadataInsertion': {
-                                'Id3Insertions': [
+                            \'TimedMetadataInsertion\': {
+                                \'Id3Insertions\': [
                                     {
-                                        'Id3': 'string',
-                                        'Timecode': 'string'
+                                        \'Id3\': \'string\',
+                                        \'Timecode\': \'string\'
                                     },
                                 ]
                             }
                         },
-                        'Type': 'SYSTEM'|'CUSTOM'
+                        \'Type\': \'SYSTEM\'|\'CUSTOM\'
                     },
                 ],
                 
@@ -893,7 +893,7 @@ class ListJobTemplates(Paginator):
                 
                 - **Name** *(string) --* A name you create for each job template. Each name must be unique within your account.
                 
-                - **Queue** *(string) --* Optional. The queue that jobs created from this template are assigned to. If you don't specify this, jobs will go to the default queue.
+                - **Queue** *(string) --* Optional. The queue that jobs created from this template are assigned to. If you don\'t specify this, jobs will go to the default queue.
                 
                 - **Settings** *(dict) --* JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
                   
@@ -907,13 +907,13 @@ class ListJobTemplates(Paginator):
                     
                     - *(dict) --* Specified video input in a template.
                       
-                      - **AudioSelectorGroups** *(dict) --* Specifies set of audio selectors within an input to combine. An input may have multiple audio selector groups. See "Audio Selector Group":#inputs-audio_selector_group for more information.
+                      - **AudioSelectorGroups** *(dict) --* Specifies set of audio selectors within an input to combine. An input may have multiple audio selector groups. See \"Audio Selector Group\":#inputs-audio_selector_group for more information.
                         
                         - *(string) --* 
                           
                           - *(dict) --* Group of Audio Selectors
                             
-                            - **AudioSelectorNames** *(list) --* Name of an Audio Selector within the same input to include in the group. Audio selector names are standardized, based on their order within the input (e.g., "Audio Selector 1"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
+                            - **AudioSelectorNames** *(list) --* Name of an Audio Selector within the same input to include in the group. Audio selector names are standardized, based on their order within the input (e.g., \"Audio Selector 1\"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
                               
                               - *(string) --* 
                           
@@ -925,7 +925,7 @@ class ListJobTemplates(Paginator):
                             
                             - **CustomLanguageCode** *(string) --* Selects a specific language code from within an audio source, using the ISO 639-2 or ISO 639-3 three-letter language code
                             
-                            - **DefaultSelection** *(string) --* Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
+                            - **DefaultSelection** *(string) --* Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can\'t find the specified input audio. If you don\'t set a default, those outputs have no audio.
                             
                             - **ExternalAudioFileInput** *(string) --* Specifies audio data from an external file source.
                             
@@ -957,7 +957,7 @@ class ListJobTemplates(Paginator):
                           
                             - **SelectorType** *(string) --* Specifies the type of the audio selector.
                             
-                            - **Tracks** *(list) --* Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+                            - **Tracks** *(list) --* Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type \"1,2,3\" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, \"tracks\": [1,2,3].
                               
                               - *(integer) --* 
                           
@@ -983,17 +983,17 @@ class ListJobTemplates(Paginator):
                             
                               - **EmbeddedSourceSettings** *(dict) --* Settings for embedded captions Source
                                 
-                                - **Convert608To708** *(string) --* When set to UPCONVERT, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+                                - **Convert608To708** *(string) --* When set to UPCONVERT, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                                 
                                 - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                                 
-                                - **Source608TrackNumber** *(integer) --* Specifies the video track index used for extracting captions. The system only supports one input video track, so this should always be set to '1'.
+                                - **Source608TrackNumber** *(integer) --* Specifies the video track index used for extracting captions. The system only supports one input video track, so this should always be set to \'1\'.
                             
                               - **FileSourceSettings** *(dict) --* Settings for File-based Captions in Source
                                 
-                                - **Convert608To708** *(string) --* If set to UPCONVERT, 608 caption data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+                                - **Convert608To708** *(string) --* If set to UPCONVERT, 608 caption data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                                 
-                                - **SourceFile** *(string) --* External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', and 'smi'.
+                                - **SourceFile** *(string) --* External caption file used for loading captions. Accepted file extensions are \'scc\', \'ttml\', \'dfxp\', \'stl\', \'srt\', and \'smi\'.
                                 
                                 - **TimeDelta** *(integer) --* Specifies a time delta in seconds to offset the captions from the source file.
                             
@@ -1019,7 +1019,7 @@ class ListJobTemplates(Paginator):
                           
                           - **StartTimecode** *(string) --* Set Start timecode (StartTimecode) to the beginning of the portion of the input you are clipping. The frame corresponding to the Start timecode value is included in the clip. Start timecode or End timecode may be left blank, but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When choosing this value, take into account your setting for Input timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your clip to begin five minutes into the video, use 01:05:00:00.
                       
-                      - **ProgramNumber** *(integer) --* Use Program (programNumber) to select a specific program from within a multi-program transport stream. Note that Quad 4K is not currently supported. Default is the first program within the transport stream. If the program you specify doesn't exist, the transcoding service will use this default.
+                      - **ProgramNumber** *(integer) --* Use Program (programNumber) to select a specific program from within a multi-program transport stream. Note that Quad 4K is not currently supported. Default is the first program within the transport stream. If the program you specify doesn\'t exist, the transcoding service will use this default.
                       
                       - **PsiControl** *(string) --* Set PSI control (InputPsiControl) for transport stream inputs to specify which data the demux process to scans. * Ignore PSI - Scan all PIDs for audio and video. * Use PSI - Scan only PSI data.
                       
@@ -1027,7 +1027,7 @@ class ListJobTemplates(Paginator):
                       
                       - **VideoSelector** *(dict) --* Selector for video.
                         
-                        - **ColorSpace** *(string) --* If your input video has accurate color space metadata, or if you don't know about color space, leave this set to the default value FOLLOW. The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, or if your input video is missing color space metadata that should be there, specify the accurate color space here. If you choose HDR10, you can also correct inaccurate color space coefficients, using the HDR master display information controls. You must also set Color space usage (ColorSpaceUsage) to FORCE for the service to use these values.
+                        - **ColorSpace** *(string) --* If your input video has accurate color space metadata, or if you don\'t know about color space, leave this set to the default value FOLLOW. The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, or if your input video is missing color space metadata that should be there, specify the accurate color space here. If you choose HDR10, you can also correct inaccurate color space coefficients, using the HDR master display information controls. You must also set Color space usage (ColorSpaceUsage) to FORCE for the service to use these values.
                         
                         - **ColorSpaceUsage** *(string) --* There are two sources for color metadata, the input file and the job configuration (in the Color space and HDR master display informaiton settings). The Color space usage setting controls which takes precedence. FORCE: The system will use color metadata supplied by user, if any. If the user does not supply color metadata, the system will use data from the source. FALLBACK: The system will use color metadata from the source. If source has no color metadata, the system will use user-supplied color metadata values if available.
                         
@@ -1091,13 +1091,13 @@ class ListJobTemplates(Paginator):
                             
                             - **ConstantInitializationVector** *(string) --* This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
                             
-                            - **EncryptionMethod** *(string) --* Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
+                            - **EncryptionMethod** *(string) --* Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting \'Disabled\' in the web interface also disables encryption.
                             
                             - **InitializationVectorInManifest** *(string) --* The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
                             
                             - **StaticKeyProvider** *(dict) --* Settings for use with a SPEKE key provider.
                               
-                              - **KeyFormat** *(string) --* Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'.
+                              - **KeyFormat** *(string) --* Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be \'identity\' or a reverse DNS string. May be omitted to indicate an implicit value of \'identity\'.
                               
                               - **KeyFormatVersions** *(string) --* Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                               
@@ -1195,7 +1195,7 @@ class ListJobTemplates(Paginator):
                             
                             - **ConstantInitializationVector** *(string) --* This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
                             
-                            - **EncryptionMethod** *(string) --* Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
+                            - **EncryptionMethod** *(string) --* Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting \'Disabled\' in the web interface also disables encryption.
                             
                             - **InitializationVectorInManifest** *(string) --* The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
                             
@@ -1211,7 +1211,7 @@ class ListJobTemplates(Paginator):
                           
                             - **StaticKeyProvider** *(dict) --* Settings for use with a SPEKE key provider.
                               
-                              - **KeyFormat** *(string) --* Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'.
+                              - **KeyFormat** *(string) --* Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be \'identity\' or a reverse DNS string. May be omitted to indicate an implicit value of \'identity\'.
                               
                               - **KeyFormatVersions** *(string) --* Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                               
@@ -1289,13 +1289,13 @@ class ListJobTemplates(Paginator):
                                 
                                 - **CorrectionGateLevel** *(integer) --* Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected. Gating only applies when not using real_time_correction.
                                 
-                                - **LoudnessLogging** *(string) --* If set to LOG, log each output's audio track loudness to a CSV file.
+                                - **LoudnessLogging** *(string) --* If set to LOG, log each output\'s audio track loudness to a CSV file.
                                 
-                                - **PeakCalculation** *(string) --* If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
+                                - **PeakCalculation** *(string) --* If set to TRUE_PEAK, calculate and log the TruePeak for each output\'s audio track loudness.
                                 
                                 - **TargetLkfs** *(float) --* Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm. The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
                             
-                              - **AudioSourceName** *(string) --* Specifies which audio data to use from each input. In the simplest case, specify an "Audio Selector":#inputs-audio_selector by name based on its order within each input. For example if you specify "Audio Selector 3", then the third audio selector will be used from each input. If an input does not have an "Audio Selector 3", then the audio selector marked as "default" in that input will be used. If there is no audio selector marked as "default", silence will be inserted for the duration of that input. Alternatively, an "Audio Selector Group":#inputs-audio_selector_group name may be specified, with similar default/silence behavior. If no audio_source_name is specified, then "Audio Selector 1" will be chosen automatically.
+                              - **AudioSourceName** *(string) --* Specifies which audio data to use from each input. In the simplest case, specify an \"Audio Selector\":#inputs-audio_selector by name based on its order within each input. For example if you specify \"Audio Selector 3\", then the third audio selector will be used from each input. If an input does not have an \"Audio Selector 3\", then the audio selector marked as \"default\" in that input will be used. If there is no audio selector marked as \"default\", silence will be inserted for the duration of that input. Alternatively, an \"Audio Selector Group\":#inputs-audio_selector_group name may be specified, with similar default/silence behavior. If no audio_source_name is specified, then \"Audio Selector 1\" will be chosen automatically.
                               
                               - **AudioType** *(integer) --* Applies only if Follow Input Audio Type is unchecked (false). A number between 0 and 255. The following are defined in ISO-IEC 13818-1: 0 = Undefined, 1 = Clean Effects, 2 = Hearing Impaired, 3 = Visually Impaired Commentary, 4-255 = Reserved.
                               
@@ -1303,19 +1303,19 @@ class ListJobTemplates(Paginator):
                               
                               - **CodecSettings** *(dict) --* Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value you choose for Audio codec (Codec). For each codec enum you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings
                                 
-                                - **AacSettings** *(dict) --* Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR". In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
+                                - **AacSettings** *(dict) --* Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to \"VBR\" or \"CBR\". In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
                                   
-                                  - **AudioDescriptionBroadcasterMix** *(string) --* Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
+                                  - **AudioDescriptionBroadcasterMix** *(string) --* Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains \"broadcaster mixed AD\". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
                                   
                                   - **Bitrate** *(integer) --* Average bitrate in bits/second. Defaults and valid values depend on rate control mode and profile.
                                   
                                   - **CodecProfile** *(string) --* AAC Profile.
                                   
-                                  - **CodingMode** *(string) --* Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. "1.0 - Audio Description (Receiver Mix)" setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
+                                  - **CodingMode** *(string) --* Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. \"1.0 - Audio Description (Receiver Mix)\" setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
                                   
                                   - **RateControlMode** *(string) --* Rate Control Mode.
                                   
-                                  - **RawFormat** *(string) --* Enables LATM/LOAS AAC output. Note that if you use LATM/LOAS AAC in an output, you must choose "No container" for the output container.
+                                  - **RawFormat** *(string) --* Enables LATM/LOAS AAC output. Note that if you use LATM/LOAS AAC in an output, you must choose \"No container\" for the output container.
                                   
                                   - **SampleRate** *(integer) --* Sample rate in Hz. Valid values depend on rate control mode and profile.
                                   
@@ -1327,7 +1327,7 @@ class ListJobTemplates(Paginator):
                                   
                                   - **Bitrate** *(integer) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                                   
-                                  - **BitstreamMode** *(string) --* Specifies the "Bitstream Mode" (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
+                                  - **BitstreamMode** *(string) --* Specifies the \"Bitstream Mode\" (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
                                   
                                   - **CodingMode** *(string) --* Dolby Digital coding mode. Determines number of channels.
                                   
@@ -1357,7 +1357,7 @@ class ListJobTemplates(Paginator):
                                   
                                   - **Bitrate** *(integer) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                                   
-                                  - **BitstreamMode** *(string) --* Specifies the "Bitstream Mode" (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
+                                  - **BitstreamMode** *(string) --* Specifies the \"Bitstream Mode\" (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
                                   
                                   - **CodingMode** *(string) --* Dolby Digital Plus coding mode. Determines number of channels.
                                   
@@ -1413,11 +1413,11 @@ class ListJobTemplates(Paginator):
                                   
                                   - **SampleRate** *(integer) --* Sample rate in Hz.
                               
-                              - **CustomLanguageCode** *(string) --* Specify the language for this audio output track, using the ISO 639-2 or ISO 639-3 three-letter language code. The language specified will be used when 'Follow Input Language Code' is not selected or when 'Follow Input Language Code' is selected but there is no ISO 639 language code specified by the input.
+                              - **CustomLanguageCode** *(string) --* Specify the language for this audio output track, using the ISO 639-2 or ISO 639-3 three-letter language code. The language specified will be used when \'Follow Input Language Code\' is not selected or when \'Follow Input Language Code\' is selected but there is no ISO 639 language code specified by the input.
                               
-                              - **LanguageCode** *(string) --* Indicates the language of the audio output track. The ISO 639 language specified in the 'Language Code' drop down will be used when 'Follow Input Language Code' is not selected or when 'Follow Input Language Code' is selected but there is no ISO 639 language code specified by the input.
+                              - **LanguageCode** *(string) --* Indicates the language of the audio output track. The ISO 639 language specified in the \'Language Code\' drop down will be used when \'Follow Input Language Code\' is not selected or when \'Follow Input Language Code\' is selected but there is no ISO 639 language code specified by the input.
                               
-                              - **LanguageCodeControl** *(string) --* Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The language specified for languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT is selected but there is no ISO 639 language code specified by the input.
+                              - **LanguageCodeControl** *(string) --* Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The language specified for languageCode\' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT is selected but there is no ISO 639 language code specified by the input.
                               
                               - **RemixSettings** *(dict) --* Advanced audio remixing settings.
                                 
@@ -1441,7 +1441,7 @@ class ListJobTemplates(Paginator):
                             
                             - *(dict) --* Description of Caption output
                               
-                              - **CaptionSelectorName** *(string) --* Specifies which "Caption Selector":#inputs-caption_selector to use from each input when generating captions. The name should be of the format "Caption Selector ", which denotes that the Nth Caption Selector will be used from each input.
+                              - **CaptionSelectorName** *(string) --* Specifies which \"Caption Selector\":#inputs-caption_selector to use from each input when generating captions. The name should be of the format \"Caption Selector \", which denotes that the Nth Caption Selector will be used from each input.
                               
                               - **CustomLanguageCode** *(string) --* Indicates the language of the caption output track, using the ISO 639-2 or ISO 639-3 three-letter language code
                               
@@ -1565,7 +1565,7 @@ class ListJobTemplates(Paginator):
                             
                               - **DvbSdtSettings** *(dict) --* Inserts DVB Service Description Table (NIT) at the specified table repetition interval.
                                 
-                                - **OutputSdt** *(string) --* Selects method of inserting SDT information into output stream. "Follow input SDT" copies SDT information from input stream to output stream. "Follow input SDT if present" copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT Manually" means user will enter the SDT information. "No SDT" means output stream will not contain SDT information.
+                                - **OutputSdt** *(string) --* Selects method of inserting SDT information into output stream. \"Follow input SDT\" copies SDT information from input stream to output stream. \"Follow input SDT if present\" copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter \"SDT Manually\" means user will enter the SDT information. \"No SDT\" means output stream will not contain SDT information.
                                 
                                 - **SdtInterval** *(integer) --* The number of milliseconds between instances of this table in the output transport stream.
                                 
@@ -1593,7 +1593,7 @@ class ListJobTemplates(Paginator):
                               
                               - **MaxPcrInterval** *(integer) --* Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
                               
-                              - **MinEbpInterval** *(integer) --* When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
+                              - **MinEbpInterval** *(integer) --* When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is \"stretched\" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
                               
                               - **NielsenId3** *(string) --* If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
                               
@@ -1621,7 +1621,7 @@ class ListJobTemplates(Paginator):
                               
                               - **SegmentationMarkers** *(string) --* Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
                               
-                              - **SegmentationStyle** *(string) --* The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of "reset_cadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of "maintain_cadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
+                              - **SegmentationStyle** *(string) --* The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of \"reset_cadence\" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of \"maintain_cadence\" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
                               
                               - **SegmentationTime** *(float) --* The length in seconds of each segment. Required unless markers is set to _none_.
                               
@@ -1669,25 +1669,25 @@ class ListJobTemplates(Paginator):
                           
                             - **MovSettings** *(dict) --* Settings for MOV Container.
                               
-                              - **ClapAtom** *(string) --* When enabled, include 'clap' atom if appropriate for the video output settings.
+                              - **ClapAtom** *(string) --* When enabled, include \'clap\' atom if appropriate for the video output settings.
                               
-                              - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+                              - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the \'ctts\' (composition time to sample) box for B-frames will be negative, and a \'cslg\' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
                               
                               - **Mpeg2FourCCControl** *(string) --* When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
                               
                               - **PaddingControl** *(string) --* If set to OMNEON, inserts Omneon-compatible padding
                               
-                              - **Reference** *(string) --* A value of 'external' creates separate media files and the wrapper file (.mov) contains references to these media files. A value of 'self_contained' creates only a wrapper (.mov) file and this file contains all of the media.
+                              - **Reference** *(string) --* A value of \'external\' creates separate media files and the wrapper file (.mov) contains references to these media files. A value of \'self_contained\' creates only a wrapper (.mov) file and this file contains all of the media.
                           
                             - **Mp4Settings** *(dict) --* Settings for MP4 Container
                               
-                              - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+                              - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the \'ctts\' (composition time to sample) box for B-frames will be negative, and a \'cslg\' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
                               
                               - **FreeSpaceBox** *(string) --* Inserts a free-space box immediately after the moov box.
                               
                               - **MoovPlacement** *(string) --* If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
                               
-                              - **Mp4MajorBrand** *(string) --* Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
+                              - **Mp4MajorBrand** *(string) --* Overrides the \"Major Brand\" field in the output file. Usually not necessary to specify.
                           
                           - **Extension** *(string) --* Use Extension (Extension) to specify the file extension for outputs in File output groups. If you do not specify a value, the service will use default extensions by container type as follows * MPEG-2 transport stream, m2ts * Quicktime, mov * MXF container, mxf * MPEG-4 container, mp4 * No Container, the service will use codec extensions (e.g. AAC, H265, H265, AC3)
                           
@@ -1699,13 +1699,13 @@ class ListJobTemplates(Paginator):
                               
                               - **AudioGroupId** *(string) --* Specifies the group to which the audio Rendition belongs.
                               
-                              - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+                              - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by \',\'.
                               
                               - **AudioTrackType** *(string) --* Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
                               
                               - **IFrameOnlyManifest** *(string) --* When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS manifest
                               
-                              - **SegmentModifier** *(string) --* String concatenated to end of segment filenames. Accepts "Format Identifiers":#format_identifier_parameters.
+                              - **SegmentModifier** *(string) --* String concatenated to end of segment filenames. Accepts \"Format Identifiers\":#format_identifier_parameters.
                           
                           - **Preset** *(string) --* Use Preset (Preset) to specifiy a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset (Preset) or Container settings (ContainerSettings), but not both.
                           
@@ -1745,7 +1745,7 @@ class ListJobTemplates(Paginator):
                                 
                                 - **FieldEncoding** *(string) --* Choosing FORCE_FIELD disables PAFF encoding for interlaced outputs.
                                 
-                                - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+                                - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or \'pop\' on I-frames.
                                 
                                 - **FramerateControl** *(string) --* If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.
                                 
@@ -1767,7 +1767,7 @@ class ListJobTemplates(Paginator):
                                 
                                 - **HrdBufferSize** *(integer) --* Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
                                 
-                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type, as follows. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type, as follows. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                                 
                                 - **MaxBitrate** *(integer) --* Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
                                 
@@ -1785,7 +1785,7 @@ class ListJobTemplates(Paginator):
                                 
                                 - **QualityTuningLevel** *(string) --* Use Quality tuning level (H264QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality singlepass, or high-quality multipass video encoding.
                                 
-                                - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
+                                - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don\'t define Rate control mode.
                                   
                                   - **MaxAverageBitrate** *(integer) --* Use this setting only when Rate control mode is QVBR and Quality tuning level is Multi-pass HQ. For Max average bitrate values suited to the complexity of your input video, the service limits the average bitrate of the video part of this output to the value you choose. That is, the total size of the video element is less than or equal to the value you set multiplied by the number of seconds of encoded output.
                                   
@@ -1823,11 +1823,11 @@ class ListJobTemplates(Paginator):
                                 
                                 - **CodecLevel** *(string) --* H.265 Level.
                                 
-                                - **CodecProfile** *(string) --* Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] / [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC 4:2:2 License.
+                                - **CodecProfile** *(string) --* Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] / [Tier], so \"Main/High\" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC 4:2:2 License.
                                 
                                 - **DynamicSubGop** *(string) --* Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
                                 
-                                - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+                                - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or \'pop\' on I-frames.
                                 
                                 - **FramerateControl** *(string) --* If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.
                                 
@@ -1849,7 +1849,7 @@ class ListJobTemplates(Paginator):
                                 
                                 - **HrdBufferSize** *(integer) --* Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
                                 
-                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                                 
                                 - **MaxBitrate** *(integer) --* Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
                                 
@@ -1867,7 +1867,7 @@ class ListJobTemplates(Paginator):
                                 
                                 - **QualityTuningLevel** *(string) --* Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality singlepass, or high-quality multipass video encoding.
                                 
-                                - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
+                                - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don\'t define Rate control mode.
                                   
                                   - **MaxAverageBitrate** *(integer) --* Use this setting only when Rate control mode is QVBR and Quality tuning level is Multi-pass HQ. For Max average bitrate values suited to the complexity of your input video, the service limits the average bitrate of the video part of this output to the value you choose. That is, the total size of the video element is less than or equal to the value you set multiplied by the number of seconds of encoded output.
                                   
@@ -1927,7 +1927,7 @@ class ListJobTemplates(Paginator):
                                 
                                 - **HrdBufferSize** *(integer) --* Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
                                 
-                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                                 
                                 - **IntraDcPrecision** *(string) --* Use Intra DC precision (Mpeg2IntraDcPrecision) to set quantization precision for intra-block DC coefficients. If you choose the value auto, the service will automatically select the precision based on the per-frame compression ratio.
                                 
@@ -1973,7 +1973,7 @@ class ListJobTemplates(Paginator):
                                 
                                 - **FramerateNumerator** *(integer) --* When you use the API for transcode jobs that use framerate conversion, specify the framerate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator.
                                 
-                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                                 
                                 - **ParControl** *(string) --* Use (ProresParControl) to specify how the service determines the pixel aspect ratio. Set to Follow source (INITIALIZE_FROM_SOURCE) to use the pixel aspect ratio from the input. To specify a different pixel aspect ratio: Using the console, choose it from the dropdown menu. Using the API, set ProresParControl to (SPECIFIED) and provide for (ParNumerator) and (ParDenominator).
                                 
@@ -2001,7 +2001,7 @@ class ListJobTemplates(Paginator):
                             
                             - **FixedAfd** *(integer) --* Applies only if you set AFD Signaling(AfdSignaling) to Fixed (FIXED). Use Fixed (FixedAfd) to specify a four-bit AFD value which the service will write on all frames of this video output.
                             
-                            - **Height** *(integer) --* Use the Height (Height) setting to define the video resolution height for this output. Specify in pixels. If you don't provide a value here, the service will use the input height.
+                            - **Height** *(integer) --* Use the Height (Height) setting to define the video resolution height for this output. Specify in pixels. If you don\'t provide a value here, the service will use the input height.
                             
                             - **Position** *(dict) --* Use Position (Position) to point to a rectangle object to define your position. This setting overrides any other aspect ratio.
                               
@@ -2027,7 +2027,7 @@ class ListJobTemplates(Paginator):
                                 
                                 - **Brightness** *(integer) --* Brightness level.
                                 
-                                - **ColorSpaceConversion** *(string) --* Determines if colorspace conversion will be performed. If set to _None_, no conversion will be performed. If _Force 601_ or _Force 709_ are selected, conversion will be performed for inputs with differing colorspaces. An input's colorspace can be specified explicitly in the "Video Selector":#inputs-video_selector if necessary.
+                                - **ColorSpaceConversion** *(string) --* Determines if colorspace conversion will be performed. If set to _None_, no conversion will be performed. If _Force 601_ or _Force 709_ are selected, conversion will be performed for inputs with differing colorspaces. An input\'s colorspace can be specified explicitly in the \"Video Selector\":#inputs-video_selector if necessary.
                                 
                                 - **Contrast** *(integer) --* Contrast level.
                                 
@@ -2077,9 +2077,9 @@ class ListJobTemplates(Paginator):
                                     
                                     - **Duration** *(integer) --* Use Duration (Duration) to set the time, in milliseconds, for the image to remain on the output video.
                                     
-                                    - **FadeIn** *(integer) --* Use Fade in (FadeIut) to set the length, in milliseconds, of the inserted image fade in. If you don't specify a value for Fade in, the image will appear abruptly at the Start time.
+                                    - **FadeIn** *(integer) --* Use Fade in (FadeIut) to set the length, in milliseconds, of the inserted image fade in. If you don\'t specify a value for Fade in, the image will appear abruptly at the Start time.
                                     
-                                    - **FadeOut** *(integer) --* Use Fade out (FadeOut) to set the length, in milliseconds, of the inserted image fade out. If you don't specify a value for Fade out, the image will disappear abruptly at the end of the inserted image duration.
+                                    - **FadeOut** *(integer) --* Use Fade out (FadeOut) to set the length, in milliseconds, of the inserted image fade out. If you don\'t specify a value for Fade out, the image will disappear abruptly at the end of the inserted image duration.
                                     
                                     - **Height** *(integer) --* Specify the Height (Height) of the inserted image. Use a value that is less than or equal to the video resolution height. Leave this setting blank to use the native height of the image.
                                     
@@ -2119,9 +2119,9 @@ class ListJobTemplates(Paginator):
                                 
                                 - **Position** *(string) --* Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to specify the location the burned-in timecode on output video.
                                 
-                                - **Prefix** *(string) --* Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
+                                - **Prefix** *(string) --* Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of \"EZ-\" will result in the timecode \"EZ-00:00:00:00\". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
                             
-                            - **Width** *(integer) --* Use Width (Width) to define the video resolution width, in pixels, for this output. If you don't provide a value here, the service will use the input width.
+                            - **Width** *(integer) --* Use Width (Width) to define the video resolution width, in pixels, for this output. If you don\'t provide a value here, the service will use the input width.
                         
                   - **TimecodeConfig** *(dict) --* Contains settings used to acquire and adjust timecode information from inputs.
                     
@@ -2131,7 +2131,7 @@ class ListJobTemplates(Paginator):
                     
                     - **Start** *(string) --* Only use when you set Source (TimecodeSource) to Specified start (SPECIFIEDSTART). Use Start timecode (Start) to specify the timecode for the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF).
                     
-                    - **TimestampOffset** *(string) --* Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format "yyyy-mm-dd". To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25.
+                    - **TimestampOffset** *(string) --* Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format \"yyyy-mm-dd\". To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25.
                 
                   - **TimedMetadataInsertion** *(dict) --* Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in your job. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
                     
@@ -2143,7 +2143,7 @@ class ListJobTemplates(Paginator):
                         
                         - **Timecode** *(string) --* Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
                     
-                - **Type** *(string) --* A job template can be of two types: system or custom. System or built-in job templates can't be modified or deleted by the user.
+                - **Type** *(string) --* A job template can be of two types: system or custom. System or built-in job templates can\'t be modified or deleted by the user.
             
         """
         pass
@@ -2159,13 +2159,13 @@ class ListJobs(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Order='ASCENDING'|'DESCENDING',
-              Queue='string',
-              Status='SUBMITTED'|'PROGRESSING'|'COMPLETE'|'CANCELED'|'ERROR',
+              Order=\'ASCENDING\'|\'DESCENDING\',
+              Queue=\'string\',
+              Status=\'SUBMITTED\'|\'PROGRESSING\'|\'COMPLETE\'|\'CANCELED\'|\'ERROR\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Order: string
@@ -2175,7 +2175,7 @@ class ListJobs(Paginator):
         :param Queue: Provide a queue name to get back only jobs from that queue.
         
         :type Status: string
-        :param Status: A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+        :param Status: A job\'s status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -2202,777 +2202,777 @@ class ListJobs(Paginator):
           ::
         
             {
-                'Jobs': [
+                \'Jobs\': [
                     {
-                        'Arn': 'string',
-                        'BillingTagsSource': 'QUEUE'|'PRESET'|'JOB_TEMPLATE',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'ErrorCode': 123,
-                        'ErrorMessage': 'string',
-                        'Id': 'string',
-                        'JobTemplate': 'string',
-                        'OutputGroupDetails': [
+                        \'Arn\': \'string\',
+                        \'BillingTagsSource\': \'QUEUE\'|\'PRESET\'|\'JOB_TEMPLATE\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'ErrorCode\': 123,
+                        \'ErrorMessage\': \'string\',
+                        \'Id\': \'string\',
+                        \'JobTemplate\': \'string\',
+                        \'OutputGroupDetails\': [
                             {
-                                'OutputDetails': [
+                                \'OutputDetails\': [
                                     {
-                                        'DurationInMs': 123,
-                                        'VideoDetails': {
-                                            'HeightInPx': 123,
-                                            'WidthInPx': 123
+                                        \'DurationInMs\': 123,
+                                        \'VideoDetails\': {
+                                            \'HeightInPx\': 123,
+                                            \'WidthInPx\': 123
                                         }
                                     },
                                 ]
                             },
                         ],
-                        'Queue': 'string',
-                        'Role': 'string',
-                        'Settings': {
-                            'AdAvailOffset': 123,
-                            'AvailBlanking': {
-                                'AvailBlankingImage': 'string'
+                        \'Queue\': \'string\',
+                        \'Role\': \'string\',
+                        \'Settings\': {
+                            \'AdAvailOffset\': 123,
+                            \'AvailBlanking\': {
+                                \'AvailBlankingImage\': \'string\'
                             },
-                            'Inputs': [
+                            \'Inputs\': [
                                 {
-                                    'AudioSelectorGroups': {
-                                        'string': {
-                                            'AudioSelectorNames': [
-                                                'string',
+                                    \'AudioSelectorGroups\': {
+                                        \'string\': {
+                                            \'AudioSelectorNames\': [
+                                                \'string\',
                                             ]
                                         }
                                     },
-                                    'AudioSelectors': {
-                                        'string': {
-                                            'CustomLanguageCode': 'string',
-                                            'DefaultSelection': 'DEFAULT'|'NOT_DEFAULT',
-                                            'ExternalAudioFileInput': 'string',
-                                            'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                            'Offset': 123,
-                                            'Pids': [
+                                    \'AudioSelectors\': {
+                                        \'string\': {
+                                            \'CustomLanguageCode\': \'string\',
+                                            \'DefaultSelection\': \'DEFAULT\'|\'NOT_DEFAULT\',
+                                            \'ExternalAudioFileInput\': \'string\',
+                                            \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                            \'Offset\': 123,
+                                            \'Pids\': [
                                                 123,
                                             ],
-                                            'ProgramSelection': 123,
-                                            'RemixSettings': {
-                                                'ChannelMapping': {
-                                                    'OutputChannels': [
+                                            \'ProgramSelection\': 123,
+                                            \'RemixSettings\': {
+                                                \'ChannelMapping\': {
+                                                    \'OutputChannels\': [
                                                         {
-                                                            'InputChannels': [
+                                                            \'InputChannels\': [
                                                                 123,
                                                             ]
                                                         },
                                                     ]
                                                 },
-                                                'ChannelsIn': 123,
-                                                'ChannelsOut': 123
+                                                \'ChannelsIn\': 123,
+                                                \'ChannelsOut\': 123
                                             },
-                                            'SelectorType': 'PID'|'TRACK'|'LANGUAGE_CODE',
-                                            'Tracks': [
+                                            \'SelectorType\': \'PID\'|\'TRACK\'|\'LANGUAGE_CODE\',
+                                            \'Tracks\': [
                                                 123,
                                             ]
                                         }
                                     },
-                                    'CaptionSelectors': {
-                                        'string': {
-                                            'CustomLanguageCode': 'string',
-                                            'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                            'SourceSettings': {
-                                                'AncillarySourceSettings': {
-                                                    'SourceAncillaryChannelNumber': 123
+                                    \'CaptionSelectors\': {
+                                        \'string\': {
+                                            \'CustomLanguageCode\': \'string\',
+                                            \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                            \'SourceSettings\': {
+                                                \'AncillarySourceSettings\': {
+                                                    \'SourceAncillaryChannelNumber\': 123
                                                 },
-                                                'DvbSubSourceSettings': {
-                                                    'Pid': 123
+                                                \'DvbSubSourceSettings\': {
+                                                    \'Pid\': 123
                                                 },
-                                                'EmbeddedSourceSettings': {
-                                                    'Convert608To708': 'UPCONVERT'|'DISABLED',
-                                                    'Source608ChannelNumber': 123,
-                                                    'Source608TrackNumber': 123
+                                                \'EmbeddedSourceSettings\': {
+                                                    \'Convert608To708\': \'UPCONVERT\'|\'DISABLED\',
+                                                    \'Source608ChannelNumber\': 123,
+                                                    \'Source608TrackNumber\': 123
                                                 },
-                                                'FileSourceSettings': {
-                                                    'Convert608To708': 'UPCONVERT'|'DISABLED',
-                                                    'SourceFile': 'string',
-                                                    'TimeDelta': 123
+                                                \'FileSourceSettings\': {
+                                                    \'Convert608To708\': \'UPCONVERT\'|\'DISABLED\',
+                                                    \'SourceFile\': \'string\',
+                                                    \'TimeDelta\': 123
                                                 },
-                                                'SourceType': 'ANCILLARY'|'DVB_SUB'|'EMBEDDED'|'SCC'|'TTML'|'STL'|'SRT'|'TELETEXT'|'NULL_SOURCE',
-                                                'TeletextSourceSettings': {
-                                                    'PageNumber': 'string'
+                                                \'SourceType\': \'ANCILLARY\'|\'DVB_SUB\'|\'EMBEDDED\'|\'SCC\'|\'TTML\'|\'STL\'|\'SRT\'|\'TELETEXT\'|\'NULL_SOURCE\',
+                                                \'TeletextSourceSettings\': {
+                                                    \'PageNumber\': \'string\'
                                                 }
                                             }
                                         }
                                     },
-                                    'DeblockFilter': 'ENABLED'|'DISABLED',
-                                    'DenoiseFilter': 'ENABLED'|'DISABLED',
-                                    'FileInput': 'string',
-                                    'FilterEnable': 'AUTO'|'DISABLE'|'FORCE',
-                                    'FilterStrength': 123,
-                                    'InputClippings': [
+                                    \'DeblockFilter\': \'ENABLED\'|\'DISABLED\',
+                                    \'DenoiseFilter\': \'ENABLED\'|\'DISABLED\',
+                                    \'FileInput\': \'string\',
+                                    \'FilterEnable\': \'AUTO\'|\'DISABLE\'|\'FORCE\',
+                                    \'FilterStrength\': 123,
+                                    \'InputClippings\': [
                                         {
-                                            'EndTimecode': 'string',
-                                            'StartTimecode': 'string'
+                                            \'EndTimecode\': \'string\',
+                                            \'StartTimecode\': \'string\'
                                         },
                                     ],
-                                    'ProgramNumber': 123,
-                                    'PsiControl': 'IGNORE_PSI'|'USE_PSI',
-                                    'TimecodeSource': 'EMBEDDED'|'ZEROBASED'|'SPECIFIEDSTART',
-                                    'VideoSelector': {
-                                        'ColorSpace': 'FOLLOW'|'REC_601'|'REC_709'|'HDR10'|'HLG_2020',
-                                        'ColorSpaceUsage': 'FORCE'|'FALLBACK',
-                                        'Hdr10Metadata': {
-                                            'BluePrimaryX': 123,
-                                            'BluePrimaryY': 123,
-                                            'GreenPrimaryX': 123,
-                                            'GreenPrimaryY': 123,
-                                            'MaxContentLightLevel': 123,
-                                            'MaxFrameAverageLightLevel': 123,
-                                            'MaxLuminance': 123,
-                                            'MinLuminance': 123,
-                                            'RedPrimaryX': 123,
-                                            'RedPrimaryY': 123,
-                                            'WhitePointX': 123,
-                                            'WhitePointY': 123
+                                    \'ProgramNumber\': 123,
+                                    \'PsiControl\': \'IGNORE_PSI\'|\'USE_PSI\',
+                                    \'TimecodeSource\': \'EMBEDDED\'|\'ZEROBASED\'|\'SPECIFIEDSTART\',
+                                    \'VideoSelector\': {
+                                        \'ColorSpace\': \'FOLLOW\'|\'REC_601\'|\'REC_709\'|\'HDR10\'|\'HLG_2020\',
+                                        \'ColorSpaceUsage\': \'FORCE\'|\'FALLBACK\',
+                                        \'Hdr10Metadata\': {
+                                            \'BluePrimaryX\': 123,
+                                            \'BluePrimaryY\': 123,
+                                            \'GreenPrimaryX\': 123,
+                                            \'GreenPrimaryY\': 123,
+                                            \'MaxContentLightLevel\': 123,
+                                            \'MaxFrameAverageLightLevel\': 123,
+                                            \'MaxLuminance\': 123,
+                                            \'MinLuminance\': 123,
+                                            \'RedPrimaryX\': 123,
+                                            \'RedPrimaryY\': 123,
+                                            \'WhitePointX\': 123,
+                                            \'WhitePointY\': 123
                                         },
-                                        'Pid': 123,
-                                        'ProgramNumber': 123
+                                        \'Pid\': 123,
+                                        \'ProgramNumber\': 123
                                     }
                                 },
                             ],
-                            'NielsenConfiguration': {
-                                'BreakoutCode': 123,
-                                'DistributorId': 'string'
+                            \'NielsenConfiguration\': {
+                                \'BreakoutCode\': 123,
+                                \'DistributorId\': \'string\'
                             },
-                            'OutputGroups': [
+                            \'OutputGroups\': [
                                 {
-                                    'CustomName': 'string',
-                                    'Name': 'string',
-                                    'OutputGroupSettings': {
-                                        'CmafGroupSettings': {
-                                            'BaseUrl': 'string',
-                                            'ClientCache': 'DISABLED'|'ENABLED',
-                                            'CodecSpecification': 'RFC_6381'|'RFC_4281',
-                                            'Destination': 'string',
-                                            'Encryption': {
-                                                'ConstantInitializationVector': 'string',
-                                                'EncryptionMethod': 'SAMPLE_AES',
-                                                'InitializationVectorInManifest': 'INCLUDE'|'EXCLUDE',
-                                                'StaticKeyProvider': {
-                                                    'KeyFormat': 'string',
-                                                    'KeyFormatVersions': 'string',
-                                                    'StaticKeyValue': 'string',
-                                                    'Url': 'string'
+                                    \'CustomName\': \'string\',
+                                    \'Name\': \'string\',
+                                    \'OutputGroupSettings\': {
+                                        \'CmafGroupSettings\': {
+                                            \'BaseUrl\': \'string\',
+                                            \'ClientCache\': \'DISABLED\'|\'ENABLED\',
+                                            \'CodecSpecification\': \'RFC_6381\'|\'RFC_4281\',
+                                            \'Destination\': \'string\',
+                                            \'Encryption\': {
+                                                \'ConstantInitializationVector\': \'string\',
+                                                \'EncryptionMethod\': \'SAMPLE_AES\',
+                                                \'InitializationVectorInManifest\': \'INCLUDE\'|\'EXCLUDE\',
+                                                \'StaticKeyProvider\': {
+                                                    \'KeyFormat\': \'string\',
+                                                    \'KeyFormatVersions\': \'string\',
+                                                    \'StaticKeyValue\': \'string\',
+                                                    \'Url\': \'string\'
                                                 },
-                                                'Type': 'STATIC_KEY'
+                                                \'Type\': \'STATIC_KEY\'
                                             },
-                                            'FragmentLength': 123,
-                                            'ManifestCompression': 'GZIP'|'NONE',
-                                            'ManifestDurationFormat': 'FLOATING_POINT'|'INTEGER',
-                                            'MinBufferTime': 123,
-                                            'MinFinalSegmentLength': 123.0,
-                                            'SegmentControl': 'SINGLE_FILE'|'SEGMENTED_FILES',
-                                            'SegmentLength': 123,
-                                            'StreamInfResolution': 'INCLUDE'|'EXCLUDE',
-                                            'WriteDashManifest': 'DISABLED'|'ENABLED',
-                                            'WriteHlsManifest': 'DISABLED'|'ENABLED'
+                                            \'FragmentLength\': 123,
+                                            \'ManifestCompression\': \'GZIP\'|\'NONE\',
+                                            \'ManifestDurationFormat\': \'FLOATING_POINT\'|\'INTEGER\',
+                                            \'MinBufferTime\': 123,
+                                            \'MinFinalSegmentLength\': 123.0,
+                                            \'SegmentControl\': \'SINGLE_FILE\'|\'SEGMENTED_FILES\',
+                                            \'SegmentLength\': 123,
+                                            \'StreamInfResolution\': \'INCLUDE\'|\'EXCLUDE\',
+                                            \'WriteDashManifest\': \'DISABLED\'|\'ENABLED\',
+                                            \'WriteHlsManifest\': \'DISABLED\'|\'ENABLED\'
                                         },
-                                        'DashIsoGroupSettings': {
-                                            'BaseUrl': 'string',
-                                            'Destination': 'string',
-                                            'Encryption': {
-                                                'SpekeKeyProvider': {
-                                                    'ResourceId': 'string',
-                                                    'SystemIds': [
-                                                        'string',
+                                        \'DashIsoGroupSettings\': {
+                                            \'BaseUrl\': \'string\',
+                                            \'Destination\': \'string\',
+                                            \'Encryption\': {
+                                                \'SpekeKeyProvider\': {
+                                                    \'ResourceId\': \'string\',
+                                                    \'SystemIds\': [
+                                                        \'string\',
                                                     ],
-                                                    'Url': 'string'
+                                                    \'Url\': \'string\'
                                                 }
                                             },
-                                            'FragmentLength': 123,
-                                            'HbbtvCompliance': 'HBBTV_1_5'|'NONE',
-                                            'MinBufferTime': 123,
-                                            'SegmentControl': 'SINGLE_FILE'|'SEGMENTED_FILES',
-                                            'SegmentLength': 123,
-                                            'WriteSegmentTimelineInRepresentation': 'ENABLED'|'DISABLED'
+                                            \'FragmentLength\': 123,
+                                            \'HbbtvCompliance\': \'HBBTV_1_5\'|\'NONE\',
+                                            \'MinBufferTime\': 123,
+                                            \'SegmentControl\': \'SINGLE_FILE\'|\'SEGMENTED_FILES\',
+                                            \'SegmentLength\': 123,
+                                            \'WriteSegmentTimelineInRepresentation\': \'ENABLED\'|\'DISABLED\'
                                         },
-                                        'FileGroupSettings': {
-                                            'Destination': 'string'
+                                        \'FileGroupSettings\': {
+                                            \'Destination\': \'string\'
                                         },
-                                        'HlsGroupSettings': {
-                                            'AdMarkers': [
-                                                'ELEMENTAL'|'ELEMENTAL_SCTE35',
+                                        \'HlsGroupSettings\': {
+                                            \'AdMarkers\': [
+                                                \'ELEMENTAL\'|\'ELEMENTAL_SCTE35\',
                                             ],
-                                            'BaseUrl': 'string',
-                                            'CaptionLanguageMappings': [
+                                            \'BaseUrl\': \'string\',
+                                            \'CaptionLanguageMappings\': [
                                                 {
-                                                    'CaptionChannel': 123,
-                                                    'CustomLanguageCode': 'string',
-                                                    'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                                    'LanguageDescription': 'string'
+                                                    \'CaptionChannel\': 123,
+                                                    \'CustomLanguageCode\': \'string\',
+                                                    \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                                    \'LanguageDescription\': \'string\'
                                                 },
                                             ],
-                                            'CaptionLanguageSetting': 'INSERT'|'OMIT'|'NONE',
-                                            'ClientCache': 'DISABLED'|'ENABLED',
-                                            'CodecSpecification': 'RFC_6381'|'RFC_4281',
-                                            'Destination': 'string',
-                                            'DirectoryStructure': 'SINGLE_DIRECTORY'|'SUBDIRECTORY_PER_STREAM',
-                                            'Encryption': {
-                                                'ConstantInitializationVector': 'string',
-                                                'EncryptionMethod': 'AES128'|'SAMPLE_AES',
-                                                'InitializationVectorInManifest': 'INCLUDE'|'EXCLUDE',
-                                                'SpekeKeyProvider': {
-                                                    'ResourceId': 'string',
-                                                    'SystemIds': [
-                                                        'string',
+                                            \'CaptionLanguageSetting\': \'INSERT\'|\'OMIT\'|\'NONE\',
+                                            \'ClientCache\': \'DISABLED\'|\'ENABLED\',
+                                            \'CodecSpecification\': \'RFC_6381\'|\'RFC_4281\',
+                                            \'Destination\': \'string\',
+                                            \'DirectoryStructure\': \'SINGLE_DIRECTORY\'|\'SUBDIRECTORY_PER_STREAM\',
+                                            \'Encryption\': {
+                                                \'ConstantInitializationVector\': \'string\',
+                                                \'EncryptionMethod\': \'AES128\'|\'SAMPLE_AES\',
+                                                \'InitializationVectorInManifest\': \'INCLUDE\'|\'EXCLUDE\',
+                                                \'SpekeKeyProvider\': {
+                                                    \'ResourceId\': \'string\',
+                                                    \'SystemIds\': [
+                                                        \'string\',
                                                     ],
-                                                    'Url': 'string'
+                                                    \'Url\': \'string\'
                                                 },
-                                                'StaticKeyProvider': {
-                                                    'KeyFormat': 'string',
-                                                    'KeyFormatVersions': 'string',
-                                                    'StaticKeyValue': 'string',
-                                                    'Url': 'string'
+                                                \'StaticKeyProvider\': {
+                                                    \'KeyFormat\': \'string\',
+                                                    \'KeyFormatVersions\': \'string\',
+                                                    \'StaticKeyValue\': \'string\',
+                                                    \'Url\': \'string\'
                                                 },
-                                                'Type': 'SPEKE'|'STATIC_KEY'
+                                                \'Type\': \'SPEKE\'|\'STATIC_KEY\'
                                             },
-                                            'ManifestCompression': 'GZIP'|'NONE',
-                                            'ManifestDurationFormat': 'FLOATING_POINT'|'INTEGER',
-                                            'MinFinalSegmentLength': 123.0,
-                                            'MinSegmentLength': 123,
-                                            'OutputSelection': 'MANIFESTS_AND_SEGMENTS'|'SEGMENTS_ONLY',
-                                            'ProgramDateTime': 'INCLUDE'|'EXCLUDE',
-                                            'ProgramDateTimePeriod': 123,
-                                            'SegmentControl': 'SINGLE_FILE'|'SEGMENTED_FILES',
-                                            'SegmentLength': 123,
-                                            'SegmentsPerSubdirectory': 123,
-                                            'StreamInfResolution': 'INCLUDE'|'EXCLUDE',
-                                            'TimedMetadataId3Frame': 'NONE'|'PRIV'|'TDRL',
-                                            'TimedMetadataId3Period': 123,
-                                            'TimestampDeltaMilliseconds': 123
+                                            \'ManifestCompression\': \'GZIP\'|\'NONE\',
+                                            \'ManifestDurationFormat\': \'FLOATING_POINT\'|\'INTEGER\',
+                                            \'MinFinalSegmentLength\': 123.0,
+                                            \'MinSegmentLength\': 123,
+                                            \'OutputSelection\': \'MANIFESTS_AND_SEGMENTS\'|\'SEGMENTS_ONLY\',
+                                            \'ProgramDateTime\': \'INCLUDE\'|\'EXCLUDE\',
+                                            \'ProgramDateTimePeriod\': 123,
+                                            \'SegmentControl\': \'SINGLE_FILE\'|\'SEGMENTED_FILES\',
+                                            \'SegmentLength\': 123,
+                                            \'SegmentsPerSubdirectory\': 123,
+                                            \'StreamInfResolution\': \'INCLUDE\'|\'EXCLUDE\',
+                                            \'TimedMetadataId3Frame\': \'NONE\'|\'PRIV\'|\'TDRL\',
+                                            \'TimedMetadataId3Period\': 123,
+                                            \'TimestampDeltaMilliseconds\': 123
                                         },
-                                        'MsSmoothGroupSettings': {
-                                            'AudioDeduplication': 'COMBINE_DUPLICATE_STREAMS'|'NONE',
-                                            'Destination': 'string',
-                                            'Encryption': {
-                                                'SpekeKeyProvider': {
-                                                    'ResourceId': 'string',
-                                                    'SystemIds': [
-                                                        'string',
+                                        \'MsSmoothGroupSettings\': {
+                                            \'AudioDeduplication\': \'COMBINE_DUPLICATE_STREAMS\'|\'NONE\',
+                                            \'Destination\': \'string\',
+                                            \'Encryption\': {
+                                                \'SpekeKeyProvider\': {
+                                                    \'ResourceId\': \'string\',
+                                                    \'SystemIds\': [
+                                                        \'string\',
                                                     ],
-                                                    'Url': 'string'
+                                                    \'Url\': \'string\'
                                                 }
                                             },
-                                            'FragmentLength': 123,
-                                            'ManifestEncoding': 'UTF8'|'UTF16'
+                                            \'FragmentLength\': 123,
+                                            \'ManifestEncoding\': \'UTF8\'|\'UTF16\'
                                         },
-                                        'Type': 'HLS_GROUP_SETTINGS'|'DASH_ISO_GROUP_SETTINGS'|'FILE_GROUP_SETTINGS'|'MS_SMOOTH_GROUP_SETTINGS'|'CMAF_GROUP_SETTINGS'
+                                        \'Type\': \'HLS_GROUP_SETTINGS\'|\'DASH_ISO_GROUP_SETTINGS\'|\'FILE_GROUP_SETTINGS\'|\'MS_SMOOTH_GROUP_SETTINGS\'|\'CMAF_GROUP_SETTINGS\'
                                     },
-                                    'Outputs': [
+                                    \'Outputs\': [
                                         {
-                                            'AudioDescriptions': [
+                                            \'AudioDescriptions\': [
                                                 {
-                                                    'AudioNormalizationSettings': {
-                                                        'Algorithm': 'ITU_BS_1770_1'|'ITU_BS_1770_2',
-                                                        'AlgorithmControl': 'CORRECT_AUDIO'|'MEASURE_ONLY',
-                                                        'CorrectionGateLevel': 123,
-                                                        'LoudnessLogging': 'LOG'|'DONT_LOG',
-                                                        'PeakCalculation': 'TRUE_PEAK'|'NONE',
-                                                        'TargetLkfs': 123.0
+                                                    \'AudioNormalizationSettings\': {
+                                                        \'Algorithm\': \'ITU_BS_1770_1\'|\'ITU_BS_1770_2\',
+                                                        \'AlgorithmControl\': \'CORRECT_AUDIO\'|\'MEASURE_ONLY\',
+                                                        \'CorrectionGateLevel\': 123,
+                                                        \'LoudnessLogging\': \'LOG\'|\'DONT_LOG\',
+                                                        \'PeakCalculation\': \'TRUE_PEAK\'|\'NONE\',
+                                                        \'TargetLkfs\': 123.0
                                                     },
-                                                    'AudioSourceName': 'string',
-                                                    'AudioType': 123,
-                                                    'AudioTypeControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                                    'CodecSettings': {
-                                                        'AacSettings': {
-                                                            'AudioDescriptionBroadcasterMix': 'BROADCASTER_MIXED_AD'|'NORMAL',
-                                                            'Bitrate': 123,
-                                                            'CodecProfile': 'LC'|'HEV1'|'HEV2',
-                                                            'CodingMode': 'AD_RECEIVER_MIX'|'CODING_MODE_1_0'|'CODING_MODE_1_1'|'CODING_MODE_2_0'|'CODING_MODE_5_1',
-                                                            'RateControlMode': 'CBR'|'VBR',
-                                                            'RawFormat': 'LATM_LOAS'|'NONE',
-                                                            'SampleRate': 123,
-                                                            'Specification': 'MPEG2'|'MPEG4',
-                                                            'VbrQuality': 'LOW'|'MEDIUM_LOW'|'MEDIUM_HIGH'|'HIGH'
+                                                    \'AudioSourceName\': \'string\',
+                                                    \'AudioType\': 123,
+                                                    \'AudioTypeControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                                    \'CodecSettings\': {
+                                                        \'AacSettings\': {
+                                                            \'AudioDescriptionBroadcasterMix\': \'BROADCASTER_MIXED_AD\'|\'NORMAL\',
+                                                            \'Bitrate\': 123,
+                                                            \'CodecProfile\': \'LC\'|\'HEV1\'|\'HEV2\',
+                                                            \'CodingMode\': \'AD_RECEIVER_MIX\'|\'CODING_MODE_1_0\'|\'CODING_MODE_1_1\'|\'CODING_MODE_2_0\'|\'CODING_MODE_5_1\',
+                                                            \'RateControlMode\': \'CBR\'|\'VBR\',
+                                                            \'RawFormat\': \'LATM_LOAS\'|\'NONE\',
+                                                            \'SampleRate\': 123,
+                                                            \'Specification\': \'MPEG2\'|\'MPEG4\',
+                                                            \'VbrQuality\': \'LOW\'|\'MEDIUM_LOW\'|\'MEDIUM_HIGH\'|\'HIGH\'
                                                         },
-                                                        'Ac3Settings': {
-                                                            'Bitrate': 123,
-                                                            'BitstreamMode': 'COMPLETE_MAIN'|'COMMENTARY'|'DIALOGUE'|'EMERGENCY'|'HEARING_IMPAIRED'|'MUSIC_AND_EFFECTS'|'VISUALLY_IMPAIRED'|'VOICE_OVER',
-                                                            'CodingMode': 'CODING_MODE_1_0'|'CODING_MODE_1_1'|'CODING_MODE_2_0'|'CODING_MODE_3_2_LFE',
-                                                            'Dialnorm': 123,
-                                                            'DynamicRangeCompressionProfile': 'FILM_STANDARD'|'NONE',
-                                                            'LfeFilter': 'ENABLED'|'DISABLED',
-                                                            'MetadataControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                                            'SampleRate': 123
+                                                        \'Ac3Settings\': {
+                                                            \'Bitrate\': 123,
+                                                            \'BitstreamMode\': \'COMPLETE_MAIN\'|\'COMMENTARY\'|\'DIALOGUE\'|\'EMERGENCY\'|\'HEARING_IMPAIRED\'|\'MUSIC_AND_EFFECTS\'|\'VISUALLY_IMPAIRED\'|\'VOICE_OVER\',
+                                                            \'CodingMode\': \'CODING_MODE_1_0\'|\'CODING_MODE_1_1\'|\'CODING_MODE_2_0\'|\'CODING_MODE_3_2_LFE\',
+                                                            \'Dialnorm\': 123,
+                                                            \'DynamicRangeCompressionProfile\': \'FILM_STANDARD\'|\'NONE\',
+                                                            \'LfeFilter\': \'ENABLED\'|\'DISABLED\',
+                                                            \'MetadataControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                                            \'SampleRate\': 123
                                                         },
-                                                        'AiffSettings': {
-                                                            'BitDepth': 123,
-                                                            'Channels': 123,
-                                                            'SampleRate': 123
+                                                        \'AiffSettings\': {
+                                                            \'BitDepth\': 123,
+                                                            \'Channels\': 123,
+                                                            \'SampleRate\': 123
                                                         },
-                                                        'Codec': 'AAC'|'MP2'|'WAV'|'AIFF'|'AC3'|'EAC3'|'PASSTHROUGH',
-                                                        'Eac3Settings': {
-                                                            'AttenuationControl': 'ATTENUATE_3_DB'|'NONE',
-                                                            'Bitrate': 123,
-                                                            'BitstreamMode': 'COMPLETE_MAIN'|'COMMENTARY'|'EMERGENCY'|'HEARING_IMPAIRED'|'VISUALLY_IMPAIRED',
-                                                            'CodingMode': 'CODING_MODE_1_0'|'CODING_MODE_2_0'|'CODING_MODE_3_2',
-                                                            'DcFilter': 'ENABLED'|'DISABLED',
-                                                            'Dialnorm': 123,
-                                                            'DynamicRangeCompressionLine': 'NONE'|'FILM_STANDARD'|'FILM_LIGHT'|'MUSIC_STANDARD'|'MUSIC_LIGHT'|'SPEECH',
-                                                            'DynamicRangeCompressionRf': 'NONE'|'FILM_STANDARD'|'FILM_LIGHT'|'MUSIC_STANDARD'|'MUSIC_LIGHT'|'SPEECH',
-                                                            'LfeControl': 'LFE'|'NO_LFE',
-                                                            'LfeFilter': 'ENABLED'|'DISABLED',
-                                                            'LoRoCenterMixLevel': 123.0,
-                                                            'LoRoSurroundMixLevel': 123.0,
-                                                            'LtRtCenterMixLevel': 123.0,
-                                                            'LtRtSurroundMixLevel': 123.0,
-                                                            'MetadataControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                                            'PassthroughControl': 'WHEN_POSSIBLE'|'NO_PASSTHROUGH',
-                                                            'PhaseControl': 'SHIFT_90_DEGREES'|'NO_SHIFT',
-                                                            'SampleRate': 123,
-                                                            'StereoDownmix': 'NOT_INDICATED'|'LO_RO'|'LT_RT'|'DPL2',
-                                                            'SurroundExMode': 'NOT_INDICATED'|'ENABLED'|'DISABLED',
-                                                            'SurroundMode': 'NOT_INDICATED'|'ENABLED'|'DISABLED'
+                                                        \'Codec\': \'AAC\'|\'MP2\'|\'WAV\'|\'AIFF\'|\'AC3\'|\'EAC3\'|\'PASSTHROUGH\',
+                                                        \'Eac3Settings\': {
+                                                            \'AttenuationControl\': \'ATTENUATE_3_DB\'|\'NONE\',
+                                                            \'Bitrate\': 123,
+                                                            \'BitstreamMode\': \'COMPLETE_MAIN\'|\'COMMENTARY\'|\'EMERGENCY\'|\'HEARING_IMPAIRED\'|\'VISUALLY_IMPAIRED\',
+                                                            \'CodingMode\': \'CODING_MODE_1_0\'|\'CODING_MODE_2_0\'|\'CODING_MODE_3_2\',
+                                                            \'DcFilter\': \'ENABLED\'|\'DISABLED\',
+                                                            \'Dialnorm\': 123,
+                                                            \'DynamicRangeCompressionLine\': \'NONE\'|\'FILM_STANDARD\'|\'FILM_LIGHT\'|\'MUSIC_STANDARD\'|\'MUSIC_LIGHT\'|\'SPEECH\',
+                                                            \'DynamicRangeCompressionRf\': \'NONE\'|\'FILM_STANDARD\'|\'FILM_LIGHT\'|\'MUSIC_STANDARD\'|\'MUSIC_LIGHT\'|\'SPEECH\',
+                                                            \'LfeControl\': \'LFE\'|\'NO_LFE\',
+                                                            \'LfeFilter\': \'ENABLED\'|\'DISABLED\',
+                                                            \'LoRoCenterMixLevel\': 123.0,
+                                                            \'LoRoSurroundMixLevel\': 123.0,
+                                                            \'LtRtCenterMixLevel\': 123.0,
+                                                            \'LtRtSurroundMixLevel\': 123.0,
+                                                            \'MetadataControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                                            \'PassthroughControl\': \'WHEN_POSSIBLE\'|\'NO_PASSTHROUGH\',
+                                                            \'PhaseControl\': \'SHIFT_90_DEGREES\'|\'NO_SHIFT\',
+                                                            \'SampleRate\': 123,
+                                                            \'StereoDownmix\': \'NOT_INDICATED\'|\'LO_RO\'|\'LT_RT\'|\'DPL2\',
+                                                            \'SurroundExMode\': \'NOT_INDICATED\'|\'ENABLED\'|\'DISABLED\',
+                                                            \'SurroundMode\': \'NOT_INDICATED\'|\'ENABLED\'|\'DISABLED\'
                                                         },
-                                                        'Mp2Settings': {
-                                                            'Bitrate': 123,
-                                                            'Channels': 123,
-                                                            'SampleRate': 123
+                                                        \'Mp2Settings\': {
+                                                            \'Bitrate\': 123,
+                                                            \'Channels\': 123,
+                                                            \'SampleRate\': 123
                                                         },
-                                                        'WavSettings': {
-                                                            'BitDepth': 123,
-                                                            'Channels': 123,
-                                                            'Format': 'RIFF'|'RF64',
-                                                            'SampleRate': 123
+                                                        \'WavSettings\': {
+                                                            \'BitDepth\': 123,
+                                                            \'Channels\': 123,
+                                                            \'Format\': \'RIFF\'|\'RF64\',
+                                                            \'SampleRate\': 123
                                                         }
                                                     },
-                                                    'CustomLanguageCode': 'string',
-                                                    'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                                    'LanguageCodeControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                                    'RemixSettings': {
-                                                        'ChannelMapping': {
-                                                            'OutputChannels': [
+                                                    \'CustomLanguageCode\': \'string\',
+                                                    \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                                    \'LanguageCodeControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                                    \'RemixSettings\': {
+                                                        \'ChannelMapping\': {
+                                                            \'OutputChannels\': [
                                                                 {
-                                                                    'InputChannels': [
+                                                                    \'InputChannels\': [
                                                                         123,
                                                                     ]
                                                                 },
                                                             ]
                                                         },
-                                                        'ChannelsIn': 123,
-                                                        'ChannelsOut': 123
+                                                        \'ChannelsIn\': 123,
+                                                        \'ChannelsOut\': 123
                                                     },
-                                                    'StreamName': 'string'
+                                                    \'StreamName\': \'string\'
                                                 },
                                             ],
-                                            'CaptionDescriptions': [
+                                            \'CaptionDescriptions\': [
                                                 {
-                                                    'CaptionSelectorName': 'string',
-                                                    'CustomLanguageCode': 'string',
-                                                    'DestinationSettings': {
-                                                        'BurninDestinationSettings': {
-                                                            'Alignment': 'CENTERED'|'LEFT',
-                                                            'BackgroundColor': 'NONE'|'BLACK'|'WHITE',
-                                                            'BackgroundOpacity': 123,
-                                                            'FontColor': 'WHITE'|'BLACK'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                                            'FontOpacity': 123,
-                                                            'FontResolution': 123,
-                                                            'FontSize': 123,
-                                                            'OutlineColor': 'BLACK'|'WHITE'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                                            'OutlineSize': 123,
-                                                            'ShadowColor': 'NONE'|'BLACK'|'WHITE',
-                                                            'ShadowOpacity': 123,
-                                                            'ShadowXOffset': 123,
-                                                            'ShadowYOffset': 123,
-                                                            'TeletextSpacing': 'FIXED_GRID'|'PROPORTIONAL',
-                                                            'XPosition': 123,
-                                                            'YPosition': 123
+                                                    \'CaptionSelectorName\': \'string\',
+                                                    \'CustomLanguageCode\': \'string\',
+                                                    \'DestinationSettings\': {
+                                                        \'BurninDestinationSettings\': {
+                                                            \'Alignment\': \'CENTERED\'|\'LEFT\',
+                                                            \'BackgroundColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                                            \'BackgroundOpacity\': 123,
+                                                            \'FontColor\': \'WHITE\'|\'BLACK\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                                            \'FontOpacity\': 123,
+                                                            \'FontResolution\': 123,
+                                                            \'FontSize\': 123,
+                                                            \'OutlineColor\': \'BLACK\'|\'WHITE\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                                            \'OutlineSize\': 123,
+                                                            \'ShadowColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                                            \'ShadowOpacity\': 123,
+                                                            \'ShadowXOffset\': 123,
+                                                            \'ShadowYOffset\': 123,
+                                                            \'TeletextSpacing\': \'FIXED_GRID\'|\'PROPORTIONAL\',
+                                                            \'XPosition\': 123,
+                                                            \'YPosition\': 123
                                                         },
-                                                        'DestinationType': 'BURN_IN'|'DVB_SUB'|'EMBEDDED'|'SCC'|'SRT'|'TELETEXT'|'TTML'|'WEBVTT',
-                                                        'DvbSubDestinationSettings': {
-                                                            'Alignment': 'CENTERED'|'LEFT',
-                                                            'BackgroundColor': 'NONE'|'BLACK'|'WHITE',
-                                                            'BackgroundOpacity': 123,
-                                                            'FontColor': 'WHITE'|'BLACK'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                                            'FontOpacity': 123,
-                                                            'FontResolution': 123,
-                                                            'FontSize': 123,
-                                                            'OutlineColor': 'BLACK'|'WHITE'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                                            'OutlineSize': 123,
-                                                            'ShadowColor': 'NONE'|'BLACK'|'WHITE',
-                                                            'ShadowOpacity': 123,
-                                                            'ShadowXOffset': 123,
-                                                            'ShadowYOffset': 123,
-                                                            'TeletextSpacing': 'FIXED_GRID'|'PROPORTIONAL',
-                                                            'XPosition': 123,
-                                                            'YPosition': 123
+                                                        \'DestinationType\': \'BURN_IN\'|\'DVB_SUB\'|\'EMBEDDED\'|\'SCC\'|\'SRT\'|\'TELETEXT\'|\'TTML\'|\'WEBVTT\',
+                                                        \'DvbSubDestinationSettings\': {
+                                                            \'Alignment\': \'CENTERED\'|\'LEFT\',
+                                                            \'BackgroundColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                                            \'BackgroundOpacity\': 123,
+                                                            \'FontColor\': \'WHITE\'|\'BLACK\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                                            \'FontOpacity\': 123,
+                                                            \'FontResolution\': 123,
+                                                            \'FontSize\': 123,
+                                                            \'OutlineColor\': \'BLACK\'|\'WHITE\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                                            \'OutlineSize\': 123,
+                                                            \'ShadowColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                                            \'ShadowOpacity\': 123,
+                                                            \'ShadowXOffset\': 123,
+                                                            \'ShadowYOffset\': 123,
+                                                            \'TeletextSpacing\': \'FIXED_GRID\'|\'PROPORTIONAL\',
+                                                            \'XPosition\': 123,
+                                                            \'YPosition\': 123
                                                         },
-                                                        'SccDestinationSettings': {
-                                                            'Framerate': 'FRAMERATE_23_97'|'FRAMERATE_24'|'FRAMERATE_29_97_DROPFRAME'|'FRAMERATE_29_97_NON_DROPFRAME'
+                                                        \'SccDestinationSettings\': {
+                                                            \'Framerate\': \'FRAMERATE_23_97\'|\'FRAMERATE_24\'|\'FRAMERATE_29_97_DROPFRAME\'|\'FRAMERATE_29_97_NON_DROPFRAME\'
                                                         },
-                                                        'TeletextDestinationSettings': {
-                                                            'PageNumber': 'string'
+                                                        \'TeletextDestinationSettings\': {
+                                                            \'PageNumber\': \'string\'
                                                         },
-                                                        'TtmlDestinationSettings': {
-                                                            'StylePassthrough': 'ENABLED'|'DISABLED'
+                                                        \'TtmlDestinationSettings\': {
+                                                            \'StylePassthrough\': \'ENABLED\'|\'DISABLED\'
                                                         }
                                                     },
-                                                    'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                                    'LanguageDescription': 'string'
+                                                    \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                                    \'LanguageDescription\': \'string\'
                                                 },
                                             ],
-                                            'ContainerSettings': {
-                                                'Container': 'F4V'|'ISMV'|'M2TS'|'M3U8'|'CMFC'|'MOV'|'MP4'|'MPD'|'MXF'|'RAW',
-                                                'F4vSettings': {
-                                                    'MoovPlacement': 'PROGRESSIVE_DOWNLOAD'|'NORMAL'
+                                            \'ContainerSettings\': {
+                                                \'Container\': \'F4V\'|\'ISMV\'|\'M2TS\'|\'M3U8\'|\'CMFC\'|\'MOV\'|\'MP4\'|\'MPD\'|\'MXF\'|\'RAW\',
+                                                \'F4vSettings\': {
+                                                    \'MoovPlacement\': \'PROGRESSIVE_DOWNLOAD\'|\'NORMAL\'
                                                 },
-                                                'M2tsSettings': {
-                                                    'AudioBufferModel': 'DVB'|'ATSC',
-                                                    'AudioFramesPerPes': 123,
-                                                    'AudioPids': [
+                                                \'M2tsSettings\': {
+                                                    \'AudioBufferModel\': \'DVB\'|\'ATSC\',
+                                                    \'AudioFramesPerPes\': 123,
+                                                    \'AudioPids\': [
                                                         123,
                                                     ],
-                                                    'Bitrate': 123,
-                                                    'BufferModel': 'MULTIPLEX'|'NONE',
-                                                    'DvbNitSettings': {
-                                                        'NetworkId': 123,
-                                                        'NetworkName': 'string',
-                                                        'NitInterval': 123
+                                                    \'Bitrate\': 123,
+                                                    \'BufferModel\': \'MULTIPLEX\'|\'NONE\',
+                                                    \'DvbNitSettings\': {
+                                                        \'NetworkId\': 123,
+                                                        \'NetworkName\': \'string\',
+                                                        \'NitInterval\': 123
                                                     },
-                                                    'DvbSdtSettings': {
-                                                        'OutputSdt': 'SDT_FOLLOW'|'SDT_FOLLOW_IF_PRESENT'|'SDT_MANUAL'|'SDT_NONE',
-                                                        'SdtInterval': 123,
-                                                        'ServiceName': 'string',
-                                                        'ServiceProviderName': 'string'
+                                                    \'DvbSdtSettings\': {
+                                                        \'OutputSdt\': \'SDT_FOLLOW\'|\'SDT_FOLLOW_IF_PRESENT\'|\'SDT_MANUAL\'|\'SDT_NONE\',
+                                                        \'SdtInterval\': 123,
+                                                        \'ServiceName\': \'string\',
+                                                        \'ServiceProviderName\': \'string\'
                                                     },
-                                                    'DvbSubPids': [
+                                                    \'DvbSubPids\': [
                                                         123,
                                                     ],
-                                                    'DvbTdtSettings': {
-                                                        'TdtInterval': 123
+                                                    \'DvbTdtSettings\': {
+                                                        \'TdtInterval\': 123
                                                     },
-                                                    'DvbTeletextPid': 123,
-                                                    'EbpAudioInterval': 'VIDEO_AND_FIXED_INTERVALS'|'VIDEO_INTERVAL',
-                                                    'EbpPlacement': 'VIDEO_AND_AUDIO_PIDS'|'VIDEO_PID',
-                                                    'EsRateInPes': 'INCLUDE'|'EXCLUDE',
-                                                    'FragmentTime': 123.0,
-                                                    'MaxPcrInterval': 123,
-                                                    'MinEbpInterval': 123,
-                                                    'NielsenId3': 'INSERT'|'NONE',
-                                                    'NullPacketBitrate': 123.0,
-                                                    'PatInterval': 123,
-                                                    'PcrControl': 'PCR_EVERY_PES_PACKET'|'CONFIGURED_PCR_PERIOD',
-                                                    'PcrPid': 123,
-                                                    'PmtInterval': 123,
-                                                    'PmtPid': 123,
-                                                    'PrivateMetadataPid': 123,
-                                                    'ProgramNumber': 123,
-                                                    'RateMode': 'VBR'|'CBR',
-                                                    'Scte35Pid': 123,
-                                                    'Scte35Source': 'PASSTHROUGH'|'NONE',
-                                                    'SegmentationMarkers': 'NONE'|'RAI_SEGSTART'|'RAI_ADAPT'|'PSI_SEGSTART'|'EBP'|'EBP_LEGACY',
-                                                    'SegmentationStyle': 'MAINTAIN_CADENCE'|'RESET_CADENCE',
-                                                    'SegmentationTime': 123.0,
-                                                    'TimedMetadataPid': 123,
-                                                    'TransportStreamId': 123,
-                                                    'VideoPid': 123
+                                                    \'DvbTeletextPid\': 123,
+                                                    \'EbpAudioInterval\': \'VIDEO_AND_FIXED_INTERVALS\'|\'VIDEO_INTERVAL\',
+                                                    \'EbpPlacement\': \'VIDEO_AND_AUDIO_PIDS\'|\'VIDEO_PID\',
+                                                    \'EsRateInPes\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'FragmentTime\': 123.0,
+                                                    \'MaxPcrInterval\': 123,
+                                                    \'MinEbpInterval\': 123,
+                                                    \'NielsenId3\': \'INSERT\'|\'NONE\',
+                                                    \'NullPacketBitrate\': 123.0,
+                                                    \'PatInterval\': 123,
+                                                    \'PcrControl\': \'PCR_EVERY_PES_PACKET\'|\'CONFIGURED_PCR_PERIOD\',
+                                                    \'PcrPid\': 123,
+                                                    \'PmtInterval\': 123,
+                                                    \'PmtPid\': 123,
+                                                    \'PrivateMetadataPid\': 123,
+                                                    \'ProgramNumber\': 123,
+                                                    \'RateMode\': \'VBR\'|\'CBR\',
+                                                    \'Scte35Pid\': 123,
+                                                    \'Scte35Source\': \'PASSTHROUGH\'|\'NONE\',
+                                                    \'SegmentationMarkers\': \'NONE\'|\'RAI_SEGSTART\'|\'RAI_ADAPT\'|\'PSI_SEGSTART\'|\'EBP\'|\'EBP_LEGACY\',
+                                                    \'SegmentationStyle\': \'MAINTAIN_CADENCE\'|\'RESET_CADENCE\',
+                                                    \'SegmentationTime\': 123.0,
+                                                    \'TimedMetadataPid\': 123,
+                                                    \'TransportStreamId\': 123,
+                                                    \'VideoPid\': 123
                                                 },
-                                                'M3u8Settings': {
-                                                    'AudioFramesPerPes': 123,
-                                                    'AudioPids': [
+                                                \'M3u8Settings\': {
+                                                    \'AudioFramesPerPes\': 123,
+                                                    \'AudioPids\': [
                                                         123,
                                                     ],
-                                                    'NielsenId3': 'INSERT'|'NONE',
-                                                    'PatInterval': 123,
-                                                    'PcrControl': 'PCR_EVERY_PES_PACKET'|'CONFIGURED_PCR_PERIOD',
-                                                    'PcrPid': 123,
-                                                    'PmtInterval': 123,
-                                                    'PmtPid': 123,
-                                                    'PrivateMetadataPid': 123,
-                                                    'ProgramNumber': 123,
-                                                    'Scte35Pid': 123,
-                                                    'Scte35Source': 'PASSTHROUGH'|'NONE',
-                                                    'TimedMetadata': 'PASSTHROUGH'|'NONE',
-                                                    'TimedMetadataPid': 123,
-                                                    'TransportStreamId': 123,
-                                                    'VideoPid': 123
+                                                    \'NielsenId3\': \'INSERT\'|\'NONE\',
+                                                    \'PatInterval\': 123,
+                                                    \'PcrControl\': \'PCR_EVERY_PES_PACKET\'|\'CONFIGURED_PCR_PERIOD\',
+                                                    \'PcrPid\': 123,
+                                                    \'PmtInterval\': 123,
+                                                    \'PmtPid\': 123,
+                                                    \'PrivateMetadataPid\': 123,
+                                                    \'ProgramNumber\': 123,
+                                                    \'Scte35Pid\': 123,
+                                                    \'Scte35Source\': \'PASSTHROUGH\'|\'NONE\',
+                                                    \'TimedMetadata\': \'PASSTHROUGH\'|\'NONE\',
+                                                    \'TimedMetadataPid\': 123,
+                                                    \'TransportStreamId\': 123,
+                                                    \'VideoPid\': 123
                                                 },
-                                                'MovSettings': {
-                                                    'ClapAtom': 'INCLUDE'|'EXCLUDE',
-                                                    'CslgAtom': 'INCLUDE'|'EXCLUDE',
-                                                    'Mpeg2FourCCControl': 'XDCAM'|'MPEG',
-                                                    'PaddingControl': 'OMNEON'|'NONE',
-                                                    'Reference': 'SELF_CONTAINED'|'EXTERNAL'
+                                                \'MovSettings\': {
+                                                    \'ClapAtom\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'CslgAtom\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'Mpeg2FourCCControl\': \'XDCAM\'|\'MPEG\',
+                                                    \'PaddingControl\': \'OMNEON\'|\'NONE\',
+                                                    \'Reference\': \'SELF_CONTAINED\'|\'EXTERNAL\'
                                                 },
-                                                'Mp4Settings': {
-                                                    'CslgAtom': 'INCLUDE'|'EXCLUDE',
-                                                    'FreeSpaceBox': 'INCLUDE'|'EXCLUDE',
-                                                    'MoovPlacement': 'PROGRESSIVE_DOWNLOAD'|'NORMAL',
-                                                    'Mp4MajorBrand': 'string'
+                                                \'Mp4Settings\': {
+                                                    \'CslgAtom\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'FreeSpaceBox\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'MoovPlacement\': \'PROGRESSIVE_DOWNLOAD\'|\'NORMAL\',
+                                                    \'Mp4MajorBrand\': \'string\'
                                                 }
                                             },
-                                            'Extension': 'string',
-                                            'NameModifier': 'string',
-                                            'OutputSettings': {
-                                                'HlsSettings': {
-                                                    'AudioGroupId': 'string',
-                                                    'AudioRenditionSets': 'string',
-                                                    'AudioTrackType': 'ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT'|'ALTERNATE_AUDIO_AUTO_SELECT'|'ALTERNATE_AUDIO_NOT_AUTO_SELECT'|'AUDIO_ONLY_VARIANT_STREAM',
-                                                    'IFrameOnlyManifest': 'INCLUDE'|'EXCLUDE',
-                                                    'SegmentModifier': 'string'
+                                            \'Extension\': \'string\',
+                                            \'NameModifier\': \'string\',
+                                            \'OutputSettings\': {
+                                                \'HlsSettings\': {
+                                                    \'AudioGroupId\': \'string\',
+                                                    \'AudioRenditionSets\': \'string\',
+                                                    \'AudioTrackType\': \'ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT\'|\'ALTERNATE_AUDIO_AUTO_SELECT\'|\'ALTERNATE_AUDIO_NOT_AUTO_SELECT\'|\'AUDIO_ONLY_VARIANT_STREAM\',
+                                                    \'IFrameOnlyManifest\': \'INCLUDE\'|\'EXCLUDE\',
+                                                    \'SegmentModifier\': \'string\'
                                                 }
                                             },
-                                            'Preset': 'string',
-                                            'VideoDescription': {
-                                                'AfdSignaling': 'NONE'|'AUTO'|'FIXED',
-                                                'AntiAlias': 'DISABLED'|'ENABLED',
-                                                'CodecSettings': {
-                                                    'Codec': 'FRAME_CAPTURE'|'H_264'|'H_265'|'MPEG2'|'PRORES',
-                                                    'FrameCaptureSettings': {
-                                                        'FramerateDenominator': 123,
-                                                        'FramerateNumerator': 123,
-                                                        'MaxCaptures': 123,
-                                                        'Quality': 123
+                                            \'Preset\': \'string\',
+                                            \'VideoDescription\': {
+                                                \'AfdSignaling\': \'NONE\'|\'AUTO\'|\'FIXED\',
+                                                \'AntiAlias\': \'DISABLED\'|\'ENABLED\',
+                                                \'CodecSettings\': {
+                                                    \'Codec\': \'FRAME_CAPTURE\'|\'H_264\'|\'H_265\'|\'MPEG2\'|\'PRORES\',
+                                                    \'FrameCaptureSettings\': {
+                                                        \'FramerateDenominator\': 123,
+                                                        \'FramerateNumerator\': 123,
+                                                        \'MaxCaptures\': 123,
+                                                        \'Quality\': 123
                                                     },
-                                                    'H264Settings': {
-                                                        'AdaptiveQuantization': 'OFF'|'LOW'|'MEDIUM'|'HIGH'|'HIGHER'|'MAX',
-                                                        'Bitrate': 123,
-                                                        'CodecLevel': 'AUTO'|'LEVEL_1'|'LEVEL_1_1'|'LEVEL_1_2'|'LEVEL_1_3'|'LEVEL_2'|'LEVEL_2_1'|'LEVEL_2_2'|'LEVEL_3'|'LEVEL_3_1'|'LEVEL_3_2'|'LEVEL_4'|'LEVEL_4_1'|'LEVEL_4_2'|'LEVEL_5'|'LEVEL_5_1'|'LEVEL_5_2',
-                                                        'CodecProfile': 'BASELINE'|'HIGH'|'HIGH_10BIT'|'HIGH_422'|'HIGH_422_10BIT'|'MAIN',
-                                                        'DynamicSubGop': 'ADAPTIVE'|'STATIC',
-                                                        'EntropyEncoding': 'CABAC'|'CAVLC',
-                                                        'FieldEncoding': 'PAFF'|'FORCE_FIELD',
-                                                        'FlickerAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                                        'FramerateDenominator': 123,
-                                                        'FramerateNumerator': 123,
-                                                        'GopBReference': 'DISABLED'|'ENABLED',
-                                                        'GopClosedCadence': 123,
-                                                        'GopSize': 123.0,
-                                                        'GopSizeUnits': 'FRAMES'|'SECONDS',
-                                                        'HrdBufferInitialFillPercentage': 123,
-                                                        'HrdBufferSize': 123,
-                                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                                        'MaxBitrate': 123,
-                                                        'MinIInterval': 123,
-                                                        'NumberBFramesBetweenReferenceFrames': 123,
-                                                        'NumberReferenceFrames': 123,
-                                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'ParDenominator': 123,
-                                                        'ParNumerator': 123,
-                                                        'QualityTuningLevel': 'SINGLE_PASS'|'SINGLE_PASS_HQ'|'MULTI_PASS_HQ',
-                                                        'QvbrSettings': {
-                                                            'MaxAverageBitrate': 123,
-                                                            'QvbrQualityLevel': 123
+                                                    \'H264Settings\': {
+                                                        \'AdaptiveQuantization\': \'OFF\'|\'LOW\'|\'MEDIUM\'|\'HIGH\'|\'HIGHER\'|\'MAX\',
+                                                        \'Bitrate\': 123,
+                                                        \'CodecLevel\': \'AUTO\'|\'LEVEL_1\'|\'LEVEL_1_1\'|\'LEVEL_1_2\'|\'LEVEL_1_3\'|\'LEVEL_2\'|\'LEVEL_2_1\'|\'LEVEL_2_2\'|\'LEVEL_3\'|\'LEVEL_3_1\'|\'LEVEL_3_2\'|\'LEVEL_4\'|\'LEVEL_4_1\'|\'LEVEL_4_2\'|\'LEVEL_5\'|\'LEVEL_5_1\'|\'LEVEL_5_2\',
+                                                        \'CodecProfile\': \'BASELINE\'|\'HIGH\'|\'HIGH_10BIT\'|\'HIGH_422\'|\'HIGH_422_10BIT\'|\'MAIN\',
+                                                        \'DynamicSubGop\': \'ADAPTIVE\'|\'STATIC\',
+                                                        \'EntropyEncoding\': \'CABAC\'|\'CAVLC\',
+                                                        \'FieldEncoding\': \'PAFF\'|\'FORCE_FIELD\',
+                                                        \'FlickerAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                                        \'FramerateDenominator\': 123,
+                                                        \'FramerateNumerator\': 123,
+                                                        \'GopBReference\': \'DISABLED\'|\'ENABLED\',
+                                                        \'GopClosedCadence\': 123,
+                                                        \'GopSize\': 123.0,
+                                                        \'GopSizeUnits\': \'FRAMES\'|\'SECONDS\',
+                                                        \'HrdBufferInitialFillPercentage\': 123,
+                                                        \'HrdBufferSize\': 123,
+                                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                                        \'MaxBitrate\': 123,
+                                                        \'MinIInterval\': 123,
+                                                        \'NumberBFramesBetweenReferenceFrames\': 123,
+                                                        \'NumberReferenceFrames\': 123,
+                                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'ParDenominator\': 123,
+                                                        \'ParNumerator\': 123,
+                                                        \'QualityTuningLevel\': \'SINGLE_PASS\'|\'SINGLE_PASS_HQ\'|\'MULTI_PASS_HQ\',
+                                                        \'QvbrSettings\': {
+                                                            \'MaxAverageBitrate\': 123,
+                                                            \'QvbrQualityLevel\': 123
                                                         },
-                                                        'RateControlMode': 'VBR'|'CBR'|'QVBR',
-                                                        'RepeatPps': 'DISABLED'|'ENABLED',
-                                                        'SceneChangeDetect': 'DISABLED'|'ENABLED',
-                                                        'Slices': 123,
-                                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                                        'Softness': 123,
-                                                        'SpatialAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'Syntax': 'DEFAULT'|'RP2027',
-                                                        'Telecine': 'NONE'|'SOFT'|'HARD',
-                                                        'TemporalAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'UnregisteredSeiTimecode': 'DISABLED'|'ENABLED'
+                                                        \'RateControlMode\': \'VBR\'|\'CBR\'|\'QVBR\',
+                                                        \'RepeatPps\': \'DISABLED\'|\'ENABLED\',
+                                                        \'SceneChangeDetect\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Slices\': 123,
+                                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Softness\': 123,
+                                                        \'SpatialAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Syntax\': \'DEFAULT\'|\'RP2027\',
+                                                        \'Telecine\': \'NONE\'|\'SOFT\'|\'HARD\',
+                                                        \'TemporalAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'UnregisteredSeiTimecode\': \'DISABLED\'|\'ENABLED\'
                                                     },
-                                                    'H265Settings': {
-                                                        'AdaptiveQuantization': 'OFF'|'LOW'|'MEDIUM'|'HIGH'|'HIGHER'|'MAX',
-                                                        'AlternateTransferFunctionSei': 'DISABLED'|'ENABLED',
-                                                        'Bitrate': 123,
-                                                        'CodecLevel': 'AUTO'|'LEVEL_1'|'LEVEL_2'|'LEVEL_2_1'|'LEVEL_3'|'LEVEL_3_1'|'LEVEL_4'|'LEVEL_4_1'|'LEVEL_5'|'LEVEL_5_1'|'LEVEL_5_2'|'LEVEL_6'|'LEVEL_6_1'|'LEVEL_6_2',
-                                                        'CodecProfile': 'MAIN_MAIN'|'MAIN_HIGH'|'MAIN10_MAIN'|'MAIN10_HIGH'|'MAIN_422_8BIT_MAIN'|'MAIN_422_8BIT_HIGH'|'MAIN_422_10BIT_MAIN'|'MAIN_422_10BIT_HIGH',
-                                                        'DynamicSubGop': 'ADAPTIVE'|'STATIC',
-                                                        'FlickerAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                                        'FramerateDenominator': 123,
-                                                        'FramerateNumerator': 123,
-                                                        'GopBReference': 'DISABLED'|'ENABLED',
-                                                        'GopClosedCadence': 123,
-                                                        'GopSize': 123.0,
-                                                        'GopSizeUnits': 'FRAMES'|'SECONDS',
-                                                        'HrdBufferInitialFillPercentage': 123,
-                                                        'HrdBufferSize': 123,
-                                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                                        'MaxBitrate': 123,
-                                                        'MinIInterval': 123,
-                                                        'NumberBFramesBetweenReferenceFrames': 123,
-                                                        'NumberReferenceFrames': 123,
-                                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'ParDenominator': 123,
-                                                        'ParNumerator': 123,
-                                                        'QualityTuningLevel': 'SINGLE_PASS'|'SINGLE_PASS_HQ'|'MULTI_PASS_HQ',
-                                                        'QvbrSettings': {
-                                                            'MaxAverageBitrate': 123,
-                                                            'QvbrQualityLevel': 123
+                                                    \'H265Settings\': {
+                                                        \'AdaptiveQuantization\': \'OFF\'|\'LOW\'|\'MEDIUM\'|\'HIGH\'|\'HIGHER\'|\'MAX\',
+                                                        \'AlternateTransferFunctionSei\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Bitrate\': 123,
+                                                        \'CodecLevel\': \'AUTO\'|\'LEVEL_1\'|\'LEVEL_2\'|\'LEVEL_2_1\'|\'LEVEL_3\'|\'LEVEL_3_1\'|\'LEVEL_4\'|\'LEVEL_4_1\'|\'LEVEL_5\'|\'LEVEL_5_1\'|\'LEVEL_5_2\'|\'LEVEL_6\'|\'LEVEL_6_1\'|\'LEVEL_6_2\',
+                                                        \'CodecProfile\': \'MAIN_MAIN\'|\'MAIN_HIGH\'|\'MAIN10_MAIN\'|\'MAIN10_HIGH\'|\'MAIN_422_8BIT_MAIN\'|\'MAIN_422_8BIT_HIGH\'|\'MAIN_422_10BIT_MAIN\'|\'MAIN_422_10BIT_HIGH\',
+                                                        \'DynamicSubGop\': \'ADAPTIVE\'|\'STATIC\',
+                                                        \'FlickerAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                                        \'FramerateDenominator\': 123,
+                                                        \'FramerateNumerator\': 123,
+                                                        \'GopBReference\': \'DISABLED\'|\'ENABLED\',
+                                                        \'GopClosedCadence\': 123,
+                                                        \'GopSize\': 123.0,
+                                                        \'GopSizeUnits\': \'FRAMES\'|\'SECONDS\',
+                                                        \'HrdBufferInitialFillPercentage\': 123,
+                                                        \'HrdBufferSize\': 123,
+                                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                                        \'MaxBitrate\': 123,
+                                                        \'MinIInterval\': 123,
+                                                        \'NumberBFramesBetweenReferenceFrames\': 123,
+                                                        \'NumberReferenceFrames\': 123,
+                                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'ParDenominator\': 123,
+                                                        \'ParNumerator\': 123,
+                                                        \'QualityTuningLevel\': \'SINGLE_PASS\'|\'SINGLE_PASS_HQ\'|\'MULTI_PASS_HQ\',
+                                                        \'QvbrSettings\': {
+                                                            \'MaxAverageBitrate\': 123,
+                                                            \'QvbrQualityLevel\': 123
                                                         },
-                                                        'RateControlMode': 'VBR'|'CBR'|'QVBR',
-                                                        'SampleAdaptiveOffsetFilterMode': 'DEFAULT'|'ADAPTIVE'|'OFF',
-                                                        'SceneChangeDetect': 'DISABLED'|'ENABLED',
-                                                        'Slices': 123,
-                                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                                        'SpatialAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'Telecine': 'NONE'|'SOFT'|'HARD',
-                                                        'TemporalAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'TemporalIds': 'DISABLED'|'ENABLED',
-                                                        'Tiles': 'DISABLED'|'ENABLED',
-                                                        'UnregisteredSeiTimecode': 'DISABLED'|'ENABLED',
-                                                        'WriteMp4PackagingType': 'HVC1'|'HEV1'
+                                                        \'RateControlMode\': \'VBR\'|\'CBR\'|\'QVBR\',
+                                                        \'SampleAdaptiveOffsetFilterMode\': \'DEFAULT\'|\'ADAPTIVE\'|\'OFF\',
+                                                        \'SceneChangeDetect\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Slices\': 123,
+                                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                                        \'SpatialAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Telecine\': \'NONE\'|\'SOFT\'|\'HARD\',
+                                                        \'TemporalAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'TemporalIds\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Tiles\': \'DISABLED\'|\'ENABLED\',
+                                                        \'UnregisteredSeiTimecode\': \'DISABLED\'|\'ENABLED\',
+                                                        \'WriteMp4PackagingType\': \'HVC1\'|\'HEV1\'
                                                     },
-                                                    'Mpeg2Settings': {
-                                                        'AdaptiveQuantization': 'OFF'|'LOW'|'MEDIUM'|'HIGH',
-                                                        'Bitrate': 123,
-                                                        'CodecLevel': 'AUTO'|'LOW'|'MAIN'|'HIGH1440'|'HIGH',
-                                                        'CodecProfile': 'MAIN'|'PROFILE_422',
-                                                        'DynamicSubGop': 'ADAPTIVE'|'STATIC',
-                                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                                        'FramerateDenominator': 123,
-                                                        'FramerateNumerator': 123,
-                                                        'GopClosedCadence': 123,
-                                                        'GopSize': 123.0,
-                                                        'GopSizeUnits': 'FRAMES'|'SECONDS',
-                                                        'HrdBufferInitialFillPercentage': 123,
-                                                        'HrdBufferSize': 123,
-                                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                                        'IntraDcPrecision': 'AUTO'|'INTRA_DC_PRECISION_8'|'INTRA_DC_PRECISION_9'|'INTRA_DC_PRECISION_10'|'INTRA_DC_PRECISION_11',
-                                                        'MaxBitrate': 123,
-                                                        'MinIInterval': 123,
-                                                        'NumberBFramesBetweenReferenceFrames': 123,
-                                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'ParDenominator': 123,
-                                                        'ParNumerator': 123,
-                                                        'QualityTuningLevel': 'SINGLE_PASS'|'MULTI_PASS',
-                                                        'RateControlMode': 'VBR'|'CBR',
-                                                        'SceneChangeDetect': 'DISABLED'|'ENABLED',
-                                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                                        'Softness': 123,
-                                                        'SpatialAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                                        'Syntax': 'DEFAULT'|'D_10',
-                                                        'Telecine': 'NONE'|'SOFT'|'HARD',
-                                                        'TemporalAdaptiveQuantization': 'DISABLED'|'ENABLED'
+                                                    \'Mpeg2Settings\': {
+                                                        \'AdaptiveQuantization\': \'OFF\'|\'LOW\'|\'MEDIUM\'|\'HIGH\',
+                                                        \'Bitrate\': 123,
+                                                        \'CodecLevel\': \'AUTO\'|\'LOW\'|\'MAIN\'|\'HIGH1440\'|\'HIGH\',
+                                                        \'CodecProfile\': \'MAIN\'|\'PROFILE_422\',
+                                                        \'DynamicSubGop\': \'ADAPTIVE\'|\'STATIC\',
+                                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                                        \'FramerateDenominator\': 123,
+                                                        \'FramerateNumerator\': 123,
+                                                        \'GopClosedCadence\': 123,
+                                                        \'GopSize\': 123.0,
+                                                        \'GopSizeUnits\': \'FRAMES\'|\'SECONDS\',
+                                                        \'HrdBufferInitialFillPercentage\': 123,
+                                                        \'HrdBufferSize\': 123,
+                                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                                        \'IntraDcPrecision\': \'AUTO\'|\'INTRA_DC_PRECISION_8\'|\'INTRA_DC_PRECISION_9\'|\'INTRA_DC_PRECISION_10\'|\'INTRA_DC_PRECISION_11\',
+                                                        \'MaxBitrate\': 123,
+                                                        \'MinIInterval\': 123,
+                                                        \'NumberBFramesBetweenReferenceFrames\': 123,
+                                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'ParDenominator\': 123,
+                                                        \'ParNumerator\': 123,
+                                                        \'QualityTuningLevel\': \'SINGLE_PASS\'|\'MULTI_PASS\',
+                                                        \'RateControlMode\': \'VBR\'|\'CBR\',
+                                                        \'SceneChangeDetect\': \'DISABLED\'|\'ENABLED\',
+                                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Softness\': 123,
+                                                        \'SpatialAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Syntax\': \'DEFAULT\'|\'D_10\',
+                                                        \'Telecine\': \'NONE\'|\'SOFT\'|\'HARD\',
+                                                        \'TemporalAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\'
                                                     },
-                                                    'ProresSettings': {
-                                                        'CodecProfile': 'APPLE_PRORES_422'|'APPLE_PRORES_422_HQ'|'APPLE_PRORES_422_LT'|'APPLE_PRORES_422_PROXY',
-                                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                                        'FramerateDenominator': 123,
-                                                        'FramerateNumerator': 123,
-                                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                                        'ParDenominator': 123,
-                                                        'ParNumerator': 123,
-                                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                                        'Telecine': 'NONE'|'HARD'
+                                                    \'ProresSettings\': {
+                                                        \'CodecProfile\': \'APPLE_PRORES_422\'|\'APPLE_PRORES_422_HQ\'|\'APPLE_PRORES_422_LT\'|\'APPLE_PRORES_422_PROXY\',
+                                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                                        \'FramerateDenominator\': 123,
+                                                        \'FramerateNumerator\': 123,
+                                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                                        \'ParDenominator\': 123,
+                                                        \'ParNumerator\': 123,
+                                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                                        \'Telecine\': \'NONE\'|\'HARD\'
                                                     }
                                                 },
-                                                'ColorMetadata': 'IGNORE'|'INSERT',
-                                                'Crop': {
-                                                    'Height': 123,
-                                                    'Width': 123,
-                                                    'X': 123,
-                                                    'Y': 123
+                                                \'ColorMetadata\': \'IGNORE\'|\'INSERT\',
+                                                \'Crop\': {
+                                                    \'Height\': 123,
+                                                    \'Width\': 123,
+                                                    \'X\': 123,
+                                                    \'Y\': 123
                                                 },
-                                                'DropFrameTimecode': 'DISABLED'|'ENABLED',
-                                                'FixedAfd': 123,
-                                                'Height': 123,
-                                                'Position': {
-                                                    'Height': 123,
-                                                    'Width': 123,
-                                                    'X': 123,
-                                                    'Y': 123
+                                                \'DropFrameTimecode\': \'DISABLED\'|\'ENABLED\',
+                                                \'FixedAfd\': 123,
+                                                \'Height\': 123,
+                                                \'Position\': {
+                                                    \'Height\': 123,
+                                                    \'Width\': 123,
+                                                    \'X\': 123,
+                                                    \'Y\': 123
                                                 },
-                                                'RespondToAfd': 'NONE'|'RESPOND'|'PASSTHROUGH',
-                                                'ScalingBehavior': 'DEFAULT'|'STRETCH_TO_OUTPUT',
-                                                'Sharpness': 123,
-                                                'TimecodeInsertion': 'DISABLED'|'PIC_TIMING_SEI',
-                                                'VideoPreprocessors': {
-                                                    'ColorCorrector': {
-                                                        'Brightness': 123,
-                                                        'ColorSpaceConversion': 'NONE'|'FORCE_601'|'FORCE_709'|'FORCE_HDR10'|'FORCE_HLG_2020',
-                                                        'Contrast': 123,
-                                                        'Hdr10Metadata': {
-                                                            'BluePrimaryX': 123,
-                                                            'BluePrimaryY': 123,
-                                                            'GreenPrimaryX': 123,
-                                                            'GreenPrimaryY': 123,
-                                                            'MaxContentLightLevel': 123,
-                                                            'MaxFrameAverageLightLevel': 123,
-                                                            'MaxLuminance': 123,
-                                                            'MinLuminance': 123,
-                                                            'RedPrimaryX': 123,
-                                                            'RedPrimaryY': 123,
-                                                            'WhitePointX': 123,
-                                                            'WhitePointY': 123
+                                                \'RespondToAfd\': \'NONE\'|\'RESPOND\'|\'PASSTHROUGH\',
+                                                \'ScalingBehavior\': \'DEFAULT\'|\'STRETCH_TO_OUTPUT\',
+                                                \'Sharpness\': 123,
+                                                \'TimecodeInsertion\': \'DISABLED\'|\'PIC_TIMING_SEI\',
+                                                \'VideoPreprocessors\': {
+                                                    \'ColorCorrector\': {
+                                                        \'Brightness\': 123,
+                                                        \'ColorSpaceConversion\': \'NONE\'|\'FORCE_601\'|\'FORCE_709\'|\'FORCE_HDR10\'|\'FORCE_HLG_2020\',
+                                                        \'Contrast\': 123,
+                                                        \'Hdr10Metadata\': {
+                                                            \'BluePrimaryX\': 123,
+                                                            \'BluePrimaryY\': 123,
+                                                            \'GreenPrimaryX\': 123,
+                                                            \'GreenPrimaryY\': 123,
+                                                            \'MaxContentLightLevel\': 123,
+                                                            \'MaxFrameAverageLightLevel\': 123,
+                                                            \'MaxLuminance\': 123,
+                                                            \'MinLuminance\': 123,
+                                                            \'RedPrimaryX\': 123,
+                                                            \'RedPrimaryY\': 123,
+                                                            \'WhitePointX\': 123,
+                                                            \'WhitePointY\': 123
                                                         },
-                                                        'Hue': 123,
-                                                        'Saturation': 123
+                                                        \'Hue\': 123,
+                                                        \'Saturation\': 123
                                                     },
-                                                    'Deinterlacer': {
-                                                        'Algorithm': 'INTERPOLATE'|'INTERPOLATE_TICKER'|'BLEND'|'BLEND_TICKER',
-                                                        'Control': 'FORCE_ALL_FRAMES'|'NORMAL',
-                                                        'Mode': 'DEINTERLACE'|'INVERSE_TELECINE'|'ADAPTIVE'
+                                                    \'Deinterlacer\': {
+                                                        \'Algorithm\': \'INTERPOLATE\'|\'INTERPOLATE_TICKER\'|\'BLEND\'|\'BLEND_TICKER\',
+                                                        \'Control\': \'FORCE_ALL_FRAMES\'|\'NORMAL\',
+                                                        \'Mode\': \'DEINTERLACE\'|\'INVERSE_TELECINE\'|\'ADAPTIVE\'
                                                     },
-                                                    'ImageInserter': {
-                                                        'InsertableImages': [
+                                                    \'ImageInserter\': {
+                                                        \'InsertableImages\': [
                                                             {
-                                                                'Duration': 123,
-                                                                'FadeIn': 123,
-                                                                'FadeOut': 123,
-                                                                'Height': 123,
-                                                                'ImageInserterInput': 'string',
-                                                                'ImageX': 123,
-                                                                'ImageY': 123,
-                                                                'Layer': 123,
-                                                                'Opacity': 123,
-                                                                'StartTime': 'string',
-                                                                'Width': 123
+                                                                \'Duration\': 123,
+                                                                \'FadeIn\': 123,
+                                                                \'FadeOut\': 123,
+                                                                \'Height\': 123,
+                                                                \'ImageInserterInput\': \'string\',
+                                                                \'ImageX\': 123,
+                                                                \'ImageY\': 123,
+                                                                \'Layer\': 123,
+                                                                \'Opacity\': 123,
+                                                                \'StartTime\': \'string\',
+                                                                \'Width\': 123
                                                             },
                                                         ]
                                                     },
-                                                    'NoiseReducer': {
-                                                        'Filter': 'BILATERAL'|'MEAN'|'GAUSSIAN'|'LANCZOS'|'SHARPEN'|'CONSERVE'|'SPATIAL',
-                                                        'FilterSettings': {
-                                                            'Strength': 123
+                                                    \'NoiseReducer\': {
+                                                        \'Filter\': \'BILATERAL\'|\'MEAN\'|\'GAUSSIAN\'|\'LANCZOS\'|\'SHARPEN\'|\'CONSERVE\'|\'SPATIAL\',
+                                                        \'FilterSettings\': {
+                                                            \'Strength\': 123
                                                         },
-                                                        'SpatialFilterSettings': {
-                                                            'PostFilterSharpenStrength': 123,
-                                                            'Speed': 123,
-                                                            'Strength': 123
+                                                        \'SpatialFilterSettings\': {
+                                                            \'PostFilterSharpenStrength\': 123,
+                                                            \'Speed\': 123,
+                                                            \'Strength\': 123
                                                         }
                                                     },
-                                                    'TimecodeBurnin': {
-                                                        'FontSize': 123,
-                                                        'Position': 'TOP_CENTER'|'TOP_LEFT'|'TOP_RIGHT'|'MIDDLE_LEFT'|'MIDDLE_CENTER'|'MIDDLE_RIGHT'|'BOTTOM_LEFT'|'BOTTOM_CENTER'|'BOTTOM_RIGHT',
-                                                        'Prefix': 'string'
+                                                    \'TimecodeBurnin\': {
+                                                        \'FontSize\': 123,
+                                                        \'Position\': \'TOP_CENTER\'|\'TOP_LEFT\'|\'TOP_RIGHT\'|\'MIDDLE_LEFT\'|\'MIDDLE_CENTER\'|\'MIDDLE_RIGHT\'|\'BOTTOM_LEFT\'|\'BOTTOM_CENTER\'|\'BOTTOM_RIGHT\',
+                                                        \'Prefix\': \'string\'
                                                     }
                                                 },
-                                                'Width': 123
+                                                \'Width\': 123
                                             }
                                         },
                                     ]
                                 },
                             ],
-                            'TimecodeConfig': {
-                                'Anchor': 'string',
-                                'Source': 'EMBEDDED'|'ZEROBASED'|'SPECIFIEDSTART',
-                                'Start': 'string',
-                                'TimestampOffset': 'string'
+                            \'TimecodeConfig\': {
+                                \'Anchor\': \'string\',
+                                \'Source\': \'EMBEDDED\'|\'ZEROBASED\'|\'SPECIFIEDSTART\',
+                                \'Start\': \'string\',
+                                \'TimestampOffset\': \'string\'
                             },
-                            'TimedMetadataInsertion': {
-                                'Id3Insertions': [
+                            \'TimedMetadataInsertion\': {
+                                \'Id3Insertions\': [
                                     {
-                                        'Id3': 'string',
-                                        'Timecode': 'string'
+                                        \'Id3\': \'string\',
+                                        \'Timecode\': \'string\'
                                     },
                                 ]
                             }
                         },
-                        'Status': 'SUBMITTED'|'PROGRESSING'|'COMPLETE'|'CANCELED'|'ERROR',
-                        'Timing': {
-                            'FinishTime': datetime(2015, 1, 1),
-                            'StartTime': datetime(2015, 1, 1),
-                            'SubmitTime': datetime(2015, 1, 1)
+                        \'Status\': \'SUBMITTED\'|\'PROGRESSING\'|\'COMPLETE\'|\'CANCELED\'|\'ERROR\',
+                        \'Timing\': {
+                            \'FinishTime\': datetime(2015, 1, 1),
+                            \'StartTime\': datetime(2015, 1, 1),
+                            \'SubmitTime\': datetime(2015, 1, 1)
                         },
-                        'UserMetadata': {
-                            'string': 'string'
+                        \'UserMetadata\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
@@ -2988,7 +2988,7 @@ class ListJobs(Paginator):
                 
                 - **Arn** *(string) --* An identifier for this resource that is unique within all of AWS.
                 
-                - **BillingTagsSource** *(string) --* Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don't have an associated tag will appear in your billing report unsorted. If you don't choose a valid value for this field, your job outputs will appear on the billing report unsorted.
+                - **BillingTagsSource** *(string) --* Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don\'t have an associated tag will appear in your billing report unsorted. If you don\'t choose a valid value for this field, your job outputs will appear on the billing report unsorted.
                 
                 - **CreatedAt** *(datetime) --* The time, in Unix epoch format in seconds, when the job got created.
                 
@@ -2996,7 +2996,7 @@ class ListJobs(Paginator):
                 
                 - **ErrorMessage** *(string) --* Error message of Job
                 
-                - **Id** *(string) --* A portion of the job's ARN, unique within your AWS Elemental MediaConvert resources
+                - **Id** *(string) --* A portion of the job\'s ARN, unique within your AWS Elemental MediaConvert resources
                 
                 - **JobTemplate** *(string) --* The job template that the job is created from, if it is created from a job template.
                 
@@ -3010,13 +3010,13 @@ class ListJobs(Paginator):
                         
                         - **DurationInMs** *(integer) --* Duration in milliseconds
                         
-                        - **VideoDetails** *(dict) --* Contains details about the output's video stream
+                        - **VideoDetails** *(dict) --* Contains details about the output\'s video stream
                           
                           - **HeightInPx** *(integer) --* Height in pixels for the output
                           
                           - **WidthInPx** *(integer) --* Width in pixels for the output
                       
-                - **Queue** *(string) --* Optional. When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+                - **Queue** *(string) --* Optional. When you create a job, you can specify a queue to send it to. If you don\'t specify, the job will go to the default queue. For more about queues, see the User Guide topic at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
                 
                 - **Role** *(string) --* The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html
                 
@@ -3032,13 +3032,13 @@ class ListJobs(Paginator):
                     
                     - *(dict) --* Specifies media input
                       
-                      - **AudioSelectorGroups** *(dict) --* Specifies set of audio selectors within an input to combine. An input may have multiple audio selector groups. See "Audio Selector Group":#inputs-audio_selector_group for more information.
+                      - **AudioSelectorGroups** *(dict) --* Specifies set of audio selectors within an input to combine. An input may have multiple audio selector groups. See \"Audio Selector Group\":#inputs-audio_selector_group for more information.
                         
                         - *(string) --* 
                           
                           - *(dict) --* Group of Audio Selectors
                             
-                            - **AudioSelectorNames** *(list) --* Name of an Audio Selector within the same input to include in the group. Audio selector names are standardized, based on their order within the input (e.g., "Audio Selector 1"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
+                            - **AudioSelectorNames** *(list) --* Name of an Audio Selector within the same input to include in the group. Audio selector names are standardized, based on their order within the input (e.g., \"Audio Selector 1\"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
                               
                               - *(string) --* 
                           
@@ -3050,7 +3050,7 @@ class ListJobs(Paginator):
                             
                             - **CustomLanguageCode** *(string) --* Selects a specific language code from within an audio source, using the ISO 639-2 or ISO 639-3 three-letter language code
                             
-                            - **DefaultSelection** *(string) --* Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
+                            - **DefaultSelection** *(string) --* Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can\'t find the specified input audio. If you don\'t set a default, those outputs have no audio.
                             
                             - **ExternalAudioFileInput** *(string) --* Specifies audio data from an external file source.
                             
@@ -3082,7 +3082,7 @@ class ListJobs(Paginator):
                           
                             - **SelectorType** *(string) --* Specifies the type of the audio selector.
                             
-                            - **Tracks** *(list) --* Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+                            - **Tracks** *(list) --* Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type \"1,2,3\" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, \"tracks\": [1,2,3].
                               
                               - *(integer) --* 
                           
@@ -3108,17 +3108,17 @@ class ListJobs(Paginator):
                             
                               - **EmbeddedSourceSettings** *(dict) --* Settings for embedded captions Source
                                 
-                                - **Convert608To708** *(string) --* When set to UPCONVERT, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+                                - **Convert608To708** *(string) --* When set to UPCONVERT, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                                 
                                 - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                                 
-                                - **Source608TrackNumber** *(integer) --* Specifies the video track index used for extracting captions. The system only supports one input video track, so this should always be set to '1'.
+                                - **Source608TrackNumber** *(integer) --* Specifies the video track index used for extracting captions. The system only supports one input video track, so this should always be set to \'1\'.
                             
                               - **FileSourceSettings** *(dict) --* Settings for File-based Captions in Source
                                 
-                                - **Convert608To708** *(string) --* If set to UPCONVERT, 608 caption data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+                                - **Convert608To708** *(string) --* If set to UPCONVERT, 608 caption data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                                 
-                                - **SourceFile** *(string) --* External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', and 'smi'.
+                                - **SourceFile** *(string) --* External caption file used for loading captions. Accepted file extensions are \'scc\', \'ttml\', \'dfxp\', \'stl\', \'srt\', and \'smi\'.
                                 
                                 - **TimeDelta** *(integer) --* Specifies a time delta in seconds to offset the captions from the source file.
                             
@@ -3146,7 +3146,7 @@ class ListJobs(Paginator):
                           
                           - **StartTimecode** *(string) --* Set Start timecode (StartTimecode) to the beginning of the portion of the input you are clipping. The frame corresponding to the Start timecode value is included in the clip. Start timecode or End timecode may be left blank, but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When choosing this value, take into account your setting for Input timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your clip to begin five minutes into the video, use 01:05:00:00.
                       
-                      - **ProgramNumber** *(integer) --* Use Program (programNumber) to select a specific program from within a multi-program transport stream. Note that Quad 4K is not currently supported. Default is the first program within the transport stream. If the program you specify doesn't exist, the transcoding service will use this default.
+                      - **ProgramNumber** *(integer) --* Use Program (programNumber) to select a specific program from within a multi-program transport stream. Note that Quad 4K is not currently supported. Default is the first program within the transport stream. If the program you specify doesn\'t exist, the transcoding service will use this default.
                       
                       - **PsiControl** *(string) --* Set PSI control (InputPsiControl) for transport stream inputs to specify which data the demux process to scans. * Ignore PSI - Scan all PIDs for audio and video. * Use PSI - Scan only PSI data.
                       
@@ -3154,7 +3154,7 @@ class ListJobs(Paginator):
                       
                       - **VideoSelector** *(dict) --* Selector for video.
                         
-                        - **ColorSpace** *(string) --* If your input video has accurate color space metadata, or if you don't know about color space, leave this set to the default value FOLLOW. The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, or if your input video is missing color space metadata that should be there, specify the accurate color space here. If you choose HDR10, you can also correct inaccurate color space coefficients, using the HDR master display information controls. You must also set Color space usage (ColorSpaceUsage) to FORCE for the service to use these values.
+                        - **ColorSpace** *(string) --* If your input video has accurate color space metadata, or if you don\'t know about color space, leave this set to the default value FOLLOW. The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, or if your input video is missing color space metadata that should be there, specify the accurate color space here. If you choose HDR10, you can also correct inaccurate color space coefficients, using the HDR master display information controls. You must also set Color space usage (ColorSpaceUsage) to FORCE for the service to use these values.
                         
                         - **ColorSpaceUsage** *(string) --* There are two sources for color metadata, the input file and the job configuration (in the Color space and HDR master display informaiton settings). The Color space usage setting controls which takes precedence. FORCE: The system will use color metadata supplied by user, if any. If the user does not supply color metadata, the system will use data from the source. FALLBACK: The system will use color metadata from the source. If source has no color metadata, the system will use user-supplied color metadata values if available.
                         
@@ -3218,13 +3218,13 @@ class ListJobs(Paginator):
                             
                             - **ConstantInitializationVector** *(string) --* This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
                             
-                            - **EncryptionMethod** *(string) --* Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
+                            - **EncryptionMethod** *(string) --* Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting \'Disabled\' in the web interface also disables encryption.
                             
                             - **InitializationVectorInManifest** *(string) --* The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
                             
                             - **StaticKeyProvider** *(dict) --* Settings for use with a SPEKE key provider.
                               
-                              - **KeyFormat** *(string) --* Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'.
+                              - **KeyFormat** *(string) --* Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be \'identity\' or a reverse DNS string. May be omitted to indicate an implicit value of \'identity\'.
                               
                               - **KeyFormatVersions** *(string) --* Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                               
@@ -3322,7 +3322,7 @@ class ListJobs(Paginator):
                             
                             - **ConstantInitializationVector** *(string) --* This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
                             
-                            - **EncryptionMethod** *(string) --* Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
+                            - **EncryptionMethod** *(string) --* Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting \'Disabled\' in the web interface also disables encryption.
                             
                             - **InitializationVectorInManifest** *(string) --* The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
                             
@@ -3338,7 +3338,7 @@ class ListJobs(Paginator):
                           
                             - **StaticKeyProvider** *(dict) --* Settings for use with a SPEKE key provider.
                               
-                              - **KeyFormat** *(string) --* Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'.
+                              - **KeyFormat** *(string) --* Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be \'identity\' or a reverse DNS string. May be omitted to indicate an implicit value of \'identity\'.
                               
                               - **KeyFormatVersions** *(string) --* Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                               
@@ -3416,13 +3416,13 @@ class ListJobs(Paginator):
                                 
                                 - **CorrectionGateLevel** *(integer) --* Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected. Gating only applies when not using real_time_correction.
                                 
-                                - **LoudnessLogging** *(string) --* If set to LOG, log each output's audio track loudness to a CSV file.
+                                - **LoudnessLogging** *(string) --* If set to LOG, log each output\'s audio track loudness to a CSV file.
                                 
-                                - **PeakCalculation** *(string) --* If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
+                                - **PeakCalculation** *(string) --* If set to TRUE_PEAK, calculate and log the TruePeak for each output\'s audio track loudness.
                                 
                                 - **TargetLkfs** *(float) --* Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm. The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
                             
-                              - **AudioSourceName** *(string) --* Specifies which audio data to use from each input. In the simplest case, specify an "Audio Selector":#inputs-audio_selector by name based on its order within each input. For example if you specify "Audio Selector 3", then the third audio selector will be used from each input. If an input does not have an "Audio Selector 3", then the audio selector marked as "default" in that input will be used. If there is no audio selector marked as "default", silence will be inserted for the duration of that input. Alternatively, an "Audio Selector Group":#inputs-audio_selector_group name may be specified, with similar default/silence behavior. If no audio_source_name is specified, then "Audio Selector 1" will be chosen automatically.
+                              - **AudioSourceName** *(string) --* Specifies which audio data to use from each input. In the simplest case, specify an \"Audio Selector\":#inputs-audio_selector by name based on its order within each input. For example if you specify \"Audio Selector 3\", then the third audio selector will be used from each input. If an input does not have an \"Audio Selector 3\", then the audio selector marked as \"default\" in that input will be used. If there is no audio selector marked as \"default\", silence will be inserted for the duration of that input. Alternatively, an \"Audio Selector Group\":#inputs-audio_selector_group name may be specified, with similar default/silence behavior. If no audio_source_name is specified, then \"Audio Selector 1\" will be chosen automatically.
                               
                               - **AudioType** *(integer) --* Applies only if Follow Input Audio Type is unchecked (false). A number between 0 and 255. The following are defined in ISO-IEC 13818-1: 0 = Undefined, 1 = Clean Effects, 2 = Hearing Impaired, 3 = Visually Impaired Commentary, 4-255 = Reserved.
                               
@@ -3430,19 +3430,19 @@ class ListJobs(Paginator):
                               
                               - **CodecSettings** *(dict) --* Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value you choose for Audio codec (Codec). For each codec enum you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings
                                 
-                                - **AacSettings** *(dict) --* Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR". In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
+                                - **AacSettings** *(dict) --* Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to \"VBR\" or \"CBR\". In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
                                   
-                                  - **AudioDescriptionBroadcasterMix** *(string) --* Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
+                                  - **AudioDescriptionBroadcasterMix** *(string) --* Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains \"broadcaster mixed AD\". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
                                   
                                   - **Bitrate** *(integer) --* Average bitrate in bits/second. Defaults and valid values depend on rate control mode and profile.
                                   
                                   - **CodecProfile** *(string) --* AAC Profile.
                                   
-                                  - **CodingMode** *(string) --* Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. "1.0 - Audio Description (Receiver Mix)" setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
+                                  - **CodingMode** *(string) --* Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. \"1.0 - Audio Description (Receiver Mix)\" setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
                                   
                                   - **RateControlMode** *(string) --* Rate Control Mode.
                                   
-                                  - **RawFormat** *(string) --* Enables LATM/LOAS AAC output. Note that if you use LATM/LOAS AAC in an output, you must choose "No container" for the output container.
+                                  - **RawFormat** *(string) --* Enables LATM/LOAS AAC output. Note that if you use LATM/LOAS AAC in an output, you must choose \"No container\" for the output container.
                                   
                                   - **SampleRate** *(integer) --* Sample rate in Hz. Valid values depend on rate control mode and profile.
                                   
@@ -3454,7 +3454,7 @@ class ListJobs(Paginator):
                                   
                                   - **Bitrate** *(integer) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                                   
-                                  - **BitstreamMode** *(string) --* Specifies the "Bitstream Mode" (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
+                                  - **BitstreamMode** *(string) --* Specifies the \"Bitstream Mode\" (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
                                   
                                   - **CodingMode** *(string) --* Dolby Digital coding mode. Determines number of channels.
                                   
@@ -3484,7 +3484,7 @@ class ListJobs(Paginator):
                                   
                                   - **Bitrate** *(integer) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                                   
-                                  - **BitstreamMode** *(string) --* Specifies the "Bitstream Mode" (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
+                                  - **BitstreamMode** *(string) --* Specifies the \"Bitstream Mode\" (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
                                   
                                   - **CodingMode** *(string) --* Dolby Digital Plus coding mode. Determines number of channels.
                                   
@@ -3540,11 +3540,11 @@ class ListJobs(Paginator):
                                   
                                   - **SampleRate** *(integer) --* Sample rate in Hz.
                               
-                              - **CustomLanguageCode** *(string) --* Specify the language for this audio output track, using the ISO 639-2 or ISO 639-3 three-letter language code. The language specified will be used when 'Follow Input Language Code' is not selected or when 'Follow Input Language Code' is selected but there is no ISO 639 language code specified by the input.
+                              - **CustomLanguageCode** *(string) --* Specify the language for this audio output track, using the ISO 639-2 or ISO 639-3 three-letter language code. The language specified will be used when \'Follow Input Language Code\' is not selected or when \'Follow Input Language Code\' is selected but there is no ISO 639 language code specified by the input.
                               
-                              - **LanguageCode** *(string) --* Indicates the language of the audio output track. The ISO 639 language specified in the 'Language Code' drop down will be used when 'Follow Input Language Code' is not selected or when 'Follow Input Language Code' is selected but there is no ISO 639 language code specified by the input.
+                              - **LanguageCode** *(string) --* Indicates the language of the audio output track. The ISO 639 language specified in the \'Language Code\' drop down will be used when \'Follow Input Language Code\' is not selected or when \'Follow Input Language Code\' is selected but there is no ISO 639 language code specified by the input.
                               
-                              - **LanguageCodeControl** *(string) --* Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The language specified for languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT is selected but there is no ISO 639 language code specified by the input.
+                              - **LanguageCodeControl** *(string) --* Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The language specified for languageCode\' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT is selected but there is no ISO 639 language code specified by the input.
                               
                               - **RemixSettings** *(dict) --* Advanced audio remixing settings.
                                 
@@ -3568,7 +3568,7 @@ class ListJobs(Paginator):
                             
                             - *(dict) --* Description of Caption output
                               
-                              - **CaptionSelectorName** *(string) --* Specifies which "Caption Selector":#inputs-caption_selector to use from each input when generating captions. The name should be of the format "Caption Selector ", which denotes that the Nth Caption Selector will be used from each input.
+                              - **CaptionSelectorName** *(string) --* Specifies which \"Caption Selector\":#inputs-caption_selector to use from each input when generating captions. The name should be of the format \"Caption Selector \", which denotes that the Nth Caption Selector will be used from each input.
                               
                               - **CustomLanguageCode** *(string) --* Indicates the language of the caption output track, using the ISO 639-2 or ISO 639-3 three-letter language code
                               
@@ -3692,7 +3692,7 @@ class ListJobs(Paginator):
                             
                               - **DvbSdtSettings** *(dict) --* Inserts DVB Service Description Table (NIT) at the specified table repetition interval.
                                 
-                                - **OutputSdt** *(string) --* Selects method of inserting SDT information into output stream. "Follow input SDT" copies SDT information from input stream to output stream. "Follow input SDT if present" copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT Manually" means user will enter the SDT information. "No SDT" means output stream will not contain SDT information.
+                                - **OutputSdt** *(string) --* Selects method of inserting SDT information into output stream. \"Follow input SDT\" copies SDT information from input stream to output stream. \"Follow input SDT if present\" copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter \"SDT Manually\" means user will enter the SDT information. \"No SDT\" means output stream will not contain SDT information.
                                 
                                 - **SdtInterval** *(integer) --* The number of milliseconds between instances of this table in the output transport stream.
                                 
@@ -3720,7 +3720,7 @@ class ListJobs(Paginator):
                               
                               - **MaxPcrInterval** *(integer) --* Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
                               
-                              - **MinEbpInterval** *(integer) --* When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
+                              - **MinEbpInterval** *(integer) --* When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is \"stretched\" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
                               
                               - **NielsenId3** *(string) --* If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
                               
@@ -3748,7 +3748,7 @@ class ListJobs(Paginator):
                               
                               - **SegmentationMarkers** *(string) --* Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
                               
-                              - **SegmentationStyle** *(string) --* The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of "reset_cadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of "maintain_cadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
+                              - **SegmentationStyle** *(string) --* The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of \"reset_cadence\" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of \"maintain_cadence\" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
                               
                               - **SegmentationTime** *(float) --* The length in seconds of each segment. Required unless markers is set to _none_.
                               
@@ -3796,25 +3796,25 @@ class ListJobs(Paginator):
                           
                             - **MovSettings** *(dict) --* Settings for MOV Container.
                               
-                              - **ClapAtom** *(string) --* When enabled, include 'clap' atom if appropriate for the video output settings.
+                              - **ClapAtom** *(string) --* When enabled, include \'clap\' atom if appropriate for the video output settings.
                               
-                              - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+                              - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the \'ctts\' (composition time to sample) box for B-frames will be negative, and a \'cslg\' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
                               
                               - **Mpeg2FourCCControl** *(string) --* When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
                               
                               - **PaddingControl** *(string) --* If set to OMNEON, inserts Omneon-compatible padding
                               
-                              - **Reference** *(string) --* A value of 'external' creates separate media files and the wrapper file (.mov) contains references to these media files. A value of 'self_contained' creates only a wrapper (.mov) file and this file contains all of the media.
+                              - **Reference** *(string) --* A value of \'external\' creates separate media files and the wrapper file (.mov) contains references to these media files. A value of \'self_contained\' creates only a wrapper (.mov) file and this file contains all of the media.
                           
                             - **Mp4Settings** *(dict) --* Settings for MP4 Container
                               
-                              - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+                              - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the \'ctts\' (composition time to sample) box for B-frames will be negative, and a \'cslg\' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
                               
                               - **FreeSpaceBox** *(string) --* Inserts a free-space box immediately after the moov box.
                               
                               - **MoovPlacement** *(string) --* If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
                               
-                              - **Mp4MajorBrand** *(string) --* Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
+                              - **Mp4MajorBrand** *(string) --* Overrides the \"Major Brand\" field in the output file. Usually not necessary to specify.
                           
                           - **Extension** *(string) --* Use Extension (Extension) to specify the file extension for outputs in File output groups. If you do not specify a value, the service will use default extensions by container type as follows * MPEG-2 transport stream, m2ts * Quicktime, mov * MXF container, mxf * MPEG-4 container, mp4 * No Container, the service will use codec extensions (e.g. AAC, H265, H265, AC3)
                           
@@ -3826,13 +3826,13 @@ class ListJobs(Paginator):
                               
                               - **AudioGroupId** *(string) --* Specifies the group to which the audio Rendition belongs.
                               
-                              - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+                              - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by \',\'.
                               
                               - **AudioTrackType** *(string) --* Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
                               
                               - **IFrameOnlyManifest** *(string) --* When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS manifest
                               
-                              - **SegmentModifier** *(string) --* String concatenated to end of segment filenames. Accepts "Format Identifiers":#format_identifier_parameters.
+                              - **SegmentModifier** *(string) --* String concatenated to end of segment filenames. Accepts \"Format Identifiers\":#format_identifier_parameters.
                           
                           - **Preset** *(string) --* Use Preset (Preset) to specifiy a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset (Preset) or Container settings (ContainerSettings), but not both.
                           
@@ -3872,7 +3872,7 @@ class ListJobs(Paginator):
                                 
                                 - **FieldEncoding** *(string) --* Choosing FORCE_FIELD disables PAFF encoding for interlaced outputs.
                                 
-                                - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+                                - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or \'pop\' on I-frames.
                                 
                                 - **FramerateControl** *(string) --* If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.
                                 
@@ -3894,7 +3894,7 @@ class ListJobs(Paginator):
                                 
                                 - **HrdBufferSize** *(integer) --* Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
                                 
-                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type, as follows. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type, as follows. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                                 
                                 - **MaxBitrate** *(integer) --* Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
                                 
@@ -3912,7 +3912,7 @@ class ListJobs(Paginator):
                                 
                                 - **QualityTuningLevel** *(string) --* Use Quality tuning level (H264QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality singlepass, or high-quality multipass video encoding.
                                 
-                                - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
+                                - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don\'t define Rate control mode.
                                   
                                   - **MaxAverageBitrate** *(integer) --* Use this setting only when Rate control mode is QVBR and Quality tuning level is Multi-pass HQ. For Max average bitrate values suited to the complexity of your input video, the service limits the average bitrate of the video part of this output to the value you choose. That is, the total size of the video element is less than or equal to the value you set multiplied by the number of seconds of encoded output.
                                   
@@ -3950,11 +3950,11 @@ class ListJobs(Paginator):
                                 
                                 - **CodecLevel** *(string) --* H.265 Level.
                                 
-                                - **CodecProfile** *(string) --* Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] / [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC 4:2:2 License.
+                                - **CodecProfile** *(string) --* Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] / [Tier], so \"Main/High\" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC 4:2:2 License.
                                 
                                 - **DynamicSubGop** *(string) --* Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
                                 
-                                - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+                                - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or \'pop\' on I-frames.
                                 
                                 - **FramerateControl** *(string) --* If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.
                                 
@@ -3976,7 +3976,7 @@ class ListJobs(Paginator):
                                 
                                 - **HrdBufferSize** *(integer) --* Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
                                 
-                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                                 
                                 - **MaxBitrate** *(integer) --* Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
                                 
@@ -3994,7 +3994,7 @@ class ListJobs(Paginator):
                                 
                                 - **QualityTuningLevel** *(string) --* Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality singlepass, or high-quality multipass video encoding.
                                 
-                                - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
+                                - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don\'t define Rate control mode.
                                   
                                   - **MaxAverageBitrate** *(integer) --* Use this setting only when Rate control mode is QVBR and Quality tuning level is Multi-pass HQ. For Max average bitrate values suited to the complexity of your input video, the service limits the average bitrate of the video part of this output to the value you choose. That is, the total size of the video element is less than or equal to the value you set multiplied by the number of seconds of encoded output.
                                   
@@ -4054,7 +4054,7 @@ class ListJobs(Paginator):
                                 
                                 - **HrdBufferSize** *(integer) --* Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
                                 
-                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                                 
                                 - **IntraDcPrecision** *(string) --* Use Intra DC precision (Mpeg2IntraDcPrecision) to set quantization precision for intra-block DC coefficients. If you choose the value auto, the service will automatically select the precision based on the per-frame compression ratio.
                                 
@@ -4100,7 +4100,7 @@ class ListJobs(Paginator):
                                 
                                 - **FramerateNumerator** *(integer) --* When you use the API for transcode jobs that use framerate conversion, specify the framerate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator.
                                 
-                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                                - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                                 
                                 - **ParControl** *(string) --* Use (ProresParControl) to specify how the service determines the pixel aspect ratio. Set to Follow source (INITIALIZE_FROM_SOURCE) to use the pixel aspect ratio from the input. To specify a different pixel aspect ratio: Using the console, choose it from the dropdown menu. Using the API, set ProresParControl to (SPECIFIED) and provide for (ParNumerator) and (ParDenominator).
                                 
@@ -4128,7 +4128,7 @@ class ListJobs(Paginator):
                             
                             - **FixedAfd** *(integer) --* Applies only if you set AFD Signaling(AfdSignaling) to Fixed (FIXED). Use Fixed (FixedAfd) to specify a four-bit AFD value which the service will write on all frames of this video output.
                             
-                            - **Height** *(integer) --* Use the Height (Height) setting to define the video resolution height for this output. Specify in pixels. If you don't provide a value here, the service will use the input height.
+                            - **Height** *(integer) --* Use the Height (Height) setting to define the video resolution height for this output. Specify in pixels. If you don\'t provide a value here, the service will use the input height.
                             
                             - **Position** *(dict) --* Use Position (Position) to point to a rectangle object to define your position. This setting overrides any other aspect ratio.
                               
@@ -4154,7 +4154,7 @@ class ListJobs(Paginator):
                                 
                                 - **Brightness** *(integer) --* Brightness level.
                                 
-                                - **ColorSpaceConversion** *(string) --* Determines if colorspace conversion will be performed. If set to _None_, no conversion will be performed. If _Force 601_ or _Force 709_ are selected, conversion will be performed for inputs with differing colorspaces. An input's colorspace can be specified explicitly in the "Video Selector":#inputs-video_selector if necessary.
+                                - **ColorSpaceConversion** *(string) --* Determines if colorspace conversion will be performed. If set to _None_, no conversion will be performed. If _Force 601_ or _Force 709_ are selected, conversion will be performed for inputs with differing colorspaces. An input\'s colorspace can be specified explicitly in the \"Video Selector\":#inputs-video_selector if necessary.
                                 
                                 - **Contrast** *(integer) --* Contrast level.
                                 
@@ -4204,9 +4204,9 @@ class ListJobs(Paginator):
                                     
                                     - **Duration** *(integer) --* Use Duration (Duration) to set the time, in milliseconds, for the image to remain on the output video.
                                     
-                                    - **FadeIn** *(integer) --* Use Fade in (FadeIut) to set the length, in milliseconds, of the inserted image fade in. If you don't specify a value for Fade in, the image will appear abruptly at the Start time.
+                                    - **FadeIn** *(integer) --* Use Fade in (FadeIut) to set the length, in milliseconds, of the inserted image fade in. If you don\'t specify a value for Fade in, the image will appear abruptly at the Start time.
                                     
-                                    - **FadeOut** *(integer) --* Use Fade out (FadeOut) to set the length, in milliseconds, of the inserted image fade out. If you don't specify a value for Fade out, the image will disappear abruptly at the end of the inserted image duration.
+                                    - **FadeOut** *(integer) --* Use Fade out (FadeOut) to set the length, in milliseconds, of the inserted image fade out. If you don\'t specify a value for Fade out, the image will disappear abruptly at the end of the inserted image duration.
                                     
                                     - **Height** *(integer) --* Specify the Height (Height) of the inserted image. Use a value that is less than or equal to the video resolution height. Leave this setting blank to use the native height of the image.
                                     
@@ -4246,9 +4246,9 @@ class ListJobs(Paginator):
                                 
                                 - **Position** *(string) --* Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to specify the location the burned-in timecode on output video.
                                 
-                                - **Prefix** *(string) --* Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
+                                - **Prefix** *(string) --* Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of \"EZ-\" will result in the timecode \"EZ-00:00:00:00\". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
                             
-                            - **Width** *(integer) --* Use Width (Width) to define the video resolution width, in pixels, for this output. If you don't provide a value here, the service will use the input width.
+                            - **Width** *(integer) --* Use Width (Width) to define the video resolution width, in pixels, for this output. If you don\'t provide a value here, the service will use the input width.
                         
                   - **TimecodeConfig** *(dict) --* Contains settings used to acquire and adjust timecode information from inputs.
                     
@@ -4258,7 +4258,7 @@ class ListJobs(Paginator):
                     
                     - **Start** *(string) --* Only use when you set Source (TimecodeSource) to Specified start (SPECIFIEDSTART). Use Start timecode (Start) to specify the timecode for the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF).
                     
-                    - **TimestampOffset** *(string) --* Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format "yyyy-mm-dd". To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25.
+                    - **TimestampOffset** *(string) --* Only applies to outputs that support program-date-time stamp. Use Timestamp offset (TimestampOffset) to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format \"yyyy-mm-dd\". To use Time stamp offset, you must also enable Insert program-date-time (InsertProgramDateTime) in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset (TimestampOffset) to 2003-1-25.
                 
                   - **TimedMetadataInsertion** *(dict) --* Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in your job. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
                     
@@ -4270,7 +4270,7 @@ class ListJobs(Paginator):
                         
                         - **Timecode** *(string) --* Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
                     
-                - **Status** *(string) --* A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+                - **Status** *(string) --* A job\'s status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
                 
                 - **Timing** *(dict) --* Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
                   
@@ -4300,20 +4300,20 @@ class ListPresets(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Category='string',
-              ListBy='NAME'|'CREATION_DATE'|'SYSTEM',
-              Order='ASCENDING'|'DESCENDING',
+              Category=\'string\',
+              ListBy=\'NAME\'|\'CREATION_DATE\'|\'SYSTEM\',
+              Order=\'ASCENDING\'|\'DESCENDING\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Category: string
         :param Category: Optionally, specify a preset category to limit responses to only presets from that category.
         
         :type ListBy: string
-        :param ListBy: Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
+        :param ListBy: Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don\'t specify, the service will list them by name.
         
         :type Order: string
         :param Order: When you request lists of resources, you can optionally specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
@@ -4343,486 +4343,486 @@ class ListPresets(Paginator):
           ::
         
             {
-                'Presets': [
+                \'Presets\': [
                     {
-                        'Arn': 'string',
-                        'Category': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'Description': 'string',
-                        'LastUpdated': datetime(2015, 1, 1),
-                        'Name': 'string',
-                        'Settings': {
-                            'AudioDescriptions': [
+                        \'Arn\': \'string\',
+                        \'Category\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'Description\': \'string\',
+                        \'LastUpdated\': datetime(2015, 1, 1),
+                        \'Name\': \'string\',
+                        \'Settings\': {
+                            \'AudioDescriptions\': [
                                 {
-                                    'AudioNormalizationSettings': {
-                                        'Algorithm': 'ITU_BS_1770_1'|'ITU_BS_1770_2',
-                                        'AlgorithmControl': 'CORRECT_AUDIO'|'MEASURE_ONLY',
-                                        'CorrectionGateLevel': 123,
-                                        'LoudnessLogging': 'LOG'|'DONT_LOG',
-                                        'PeakCalculation': 'TRUE_PEAK'|'NONE',
-                                        'TargetLkfs': 123.0
+                                    \'AudioNormalizationSettings\': {
+                                        \'Algorithm\': \'ITU_BS_1770_1\'|\'ITU_BS_1770_2\',
+                                        \'AlgorithmControl\': \'CORRECT_AUDIO\'|\'MEASURE_ONLY\',
+                                        \'CorrectionGateLevel\': 123,
+                                        \'LoudnessLogging\': \'LOG\'|\'DONT_LOG\',
+                                        \'PeakCalculation\': \'TRUE_PEAK\'|\'NONE\',
+                                        \'TargetLkfs\': 123.0
                                     },
-                                    'AudioSourceName': 'string',
-                                    'AudioType': 123,
-                                    'AudioTypeControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                    'CodecSettings': {
-                                        'AacSettings': {
-                                            'AudioDescriptionBroadcasterMix': 'BROADCASTER_MIXED_AD'|'NORMAL',
-                                            'Bitrate': 123,
-                                            'CodecProfile': 'LC'|'HEV1'|'HEV2',
-                                            'CodingMode': 'AD_RECEIVER_MIX'|'CODING_MODE_1_0'|'CODING_MODE_1_1'|'CODING_MODE_2_0'|'CODING_MODE_5_1',
-                                            'RateControlMode': 'CBR'|'VBR',
-                                            'RawFormat': 'LATM_LOAS'|'NONE',
-                                            'SampleRate': 123,
-                                            'Specification': 'MPEG2'|'MPEG4',
-                                            'VbrQuality': 'LOW'|'MEDIUM_LOW'|'MEDIUM_HIGH'|'HIGH'
+                                    \'AudioSourceName\': \'string\',
+                                    \'AudioType\': 123,
+                                    \'AudioTypeControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                    \'CodecSettings\': {
+                                        \'AacSettings\': {
+                                            \'AudioDescriptionBroadcasterMix\': \'BROADCASTER_MIXED_AD\'|\'NORMAL\',
+                                            \'Bitrate\': 123,
+                                            \'CodecProfile\': \'LC\'|\'HEV1\'|\'HEV2\',
+                                            \'CodingMode\': \'AD_RECEIVER_MIX\'|\'CODING_MODE_1_0\'|\'CODING_MODE_1_1\'|\'CODING_MODE_2_0\'|\'CODING_MODE_5_1\',
+                                            \'RateControlMode\': \'CBR\'|\'VBR\',
+                                            \'RawFormat\': \'LATM_LOAS\'|\'NONE\',
+                                            \'SampleRate\': 123,
+                                            \'Specification\': \'MPEG2\'|\'MPEG4\',
+                                            \'VbrQuality\': \'LOW\'|\'MEDIUM_LOW\'|\'MEDIUM_HIGH\'|\'HIGH\'
                                         },
-                                        'Ac3Settings': {
-                                            'Bitrate': 123,
-                                            'BitstreamMode': 'COMPLETE_MAIN'|'COMMENTARY'|'DIALOGUE'|'EMERGENCY'|'HEARING_IMPAIRED'|'MUSIC_AND_EFFECTS'|'VISUALLY_IMPAIRED'|'VOICE_OVER',
-                                            'CodingMode': 'CODING_MODE_1_0'|'CODING_MODE_1_1'|'CODING_MODE_2_0'|'CODING_MODE_3_2_LFE',
-                                            'Dialnorm': 123,
-                                            'DynamicRangeCompressionProfile': 'FILM_STANDARD'|'NONE',
-                                            'LfeFilter': 'ENABLED'|'DISABLED',
-                                            'MetadataControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                            'SampleRate': 123
+                                        \'Ac3Settings\': {
+                                            \'Bitrate\': 123,
+                                            \'BitstreamMode\': \'COMPLETE_MAIN\'|\'COMMENTARY\'|\'DIALOGUE\'|\'EMERGENCY\'|\'HEARING_IMPAIRED\'|\'MUSIC_AND_EFFECTS\'|\'VISUALLY_IMPAIRED\'|\'VOICE_OVER\',
+                                            \'CodingMode\': \'CODING_MODE_1_0\'|\'CODING_MODE_1_1\'|\'CODING_MODE_2_0\'|\'CODING_MODE_3_2_LFE\',
+                                            \'Dialnorm\': 123,
+                                            \'DynamicRangeCompressionProfile\': \'FILM_STANDARD\'|\'NONE\',
+                                            \'LfeFilter\': \'ENABLED\'|\'DISABLED\',
+                                            \'MetadataControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                            \'SampleRate\': 123
                                         },
-                                        'AiffSettings': {
-                                            'BitDepth': 123,
-                                            'Channels': 123,
-                                            'SampleRate': 123
+                                        \'AiffSettings\': {
+                                            \'BitDepth\': 123,
+                                            \'Channels\': 123,
+                                            \'SampleRate\': 123
                                         },
-                                        'Codec': 'AAC'|'MP2'|'WAV'|'AIFF'|'AC3'|'EAC3'|'PASSTHROUGH',
-                                        'Eac3Settings': {
-                                            'AttenuationControl': 'ATTENUATE_3_DB'|'NONE',
-                                            'Bitrate': 123,
-                                            'BitstreamMode': 'COMPLETE_MAIN'|'COMMENTARY'|'EMERGENCY'|'HEARING_IMPAIRED'|'VISUALLY_IMPAIRED',
-                                            'CodingMode': 'CODING_MODE_1_0'|'CODING_MODE_2_0'|'CODING_MODE_3_2',
-                                            'DcFilter': 'ENABLED'|'DISABLED',
-                                            'Dialnorm': 123,
-                                            'DynamicRangeCompressionLine': 'NONE'|'FILM_STANDARD'|'FILM_LIGHT'|'MUSIC_STANDARD'|'MUSIC_LIGHT'|'SPEECH',
-                                            'DynamicRangeCompressionRf': 'NONE'|'FILM_STANDARD'|'FILM_LIGHT'|'MUSIC_STANDARD'|'MUSIC_LIGHT'|'SPEECH',
-                                            'LfeControl': 'LFE'|'NO_LFE',
-                                            'LfeFilter': 'ENABLED'|'DISABLED',
-                                            'LoRoCenterMixLevel': 123.0,
-                                            'LoRoSurroundMixLevel': 123.0,
-                                            'LtRtCenterMixLevel': 123.0,
-                                            'LtRtSurroundMixLevel': 123.0,
-                                            'MetadataControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                            'PassthroughControl': 'WHEN_POSSIBLE'|'NO_PASSTHROUGH',
-                                            'PhaseControl': 'SHIFT_90_DEGREES'|'NO_SHIFT',
-                                            'SampleRate': 123,
-                                            'StereoDownmix': 'NOT_INDICATED'|'LO_RO'|'LT_RT'|'DPL2',
-                                            'SurroundExMode': 'NOT_INDICATED'|'ENABLED'|'DISABLED',
-                                            'SurroundMode': 'NOT_INDICATED'|'ENABLED'|'DISABLED'
+                                        \'Codec\': \'AAC\'|\'MP2\'|\'WAV\'|\'AIFF\'|\'AC3\'|\'EAC3\'|\'PASSTHROUGH\',
+                                        \'Eac3Settings\': {
+                                            \'AttenuationControl\': \'ATTENUATE_3_DB\'|\'NONE\',
+                                            \'Bitrate\': 123,
+                                            \'BitstreamMode\': \'COMPLETE_MAIN\'|\'COMMENTARY\'|\'EMERGENCY\'|\'HEARING_IMPAIRED\'|\'VISUALLY_IMPAIRED\',
+                                            \'CodingMode\': \'CODING_MODE_1_0\'|\'CODING_MODE_2_0\'|\'CODING_MODE_3_2\',
+                                            \'DcFilter\': \'ENABLED\'|\'DISABLED\',
+                                            \'Dialnorm\': 123,
+                                            \'DynamicRangeCompressionLine\': \'NONE\'|\'FILM_STANDARD\'|\'FILM_LIGHT\'|\'MUSIC_STANDARD\'|\'MUSIC_LIGHT\'|\'SPEECH\',
+                                            \'DynamicRangeCompressionRf\': \'NONE\'|\'FILM_STANDARD\'|\'FILM_LIGHT\'|\'MUSIC_STANDARD\'|\'MUSIC_LIGHT\'|\'SPEECH\',
+                                            \'LfeControl\': \'LFE\'|\'NO_LFE\',
+                                            \'LfeFilter\': \'ENABLED\'|\'DISABLED\',
+                                            \'LoRoCenterMixLevel\': 123.0,
+                                            \'LoRoSurroundMixLevel\': 123.0,
+                                            \'LtRtCenterMixLevel\': 123.0,
+                                            \'LtRtSurroundMixLevel\': 123.0,
+                                            \'MetadataControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                            \'PassthroughControl\': \'WHEN_POSSIBLE\'|\'NO_PASSTHROUGH\',
+                                            \'PhaseControl\': \'SHIFT_90_DEGREES\'|\'NO_SHIFT\',
+                                            \'SampleRate\': 123,
+                                            \'StereoDownmix\': \'NOT_INDICATED\'|\'LO_RO\'|\'LT_RT\'|\'DPL2\',
+                                            \'SurroundExMode\': \'NOT_INDICATED\'|\'ENABLED\'|\'DISABLED\',
+                                            \'SurroundMode\': \'NOT_INDICATED\'|\'ENABLED\'|\'DISABLED\'
                                         },
-                                        'Mp2Settings': {
-                                            'Bitrate': 123,
-                                            'Channels': 123,
-                                            'SampleRate': 123
+                                        \'Mp2Settings\': {
+                                            \'Bitrate\': 123,
+                                            \'Channels\': 123,
+                                            \'SampleRate\': 123
                                         },
-                                        'WavSettings': {
-                                            'BitDepth': 123,
-                                            'Channels': 123,
-                                            'Format': 'RIFF'|'RF64',
-                                            'SampleRate': 123
+                                        \'WavSettings\': {
+                                            \'BitDepth\': 123,
+                                            \'Channels\': 123,
+                                            \'Format\': \'RIFF\'|\'RF64\',
+                                            \'SampleRate\': 123
                                         }
                                     },
-                                    'CustomLanguageCode': 'string',
-                                    'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                    'LanguageCodeControl': 'FOLLOW_INPUT'|'USE_CONFIGURED',
-                                    'RemixSettings': {
-                                        'ChannelMapping': {
-                                            'OutputChannels': [
+                                    \'CustomLanguageCode\': \'string\',
+                                    \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                    \'LanguageCodeControl\': \'FOLLOW_INPUT\'|\'USE_CONFIGURED\',
+                                    \'RemixSettings\': {
+                                        \'ChannelMapping\': {
+                                            \'OutputChannels\': [
                                                 {
-                                                    'InputChannels': [
+                                                    \'InputChannels\': [
                                                         123,
                                                     ]
                                                 },
                                             ]
                                         },
-                                        'ChannelsIn': 123,
-                                        'ChannelsOut': 123
+                                        \'ChannelsIn\': 123,
+                                        \'ChannelsOut\': 123
                                     },
-                                    'StreamName': 'string'
+                                    \'StreamName\': \'string\'
                                 },
                             ],
-                            'CaptionDescriptions': [
+                            \'CaptionDescriptions\': [
                                 {
-                                    'CustomLanguageCode': 'string',
-                                    'DestinationSettings': {
-                                        'BurninDestinationSettings': {
-                                            'Alignment': 'CENTERED'|'LEFT',
-                                            'BackgroundColor': 'NONE'|'BLACK'|'WHITE',
-                                            'BackgroundOpacity': 123,
-                                            'FontColor': 'WHITE'|'BLACK'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                            'FontOpacity': 123,
-                                            'FontResolution': 123,
-                                            'FontSize': 123,
-                                            'OutlineColor': 'BLACK'|'WHITE'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                            'OutlineSize': 123,
-                                            'ShadowColor': 'NONE'|'BLACK'|'WHITE',
-                                            'ShadowOpacity': 123,
-                                            'ShadowXOffset': 123,
-                                            'ShadowYOffset': 123,
-                                            'TeletextSpacing': 'FIXED_GRID'|'PROPORTIONAL',
-                                            'XPosition': 123,
-                                            'YPosition': 123
+                                    \'CustomLanguageCode\': \'string\',
+                                    \'DestinationSettings\': {
+                                        \'BurninDestinationSettings\': {
+                                            \'Alignment\': \'CENTERED\'|\'LEFT\',
+                                            \'BackgroundColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                            \'BackgroundOpacity\': 123,
+                                            \'FontColor\': \'WHITE\'|\'BLACK\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                            \'FontOpacity\': 123,
+                                            \'FontResolution\': 123,
+                                            \'FontSize\': 123,
+                                            \'OutlineColor\': \'BLACK\'|\'WHITE\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                            \'OutlineSize\': 123,
+                                            \'ShadowColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                            \'ShadowOpacity\': 123,
+                                            \'ShadowXOffset\': 123,
+                                            \'ShadowYOffset\': 123,
+                                            \'TeletextSpacing\': \'FIXED_GRID\'|\'PROPORTIONAL\',
+                                            \'XPosition\': 123,
+                                            \'YPosition\': 123
                                         },
-                                        'DestinationType': 'BURN_IN'|'DVB_SUB'|'EMBEDDED'|'SCC'|'SRT'|'TELETEXT'|'TTML'|'WEBVTT',
-                                        'DvbSubDestinationSettings': {
-                                            'Alignment': 'CENTERED'|'LEFT',
-                                            'BackgroundColor': 'NONE'|'BLACK'|'WHITE',
-                                            'BackgroundOpacity': 123,
-                                            'FontColor': 'WHITE'|'BLACK'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                            'FontOpacity': 123,
-                                            'FontResolution': 123,
-                                            'FontSize': 123,
-                                            'OutlineColor': 'BLACK'|'WHITE'|'YELLOW'|'RED'|'GREEN'|'BLUE',
-                                            'OutlineSize': 123,
-                                            'ShadowColor': 'NONE'|'BLACK'|'WHITE',
-                                            'ShadowOpacity': 123,
-                                            'ShadowXOffset': 123,
-                                            'ShadowYOffset': 123,
-                                            'TeletextSpacing': 'FIXED_GRID'|'PROPORTIONAL',
-                                            'XPosition': 123,
-                                            'YPosition': 123
+                                        \'DestinationType\': \'BURN_IN\'|\'DVB_SUB\'|\'EMBEDDED\'|\'SCC\'|\'SRT\'|\'TELETEXT\'|\'TTML\'|\'WEBVTT\',
+                                        \'DvbSubDestinationSettings\': {
+                                            \'Alignment\': \'CENTERED\'|\'LEFT\',
+                                            \'BackgroundColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                            \'BackgroundOpacity\': 123,
+                                            \'FontColor\': \'WHITE\'|\'BLACK\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                            \'FontOpacity\': 123,
+                                            \'FontResolution\': 123,
+                                            \'FontSize\': 123,
+                                            \'OutlineColor\': \'BLACK\'|\'WHITE\'|\'YELLOW\'|\'RED\'|\'GREEN\'|\'BLUE\',
+                                            \'OutlineSize\': 123,
+                                            \'ShadowColor\': \'NONE\'|\'BLACK\'|\'WHITE\',
+                                            \'ShadowOpacity\': 123,
+                                            \'ShadowXOffset\': 123,
+                                            \'ShadowYOffset\': 123,
+                                            \'TeletextSpacing\': \'FIXED_GRID\'|\'PROPORTIONAL\',
+                                            \'XPosition\': 123,
+                                            \'YPosition\': 123
                                         },
-                                        'SccDestinationSettings': {
-                                            'Framerate': 'FRAMERATE_23_97'|'FRAMERATE_24'|'FRAMERATE_29_97_DROPFRAME'|'FRAMERATE_29_97_NON_DROPFRAME'
+                                        \'SccDestinationSettings\': {
+                                            \'Framerate\': \'FRAMERATE_23_97\'|\'FRAMERATE_24\'|\'FRAMERATE_29_97_DROPFRAME\'|\'FRAMERATE_29_97_NON_DROPFRAME\'
                                         },
-                                        'TeletextDestinationSettings': {
-                                            'PageNumber': 'string'
+                                        \'TeletextDestinationSettings\': {
+                                            \'PageNumber\': \'string\'
                                         },
-                                        'TtmlDestinationSettings': {
-                                            'StylePassthrough': 'ENABLED'|'DISABLED'
+                                        \'TtmlDestinationSettings\': {
+                                            \'StylePassthrough\': \'ENABLED\'|\'DISABLED\'
                                         }
                                     },
-                                    'LanguageCode': 'ENG'|'SPA'|'FRA'|'DEU'|'GER'|'ZHO'|'ARA'|'HIN'|'JPN'|'RUS'|'POR'|'ITA'|'URD'|'VIE'|'KOR'|'PAN'|'ABK'|'AAR'|'AFR'|'AKA'|'SQI'|'AMH'|'ARG'|'HYE'|'ASM'|'AVA'|'AVE'|'AYM'|'AZE'|'BAM'|'BAK'|'EUS'|'BEL'|'BEN'|'BIH'|'BIS'|'BOS'|'BRE'|'BUL'|'MYA'|'CAT'|'KHM'|'CHA'|'CHE'|'NYA'|'CHU'|'CHV'|'COR'|'COS'|'CRE'|'HRV'|'CES'|'DAN'|'DIV'|'NLD'|'DZO'|'ENM'|'EPO'|'EST'|'EWE'|'FAO'|'FIJ'|'FIN'|'FRM'|'FUL'|'GLA'|'GLG'|'LUG'|'KAT'|'ELL'|'GRN'|'GUJ'|'HAT'|'HAU'|'HEB'|'HER'|'HMO'|'HUN'|'ISL'|'IDO'|'IBO'|'IND'|'INA'|'ILE'|'IKU'|'IPK'|'GLE'|'JAV'|'KAL'|'KAN'|'KAU'|'KAS'|'KAZ'|'KIK'|'KIN'|'KIR'|'KOM'|'KON'|'KUA'|'KUR'|'LAO'|'LAT'|'LAV'|'LIM'|'LIN'|'LIT'|'LUB'|'LTZ'|'MKD'|'MLG'|'MSA'|'MAL'|'MLT'|'GLV'|'MRI'|'MAR'|'MAH'|'MON'|'NAU'|'NAV'|'NDE'|'NBL'|'NDO'|'NEP'|'SME'|'NOR'|'NOB'|'NNO'|'OCI'|'OJI'|'ORI'|'ORM'|'OSS'|'PLI'|'FAS'|'POL'|'PUS'|'QUE'|'QAA'|'RON'|'ROH'|'RUN'|'SMO'|'SAG'|'SAN'|'SRD'|'SRB'|'SNA'|'III'|'SND'|'SIN'|'SLK'|'SLV'|'SOM'|'SOT'|'SUN'|'SWA'|'SSW'|'SWE'|'TGL'|'TAH'|'TGK'|'TAM'|'TAT'|'TEL'|'THA'|'BOD'|'TIR'|'TON'|'TSO'|'TSN'|'TUR'|'TUK'|'TWI'|'UIG'|'UKR'|'UZB'|'VEN'|'VOL'|'WLN'|'CYM'|'FRY'|'WOL'|'XHO'|'YID'|'YOR'|'ZHA'|'ZUL'|'ORJ'|'QPC'|'TNG',
-                                    'LanguageDescription': 'string'
+                                    \'LanguageCode\': \'ENG\'|\'SPA\'|\'FRA\'|\'DEU\'|\'GER\'|\'ZHO\'|\'ARA\'|\'HIN\'|\'JPN\'|\'RUS\'|\'POR\'|\'ITA\'|\'URD\'|\'VIE\'|\'KOR\'|\'PAN\'|\'ABK\'|\'AAR\'|\'AFR\'|\'AKA\'|\'SQI\'|\'AMH\'|\'ARG\'|\'HYE\'|\'ASM\'|\'AVA\'|\'AVE\'|\'AYM\'|\'AZE\'|\'BAM\'|\'BAK\'|\'EUS\'|\'BEL\'|\'BEN\'|\'BIH\'|\'BIS\'|\'BOS\'|\'BRE\'|\'BUL\'|\'MYA\'|\'CAT\'|\'KHM\'|\'CHA\'|\'CHE\'|\'NYA\'|\'CHU\'|\'CHV\'|\'COR\'|\'COS\'|\'CRE\'|\'HRV\'|\'CES\'|\'DAN\'|\'DIV\'|\'NLD\'|\'DZO\'|\'ENM\'|\'EPO\'|\'EST\'|\'EWE\'|\'FAO\'|\'FIJ\'|\'FIN\'|\'FRM\'|\'FUL\'|\'GLA\'|\'GLG\'|\'LUG\'|\'KAT\'|\'ELL\'|\'GRN\'|\'GUJ\'|\'HAT\'|\'HAU\'|\'HEB\'|\'HER\'|\'HMO\'|\'HUN\'|\'ISL\'|\'IDO\'|\'IBO\'|\'IND\'|\'INA\'|\'ILE\'|\'IKU\'|\'IPK\'|\'GLE\'|\'JAV\'|\'KAL\'|\'KAN\'|\'KAU\'|\'KAS\'|\'KAZ\'|\'KIK\'|\'KIN\'|\'KIR\'|\'KOM\'|\'KON\'|\'KUA\'|\'KUR\'|\'LAO\'|\'LAT\'|\'LAV\'|\'LIM\'|\'LIN\'|\'LIT\'|\'LUB\'|\'LTZ\'|\'MKD\'|\'MLG\'|\'MSA\'|\'MAL\'|\'MLT\'|\'GLV\'|\'MRI\'|\'MAR\'|\'MAH\'|\'MON\'|\'NAU\'|\'NAV\'|\'NDE\'|\'NBL\'|\'NDO\'|\'NEP\'|\'SME\'|\'NOR\'|\'NOB\'|\'NNO\'|\'OCI\'|\'OJI\'|\'ORI\'|\'ORM\'|\'OSS\'|\'PLI\'|\'FAS\'|\'POL\'|\'PUS\'|\'QUE\'|\'QAA\'|\'RON\'|\'ROH\'|\'RUN\'|\'SMO\'|\'SAG\'|\'SAN\'|\'SRD\'|\'SRB\'|\'SNA\'|\'III\'|\'SND\'|\'SIN\'|\'SLK\'|\'SLV\'|\'SOM\'|\'SOT\'|\'SUN\'|\'SWA\'|\'SSW\'|\'SWE\'|\'TGL\'|\'TAH\'|\'TGK\'|\'TAM\'|\'TAT\'|\'TEL\'|\'THA\'|\'BOD\'|\'TIR\'|\'TON\'|\'TSO\'|\'TSN\'|\'TUR\'|\'TUK\'|\'TWI\'|\'UIG\'|\'UKR\'|\'UZB\'|\'VEN\'|\'VOL\'|\'WLN\'|\'CYM\'|\'FRY\'|\'WOL\'|\'XHO\'|\'YID\'|\'YOR\'|\'ZHA\'|\'ZUL\'|\'ORJ\'|\'QPC\'|\'TNG\',
+                                    \'LanguageDescription\': \'string\'
                                 },
                             ],
-                            'ContainerSettings': {
-                                'Container': 'F4V'|'ISMV'|'M2TS'|'M3U8'|'CMFC'|'MOV'|'MP4'|'MPD'|'MXF'|'RAW',
-                                'F4vSettings': {
-                                    'MoovPlacement': 'PROGRESSIVE_DOWNLOAD'|'NORMAL'
+                            \'ContainerSettings\': {
+                                \'Container\': \'F4V\'|\'ISMV\'|\'M2TS\'|\'M3U8\'|\'CMFC\'|\'MOV\'|\'MP4\'|\'MPD\'|\'MXF\'|\'RAW\',
+                                \'F4vSettings\': {
+                                    \'MoovPlacement\': \'PROGRESSIVE_DOWNLOAD\'|\'NORMAL\'
                                 },
-                                'M2tsSettings': {
-                                    'AudioBufferModel': 'DVB'|'ATSC',
-                                    'AudioFramesPerPes': 123,
-                                    'AudioPids': [
+                                \'M2tsSettings\': {
+                                    \'AudioBufferModel\': \'DVB\'|\'ATSC\',
+                                    \'AudioFramesPerPes\': 123,
+                                    \'AudioPids\': [
                                         123,
                                     ],
-                                    'Bitrate': 123,
-                                    'BufferModel': 'MULTIPLEX'|'NONE',
-                                    'DvbNitSettings': {
-                                        'NetworkId': 123,
-                                        'NetworkName': 'string',
-                                        'NitInterval': 123
+                                    \'Bitrate\': 123,
+                                    \'BufferModel\': \'MULTIPLEX\'|\'NONE\',
+                                    \'DvbNitSettings\': {
+                                        \'NetworkId\': 123,
+                                        \'NetworkName\': \'string\',
+                                        \'NitInterval\': 123
                                     },
-                                    'DvbSdtSettings': {
-                                        'OutputSdt': 'SDT_FOLLOW'|'SDT_FOLLOW_IF_PRESENT'|'SDT_MANUAL'|'SDT_NONE',
-                                        'SdtInterval': 123,
-                                        'ServiceName': 'string',
-                                        'ServiceProviderName': 'string'
+                                    \'DvbSdtSettings\': {
+                                        \'OutputSdt\': \'SDT_FOLLOW\'|\'SDT_FOLLOW_IF_PRESENT\'|\'SDT_MANUAL\'|\'SDT_NONE\',
+                                        \'SdtInterval\': 123,
+                                        \'ServiceName\': \'string\',
+                                        \'ServiceProviderName\': \'string\'
                                     },
-                                    'DvbSubPids': [
+                                    \'DvbSubPids\': [
                                         123,
                                     ],
-                                    'DvbTdtSettings': {
-                                        'TdtInterval': 123
+                                    \'DvbTdtSettings\': {
+                                        \'TdtInterval\': 123
                                     },
-                                    'DvbTeletextPid': 123,
-                                    'EbpAudioInterval': 'VIDEO_AND_FIXED_INTERVALS'|'VIDEO_INTERVAL',
-                                    'EbpPlacement': 'VIDEO_AND_AUDIO_PIDS'|'VIDEO_PID',
-                                    'EsRateInPes': 'INCLUDE'|'EXCLUDE',
-                                    'FragmentTime': 123.0,
-                                    'MaxPcrInterval': 123,
-                                    'MinEbpInterval': 123,
-                                    'NielsenId3': 'INSERT'|'NONE',
-                                    'NullPacketBitrate': 123.0,
-                                    'PatInterval': 123,
-                                    'PcrControl': 'PCR_EVERY_PES_PACKET'|'CONFIGURED_PCR_PERIOD',
-                                    'PcrPid': 123,
-                                    'PmtInterval': 123,
-                                    'PmtPid': 123,
-                                    'PrivateMetadataPid': 123,
-                                    'ProgramNumber': 123,
-                                    'RateMode': 'VBR'|'CBR',
-                                    'Scte35Pid': 123,
-                                    'Scte35Source': 'PASSTHROUGH'|'NONE',
-                                    'SegmentationMarkers': 'NONE'|'RAI_SEGSTART'|'RAI_ADAPT'|'PSI_SEGSTART'|'EBP'|'EBP_LEGACY',
-                                    'SegmentationStyle': 'MAINTAIN_CADENCE'|'RESET_CADENCE',
-                                    'SegmentationTime': 123.0,
-                                    'TimedMetadataPid': 123,
-                                    'TransportStreamId': 123,
-                                    'VideoPid': 123
+                                    \'DvbTeletextPid\': 123,
+                                    \'EbpAudioInterval\': \'VIDEO_AND_FIXED_INTERVALS\'|\'VIDEO_INTERVAL\',
+                                    \'EbpPlacement\': \'VIDEO_AND_AUDIO_PIDS\'|\'VIDEO_PID\',
+                                    \'EsRateInPes\': \'INCLUDE\'|\'EXCLUDE\',
+                                    \'FragmentTime\': 123.0,
+                                    \'MaxPcrInterval\': 123,
+                                    \'MinEbpInterval\': 123,
+                                    \'NielsenId3\': \'INSERT\'|\'NONE\',
+                                    \'NullPacketBitrate\': 123.0,
+                                    \'PatInterval\': 123,
+                                    \'PcrControl\': \'PCR_EVERY_PES_PACKET\'|\'CONFIGURED_PCR_PERIOD\',
+                                    \'PcrPid\': 123,
+                                    \'PmtInterval\': 123,
+                                    \'PmtPid\': 123,
+                                    \'PrivateMetadataPid\': 123,
+                                    \'ProgramNumber\': 123,
+                                    \'RateMode\': \'VBR\'|\'CBR\',
+                                    \'Scte35Pid\': 123,
+                                    \'Scte35Source\': \'PASSTHROUGH\'|\'NONE\',
+                                    \'SegmentationMarkers\': \'NONE\'|\'RAI_SEGSTART\'|\'RAI_ADAPT\'|\'PSI_SEGSTART\'|\'EBP\'|\'EBP_LEGACY\',
+                                    \'SegmentationStyle\': \'MAINTAIN_CADENCE\'|\'RESET_CADENCE\',
+                                    \'SegmentationTime\': 123.0,
+                                    \'TimedMetadataPid\': 123,
+                                    \'TransportStreamId\': 123,
+                                    \'VideoPid\': 123
                                 },
-                                'M3u8Settings': {
-                                    'AudioFramesPerPes': 123,
-                                    'AudioPids': [
+                                \'M3u8Settings\': {
+                                    \'AudioFramesPerPes\': 123,
+                                    \'AudioPids\': [
                                         123,
                                     ],
-                                    'NielsenId3': 'INSERT'|'NONE',
-                                    'PatInterval': 123,
-                                    'PcrControl': 'PCR_EVERY_PES_PACKET'|'CONFIGURED_PCR_PERIOD',
-                                    'PcrPid': 123,
-                                    'PmtInterval': 123,
-                                    'PmtPid': 123,
-                                    'PrivateMetadataPid': 123,
-                                    'ProgramNumber': 123,
-                                    'Scte35Pid': 123,
-                                    'Scte35Source': 'PASSTHROUGH'|'NONE',
-                                    'TimedMetadata': 'PASSTHROUGH'|'NONE',
-                                    'TimedMetadataPid': 123,
-                                    'TransportStreamId': 123,
-                                    'VideoPid': 123
+                                    \'NielsenId3\': \'INSERT\'|\'NONE\',
+                                    \'PatInterval\': 123,
+                                    \'PcrControl\': \'PCR_EVERY_PES_PACKET\'|\'CONFIGURED_PCR_PERIOD\',
+                                    \'PcrPid\': 123,
+                                    \'PmtInterval\': 123,
+                                    \'PmtPid\': 123,
+                                    \'PrivateMetadataPid\': 123,
+                                    \'ProgramNumber\': 123,
+                                    \'Scte35Pid\': 123,
+                                    \'Scte35Source\': \'PASSTHROUGH\'|\'NONE\',
+                                    \'TimedMetadata\': \'PASSTHROUGH\'|\'NONE\',
+                                    \'TimedMetadataPid\': 123,
+                                    \'TransportStreamId\': 123,
+                                    \'VideoPid\': 123
                                 },
-                                'MovSettings': {
-                                    'ClapAtom': 'INCLUDE'|'EXCLUDE',
-                                    'CslgAtom': 'INCLUDE'|'EXCLUDE',
-                                    'Mpeg2FourCCControl': 'XDCAM'|'MPEG',
-                                    'PaddingControl': 'OMNEON'|'NONE',
-                                    'Reference': 'SELF_CONTAINED'|'EXTERNAL'
+                                \'MovSettings\': {
+                                    \'ClapAtom\': \'INCLUDE\'|\'EXCLUDE\',
+                                    \'CslgAtom\': \'INCLUDE\'|\'EXCLUDE\',
+                                    \'Mpeg2FourCCControl\': \'XDCAM\'|\'MPEG\',
+                                    \'PaddingControl\': \'OMNEON\'|\'NONE\',
+                                    \'Reference\': \'SELF_CONTAINED\'|\'EXTERNAL\'
                                 },
-                                'Mp4Settings': {
-                                    'CslgAtom': 'INCLUDE'|'EXCLUDE',
-                                    'FreeSpaceBox': 'INCLUDE'|'EXCLUDE',
-                                    'MoovPlacement': 'PROGRESSIVE_DOWNLOAD'|'NORMAL',
-                                    'Mp4MajorBrand': 'string'
+                                \'Mp4Settings\': {
+                                    \'CslgAtom\': \'INCLUDE\'|\'EXCLUDE\',
+                                    \'FreeSpaceBox\': \'INCLUDE\'|\'EXCLUDE\',
+                                    \'MoovPlacement\': \'PROGRESSIVE_DOWNLOAD\'|\'NORMAL\',
+                                    \'Mp4MajorBrand\': \'string\'
                                 }
                             },
-                            'VideoDescription': {
-                                'AfdSignaling': 'NONE'|'AUTO'|'FIXED',
-                                'AntiAlias': 'DISABLED'|'ENABLED',
-                                'CodecSettings': {
-                                    'Codec': 'FRAME_CAPTURE'|'H_264'|'H_265'|'MPEG2'|'PRORES',
-                                    'FrameCaptureSettings': {
-                                        'FramerateDenominator': 123,
-                                        'FramerateNumerator': 123,
-                                        'MaxCaptures': 123,
-                                        'Quality': 123
+                            \'VideoDescription\': {
+                                \'AfdSignaling\': \'NONE\'|\'AUTO\'|\'FIXED\',
+                                \'AntiAlias\': \'DISABLED\'|\'ENABLED\',
+                                \'CodecSettings\': {
+                                    \'Codec\': \'FRAME_CAPTURE\'|\'H_264\'|\'H_265\'|\'MPEG2\'|\'PRORES\',
+                                    \'FrameCaptureSettings\': {
+                                        \'FramerateDenominator\': 123,
+                                        \'FramerateNumerator\': 123,
+                                        \'MaxCaptures\': 123,
+                                        \'Quality\': 123
                                     },
-                                    'H264Settings': {
-                                        'AdaptiveQuantization': 'OFF'|'LOW'|'MEDIUM'|'HIGH'|'HIGHER'|'MAX',
-                                        'Bitrate': 123,
-                                        'CodecLevel': 'AUTO'|'LEVEL_1'|'LEVEL_1_1'|'LEVEL_1_2'|'LEVEL_1_3'|'LEVEL_2'|'LEVEL_2_1'|'LEVEL_2_2'|'LEVEL_3'|'LEVEL_3_1'|'LEVEL_3_2'|'LEVEL_4'|'LEVEL_4_1'|'LEVEL_4_2'|'LEVEL_5'|'LEVEL_5_1'|'LEVEL_5_2',
-                                        'CodecProfile': 'BASELINE'|'HIGH'|'HIGH_10BIT'|'HIGH_422'|'HIGH_422_10BIT'|'MAIN',
-                                        'DynamicSubGop': 'ADAPTIVE'|'STATIC',
-                                        'EntropyEncoding': 'CABAC'|'CAVLC',
-                                        'FieldEncoding': 'PAFF'|'FORCE_FIELD',
-                                        'FlickerAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                        'FramerateDenominator': 123,
-                                        'FramerateNumerator': 123,
-                                        'GopBReference': 'DISABLED'|'ENABLED',
-                                        'GopClosedCadence': 123,
-                                        'GopSize': 123.0,
-                                        'GopSizeUnits': 'FRAMES'|'SECONDS',
-                                        'HrdBufferInitialFillPercentage': 123,
-                                        'HrdBufferSize': 123,
-                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                        'MaxBitrate': 123,
-                                        'MinIInterval': 123,
-                                        'NumberBFramesBetweenReferenceFrames': 123,
-                                        'NumberReferenceFrames': 123,
-                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                        'ParDenominator': 123,
-                                        'ParNumerator': 123,
-                                        'QualityTuningLevel': 'SINGLE_PASS'|'SINGLE_PASS_HQ'|'MULTI_PASS_HQ',
-                                        'QvbrSettings': {
-                                            'MaxAverageBitrate': 123,
-                                            'QvbrQualityLevel': 123
+                                    \'H264Settings\': {
+                                        \'AdaptiveQuantization\': \'OFF\'|\'LOW\'|\'MEDIUM\'|\'HIGH\'|\'HIGHER\'|\'MAX\',
+                                        \'Bitrate\': 123,
+                                        \'CodecLevel\': \'AUTO\'|\'LEVEL_1\'|\'LEVEL_1_1\'|\'LEVEL_1_2\'|\'LEVEL_1_3\'|\'LEVEL_2\'|\'LEVEL_2_1\'|\'LEVEL_2_2\'|\'LEVEL_3\'|\'LEVEL_3_1\'|\'LEVEL_3_2\'|\'LEVEL_4\'|\'LEVEL_4_1\'|\'LEVEL_4_2\'|\'LEVEL_5\'|\'LEVEL_5_1\'|\'LEVEL_5_2\',
+                                        \'CodecProfile\': \'BASELINE\'|\'HIGH\'|\'HIGH_10BIT\'|\'HIGH_422\'|\'HIGH_422_10BIT\'|\'MAIN\',
+                                        \'DynamicSubGop\': \'ADAPTIVE\'|\'STATIC\',
+                                        \'EntropyEncoding\': \'CABAC\'|\'CAVLC\',
+                                        \'FieldEncoding\': \'PAFF\'|\'FORCE_FIELD\',
+                                        \'FlickerAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                        \'FramerateDenominator\': 123,
+                                        \'FramerateNumerator\': 123,
+                                        \'GopBReference\': \'DISABLED\'|\'ENABLED\',
+                                        \'GopClosedCadence\': 123,
+                                        \'GopSize\': 123.0,
+                                        \'GopSizeUnits\': \'FRAMES\'|\'SECONDS\',
+                                        \'HrdBufferInitialFillPercentage\': 123,
+                                        \'HrdBufferSize\': 123,
+                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                        \'MaxBitrate\': 123,
+                                        \'MinIInterval\': 123,
+                                        \'NumberBFramesBetweenReferenceFrames\': 123,
+                                        \'NumberReferenceFrames\': 123,
+                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                        \'ParDenominator\': 123,
+                                        \'ParNumerator\': 123,
+                                        \'QualityTuningLevel\': \'SINGLE_PASS\'|\'SINGLE_PASS_HQ\'|\'MULTI_PASS_HQ\',
+                                        \'QvbrSettings\': {
+                                            \'MaxAverageBitrate\': 123,
+                                            \'QvbrQualityLevel\': 123
                                         },
-                                        'RateControlMode': 'VBR'|'CBR'|'QVBR',
-                                        'RepeatPps': 'DISABLED'|'ENABLED',
-                                        'SceneChangeDetect': 'DISABLED'|'ENABLED',
-                                        'Slices': 123,
-                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                        'Softness': 123,
-                                        'SpatialAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                        'Syntax': 'DEFAULT'|'RP2027',
-                                        'Telecine': 'NONE'|'SOFT'|'HARD',
-                                        'TemporalAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                        'UnregisteredSeiTimecode': 'DISABLED'|'ENABLED'
+                                        \'RateControlMode\': \'VBR\'|\'CBR\'|\'QVBR\',
+                                        \'RepeatPps\': \'DISABLED\'|\'ENABLED\',
+                                        \'SceneChangeDetect\': \'DISABLED\'|\'ENABLED\',
+                                        \'Slices\': 123,
+                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                        \'Softness\': 123,
+                                        \'SpatialAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                        \'Syntax\': \'DEFAULT\'|\'RP2027\',
+                                        \'Telecine\': \'NONE\'|\'SOFT\'|\'HARD\',
+                                        \'TemporalAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                        \'UnregisteredSeiTimecode\': \'DISABLED\'|\'ENABLED\'
                                     },
-                                    'H265Settings': {
-                                        'AdaptiveQuantization': 'OFF'|'LOW'|'MEDIUM'|'HIGH'|'HIGHER'|'MAX',
-                                        'AlternateTransferFunctionSei': 'DISABLED'|'ENABLED',
-                                        'Bitrate': 123,
-                                        'CodecLevel': 'AUTO'|'LEVEL_1'|'LEVEL_2'|'LEVEL_2_1'|'LEVEL_3'|'LEVEL_3_1'|'LEVEL_4'|'LEVEL_4_1'|'LEVEL_5'|'LEVEL_5_1'|'LEVEL_5_2'|'LEVEL_6'|'LEVEL_6_1'|'LEVEL_6_2',
-                                        'CodecProfile': 'MAIN_MAIN'|'MAIN_HIGH'|'MAIN10_MAIN'|'MAIN10_HIGH'|'MAIN_422_8BIT_MAIN'|'MAIN_422_8BIT_HIGH'|'MAIN_422_10BIT_MAIN'|'MAIN_422_10BIT_HIGH',
-                                        'DynamicSubGop': 'ADAPTIVE'|'STATIC',
-                                        'FlickerAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                        'FramerateDenominator': 123,
-                                        'FramerateNumerator': 123,
-                                        'GopBReference': 'DISABLED'|'ENABLED',
-                                        'GopClosedCadence': 123,
-                                        'GopSize': 123.0,
-                                        'GopSizeUnits': 'FRAMES'|'SECONDS',
-                                        'HrdBufferInitialFillPercentage': 123,
-                                        'HrdBufferSize': 123,
-                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                        'MaxBitrate': 123,
-                                        'MinIInterval': 123,
-                                        'NumberBFramesBetweenReferenceFrames': 123,
-                                        'NumberReferenceFrames': 123,
-                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                        'ParDenominator': 123,
-                                        'ParNumerator': 123,
-                                        'QualityTuningLevel': 'SINGLE_PASS'|'SINGLE_PASS_HQ'|'MULTI_PASS_HQ',
-                                        'QvbrSettings': {
-                                            'MaxAverageBitrate': 123,
-                                            'QvbrQualityLevel': 123
+                                    \'H265Settings\': {
+                                        \'AdaptiveQuantization\': \'OFF\'|\'LOW\'|\'MEDIUM\'|\'HIGH\'|\'HIGHER\'|\'MAX\',
+                                        \'AlternateTransferFunctionSei\': \'DISABLED\'|\'ENABLED\',
+                                        \'Bitrate\': 123,
+                                        \'CodecLevel\': \'AUTO\'|\'LEVEL_1\'|\'LEVEL_2\'|\'LEVEL_2_1\'|\'LEVEL_3\'|\'LEVEL_3_1\'|\'LEVEL_4\'|\'LEVEL_4_1\'|\'LEVEL_5\'|\'LEVEL_5_1\'|\'LEVEL_5_2\'|\'LEVEL_6\'|\'LEVEL_6_1\'|\'LEVEL_6_2\',
+                                        \'CodecProfile\': \'MAIN_MAIN\'|\'MAIN_HIGH\'|\'MAIN10_MAIN\'|\'MAIN10_HIGH\'|\'MAIN_422_8BIT_MAIN\'|\'MAIN_422_8BIT_HIGH\'|\'MAIN_422_10BIT_MAIN\'|\'MAIN_422_10BIT_HIGH\',
+                                        \'DynamicSubGop\': \'ADAPTIVE\'|\'STATIC\',
+                                        \'FlickerAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                        \'FramerateDenominator\': 123,
+                                        \'FramerateNumerator\': 123,
+                                        \'GopBReference\': \'DISABLED\'|\'ENABLED\',
+                                        \'GopClosedCadence\': 123,
+                                        \'GopSize\': 123.0,
+                                        \'GopSizeUnits\': \'FRAMES\'|\'SECONDS\',
+                                        \'HrdBufferInitialFillPercentage\': 123,
+                                        \'HrdBufferSize\': 123,
+                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                        \'MaxBitrate\': 123,
+                                        \'MinIInterval\': 123,
+                                        \'NumberBFramesBetweenReferenceFrames\': 123,
+                                        \'NumberReferenceFrames\': 123,
+                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                        \'ParDenominator\': 123,
+                                        \'ParNumerator\': 123,
+                                        \'QualityTuningLevel\': \'SINGLE_PASS\'|\'SINGLE_PASS_HQ\'|\'MULTI_PASS_HQ\',
+                                        \'QvbrSettings\': {
+                                            \'MaxAverageBitrate\': 123,
+                                            \'QvbrQualityLevel\': 123
                                         },
-                                        'RateControlMode': 'VBR'|'CBR'|'QVBR',
-                                        'SampleAdaptiveOffsetFilterMode': 'DEFAULT'|'ADAPTIVE'|'OFF',
-                                        'SceneChangeDetect': 'DISABLED'|'ENABLED',
-                                        'Slices': 123,
-                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                        'SpatialAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                        'Telecine': 'NONE'|'SOFT'|'HARD',
-                                        'TemporalAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                        'TemporalIds': 'DISABLED'|'ENABLED',
-                                        'Tiles': 'DISABLED'|'ENABLED',
-                                        'UnregisteredSeiTimecode': 'DISABLED'|'ENABLED',
-                                        'WriteMp4PackagingType': 'HVC1'|'HEV1'
+                                        \'RateControlMode\': \'VBR\'|\'CBR\'|\'QVBR\',
+                                        \'SampleAdaptiveOffsetFilterMode\': \'DEFAULT\'|\'ADAPTIVE\'|\'OFF\',
+                                        \'SceneChangeDetect\': \'DISABLED\'|\'ENABLED\',
+                                        \'Slices\': 123,
+                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                        \'SpatialAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                        \'Telecine\': \'NONE\'|\'SOFT\'|\'HARD\',
+                                        \'TemporalAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                        \'TemporalIds\': \'DISABLED\'|\'ENABLED\',
+                                        \'Tiles\': \'DISABLED\'|\'ENABLED\',
+                                        \'UnregisteredSeiTimecode\': \'DISABLED\'|\'ENABLED\',
+                                        \'WriteMp4PackagingType\': \'HVC1\'|\'HEV1\'
                                     },
-                                    'Mpeg2Settings': {
-                                        'AdaptiveQuantization': 'OFF'|'LOW'|'MEDIUM'|'HIGH',
-                                        'Bitrate': 123,
-                                        'CodecLevel': 'AUTO'|'LOW'|'MAIN'|'HIGH1440'|'HIGH',
-                                        'CodecProfile': 'MAIN'|'PROFILE_422',
-                                        'DynamicSubGop': 'ADAPTIVE'|'STATIC',
-                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                        'FramerateDenominator': 123,
-                                        'FramerateNumerator': 123,
-                                        'GopClosedCadence': 123,
-                                        'GopSize': 123.0,
-                                        'GopSizeUnits': 'FRAMES'|'SECONDS',
-                                        'HrdBufferInitialFillPercentage': 123,
-                                        'HrdBufferSize': 123,
-                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                        'IntraDcPrecision': 'AUTO'|'INTRA_DC_PRECISION_8'|'INTRA_DC_PRECISION_9'|'INTRA_DC_PRECISION_10'|'INTRA_DC_PRECISION_11',
-                                        'MaxBitrate': 123,
-                                        'MinIInterval': 123,
-                                        'NumberBFramesBetweenReferenceFrames': 123,
-                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                        'ParDenominator': 123,
-                                        'ParNumerator': 123,
-                                        'QualityTuningLevel': 'SINGLE_PASS'|'MULTI_PASS',
-                                        'RateControlMode': 'VBR'|'CBR',
-                                        'SceneChangeDetect': 'DISABLED'|'ENABLED',
-                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                        'Softness': 123,
-                                        'SpatialAdaptiveQuantization': 'DISABLED'|'ENABLED',
-                                        'Syntax': 'DEFAULT'|'D_10',
-                                        'Telecine': 'NONE'|'SOFT'|'HARD',
-                                        'TemporalAdaptiveQuantization': 'DISABLED'|'ENABLED'
+                                    \'Mpeg2Settings\': {
+                                        \'AdaptiveQuantization\': \'OFF\'|\'LOW\'|\'MEDIUM\'|\'HIGH\',
+                                        \'Bitrate\': 123,
+                                        \'CodecLevel\': \'AUTO\'|\'LOW\'|\'MAIN\'|\'HIGH1440\'|\'HIGH\',
+                                        \'CodecProfile\': \'MAIN\'|\'PROFILE_422\',
+                                        \'DynamicSubGop\': \'ADAPTIVE\'|\'STATIC\',
+                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                        \'FramerateDenominator\': 123,
+                                        \'FramerateNumerator\': 123,
+                                        \'GopClosedCadence\': 123,
+                                        \'GopSize\': 123.0,
+                                        \'GopSizeUnits\': \'FRAMES\'|\'SECONDS\',
+                                        \'HrdBufferInitialFillPercentage\': 123,
+                                        \'HrdBufferSize\': 123,
+                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                        \'IntraDcPrecision\': \'AUTO\'|\'INTRA_DC_PRECISION_8\'|\'INTRA_DC_PRECISION_9\'|\'INTRA_DC_PRECISION_10\'|\'INTRA_DC_PRECISION_11\',
+                                        \'MaxBitrate\': 123,
+                                        \'MinIInterval\': 123,
+                                        \'NumberBFramesBetweenReferenceFrames\': 123,
+                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                        \'ParDenominator\': 123,
+                                        \'ParNumerator\': 123,
+                                        \'QualityTuningLevel\': \'SINGLE_PASS\'|\'MULTI_PASS\',
+                                        \'RateControlMode\': \'VBR\'|\'CBR\',
+                                        \'SceneChangeDetect\': \'DISABLED\'|\'ENABLED\',
+                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                        \'Softness\': 123,
+                                        \'SpatialAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\',
+                                        \'Syntax\': \'DEFAULT\'|\'D_10\',
+                                        \'Telecine\': \'NONE\'|\'SOFT\'|\'HARD\',
+                                        \'TemporalAdaptiveQuantization\': \'DISABLED\'|\'ENABLED\'
                                     },
-                                    'ProresSettings': {
-                                        'CodecProfile': 'APPLE_PRORES_422'|'APPLE_PRORES_422_HQ'|'APPLE_PRORES_422_LT'|'APPLE_PRORES_422_PROXY',
-                                        'FramerateControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                        'FramerateConversionAlgorithm': 'DUPLICATE_DROP'|'INTERPOLATE',
-                                        'FramerateDenominator': 123,
-                                        'FramerateNumerator': 123,
-                                        'InterlaceMode': 'PROGRESSIVE'|'TOP_FIELD'|'BOTTOM_FIELD'|'FOLLOW_TOP_FIELD'|'FOLLOW_BOTTOM_FIELD',
-                                        'ParControl': 'INITIALIZE_FROM_SOURCE'|'SPECIFIED',
-                                        'ParDenominator': 123,
-                                        'ParNumerator': 123,
-                                        'SlowPal': 'DISABLED'|'ENABLED',
-                                        'Telecine': 'NONE'|'HARD'
+                                    \'ProresSettings\': {
+                                        \'CodecProfile\': \'APPLE_PRORES_422\'|\'APPLE_PRORES_422_HQ\'|\'APPLE_PRORES_422_LT\'|\'APPLE_PRORES_422_PROXY\',
+                                        \'FramerateControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                        \'FramerateConversionAlgorithm\': \'DUPLICATE_DROP\'|\'INTERPOLATE\',
+                                        \'FramerateDenominator\': 123,
+                                        \'FramerateNumerator\': 123,
+                                        \'InterlaceMode\': \'PROGRESSIVE\'|\'TOP_FIELD\'|\'BOTTOM_FIELD\'|\'FOLLOW_TOP_FIELD\'|\'FOLLOW_BOTTOM_FIELD\',
+                                        \'ParControl\': \'INITIALIZE_FROM_SOURCE\'|\'SPECIFIED\',
+                                        \'ParDenominator\': 123,
+                                        \'ParNumerator\': 123,
+                                        \'SlowPal\': \'DISABLED\'|\'ENABLED\',
+                                        \'Telecine\': \'NONE\'|\'HARD\'
                                     }
                                 },
-                                'ColorMetadata': 'IGNORE'|'INSERT',
-                                'Crop': {
-                                    'Height': 123,
-                                    'Width': 123,
-                                    'X': 123,
-                                    'Y': 123
+                                \'ColorMetadata\': \'IGNORE\'|\'INSERT\',
+                                \'Crop\': {
+                                    \'Height\': 123,
+                                    \'Width\': 123,
+                                    \'X\': 123,
+                                    \'Y\': 123
                                 },
-                                'DropFrameTimecode': 'DISABLED'|'ENABLED',
-                                'FixedAfd': 123,
-                                'Height': 123,
-                                'Position': {
-                                    'Height': 123,
-                                    'Width': 123,
-                                    'X': 123,
-                                    'Y': 123
+                                \'DropFrameTimecode\': \'DISABLED\'|\'ENABLED\',
+                                \'FixedAfd\': 123,
+                                \'Height\': 123,
+                                \'Position\': {
+                                    \'Height\': 123,
+                                    \'Width\': 123,
+                                    \'X\': 123,
+                                    \'Y\': 123
                                 },
-                                'RespondToAfd': 'NONE'|'RESPOND'|'PASSTHROUGH',
-                                'ScalingBehavior': 'DEFAULT'|'STRETCH_TO_OUTPUT',
-                                'Sharpness': 123,
-                                'TimecodeInsertion': 'DISABLED'|'PIC_TIMING_SEI',
-                                'VideoPreprocessors': {
-                                    'ColorCorrector': {
-                                        'Brightness': 123,
-                                        'ColorSpaceConversion': 'NONE'|'FORCE_601'|'FORCE_709'|'FORCE_HDR10'|'FORCE_HLG_2020',
-                                        'Contrast': 123,
-                                        'Hdr10Metadata': {
-                                            'BluePrimaryX': 123,
-                                            'BluePrimaryY': 123,
-                                            'GreenPrimaryX': 123,
-                                            'GreenPrimaryY': 123,
-                                            'MaxContentLightLevel': 123,
-                                            'MaxFrameAverageLightLevel': 123,
-                                            'MaxLuminance': 123,
-                                            'MinLuminance': 123,
-                                            'RedPrimaryX': 123,
-                                            'RedPrimaryY': 123,
-                                            'WhitePointX': 123,
-                                            'WhitePointY': 123
+                                \'RespondToAfd\': \'NONE\'|\'RESPOND\'|\'PASSTHROUGH\',
+                                \'ScalingBehavior\': \'DEFAULT\'|\'STRETCH_TO_OUTPUT\',
+                                \'Sharpness\': 123,
+                                \'TimecodeInsertion\': \'DISABLED\'|\'PIC_TIMING_SEI\',
+                                \'VideoPreprocessors\': {
+                                    \'ColorCorrector\': {
+                                        \'Brightness\': 123,
+                                        \'ColorSpaceConversion\': \'NONE\'|\'FORCE_601\'|\'FORCE_709\'|\'FORCE_HDR10\'|\'FORCE_HLG_2020\',
+                                        \'Contrast\': 123,
+                                        \'Hdr10Metadata\': {
+                                            \'BluePrimaryX\': 123,
+                                            \'BluePrimaryY\': 123,
+                                            \'GreenPrimaryX\': 123,
+                                            \'GreenPrimaryY\': 123,
+                                            \'MaxContentLightLevel\': 123,
+                                            \'MaxFrameAverageLightLevel\': 123,
+                                            \'MaxLuminance\': 123,
+                                            \'MinLuminance\': 123,
+                                            \'RedPrimaryX\': 123,
+                                            \'RedPrimaryY\': 123,
+                                            \'WhitePointX\': 123,
+                                            \'WhitePointY\': 123
                                         },
-                                        'Hue': 123,
-                                        'Saturation': 123
+                                        \'Hue\': 123,
+                                        \'Saturation\': 123
                                     },
-                                    'Deinterlacer': {
-                                        'Algorithm': 'INTERPOLATE'|'INTERPOLATE_TICKER'|'BLEND'|'BLEND_TICKER',
-                                        'Control': 'FORCE_ALL_FRAMES'|'NORMAL',
-                                        'Mode': 'DEINTERLACE'|'INVERSE_TELECINE'|'ADAPTIVE'
+                                    \'Deinterlacer\': {
+                                        \'Algorithm\': \'INTERPOLATE\'|\'INTERPOLATE_TICKER\'|\'BLEND\'|\'BLEND_TICKER\',
+                                        \'Control\': \'FORCE_ALL_FRAMES\'|\'NORMAL\',
+                                        \'Mode\': \'DEINTERLACE\'|\'INVERSE_TELECINE\'|\'ADAPTIVE\'
                                     },
-                                    'ImageInserter': {
-                                        'InsertableImages': [
+                                    \'ImageInserter\': {
+                                        \'InsertableImages\': [
                                             {
-                                                'Duration': 123,
-                                                'FadeIn': 123,
-                                                'FadeOut': 123,
-                                                'Height': 123,
-                                                'ImageInserterInput': 'string',
-                                                'ImageX': 123,
-                                                'ImageY': 123,
-                                                'Layer': 123,
-                                                'Opacity': 123,
-                                                'StartTime': 'string',
-                                                'Width': 123
+                                                \'Duration\': 123,
+                                                \'FadeIn\': 123,
+                                                \'FadeOut\': 123,
+                                                \'Height\': 123,
+                                                \'ImageInserterInput\': \'string\',
+                                                \'ImageX\': 123,
+                                                \'ImageY\': 123,
+                                                \'Layer\': 123,
+                                                \'Opacity\': 123,
+                                                \'StartTime\': \'string\',
+                                                \'Width\': 123
                                             },
                                         ]
                                     },
-                                    'NoiseReducer': {
-                                        'Filter': 'BILATERAL'|'MEAN'|'GAUSSIAN'|'LANCZOS'|'SHARPEN'|'CONSERVE'|'SPATIAL',
-                                        'FilterSettings': {
-                                            'Strength': 123
+                                    \'NoiseReducer\': {
+                                        \'Filter\': \'BILATERAL\'|\'MEAN\'|\'GAUSSIAN\'|\'LANCZOS\'|\'SHARPEN\'|\'CONSERVE\'|\'SPATIAL\',
+                                        \'FilterSettings\': {
+                                            \'Strength\': 123
                                         },
-                                        'SpatialFilterSettings': {
-                                            'PostFilterSharpenStrength': 123,
-                                            'Speed': 123,
-                                            'Strength': 123
+                                        \'SpatialFilterSettings\': {
+                                            \'PostFilterSharpenStrength\': 123,
+                                            \'Speed\': 123,
+                                            \'Strength\': 123
                                         }
                                     },
-                                    'TimecodeBurnin': {
-                                        'FontSize': 123,
-                                        'Position': 'TOP_CENTER'|'TOP_LEFT'|'TOP_RIGHT'|'MIDDLE_LEFT'|'MIDDLE_CENTER'|'MIDDLE_RIGHT'|'BOTTOM_LEFT'|'BOTTOM_CENTER'|'BOTTOM_RIGHT',
-                                        'Prefix': 'string'
+                                    \'TimecodeBurnin\': {
+                                        \'FontSize\': 123,
+                                        \'Position\': \'TOP_CENTER\'|\'TOP_LEFT\'|\'TOP_RIGHT\'|\'MIDDLE_LEFT\'|\'MIDDLE_CENTER\'|\'MIDDLE_RIGHT\'|\'BOTTOM_LEFT\'|\'BOTTOM_CENTER\'|\'BOTTOM_RIGHT\',
+                                        \'Prefix\': \'string\'
                                     }
                                 },
-                                'Width': 123
+                                \'Width\': 123
                             }
                         },
-                        'Type': 'SYSTEM'|'CUSTOM'
+                        \'Type\': \'SYSTEM\'|\'CUSTOM\'
                     },
                 ]
             }
@@ -4860,13 +4860,13 @@ class ListPresets(Paginator):
                         
                         - **CorrectionGateLevel** *(integer) --* Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected. Gating only applies when not using real_time_correction.
                         
-                        - **LoudnessLogging** *(string) --* If set to LOG, log each output's audio track loudness to a CSV file.
+                        - **LoudnessLogging** *(string) --* If set to LOG, log each output\'s audio track loudness to a CSV file.
                         
-                        - **PeakCalculation** *(string) --* If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
+                        - **PeakCalculation** *(string) --* If set to TRUE_PEAK, calculate and log the TruePeak for each output\'s audio track loudness.
                         
                         - **TargetLkfs** *(float) --* Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm. The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
                     
-                      - **AudioSourceName** *(string) --* Specifies which audio data to use from each input. In the simplest case, specify an "Audio Selector":#inputs-audio_selector by name based on its order within each input. For example if you specify "Audio Selector 3", then the third audio selector will be used from each input. If an input does not have an "Audio Selector 3", then the audio selector marked as "default" in that input will be used. If there is no audio selector marked as "default", silence will be inserted for the duration of that input. Alternatively, an "Audio Selector Group":#inputs-audio_selector_group name may be specified, with similar default/silence behavior. If no audio_source_name is specified, then "Audio Selector 1" will be chosen automatically.
+                      - **AudioSourceName** *(string) --* Specifies which audio data to use from each input. In the simplest case, specify an \"Audio Selector\":#inputs-audio_selector by name based on its order within each input. For example if you specify \"Audio Selector 3\", then the third audio selector will be used from each input. If an input does not have an \"Audio Selector 3\", then the audio selector marked as \"default\" in that input will be used. If there is no audio selector marked as \"default\", silence will be inserted for the duration of that input. Alternatively, an \"Audio Selector Group\":#inputs-audio_selector_group name may be specified, with similar default/silence behavior. If no audio_source_name is specified, then \"Audio Selector 1\" will be chosen automatically.
                       
                       - **AudioType** *(integer) --* Applies only if Follow Input Audio Type is unchecked (false). A number between 0 and 255. The following are defined in ISO-IEC 13818-1: 0 = Undefined, 1 = Clean Effects, 2 = Hearing Impaired, 3 = Visually Impaired Commentary, 4-255 = Reserved.
                       
@@ -4874,19 +4874,19 @@ class ListPresets(Paginator):
                       
                       - **CodecSettings** *(dict) --* Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value you choose for Audio codec (Codec). For each codec enum you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings
                         
-                        - **AacSettings** *(dict) --* Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR". In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
+                        - **AacSettings** *(dict) --* Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to \"VBR\" or \"CBR\". In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
                           
-                          - **AudioDescriptionBroadcasterMix** *(string) --* Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
+                          - **AudioDescriptionBroadcasterMix** *(string) --* Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains \"broadcaster mixed AD\". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
                           
                           - **Bitrate** *(integer) --* Average bitrate in bits/second. Defaults and valid values depend on rate control mode and profile.
                           
                           - **CodecProfile** *(string) --* AAC Profile.
                           
-                          - **CodingMode** *(string) --* Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. "1.0 - Audio Description (Receiver Mix)" setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
+                          - **CodingMode** *(string) --* Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. \"1.0 - Audio Description (Receiver Mix)\" setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
                           
                           - **RateControlMode** *(string) --* Rate Control Mode.
                           
-                          - **RawFormat** *(string) --* Enables LATM/LOAS AAC output. Note that if you use LATM/LOAS AAC in an output, you must choose "No container" for the output container.
+                          - **RawFormat** *(string) --* Enables LATM/LOAS AAC output. Note that if you use LATM/LOAS AAC in an output, you must choose \"No container\" for the output container.
                           
                           - **SampleRate** *(integer) --* Sample rate in Hz. Valid values depend on rate control mode and profile.
                           
@@ -4898,7 +4898,7 @@ class ListPresets(Paginator):
                           
                           - **Bitrate** *(integer) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                           
-                          - **BitstreamMode** *(string) --* Specifies the "Bitstream Mode" (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
+                          - **BitstreamMode** *(string) --* Specifies the \"Bitstream Mode\" (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
                           
                           - **CodingMode** *(string) --* Dolby Digital coding mode. Determines number of channels.
                           
@@ -4928,7 +4928,7 @@ class ListPresets(Paginator):
                           
                           - **Bitrate** *(integer) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                           
-                          - **BitstreamMode** *(string) --* Specifies the "Bitstream Mode" (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
+                          - **BitstreamMode** *(string) --* Specifies the \"Bitstream Mode\" (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
                           
                           - **CodingMode** *(string) --* Dolby Digital Plus coding mode. Determines number of channels.
                           
@@ -4984,11 +4984,11 @@ class ListPresets(Paginator):
                           
                           - **SampleRate** *(integer) --* Sample rate in Hz.
                       
-                      - **CustomLanguageCode** *(string) --* Specify the language for this audio output track, using the ISO 639-2 or ISO 639-3 three-letter language code. The language specified will be used when 'Follow Input Language Code' is not selected or when 'Follow Input Language Code' is selected but there is no ISO 639 language code specified by the input.
+                      - **CustomLanguageCode** *(string) --* Specify the language for this audio output track, using the ISO 639-2 or ISO 639-3 three-letter language code. The language specified will be used when \'Follow Input Language Code\' is not selected or when \'Follow Input Language Code\' is selected but there is no ISO 639 language code specified by the input.
                       
-                      - **LanguageCode** *(string) --* Indicates the language of the audio output track. The ISO 639 language specified in the 'Language Code' drop down will be used when 'Follow Input Language Code' is not selected or when 'Follow Input Language Code' is selected but there is no ISO 639 language code specified by the input.
+                      - **LanguageCode** *(string) --* Indicates the language of the audio output track. The ISO 639 language specified in the \'Language Code\' drop down will be used when \'Follow Input Language Code\' is not selected or when \'Follow Input Language Code\' is selected but there is no ISO 639 language code specified by the input.
                       
-                      - **LanguageCodeControl** *(string) --* Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The language specified for languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT is selected but there is no ISO 639 language code specified by the input.
+                      - **LanguageCodeControl** *(string) --* Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The language specified for languageCode\' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT is selected but there is no ISO 639 language code specified by the input.
                       
                       - **RemixSettings** *(dict) --* Advanced audio remixing settings.
                         
@@ -5134,7 +5134,7 @@ class ListPresets(Paginator):
                     
                       - **DvbSdtSettings** *(dict) --* Inserts DVB Service Description Table (NIT) at the specified table repetition interval.
                         
-                        - **OutputSdt** *(string) --* Selects method of inserting SDT information into output stream. "Follow input SDT" copies SDT information from input stream to output stream. "Follow input SDT if present" copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT Manually" means user will enter the SDT information. "No SDT" means output stream will not contain SDT information.
+                        - **OutputSdt** *(string) --* Selects method of inserting SDT information into output stream. \"Follow input SDT\" copies SDT information from input stream to output stream. \"Follow input SDT if present\" copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter \"SDT Manually\" means user will enter the SDT information. \"No SDT\" means output stream will not contain SDT information.
                         
                         - **SdtInterval** *(integer) --* The number of milliseconds between instances of this table in the output transport stream.
                         
@@ -5162,7 +5162,7 @@ class ListPresets(Paginator):
                       
                       - **MaxPcrInterval** *(integer) --* Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
                       
-                      - **MinEbpInterval** *(integer) --* When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
+                      - **MinEbpInterval** *(integer) --* When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is \"stretched\" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
                       
                       - **NielsenId3** *(string) --* If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
                       
@@ -5190,7 +5190,7 @@ class ListPresets(Paginator):
                       
                       - **SegmentationMarkers** *(string) --* Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
                       
-                      - **SegmentationStyle** *(string) --* The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of "reset_cadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of "maintain_cadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
+                      - **SegmentationStyle** *(string) --* The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of \"reset_cadence\" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of \"maintain_cadence\" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
                       
                       - **SegmentationTime** *(float) --* The length in seconds of each segment. Required unless markers is set to _none_.
                       
@@ -5238,25 +5238,25 @@ class ListPresets(Paginator):
                   
                     - **MovSettings** *(dict) --* Settings for MOV Container.
                       
-                      - **ClapAtom** *(string) --* When enabled, include 'clap' atom if appropriate for the video output settings.
+                      - **ClapAtom** *(string) --* When enabled, include \'clap\' atom if appropriate for the video output settings.
                       
-                      - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+                      - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the \'ctts\' (composition time to sample) box for B-frames will be negative, and a \'cslg\' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
                       
                       - **Mpeg2FourCCControl** *(string) --* When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
                       
                       - **PaddingControl** *(string) --* If set to OMNEON, inserts Omneon-compatible padding
                       
-                      - **Reference** *(string) --* A value of 'external' creates separate media files and the wrapper file (.mov) contains references to these media files. A value of 'self_contained' creates only a wrapper (.mov) file and this file contains all of the media.
+                      - **Reference** *(string) --* A value of \'external\' creates separate media files and the wrapper file (.mov) contains references to these media files. A value of \'self_contained\' creates only a wrapper (.mov) file and this file contains all of the media.
                   
                     - **Mp4Settings** *(dict) --* Settings for MP4 Container
                       
-                      - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+                      - **CslgAtom** *(string) --* When enabled, file composition times will start at zero, composition times in the \'ctts\' (composition time to sample) box for B-frames will be negative, and a \'cslg\' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
                       
                       - **FreeSpaceBox** *(string) --* Inserts a free-space box immediately after the moov box.
                       
                       - **MoovPlacement** *(string) --* If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
                       
-                      - **Mp4MajorBrand** *(string) --* Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
+                      - **Mp4MajorBrand** *(string) --* Overrides the \"Major Brand\" field in the output file. Usually not necessary to specify.
                   
                   - **VideoDescription** *(dict) --* (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
                     
@@ -5294,7 +5294,7 @@ class ListPresets(Paginator):
                         
                         - **FieldEncoding** *(string) --* Choosing FORCE_FIELD disables PAFF encoding for interlaced outputs.
                         
-                        - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+                        - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or \'pop\' on I-frames.
                         
                         - **FramerateControl** *(string) --* If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.
                         
@@ -5316,7 +5316,7 @@ class ListPresets(Paginator):
                         
                         - **HrdBufferSize** *(integer) --* Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
                         
-                        - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type, as follows. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                        - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type, as follows. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                         
                         - **MaxBitrate** *(integer) --* Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
                         
@@ -5334,7 +5334,7 @@ class ListPresets(Paginator):
                         
                         - **QualityTuningLevel** *(string) --* Use Quality tuning level (H264QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality singlepass, or high-quality multipass video encoding.
                         
-                        - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
+                        - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don\'t define Rate control mode.
                           
                           - **MaxAverageBitrate** *(integer) --* Use this setting only when Rate control mode is QVBR and Quality tuning level is Multi-pass HQ. For Max average bitrate values suited to the complexity of your input video, the service limits the average bitrate of the video part of this output to the value you choose. That is, the total size of the video element is less than or equal to the value you set multiplied by the number of seconds of encoded output.
                           
@@ -5372,11 +5372,11 @@ class ListPresets(Paginator):
                         
                         - **CodecLevel** *(string) --* H.265 Level.
                         
-                        - **CodecProfile** *(string) --* Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] / [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC 4:2:2 License.
+                        - **CodecProfile** *(string) --* Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] / [Tier], so \"Main/High\" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC 4:2:2 License.
                         
                         - **DynamicSubGop** *(string) --* Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
                         
-                        - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+                        - **FlickerAdaptiveQuantization** *(string) --* Adjust quantization within each frame to reduce flicker or \'pop\' on I-frames.
                         
                         - **FramerateControl** *(string) --* If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.
                         
@@ -5398,7 +5398,7 @@ class ListPresets(Paginator):
                         
                         - **HrdBufferSize** *(integer) --* Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
                         
-                        - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                        - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                         
                         - **MaxBitrate** *(integer) --* Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
                         
@@ -5416,7 +5416,7 @@ class ListPresets(Paginator):
                         
                         - **QualityTuningLevel** *(string) --* Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality singlepass, or high-quality multipass video encoding.
                         
-                        - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
+                        - **QvbrSettings** *(dict) --* Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don\'t define Rate control mode.
                           
                           - **MaxAverageBitrate** *(integer) --* Use this setting only when Rate control mode is QVBR and Quality tuning level is Multi-pass HQ. For Max average bitrate values suited to the complexity of your input video, the service limits the average bitrate of the video part of this output to the value you choose. That is, the total size of the video element is less than or equal to the value you set multiplied by the number of seconds of encoded output.
                           
@@ -5476,7 +5476,7 @@ class ListPresets(Paginator):
                         
                         - **HrdBufferSize** *(integer) --* Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
                         
-                        - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                        - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                         
                         - **IntraDcPrecision** *(string) --* Use Intra DC precision (Mpeg2IntraDcPrecision) to set quantization precision for intra-block DC coefficients. If you choose the value auto, the service will automatically select the precision based on the per-frame compression ratio.
                         
@@ -5522,7 +5522,7 @@ class ListPresets(Paginator):
                         
                         - **FramerateNumerator** *(integer) --* When you use the API for transcode jobs that use framerate conversion, specify the framerate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator.
                         
-                        - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+                        - **InterlaceMode** *(string) --* Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of \"top field first\" and \"bottom field first\". - If the source is progressive, the output will be interlaced with \"top field first\" or \"bottom field first\" polarity, depending on which of the Follow options you chose.
                         
                         - **ParControl** *(string) --* Use (ProresParControl) to specify how the service determines the pixel aspect ratio. Set to Follow source (INITIALIZE_FROM_SOURCE) to use the pixel aspect ratio from the input. To specify a different pixel aspect ratio: Using the console, choose it from the dropdown menu. Using the API, set ProresParControl to (SPECIFIED) and provide for (ParNumerator) and (ParDenominator).
                         
@@ -5550,7 +5550,7 @@ class ListPresets(Paginator):
                     
                     - **FixedAfd** *(integer) --* Applies only if you set AFD Signaling(AfdSignaling) to Fixed (FIXED). Use Fixed (FixedAfd) to specify a four-bit AFD value which the service will write on all frames of this video output.
                     
-                    - **Height** *(integer) --* Use the Height (Height) setting to define the video resolution height for this output. Specify in pixels. If you don't provide a value here, the service will use the input height.
+                    - **Height** *(integer) --* Use the Height (Height) setting to define the video resolution height for this output. Specify in pixels. If you don\'t provide a value here, the service will use the input height.
                     
                     - **Position** *(dict) --* Use Position (Position) to point to a rectangle object to define your position. This setting overrides any other aspect ratio.
                       
@@ -5576,7 +5576,7 @@ class ListPresets(Paginator):
                         
                         - **Brightness** *(integer) --* Brightness level.
                         
-                        - **ColorSpaceConversion** *(string) --* Determines if colorspace conversion will be performed. If set to _None_, no conversion will be performed. If _Force 601_ or _Force 709_ are selected, conversion will be performed for inputs with differing colorspaces. An input's colorspace can be specified explicitly in the "Video Selector":#inputs-video_selector if necessary.
+                        - **ColorSpaceConversion** *(string) --* Determines if colorspace conversion will be performed. If set to _None_, no conversion will be performed. If _Force 601_ or _Force 709_ are selected, conversion will be performed for inputs with differing colorspaces. An input\'s colorspace can be specified explicitly in the \"Video Selector\":#inputs-video_selector if necessary.
                         
                         - **Contrast** *(integer) --* Contrast level.
                         
@@ -5626,9 +5626,9 @@ class ListPresets(Paginator):
                             
                             - **Duration** *(integer) --* Use Duration (Duration) to set the time, in milliseconds, for the image to remain on the output video.
                             
-                            - **FadeIn** *(integer) --* Use Fade in (FadeIut) to set the length, in milliseconds, of the inserted image fade in. If you don't specify a value for Fade in, the image will appear abruptly at the Start time.
+                            - **FadeIn** *(integer) --* Use Fade in (FadeIut) to set the length, in milliseconds, of the inserted image fade in. If you don\'t specify a value for Fade in, the image will appear abruptly at the Start time.
                             
-                            - **FadeOut** *(integer) --* Use Fade out (FadeOut) to set the length, in milliseconds, of the inserted image fade out. If you don't specify a value for Fade out, the image will disappear abruptly at the end of the inserted image duration.
+                            - **FadeOut** *(integer) --* Use Fade out (FadeOut) to set the length, in milliseconds, of the inserted image fade out. If you don\'t specify a value for Fade out, the image will disappear abruptly at the end of the inserted image duration.
                             
                             - **Height** *(integer) --* Specify the Height (Height) of the inserted image. Use a value that is less than or equal to the video resolution height. Leave this setting blank to use the native height of the image.
                             
@@ -5668,11 +5668,11 @@ class ListPresets(Paginator):
                         
                         - **Position** *(string) --* Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to specify the location the burned-in timecode on output video.
                         
-                        - **Prefix** *(string) --* Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
+                        - **Prefix** *(string) --* Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of \"EZ-\" will result in the timecode \"EZ-00:00:00:00\". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
                     
-                    - **Width** *(integer) --* Use Width (Width) to define the video resolution width, in pixels, for this output. If you don't provide a value here, the service will use the input width.
+                    - **Width** *(integer) --* Use Width (Width) to define the video resolution width, in pixels, for this output. If you don\'t provide a value here, the service will use the input width.
                 
-                - **Type** *(string) --* A preset can be of two types: system or custom. System or built-in preset can't be modified or deleted by the user.
+                - **Type** *(string) --* A preset can be of two types: system or custom. System or built-in preset can\'t be modified or deleted by the user.
             
         """
         pass
@@ -5688,16 +5688,16 @@ class ListQueues(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ListBy='NAME'|'CREATION_DATE',
-              Order='ASCENDING'|'DESCENDING',
+              ListBy=\'NAME\'|\'CREATION_DATE\',
+              Order=\'ASCENDING\'|\'DESCENDING\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ListBy: string
-        :param ListBy: Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
+        :param ListBy: Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don\'t specify, the service will list them by creation date.
         
         :type Order: string
         :param Order: When you request lists of resources, you can optionally specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
@@ -5727,26 +5727,26 @@ class ListQueues(Paginator):
           ::
         
             {
-                'Queues': [
+                \'Queues\': [
                     {
-                        'Arn': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'Description': 'string',
-                        'LastUpdated': datetime(2015, 1, 1),
-                        'Name': 'string',
-                        'PricingPlan': 'ON_DEMAND'|'RESERVED',
-                        'ProgressingJobsCount': 123,
-                        'ReservationPlan': {
-                            'Commitment': 'ONE_YEAR',
-                            'ExpiresAt': datetime(2015, 1, 1),
-                            'PurchasedAt': datetime(2015, 1, 1),
-                            'RenewalType': 'AUTO_RENEW'|'EXPIRE',
-                            'ReservedSlots': 123,
-                            'Status': 'ACTIVE'|'EXPIRED'
+                        \'Arn\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'Description\': \'string\',
+                        \'LastUpdated\': datetime(2015, 1, 1),
+                        \'Name\': \'string\',
+                        \'PricingPlan\': \'ON_DEMAND\'|\'RESERVED\',
+                        \'ProgressingJobsCount\': 123,
+                        \'ReservationPlan\': {
+                            \'Commitment\': \'ONE_YEAR\',
+                            \'ExpiresAt\': datetime(2015, 1, 1),
+                            \'PurchasedAt\': datetime(2015, 1, 1),
+                            \'RenewalType\': \'AUTO_RENEW\'|\'EXPIRE\',
+                            \'ReservedSlots\': 123,
+                            \'Status\': \'ACTIVE\'|\'EXPIRED\'
                         },
-                        'Status': 'ACTIVE'|'PAUSED',
-                        'SubmittedJobsCount': 123,
-                        'Type': 'SYSTEM'|'CUSTOM'
+                        \'Status\': \'ACTIVE\'|\'PAUSED\',
+                        \'SubmittedJobsCount\': 123,
+                        \'Type\': \'SYSTEM\'|\'CUSTOM\'
                     },
                 ]
             }
@@ -5756,7 +5756,7 @@ class ListQueues(Paginator):
             
             - **Queues** *(list) --* List of queues.
               
-              - *(dict) --* You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/about-resource-allocation-and-job-prioritization.html.
+              - *(dict) --* You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don\'t specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/about-resource-allocation-and-job-prioritization.html.
                 
                 - **Arn** *(string) --* An identifier for this resource that is unique within all of AWS.
                 
@@ -5778,7 +5778,7 @@ class ListQueues(Paginator):
                   
                   - **ExpiresAt** *(datetime) --* The time stamp, in epoch seconds, for when the pricing plan for this reserved queue expires.
                   
-                  - **PurchasedAt** *(datetime) --* The time stamp in epoch seconds when the reserved queue's reservation plan was created.
+                  - **PurchasedAt** *(datetime) --* The time stamp in epoch seconds when the reserved queue\'s reservation plan was created.
                   
                   - **RenewalType** *(string) --* Specifies whether the pricing plan contract for your reserved queue automatically renews (AUTO_RENEW) or expires (EXPIRE) at the end of the contract period.
                   
@@ -5786,11 +5786,11 @@ class ListQueues(Paginator):
                   
                   - **Status** *(string) --* Specifies whether the pricing plan for your reserved queue is ACTIVE or EXPIRED.
               
-                - **Status** *(string) --* Queues can be ACTIVE or PAUSED. If you pause a queue, the service won't begin processing jobs in that queue. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+                - **Status** *(string) --* Queues can be ACTIVE or PAUSED. If you pause a queue, the service won\'t begin processing jobs in that queue. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
                 
                 - **SubmittedJobsCount** *(integer) --* The estimated number of jobs with a SUBMITTED status.
                 
-                - **Type** *(string) --* Specifies whether this queue is system or custom. System queues are built in. You can't modify or delete system queues. You can create and modify custom queues.
+                - **Type** *(string) --* Specifies whether this queue is system or custom. System queues are built in. You can\'t modify or delete system queues. You can create and modify custom queues.
             
         """
         pass

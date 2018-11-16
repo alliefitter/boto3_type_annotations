@@ -1,10 +1,10 @@
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -17,8 +17,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_fleet(
-              FleetName='string',
-              StackName='string'
+              FleetName=\'string\',
+              StackName=\'string\'
           )
         :type FleetName: string
         :param FleetName: **[REQUIRED]** 
@@ -55,10 +55,10 @@ class Client(BaseClient):
           response = client.batch_associate_user_stack(
               UserStackAssociations=[
                   {
-                      'StackName': 'string',
-                      'UserName': 'string',
-                      'AuthenticationType': 'API'|'SAML'|'USERPOOL',
-                      'SendEmailNotification': True|False
+                      \'StackName\': \'string\',
+                      \'UserName\': \'string\',
+                      \'AuthenticationType\': \'API\'|\'SAML\'|\'USERPOOL\',
+                      \'SendEmailNotification\': True|False
                   },
               ]
           )
@@ -95,16 +95,16 @@ class Client(BaseClient):
           ::
         
             {
-                'errors': [
+                \'errors\': [
                     {
-                        'UserStackAssociation': {
-                            'StackName': 'string',
-                            'UserName': 'string',
-                            'AuthenticationType': 'API'|'SAML'|'USERPOOL',
-                            'SendEmailNotification': True|False
+                        \'UserStackAssociation\': {
+                            \'StackName\': \'string\',
+                            \'UserName\': \'string\',
+                            \'AuthenticationType\': \'API\'|\'SAML\'|\'USERPOOL\',
+                            \'SendEmailNotification\': True|False
                         },
-                        'ErrorCode': 'STACK_NOT_FOUND'|'USER_NAME_NOT_FOUND'|'INTERNAL_ERROR',
-                        'ErrorMessage': 'string'
+                        \'ErrorCode\': \'STACK_NOT_FOUND\'|\'USER_NAME_NOT_FOUND\'|\'INTERNAL_ERROR\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -162,10 +162,10 @@ class Client(BaseClient):
           response = client.batch_disassociate_user_stack(
               UserStackAssociations=[
                   {
-                      'StackName': 'string',
-                      'UserName': 'string',
-                      'AuthenticationType': 'API'|'SAML'|'USERPOOL',
-                      'SendEmailNotification': True|False
+                      \'StackName\': \'string\',
+                      \'UserName\': \'string\',
+                      \'AuthenticationType\': \'API\'|\'SAML\'|\'USERPOOL\',
+                      \'SendEmailNotification\': True|False
                   },
               ]
           )
@@ -202,16 +202,16 @@ class Client(BaseClient):
           ::
         
             {
-                'errors': [
+                \'errors\': [
                     {
-                        'UserStackAssociation': {
-                            'StackName': 'string',
-                            'UserName': 'string',
-                            'AuthenticationType': 'API'|'SAML'|'USERPOOL',
-                            'SendEmailNotification': True|False
+                        \'UserStackAssociation\': {
+                            \'StackName\': \'string\',
+                            \'UserName\': \'string\',
+                            \'AuthenticationType\': \'API\'|\'SAML\'|\'USERPOOL\',
+                            \'SendEmailNotification\': True|False
                         },
-                        'ErrorCode': 'STACK_NOT_FOUND'|'USER_NAME_NOT_FOUND'|'INTERNAL_ERROR',
-                        'ErrorMessage': 'string'
+                        \'ErrorCode\': \'STACK_NOT_FOUND\'|\'USER_NAME_NOT_FOUND\'|\'INTERNAL_ERROR\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -264,10 +264,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -283,10 +283,10 @@ class Client(BaseClient):
         ::
         
           response = client.copy_image(
-              SourceImageName='string',
-              DestinationImageName='string',
-              DestinationRegion='string',
-              DestinationImageDescription='string'
+              SourceImageName=\'string\',
+              DestinationImageName=\'string\',
+              DestinationRegion=\'string\',
+              DestinationImageDescription=\'string\'
           )
         :type SourceImageName: string
         :param SourceImageName: **[REQUIRED]** 
@@ -316,7 +316,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DestinationImageName': 'string'
+                \'DestinationImageName\': \'string\'
             }
           **Response Structure** 
         
@@ -338,13 +338,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_directory_config(
-              DirectoryName='string',
+              DirectoryName=\'string\',
               OrganizationalUnitDistinguishedNames=[
-                  'string',
+                  \'string\',
               ],
               ServiceAccountCredentials={
-                  'AccountName': 'string',
-                  'AccountPassword': 'string'
+                  \'AccountName\': \'string\',
+                  \'AccountPassword\': \'string\'
               }
           )
         :type DirectoryName: string
@@ -380,16 +380,16 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryConfig': {
-                    'DirectoryName': 'string',
-                    'OrganizationalUnitDistinguishedNames': [
-                        'string',
+                \'DirectoryConfig\': {
+                    \'DirectoryName\': \'string\',
+                    \'OrganizationalUnitDistinguishedNames\': [
+                        \'string\',
                     ],
-                    'ServiceAccountCredentials': {
-                        'AccountName': 'string',
-                        'AccountPassword': 'string'
+                    \'ServiceAccountCredentials\': {
+                        \'AccountName\': \'string\',
+                        \'AccountPassword\': \'string\'
                     },
-                    'CreatedTime': datetime(2015, 1, 1)
+                    \'CreatedTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -438,30 +438,30 @@ class Client(BaseClient):
         ::
         
           response = client.create_fleet(
-              Name='string',
-              ImageName='string',
-              ImageArn='string',
-              InstanceType='string',
-              FleetType='ALWAYS_ON'|'ON_DEMAND',
+              Name=\'string\',
+              ImageName=\'string\',
+              ImageArn=\'string\',
+              InstanceType=\'string\',
+              FleetType=\'ALWAYS_ON\'|\'ON_DEMAND\',
               ComputeCapacity={
-                  'DesiredInstances': 123
+                  \'DesiredInstances\': 123
               },
               VpcConfig={
-                  'SubnetIds': [
-                      'string',
+                  \'SubnetIds\': [
+                      \'string\',
                   ],
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ]
               },
               MaxUserDurationInSeconds=123,
               DisconnectTimeoutInSeconds=123,
-              Description='string',
-              DisplayName='string',
+              Description=\'string\',
+              DisplayName=\'string\',
               EnableDefaultInternetAccess=True|False,
               DomainJoinInfo={
-                  'DirectoryName': 'string',
-                  'OrganizationalUnitDistinguishedName': 'string'
+                  \'DirectoryName\': \'string\',
+                  \'OrganizationalUnitDistinguishedName\': \'string\'
               }
           )
         :type Name: string
@@ -609,43 +609,43 @@ class Client(BaseClient):
           ::
         
             {
-                'Fleet': {
-                    'Arn': 'string',
-                    'Name': 'string',
-                    'DisplayName': 'string',
-                    'Description': 'string',
-                    'ImageName': 'string',
-                    'ImageArn': 'string',
-                    'InstanceType': 'string',
-                    'FleetType': 'ALWAYS_ON'|'ON_DEMAND',
-                    'ComputeCapacityStatus': {
-                        'Desired': 123,
-                        'Running': 123,
-                        'InUse': 123,
-                        'Available': 123
+                \'Fleet\': {
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'Description\': \'string\',
+                    \'ImageName\': \'string\',
+                    \'ImageArn\': \'string\',
+                    \'InstanceType\': \'string\',
+                    \'FleetType\': \'ALWAYS_ON\'|\'ON_DEMAND\',
+                    \'ComputeCapacityStatus\': {
+                        \'Desired\': 123,
+                        \'Running\': 123,
+                        \'InUse\': 123,
+                        \'Available\': 123
                     },
-                    'MaxUserDurationInSeconds': 123,
-                    'DisconnectTimeoutInSeconds': 123,
-                    'State': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED',
-                    'VpcConfig': {
-                        'SubnetIds': [
-                            'string',
+                    \'MaxUserDurationInSeconds\': 123,
+                    \'DisconnectTimeoutInSeconds\': 123,
+                    \'State\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\',
+                    \'VpcConfig\': {
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'SecurityGroupIds': [
-                            'string',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'FleetErrors': [
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'FleetErrors\': [
                         {
-                            'ErrorCode': 'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION'|'NETWORK_INTERFACE_LIMIT_EXCEEDED'|'INTERNAL_SERVICE_ERROR'|'IAM_SERVICE_ROLE_IS_MISSING'|'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION'|'SUBNET_NOT_FOUND'|'IMAGE_NOT_FOUND'|'INVALID_SUBNET_CONFIGURATION'|'SECURITY_GROUPS_NOT_FOUND'|'IGW_NOT_ATTACHED'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION'|'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND'|'DOMAIN_JOIN_ERROR_ACCESS_DENIED'|'DOMAIN_JOIN_ERROR_LOGON_FAILURE'|'DOMAIN_JOIN_ERROR_INVALID_PARAMETER'|'DOMAIN_JOIN_ERROR_MORE_DATA'|'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN'|'DOMAIN_JOIN_ERROR_NOT_SUPPORTED'|'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME'|'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED'|'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED'|'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED'|'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR',
-                            'ErrorMessage': 'string'
+                            \'ErrorCode\': \'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION\'|\'NETWORK_INTERFACE_LIMIT_EXCEEDED\'|\'INTERNAL_SERVICE_ERROR\'|\'IAM_SERVICE_ROLE_IS_MISSING\'|\'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION\'|\'SUBNET_NOT_FOUND\'|\'IMAGE_NOT_FOUND\'|\'INVALID_SUBNET_CONFIGURATION\'|\'SECURITY_GROUPS_NOT_FOUND\'|\'IGW_NOT_ATTACHED\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION\'|\'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND\'|\'DOMAIN_JOIN_ERROR_ACCESS_DENIED\'|\'DOMAIN_JOIN_ERROR_LOGON_FAILURE\'|\'DOMAIN_JOIN_ERROR_INVALID_PARAMETER\'|\'DOMAIN_JOIN_ERROR_MORE_DATA\'|\'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN\'|\'DOMAIN_JOIN_ERROR_NOT_SUPPORTED\'|\'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME\'|\'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED\'|\'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED\'|\'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED\'|\'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR\',
+                            \'ErrorMessage\': \'string\'
                         },
                     ],
-                    'EnableDefaultInternetAccess': True|False,
-                    'DomainJoinInfo': {
-                        'DirectoryName': 'string',
-                        'OrganizationalUnitDistinguishedName': 'string'
+                    \'EnableDefaultInternetAccess\': True|False,
+                    \'DomainJoinInfo\': {
+                        \'DirectoryName\': \'string\',
+                        \'OrganizationalUnitDistinguishedName\': \'string\'
                     }
                 }
             }
@@ -795,26 +795,26 @@ class Client(BaseClient):
         ::
         
           response = client.create_image_builder(
-              Name='string',
-              ImageName='string',
-              ImageArn='string',
-              InstanceType='string',
-              Description='string',
-              DisplayName='string',
+              Name=\'string\',
+              ImageName=\'string\',
+              ImageArn=\'string\',
+              InstanceType=\'string\',
+              Description=\'string\',
+              DisplayName=\'string\',
               VpcConfig={
-                  'SubnetIds': [
-                      'string',
+                  \'SubnetIds\': [
+                      \'string\',
                   ],
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ]
               },
               EnableDefaultInternetAccess=True|False,
               DomainJoinInfo={
-                  'DirectoryName': 'string',
-                  'OrganizationalUnitDistinguishedName': 'string'
+                  \'DirectoryName\': \'string\',
+                  \'OrganizationalUnitDistinguishedName\': \'string\'
               },
-              AppstreamAgentVersion='string'
+              AppstreamAgentVersion=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -894,41 +894,41 @@ class Client(BaseClient):
           ::
         
             {
-                'ImageBuilder': {
-                    'Name': 'string',
-                    'Arn': 'string',
-                    'ImageArn': 'string',
-                    'Description': 'string',
-                    'DisplayName': 'string',
-                    'VpcConfig': {
-                        'SubnetIds': [
-                            'string',
+                \'ImageBuilder\': {
+                    \'Name\': \'string\',
+                    \'Arn\': \'string\',
+                    \'ImageArn\': \'string\',
+                    \'Description\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'VpcConfig\': {
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'SecurityGroupIds': [
-                            'string',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'InstanceType': 'string',
-                    'Platform': 'WINDOWS',
-                    'State': 'PENDING'|'UPDATING_AGENT'|'RUNNING'|'STOPPING'|'STOPPED'|'REBOOTING'|'SNAPSHOTTING'|'DELETING'|'FAILED',
-                    'StateChangeReason': {
-                        'Code': 'INTERNAL_ERROR'|'IMAGE_UNAVAILABLE',
-                        'Message': 'string'
+                    \'InstanceType\': \'string\',
+                    \'Platform\': \'WINDOWS\',
+                    \'State\': \'PENDING\'|\'UPDATING_AGENT\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'REBOOTING\'|\'SNAPSHOTTING\'|\'DELETING\'|\'FAILED\',
+                    \'StateChangeReason\': {
+                        \'Code\': \'INTERNAL_ERROR\'|\'IMAGE_UNAVAILABLE\',
+                        \'Message\': \'string\'
                     },
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'EnableDefaultInternetAccess': True|False,
-                    'DomainJoinInfo': {
-                        'DirectoryName': 'string',
-                        'OrganizationalUnitDistinguishedName': 'string'
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'EnableDefaultInternetAccess\': True|False,
+                    \'DomainJoinInfo\': {
+                        \'DirectoryName\': \'string\',
+                        \'OrganizationalUnitDistinguishedName\': \'string\'
                     },
-                    'ImageBuilderErrors': [
+                    \'ImageBuilderErrors\': [
                         {
-                            'ErrorCode': 'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION'|'NETWORK_INTERFACE_LIMIT_EXCEEDED'|'INTERNAL_SERVICE_ERROR'|'IAM_SERVICE_ROLE_IS_MISSING'|'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION'|'SUBNET_NOT_FOUND'|'IMAGE_NOT_FOUND'|'INVALID_SUBNET_CONFIGURATION'|'SECURITY_GROUPS_NOT_FOUND'|'IGW_NOT_ATTACHED'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION'|'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND'|'DOMAIN_JOIN_ERROR_ACCESS_DENIED'|'DOMAIN_JOIN_ERROR_LOGON_FAILURE'|'DOMAIN_JOIN_ERROR_INVALID_PARAMETER'|'DOMAIN_JOIN_ERROR_MORE_DATA'|'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN'|'DOMAIN_JOIN_ERROR_NOT_SUPPORTED'|'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME'|'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED'|'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED'|'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED'|'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR',
-                            'ErrorMessage': 'string',
-                            'ErrorTimestamp': datetime(2015, 1, 1)
+                            \'ErrorCode\': \'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION\'|\'NETWORK_INTERFACE_LIMIT_EXCEEDED\'|\'INTERNAL_SERVICE_ERROR\'|\'IAM_SERVICE_ROLE_IS_MISSING\'|\'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION\'|\'SUBNET_NOT_FOUND\'|\'IMAGE_NOT_FOUND\'|\'INVALID_SUBNET_CONFIGURATION\'|\'SECURITY_GROUPS_NOT_FOUND\'|\'IGW_NOT_ATTACHED\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION\'|\'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND\'|\'DOMAIN_JOIN_ERROR_ACCESS_DENIED\'|\'DOMAIN_JOIN_ERROR_LOGON_FAILURE\'|\'DOMAIN_JOIN_ERROR_INVALID_PARAMETER\'|\'DOMAIN_JOIN_ERROR_MORE_DATA\'|\'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN\'|\'DOMAIN_JOIN_ERROR_NOT_SUPPORTED\'|\'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME\'|\'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED\'|\'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED\'|\'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED\'|\'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR\',
+                            \'ErrorMessage\': \'string\',
+                            \'ErrorTimestamp\': datetime(2015, 1, 1)
                         },
                     ],
-                    'AppstreamAgentVersion': 'string'
+                    \'AppstreamAgentVersion\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1055,7 +1055,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_image_builder_streaming_url(
-              Name='string',
+              Name=\'string\',
               Validity=123
           )
         :type Name: string
@@ -1076,8 +1076,8 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamingURL': 'string',
-                'Expires': datetime(2015, 1, 1)
+                \'StreamingURL\': \'string\',
+                \'Expires\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1103,29 +1103,29 @@ class Client(BaseClient):
         ::
         
           response = client.create_stack(
-              Name='string',
-              Description='string',
-              DisplayName='string',
+              Name=\'string\',
+              Description=\'string\',
+              DisplayName=\'string\',
               StorageConnectors=[
                   {
-                      'ConnectorType': 'HOMEFOLDERS'|'GOOGLE_DRIVE'|'ONE_DRIVE',
-                      'ResourceIdentifier': 'string',
-                      'Domains': [
-                          'string',
+                      \'ConnectorType\': \'HOMEFOLDERS\'|\'GOOGLE_DRIVE\'|\'ONE_DRIVE\',
+                      \'ResourceIdentifier\': \'string\',
+                      \'Domains\': [
+                          \'string\',
                       ]
                   },
               ],
-              RedirectURL='string',
-              FeedbackURL='string',
+              RedirectURL=\'string\',
+              FeedbackURL=\'string\',
               UserSettings=[
                   {
-                      'Action': 'CLIPBOARD_COPY_FROM_LOCAL_DEVICE'|'CLIPBOARD_COPY_TO_LOCAL_DEVICE'|'FILE_UPLOAD'|'FILE_DOWNLOAD'|'PRINTING_TO_LOCAL_DEVICE',
-                      'Permission': 'ENABLED'|'DISABLED'
+                      \'Action\': \'CLIPBOARD_COPY_FROM_LOCAL_DEVICE\'|\'CLIPBOARD_COPY_TO_LOCAL_DEVICE\'|\'FILE_UPLOAD\'|\'FILE_DOWNLOAD\'|\'PRINTING_TO_LOCAL_DEVICE\',
+                      \'Permission\': \'ENABLED\'|\'DISABLED\'
                   },
               ],
               ApplicationSettings={
-                  'Enabled': True|False,
-                  'SettingsGroup': 'string'
+                  \'Enabled\': True|False,
+                  \'SettingsGroup\': \'string\'
               }
           )
         :type Name: string
@@ -1214,39 +1214,39 @@ class Client(BaseClient):
           ::
         
             {
-                'Stack': {
-                    'Arn': 'string',
-                    'Name': 'string',
-                    'Description': 'string',
-                    'DisplayName': 'string',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'StorageConnectors': [
+                \'Stack\': {
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'StorageConnectors\': [
                         {
-                            'ConnectorType': 'HOMEFOLDERS'|'GOOGLE_DRIVE'|'ONE_DRIVE',
-                            'ResourceIdentifier': 'string',
-                            'Domains': [
-                                'string',
+                            \'ConnectorType\': \'HOMEFOLDERS\'|\'GOOGLE_DRIVE\'|\'ONE_DRIVE\',
+                            \'ResourceIdentifier\': \'string\',
+                            \'Domains\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'RedirectURL': 'string',
-                    'FeedbackURL': 'string',
-                    'StackErrors': [
+                    \'RedirectURL\': \'string\',
+                    \'FeedbackURL\': \'string\',
+                    \'StackErrors\': [
                         {
-                            'ErrorCode': 'STORAGE_CONNECTOR_ERROR'|'INTERNAL_SERVICE_ERROR',
-                            'ErrorMessage': 'string'
+                            \'ErrorCode\': \'STORAGE_CONNECTOR_ERROR\'|\'INTERNAL_SERVICE_ERROR\',
+                            \'ErrorMessage\': \'string\'
                         },
                     ],
-                    'UserSettings': [
+                    \'UserSettings\': [
                         {
-                            'Action': 'CLIPBOARD_COPY_FROM_LOCAL_DEVICE'|'CLIPBOARD_COPY_TO_LOCAL_DEVICE'|'FILE_UPLOAD'|'FILE_DOWNLOAD'|'PRINTING_TO_LOCAL_DEVICE',
-                            'Permission': 'ENABLED'|'DISABLED'
+                            \'Action\': \'CLIPBOARD_COPY_FROM_LOCAL_DEVICE\'|\'CLIPBOARD_COPY_TO_LOCAL_DEVICE\'|\'FILE_UPLOAD\'|\'FILE_DOWNLOAD\'|\'PRINTING_TO_LOCAL_DEVICE\',
+                            \'Permission\': \'ENABLED\'|\'DISABLED\'
                         },
                     ],
-                    'ApplicationSettings': {
-                        'Enabled': True|False,
-                        'SettingsGroup': 'string',
-                        'S3BucketName': 'string'
+                    \'ApplicationSettings\': {
+                        \'Enabled\': True|False,
+                        \'SettingsGroup\': \'string\',
+                        \'S3BucketName\': \'string\'
                     }
                 }
             }
@@ -1368,12 +1368,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_streaming_url(
-              StackName='string',
-              FleetName='string',
-              UserId='string',
-              ApplicationId='string',
+              StackName=\'string\',
+              FleetName=\'string\',
+              UserId=\'string\',
+              ApplicationId=\'string\',
               Validity=123,
-              SessionContext='string'
+              SessionContext=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -1413,8 +1413,8 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamingURL': 'string',
-                'Expires': datetime(2015, 1, 1)
+                \'StreamingURL\': \'string\',
+                \'Expires\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1440,11 +1440,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_user(
-              UserName='string',
-              MessageAction='SUPPRESS'|'RESEND',
-              FirstName='string',
-              LastName='string',
-              AuthenticationType='API'|'SAML'|'USERPOOL'
+              UserName=\'string\',
+              MessageAction=\'SUPPRESS\'|\'RESEND\',
+              FirstName=\'string\',
+              LastName=\'string\',
+              AuthenticationType=\'API\'|\'SAML\'|\'USERPOOL\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -1498,7 +1498,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_directory_config(
-              DirectoryName='string'
+              DirectoryName=\'string\'
           )
         :type DirectoryName: string
         :param DirectoryName: **[REQUIRED]** 
@@ -1528,7 +1528,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_fleet(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1558,7 +1558,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_image(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1573,39 +1573,39 @@ class Client(BaseClient):
           ::
         
             {
-                'Image': {
-                    'Name': 'string',
-                    'Arn': 'string',
-                    'BaseImageArn': 'string',
-                    'DisplayName': 'string',
-                    'State': 'PENDING'|'AVAILABLE'|'FAILED'|'COPYING'|'DELETING',
-                    'Visibility': 'PUBLIC'|'PRIVATE'|'SHARED',
-                    'ImageBuilderSupported': True|False,
-                    'Platform': 'WINDOWS',
-                    'Description': 'string',
-                    'StateChangeReason': {
-                        'Code': 'INTERNAL_ERROR'|'IMAGE_BUILDER_NOT_AVAILABLE'|'IMAGE_COPY_FAILURE',
-                        'Message': 'string'
+                \'Image\': {
+                    \'Name\': \'string\',
+                    \'Arn\': \'string\',
+                    \'BaseImageArn\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'State\': \'PENDING\'|\'AVAILABLE\'|\'FAILED\'|\'COPYING\'|\'DELETING\',
+                    \'Visibility\': \'PUBLIC\'|\'PRIVATE\'|\'SHARED\',
+                    \'ImageBuilderSupported\': True|False,
+                    \'Platform\': \'WINDOWS\',
+                    \'Description\': \'string\',
+                    \'StateChangeReason\': {
+                        \'Code\': \'INTERNAL_ERROR\'|\'IMAGE_BUILDER_NOT_AVAILABLE\'|\'IMAGE_COPY_FAILURE\',
+                        \'Message\': \'string\'
                     },
-                    'Applications': [
+                    \'Applications\': [
                         {
-                            'Name': 'string',
-                            'DisplayName': 'string',
-                            'IconURL': 'string',
-                            'LaunchPath': 'string',
-                            'LaunchParameters': 'string',
-                            'Enabled': True|False,
-                            'Metadata': {
-                                'string': 'string'
+                            \'Name\': \'string\',
+                            \'DisplayName\': \'string\',
+                            \'IconURL\': \'string\',
+                            \'LaunchPath\': \'string\',
+                            \'LaunchParameters\': \'string\',
+                            \'Enabled\': True|False,
+                            \'Metadata\': {
+                                \'string\': \'string\'
                             }
                         },
                     ],
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'PublicBaseImageReleasedDate': datetime(2015, 1, 1),
-                    'AppstreamAgentVersion': 'string',
-                    'ImagePermissions': {
-                        'allowFleet': True|False,
-                        'allowImageBuilder': True|False
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'PublicBaseImageReleasedDate\': datetime(2015, 1, 1),
+                    \'AppstreamAgentVersion\': \'string\',
+                    \'ImagePermissions\': {
+                        \'allowFleet\': True|False,
+                        \'allowImageBuilder\': True|False
                     }
                 }
             }
@@ -1741,7 +1741,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_image_builder(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1756,41 +1756,41 @@ class Client(BaseClient):
           ::
         
             {
-                'ImageBuilder': {
-                    'Name': 'string',
-                    'Arn': 'string',
-                    'ImageArn': 'string',
-                    'Description': 'string',
-                    'DisplayName': 'string',
-                    'VpcConfig': {
-                        'SubnetIds': [
-                            'string',
+                \'ImageBuilder\': {
+                    \'Name\': \'string\',
+                    \'Arn\': \'string\',
+                    \'ImageArn\': \'string\',
+                    \'Description\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'VpcConfig\': {
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'SecurityGroupIds': [
-                            'string',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'InstanceType': 'string',
-                    'Platform': 'WINDOWS',
-                    'State': 'PENDING'|'UPDATING_AGENT'|'RUNNING'|'STOPPING'|'STOPPED'|'REBOOTING'|'SNAPSHOTTING'|'DELETING'|'FAILED',
-                    'StateChangeReason': {
-                        'Code': 'INTERNAL_ERROR'|'IMAGE_UNAVAILABLE',
-                        'Message': 'string'
+                    \'InstanceType\': \'string\',
+                    \'Platform\': \'WINDOWS\',
+                    \'State\': \'PENDING\'|\'UPDATING_AGENT\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'REBOOTING\'|\'SNAPSHOTTING\'|\'DELETING\'|\'FAILED\',
+                    \'StateChangeReason\': {
+                        \'Code\': \'INTERNAL_ERROR\'|\'IMAGE_UNAVAILABLE\',
+                        \'Message\': \'string\'
                     },
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'EnableDefaultInternetAccess': True|False,
-                    'DomainJoinInfo': {
-                        'DirectoryName': 'string',
-                        'OrganizationalUnitDistinguishedName': 'string'
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'EnableDefaultInternetAccess\': True|False,
+                    \'DomainJoinInfo\': {
+                        \'DirectoryName\': \'string\',
+                        \'OrganizationalUnitDistinguishedName\': \'string\'
                     },
-                    'ImageBuilderErrors': [
+                    \'ImageBuilderErrors\': [
                         {
-                            'ErrorCode': 'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION'|'NETWORK_INTERFACE_LIMIT_EXCEEDED'|'INTERNAL_SERVICE_ERROR'|'IAM_SERVICE_ROLE_IS_MISSING'|'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION'|'SUBNET_NOT_FOUND'|'IMAGE_NOT_FOUND'|'INVALID_SUBNET_CONFIGURATION'|'SECURITY_GROUPS_NOT_FOUND'|'IGW_NOT_ATTACHED'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION'|'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND'|'DOMAIN_JOIN_ERROR_ACCESS_DENIED'|'DOMAIN_JOIN_ERROR_LOGON_FAILURE'|'DOMAIN_JOIN_ERROR_INVALID_PARAMETER'|'DOMAIN_JOIN_ERROR_MORE_DATA'|'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN'|'DOMAIN_JOIN_ERROR_NOT_SUPPORTED'|'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME'|'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED'|'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED'|'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED'|'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR',
-                            'ErrorMessage': 'string',
-                            'ErrorTimestamp': datetime(2015, 1, 1)
+                            \'ErrorCode\': \'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION\'|\'NETWORK_INTERFACE_LIMIT_EXCEEDED\'|\'INTERNAL_SERVICE_ERROR\'|\'IAM_SERVICE_ROLE_IS_MISSING\'|\'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION\'|\'SUBNET_NOT_FOUND\'|\'IMAGE_NOT_FOUND\'|\'INVALID_SUBNET_CONFIGURATION\'|\'SECURITY_GROUPS_NOT_FOUND\'|\'IGW_NOT_ATTACHED\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION\'|\'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND\'|\'DOMAIN_JOIN_ERROR_ACCESS_DENIED\'|\'DOMAIN_JOIN_ERROR_LOGON_FAILURE\'|\'DOMAIN_JOIN_ERROR_INVALID_PARAMETER\'|\'DOMAIN_JOIN_ERROR_MORE_DATA\'|\'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN\'|\'DOMAIN_JOIN_ERROR_NOT_SUPPORTED\'|\'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME\'|\'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED\'|\'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED\'|\'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED\'|\'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR\',
+                            \'ErrorMessage\': \'string\',
+                            \'ErrorTimestamp\': datetime(2015, 1, 1)
                         },
                     ],
-                    'AppstreamAgentVersion': 'string'
+                    \'AppstreamAgentVersion\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1917,8 +1917,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_image_permissions(
-              Name='string',
-              SharedAccountId='string'
+              Name=\'string\',
+              SharedAccountId=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1953,7 +1953,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_stack(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1983,8 +1983,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user(
-              UserName='string',
-              AuthenticationType='API'|'SAML'|'USERPOOL'
+              UserName=\'string\',
+              AuthenticationType=\'API\'|\'SAML\'|\'USERPOOL\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -2022,10 +2022,10 @@ class Client(BaseClient):
         
           response = client.describe_directory_configs(
               DirectoryNames=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DirectoryNames: list
         :param DirectoryNames: 
@@ -2052,20 +2052,20 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryConfigs': [
+                \'DirectoryConfigs\': [
                     {
-                        'DirectoryName': 'string',
-                        'OrganizationalUnitDistinguishedNames': [
-                            'string',
+                        \'DirectoryName\': \'string\',
+                        \'OrganizationalUnitDistinguishedNames\': [
+                            \'string\',
                         ],
-                        'ServiceAccountCredentials': {
-                            'AccountName': 'string',
-                            'AccountPassword': 'string'
+                        \'ServiceAccountCredentials\': {
+                            \'AccountName\': \'string\',
+                            \'AccountPassword\': \'string\'
                         },
-                        'CreatedTime': datetime(2015, 1, 1)
+                        \'CreatedTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2122,9 +2122,9 @@ class Client(BaseClient):
         
           response = client.describe_fleets(
               Names=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Names: list
         :param Names: 
@@ -2146,48 +2146,48 @@ class Client(BaseClient):
           ::
         
             {
-                'Fleets': [
+                \'Fleets\': [
                     {
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'DisplayName': 'string',
-                        'Description': 'string',
-                        'ImageName': 'string',
-                        'ImageArn': 'string',
-                        'InstanceType': 'string',
-                        'FleetType': 'ALWAYS_ON'|'ON_DEMAND',
-                        'ComputeCapacityStatus': {
-                            'Desired': 123,
-                            'Running': 123,
-                            'InUse': 123,
-                            'Available': 123
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'Description\': \'string\',
+                        \'ImageName\': \'string\',
+                        \'ImageArn\': \'string\',
+                        \'InstanceType\': \'string\',
+                        \'FleetType\': \'ALWAYS_ON\'|\'ON_DEMAND\',
+                        \'ComputeCapacityStatus\': {
+                            \'Desired\': 123,
+                            \'Running\': 123,
+                            \'InUse\': 123,
+                            \'Available\': 123
                         },
-                        'MaxUserDurationInSeconds': 123,
-                        'DisconnectTimeoutInSeconds': 123,
-                        'State': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED',
-                        'VpcConfig': {
-                            'SubnetIds': [
-                                'string',
+                        \'MaxUserDurationInSeconds\': 123,
+                        \'DisconnectTimeoutInSeconds\': 123,
+                        \'State\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\',
+                        \'VpcConfig\': {
+                            \'SubnetIds\': [
+                                \'string\',
                             ],
-                            'SecurityGroupIds': [
-                                'string',
+                            \'SecurityGroupIds\': [
+                                \'string\',
                             ]
                         },
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'FleetErrors': [
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'FleetErrors\': [
                             {
-                                'ErrorCode': 'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION'|'NETWORK_INTERFACE_LIMIT_EXCEEDED'|'INTERNAL_SERVICE_ERROR'|'IAM_SERVICE_ROLE_IS_MISSING'|'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION'|'SUBNET_NOT_FOUND'|'IMAGE_NOT_FOUND'|'INVALID_SUBNET_CONFIGURATION'|'SECURITY_GROUPS_NOT_FOUND'|'IGW_NOT_ATTACHED'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION'|'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND'|'DOMAIN_JOIN_ERROR_ACCESS_DENIED'|'DOMAIN_JOIN_ERROR_LOGON_FAILURE'|'DOMAIN_JOIN_ERROR_INVALID_PARAMETER'|'DOMAIN_JOIN_ERROR_MORE_DATA'|'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN'|'DOMAIN_JOIN_ERROR_NOT_SUPPORTED'|'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME'|'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED'|'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED'|'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED'|'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR',
-                                'ErrorMessage': 'string'
+                                \'ErrorCode\': \'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION\'|\'NETWORK_INTERFACE_LIMIT_EXCEEDED\'|\'INTERNAL_SERVICE_ERROR\'|\'IAM_SERVICE_ROLE_IS_MISSING\'|\'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION\'|\'SUBNET_NOT_FOUND\'|\'IMAGE_NOT_FOUND\'|\'INVALID_SUBNET_CONFIGURATION\'|\'SECURITY_GROUPS_NOT_FOUND\'|\'IGW_NOT_ATTACHED\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION\'|\'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND\'|\'DOMAIN_JOIN_ERROR_ACCESS_DENIED\'|\'DOMAIN_JOIN_ERROR_LOGON_FAILURE\'|\'DOMAIN_JOIN_ERROR_INVALID_PARAMETER\'|\'DOMAIN_JOIN_ERROR_MORE_DATA\'|\'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN\'|\'DOMAIN_JOIN_ERROR_NOT_SUPPORTED\'|\'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME\'|\'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED\'|\'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED\'|\'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED\'|\'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR\',
+                                \'ErrorMessage\': \'string\'
                             },
                         ],
-                        'EnableDefaultInternetAccess': True|False,
-                        'DomainJoinInfo': {
-                            'DirectoryName': 'string',
-                            'OrganizationalUnitDistinguishedName': 'string'
+                        \'EnableDefaultInternetAccess\': True|False,
+                        \'DomainJoinInfo\': {
+                            \'DirectoryName\': \'string\',
+                            \'OrganizationalUnitDistinguishedName\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2342,10 +2342,10 @@ class Client(BaseClient):
         
           response = client.describe_image_builders(
               Names=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Names: list
         :param Names: 
@@ -2372,45 +2372,45 @@ class Client(BaseClient):
           ::
         
             {
-                'ImageBuilders': [
+                \'ImageBuilders\': [
                     {
-                        'Name': 'string',
-                        'Arn': 'string',
-                        'ImageArn': 'string',
-                        'Description': 'string',
-                        'DisplayName': 'string',
-                        'VpcConfig': {
-                            'SubnetIds': [
-                                'string',
+                        \'Name\': \'string\',
+                        \'Arn\': \'string\',
+                        \'ImageArn\': \'string\',
+                        \'Description\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'VpcConfig\': {
+                            \'SubnetIds\': [
+                                \'string\',
                             ],
-                            'SecurityGroupIds': [
-                                'string',
+                            \'SecurityGroupIds\': [
+                                \'string\',
                             ]
                         },
-                        'InstanceType': 'string',
-                        'Platform': 'WINDOWS',
-                        'State': 'PENDING'|'UPDATING_AGENT'|'RUNNING'|'STOPPING'|'STOPPED'|'REBOOTING'|'SNAPSHOTTING'|'DELETING'|'FAILED',
-                        'StateChangeReason': {
-                            'Code': 'INTERNAL_ERROR'|'IMAGE_UNAVAILABLE',
-                            'Message': 'string'
+                        \'InstanceType\': \'string\',
+                        \'Platform\': \'WINDOWS\',
+                        \'State\': \'PENDING\'|\'UPDATING_AGENT\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'REBOOTING\'|\'SNAPSHOTTING\'|\'DELETING\'|\'FAILED\',
+                        \'StateChangeReason\': {
+                            \'Code\': \'INTERNAL_ERROR\'|\'IMAGE_UNAVAILABLE\',
+                            \'Message\': \'string\'
                         },
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'EnableDefaultInternetAccess': True|False,
-                        'DomainJoinInfo': {
-                            'DirectoryName': 'string',
-                            'OrganizationalUnitDistinguishedName': 'string'
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'EnableDefaultInternetAccess\': True|False,
+                        \'DomainJoinInfo\': {
+                            \'DirectoryName\': \'string\',
+                            \'OrganizationalUnitDistinguishedName\': \'string\'
                         },
-                        'ImageBuilderErrors': [
+                        \'ImageBuilderErrors\': [
                             {
-                                'ErrorCode': 'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION'|'NETWORK_INTERFACE_LIMIT_EXCEEDED'|'INTERNAL_SERVICE_ERROR'|'IAM_SERVICE_ROLE_IS_MISSING'|'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION'|'SUBNET_NOT_FOUND'|'IMAGE_NOT_FOUND'|'INVALID_SUBNET_CONFIGURATION'|'SECURITY_GROUPS_NOT_FOUND'|'IGW_NOT_ATTACHED'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION'|'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND'|'DOMAIN_JOIN_ERROR_ACCESS_DENIED'|'DOMAIN_JOIN_ERROR_LOGON_FAILURE'|'DOMAIN_JOIN_ERROR_INVALID_PARAMETER'|'DOMAIN_JOIN_ERROR_MORE_DATA'|'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN'|'DOMAIN_JOIN_ERROR_NOT_SUPPORTED'|'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME'|'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED'|'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED'|'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED'|'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR',
-                                'ErrorMessage': 'string',
-                                'ErrorTimestamp': datetime(2015, 1, 1)
+                                \'ErrorCode\': \'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION\'|\'NETWORK_INTERFACE_LIMIT_EXCEEDED\'|\'INTERNAL_SERVICE_ERROR\'|\'IAM_SERVICE_ROLE_IS_MISSING\'|\'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION\'|\'SUBNET_NOT_FOUND\'|\'IMAGE_NOT_FOUND\'|\'INVALID_SUBNET_CONFIGURATION\'|\'SECURITY_GROUPS_NOT_FOUND\'|\'IGW_NOT_ATTACHED\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION\'|\'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND\'|\'DOMAIN_JOIN_ERROR_ACCESS_DENIED\'|\'DOMAIN_JOIN_ERROR_LOGON_FAILURE\'|\'DOMAIN_JOIN_ERROR_INVALID_PARAMETER\'|\'DOMAIN_JOIN_ERROR_MORE_DATA\'|\'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN\'|\'DOMAIN_JOIN_ERROR_NOT_SUPPORTED\'|\'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME\'|\'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED\'|\'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED\'|\'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED\'|\'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR\',
+                                \'ErrorMessage\': \'string\',
+                                \'ErrorTimestamp\': datetime(2015, 1, 1)
                             },
                         ],
-                        'AppstreamAgentVersion': 'string'
+                        \'AppstreamAgentVersion\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2544,12 +2544,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_image_permissions(
-              Name='string',
+              Name=\'string\',
               MaxResults=123,
               SharedAwsAccountIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -2581,17 +2581,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string',
-                'SharedImagePermissionsList': [
+                \'Name\': \'string\',
+                \'SharedImagePermissionsList\': [
                     {
-                        'sharedAccountId': 'string',
-                        'imagePermissions': {
-                            'allowFleet': True|False,
-                            'allowImageBuilder': True|False
+                        \'sharedAccountId\': \'string\',
+                        \'imagePermissions\': {
+                            \'allowFleet\': True|False,
+                            \'allowImageBuilder\': True|False
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2642,13 +2642,13 @@ class Client(BaseClient):
         
           response = client.describe_images(
               Names=[
-                  'string',
+                  \'string\',
               ],
               Arns=[
-                  'string',
+                  \'string\',
               ],
-              Type='PUBLIC'|'PRIVATE'|'SHARED',
-              NextToken='string',
+              Type=\'PUBLIC\'|\'PRIVATE\'|\'SHARED\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Names: list
@@ -2688,44 +2688,44 @@ class Client(BaseClient):
           ::
         
             {
-                'Images': [
+                \'Images\': [
                     {
-                        'Name': 'string',
-                        'Arn': 'string',
-                        'BaseImageArn': 'string',
-                        'DisplayName': 'string',
-                        'State': 'PENDING'|'AVAILABLE'|'FAILED'|'COPYING'|'DELETING',
-                        'Visibility': 'PUBLIC'|'PRIVATE'|'SHARED',
-                        'ImageBuilderSupported': True|False,
-                        'Platform': 'WINDOWS',
-                        'Description': 'string',
-                        'StateChangeReason': {
-                            'Code': 'INTERNAL_ERROR'|'IMAGE_BUILDER_NOT_AVAILABLE'|'IMAGE_COPY_FAILURE',
-                            'Message': 'string'
+                        \'Name\': \'string\',
+                        \'Arn\': \'string\',
+                        \'BaseImageArn\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'State\': \'PENDING\'|\'AVAILABLE\'|\'FAILED\'|\'COPYING\'|\'DELETING\',
+                        \'Visibility\': \'PUBLIC\'|\'PRIVATE\'|\'SHARED\',
+                        \'ImageBuilderSupported\': True|False,
+                        \'Platform\': \'WINDOWS\',
+                        \'Description\': \'string\',
+                        \'StateChangeReason\': {
+                            \'Code\': \'INTERNAL_ERROR\'|\'IMAGE_BUILDER_NOT_AVAILABLE\'|\'IMAGE_COPY_FAILURE\',
+                            \'Message\': \'string\'
                         },
-                        'Applications': [
+                        \'Applications\': [
                             {
-                                'Name': 'string',
-                                'DisplayName': 'string',
-                                'IconURL': 'string',
-                                'LaunchPath': 'string',
-                                'LaunchParameters': 'string',
-                                'Enabled': True|False,
-                                'Metadata': {
-                                    'string': 'string'
+                                \'Name\': \'string\',
+                                \'DisplayName\': \'string\',
+                                \'IconURL\': \'string\',
+                                \'LaunchPath\': \'string\',
+                                \'LaunchParameters\': \'string\',
+                                \'Enabled\': True|False,
+                                \'Metadata\': {
+                                    \'string\': \'string\'
                                 }
                             },
                         ],
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'PublicBaseImageReleasedDate': datetime(2015, 1, 1),
-                        'AppstreamAgentVersion': 'string',
-                        'ImagePermissions': {
-                            'allowFleet': True|False,
-                            'allowImageBuilder': True|False
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'PublicBaseImageReleasedDate\': datetime(2015, 1, 1),
+                        \'AppstreamAgentVersion\': \'string\',
+                        \'ImagePermissions\': {
+                            \'allowFleet\': True|False,
+                            \'allowImageBuilder\': True|False
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2867,12 +2867,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_sessions(
-              StackName='string',
-              FleetName='string',
-              UserId='string',
-              NextToken='string',
+              StackName=\'string\',
+              FleetName=\'string\',
+              UserId=\'string\',
+              NextToken=\'string\',
               Limit=123,
-              AuthenticationType='API'|'SAML'|'USERPOOL'
+              AuthenticationType=\'API\'|\'SAML\'|\'USERPOOL\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -2912,21 +2912,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Sessions': [
+                \'Sessions\': [
                     {
-                        'Id': 'string',
-                        'UserId': 'string',
-                        'StackName': 'string',
-                        'FleetName': 'string',
-                        'State': 'ACTIVE'|'PENDING'|'EXPIRED',
-                        'AuthenticationType': 'API'|'SAML'|'USERPOOL',
-                        'NetworkAccessConfiguration': {
-                            'EniPrivateIpAddress': 'string',
-                            'EniId': 'string'
+                        \'Id\': \'string\',
+                        \'UserId\': \'string\',
+                        \'StackName\': \'string\',
+                        \'FleetName\': \'string\',
+                        \'State\': \'ACTIVE\'|\'PENDING\'|\'EXPIRED\',
+                        \'AuthenticationType\': \'API\'|\'SAML\'|\'USERPOOL\',
+                        \'NetworkAccessConfiguration\': {
+                            \'EniPrivateIpAddress\': \'string\',
+                            \'EniId\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2993,9 +2993,9 @@ class Client(BaseClient):
         
           response = client.describe_stacks(
               Names=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Names: list
         :param Names: 
@@ -3017,44 +3017,44 @@ class Client(BaseClient):
           ::
         
             {
-                'Stacks': [
+                \'Stacks\': [
                     {
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'DisplayName': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'StorageConnectors': [
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'StorageConnectors\': [
                             {
-                                'ConnectorType': 'HOMEFOLDERS'|'GOOGLE_DRIVE'|'ONE_DRIVE',
-                                'ResourceIdentifier': 'string',
-                                'Domains': [
-                                    'string',
+                                \'ConnectorType\': \'HOMEFOLDERS\'|\'GOOGLE_DRIVE\'|\'ONE_DRIVE\',
+                                \'ResourceIdentifier\': \'string\',
+                                \'Domains\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'RedirectURL': 'string',
-                        'FeedbackURL': 'string',
-                        'StackErrors': [
+                        \'RedirectURL\': \'string\',
+                        \'FeedbackURL\': \'string\',
+                        \'StackErrors\': [
                             {
-                                'ErrorCode': 'STORAGE_CONNECTOR_ERROR'|'INTERNAL_SERVICE_ERROR',
-                                'ErrorMessage': 'string'
+                                \'ErrorCode\': \'STORAGE_CONNECTOR_ERROR\'|\'INTERNAL_SERVICE_ERROR\',
+                                \'ErrorMessage\': \'string\'
                             },
                         ],
-                        'UserSettings': [
+                        \'UserSettings\': [
                             {
-                                'Action': 'CLIPBOARD_COPY_FROM_LOCAL_DEVICE'|'CLIPBOARD_COPY_TO_LOCAL_DEVICE'|'FILE_UPLOAD'|'FILE_DOWNLOAD'|'PRINTING_TO_LOCAL_DEVICE',
-                                'Permission': 'ENABLED'|'DISABLED'
+                                \'Action\': \'CLIPBOARD_COPY_FROM_LOCAL_DEVICE\'|\'CLIPBOARD_COPY_TO_LOCAL_DEVICE\'|\'FILE_UPLOAD\'|\'FILE_DOWNLOAD\'|\'PRINTING_TO_LOCAL_DEVICE\',
+                                \'Permission\': \'ENABLED\'|\'DISABLED\'
                             },
                         ],
-                        'ApplicationSettings': {
-                            'Enabled': True|False,
-                            'SettingsGroup': 'string',
-                            'S3BucketName': 'string'
+                        \'ApplicationSettings\': {
+                            \'Enabled\': True|False,
+                            \'SettingsGroup\': \'string\',
+                            \'S3BucketName\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3187,11 +3187,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_user_stack_associations(
-              StackName='string',
-              UserName='string',
-              AuthenticationType='API'|'SAML'|'USERPOOL',
+              StackName=\'string\',
+              UserName=\'string\',
+              AuthenticationType=\'API\'|\'SAML\'|\'USERPOOL\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type StackName: string
         :param StackName: 
@@ -3226,15 +3226,15 @@ class Client(BaseClient):
           ::
         
             {
-                'UserStackAssociations': [
+                \'UserStackAssociations\': [
                     {
-                        'StackName': 'string',
-                        'UserName': 'string',
-                        'AuthenticationType': 'API'|'SAML'|'USERPOOL',
-                        'SendEmailNotification': True|False
+                        \'StackName\': \'string\',
+                        \'UserName\': \'string\',
+                        \'AuthenticationType\': \'API\'|\'SAML\'|\'USERPOOL\',
+                        \'SendEmailNotification\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3280,9 +3280,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_users(
-              AuthenticationType='API'|'SAML'|'USERPOOL',
+              AuthenticationType=\'API\'|\'SAML\'|\'USERPOOL\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AuthenticationType: string
         :param AuthenticationType: **[REQUIRED]** 
@@ -3307,19 +3307,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'Arn': 'string',
-                        'UserName': 'string',
-                        'Enabled': True|False,
-                        'Status': 'string',
-                        'FirstName': 'string',
-                        'LastName': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'AuthenticationType': 'API'|'SAML'|'USERPOOL'
+                        \'Arn\': \'string\',
+                        \'UserName\': \'string\',
+                        \'Enabled\': True|False,
+                        \'Status\': \'string\',
+                        \'FirstName\': \'string\',
+                        \'LastName\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'AuthenticationType\': \'API\'|\'SAML\'|\'USERPOOL\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3391,8 +3391,8 @@ class Client(BaseClient):
         ::
         
           response = client.disable_user(
-              UserName='string',
-              AuthenticationType='API'|'SAML'|'USERPOOL'
+              UserName=\'string\',
+              AuthenticationType=\'API\'|\'SAML\'|\'USERPOOL\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -3427,8 +3427,8 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_fleet(
-              FleetName='string',
-              StackName='string'
+              FleetName=\'string\',
+              StackName=\'string\'
           )
         :type FleetName: string
         :param FleetName: **[REQUIRED]** 
@@ -3463,8 +3463,8 @@ class Client(BaseClient):
         ::
         
           response = client.enable_user(
-              UserName='string',
-              AuthenticationType='API'|'SAML'|'USERPOOL'
+              UserName=\'string\',
+              AuthenticationType=\'API\'|\'SAML\'|\'USERPOOL\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -3499,7 +3499,7 @@ class Client(BaseClient):
         ::
         
           response = client.expire_session(
-              SessionId='string'
+              SessionId=\'string\'
           )
         :type SessionId: string
         :param SessionId: **[REQUIRED]** 
@@ -3536,7 +3536,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3548,10 +3548,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3583,8 +3583,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_associated_fleets(
-              StackName='string',
-              NextToken='string'
+              StackName=\'string\',
+              NextToken=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -3604,10 +3604,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Names': [
-                    'string',
+                \'Names\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3635,8 +3635,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_associated_stacks(
-              FleetName='string',
-              NextToken='string'
+              FleetName=\'string\',
+              NextToken=\'string\'
           )
         :type FleetName: string
         :param FleetName: **[REQUIRED]** 
@@ -3656,10 +3656,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Names': [
-                    'string',
+                \'Names\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3689,7 +3689,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              ResourceArn='string'
+              ResourceArn=\'string\'
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
@@ -3704,8 +3704,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': {
-                    'string': 'string'
+                \'Tags\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3732,7 +3732,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_fleet(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -3762,8 +3762,8 @@ class Client(BaseClient):
         ::
         
           response = client.start_image_builder(
-              Name='string',
-              AppstreamAgentVersion='string'
+              Name=\'string\',
+              AppstreamAgentVersion=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -3783,41 +3783,41 @@ class Client(BaseClient):
           ::
         
             {
-                'ImageBuilder': {
-                    'Name': 'string',
-                    'Arn': 'string',
-                    'ImageArn': 'string',
-                    'Description': 'string',
-                    'DisplayName': 'string',
-                    'VpcConfig': {
-                        'SubnetIds': [
-                            'string',
+                \'ImageBuilder\': {
+                    \'Name\': \'string\',
+                    \'Arn\': \'string\',
+                    \'ImageArn\': \'string\',
+                    \'Description\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'VpcConfig\': {
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'SecurityGroupIds': [
-                            'string',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'InstanceType': 'string',
-                    'Platform': 'WINDOWS',
-                    'State': 'PENDING'|'UPDATING_AGENT'|'RUNNING'|'STOPPING'|'STOPPED'|'REBOOTING'|'SNAPSHOTTING'|'DELETING'|'FAILED',
-                    'StateChangeReason': {
-                        'Code': 'INTERNAL_ERROR'|'IMAGE_UNAVAILABLE',
-                        'Message': 'string'
+                    \'InstanceType\': \'string\',
+                    \'Platform\': \'WINDOWS\',
+                    \'State\': \'PENDING\'|\'UPDATING_AGENT\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'REBOOTING\'|\'SNAPSHOTTING\'|\'DELETING\'|\'FAILED\',
+                    \'StateChangeReason\': {
+                        \'Code\': \'INTERNAL_ERROR\'|\'IMAGE_UNAVAILABLE\',
+                        \'Message\': \'string\'
                     },
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'EnableDefaultInternetAccess': True|False,
-                    'DomainJoinInfo': {
-                        'DirectoryName': 'string',
-                        'OrganizationalUnitDistinguishedName': 'string'
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'EnableDefaultInternetAccess\': True|False,
+                    \'DomainJoinInfo\': {
+                        \'DirectoryName\': \'string\',
+                        \'OrganizationalUnitDistinguishedName\': \'string\'
                     },
-                    'ImageBuilderErrors': [
+                    \'ImageBuilderErrors\': [
                         {
-                            'ErrorCode': 'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION'|'NETWORK_INTERFACE_LIMIT_EXCEEDED'|'INTERNAL_SERVICE_ERROR'|'IAM_SERVICE_ROLE_IS_MISSING'|'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION'|'SUBNET_NOT_FOUND'|'IMAGE_NOT_FOUND'|'INVALID_SUBNET_CONFIGURATION'|'SECURITY_GROUPS_NOT_FOUND'|'IGW_NOT_ATTACHED'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION'|'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND'|'DOMAIN_JOIN_ERROR_ACCESS_DENIED'|'DOMAIN_JOIN_ERROR_LOGON_FAILURE'|'DOMAIN_JOIN_ERROR_INVALID_PARAMETER'|'DOMAIN_JOIN_ERROR_MORE_DATA'|'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN'|'DOMAIN_JOIN_ERROR_NOT_SUPPORTED'|'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME'|'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED'|'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED'|'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED'|'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR',
-                            'ErrorMessage': 'string',
-                            'ErrorTimestamp': datetime(2015, 1, 1)
+                            \'ErrorCode\': \'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION\'|\'NETWORK_INTERFACE_LIMIT_EXCEEDED\'|\'INTERNAL_SERVICE_ERROR\'|\'IAM_SERVICE_ROLE_IS_MISSING\'|\'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION\'|\'SUBNET_NOT_FOUND\'|\'IMAGE_NOT_FOUND\'|\'INVALID_SUBNET_CONFIGURATION\'|\'SECURITY_GROUPS_NOT_FOUND\'|\'IGW_NOT_ATTACHED\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION\'|\'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND\'|\'DOMAIN_JOIN_ERROR_ACCESS_DENIED\'|\'DOMAIN_JOIN_ERROR_LOGON_FAILURE\'|\'DOMAIN_JOIN_ERROR_INVALID_PARAMETER\'|\'DOMAIN_JOIN_ERROR_MORE_DATA\'|\'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN\'|\'DOMAIN_JOIN_ERROR_NOT_SUPPORTED\'|\'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME\'|\'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED\'|\'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED\'|\'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED\'|\'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR\',
+                            \'ErrorMessage\': \'string\',
+                            \'ErrorTimestamp\': datetime(2015, 1, 1)
                         },
                     ],
-                    'AppstreamAgentVersion': 'string'
+                    \'AppstreamAgentVersion\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3944,7 +3944,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_fleet(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -3974,7 +3974,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_image_builder(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -3989,41 +3989,41 @@ class Client(BaseClient):
           ::
         
             {
-                'ImageBuilder': {
-                    'Name': 'string',
-                    'Arn': 'string',
-                    'ImageArn': 'string',
-                    'Description': 'string',
-                    'DisplayName': 'string',
-                    'VpcConfig': {
-                        'SubnetIds': [
-                            'string',
+                \'ImageBuilder\': {
+                    \'Name\': \'string\',
+                    \'Arn\': \'string\',
+                    \'ImageArn\': \'string\',
+                    \'Description\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'VpcConfig\': {
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'SecurityGroupIds': [
-                            'string',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'InstanceType': 'string',
-                    'Platform': 'WINDOWS',
-                    'State': 'PENDING'|'UPDATING_AGENT'|'RUNNING'|'STOPPING'|'STOPPED'|'REBOOTING'|'SNAPSHOTTING'|'DELETING'|'FAILED',
-                    'StateChangeReason': {
-                        'Code': 'INTERNAL_ERROR'|'IMAGE_UNAVAILABLE',
-                        'Message': 'string'
+                    \'InstanceType\': \'string\',
+                    \'Platform\': \'WINDOWS\',
+                    \'State\': \'PENDING\'|\'UPDATING_AGENT\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'REBOOTING\'|\'SNAPSHOTTING\'|\'DELETING\'|\'FAILED\',
+                    \'StateChangeReason\': {
+                        \'Code\': \'INTERNAL_ERROR\'|\'IMAGE_UNAVAILABLE\',
+                        \'Message\': \'string\'
                     },
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'EnableDefaultInternetAccess': True|False,
-                    'DomainJoinInfo': {
-                        'DirectoryName': 'string',
-                        'OrganizationalUnitDistinguishedName': 'string'
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'EnableDefaultInternetAccess\': True|False,
+                    \'DomainJoinInfo\': {
+                        \'DirectoryName\': \'string\',
+                        \'OrganizationalUnitDistinguishedName\': \'string\'
                     },
-                    'ImageBuilderErrors': [
+                    \'ImageBuilderErrors\': [
                         {
-                            'ErrorCode': 'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION'|'NETWORK_INTERFACE_LIMIT_EXCEEDED'|'INTERNAL_SERVICE_ERROR'|'IAM_SERVICE_ROLE_IS_MISSING'|'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION'|'SUBNET_NOT_FOUND'|'IMAGE_NOT_FOUND'|'INVALID_SUBNET_CONFIGURATION'|'SECURITY_GROUPS_NOT_FOUND'|'IGW_NOT_ATTACHED'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION'|'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND'|'DOMAIN_JOIN_ERROR_ACCESS_DENIED'|'DOMAIN_JOIN_ERROR_LOGON_FAILURE'|'DOMAIN_JOIN_ERROR_INVALID_PARAMETER'|'DOMAIN_JOIN_ERROR_MORE_DATA'|'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN'|'DOMAIN_JOIN_ERROR_NOT_SUPPORTED'|'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME'|'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED'|'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED'|'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED'|'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR',
-                            'ErrorMessage': 'string',
-                            'ErrorTimestamp': datetime(2015, 1, 1)
+                            \'ErrorCode\': \'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION\'|\'NETWORK_INTERFACE_LIMIT_EXCEEDED\'|\'INTERNAL_SERVICE_ERROR\'|\'IAM_SERVICE_ROLE_IS_MISSING\'|\'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION\'|\'SUBNET_NOT_FOUND\'|\'IMAGE_NOT_FOUND\'|\'INVALID_SUBNET_CONFIGURATION\'|\'SECURITY_GROUPS_NOT_FOUND\'|\'IGW_NOT_ATTACHED\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION\'|\'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND\'|\'DOMAIN_JOIN_ERROR_ACCESS_DENIED\'|\'DOMAIN_JOIN_ERROR_LOGON_FAILURE\'|\'DOMAIN_JOIN_ERROR_INVALID_PARAMETER\'|\'DOMAIN_JOIN_ERROR_MORE_DATA\'|\'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN\'|\'DOMAIN_JOIN_ERROR_NOT_SUPPORTED\'|\'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME\'|\'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED\'|\'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED\'|\'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED\'|\'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR\',
+                            \'ErrorMessage\': \'string\',
+                            \'ErrorTimestamp\': datetime(2015, 1, 1)
                         },
                     ],
-                    'AppstreamAgentVersion': 'string'
+                    \'AppstreamAgentVersion\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4156,9 +4156,9 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               Tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type ResourceArn: string
@@ -4204,9 +4204,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceArn: string
@@ -4244,13 +4244,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_directory_config(
-              DirectoryName='string',
+              DirectoryName=\'string\',
               OrganizationalUnitDistinguishedNames=[
-                  'string',
+                  \'string\',
               ],
               ServiceAccountCredentials={
-                  'AccountName': 'string',
-                  'AccountPassword': 'string'
+                  \'AccountName\': \'string\',
+                  \'AccountPassword\': \'string\'
               }
           )
         :type DirectoryName: string
@@ -4286,16 +4286,16 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryConfig': {
-                    'DirectoryName': 'string',
-                    'OrganizationalUnitDistinguishedNames': [
-                        'string',
+                \'DirectoryConfig\': {
+                    \'DirectoryName\': \'string\',
+                    \'OrganizationalUnitDistinguishedNames\': [
+                        \'string\',
                     ],
-                    'ServiceAccountCredentials': {
-                        'AccountName': 'string',
-                        'AccountPassword': 'string'
+                    \'ServiceAccountCredentials\': {
+                        \'AccountName\': \'string\',
+                        \'AccountPassword\': \'string\'
                     },
-                    'CreatedTime': datetime(2015, 1, 1)
+                    \'CreatedTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -4338,7 +4338,7 @@ class Client(BaseClient):
     def update_fleet(self, ImageName: str = None, ImageArn: str = None, Name: str = None, InstanceType: str = None, ComputeCapacity: Dict = None, VpcConfig: Dict = None, MaxUserDurationInSeconds: int = None, DisconnectTimeoutInSeconds: int = None, DeleteVpcConfig: bool = None, Description: str = None, DisplayName: str = None, EnableDefaultInternetAccess: bool = None, DomainJoinInfo: Dict = None, AttributesToDelete: List = None) -> Dict:
         """
         
-        If the fleet is in the ``STOPPED`` state, you can update any attribute except the fleet name. If the fleet is in the ``RUNNING`` state, you can update the ``DisplayName`` and ``ComputeCapacity`` attributes. If the fleet is in the ``STARTING`` or ``STOPPING`` state, you can't update it.
+        If the fleet is in the ``STOPPED`` state, you can update any attribute except the fleet name. If the fleet is in the ``RUNNING`` state, you can update the ``DisplayName`` and ``ComputeCapacity`` attributes. If the fleet is in the ``STARTING`` or ``STOPPING`` state, you can\'t update it.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/UpdateFleet>`_
         
@@ -4346,33 +4346,33 @@ class Client(BaseClient):
         ::
         
           response = client.update_fleet(
-              ImageName='string',
-              ImageArn='string',
-              Name='string',
-              InstanceType='string',
+              ImageName=\'string\',
+              ImageArn=\'string\',
+              Name=\'string\',
+              InstanceType=\'string\',
               ComputeCapacity={
-                  'DesiredInstances': 123
+                  \'DesiredInstances\': 123
               },
               VpcConfig={
-                  'SubnetIds': [
-                      'string',
+                  \'SubnetIds\': [
+                      \'string\',
                   ],
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ]
               },
               MaxUserDurationInSeconds=123,
               DisconnectTimeoutInSeconds=123,
               DeleteVpcConfig=True|False,
-              Description='string',
-              DisplayName='string',
+              Description=\'string\',
+              DisplayName=\'string\',
               EnableDefaultInternetAccess=True|False,
               DomainJoinInfo={
-                  'DirectoryName': 'string',
-                  'OrganizationalUnitDistinguishedName': 'string'
+                  \'DirectoryName\': \'string\',
+                  \'OrganizationalUnitDistinguishedName\': \'string\'
               },
               AttributesToDelete=[
-                  'VPC_CONFIGURATION'|'VPC_CONFIGURATION_SECURITY_GROUP_IDS'|'DOMAIN_JOIN_INFO',
+                  \'VPC_CONFIGURATION\'|\'VPC_CONFIGURATION_SECURITY_GROUP_IDS\'|\'DOMAIN_JOIN_INFO\',
               ]
           )
         :type ImageName: string
@@ -4521,43 +4521,43 @@ class Client(BaseClient):
           ::
         
             {
-                'Fleet': {
-                    'Arn': 'string',
-                    'Name': 'string',
-                    'DisplayName': 'string',
-                    'Description': 'string',
-                    'ImageName': 'string',
-                    'ImageArn': 'string',
-                    'InstanceType': 'string',
-                    'FleetType': 'ALWAYS_ON'|'ON_DEMAND',
-                    'ComputeCapacityStatus': {
-                        'Desired': 123,
-                        'Running': 123,
-                        'InUse': 123,
-                        'Available': 123
+                \'Fleet\': {
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'Description\': \'string\',
+                    \'ImageName\': \'string\',
+                    \'ImageArn\': \'string\',
+                    \'InstanceType\': \'string\',
+                    \'FleetType\': \'ALWAYS_ON\'|\'ON_DEMAND\',
+                    \'ComputeCapacityStatus\': {
+                        \'Desired\': 123,
+                        \'Running\': 123,
+                        \'InUse\': 123,
+                        \'Available\': 123
                     },
-                    'MaxUserDurationInSeconds': 123,
-                    'DisconnectTimeoutInSeconds': 123,
-                    'State': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED',
-                    'VpcConfig': {
-                        'SubnetIds': [
-                            'string',
+                    \'MaxUserDurationInSeconds\': 123,
+                    \'DisconnectTimeoutInSeconds\': 123,
+                    \'State\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\',
+                    \'VpcConfig\': {
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'SecurityGroupIds': [
-                            'string',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'FleetErrors': [
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'FleetErrors\': [
                         {
-                            'ErrorCode': 'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION'|'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION'|'NETWORK_INTERFACE_LIMIT_EXCEEDED'|'INTERNAL_SERVICE_ERROR'|'IAM_SERVICE_ROLE_IS_MISSING'|'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION'|'SUBNET_NOT_FOUND'|'IMAGE_NOT_FOUND'|'INVALID_SUBNET_CONFIGURATION'|'SECURITY_GROUPS_NOT_FOUND'|'IGW_NOT_ATTACHED'|'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION'|'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND'|'DOMAIN_JOIN_ERROR_ACCESS_DENIED'|'DOMAIN_JOIN_ERROR_LOGON_FAILURE'|'DOMAIN_JOIN_ERROR_INVALID_PARAMETER'|'DOMAIN_JOIN_ERROR_MORE_DATA'|'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN'|'DOMAIN_JOIN_ERROR_NOT_SUPPORTED'|'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME'|'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED'|'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED'|'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED'|'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR',
-                            'ErrorMessage': 'string'
+                            \'ErrorCode\': \'IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION\'|\'IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION\'|\'NETWORK_INTERFACE_LIMIT_EXCEEDED\'|\'INTERNAL_SERVICE_ERROR\'|\'IAM_SERVICE_ROLE_IS_MISSING\'|\'SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION\'|\'SUBNET_NOT_FOUND\'|\'IMAGE_NOT_FOUND\'|\'INVALID_SUBNET_CONFIGURATION\'|\'SECURITY_GROUPS_NOT_FOUND\'|\'IGW_NOT_ATTACHED\'|\'IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION\'|\'DOMAIN_JOIN_ERROR_FILE_NOT_FOUND\'|\'DOMAIN_JOIN_ERROR_ACCESS_DENIED\'|\'DOMAIN_JOIN_ERROR_LOGON_FAILURE\'|\'DOMAIN_JOIN_ERROR_INVALID_PARAMETER\'|\'DOMAIN_JOIN_ERROR_MORE_DATA\'|\'DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN\'|\'DOMAIN_JOIN_ERROR_NOT_SUPPORTED\'|\'DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME\'|\'DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED\'|\'DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED\'|\'DOMAIN_JOIN_NERR_PASSWORD_EXPIRED\'|\'DOMAIN_JOIN_INTERNAL_SERVICE_ERROR\',
+                            \'ErrorMessage\': \'string\'
                         },
                     ],
-                    'EnableDefaultInternetAccess': True|False,
-                    'DomainJoinInfo': {
-                        'DirectoryName': 'string',
-                        'OrganizationalUnitDistinguishedName': 'string'
+                    \'EnableDefaultInternetAccess\': True|False,
+                    \'DomainJoinInfo\': {
+                        \'DirectoryName\': \'string\',
+                        \'OrganizationalUnitDistinguishedName\': \'string\'
                     }
                 }
             }
@@ -4705,11 +4705,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_image_permissions(
-              Name='string',
-              SharedAccountId='string',
+              Name=\'string\',
+              SharedAccountId=\'string\',
               ImagePermissions={
-                  'allowFleet': True|False,
-                  'allowImageBuilder': True|False
+                  \'allowFleet\': True|False,
+                  \'allowImageBuilder\': True|False
               }
           )
         :type Name: string
@@ -4758,33 +4758,33 @@ class Client(BaseClient):
         ::
         
           response = client.update_stack(
-              DisplayName='string',
-              Description='string',
-              Name='string',
+              DisplayName=\'string\',
+              Description=\'string\',
+              Name=\'string\',
               StorageConnectors=[
                   {
-                      'ConnectorType': 'HOMEFOLDERS'|'GOOGLE_DRIVE'|'ONE_DRIVE',
-                      'ResourceIdentifier': 'string',
-                      'Domains': [
-                          'string',
+                      \'ConnectorType\': \'HOMEFOLDERS\'|\'GOOGLE_DRIVE\'|\'ONE_DRIVE\',
+                      \'ResourceIdentifier\': \'string\',
+                      \'Domains\': [
+                          \'string\',
                       ]
                   },
               ],
               DeleteStorageConnectors=True|False,
-              RedirectURL='string',
-              FeedbackURL='string',
+              RedirectURL=\'string\',
+              FeedbackURL=\'string\',
               AttributesToDelete=[
-                  'STORAGE_CONNECTORS'|'STORAGE_CONNECTOR_HOMEFOLDERS'|'STORAGE_CONNECTOR_GOOGLE_DRIVE'|'STORAGE_CONNECTOR_ONE_DRIVE'|'REDIRECT_URL'|'FEEDBACK_URL'|'THEME_NAME'|'USER_SETTINGS',
+                  \'STORAGE_CONNECTORS\'|\'STORAGE_CONNECTOR_HOMEFOLDERS\'|\'STORAGE_CONNECTOR_GOOGLE_DRIVE\'|\'STORAGE_CONNECTOR_ONE_DRIVE\'|\'REDIRECT_URL\'|\'FEEDBACK_URL\'|\'THEME_NAME\'|\'USER_SETTINGS\',
               ],
               UserSettings=[
                   {
-                      'Action': 'CLIPBOARD_COPY_FROM_LOCAL_DEVICE'|'CLIPBOARD_COPY_TO_LOCAL_DEVICE'|'FILE_UPLOAD'|'FILE_DOWNLOAD'|'PRINTING_TO_LOCAL_DEVICE',
-                      'Permission': 'ENABLED'|'DISABLED'
+                      \'Action\': \'CLIPBOARD_COPY_FROM_LOCAL_DEVICE\'|\'CLIPBOARD_COPY_TO_LOCAL_DEVICE\'|\'FILE_UPLOAD\'|\'FILE_DOWNLOAD\'|\'PRINTING_TO_LOCAL_DEVICE\',
+                      \'Permission\': \'ENABLED\'|\'DISABLED\'
                   },
               ],
               ApplicationSettings={
-                  'Enabled': True|False,
-                  'SettingsGroup': 'string'
+                  \'Enabled\': True|False,
+                  \'SettingsGroup\': \'string\'
               }
           )
         :type DisplayName: string
@@ -4885,39 +4885,39 @@ class Client(BaseClient):
           ::
         
             {
-                'Stack': {
-                    'Arn': 'string',
-                    'Name': 'string',
-                    'Description': 'string',
-                    'DisplayName': 'string',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'StorageConnectors': [
+                \'Stack\': {
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'StorageConnectors\': [
                         {
-                            'ConnectorType': 'HOMEFOLDERS'|'GOOGLE_DRIVE'|'ONE_DRIVE',
-                            'ResourceIdentifier': 'string',
-                            'Domains': [
-                                'string',
+                            \'ConnectorType\': \'HOMEFOLDERS\'|\'GOOGLE_DRIVE\'|\'ONE_DRIVE\',
+                            \'ResourceIdentifier\': \'string\',
+                            \'Domains\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'RedirectURL': 'string',
-                    'FeedbackURL': 'string',
-                    'StackErrors': [
+                    \'RedirectURL\': \'string\',
+                    \'FeedbackURL\': \'string\',
+                    \'StackErrors\': [
                         {
-                            'ErrorCode': 'STORAGE_CONNECTOR_ERROR'|'INTERNAL_SERVICE_ERROR',
-                            'ErrorMessage': 'string'
+                            \'ErrorCode\': \'STORAGE_CONNECTOR_ERROR\'|\'INTERNAL_SERVICE_ERROR\',
+                            \'ErrorMessage\': \'string\'
                         },
                     ],
-                    'UserSettings': [
+                    \'UserSettings\': [
                         {
-                            'Action': 'CLIPBOARD_COPY_FROM_LOCAL_DEVICE'|'CLIPBOARD_COPY_TO_LOCAL_DEVICE'|'FILE_UPLOAD'|'FILE_DOWNLOAD'|'PRINTING_TO_LOCAL_DEVICE',
-                            'Permission': 'ENABLED'|'DISABLED'
+                            \'Action\': \'CLIPBOARD_COPY_FROM_LOCAL_DEVICE\'|\'CLIPBOARD_COPY_TO_LOCAL_DEVICE\'|\'FILE_UPLOAD\'|\'FILE_DOWNLOAD\'|\'PRINTING_TO_LOCAL_DEVICE\',
+                            \'Permission\': \'ENABLED\'|\'DISABLED\'
                         },
                     ],
-                    'ApplicationSettings': {
-                        'Enabled': True|False,
-                        'SettingsGroup': 'string',
-                        'S3BucketName': 'string'
+                    \'ApplicationSettings\': {
+                        \'Enabled\': True|False,
+                        \'SettingsGroup\': \'string\',
+                        \'S3BucketName\': \'string\'
                     }
                 }
             }

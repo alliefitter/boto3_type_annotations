@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -18,9 +18,9 @@ class Client(BaseClient):
         ::
         
           response = client.abort_document_version_upload(
-              AuthenticationToken='string',
-              DocumentId='string',
-              VersionId='string'
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\',
+              VersionId=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -50,8 +50,8 @@ class Client(BaseClient):
         ::
         
           response = client.activate_user(
-              UserId='string',
-              AuthenticationToken='string'
+              UserId=\'string\',
+              AuthenticationToken=\'string\'
           )
         :type UserId: string
         :param UserId: **[REQUIRED]** 
@@ -71,26 +71,26 @@ class Client(BaseClient):
           ::
         
             {
-                'User': {
-                    'Id': 'string',
-                    'Username': 'string',
-                    'EmailAddress': 'string',
-                    'GivenName': 'string',
-                    'Surname': 'string',
-                    'OrganizationId': 'string',
-                    'RootFolderId': 'string',
-                    'RecycleBinFolderId': 'string',
-                    'Status': 'ACTIVE'|'INACTIVE'|'PENDING',
-                    'Type': 'USER'|'ADMIN'|'POWERUSER'|'MINIMALUSER'|'WORKSPACESUSER',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'ModifiedTimestamp': datetime(2015, 1, 1),
-                    'TimeZoneId': 'string',
-                    'Locale': 'en'|'fr'|'ko'|'de'|'es'|'ja'|'ru'|'zh_CN'|'zh_TW'|'pt_BR'|'default',
-                    'Storage': {
-                        'StorageUtilizedInBytes': 123,
-                        'StorageRule': {
-                            'StorageAllocatedInBytes': 123,
-                            'StorageType': 'UNLIMITED'|'QUOTA'
+                \'User\': {
+                    \'Id\': \'string\',
+                    \'Username\': \'string\',
+                    \'EmailAddress\': \'string\',
+                    \'GivenName\': \'string\',
+                    \'Surname\': \'string\',
+                    \'OrganizationId\': \'string\',
+                    \'RootFolderId\': \'string\',
+                    \'RecycleBinFolderId\': \'string\',
+                    \'Status\': \'ACTIVE\'|\'INACTIVE\'|\'PENDING\',
+                    \'Type\': \'USER\'|\'ADMIN\'|\'POWERUSER\'|\'MINIMALUSER\'|\'WORKSPACESUSER\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                    \'TimeZoneId\': \'string\',
+                    \'Locale\': \'en\'|\'fr\'|\'ko\'|\'de\'|\'es\'|\'ja\'|\'ru\'|\'zh_CN\'|\'zh_TW\'|\'pt_BR\'|\'default\',
+                    \'Storage\': {
+                        \'StorageUtilizedInBytes\': 123,
+                        \'StorageRule\': {
+                            \'StorageAllocatedInBytes\': 123,
+                            \'StorageType\': \'UNLIMITED\'|\'QUOTA\'
                         }
                     }
                 }
@@ -191,18 +191,18 @@ class Client(BaseClient):
         ::
         
           response = client.add_resource_permissions(
-              AuthenticationToken='string',
-              ResourceId='string',
+              AuthenticationToken=\'string\',
+              ResourceId=\'string\',
               Principals=[
                   {
-                      'Id': 'string',
-                      'Type': 'USER'|'GROUP'|'INVITE'|'ANONYMOUS'|'ORGANIZATION',
-                      'Role': 'VIEWER'|'CONTRIBUTOR'|'OWNER'|'COOWNER'
+                      \'Id\': \'string\',
+                      \'Type\': \'USER\'|\'GROUP\'|\'INVITE\'|\'ANONYMOUS\'|\'ORGANIZATION\',
+                      \'Role\': \'VIEWER\'|\'CONTRIBUTOR\'|\'OWNER\'|\'COOWNER\'
                   },
               ],
               NotificationOptions={
-                  'SendEmail': True|False,
-                  'EmailMessage': 'string'
+                  \'SendEmail\': True|False,
+                  \'EmailMessage\': \'string\'
               }
           )
         :type AuthenticationToken: string
@@ -257,13 +257,13 @@ class Client(BaseClient):
           ::
         
             {
-                'ShareResults': [
+                \'ShareResults\': [
                     {
-                        'PrincipalId': 'string',
-                        'Role': 'VIEWER'|'CONTRIBUTOR'|'OWNER'|'COOWNER',
-                        'Status': 'SUCCESS'|'FAILURE',
-                        'ShareId': 'string',
-                        'StatusMessage': 'string'
+                        \'PrincipalId\': \'string\',
+                        \'Role\': \'VIEWER\'|\'CONTRIBUTOR\'|\'OWNER\'|\'COOWNER\',
+                        \'Status\': \'SUCCESS\'|\'FAILURE\',
+                        \'ShareId\': \'string\',
+                        \'StatusMessage\': \'string\'
                     },
                 ]
             }
@@ -308,10 +308,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -327,13 +327,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_comment(
-              AuthenticationToken='string',
-              DocumentId='string',
-              VersionId='string',
-              ParentId='string',
-              ThreadId='string',
-              Text='string',
-              Visibility='PUBLIC'|'PRIVATE',
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\',
+              VersionId=\'string\',
+              ParentId=\'string\',
+              ThreadId=\'string\',
+              Text=\'string\',
+              Visibility=\'PUBLIC\'|\'PRIVATE\',
               NotifyCollaborators=True|False
           )
         :type AuthenticationToken: string
@@ -384,38 +384,38 @@ class Client(BaseClient):
           ::
         
             {
-                'Comment': {
-                    'CommentId': 'string',
-                    'ParentId': 'string',
-                    'ThreadId': 'string',
-                    'Text': 'string',
-                    'Contributor': {
-                        'Id': 'string',
-                        'Username': 'string',
-                        'EmailAddress': 'string',
-                        'GivenName': 'string',
-                        'Surname': 'string',
-                        'OrganizationId': 'string',
-                        'RootFolderId': 'string',
-                        'RecycleBinFolderId': 'string',
-                        'Status': 'ACTIVE'|'INACTIVE'|'PENDING',
-                        'Type': 'USER'|'ADMIN'|'POWERUSER'|'MINIMALUSER'|'WORKSPACESUSER',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'TimeZoneId': 'string',
-                        'Locale': 'en'|'fr'|'ko'|'de'|'es'|'ja'|'ru'|'zh_CN'|'zh_TW'|'pt_BR'|'default',
-                        'Storage': {
-                            'StorageUtilizedInBytes': 123,
-                            'StorageRule': {
-                                'StorageAllocatedInBytes': 123,
-                                'StorageType': 'UNLIMITED'|'QUOTA'
+                \'Comment\': {
+                    \'CommentId\': \'string\',
+                    \'ParentId\': \'string\',
+                    \'ThreadId\': \'string\',
+                    \'Text\': \'string\',
+                    \'Contributor\': {
+                        \'Id\': \'string\',
+                        \'Username\': \'string\',
+                        \'EmailAddress\': \'string\',
+                        \'GivenName\': \'string\',
+                        \'Surname\': \'string\',
+                        \'OrganizationId\': \'string\',
+                        \'RootFolderId\': \'string\',
+                        \'RecycleBinFolderId\': \'string\',
+                        \'Status\': \'ACTIVE\'|\'INACTIVE\'|\'PENDING\',
+                        \'Type\': \'USER\'|\'ADMIN\'|\'POWERUSER\'|\'MINIMALUSER\'|\'WORKSPACESUSER\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'TimeZoneId\': \'string\',
+                        \'Locale\': \'en\'|\'fr\'|\'ko\'|\'de\'|\'es\'|\'ja\'|\'ru\'|\'zh_CN\'|\'zh_TW\'|\'pt_BR\'|\'default\',
+                        \'Storage\': {
+                            \'StorageUtilizedInBytes\': 123,
+                            \'StorageRule\': {
+                                \'StorageAllocatedInBytes\': 123,
+                                \'StorageType\': \'UNLIMITED\'|\'QUOTA\'
                             }
                         }
                     },
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'Status': 'DRAFT'|'PUBLISHED'|'DELETED',
-                    'Visibility': 'PUBLIC'|'PRIVATE',
-                    'RecipientId': 'string'
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'Status\': \'DRAFT\'|\'PUBLISHED\'|\'DELETED\',
+                    \'Visibility\': \'PUBLIC\'|\'PRIVATE\',
+                    \'RecipientId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -536,7 +536,7 @@ class Client(BaseClient):
         
               - **RecipientId** *(string) --* 
         
-                If the comment is a reply to another user's comment, this field contains the user ID of the user being replied to.
+                If the comment is a reply to another user\'s comment, this field contains the user ID of the user being replied to.
         
         """
         pass
@@ -550,11 +550,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_custom_metadata(
-              AuthenticationToken='string',
-              ResourceId='string',
-              VersionId='string',
+              AuthenticationToken=\'string\',
+              ResourceId=\'string\',
+              VersionId=\'string\',
               CustomMetadata={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type AuthenticationToken: string
@@ -604,9 +604,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_folder(
-              AuthenticationToken='string',
-              Name='string',
-              ParentFolderId='string'
+              AuthenticationToken=\'string\',
+              Name=\'string\',
+              ParentFolderId=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -631,20 +631,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Metadata': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'CreatorId': 'string',
-                    'ParentFolderId': 'string',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'ModifiedTimestamp': datetime(2015, 1, 1),
-                    'ResourceState': 'ACTIVE'|'RESTORING'|'RECYCLING'|'RECYCLED',
-                    'Signature': 'string',
-                    'Labels': [
-                        'string',
+                \'Metadata\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'CreatorId\': \'string\',
+                    \'ParentFolderId\': \'string\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                    \'ResourceState\': \'ACTIVE\'|\'RESTORING\'|\'RECYCLING\'|\'RECYCLED\',
+                    \'Signature\': \'string\',
+                    \'Labels\': [
+                        \'string\',
                     ],
-                    'Size': 123,
-                    'LatestVersionSize': 123
+                    \'Size\': 123,
+                    \'LatestVersionSize\': 123
                 }
             }
           **Response Structure** 
@@ -713,11 +713,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_labels(
-              ResourceId='string',
+              ResourceId=\'string\',
               Labels=[
-                  'string',
+                  \'string\',
               ],
-              AuthenticationToken='string'
+              AuthenticationToken=\'string\'
           )
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]** 
@@ -761,10 +761,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_notification_subscription(
-              OrganizationId='string',
-              Endpoint='string',
-              Protocol='HTTPS',
-              SubscriptionType='ALL'
+              OrganizationId=\'string\',
+              Endpoint=\'string\',
+              Protocol=\'HTTPS\',
+              SubscriptionType=\'ALL\'
           )
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]** 
@@ -774,7 +774,7 @@ class Client(BaseClient):
         :type Endpoint: string
         :param Endpoint: **[REQUIRED]** 
         
-          The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with "https://".
+          The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with \"https://\".
         
         :type Protocol: string
         :param Protocol: **[REQUIRED]** 
@@ -794,10 +794,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Subscription': {
-                    'SubscriptionId': 'string',
-                    'EndPoint': 'string',
-                    'Protocol': 'HTTPS'
+                \'Subscription\': {
+                    \'SubscriptionId\': \'string\',
+                    \'EndPoint\': \'string\',
+                    \'Protocol\': \'HTTPS\'
                 }
             }
           **Response Structure** 
@@ -832,18 +832,18 @@ class Client(BaseClient):
         ::
         
           response = client.create_user(
-              OrganizationId='string',
-              Username='string',
-              EmailAddress='string',
-              GivenName='string',
-              Surname='string',
-              Password='string',
-              TimeZoneId='string',
+              OrganizationId=\'string\',
+              Username=\'string\',
+              EmailAddress=\'string\',
+              GivenName=\'string\',
+              Surname=\'string\',
+              Password=\'string\',
+              TimeZoneId=\'string\',
               StorageRule={
-                  'StorageAllocatedInBytes': 123,
-                  'StorageType': 'UNLIMITED'|'QUOTA'
+                  \'StorageAllocatedInBytes\': 123,
+                  \'StorageType\': \'UNLIMITED\'|\'QUOTA\'
               },
-              AuthenticationToken='string'
+              AuthenticationToken=\'string\'
           )
         :type OrganizationId: string
         :param OrganizationId: 
@@ -906,26 +906,26 @@ class Client(BaseClient):
           ::
         
             {
-                'User': {
-                    'Id': 'string',
-                    'Username': 'string',
-                    'EmailAddress': 'string',
-                    'GivenName': 'string',
-                    'Surname': 'string',
-                    'OrganizationId': 'string',
-                    'RootFolderId': 'string',
-                    'RecycleBinFolderId': 'string',
-                    'Status': 'ACTIVE'|'INACTIVE'|'PENDING',
-                    'Type': 'USER'|'ADMIN'|'POWERUSER'|'MINIMALUSER'|'WORKSPACESUSER',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'ModifiedTimestamp': datetime(2015, 1, 1),
-                    'TimeZoneId': 'string',
-                    'Locale': 'en'|'fr'|'ko'|'de'|'es'|'ja'|'ru'|'zh_CN'|'zh_TW'|'pt_BR'|'default',
-                    'Storage': {
-                        'StorageUtilizedInBytes': 123,
-                        'StorageRule': {
-                            'StorageAllocatedInBytes': 123,
-                            'StorageType': 'UNLIMITED'|'QUOTA'
+                \'User\': {
+                    \'Id\': \'string\',
+                    \'Username\': \'string\',
+                    \'EmailAddress\': \'string\',
+                    \'GivenName\': \'string\',
+                    \'Surname\': \'string\',
+                    \'OrganizationId\': \'string\',
+                    \'RootFolderId\': \'string\',
+                    \'RecycleBinFolderId\': \'string\',
+                    \'Status\': \'ACTIVE\'|\'INACTIVE\'|\'PENDING\',
+                    \'Type\': \'USER\'|\'ADMIN\'|\'POWERUSER\'|\'MINIMALUSER\'|\'WORKSPACESUSER\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                    \'TimeZoneId\': \'string\',
+                    \'Locale\': \'en\'|\'fr\'|\'ko\'|\'de\'|\'es\'|\'ja\'|\'ru\'|\'zh_CN\'|\'zh_TW\'|\'pt_BR\'|\'default\',
+                    \'Storage\': {
+                        \'StorageUtilizedInBytes\': 123,
+                        \'StorageRule\': {
+                            \'StorageAllocatedInBytes\': 123,
+                            \'StorageType\': \'UNLIMITED\'|\'QUOTA\'
                         }
                     }
                 }
@@ -1026,8 +1026,8 @@ class Client(BaseClient):
         ::
         
           response = client.deactivate_user(
-              UserId='string',
-              AuthenticationToken='string'
+              UserId=\'string\',
+              AuthenticationToken=\'string\'
           )
         :type UserId: string
         :param UserId: **[REQUIRED]** 
@@ -1052,10 +1052,10 @@ class Client(BaseClient):
         ::
         
           response = client.delete_comment(
-              AuthenticationToken='string',
-              DocumentId='string',
-              VersionId='string',
-              CommentId='string'
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\',
+              VersionId=\'string\',
+              CommentId=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -1090,11 +1090,11 @@ class Client(BaseClient):
         ::
         
           response = client.delete_custom_metadata(
-              AuthenticationToken='string',
-              ResourceId='string',
-              VersionId='string',
+              AuthenticationToken=\'string\',
+              ResourceId=\'string\',
+              VersionId=\'string\',
               Keys=[
-                  'string',
+                  \'string\',
               ],
               DeleteAll=True|False
           )
@@ -1148,8 +1148,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_document(
-              AuthenticationToken='string',
-              DocumentId='string'
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -1174,8 +1174,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_folder(
-              AuthenticationToken='string',
-              FolderId='string'
+              AuthenticationToken=\'string\',
+              FolderId=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -1200,8 +1200,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_folder_contents(
-              AuthenticationToken='string',
-              FolderId='string'
+              AuthenticationToken=\'string\',
+              FolderId=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -1226,10 +1226,10 @@ class Client(BaseClient):
         ::
         
           response = client.delete_labels(
-              ResourceId='string',
-              AuthenticationToken='string',
+              ResourceId=\'string\',
+              AuthenticationToken=\'string\',
               Labels=[
-                  'string',
+                  \'string\',
               ],
               DeleteAll=True|False
           )
@@ -1278,8 +1278,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_notification_subscription(
-              SubscriptionId='string',
-              OrganizationId='string'
+              SubscriptionId=\'string\',
+              OrganizationId=\'string\'
           )
         :type SubscriptionId: string
         :param SubscriptionId: **[REQUIRED]** 
@@ -1304,8 +1304,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user(
-              AuthenticationToken='string',
-              UserId='string'
+              AuthenticationToken=\'string\',
+              UserId=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -1330,13 +1330,13 @@ class Client(BaseClient):
         ::
         
           response = client.describe_activities(
-              AuthenticationToken='string',
+              AuthenticationToken=\'string\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
-              OrganizationId='string',
-              UserId='string',
+              OrganizationId=\'string\',
+              UserId=\'string\',
               Limit=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -1381,97 +1381,97 @@ class Client(BaseClient):
           ::
         
             {
-                'UserActivities': [
+                \'UserActivities\': [
                     {
-                        'Type': 'DOCUMENT_CHECKED_IN'|'DOCUMENT_CHECKED_OUT'|'DOCUMENT_RENAMED'|'DOCUMENT_VERSION_UPLOADED'|'DOCUMENT_VERSION_DELETED'|'DOCUMENT_RECYCLED'|'DOCUMENT_RESTORED'|'DOCUMENT_REVERTED'|'DOCUMENT_SHARED'|'DOCUMENT_UNSHARED'|'DOCUMENT_SHARE_PERMISSION_CHANGED'|'DOCUMENT_SHAREABLE_LINK_CREATED'|'DOCUMENT_SHAREABLE_LINK_REMOVED'|'DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED'|'DOCUMENT_MOVED'|'DOCUMENT_COMMENT_ADDED'|'DOCUMENT_COMMENT_DELETED'|'DOCUMENT_ANNOTATION_ADDED'|'DOCUMENT_ANNOTATION_DELETED'|'FOLDER_CREATED'|'FOLDER_DELETED'|'FOLDER_RENAMED'|'FOLDER_RECYCLED'|'FOLDER_RESTORED'|'FOLDER_SHARED'|'FOLDER_UNSHARED'|'FOLDER_SHARE_PERMISSION_CHANGED'|'FOLDER_SHAREABLE_LINK_CREATED'|'FOLDER_SHAREABLE_LINK_REMOVED'|'FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED'|'FOLDER_MOVED',
-                        'TimeStamp': datetime(2015, 1, 1),
-                        'OrganizationId': 'string',
-                        'Initiator': {
-                            'Id': 'string',
-                            'Username': 'string',
-                            'GivenName': 'string',
-                            'Surname': 'string',
-                            'EmailAddress': 'string'
+                        \'Type\': \'DOCUMENT_CHECKED_IN\'|\'DOCUMENT_CHECKED_OUT\'|\'DOCUMENT_RENAMED\'|\'DOCUMENT_VERSION_UPLOADED\'|\'DOCUMENT_VERSION_DELETED\'|\'DOCUMENT_RECYCLED\'|\'DOCUMENT_RESTORED\'|\'DOCUMENT_REVERTED\'|\'DOCUMENT_SHARED\'|\'DOCUMENT_UNSHARED\'|\'DOCUMENT_SHARE_PERMISSION_CHANGED\'|\'DOCUMENT_SHAREABLE_LINK_CREATED\'|\'DOCUMENT_SHAREABLE_LINK_REMOVED\'|\'DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED\'|\'DOCUMENT_MOVED\'|\'DOCUMENT_COMMENT_ADDED\'|\'DOCUMENT_COMMENT_DELETED\'|\'DOCUMENT_ANNOTATION_ADDED\'|\'DOCUMENT_ANNOTATION_DELETED\'|\'FOLDER_CREATED\'|\'FOLDER_DELETED\'|\'FOLDER_RENAMED\'|\'FOLDER_RECYCLED\'|\'FOLDER_RESTORED\'|\'FOLDER_SHARED\'|\'FOLDER_UNSHARED\'|\'FOLDER_SHARE_PERMISSION_CHANGED\'|\'FOLDER_SHAREABLE_LINK_CREATED\'|\'FOLDER_SHAREABLE_LINK_REMOVED\'|\'FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED\'|\'FOLDER_MOVED\',
+                        \'TimeStamp\': datetime(2015, 1, 1),
+                        \'OrganizationId\': \'string\',
+                        \'Initiator\': {
+                            \'Id\': \'string\',
+                            \'Username\': \'string\',
+                            \'GivenName\': \'string\',
+                            \'Surname\': \'string\',
+                            \'EmailAddress\': \'string\'
                         },
-                        'Participants': {
-                            'Users': [
+                        \'Participants\': {
+                            \'Users\': [
                                 {
-                                    'Id': 'string',
-                                    'Username': 'string',
-                                    'GivenName': 'string',
-                                    'Surname': 'string',
-                                    'EmailAddress': 'string'
+                                    \'Id\': \'string\',
+                                    \'Username\': \'string\',
+                                    \'GivenName\': \'string\',
+                                    \'Surname\': \'string\',
+                                    \'EmailAddress\': \'string\'
                                 },
                             ],
-                            'Groups': [
+                            \'Groups\': [
                                 {
-                                    'Id': 'string',
-                                    'Name': 'string'
+                                    \'Id\': \'string\',
+                                    \'Name\': \'string\'
                                 },
                             ]
                         },
-                        'ResourceMetadata': {
-                            'Type': 'FOLDER'|'DOCUMENT',
-                            'Name': 'string',
-                            'OriginalName': 'string',
-                            'Id': 'string',
-                            'VersionId': 'string',
-                            'Owner': {
-                                'Id': 'string',
-                                'Username': 'string',
-                                'GivenName': 'string',
-                                'Surname': 'string',
-                                'EmailAddress': 'string'
+                        \'ResourceMetadata\': {
+                            \'Type\': \'FOLDER\'|\'DOCUMENT\',
+                            \'Name\': \'string\',
+                            \'OriginalName\': \'string\',
+                            \'Id\': \'string\',
+                            \'VersionId\': \'string\',
+                            \'Owner\': {
+                                \'Id\': \'string\',
+                                \'Username\': \'string\',
+                                \'GivenName\': \'string\',
+                                \'Surname\': \'string\',
+                                \'EmailAddress\': \'string\'
                             },
-                            'ParentId': 'string'
+                            \'ParentId\': \'string\'
                         },
-                        'OriginalParent': {
-                            'Type': 'FOLDER'|'DOCUMENT',
-                            'Name': 'string',
-                            'OriginalName': 'string',
-                            'Id': 'string',
-                            'VersionId': 'string',
-                            'Owner': {
-                                'Id': 'string',
-                                'Username': 'string',
-                                'GivenName': 'string',
-                                'Surname': 'string',
-                                'EmailAddress': 'string'
+                        \'OriginalParent\': {
+                            \'Type\': \'FOLDER\'|\'DOCUMENT\',
+                            \'Name\': \'string\',
+                            \'OriginalName\': \'string\',
+                            \'Id\': \'string\',
+                            \'VersionId\': \'string\',
+                            \'Owner\': {
+                                \'Id\': \'string\',
+                                \'Username\': \'string\',
+                                \'GivenName\': \'string\',
+                                \'Surname\': \'string\',
+                                \'EmailAddress\': \'string\'
                             },
-                            'ParentId': 'string'
+                            \'ParentId\': \'string\'
                         },
-                        'CommentMetadata': {
-                            'CommentId': 'string',
-                            'Contributor': {
-                                'Id': 'string',
-                                'Username': 'string',
-                                'EmailAddress': 'string',
-                                'GivenName': 'string',
-                                'Surname': 'string',
-                                'OrganizationId': 'string',
-                                'RootFolderId': 'string',
-                                'RecycleBinFolderId': 'string',
-                                'Status': 'ACTIVE'|'INACTIVE'|'PENDING',
-                                'Type': 'USER'|'ADMIN'|'POWERUSER'|'MINIMALUSER'|'WORKSPACESUSER',
-                                'CreatedTimestamp': datetime(2015, 1, 1),
-                                'ModifiedTimestamp': datetime(2015, 1, 1),
-                                'TimeZoneId': 'string',
-                                'Locale': 'en'|'fr'|'ko'|'de'|'es'|'ja'|'ru'|'zh_CN'|'zh_TW'|'pt_BR'|'default',
-                                'Storage': {
-                                    'StorageUtilizedInBytes': 123,
-                                    'StorageRule': {
-                                        'StorageAllocatedInBytes': 123,
-                                        'StorageType': 'UNLIMITED'|'QUOTA'
+                        \'CommentMetadata\': {
+                            \'CommentId\': \'string\',
+                            \'Contributor\': {
+                                \'Id\': \'string\',
+                                \'Username\': \'string\',
+                                \'EmailAddress\': \'string\',
+                                \'GivenName\': \'string\',
+                                \'Surname\': \'string\',
+                                \'OrganizationId\': \'string\',
+                                \'RootFolderId\': \'string\',
+                                \'RecycleBinFolderId\': \'string\',
+                                \'Status\': \'ACTIVE\'|\'INACTIVE\'|\'PENDING\',
+                                \'Type\': \'USER\'|\'ADMIN\'|\'POWERUSER\'|\'MINIMALUSER\'|\'WORKSPACESUSER\',
+                                \'CreatedTimestamp\': datetime(2015, 1, 1),
+                                \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                                \'TimeZoneId\': \'string\',
+                                \'Locale\': \'en\'|\'fr\'|\'ko\'|\'de\'|\'es\'|\'ja\'|\'ru\'|\'zh_CN\'|\'zh_TW\'|\'pt_BR\'|\'default\',
+                                \'Storage\': {
+                                    \'StorageUtilizedInBytes\': 123,
+                                    \'StorageRule\': {
+                                        \'StorageAllocatedInBytes\': 123,
+                                        \'StorageType\': \'UNLIMITED\'|\'QUOTA\'
                                     }
                                 }
                             },
-                            'CreatedTimestamp': datetime(2015, 1, 1),
-                            'CommentStatus': 'DRAFT'|'PUBLISHED'|'DELETED',
-                            'RecipientId': 'string'
+                            \'CreatedTimestamp\': datetime(2015, 1, 1),
+                            \'CommentStatus\': \'DRAFT\'|\'PUBLISHED\'|\'DELETED\',
+                            \'RecipientId\': \'string\'
                         }
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -1789,11 +1789,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_comments(
-              AuthenticationToken='string',
-              DocumentId='string',
-              VersionId='string',
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\',
+              VersionId=\'string\',
               Limit=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -1828,42 +1828,42 @@ class Client(BaseClient):
           ::
         
             {
-                'Comments': [
+                \'Comments\': [
                     {
-                        'CommentId': 'string',
-                        'ParentId': 'string',
-                        'ThreadId': 'string',
-                        'Text': 'string',
-                        'Contributor': {
-                            'Id': 'string',
-                            'Username': 'string',
-                            'EmailAddress': 'string',
-                            'GivenName': 'string',
-                            'Surname': 'string',
-                            'OrganizationId': 'string',
-                            'RootFolderId': 'string',
-                            'RecycleBinFolderId': 'string',
-                            'Status': 'ACTIVE'|'INACTIVE'|'PENDING',
-                            'Type': 'USER'|'ADMIN'|'POWERUSER'|'MINIMALUSER'|'WORKSPACESUSER',
-                            'CreatedTimestamp': datetime(2015, 1, 1),
-                            'ModifiedTimestamp': datetime(2015, 1, 1),
-                            'TimeZoneId': 'string',
-                            'Locale': 'en'|'fr'|'ko'|'de'|'es'|'ja'|'ru'|'zh_CN'|'zh_TW'|'pt_BR'|'default',
-                            'Storage': {
-                                'StorageUtilizedInBytes': 123,
-                                'StorageRule': {
-                                    'StorageAllocatedInBytes': 123,
-                                    'StorageType': 'UNLIMITED'|'QUOTA'
+                        \'CommentId\': \'string\',
+                        \'ParentId\': \'string\',
+                        \'ThreadId\': \'string\',
+                        \'Text\': \'string\',
+                        \'Contributor\': {
+                            \'Id\': \'string\',
+                            \'Username\': \'string\',
+                            \'EmailAddress\': \'string\',
+                            \'GivenName\': \'string\',
+                            \'Surname\': \'string\',
+                            \'OrganizationId\': \'string\',
+                            \'RootFolderId\': \'string\',
+                            \'RecycleBinFolderId\': \'string\',
+                            \'Status\': \'ACTIVE\'|\'INACTIVE\'|\'PENDING\',
+                            \'Type\': \'USER\'|\'ADMIN\'|\'POWERUSER\'|\'MINIMALUSER\'|\'WORKSPACESUSER\',
+                            \'CreatedTimestamp\': datetime(2015, 1, 1),
+                            \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                            \'TimeZoneId\': \'string\',
+                            \'Locale\': \'en\'|\'fr\'|\'ko\'|\'de\'|\'es\'|\'ja\'|\'ru\'|\'zh_CN\'|\'zh_TW\'|\'pt_BR\'|\'default\',
+                            \'Storage\': {
+                                \'StorageUtilizedInBytes\': 123,
+                                \'StorageRule\': {
+                                    \'StorageAllocatedInBytes\': 123,
+                                    \'StorageType\': \'UNLIMITED\'|\'QUOTA\'
                                 }
                             }
                         },
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'Status': 'DRAFT'|'PUBLISHED'|'DELETED',
-                        'Visibility': 'PUBLIC'|'PRIVATE',
-                        'RecipientId': 'string'
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'Status\': \'DRAFT\'|\'PUBLISHED\'|\'DELETED\',
+                        \'Visibility\': \'PUBLIC\'|\'PRIVATE\',
+                        \'RecipientId\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -1987,7 +1987,7 @@ class Client(BaseClient):
         
                 - **RecipientId** *(string) --* 
         
-                  If the comment is a reply to another user's comment, this field contains the user ID of the user being replied to.
+                  If the comment is a reply to another user\'s comment, this field contains the user ID of the user being replied to.
         
             - **Marker** *(string) --* 
         
@@ -2007,12 +2007,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_document_versions(
-              AuthenticationToken='string',
-              DocumentId='string',
-              Marker='string',
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\',
+              Marker=\'string\',
               Limit=123,
-              Include='string',
-              Fields='string'
+              Include=\'string\',
+              Fields=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -2037,12 +2037,12 @@ class Client(BaseClient):
         :type Include: string
         :param Include: 
         
-          A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
+          A comma-separated list of values. Specify \"INITIALIZED\" to include incomplete versions.
         
         :type Fields: string
         :param Fields: 
         
-          Specify "SOURCE" to include initialized versions and a URL for the source document.
+          Specify \"SOURCE\" to include initialized versions and a URL for the source document.
         
         :rtype: dict
         :returns: 
@@ -2052,28 +2052,28 @@ class Client(BaseClient):
           ::
         
             {
-                'DocumentVersions': [
+                \'DocumentVersions\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'ContentType': 'string',
-                        'Size': 123,
-                        'Signature': 'string',
-                        'Status': 'INITIALIZED'|'ACTIVE',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'ContentCreatedTimestamp': datetime(2015, 1, 1),
-                        'ContentModifiedTimestamp': datetime(2015, 1, 1),
-                        'CreatorId': 'string',
-                        'Thumbnail': {
-                            'string': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'ContentType\': \'string\',
+                        \'Size\': 123,
+                        \'Signature\': \'string\',
+                        \'Status\': \'INITIALIZED\'|\'ACTIVE\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'ContentCreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ContentModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'CreatorId\': \'string\',
+                        \'Thumbnail\': {
+                            \'string\': \'string\'
                         },
-                        'Source': {
-                            'string': 'string'
+                        \'Source\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2165,14 +2165,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_folder_contents(
-              AuthenticationToken='string',
-              FolderId='string',
-              Sort='DATE'|'NAME',
-              Order='ASCENDING'|'DESCENDING',
+              AuthenticationToken=\'string\',
+              FolderId=\'string\',
+              Sort=\'DATE\'|\'NAME\',
+              Order=\'ASCENDING\'|\'DESCENDING\',
               Limit=123,
-              Marker='string',
-              Type='ALL'|'DOCUMENT'|'FOLDER',
-              Include='string'
+              Marker=\'string\',
+              Type=\'ALL\'|\'DOCUMENT\'|\'FOLDER\',
+              Include=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -2212,7 +2212,7 @@ class Client(BaseClient):
         :type Include: string
         :param Include: 
         
-          The contents to include. Specify "INITIALIZED" to include initialized documents.
+          The contents to include. Specify \"INITIALIZED\" to include initialized documents.
         
         :rtype: dict
         :returns: 
@@ -2222,56 +2222,56 @@ class Client(BaseClient):
           ::
         
             {
-                'Folders': [
+                \'Folders\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'CreatorId': 'string',
-                        'ParentFolderId': 'string',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'ResourceState': 'ACTIVE'|'RESTORING'|'RECYCLING'|'RECYCLED',
-                        'Signature': 'string',
-                        'Labels': [
-                            'string',
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'CreatorId\': \'string\',
+                        \'ParentFolderId\': \'string\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'ResourceState\': \'ACTIVE\'|\'RESTORING\'|\'RECYCLING\'|\'RECYCLED\',
+                        \'Signature\': \'string\',
+                        \'Labels\': [
+                            \'string\',
                         ],
-                        'Size': 123,
-                        'LatestVersionSize': 123
+                        \'Size\': 123,
+                        \'LatestVersionSize\': 123
                     },
                 ],
-                'Documents': [
+                \'Documents\': [
                     {
-                        'Id': 'string',
-                        'CreatorId': 'string',
-                        'ParentFolderId': 'string',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'LatestVersionMetadata': {
-                            'Id': 'string',
-                            'Name': 'string',
-                            'ContentType': 'string',
-                            'Size': 123,
-                            'Signature': 'string',
-                            'Status': 'INITIALIZED'|'ACTIVE',
-                            'CreatedTimestamp': datetime(2015, 1, 1),
-                            'ModifiedTimestamp': datetime(2015, 1, 1),
-                            'ContentCreatedTimestamp': datetime(2015, 1, 1),
-                            'ContentModifiedTimestamp': datetime(2015, 1, 1),
-                            'CreatorId': 'string',
-                            'Thumbnail': {
-                                'string': 'string'
+                        \'Id\': \'string\',
+                        \'CreatorId\': \'string\',
+                        \'ParentFolderId\': \'string\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'LatestVersionMetadata\': {
+                            \'Id\': \'string\',
+                            \'Name\': \'string\',
+                            \'ContentType\': \'string\',
+                            \'Size\': 123,
+                            \'Signature\': \'string\',
+                            \'Status\': \'INITIALIZED\'|\'ACTIVE\',
+                            \'CreatedTimestamp\': datetime(2015, 1, 1),
+                            \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                            \'ContentCreatedTimestamp\': datetime(2015, 1, 1),
+                            \'ContentModifiedTimestamp\': datetime(2015, 1, 1),
+                            \'CreatorId\': \'string\',
+                            \'Thumbnail\': {
+                                \'string\': \'string\'
                             },
-                            'Source': {
-                                'string': 'string'
+                            \'Source\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'ResourceState': 'ACTIVE'|'RESTORING'|'RECYCLING'|'RECYCLED',
-                        'Labels': [
-                            'string',
+                        \'ResourceState\': \'ACTIVE\'|\'RESTORING\'|\'RECYCLING\'|\'RECYCLED\',
+                        \'Labels\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2449,10 +2449,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_groups(
-              AuthenticationToken='string',
-              SearchQuery='string',
-              OrganizationId='string',
-              Marker='string',
+              AuthenticationToken=\'string\',
+              SearchQuery=\'string\',
+              OrganizationId=\'string\',
+              Marker=\'string\',
               Limit=123
           )
         :type AuthenticationToken: string
@@ -2488,13 +2488,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2532,8 +2532,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_notification_subscriptions(
-              OrganizationId='string',
-              Marker='string',
+              OrganizationId=\'string\',
+              Marker=\'string\',
               Limit=123
           )
         :type OrganizationId: string
@@ -2559,14 +2559,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Subscriptions': [
+                \'Subscriptions\': [
                     {
-                        'SubscriptionId': 'string',
-                        'EndPoint': 'string',
-                        'Protocol': 'HTTPS'
+                        \'SubscriptionId\': \'string\',
+                        \'EndPoint\': \'string\',
+                        \'Protocol\': \'HTTPS\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2608,11 +2608,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_resource_permissions(
-              AuthenticationToken='string',
-              ResourceId='string',
-              PrincipalId='string',
+              AuthenticationToken=\'string\',
+              ResourceId=\'string\',
+              PrincipalId=\'string\',
               Limit=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -2647,19 +2647,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Principals': [
+                \'Principals\': [
                     {
-                        'Id': 'string',
-                        'Type': 'USER'|'GROUP'|'INVITE'|'ANONYMOUS'|'ORGANIZATION',
-                        'Roles': [
+                        \'Id\': \'string\',
+                        \'Type\': \'USER\'|\'GROUP\'|\'INVITE\'|\'ANONYMOUS\'|\'ORGANIZATION\',
+                        \'Roles\': [
                             {
-                                'Role': 'VIEWER'|'CONTRIBUTOR'|'OWNER'|'COOWNER',
-                                'Type': 'DIRECT'|'INHERITED'
+                                \'Role\': \'VIEWER\'|\'CONTRIBUTOR\'|\'OWNER\'|\'COOWNER\',
+                                \'Type\': \'DIRECT\'|\'INHERITED\'
                             },
                         ]
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2713,9 +2713,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_root_folders(
-              AuthenticationToken='string',
+              AuthenticationToken=\'string\',
               Limit=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: **[REQUIRED]** 
@@ -2740,24 +2740,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Folders': [
+                \'Folders\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'CreatorId': 'string',
-                        'ParentFolderId': 'string',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'ResourceState': 'ACTIVE'|'RESTORING'|'RECYCLING'|'RECYCLED',
-                        'Signature': 'string',
-                        'Labels': [
-                            'string',
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'CreatorId\': \'string\',
+                        \'ParentFolderId\': \'string\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'ResourceState\': \'ACTIVE\'|\'RESTORING\'|\'RECYCLING\'|\'RECYCLED\',
+                        \'Signature\': \'string\',
+                        \'Labels\': [
+                            \'string\',
                         ],
-                        'Size': 123,
-                        'LatestVersionSize': 123
+                        \'Size\': 123,
+                        \'LatestVersionSize\': 123
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2765,7 +2765,7 @@ class Client(BaseClient):
             
             - **Folders** *(list) --* 
         
-              The user's special folders.
+              The user\'s special folders.
         
               - *(dict) --* 
         
@@ -2835,16 +2835,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_users(
-              AuthenticationToken='string',
-              OrganizationId='string',
-              UserIds='string',
-              Query='string',
-              Include='ALL'|'ACTIVE_PENDING',
-              Order='ASCENDING'|'DESCENDING',
-              Sort='USER_NAME'|'FULL_NAME'|'STORAGE_LIMIT'|'USER_STATUS'|'STORAGE_USED',
-              Marker='string',
+              AuthenticationToken=\'string\',
+              OrganizationId=\'string\',
+              UserIds=\'string\',
+              Query=\'string\',
+              Include=\'ALL\'|\'ACTIVE_PENDING\',
+              Order=\'ASCENDING\'|\'DESCENDING\',
+              Sort=\'USER_NAME\'|\'FULL_NAME\'|\'STORAGE_LIMIT\'|\'USER_STATUS\'|\'STORAGE_USED\',
+              Marker=\'string\',
               Limit=123,
-              Fields='string'
+              Fields=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -2869,7 +2869,7 @@ class Client(BaseClient):
         :type Include: string
         :param Include: 
         
-          The state of the users. Specify "ALL" to include inactive users.
+          The state of the users. Specify \"ALL\" to include inactive users.
         
         :type Order: string
         :param Order: 
@@ -2894,7 +2894,7 @@ class Client(BaseClient):
         :type Fields: string
         :param Fields: 
         
-          A comma-separated list of values. Specify "STORAGE_METADATA" to include the user storage quota and utilization information.
+          A comma-separated list of values. Specify \"STORAGE_METADATA\" to include the user storage quota and utilization information.
         
         :rtype: dict
         :returns: 
@@ -2904,33 +2904,33 @@ class Client(BaseClient):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'Id': 'string',
-                        'Username': 'string',
-                        'EmailAddress': 'string',
-                        'GivenName': 'string',
-                        'Surname': 'string',
-                        'OrganizationId': 'string',
-                        'RootFolderId': 'string',
-                        'RecycleBinFolderId': 'string',
-                        'Status': 'ACTIVE'|'INACTIVE'|'PENDING',
-                        'Type': 'USER'|'ADMIN'|'POWERUSER'|'MINIMALUSER'|'WORKSPACESUSER',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'TimeZoneId': 'string',
-                        'Locale': 'en'|'fr'|'ko'|'de'|'es'|'ja'|'ru'|'zh_CN'|'zh_TW'|'pt_BR'|'default',
-                        'Storage': {
-                            'StorageUtilizedInBytes': 123,
-                            'StorageRule': {
-                                'StorageAllocatedInBytes': 123,
-                                'StorageType': 'UNLIMITED'|'QUOTA'
+                        \'Id\': \'string\',
+                        \'Username\': \'string\',
+                        \'EmailAddress\': \'string\',
+                        \'GivenName\': \'string\',
+                        \'Surname\': \'string\',
+                        \'OrganizationId\': \'string\',
+                        \'RootFolderId\': \'string\',
+                        \'RecycleBinFolderId\': \'string\',
+                        \'Status\': \'ACTIVE\'|\'INACTIVE\'|\'PENDING\',
+                        \'Type\': \'USER\'|\'ADMIN\'|\'POWERUSER\'|\'MINIMALUSER\'|\'WORKSPACESUSER\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'TimeZoneId\': \'string\',
+                        \'Locale\': \'en\'|\'fr\'|\'ko\'|\'de\'|\'es\'|\'ja\'|\'ru\'|\'zh_CN\'|\'zh_TW\'|\'pt_BR\'|\'default\',
+                        \'Storage\': {
+                            \'StorageUtilizedInBytes\': 123,
+                            \'StorageRule\': {
+                                \'StorageAllocatedInBytes\': 123,
+                                \'StorageType\': \'UNLIMITED\'|\'QUOTA\'
                             }
                         }
                     },
                 ],
-                'TotalNumberOfUsers': 123,
-                'Marker': 'string'
+                \'TotalNumberOfUsers\': 123,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -3047,7 +3047,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3062,7 +3062,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_current_user(
-              AuthenticationToken='string'
+              AuthenticationToken=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: **[REQUIRED]** 
@@ -3077,26 +3077,26 @@ class Client(BaseClient):
           ::
         
             {
-                'User': {
-                    'Id': 'string',
-                    'Username': 'string',
-                    'EmailAddress': 'string',
-                    'GivenName': 'string',
-                    'Surname': 'string',
-                    'OrganizationId': 'string',
-                    'RootFolderId': 'string',
-                    'RecycleBinFolderId': 'string',
-                    'Status': 'ACTIVE'|'INACTIVE'|'PENDING',
-                    'Type': 'USER'|'ADMIN'|'POWERUSER'|'MINIMALUSER'|'WORKSPACESUSER',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'ModifiedTimestamp': datetime(2015, 1, 1),
-                    'TimeZoneId': 'string',
-                    'Locale': 'en'|'fr'|'ko'|'de'|'es'|'ja'|'ru'|'zh_CN'|'zh_TW'|'pt_BR'|'default',
-                    'Storage': {
-                        'StorageUtilizedInBytes': 123,
-                        'StorageRule': {
-                            'StorageAllocatedInBytes': 123,
-                            'StorageType': 'UNLIMITED'|'QUOTA'
+                \'User\': {
+                    \'Id\': \'string\',
+                    \'Username\': \'string\',
+                    \'EmailAddress\': \'string\',
+                    \'GivenName\': \'string\',
+                    \'Surname\': \'string\',
+                    \'OrganizationId\': \'string\',
+                    \'RootFolderId\': \'string\',
+                    \'RecycleBinFolderId\': \'string\',
+                    \'Status\': \'ACTIVE\'|\'INACTIVE\'|\'PENDING\',
+                    \'Type\': \'USER\'|\'ADMIN\'|\'POWERUSER\'|\'MINIMALUSER\'|\'WORKSPACESUSER\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                    \'TimeZoneId\': \'string\',
+                    \'Locale\': \'en\'|\'fr\'|\'ko\'|\'de\'|\'es\'|\'ja\'|\'ru\'|\'zh_CN\'|\'zh_TW\'|\'pt_BR\'|\'default\',
+                    \'Storage\': {
+                        \'StorageUtilizedInBytes\': 123,
+                        \'StorageRule\': {
+                            \'StorageAllocatedInBytes\': 123,
+                            \'StorageType\': \'UNLIMITED\'|\'QUOTA\'
                         }
                     }
                 }
@@ -3197,8 +3197,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_document(
-              AuthenticationToken='string',
-              DocumentId='string',
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\',
               IncludeCustomMetadata=True|False
           )
         :type AuthenticationToken: string
@@ -3224,38 +3224,38 @@ class Client(BaseClient):
           ::
         
             {
-                'Metadata': {
-                    'Id': 'string',
-                    'CreatorId': 'string',
-                    'ParentFolderId': 'string',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'ModifiedTimestamp': datetime(2015, 1, 1),
-                    'LatestVersionMetadata': {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'ContentType': 'string',
-                        'Size': 123,
-                        'Signature': 'string',
-                        'Status': 'INITIALIZED'|'ACTIVE',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'ContentCreatedTimestamp': datetime(2015, 1, 1),
-                        'ContentModifiedTimestamp': datetime(2015, 1, 1),
-                        'CreatorId': 'string',
-                        'Thumbnail': {
-                            'string': 'string'
+                \'Metadata\': {
+                    \'Id\': \'string\',
+                    \'CreatorId\': \'string\',
+                    \'ParentFolderId\': \'string\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                    \'LatestVersionMetadata\': {
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'ContentType\': \'string\',
+                        \'Size\': 123,
+                        \'Signature\': \'string\',
+                        \'Status\': \'INITIALIZED\'|\'ACTIVE\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'ContentCreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ContentModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'CreatorId\': \'string\',
+                        \'Thumbnail\': {
+                            \'string\': \'string\'
                         },
-                        'Source': {
-                            'string': 'string'
+                        \'Source\': {
+                            \'string\': \'string\'
                         }
                     },
-                    'ResourceState': 'ACTIVE'|'RESTORING'|'RECYCLING'|'RECYCLED',
-                    'Labels': [
-                        'string',
+                    \'ResourceState\': \'ACTIVE\'|\'RESTORING\'|\'RECYCLING\'|\'RECYCLED\',
+                    \'Labels\': [
+                        \'string\',
                     ]
                 },
-                'CustomMetadata': {
-                    'string': 'string'
+                \'CustomMetadata\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3382,11 +3382,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_document_path(
-              AuthenticationToken='string',
-              DocumentId='string',
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\',
               Limit=123,
-              Fields='string',
-              Marker='string'
+              Fields=\'string\',
+              Marker=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -3421,11 +3421,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Path': {
-                    'Components': [
+                \'Path\': {
+                    \'Components\': [
                         {
-                            'Id': 'string',
-                            'Name': 'string'
+                            \'Id\': \'string\',
+                            \'Name\': \'string\'
                         },
                     ]
                 }
@@ -3466,10 +3466,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_document_version(
-              AuthenticationToken='string',
-              DocumentId='string',
-              VersionId='string',
-              Fields='string',
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\',
+              VersionId=\'string\',
+              Fields=\'string\',
               IncludeCustomMetadata=True|False
           )
         :type AuthenticationToken: string
@@ -3490,7 +3490,7 @@ class Client(BaseClient):
         :type Fields: string
         :param Fields: 
         
-          A comma-separated list of values. Specify "SOURCE" to include a URL for the source document.
+          A comma-separated list of values. Specify \"SOURCE\" to include a URL for the source document.
         
         :type IncludeCustomMetadata: boolean
         :param IncludeCustomMetadata: 
@@ -3505,27 +3505,27 @@ class Client(BaseClient):
           ::
         
             {
-                'Metadata': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'ContentType': 'string',
-                    'Size': 123,
-                    'Signature': 'string',
-                    'Status': 'INITIALIZED'|'ACTIVE',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'ModifiedTimestamp': datetime(2015, 1, 1),
-                    'ContentCreatedTimestamp': datetime(2015, 1, 1),
-                    'ContentModifiedTimestamp': datetime(2015, 1, 1),
-                    'CreatorId': 'string',
-                    'Thumbnail': {
-                        'string': 'string'
+                \'Metadata\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'ContentType\': \'string\',
+                    \'Size\': 123,
+                    \'Signature\': \'string\',
+                    \'Status\': \'INITIALIZED\'|\'ACTIVE\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                    \'ContentCreatedTimestamp\': datetime(2015, 1, 1),
+                    \'ContentModifiedTimestamp\': datetime(2015, 1, 1),
+                    \'CreatorId\': \'string\',
+                    \'Thumbnail\': {
+                        \'string\': \'string\'
                     },
-                    'Source': {
-                        'string': 'string'
+                    \'Source\': {
+                        \'string\': \'string\'
                     }
                 },
-                'CustomMetadata': {
-                    'string': 'string'
+                \'CustomMetadata\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3616,8 +3616,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_folder(
-              AuthenticationToken='string',
-              FolderId='string',
+              AuthenticationToken=\'string\',
+              FolderId=\'string\',
               IncludeCustomMetadata=True|False
           )
         :type AuthenticationToken: string
@@ -3643,23 +3643,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Metadata': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'CreatorId': 'string',
-                    'ParentFolderId': 'string',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'ModifiedTimestamp': datetime(2015, 1, 1),
-                    'ResourceState': 'ACTIVE'|'RESTORING'|'RECYCLING'|'RECYCLED',
-                    'Signature': 'string',
-                    'Labels': [
-                        'string',
+                \'Metadata\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'CreatorId\': \'string\',
+                    \'ParentFolderId\': \'string\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                    \'ResourceState\': \'ACTIVE\'|\'RESTORING\'|\'RECYCLING\'|\'RECYCLED\',
+                    \'Signature\': \'string\',
+                    \'Labels\': [
+                        \'string\',
                     ],
-                    'Size': 123,
-                    'LatestVersionSize': 123
+                    \'Size\': 123,
+                    \'LatestVersionSize\': 123
                 },
-                'CustomMetadata': {
-                    'string': 'string'
+                \'CustomMetadata\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3738,11 +3738,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_folder_path(
-              AuthenticationToken='string',
-              FolderId='string',
+              AuthenticationToken=\'string\',
+              FolderId=\'string\',
               Limit=123,
-              Fields='string',
-              Marker='string'
+              Fields=\'string\',
+              Marker=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -3762,7 +3762,7 @@ class Client(BaseClient):
         :type Fields: string
         :param Fields: 
         
-          A comma-separated list of values. Specify "NAME" to include the names of the parent folders.
+          A comma-separated list of values. Specify \"NAME\" to include the names of the parent folders.
         
         :type Marker: string
         :param Marker: 
@@ -3777,11 +3777,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Path': {
-                    'Components': [
+                \'Path\': {
+                    \'Components\': [
                         {
-                            'Id': 'string',
-                            'Name': 'string'
+                            \'Id\': \'string\',
+                            \'Name\': \'string\'
                         },
                     ]
                 }
@@ -3819,10 +3819,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3858,14 +3858,14 @@ class Client(BaseClient):
         ::
         
           response = client.initiate_document_version_upload(
-              AuthenticationToken='string',
-              Id='string',
-              Name='string',
+              AuthenticationToken=\'string\',
+              Id=\'string\',
+              Name=\'string\',
               ContentCreatedTimestamp=datetime(2015, 1, 1),
               ContentModifiedTimestamp=datetime(2015, 1, 1),
-              ContentType='string',
+              ContentType=\'string\',
               DocumentSizeInBytes=123,
-              ParentFolderId='string'
+              ParentFolderId=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -3915,40 +3915,40 @@ class Client(BaseClient):
           ::
         
             {
-                'Metadata': {
-                    'Id': 'string',
-                    'CreatorId': 'string',
-                    'ParentFolderId': 'string',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'ModifiedTimestamp': datetime(2015, 1, 1),
-                    'LatestVersionMetadata': {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'ContentType': 'string',
-                        'Size': 123,
-                        'Signature': 'string',
-                        'Status': 'INITIALIZED'|'ACTIVE',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'ModifiedTimestamp': datetime(2015, 1, 1),
-                        'ContentCreatedTimestamp': datetime(2015, 1, 1),
-                        'ContentModifiedTimestamp': datetime(2015, 1, 1),
-                        'CreatorId': 'string',
-                        'Thumbnail': {
-                            'string': 'string'
+                \'Metadata\': {
+                    \'Id\': \'string\',
+                    \'CreatorId\': \'string\',
+                    \'ParentFolderId\': \'string\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                    \'LatestVersionMetadata\': {
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'ContentType\': \'string\',
+                        \'Size\': 123,
+                        \'Signature\': \'string\',
+                        \'Status\': \'INITIALIZED\'|\'ACTIVE\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'ContentCreatedTimestamp\': datetime(2015, 1, 1),
+                        \'ContentModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'CreatorId\': \'string\',
+                        \'Thumbnail\': {
+                            \'string\': \'string\'
                         },
-                        'Source': {
-                            'string': 'string'
+                        \'Source\': {
+                            \'string\': \'string\'
                         }
                     },
-                    'ResourceState': 'ACTIVE'|'RESTORING'|'RECYCLING'|'RECYCLED',
-                    'Labels': [
-                        'string',
+                    \'ResourceState\': \'ACTIVE\'|\'RESTORING\'|\'RECYCLING\'|\'RECYCLED\',
+                    \'Labels\': [
+                        \'string\',
                     ]
                 },
-                'UploadMetadata': {
-                    'UploadUrl': 'string',
-                    'SignedHeaders': {
-                        'string': 'string'
+                \'UploadMetadata\': {
+                    \'UploadUrl\': \'string\',
+                    \'SignedHeaders\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -4082,8 +4082,8 @@ class Client(BaseClient):
         ::
         
           response = client.remove_all_resource_permissions(
-              AuthenticationToken='string',
-              ResourceId='string'
+              AuthenticationToken=\'string\',
+              ResourceId=\'string\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -4108,10 +4108,10 @@ class Client(BaseClient):
         ::
         
           response = client.remove_resource_permission(
-              AuthenticationToken='string',
-              ResourceId='string',
-              PrincipalId='string',
-              PrincipalType='USER'|'GROUP'|'INVITE'|'ANONYMOUS'|'ORGANIZATION'
+              AuthenticationToken=\'string\',
+              ResourceId=\'string\',
+              PrincipalId=\'string\',
+              PrincipalType=\'USER\'|\'GROUP\'|\'INVITE\'|\'ANONYMOUS\'|\'ORGANIZATION\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -4146,11 +4146,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_document(
-              AuthenticationToken='string',
-              DocumentId='string',
-              Name='string',
-              ParentFolderId='string',
-              ResourceState='ACTIVE'|'RESTORING'|'RECYCLING'|'RECYCLED'
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\',
+              Name=\'string\',
+              ParentFolderId=\'string\',
+              ResourceState=\'ACTIVE\'|\'RESTORING\'|\'RECYCLING\'|\'RECYCLED\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -4192,10 +4192,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_document_version(
-              AuthenticationToken='string',
-              DocumentId='string',
-              VersionId='string',
-              VersionStatus='ACTIVE'
+              AuthenticationToken=\'string\',
+              DocumentId=\'string\',
+              VersionId=\'string\',
+              VersionStatus=\'ACTIVE\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -4230,11 +4230,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_folder(
-              AuthenticationToken='string',
-              FolderId='string',
-              Name='string',
-              ParentFolderId='string',
-              ResourceState='ACTIVE'|'RESTORING'|'RECYCLING'|'RECYCLED'
+              AuthenticationToken=\'string\',
+              FolderId=\'string\',
+              Name=\'string\',
+              ParentFolderId=\'string\',
+              ResourceState=\'ACTIVE\'|\'RESTORING\'|\'RECYCLING\'|\'RECYCLED\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -4274,18 +4274,18 @@ class Client(BaseClient):
         ::
         
           response = client.update_user(
-              AuthenticationToken='string',
-              UserId='string',
-              GivenName='string',
-              Surname='string',
-              Type='USER'|'ADMIN'|'POWERUSER'|'MINIMALUSER'|'WORKSPACESUSER',
+              AuthenticationToken=\'string\',
+              UserId=\'string\',
+              GivenName=\'string\',
+              Surname=\'string\',
+              Type=\'USER\'|\'ADMIN\'|\'POWERUSER\'|\'MINIMALUSER\'|\'WORKSPACESUSER\',
               StorageRule={
-                  'StorageAllocatedInBytes': 123,
-                  'StorageType': 'UNLIMITED'|'QUOTA'
+                  \'StorageAllocatedInBytes\': 123,
+                  \'StorageType\': \'UNLIMITED\'|\'QUOTA\'
               },
-              TimeZoneId='string',
-              Locale='en'|'fr'|'ko'|'de'|'es'|'ja'|'ru'|'zh_CN'|'zh_TW'|'pt_BR'|'default',
-              GrantPoweruserPrivileges='TRUE'|'FALSE'
+              TimeZoneId=\'string\',
+              Locale=\'en\'|\'fr\'|\'ko\'|\'de\'|\'es\'|\'ja\'|\'ru\'|\'zh_CN\'|\'zh_TW\'|\'pt_BR\'|\'default\',
+              GrantPoweruserPrivileges=\'TRUE\'|\'FALSE\'
           )
         :type AuthenticationToken: string
         :param AuthenticationToken: 
@@ -4348,26 +4348,26 @@ class Client(BaseClient):
           ::
         
             {
-                'User': {
-                    'Id': 'string',
-                    'Username': 'string',
-                    'EmailAddress': 'string',
-                    'GivenName': 'string',
-                    'Surname': 'string',
-                    'OrganizationId': 'string',
-                    'RootFolderId': 'string',
-                    'RecycleBinFolderId': 'string',
-                    'Status': 'ACTIVE'|'INACTIVE'|'PENDING',
-                    'Type': 'USER'|'ADMIN'|'POWERUSER'|'MINIMALUSER'|'WORKSPACESUSER',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'ModifiedTimestamp': datetime(2015, 1, 1),
-                    'TimeZoneId': 'string',
-                    'Locale': 'en'|'fr'|'ko'|'de'|'es'|'ja'|'ru'|'zh_CN'|'zh_TW'|'pt_BR'|'default',
-                    'Storage': {
-                        'StorageUtilizedInBytes': 123,
-                        'StorageRule': {
-                            'StorageAllocatedInBytes': 123,
-                            'StorageType': 'UNLIMITED'|'QUOTA'
+                \'User\': {
+                    \'Id\': \'string\',
+                    \'Username\': \'string\',
+                    \'EmailAddress\': \'string\',
+                    \'GivenName\': \'string\',
+                    \'Surname\': \'string\',
+                    \'OrganizationId\': \'string\',
+                    \'RootFolderId\': \'string\',
+                    \'RecycleBinFolderId\': \'string\',
+                    \'Status\': \'ACTIVE\'|\'INACTIVE\'|\'PENDING\',
+                    \'Type\': \'USER\'|\'ADMIN\'|\'POWERUSER\'|\'MINIMALUSER\'|\'WORKSPACESUSER\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'ModifiedTimestamp\': datetime(2015, 1, 1),
+                    \'TimeZoneId\': \'string\',
+                    \'Locale\': \'en\'|\'fr\'|\'ko\'|\'de\'|\'es\'|\'ja\'|\'ru\'|\'zh_CN\'|\'zh_TW\'|\'pt_BR\'|\'default\',
+                    \'Storage\': {
+                        \'StorageUtilizedInBytes\': 123,
+                        \'StorageRule\': {
+                            \'StorageAllocatedInBytes\': 123,
+                            \'StorageType\': \'UNLIMITED\'|\'QUOTA\'
                         }
                     }
                 }

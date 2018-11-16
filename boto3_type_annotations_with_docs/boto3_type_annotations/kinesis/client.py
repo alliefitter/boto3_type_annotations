@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.waiter import Waiter
-from botocore.paginate import Paginator
+from typing import Optional
 from typing import Union
 from typing import List
-from typing import Optional
-from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -22,9 +22,9 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags_to_stream(
-              StreamName='string',
+              StreamName=\'string\',
               Tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type StreamName: string
@@ -51,10 +51,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -88,7 +88,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_stream(
-              StreamName='string',
+              StreamName=\'string\',
               ShardCount=123
           )
         :type StreamName: string
@@ -110,7 +110,7 @@ class Client(BaseClient):
     def decrease_stream_retention_period(self, StreamName: str, RetentionPeriodHours: int):
         """
         
-        This operation may result in lost data. For example, if the stream's retention period is 48 hours and is decreased to 24 hours, any data already in the stream that is older than 24 hours is inaccessible.
+        This operation may result in lost data. For example, if the stream\'s retention period is 48 hours and is decreased to 24 hours, any data already in the stream that is older than 24 hours is inaccessible.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/kinesis-2013-12-02/DecreaseStreamRetentionPeriod>`_
         
@@ -118,7 +118,7 @@ class Client(BaseClient):
         ::
         
           response = client.decrease_stream_retention_period(
-              StreamName='string',
+              StreamName=\'string\',
               RetentionPeriodHours=123
           )
         :type StreamName: string
@@ -154,7 +154,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_stream(
-              StreamName='string',
+              StreamName=\'string\',
               EnforceConsumerDeletion=True|False
           )
         :type StreamName: string
@@ -182,9 +182,9 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_stream_consumer(
-              StreamARN='string',
-              ConsumerName='string',
-              ConsumerARN='string'
+              StreamARN=\'string\',
+              ConsumerName=\'string\',
+              ConsumerARN=\'string\'
           )
         :type StreamARN: string
         :param StreamARN: 
@@ -199,7 +199,7 @@ class Client(BaseClient):
         :type ConsumerARN: string
         :param ConsumerARN: 
         
-          The ARN returned by Kinesis Data Streams when you registered the consumer. If you don't know the ARN of the consumer that you want to deregister, you can use the ListStreamConsumers operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream. The description of a consumer contains its ARN.
+          The ARN returned by Kinesis Data Streams when you registered the consumer. If you don\'t know the ARN of the consumer that you want to deregister, you can use the ListStreamConsumers operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream. The description of a consumer contains its ARN.
         
         :returns: None
         """
@@ -227,8 +227,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ShardLimit': 123,
-                'OpenShardCount': 123
+                \'ShardLimit\': 123,
+                \'OpenShardCount\': 123
             }
           **Response Structure** 
         
@@ -262,9 +262,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stream(
-              StreamName='string',
+              StreamName=\'string\',
               Limit=123,
-              ExclusiveStartShardId='string'
+              ExclusiveStartShardId=\'string\'
           )
         :type StreamName: string
         :param StreamName: **[REQUIRED]** 
@@ -289,37 +289,37 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamDescription': {
-                    'StreamName': 'string',
-                    'StreamARN': 'string',
-                    'StreamStatus': 'CREATING'|'DELETING'|'ACTIVE'|'UPDATING',
-                    'Shards': [
+                \'StreamDescription\': {
+                    \'StreamName\': \'string\',
+                    \'StreamARN\': \'string\',
+                    \'StreamStatus\': \'CREATING\'|\'DELETING\'|\'ACTIVE\'|\'UPDATING\',
+                    \'Shards\': [
                         {
-                            'ShardId': 'string',
-                            'ParentShardId': 'string',
-                            'AdjacentParentShardId': 'string',
-                            'HashKeyRange': {
-                                'StartingHashKey': 'string',
-                                'EndingHashKey': 'string'
+                            \'ShardId\': \'string\',
+                            \'ParentShardId\': \'string\',
+                            \'AdjacentParentShardId\': \'string\',
+                            \'HashKeyRange\': {
+                                \'StartingHashKey\': \'string\',
+                                \'EndingHashKey\': \'string\'
                             },
-                            'SequenceNumberRange': {
-                                'StartingSequenceNumber': 'string',
-                                'EndingSequenceNumber': 'string'
+                            \'SequenceNumberRange\': {
+                                \'StartingSequenceNumber\': \'string\',
+                                \'EndingSequenceNumber\': \'string\'
                             }
                         },
                     ],
-                    'HasMoreShards': True|False,
-                    'RetentionPeriodHours': 123,
-                    'StreamCreationTimestamp': datetime(2015, 1, 1),
-                    'EnhancedMonitoring': [
+                    \'HasMoreShards\': True|False,
+                    \'RetentionPeriodHours\': 123,
+                    \'StreamCreationTimestamp\': datetime(2015, 1, 1),
+                    \'EnhancedMonitoring\': [
                         {
-                            'ShardLevelMetrics': [
-                                'IncomingBytes'|'IncomingRecords'|'OutgoingBytes'|'OutgoingRecords'|'WriteProvisionedThroughputExceeded'|'ReadProvisionedThroughputExceeded'|'IteratorAgeMilliseconds'|'ALL',
+                            \'ShardLevelMetrics\': [
+                                \'IncomingBytes\'|\'IncomingRecords\'|\'OutgoingBytes\'|\'OutgoingRecords\'|\'WriteProvisionedThroughputExceeded\'|\'ReadProvisionedThroughputExceeded\'|\'IteratorAgeMilliseconds\'|\'ALL\',
                             ]
                         },
                     ],
-                    'EncryptionType': 'NONE'|'KMS',
-                    'KeyId': 'string'
+                    \'EncryptionType\': \'NONE\'|\'KMS\',
+                    \'KeyId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -366,11 +366,11 @@ class Client(BaseClient):
         
                   - **ParentShardId** *(string) --* 
         
-                    The shard ID of the shard's parent.
+                    The shard ID of the shard\'s parent.
         
                   - **AdjacentParentShardId** *(string) --* 
         
-                    The shard ID of the shard adjacent to the shard's parent.
+                    The shard ID of the shard adjacent to the shard\'s parent.
         
                   - **HashKeyRange** *(dict) --* 
         
@@ -420,7 +420,7 @@ class Client(BaseClient):
         
                     List of shard-level metrics.
         
-                    The following are the valid shard-level metrics. The value "``ALL`` " enhances every metric.
+                    The following are the valid shard-level metrics. The value \"``ALL`` \" enhances every metric.
         
                     * ``IncomingBytes``   
                      
@@ -452,7 +452,7 @@ class Client(BaseClient):
                  
               - **KeyId** *(string) --* 
         
-                The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias ``aws/kinesis`` .
+                The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data Streams by specifying the alias ``aws/kinesis`` .
         
                 * Key ARN example: ``arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012``   
                  
@@ -478,9 +478,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stream_consumer(
-              StreamARN='string',
-              ConsumerName='string',
-              ConsumerARN='string'
+              StreamARN=\'string\',
+              ConsumerName=\'string\',
+              ConsumerARN=\'string\'
           )
         :type StreamARN: string
         :param StreamARN: 
@@ -505,12 +505,12 @@ class Client(BaseClient):
           ::
         
             {
-                'ConsumerDescription': {
-                    'ConsumerName': 'string',
-                    'ConsumerARN': 'string',
-                    'ConsumerStatus': 'CREATING'|'DELETING'|'ACTIVE',
-                    'ConsumerCreationTimestamp': datetime(2015, 1, 1),
-                    'StreamARN': 'string'
+                \'ConsumerDescription\': {
+                    \'ConsumerName\': \'string\',
+                    \'ConsumerARN\': \'string\',
+                    \'ConsumerStatus\': \'CREATING\'|\'DELETING\'|\'ACTIVE\',
+                    \'ConsumerCreationTimestamp\': datetime(2015, 1, 1),
+                    \'StreamARN\': \'string\'
                 }
             }
           **Response Structure** 
@@ -529,11 +529,11 @@ class Client(BaseClient):
         
                 When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call  SubscribeToShard .
         
-                If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
+                If you delete a consumer and then create a new one with the same name, it won\'t have the same ARN. That\'s because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
         
               - **ConsumerStatus** *(string) --* 
         
-                A consumer can't read data while in the ``CREATING`` or ``DELETING`` states.
+                A consumer can\'t read data while in the ``CREATING`` or ``DELETING`` states.
         
               - **ConsumerCreationTimestamp** *(datetime) --* 
         
@@ -555,7 +555,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stream_summary(
-              StreamName='string'
+              StreamName=\'string\'
           )
         :type StreamName: string
         :param StreamName: **[REQUIRED]** 
@@ -570,23 +570,23 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamDescriptionSummary': {
-                    'StreamName': 'string',
-                    'StreamARN': 'string',
-                    'StreamStatus': 'CREATING'|'DELETING'|'ACTIVE'|'UPDATING',
-                    'RetentionPeriodHours': 123,
-                    'StreamCreationTimestamp': datetime(2015, 1, 1),
-                    'EnhancedMonitoring': [
+                \'StreamDescriptionSummary\': {
+                    \'StreamName\': \'string\',
+                    \'StreamARN\': \'string\',
+                    \'StreamStatus\': \'CREATING\'|\'DELETING\'|\'ACTIVE\'|\'UPDATING\',
+                    \'RetentionPeriodHours\': 123,
+                    \'StreamCreationTimestamp\': datetime(2015, 1, 1),
+                    \'EnhancedMonitoring\': [
                         {
-                            'ShardLevelMetrics': [
-                                'IncomingBytes'|'IncomingRecords'|'OutgoingBytes'|'OutgoingRecords'|'WriteProvisionedThroughputExceeded'|'ReadProvisionedThroughputExceeded'|'IteratorAgeMilliseconds'|'ALL',
+                            \'ShardLevelMetrics\': [
+                                \'IncomingBytes\'|\'IncomingRecords\'|\'OutgoingBytes\'|\'OutgoingRecords\'|\'WriteProvisionedThroughputExceeded\'|\'ReadProvisionedThroughputExceeded\'|\'IteratorAgeMilliseconds\'|\'ALL\',
                             ]
                         },
                     ],
-                    'EncryptionType': 'NONE'|'KMS',
-                    'KeyId': 'string',
-                    'OpenShardCount': 123,
-                    'ConsumerCount': 123
+                    \'EncryptionType\': \'NONE\'|\'KMS\',
+                    \'KeyId\': \'string\',
+                    \'OpenShardCount\': 123,
+                    \'ConsumerCount\': 123
                 }
             }
           **Response Structure** 
@@ -637,7 +637,7 @@ class Client(BaseClient):
         
                     List of shard-level metrics.
         
-                    The following are the valid shard-level metrics. The value "``ALL`` " enhances every metric.
+                    The following are the valid shard-level metrics. The value \"``ALL`` \" enhances every metric.
         
                     * ``IncomingBytes``   
                      
@@ -669,7 +669,7 @@ class Client(BaseClient):
                  
               - **KeyId** *(string) --* 
         
-                The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias ``aws/kinesis`` .
+                The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data Streams by specifying the alias ``aws/kinesis`` .
         
                 * Key ARN example: ``arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012``   
                  
@@ -701,9 +701,9 @@ class Client(BaseClient):
         ::
         
           response = client.disable_enhanced_monitoring(
-              StreamName='string',
+              StreamName=\'string\',
               ShardLevelMetrics=[
-                  'IncomingBytes'|'IncomingRecords'|'OutgoingBytes'|'OutgoingRecords'|'WriteProvisionedThroughputExceeded'|'ReadProvisionedThroughputExceeded'|'IteratorAgeMilliseconds'|'ALL',
+                  \'IncomingBytes\'|\'IncomingRecords\'|\'OutgoingBytes\'|\'OutgoingRecords\'|\'WriteProvisionedThroughputExceeded\'|\'ReadProvisionedThroughputExceeded\'|\'IteratorAgeMilliseconds\'|\'ALL\',
               ]
           )
         :type StreamName: string
@@ -716,7 +716,7 @@ class Client(BaseClient):
         
           List of shard-level metrics to disable.
         
-          The following are the valid shard-level metrics. The value "``ALL`` " disables every metric.
+          The following are the valid shard-level metrics. The value \"``ALL`` \" disables every metric.
         
           * ``IncomingBytes``   
            
@@ -746,12 +746,12 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamName': 'string',
-                'CurrentShardLevelMetrics': [
-                    'IncomingBytes'|'IncomingRecords'|'OutgoingBytes'|'OutgoingRecords'|'WriteProvisionedThroughputExceeded'|'ReadProvisionedThroughputExceeded'|'IteratorAgeMilliseconds'|'ALL',
+                \'StreamName\': \'string\',
+                \'CurrentShardLevelMetrics\': [
+                    \'IncomingBytes\'|\'IncomingRecords\'|\'OutgoingBytes\'|\'OutgoingRecords\'|\'WriteProvisionedThroughputExceeded\'|\'ReadProvisionedThroughputExceeded\'|\'IteratorAgeMilliseconds\'|\'ALL\',
                 ],
-                'DesiredShardLevelMetrics': [
-                    'IncomingBytes'|'IncomingRecords'|'OutgoingBytes'|'OutgoingRecords'|'WriteProvisionedThroughputExceeded'|'ReadProvisionedThroughputExceeded'|'IteratorAgeMilliseconds'|'ALL',
+                \'DesiredShardLevelMetrics\': [
+                    \'IncomingBytes\'|\'IncomingRecords\'|\'OutgoingBytes\'|\'OutgoingRecords\'|\'WriteProvisionedThroughputExceeded\'|\'ReadProvisionedThroughputExceeded\'|\'IteratorAgeMilliseconds\'|\'ALL\',
                 ]
             }
           **Response Structure** 
@@ -788,9 +788,9 @@ class Client(BaseClient):
         ::
         
           response = client.enable_enhanced_monitoring(
-              StreamName='string',
+              StreamName=\'string\',
               ShardLevelMetrics=[
-                  'IncomingBytes'|'IncomingRecords'|'OutgoingBytes'|'OutgoingRecords'|'WriteProvisionedThroughputExceeded'|'ReadProvisionedThroughputExceeded'|'IteratorAgeMilliseconds'|'ALL',
+                  \'IncomingBytes\'|\'IncomingRecords\'|\'OutgoingBytes\'|\'OutgoingRecords\'|\'WriteProvisionedThroughputExceeded\'|\'ReadProvisionedThroughputExceeded\'|\'IteratorAgeMilliseconds\'|\'ALL\',
               ]
           )
         :type StreamName: string
@@ -803,7 +803,7 @@ class Client(BaseClient):
         
           List of shard-level metrics to enable.
         
-          The following are the valid shard-level metrics. The value "``ALL`` " enables every metric.
+          The following are the valid shard-level metrics. The value \"``ALL`` \" enables every metric.
         
           * ``IncomingBytes``   
            
@@ -833,12 +833,12 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamName': 'string',
-                'CurrentShardLevelMetrics': [
-                    'IncomingBytes'|'IncomingRecords'|'OutgoingBytes'|'OutgoingRecords'|'WriteProvisionedThroughputExceeded'|'ReadProvisionedThroughputExceeded'|'IteratorAgeMilliseconds'|'ALL',
+                \'StreamName\': \'string\',
+                \'CurrentShardLevelMetrics\': [
+                    \'IncomingBytes\'|\'IncomingRecords\'|\'OutgoingBytes\'|\'OutgoingRecords\'|\'WriteProvisionedThroughputExceeded\'|\'ReadProvisionedThroughputExceeded\'|\'IteratorAgeMilliseconds\'|\'ALL\',
                 ],
-                'DesiredShardLevelMetrics': [
-                    'IncomingBytes'|'IncomingRecords'|'OutgoingBytes'|'OutgoingRecords'|'WriteProvisionedThroughputExceeded'|'ReadProvisionedThroughputExceeded'|'IteratorAgeMilliseconds'|'ALL',
+                \'DesiredShardLevelMetrics\': [
+                    \'IncomingBytes\'|\'IncomingRecords\'|\'OutgoingBytes\'|\'OutgoingRecords\'|\'WriteProvisionedThroughputExceeded\'|\'ReadProvisionedThroughputExceeded\'|\'IteratorAgeMilliseconds\'|\'ALL\',
                 ]
             }
           **Response Structure** 
@@ -882,7 +882,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -894,10 +894,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -913,11 +913,11 @@ class Client(BaseClient):
         
         Specify a shard iterator using the ``ShardIterator`` parameter. The shard iterator specifies the position in the shard from which you want to start reading data records sequentially. If there are no records available in the portion of the shard that the iterator points to,  GetRecords returns an empty list. It might take multiple calls to get to a portion of the shard that contains records.
         
-        You can scale by provisioning multiple shards per stream while considering service limits (for more information, see `Amazon Kinesis Data Streams Limits <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html>`__ in the *Amazon Kinesis Data Streams Developer Guide* ). Your application should have one thread per shard, each reading continuously from its stream. To read from a stream continually, call  GetRecords in a loop. Use  GetShardIterator to get the shard iterator to specify in the first  GetRecords call.  GetRecords returns a new shard iterator in ``NextShardIterator`` . Specify the shard iterator returned in ``NextShardIterator`` in subsequent calls to  GetRecords . If the shard has been closed, the shard iterator can't return more data and  GetRecords returns ``null`` in ``NextShardIterator`` . You can terminate the loop when the shard is closed, or when the shard iterator reaches the record with the sequence number or other attribute that marks it as the last record to process.
+        You can scale by provisioning multiple shards per stream while considering service limits (for more information, see `Amazon Kinesis Data Streams Limits <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html>`__ in the *Amazon Kinesis Data Streams Developer Guide* ). Your application should have one thread per shard, each reading continuously from its stream. To read from a stream continually, call  GetRecords in a loop. Use  GetShardIterator to get the shard iterator to specify in the first  GetRecords call.  GetRecords returns a new shard iterator in ``NextShardIterator`` . Specify the shard iterator returned in ``NextShardIterator`` in subsequent calls to  GetRecords . If the shard has been closed, the shard iterator can\'t return more data and  GetRecords returns ``null`` in ``NextShardIterator`` . You can terminate the loop when the shard is closed, or when the shard iterator reaches the record with the sequence number or other attribute that marks it as the last record to process.
         
-        Each data record can be up to 1 MiB in size, and each shard can read up to 2 MiB per second. You can ensure that your calls don't exceed the maximum supported size or throughput by using the ``Limit`` parameter to specify the maximum number of records that  GetRecords can return. Consider your average record size when determining this limit. The maximum number of records that can be returned per call is 10,000.
+        Each data record can be up to 1 MiB in size, and each shard can read up to 2 MiB per second. You can ensure that your calls don\'t exceed the maximum supported size or throughput by using the ``Limit`` parameter to specify the maximum number of records that  GetRecords can return. Consider your average record size when determining this limit. The maximum number of records that can be returned per call is 10,000.
         
-        The size of the data returned by  GetRecords varies depending on the utilization of the shard. The maximum size of data that  GetRecords can return is 10 MiB. If a call returns this amount of data, subsequent calls made within the next 5 seconds throw ``ProvisionedThroughputExceededException`` . If there is insufficient provisioned throughput on the stream, subsequent calls made within the next 1 second throw ``ProvisionedThroughputExceededException`` .  GetRecords doesn't return any data when it throws an exception. For this reason, we recommend that you wait 1 second between calls to  GetRecords . However, it's possible that the application will get exceptions for longer than 1 second.
+        The size of the data returned by  GetRecords varies depending on the utilization of the shard. The maximum size of data that  GetRecords can return is 10 MiB. If a call returns this amount of data, subsequent calls made within the next 5 seconds throw ``ProvisionedThroughputExceededException`` . If there is insufficient provisioned throughput on the stream, subsequent calls made within the next 1 second throw ``ProvisionedThroughputExceededException`` .  GetRecords doesn\'t return any data when it throws an exception. For this reason, we recommend that you wait 1 second between calls to  GetRecords . However, it\'s possible that the application will get exceptions for longer than 1 second.
         
         To detect whether the application is falling behind in processing, you can use the ``MillisBehindLatest`` response attribute. You can also monitor the stream using CloudWatch metrics and other mechanisms (see `Monitoring <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring.html>`__ in the *Amazon Kinesis Data Streams Developer Guide* ).
         
@@ -931,7 +931,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_records(
-              ShardIterator='string',
+              ShardIterator=\'string\',
               Limit=123
           )
         :type ShardIterator: string
@@ -952,17 +952,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Records': [
+                \'Records\': [
                     {
-                        'SequenceNumber': 'string',
-                        'ApproximateArrivalTimestamp': datetime(2015, 1, 1),
-                        'Data': b'bytes',
-                        'PartitionKey': 'string',
-                        'EncryptionType': 'NONE'|'KMS'
+                        \'SequenceNumber\': \'string\',
+                        \'ApproximateArrivalTimestamp\': datetime(2015, 1, 1),
+                        \'Data\': b\'bytes\',
+                        \'PartitionKey\': \'string\',
+                        \'EncryptionType\': \'NONE\'|\'KMS\'
                     },
                 ],
-                'NextShardIterator': 'string',
-                'MillisBehindLatest': 123
+                \'NextShardIterator\': \'string\',
+                \'MillisBehindLatest\': 123
             }
           **Response Structure** 
         
@@ -1034,10 +1034,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_shard_iterator(
-              StreamName='string',
-              ShardId='string',
-              ShardIteratorType='AT_SEQUENCE_NUMBER'|'AFTER_SEQUENCE_NUMBER'|'TRIM_HORIZON'|'LATEST'|'AT_TIMESTAMP',
-              StartingSequenceNumber='string',
+              StreamName=\'string\',
+              ShardId=\'string\',
+              ShardIteratorType=\'AT_SEQUENCE_NUMBER\'|\'AFTER_SEQUENCE_NUMBER\'|\'TRIM_HORIZON\'|\'LATEST\'|\'AT_TIMESTAMP\',
+              StartingSequenceNumber=\'string\',
               Timestamp=datetime(2015, 1, 1)
           )
         :type StreamName: string
@@ -1085,7 +1085,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ShardIterator': 'string'
+                \'ShardIterator\': \'string\'
             }
           **Response Structure** 
         
@@ -1115,7 +1115,7 @@ class Client(BaseClient):
     def increase_stream_retention_period(self, StreamName: str, RetentionPeriodHours: int):
         """
         
-        If you choose a longer stream retention period, this operation increases the time period during which records that have not yet expired are accessible. However, it does not make previous, expired data (older than the stream's previous retention period) accessible after the operation has been called. For example, if a stream's retention period is set to 24 hours and is increased to 168 hours, any data that is older than 24 hours remains inaccessible to consumer applications.
+        If you choose a longer stream retention period, this operation increases the time period during which records that have not yet expired are accessible. However, it does not make previous, expired data (older than the stream\'s previous retention period) accessible after the operation has been called. For example, if a stream\'s retention period is set to 24 hours and is increased to 168 hours, any data that is older than 24 hours remains inaccessible to consumer applications.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/kinesis-2013-12-02/IncreaseStreamRetentionPeriod>`_
         
@@ -1123,7 +1123,7 @@ class Client(BaseClient):
         ::
         
           response = client.increase_stream_retention_period(
-              StreamName='string',
+              StreamName=\'string\',
               RetentionPeriodHours=123
           )
         :type StreamName: string
@@ -1153,9 +1153,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_shards(
-              StreamName='string',
-              NextToken='string',
-              ExclusiveStartShardId='string',
+              StreamName=\'string\',
+              NextToken=\'string\',
+              ExclusiveStartShardId=\'string\',
               MaxResults=123,
               StreamCreationTimestamp=datetime(2015, 1, 1)
           )
@@ -1171,9 +1171,9 @@ class Client(BaseClient):
         
           When the number of shards in the data stream is greater than the default value for the ``MaxResults`` parameter, or if you explicitly specify a value for ``MaxResults`` that is less than the number of shards in the data stream, the response includes a pagination token named ``NextToken`` . You can specify this ``NextToken`` value in a subsequent call to ``ListShards`` to list the next set of shards.
         
-          Don't specify ``StreamName`` or ``StreamCreationTimestamp`` if you specify ``NextToken`` because the latter unambiguously identifies the stream.
+          Don\'t specify ``StreamName`` or ``StreamCreationTimestamp`` if you specify ``NextToken`` because the latter unambiguously identifies the stream.
         
-          You can optionally specify a value for the ``MaxResults`` parameter when you specify ``NextToken`` . If you specify a ``MaxResults`` value that is less than the number of shards that the operation returns if you don't specify ``MaxResults`` , the response will contain a new ``NextToken`` value. You can use the new ``NextToken`` value in a subsequent call to the ``ListShards`` operation.
+          You can optionally specify a value for the ``MaxResults`` parameter when you specify ``NextToken`` . If you specify a ``MaxResults`` value that is less than the number of shards that the operation returns if you don\'t specify ``MaxResults`` , the response will contain a new ``NextToken`` value. You can use the new ``NextToken`` value in a subsequent call to the ``ListShards`` operation.
         
           .. warning::
         
@@ -1184,7 +1184,7 @@ class Client(BaseClient):
         
           Specify this parameter to indicate that you want to list the shards starting with the shard whose ID immediately follows ``ExclusiveStartShardId`` .
         
-          If you don't specify this parameter, the default behavior is for ``ListShards`` to list the shards starting with the first one in the stream.
+          If you don\'t specify this parameter, the default behavior is for ``ListShards`` to list the shards starting with the first one in the stream.
         
           You cannot specify this parameter if you specify ``NextToken`` .
         
@@ -1210,22 +1210,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Shards': [
+                \'Shards\': [
                     {
-                        'ShardId': 'string',
-                        'ParentShardId': 'string',
-                        'AdjacentParentShardId': 'string',
-                        'HashKeyRange': {
-                            'StartingHashKey': 'string',
-                            'EndingHashKey': 'string'
+                        \'ShardId\': \'string\',
+                        \'ParentShardId\': \'string\',
+                        \'AdjacentParentShardId\': \'string\',
+                        \'HashKeyRange\': {
+                            \'StartingHashKey\': \'string\',
+                            \'EndingHashKey\': \'string\'
                         },
-                        'SequenceNumberRange': {
-                            'StartingSequenceNumber': 'string',
-                            'EndingSequenceNumber': 'string'
+                        \'SequenceNumberRange\': {
+                            \'StartingSequenceNumber\': \'string\',
+                            \'EndingSequenceNumber\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1233,7 +1233,7 @@ class Client(BaseClient):
             
             - **Shards** *(list) --* 
         
-              An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard's parent, and the shard that's adjacent to the shard's parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.
+              An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard\'s parent, and the shard that\'s adjacent to the shard\'s parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.
         
               - *(dict) --* 
         
@@ -1245,11 +1245,11 @@ class Client(BaseClient):
         
                 - **ParentShardId** *(string) --* 
         
-                  The shard ID of the shard's parent.
+                  The shard ID of the shard\'s parent.
         
                 - **AdjacentParentShardId** *(string) --* 
         
-                  The shard ID of the shard adjacent to the shard's parent.
+                  The shard ID of the shard adjacent to the shard\'s parent.
         
                 - **HashKeyRange** *(dict) --* 
         
@@ -1297,8 +1297,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_stream_consumers(
-              StreamARN='string',
-              NextToken='string',
+              StreamARN=\'string\',
+              NextToken=\'string\',
               MaxResults=123,
               StreamCreationTimestamp=datetime(2015, 1, 1)
           )
@@ -1312,9 +1312,9 @@ class Client(BaseClient):
         
           When the number of consumers that are registered with the data stream is greater than the default value for the ``MaxResults`` parameter, or if you explicitly specify a value for ``MaxResults`` that is less than the number of consumers that are registered with the data stream, the response includes a pagination token named ``NextToken`` . You can specify this ``NextToken`` value in a subsequent call to ``ListStreamConsumers`` to list the next set of registered consumers.
         
-          Don't specify ``StreamName`` or ``StreamCreationTimestamp`` if you specify ``NextToken`` because the latter unambiguously identifies the stream.
+          Don\'t specify ``StreamName`` or ``StreamCreationTimestamp`` if you specify ``NextToken`` because the latter unambiguously identifies the stream.
         
-          You can optionally specify a value for the ``MaxResults`` parameter when you specify ``NextToken`` . If you specify a ``MaxResults`` value that is less than the number of consumers that the operation returns if you don't specify ``MaxResults`` , the response will contain a new ``NextToken`` value. You can use the new ``NextToken`` value in a subsequent call to the ``ListStreamConsumers`` operation to list the next set of consumers.
+          You can optionally specify a value for the ``MaxResults`` parameter when you specify ``NextToken`` . If you specify a ``MaxResults`` value that is less than the number of consumers that the operation returns if you don\'t specify ``MaxResults`` , the response will contain a new ``NextToken`` value. You can use the new ``NextToken`` value in a subsequent call to the ``ListStreamConsumers`` operation to list the next set of consumers.
         
           .. warning::
         
@@ -1330,7 +1330,7 @@ class Client(BaseClient):
         
           Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the consumers for. 
         
-          You can't specify this parameter if you specify the NextToken parameter. 
+          You can\'t specify this parameter if you specify the NextToken parameter. 
         
         :rtype: dict
         :returns: 
@@ -1340,15 +1340,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Consumers': [
+                \'Consumers\': [
                     {
-                        'ConsumerName': 'string',
-                        'ConsumerARN': 'string',
-                        'ConsumerStatus': 'CREATING'|'DELETING'|'ACTIVE',
-                        'ConsumerCreationTimestamp': datetime(2015, 1, 1)
+                        \'ConsumerName\': \'string\',
+                        \'ConsumerARN\': \'string\',
+                        \'ConsumerStatus\': \'CREATING\'|\'DELETING\'|\'ACTIVE\',
+                        \'ConsumerCreationTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1370,11 +1370,11 @@ class Client(BaseClient):
         
                   When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call  SubscribeToShard .
         
-                  If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
+                  If you delete a consumer and then create a new one with the same name, it won\'t have the same ARN. That\'s because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
         
                 - **ConsumerStatus** *(string) --* 
         
-                  A consumer can't read data while in the ``CREATING`` or ``DELETING`` states.
+                  A consumer can\'t read data while in the ``CREATING`` or ``DELETING`` states.
         
                 - **ConsumerCreationTimestamp** *(datetime) --* 
         
@@ -1405,7 +1405,7 @@ class Client(BaseClient):
         
           response = client.list_streams(
               Limit=123,
-              ExclusiveStartStreamName='string'
+              ExclusiveStartStreamName=\'string\'
           )
         :type Limit: integer
         :param Limit: 
@@ -1425,10 +1425,10 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamNames': [
-                    'string',
+                \'StreamNames\': [
+                    \'string\',
                 ],
-                'HasMoreStreams': True|False
+                \'HasMoreStreams\': True|False
             }
           **Response Structure** 
         
@@ -1458,8 +1458,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_stream(
-              StreamName='string',
-              ExclusiveStartTagKey='string',
+              StreamName=\'string\',
+              ExclusiveStartTagKey=\'string\',
               Limit=123
           )
         :type StreamName: string
@@ -1485,13 +1485,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'HasMoreTags': True|False
+                \'HasMoreTags\': True|False
             }
           **Response Structure** 
         
@@ -1545,9 +1545,9 @@ class Client(BaseClient):
         ::
         
           response = client.merge_shards(
-              StreamName='string',
-              ShardToMerge='string',
-              AdjacentShardToMerge='string'
+              StreamName=\'string\',
+              ShardToMerge=\'string\',
+              AdjacentShardToMerge=\'string\'
           )
         :type StreamName: string
         :param StreamName: **[REQUIRED]** 
@@ -1593,11 +1593,11 @@ class Client(BaseClient):
         ::
         
           response = client.put_record(
-              StreamName='string',
-              Data=b'bytes',
-              PartitionKey='string',
-              ExplicitHashKey='string',
-              SequenceNumberForOrdering='string'
+              StreamName=\'string\',
+              Data=b\'bytes\',
+              PartitionKey=\'string\',
+              ExplicitHashKey=\'string\',
+              SequenceNumberForOrdering=\'string\'
           )
         :type StreamName: string
         :param StreamName: **[REQUIRED]** 
@@ -1632,9 +1632,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ShardId': 'string',
-                'SequenceNumber': 'string',
-                'EncryptionType': 'NONE'|'KMS'
+                \'ShardId\': \'string\',
+                \'SequenceNumber\': \'string\',
+                \'EncryptionType\': \'NONE\'|\'KMS\'
             }
           **Response Structure** 
         
@@ -1692,12 +1692,12 @@ class Client(BaseClient):
           response = client.put_records(
               Records=[
                   {
-                      'Data': b'bytes',
-                      'ExplicitHashKey': 'string',
-                      'PartitionKey': 'string'
+                      \'Data\': b\'bytes\',
+                      \'ExplicitHashKey\': \'string\',
+                      \'PartitionKey\': \'string\'
                   },
               ],
-              StreamName='string'
+              StreamName=\'string\'
           )
         :type Records: list
         :param Records: **[REQUIRED]** 
@@ -1733,16 +1733,16 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedRecordCount': 123,
-                'Records': [
+                \'FailedRecordCount\': 123,
+                \'Records\': [
                     {
-                        'SequenceNumber': 'string',
-                        'ShardId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'SequenceNumber\': \'string\',
+                        \'ShardId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ],
-                'EncryptionType': 'NONE'|'KMS'
+                \'EncryptionType\': \'NONE\'|\'KMS\'
             }
           **Response Structure** 
         
@@ -1776,7 +1776,7 @@ class Client(BaseClient):
         
                 - **ErrorMessage** *(string) --* 
         
-                  The error message for an individual record result. An ``ErrorCode`` value of ``ProvisionedThroughputExceededException`` has an error message that includes the account ID, stream name, and shard ID. An ``ErrorCode`` value of ``InternalFailure`` has the error message ``"Internal Service Failure"`` .
+                  The error message for an individual record result. An ``ErrorCode`` value of ``ProvisionedThroughputExceededException`` has an error message that includes the account ID, stream name, and shard ID. An ``ErrorCode`` value of ``InternalFailure`` has the error message ``\"Internal Service Failure\"`` .
         
             - **EncryptionType** *(string) --* 
         
@@ -1802,8 +1802,8 @@ class Client(BaseClient):
         ::
         
           response = client.register_stream_consumer(
-              StreamARN='string',
-              ConsumerName='string'
+              StreamARN=\'string\',
+              ConsumerName=\'string\'
           )
         :type StreamARN: string
         :param StreamARN: **[REQUIRED]** 
@@ -1813,7 +1813,7 @@ class Client(BaseClient):
         :type ConsumerName: string
         :param ConsumerName: **[REQUIRED]** 
         
-          For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.
+          For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don\'t have to be unique across data streams.
         
         :rtype: dict
         :returns: 
@@ -1823,11 +1823,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Consumer': {
-                    'ConsumerName': 'string',
-                    'ConsumerARN': 'string',
-                    'ConsumerStatus': 'CREATING'|'DELETING'|'ACTIVE',
-                    'ConsumerCreationTimestamp': datetime(2015, 1, 1)
+                \'Consumer\': {
+                    \'ConsumerName\': \'string\',
+                    \'ConsumerARN\': \'string\',
+                    \'ConsumerStatus\': \'CREATING\'|\'DELETING\'|\'ACTIVE\',
+                    \'ConsumerCreationTimestamp\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1846,11 +1846,11 @@ class Client(BaseClient):
         
                 When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call  SubscribeToShard .
         
-                If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
+                If you delete a consumer and then create a new one with the same name, it won\'t have the same ARN. That\'s because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
         
               - **ConsumerStatus** *(string) --* 
         
-                A consumer can't read data while in the ``CREATING`` or ``DELETING`` states.
+                A consumer can\'t read data while in the ``CREATING`` or ``DELETING`` states.
         
               - **ConsumerCreationTimestamp** *(datetime) --* 
         
@@ -1870,9 +1870,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags_from_stream(
-              StreamName='string',
+              StreamName=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StreamName: string
@@ -1918,9 +1918,9 @@ class Client(BaseClient):
         ::
         
           response = client.split_shard(
-              StreamName='string',
-              ShardToSplit='string',
-              NewStartingHashKey='string'
+              StreamName=\'string\',
+              ShardToSplit=\'string\',
+              NewStartingHashKey=\'string\'
           )
         :type StreamName: string
         :param StreamName: **[REQUIRED]** 
@@ -1956,9 +1956,9 @@ class Client(BaseClient):
         ::
         
           response = client.start_stream_encryption(
-              StreamName='string',
-              EncryptionType='NONE'|'KMS',
-              KeyId='string'
+              StreamName=\'string\',
+              EncryptionType=\'NONE\'|\'KMS\',
+              KeyId=\'string\'
           )
         :type StreamName: string
         :param StreamName: **[REQUIRED]** 
@@ -1973,7 +1973,7 @@ class Client(BaseClient):
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
         
-          The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias ``aws/kinesis`` .
+          The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data Streams by specifying the alias ``aws/kinesis`` .
         
           * Key ARN example: ``arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012``   
            
@@ -2004,9 +2004,9 @@ class Client(BaseClient):
         ::
         
           response = client.stop_stream_encryption(
-              StreamName='string',
-              EncryptionType='NONE'|'KMS',
-              KeyId='string'
+              StreamName=\'string\',
+              EncryptionType=\'NONE\'|\'KMS\',
+              KeyId=\'string\'
           )
         :type StreamName: string
         :param StreamName: **[REQUIRED]** 
@@ -2021,7 +2021,7 @@ class Client(BaseClient):
         :type KeyId: string
         :param KeyId: **[REQUIRED]** 
         
-          The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias ``aws/kinesis`` .
+          The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data Streams by specifying the alias ``aws/kinesis`` .
         
           * Key ARN example: ``arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012``   
            
@@ -2066,9 +2066,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_shard_count(
-              StreamName='string',
+              StreamName=\'string\',
               TargetShardCount=123,
-              ScalingType='UNIFORM_SCALING'
+              ScalingType=\'UNIFORM_SCALING\'
           )
         :type StreamName: string
         :param StreamName: **[REQUIRED]** 
@@ -2093,9 +2093,9 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamName': 'string',
-                'CurrentShardCount': 123,
-                'TargetShardCount': 123
+                \'StreamName\': \'string\',
+                \'CurrentShardCount\': 123,
+                \'TargetShardCount\': 123
             }
           **Response Structure** 
         

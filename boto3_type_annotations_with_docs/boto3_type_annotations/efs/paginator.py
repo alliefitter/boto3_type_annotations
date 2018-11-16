@@ -12,12 +12,12 @@ class DescribeFileSystems(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CreationToken='string',
-              FileSystemId='string',
+              CreationToken=\'string\',
+              FileSystemId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CreationToken: string
@@ -55,28 +55,28 @@ class DescribeFileSystems(Paginator):
           ::
         
             {
-                'Marker': 'string',
-                'FileSystems': [
+                \'Marker\': \'string\',
+                \'FileSystems\': [
                     {
-                        'OwnerId': 'string',
-                        'CreationToken': 'string',
-                        'FileSystemId': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LifeCycleState': 'creating'|'available'|'updating'|'deleting'|'deleted',
-                        'Name': 'string',
-                        'NumberOfMountTargets': 123,
-                        'SizeInBytes': {
-                            'Value': 123,
-                            'Timestamp': datetime(2015, 1, 1)
+                        \'OwnerId\': \'string\',
+                        \'CreationToken\': \'string\',
+                        \'FileSystemId\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LifeCycleState\': \'creating\'|\'available\'|\'updating\'|\'deleting\'|\'deleted\',
+                        \'Name\': \'string\',
+                        \'NumberOfMountTargets\': 123,
+                        \'SizeInBytes\': {
+                            \'Value\': 123,
+                            \'Timestamp\': datetime(2015, 1, 1)
                         },
-                        'PerformanceMode': 'generalPurpose'|'maxIO',
-                        'Encrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'ThroughputMode': 'bursting'|'provisioned',
-                        'ProvisionedThroughputInMibps': 123.0
+                        \'PerformanceMode\': \'generalPurpose\'|\'maxIO\',
+                        \'Encrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'ThroughputMode\': \'bursting\'|\'provisioned\',
+                        \'ProvisionedThroughputInMibps\': 123.0
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -124,7 +124,7 @@ class DescribeFileSystems(Paginator):
         
                 - **SizeInBytes** *(dict) --* 
         
-                  Latest known metered size (in bytes) of data stored in the file system, in its ``Value`` field, and the time at which that size was determined in its ``Timestamp`` field. The ``Timestamp`` value is the integer number of seconds since 1970-01-01T00:00:00Z. The ``SizeInBytes`` value doesn't represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, ``SizeInBytes`` represents actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size that the file system was at any point in time. 
+                  Latest known metered size (in bytes) of data stored in the file system, in its ``Value`` field, and the time at which that size was determined in its ``Timestamp`` field. The ``Timestamp`` value is the integer number of seconds since 1970-01-01T00:00:00Z. The ``SizeInBytes`` value doesn\'t represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, ``SizeInBytes`` represents actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size that the file system was at any point in time. 
         
                   - **Value** *(integer) --* 
         
@@ -148,7 +148,7 @@ class DescribeFileSystems(Paginator):
         
                 - **ThroughputMode** *(string) --* 
         
-                  The throughput mode for a file system. There are two throughput modes to choose from for your file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change.
+                  The throughput mode for a file system. There are two throughput modes to choose from for your file system: bursting and provisioned. You can decrease your file system\'s throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change.
         
                 - **ProvisionedThroughputInMibps** *(float) --* 
         
@@ -172,12 +172,12 @@ class DescribeMountTargets(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              FileSystemId='string',
-              MountTargetId='string',
+              FileSystemId=\'string\',
+              MountTargetId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type FileSystemId: string
@@ -215,19 +215,19 @@ class DescribeMountTargets(Paginator):
           ::
         
             {
-                'Marker': 'string',
-                'MountTargets': [
+                \'Marker\': \'string\',
+                \'MountTargets\': [
                     {
-                        'OwnerId': 'string',
-                        'MountTargetId': 'string',
-                        'FileSystemId': 'string',
-                        'SubnetId': 'string',
-                        'LifeCycleState': 'creating'|'available'|'updating'|'deleting'|'deleted',
-                        'IpAddress': 'string',
-                        'NetworkInterfaceId': 'string'
+                        \'OwnerId\': \'string\',
+                        \'MountTargetId\': \'string\',
+                        \'FileSystemId\': \'string\',
+                        \'SubnetId\': \'string\',
+                        \'LifeCycleState\': \'creating\'|\'available\'|\'updating\'|\'deleting\'|\'deleted\',
+                        \'IpAddress\': \'string\',
+                        \'NetworkInterfaceId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -239,7 +239,7 @@ class DescribeMountTargets(Paginator):
         
             - **MountTargets** *(list) --* 
         
-              Returns the file system's mount targets as an array of ``MountTargetDescription`` objects.
+              Returns the file system\'s mount targets as an array of ``MountTargetDescription`` objects.
         
               - *(dict) --* 
         
@@ -259,7 +259,7 @@ class DescribeMountTargets(Paginator):
         
                 - **SubnetId** *(string) --* 
         
-                  ID of the mount target's subnet.
+                  ID of the mount target\'s subnet.
         
                 - **LifeCycleState** *(string) --* 
         
@@ -291,11 +291,11 @@ class DescribeTags(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              FileSystemId='string',
+              FileSystemId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type FileSystemId: string
@@ -328,14 +328,14 @@ class DescribeTags(Paginator):
           ::
         
             {
-                'Marker': 'string',
-                'Tags': [
+                \'Marker\': \'string\',
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -355,7 +355,7 @@ class DescribeTags(Paginator):
         
                 - **Key** *(string) --* 
         
-                  Tag key (String). The key can't start with ``aws:`` .
+                  Tag key (String). The key can\'t start with ``aws:`` .
         
                 - **Value** *(string) --* 
         
