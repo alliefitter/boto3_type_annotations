@@ -138,6 +138,52 @@ You would then install `requirements.txt` in production and `requirements-dev.tx
 deployment packages define the `boto3_type_annotations` package, you won't have to change your code. You just need to 
 install the appropriate deployment package.
 
+## Custom Builds
+
+In cases when you're only using a small number of `boto3` services, you may not want to depend on a package containing 
+every service available. To provide a bit more flexibility, this package provides a way to create a custom build of
+the `boto3_type_annotations` package. The `configs/` directory contains configurations for `boto3_type_annotations` and
+`boto3_type_annnotations_with_docs`, along with a couple example configurations.
+
+```yaml
+services: # A list of services. Use `boto3.session.Session.get_available_services()` to view services. 
+  - ec2
+  - rds
+  - sqs
+  - sns
+  - lambda
+  - s3
+with_docs: true # Include docstrings.
+with_clients: true # Include client classes
+with_service_resources: true # Include service resources.
+with_paginators: true # Include paginators
+with_waiters: true # Include waiters
+package_name: boto3_type_annotations_essentials # The name of the package.
+module_name: boto3_type_annotations # The name of the module.
+version: 0.2.4 # Version of the package.
+readme: README.md # Path to readme file.
+license: LICENSE # Path to file containing license.
+```
+
+The preceding configuration is the contents of `config/example.essentials.yaml`. When `build.py` is run with this
+config, it will parse and write the ec2, rds, sqs, sns, lambda, and s3 services with docstrings and including all
+clients, service resources, paginators, and waiters. 
+
+```bash
+$ python build_scripts/build.py ../configs/example.essentials.yaml
+```
+
+It will create a directory named `boto3_type_annotations_essentials`
+in the root directory of the repository. That directory will contain a python module named `boto3_type_annotations`,
+a license file, and a `setup.py` file. Now all you need to do is package everything up and install it.
+
+```bash
+$ python setup.py sdist bdist_wheel
+
+$ pip3 install dist/boto3_type_annotations_essentials-0.2.4-py3-none-any.whl --user
+
+```
+
 ## TODO
 
 - Create an "essentials" deployment package only containing often used services like Lambda, S3, SQS, and CloudFormation
@@ -145,8 +191,8 @@ install the appropriate deployment package.
 - Package related services into separate deployment packages, to create smaller packages containing only services
   which are essential to a certain use case, group EC2 and RDS for instance.
 
-- Create custom builds. If a project only uses S3's service resource, provide a way to build a deployment package 
-  containing just that package. This would require some sort of configuration and more mature build script.
+- ~~Create custom builds. If a project only uses S3's service resource, provide a way to build a deployment package 
+  containing just that package. This would require some sort of configuration and more mature build script.~~
   
 - Reduce the size of `boto3_type_annotations_with_docs`. I'm already cutting out extraneous new lines and some
   whitespaces which reduced the size by 10 MB(!), but I'd like to see it closer to the 34 MB of `boto3` + `botocore`.

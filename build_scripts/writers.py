@@ -3,8 +3,8 @@ from collections import defaultdict
 from inspect import getmodule
 from keyword import kwlist
 from os import mkdir, getcwd
-from os.path import isdir, dirname
-from shutil import rmtree
+from os.path import isdir, dirname, abspath
+from shutil import rmtree, copyfile
 from typing import IO, Set, Union, Tuple, List, Generator, Dict, Optional
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
@@ -12,9 +12,9 @@ from boto3.resources.collection import ResourceCollection
 from boto3.session import Session
 from botocore.client import BaseClient
 
-from build_scripts.parsers import parse_service_resources, parse_clients, parse_service_waiters, parse_service_paginators
-from build_scripts.structures import Method, Client, ServiceResource, Resource, Attribute, Collection, ServiceWaiter, \
-    ServicePaginator
+from parsers import parse_service_resources, parse_clients, parse_service_waiters, parse_service_paginators
+from structures import Method, Client, ServiceResource, Resource, Attribute, Collection, ServiceWaiter, \
+    ServicePaginator, Config
 
 
 def add_indentation_to_docstring(docstring: str, levels: int) -> str:
@@ -48,12 +48,13 @@ def create_import_statements(types: Set[type]) -> Generator[str, None, None]:
             yield f'from {normalize_type_name(getmodule(_type))} import {normalize_type_name(_type)}'
 
 
-def create_module_directory(package_name: str = 'boto3_type_annotations'):
-    if isdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations'):
-        rmtree(f'{dirname(getcwd())}/{package_name}')
-    mkdir(f'{dirname(getcwd())}/{package_name}')
-    mkdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations')
-    with open(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/__init__.py', 'w') as file_object:
+def create_module_directory(config: Config):
+    print(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}')
+    if isdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}'):
+        rmtree(f'{normalized_repository_path()}/{config.package_name}')
+    mkdir(f'{normalized_repository_path()}/{config.package_name}')
+    mkdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}')
+    with open(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/__init__.py', 'w') as file_object:
         file_object.write('\n')
 
 
@@ -62,6 +63,10 @@ def format_arguments(method) -> Generator[str, None, None]:
         _type = normalize_type_name(argument.type) if argument.required \
             else f'{normalize_type_name(argument.type)} = None'
         yield f'{argument.name}: {_type}'
+
+
+def normalized_repository_path():
+    return dirname(dirname(abspath(__file__)))
 
 
 def normalize_module_name(name: str) -> str:
@@ -131,19 +136,19 @@ def write_attributes(attributes: List[Attribute], file_object: IO):
         file_object.write(f'\n    {attribute.name}: {normalize_type_name(attribute.type)}')
 
 
-def write_client(client: Client, with_docs: bool = False, package_name: str = 'boto3_type_annotations'):
+def write_client(client: Client, config: Config):
     print(f'Writing: {client.name}')
     normalized_module_name = normalize_module_name(client.name)
-    if not isdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}'):
-        mkdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}')
-    file_path = f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}/client.py'
+    if not isdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}'):
+        mkdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}')
+    file_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}/client.py'
     with open(file_path, 'w') as file_object:
         types = retrieve_types_from_client(client).union({Optional, BaseClient, Union})
         file_object.write('\n'.join(list(create_import_statements(types))))
         file_object.write(f'\n\n\nclass Client(BaseClient):')
-        write_methods(client.methods, file_object, include_doc=with_docs)
+        write_methods(client.methods, file_object, include_doc=config.with_docs)
     return [{
-        'import_statement': f'from boto3_type_annotations.{normalized_module_name}.client import Client',
+        'import_statement': f'from {config.module_name}.{normalized_module_name}.client import Client',
         'name': 'Client'
     }]
 
@@ -193,16 +198,15 @@ def write_method(
 
 def write_service_resource(
         service_resource: ServiceResource,
-        with_docs: bool = False,
-        package_name: str = 'boto3_type_annotations'
+        config: Config
 ) -> List[Dict]:
 
     print(f'Writing: {service_resource.name}')
     defined_objects = []
     normalized_module_name = normalize_module_name(service_resource.name)
-    if not isdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}'):
-        mkdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}')
-    file_path = f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}/' \
+    if not isdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}'):
+        mkdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}')
+    file_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}/' \
                 f'service_resource.py'
     with open(file_path, 'w') as file_object:
         types = retrieve_types_from_service_resource(service_resource).union(
@@ -211,23 +215,23 @@ def write_service_resource(
         write_import_statements(file_object, types)
         if Boto3ServiceResource not in retrieve_types_from_service_resource(service_resource):
             file_object.write('\nfrom boto3.resources import base\n')
-        write_resource(service_resource, 'ServiceResource', file_object, with_docs)
+        write_resource(service_resource, 'ServiceResource', file_object, config.with_docs)
         defined_objects.append({
-            'import_statement': f'from boto3_type_annotations.{normalized_module_name}'
+            'import_statement': f'from {config.module_name}.{normalized_module_name}'
                                 f'.service_resource import ServiceResource',
             'name': 'ServiceResource'
         })
         for resource in service_resource.sub_resources:
-            write_resource(resource, resource.name, file_object, with_docs)
+            write_resource(resource, resource.name, file_object, config.with_docs)
             defined_objects.append({
-                'import_statement': f'from boto3_type_annotations.{normalized_module_name}'
+                'import_statement': f'from {config.module_name}.{normalized_module_name}'
                                     f'.service_resource import {resource.name}',
                 'name': resource.name
             })
         for collection in service_resource.collections:
-            write_collection(collection, file_object, with_docs)
+            write_collection(collection, file_object, config.with_docs)
             defined_objects.append({
-                'import_statement': f'from boto3_type_annotations.{normalized_module_name}'
+                'import_statement': f'from {config.module_name}.{normalized_module_name}'
                                     f'.service_resource import {collection.name}',
                 'name': collection.name
             })
@@ -256,15 +260,14 @@ def write_resource(
 
 def write_service_waiter(
         service_waiter: ServiceWaiter,
-        with_docs: bool = False,
-        package_name: str = 'boto3_type_annotations'
+        config: Config
 ) -> List[Dict]:
     defined_objects = []
     print(f'Writing: {service_waiter.name}')
     normalized_module_name = normalize_module_name(service_waiter.name)
-    if not isdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}'):
-        mkdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}')
-    file_path = f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}/waiter.py'
+    if not isdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}'):
+        mkdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}')
+    file_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}/waiter.py'
     if service_waiter.waiters:
         with open(file_path, 'w') as file_object:
             types = set()
@@ -274,9 +277,9 @@ def write_service_waiter(
             file_object.write('\nfrom botocore.waiter import Waiter\n')
             for waiter in service_waiter.waiters:
                 file_object.write(f'\n\nclass {waiter.name}(Waiter):')
-                write_methods(waiter.methods, file_object, include_doc=with_docs)
+                write_methods(waiter.methods, file_object, include_doc=config.with_docs)
                 defined_objects.append({
-                    'import_statement': f'from boto3_type_annotations.{normalized_module_name}.waiter '
+                    'import_statement': f'from {config.module_name}.{normalized_module_name}.waiter '
                                         f'import {waiter.name}',
                     'name': waiter.name
                 })
@@ -285,15 +288,14 @@ def write_service_waiter(
 
 def write_service_paginator(
         service_paginator: ServicePaginator,
-        with_docs: bool = False,
-        package_name: str = 'boto3_type_annotations'
+        config: Config
 ):
     defined_objects = []
     normalized_module_name = normalize_module_name(service_paginator.name)
     print(f'Writing: {service_paginator.name}')
-    if not isdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}'):
-        mkdir(f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}')
-    file_path = f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalized_module_name}/paginator.py'
+    if not isdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}'):
+        mkdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}')
+    file_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}/paginator.py'
     if service_paginator.paginators:
         with open(file_path, 'w') as file_object:
             types = set()
@@ -303,30 +305,35 @@ def write_service_paginator(
             file_object.write('\nfrom botocore.paginate import Paginator\n')
             for paginator in service_paginator.paginators:
                 file_object.write(f'\n\nclass {paginator.name}(Paginator):')
-                write_methods(paginator.methods, file_object, include_doc=with_docs)
+                write_methods(paginator.methods, file_object, include_doc=config.with_docs)
                 defined_objects.append({
-                    'import_statement': f'from boto3_type_annotations.{normalized_module_name}'
+                    'import_statement': f'from {config.module_name}.{normalized_module_name}'
                                         f'.paginator import {paginator.name}',
                     'name': paginator.name
                 })
     return defined_objects
 
 
-def write_services(session: Session, with_docs: bool = False, package_name: str = 'boto3_type_annotations'):
-    create_module_directory(package_name)
+def write_services(session: Session, config: Config):
+    create_module_directory(config)
     init_files = defaultdict(list)
-    init_files = write_clients(init_files, session, with_docs, package_name)
-    init_files = write_service_resources(init_files, session, with_docs, package_name)
-    write_service_waiters(session, with_docs, package_name)
-    write_service_paginators(session, with_docs, package_name)
-    write_init_files(init_files, package_name)
+    if config.with_clients:
+        init_files = write_clients(init_files, session, config)
+    if config.with_service_resources:
+        init_files = write_service_resources(init_files, session, config)
+    config.with_waiters and write_service_waiters(session, config)
+    config.with_paginators and write_service_paginators(session, config)
+    write_init_files(init_files, config)
+    write_setup(config)
+    copyfile(config.license, f'{normalized_repository_path()}/{config.package_name}/LICENSE')
+    copyfile(config.readme, f'{normalized_repository_path()}/{config.package_name}/README.md')
 
 
-def write_init_files(init_files: Dict[str, List], package_name: str = 'boto3_type_annotations'):
+def write_init_files(init_files: Dict[str, List], config: Config):
     for module, imports in init_files.items():
         if imports:
-            file_path = f'{dirname(getcwd())}/{package_name}/boto3_type_annotations/{normalize_module_name(module)}/' \
-                        f'__init__.py'
+            file_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/' \
+                        f'{normalize_module_name(module)}/__init__.py'
             with open(file_path, 'w') as file_object:
                 file_object.write('\n'.join([i.get('import_statement') for i in imports]))
                 all_objects = ',\n'.join(f'    \'{i.get("name")}\'' for i in imports)
@@ -338,41 +345,65 @@ __all__ = (
 ''')
 
 
+def write_setup(config: Config):
+    with open(f'{normalized_repository_path()}/{config.package_name}/setup.py', 'w') as file_object:
+        file_object.write(f'''
+from setuptools import setup, find_packages
+
+with open('README.md', 'r') as f:
+    long_description = f.read()
+
+setup(
+    name='{config.package_name}',
+    version='{config.version}',
+    packages=find_packages(),
+    url='https://github.com/alliefitter/boto3_type_annotations',
+    license='MIT License',
+    author='Allie Fitter',
+    author_email='fitterj@gmail.com',
+    description='Type annotations for boto3. Adds code completion in IDEs such as PyCharm.',
+    classifiers=(
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent"
+    ),
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+)
+''')
+
+
 def write_service_paginators(
         session: Session,
-        with_docs: bool = False,
-        package_name: str = 'boto3_type_annotations'
+        config: Config
 ):
-    for service_paginator in parse_service_paginators(session):
-        write_service_paginator(service_paginator, with_docs, package_name)
+    for service_paginator in parse_service_paginators(session, config):
+        write_service_paginator(service_paginator, config)
 
 
 def write_service_waiters(
         session: Session,
-        with_docs: bool = False,
-        package_name: str = 'boto3_type_annotations'
+        config: Config
 ):
-    for service_waiter in parse_service_waiters(session):
-        write_service_waiter(service_waiter, with_docs, package_name)
+    for service_waiter in parse_service_waiters(session, config):
+        write_service_waiter(service_waiter, config)
 
 
 def write_service_resources(
         init_files: Dict,
         session: Session,
-        with_docs: bool = False,
-        package_name: str = 'boto3_type_annotations'
+        config: Config
 ) -> Dict[str, List]:
-    for service_resource in parse_service_resources(session):
-        init_files[service_resource.name] += write_service_resource(service_resource, with_docs, package_name)
+    for service_resource in parse_service_resources(session, config):
+        init_files[service_resource.name] += write_service_resource(service_resource, config)
     return init_files
 
 
 def write_clients(
         init_files: Dict,
         session: Session,
-        with_docs: bool = False,
-        package_name: str = 'boto3_type_annotations'
+        config: Config
 ) -> Dict[str, List]:
-    for client in parse_clients(session):
-        init_files[client.name] += write_client(client, with_docs, package_name)
+    for client in parse_clients(session, config):
+        init_files[client.name] += write_client(client, config)
     return init_files

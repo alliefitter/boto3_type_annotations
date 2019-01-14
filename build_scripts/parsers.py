@@ -15,9 +15,9 @@ from botocore.paginate import PaginatorModel
 from docstring_parser import parse
 from docstring_parser.parser import DocstringMeta
 
-from build_scripts.structures import Argument, Method, Client, Attribute, Resource, Collection, ServiceResource, Waiter, \
-    ServiceWaiter, Paginator, ServicePaginator
-from build_scripts.type_map import TYPE_MAP
+from structures import Argument, Method, Client, Attribute, Resource, Collection, ServiceResource, Waiter, \
+    ServiceWaiter, Paginator, ServicePaginator, Config
+from type_map import TYPE_MAP
 
 
 def get_resource_public_actions(resource_class):
@@ -105,8 +105,8 @@ def parse_attribute_types(resource: Boto3ServiceResource) -> Set[str]:
     return types
 
 
-def parse_clients(session: Session) -> Generator[Client, None, None]:
-    for name in session.get_available_services():
+def parse_clients(session: Session, config: Config) -> Generator[Client, None, None]:
+    for name in [service for service in session.get_available_services() if service in config.services]:
         print(f'Parsing: {name}')
         client = session.client(name)
         yield Client(
@@ -187,8 +187,8 @@ def parse_return_type(meta: List[DocstringMeta]) -> Union[str, None]:
     return return_type
 
 
-def parse_service_resources(session: Session) -> Generator[ServiceResource, None, None]:
-    for resource_name in session.get_available_resources():
+def parse_service_resources(session: Session, config: Config) -> Generator[ServiceResource, None, None]:
+    for resource_name in [service for service in session.get_available_resources() if service in config.services]:
         service_resource = session.resource(resource_name)
         print(f'Parsing: {resource_name}')
         yield ServiceResource(
@@ -220,8 +220,8 @@ def parse_type_from_str(type_str: str) -> Union[type, Tuple, str]:
     return next(filter(lambda item: type_str in item[1], TYPE_MAP.items()))[0]
 
 
-def parse_service_waiters(session: Session) -> Generator[ServiceWaiter, None, None]:
-    for name in session.get_available_services():
+def parse_service_waiters(session: Session, config: Config) -> Generator[ServiceWaiter, None, None]:
+    for name in [service for service in session.get_available_services() if service in config.services]:
         client = session.client(name)
         if client.waiter_names:
             print(f'Parsing: {name}')
@@ -240,8 +240,8 @@ def parse_waiters(client: BaseClient) -> Generator[Waiter, None, None]:
         )
 
 
-def parse_service_paginators(session: Session) -> Generator[ServicePaginator, None, None]:
-    for name in session.get_available_services():
+def parse_service_paginators(session: Session, config: Config) -> Generator[ServicePaginator, None, None]:
+    for name in [service for service in session.get_available_services() if service in config.services]:
         client = session.client(name)
         if name in session._loader.list_available_services('paginators-1'):
             service_paginator_model = session._session.get_paginator_model(name)

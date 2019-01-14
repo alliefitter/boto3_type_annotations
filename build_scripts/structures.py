@@ -62,3 +62,17 @@ class ServiceWaiter(NamedTuple):
 class ServicePaginator(NamedTuple):
     name: str
     paginators: List[Paginator]
+
+
+class Config(NamedTuple):
+    services: List
+    with_docs: bool
+    with_clients: bool
+    with_service_resources: bool
+    with_paginators: bool
+    with_waiters: bool
+    package_name: str
+    module_name: str
+    version: str
+    readme: str
+    license: str
