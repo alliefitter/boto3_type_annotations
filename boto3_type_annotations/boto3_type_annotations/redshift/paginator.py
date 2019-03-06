@@ -1,7 +1,12 @@
-from datetime import datetime
 from typing import List
+from datetime import datetime
 from typing import Dict
 from botocore.paginate import Paginator
+
+
+class DescribeClusterDbRevisions(Paginator):
+    def paginate(self, ClusterIdentifier: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
 
 
 class DescribeClusterParameterGroups(Paginator):
@@ -20,12 +25,17 @@ class DescribeClusterSecurityGroups(Paginator):
 
 
 class DescribeClusterSnapshots(Paginator):
-    def paginate(self, ClusterIdentifier: str = None, SnapshotIdentifier: str = None, SnapshotType: str = None, StartTime: datetime = None, EndTime: datetime = None, OwnerAccount: str = None, TagKeys: List = None, TagValues: List = None, ClusterExists: bool = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, ClusterIdentifier: str = None, SnapshotIdentifier: str = None, SnapshotType: str = None, StartTime: datetime = None, EndTime: datetime = None, OwnerAccount: str = None, TagKeys: List = None, TagValues: List = None, ClusterExists: bool = None, SortingEntities: List = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
 class DescribeClusterSubnetGroups(Paginator):
     def paginate(self, ClusterSubnetGroupName: str = None, TagKeys: List = None, TagValues: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeClusterTracks(Paginator):
+    def paginate(self, MaintenanceTrackName: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
@@ -76,4 +86,29 @@ class DescribeReservedNodeOfferings(Paginator):
 
 class DescribeReservedNodes(Paginator):
     def paginate(self, ReservedNodeId: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeSnapshotCopyGrants(Paginator):
+    def paginate(self, SnapshotCopyGrantName: str = None, TagKeys: List = None, TagValues: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeSnapshotSchedules(Paginator):
+    def paginate(self, ClusterIdentifier: str = None, ScheduleIdentifier: str = None, TagKeys: List = None, TagValues: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeTableRestoreStatus(Paginator):
+    def paginate(self, ClusterIdentifier: str = None, TableRestoreRequestId: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeTags(Paginator):
+    def paginate(self, ResourceName: str = None, ResourceType: str = None, TagKeys: List = None, TagValues: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetReservedNodeExchangeOfferings(Paginator):
+    def paginate(self, ReservedNodeId: str, PaginationConfig: Dict = None) -> Dict:
         pass

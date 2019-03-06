@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from botocore.waiter import Waiter
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -65,7 +65,7 @@ class Client(BaseClient):
     def create_public_virtual_interface(self, connectionId: str, newPublicVirtualInterface: Dict) -> Dict:
         pass
 
-    def delete_bgp_peer(self, virtualInterfaceId: str = None, asn: int = None, customerAddress: str = None) -> Dict:
+    def delete_bgp_peer(self, virtualInterfaceId: str = None, asn: int = None, customerAddress: str = None, bgpPeerId: str = None) -> Dict:
         pass
 
     def delete_connection(self, connectionId: str) -> Dict:

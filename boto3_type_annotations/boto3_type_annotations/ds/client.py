@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -23,7 +23,7 @@ class Client(BaseClient):
     def cancel_schema_extension(self, DirectoryId: str, SchemaExtensionId: str) -> Dict:
         pass
 
-    def connect_directory(self, Name: str, Password: str, Size: str, ConnectSettings: Dict, ShortName: str = None, Description: str = None) -> Dict:
+    def connect_directory(self, Name: str, Password: str, Size: str, ConnectSettings: Dict, ShortName: str = None, Description: str = None, Tags: List = None) -> Dict:
         pass
 
     def create_alias(self, DirectoryId: str, Alias: str) -> Dict:
@@ -35,13 +35,13 @@ class Client(BaseClient):
     def create_conditional_forwarder(self, DirectoryId: str, RemoteDomainName: str, DnsIpAddrs: List) -> Dict:
         pass
 
-    def create_directory(self, Name: str, Password: str, Size: str, ShortName: str = None, Description: str = None, VpcSettings: Dict = None) -> Dict:
+    def create_directory(self, Name: str, Password: str, Size: str, ShortName: str = None, Description: str = None, VpcSettings: Dict = None, Tags: List = None) -> Dict:
         pass
 
     def create_log_subscription(self, DirectoryId: str, LogGroupName: str) -> Dict:
         pass
 
-    def create_microsoft_ad(self, Name: str, Password: str, VpcSettings: Dict, ShortName: str = None, Description: str = None, Edition: str = None) -> Dict:
+    def create_microsoft_ad(self, Name: str, Password: str, VpcSettings: Dict, ShortName: str = None, Description: str = None, Edition: str = None, Tags: List = None) -> Dict:
         pass
 
     def create_snapshot(self, DirectoryId: str, Name: str = None) -> Dict:

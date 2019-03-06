@@ -1,3 +1,4 @@
+from typing import List
 from typing import Dict
 from botocore.paginate import Paginator
 
@@ -18,5 +19,10 @@ class GetReplicationRuns(Paginator):
 
 
 class GetServers(Paginator):
-    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, vmServerAddressList: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListApps(Paginator):
+    def paginate(self, appIds: List = None, PaginationConfig: Dict = None) -> Dict:
         pass

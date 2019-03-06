@@ -5,49 +5,36 @@ from botocore.waiter import Waiter
 class StreamExists(Waiter):
     def wait(self, StreamName: str, Limit: int = None, ExclusiveStartShardId: str = None, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`Kinesis.Client.describe_stream` every 10 seconds until a successful state is reached. An error is returned after 18 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/kinesis-2013-12-02/DescribeStream>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
-              StreamName=\'string\',
+              StreamName='string',
               Limit=123,
-              ExclusiveStartShardId=\'string\',
+              ExclusiveStartShardId='string',
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type StreamName: string
-        :param StreamName: **[REQUIRED]** 
-        
+        :param StreamName: **[REQUIRED]**
           The name of the stream to describe.
-        
         :type Limit: integer
-        :param Limit: 
-        
+        :param Limit:
           The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned.
-        
         :type ExclusiveStartShardId: string
-        :param ExclusiveStartShardId: 
-        
+        :param ExclusiveStartShardId:
           The shard ID of the shard to start with.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 10
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 18
-        
         :returns: None
         """
         pass
@@ -56,49 +43,36 @@ class StreamExists(Waiter):
 class StreamNotExists(Waiter):
     def wait(self, StreamName: str, Limit: int = None, ExclusiveStartShardId: str = None, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`Kinesis.Client.describe_stream` every 10 seconds until a successful state is reached. An error is returned after 18 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/kinesis-2013-12-02/DescribeStream>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
-              StreamName=\'string\',
+              StreamName='string',
               Limit=123,
-              ExclusiveStartShardId=\'string\',
+              ExclusiveStartShardId='string',
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type StreamName: string
-        :param StreamName: **[REQUIRED]** 
-        
+        :param StreamName: **[REQUIRED]**
           The name of the stream to describe.
-        
         :type Limit: integer
-        :param Limit: 
-        
+        :param Limit:
           The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned.
-        
         :type ExclusiveStartShardId: string
-        :param ExclusiveStartShardId: 
-        
+        :param ExclusiveStartShardId:
           The shard ID of the shard to start with.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 10
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 18
-        
         :returns: None
         """
         pass

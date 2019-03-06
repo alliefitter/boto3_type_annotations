@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from datetime import datetime
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -28,6 +28,9 @@ class Client(BaseClient):
         pass
 
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
+        pass
+
+    def get_contact_attributes(self, InstanceId: str, InitialContactId: str) -> Dict:
         pass
 
     def get_current_metric_data(self, InstanceId: str, Filters: Dict, CurrentMetrics: List, Groupings: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:

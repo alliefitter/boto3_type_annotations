@@ -6,55 +6,40 @@ from botocore.waiter import Waiter
 class AnyInstanceInService(Waiter):
     def wait(self, LoadBalancerName: str, Instances: List = None, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`ElasticLoadBalancing.Client.describe_instance_health` every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancing-2012-06-01/DescribeInstanceHealth>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
-              LoadBalancerName=\'string\',
+              LoadBalancerName='string',
               Instances=[
                   {
-                      \'InstanceId\': \'string\'
+                      'InstanceId': 'string'
                   },
               ],
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type LoadBalancerName: string
-        :param LoadBalancerName: **[REQUIRED]** 
-        
+        :param LoadBalancerName: **[REQUIRED]**
           The name of the load balancer.
-        
         :type Instances: list
-        :param Instances: 
-        
+        :param Instances:
           The IDs of the instances.
-        
-          - *(dict) --* 
-        
+          - *(dict) --*
             The ID of an EC2 instance.
-        
-            - **InstanceId** *(string) --* 
-        
+            - **InstanceId** *(string) --*
               The instance ID.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 15
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 40
-        
         :returns: None
         """
         pass
@@ -63,55 +48,40 @@ class AnyInstanceInService(Waiter):
 class InstanceDeregistered(Waiter):
     def wait(self, LoadBalancerName: str, Instances: List = None, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`ElasticLoadBalancing.Client.describe_instance_health` every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancing-2012-06-01/DescribeInstanceHealth>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
-              LoadBalancerName=\'string\',
+              LoadBalancerName='string',
               Instances=[
                   {
-                      \'InstanceId\': \'string\'
+                      'InstanceId': 'string'
                   },
               ],
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type LoadBalancerName: string
-        :param LoadBalancerName: **[REQUIRED]** 
-        
+        :param LoadBalancerName: **[REQUIRED]**
           The name of the load balancer.
-        
         :type Instances: list
-        :param Instances: 
-        
+        :param Instances:
           The IDs of the instances.
-        
-          - *(dict) --* 
-        
+          - *(dict) --*
             The ID of an EC2 instance.
-        
-            - **InstanceId** *(string) --* 
-        
+            - **InstanceId** *(string) --*
               The instance ID.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 15
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 40
-        
         :returns: None
         """
         pass
@@ -120,55 +90,40 @@ class InstanceDeregistered(Waiter):
 class InstanceInService(Waiter):
     def wait(self, LoadBalancerName: str, Instances: List = None, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`ElasticLoadBalancing.Client.describe_instance_health` every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancing-2012-06-01/DescribeInstanceHealth>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
-              LoadBalancerName=\'string\',
+              LoadBalancerName='string',
               Instances=[
                   {
-                      \'InstanceId\': \'string\'
+                      'InstanceId': 'string'
                   },
               ],
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type LoadBalancerName: string
-        :param LoadBalancerName: **[REQUIRED]** 
-        
+        :param LoadBalancerName: **[REQUIRED]**
           The name of the load balancer.
-        
         :type Instances: list
-        :param Instances: 
-        
+        :param Instances:
           The IDs of the instances.
-        
-          - *(dict) --* 
-        
+          - *(dict) --*
             The ID of an EC2 instance.
-        
-            - **InstanceId** *(string) --* 
-        
+            - **InstanceId** *(string) --*
               The instance ID.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 15
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 40
-        
         :returns: None
         """
         pass

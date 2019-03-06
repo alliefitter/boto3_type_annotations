@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from datetime import datetime
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -21,22 +21,22 @@ class Client(BaseClient):
     def cancel_maintenance_window_execution(self, WindowExecutionId: str) -> Dict:
         pass
 
-    def create_activation(self, IamRole: str, Description: str = None, DefaultInstanceName: str = None, RegistrationLimit: int = None, ExpirationDate: datetime = None) -> Dict:
+    def create_activation(self, IamRole: str, Description: str = None, DefaultInstanceName: str = None, RegistrationLimit: int = None, ExpirationDate: datetime = None, Tags: List = None) -> Dict:
         pass
 
-    def create_association(self, Name: str, DocumentVersion: str = None, InstanceId: str = None, Parameters: Dict = None, Targets: List = None, ScheduleExpression: str = None, OutputLocation: Dict = None, AssociationName: str = None, MaxErrors: str = None, MaxConcurrency: str = None, ComplianceSeverity: str = None) -> Dict:
+    def create_association(self, Name: str, DocumentVersion: str = None, InstanceId: str = None, Parameters: Dict = None, Targets: List = None, ScheduleExpression: str = None, OutputLocation: Dict = None, AssociationName: str = None, AutomationTargetParameterName: str = None, MaxErrors: str = None, MaxConcurrency: str = None, ComplianceSeverity: str = None) -> Dict:
         pass
 
     def create_association_batch(self, Entries: List) -> Dict:
         pass
 
-    def create_document(self, Content: str, Name: str, DocumentType: str = None, DocumentFormat: str = None, TargetType: str = None) -> Dict:
+    def create_document(self, Content: str, Name: str, Attachments: List = None, VersionName: str = None, DocumentType: str = None, DocumentFormat: str = None, TargetType: str = None, Tags: List = None) -> Dict:
         pass
 
-    def create_maintenance_window(self, Name: str, Schedule: str, Duration: int, Cutoff: int, AllowUnassociatedTargets: bool, Description: str = None, StartDate: str = None, EndDate: str = None, ScheduleTimezone: str = None, ClientToken: str = None) -> Dict:
+    def create_maintenance_window(self, Name: str, Schedule: str, Duration: int, Cutoff: int, AllowUnassociatedTargets: bool, Description: str = None, StartDate: str = None, EndDate: str = None, ScheduleTimezone: str = None, ClientToken: str = None, Tags: List = None) -> Dict:
         pass
 
-    def create_patch_baseline(self, Name: str, OperatingSystem: str = None, GlobalFilters: Dict = None, ApprovalRules: Dict = None, ApprovedPatches: List = None, ApprovedPatchesComplianceLevel: str = None, ApprovedPatchesEnableNonSecurity: bool = None, RejectedPatches: List = None, RejectedPatchesAction: str = None, Description: str = None, Sources: List = None, ClientToken: str = None) -> Dict:
+    def create_patch_baseline(self, Name: str, OperatingSystem: str = None, GlobalFilters: Dict = None, ApprovalRules: Dict = None, ApprovedPatches: List = None, ApprovedPatchesComplianceLevel: str = None, ApprovedPatchesEnableNonSecurity: bool = None, RejectedPatches: List = None, RejectedPatchesAction: str = None, Description: str = None, Sources: List = None, ClientToken: str = None, Tags: List = None) -> Dict:
         pass
 
     def create_resource_data_sync(self, SyncName: str, S3Destination: Dict) -> Dict:
@@ -102,7 +102,7 @@ class Client(BaseClient):
     def describe_available_patches(self, Filters: List = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
-    def describe_document(self, Name: str, DocumentVersion: str = None) -> Dict:
+    def describe_document(self, Name: str, DocumentVersion: str = None, VersionName: str = None) -> Dict:
         pass
 
     def describe_document_permission(self, Name: str, PermissionType: str) -> Dict:
@@ -189,7 +189,7 @@ class Client(BaseClient):
     def get_deployable_patch_snapshot_for_instance(self, InstanceId: str, SnapshotId: str) -> Dict:
         pass
 
-    def get_document(self, Name: str, DocumentVersion: str = None, DocumentFormat: str = None) -> Dict:
+    def get_document(self, Name: str, VersionName: str = None, DocumentVersion: str = None, DocumentFormat: str = None) -> Dict:
         pass
 
     def get_inventory(self, Filters: List = None, Aggregators: List = None, ResultAttributes: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
@@ -285,7 +285,7 @@ class Client(BaseClient):
     def put_inventory(self, InstanceId: str, Items: List) -> Dict:
         pass
 
-    def put_parameter(self, Name: str, Value: str, Type: str, Description: str = None, KeyId: str = None, Overwrite: bool = None, AllowedPattern: str = None) -> Dict:
+    def put_parameter(self, Name: str, Value: str, Type: str, Description: str = None, KeyId: str = None, Overwrite: bool = None, AllowedPattern: str = None, Tags: List = None) -> Dict:
         pass
 
     def register_default_patch_baseline(self, BaselineId: str) -> Dict:
@@ -315,7 +315,7 @@ class Client(BaseClient):
     def start_associations_once(self, AssociationIds: List) -> Dict:
         pass
 
-    def start_automation_execution(self, DocumentName: str, DocumentVersion: str = None, Parameters: Dict = None, ClientToken: str = None, Mode: str = None, TargetParameterName: str = None, Targets: List = None, TargetMaps: List = None, MaxConcurrency: str = None, MaxErrors: str = None) -> Dict:
+    def start_automation_execution(self, DocumentName: str, DocumentVersion: str = None, Parameters: Dict = None, ClientToken: str = None, Mode: str = None, TargetParameterName: str = None, Targets: List = None, TargetMaps: List = None, MaxConcurrency: str = None, MaxErrors: str = None, TargetLocations: List = None) -> Dict:
         pass
 
     def start_session(self, Target: str, DocumentName: str = None, Parameters: Dict = None) -> Dict:
@@ -327,13 +327,13 @@ class Client(BaseClient):
     def terminate_session(self, SessionId: str) -> Dict:
         pass
 
-    def update_association(self, AssociationId: str, Parameters: Dict = None, DocumentVersion: str = None, ScheduleExpression: str = None, OutputLocation: Dict = None, Name: str = None, Targets: List = None, AssociationName: str = None, AssociationVersion: str = None, MaxErrors: str = None, MaxConcurrency: str = None, ComplianceSeverity: str = None) -> Dict:
+    def update_association(self, AssociationId: str, Parameters: Dict = None, DocumentVersion: str = None, ScheduleExpression: str = None, OutputLocation: Dict = None, Name: str = None, Targets: List = None, AssociationName: str = None, AssociationVersion: str = None, AutomationTargetParameterName: str = None, MaxErrors: str = None, MaxConcurrency: str = None, ComplianceSeverity: str = None) -> Dict:
         pass
 
     def update_association_status(self, Name: str, InstanceId: str, AssociationStatus: Dict) -> Dict:
         pass
 
-    def update_document(self, Content: str, Name: str, DocumentVersion: str = None, DocumentFormat: str = None, TargetType: str = None) -> Dict:
+    def update_document(self, Content: str, Name: str, Attachments: List = None, VersionName: str = None, DocumentVersion: str = None, DocumentFormat: str = None, TargetType: str = None) -> Dict:
         pass
 
     def update_document_default_version(self, Name: str, DocumentVersion: str) -> Dict:

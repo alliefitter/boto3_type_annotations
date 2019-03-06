@@ -1,10 +1,11 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from datetime import datetime
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -27,6 +28,9 @@ class Client(BaseClient):
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
+        pass
+
+    def get_scaling_plan_resource_forecast_data(self, ScalingPlanName: str, ScalingPlanVersion: int, ServiceNamespace: str, ResourceId: str, ScalableDimension: str, ForecastDataType: str, StartTime: datetime, EndTime: datetime) -> Dict:
         pass
 
     def get_waiter(self, waiter_name: str = None) -> Waiter:

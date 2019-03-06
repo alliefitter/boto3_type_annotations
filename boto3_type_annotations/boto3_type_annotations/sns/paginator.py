@@ -7,6 +7,11 @@ class ListEndpointsByPlatformApplication(Paginator):
         pass
 
 
+class ListPhoneNumbersOptedOut(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListPlatformApplications(Paginator):
     def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass

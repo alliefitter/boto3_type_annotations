@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
+from botocore.client import BaseClient
+from datetime import datetime
 from typing import Dict
 from botocore.paginate import Paginator
+from typing import Union
 from botocore.waiter import Waiter
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -30,7 +30,7 @@ class Client(BaseClient):
     def complete_lifecycle_action(self, LifecycleHookName: str, AutoScalingGroupName: str, LifecycleActionResult: str, LifecycleActionToken: str = None, InstanceId: str = None) -> Dict:
         pass
 
-    def create_auto_scaling_group(self, AutoScalingGroupName: str, MinSize: int, MaxSize: int, LaunchConfigurationName: str = None, LaunchTemplate: Dict = None, InstanceId: str = None, DesiredCapacity: int = None, DefaultCooldown: int = None, AvailabilityZones: List = None, LoadBalancerNames: List = None, TargetGroupARNs: List = None, HealthCheckType: str = None, HealthCheckGracePeriod: int = None, PlacementGroup: str = None, VPCZoneIdentifier: str = None, TerminationPolicies: List = None, NewInstancesProtectedFromScaleIn: bool = None, LifecycleHookSpecificationList: List = None, Tags: List = None, ServiceLinkedRoleARN: str = None):
+    def create_auto_scaling_group(self, AutoScalingGroupName: str, MinSize: int, MaxSize: int, LaunchConfigurationName: str = None, LaunchTemplate: Dict = None, MixedInstancesPolicy: Dict = None, InstanceId: str = None, DesiredCapacity: int = None, DefaultCooldown: int = None, AvailabilityZones: List = None, LoadBalancerNames: List = None, TargetGroupARNs: List = None, HealthCheckType: str = None, HealthCheckGracePeriod: int = None, PlacementGroup: str = None, VPCZoneIdentifier: str = None, TerminationPolicies: List = None, NewInstancesProtectedFromScaleIn: bool = None, LifecycleHookSpecificationList: List = None, Tags: List = None, ServiceLinkedRoleARN: str = None):
         pass
 
     def create_launch_configuration(self, LaunchConfigurationName: str, ImageId: str = None, KeyName: str = None, SecurityGroups: List = None, ClassicLinkVPCId: str = None, ClassicLinkVPCSecurityGroups: List = None, UserData: str = None, InstanceId: str = None, InstanceType: str = None, KernelId: str = None, RamdiskId: str = None, BlockDeviceMappings: List = None, InstanceMonitoring: Dict = None, SpotPrice: str = None, IamInstanceProfile: str = None, EbsOptimized: bool = None, AssociatePublicIpAddress: bool = None, PlacementTenancy: str = None):
@@ -180,5 +180,5 @@ class Client(BaseClient):
     def terminate_instance_in_auto_scaling_group(self, InstanceId: str, ShouldDecrementDesiredCapacity: bool) -> Dict:
         pass
 
-    def update_auto_scaling_group(self, AutoScalingGroupName: str, LaunchConfigurationName: str = None, LaunchTemplate: Dict = None, MinSize: int = None, MaxSize: int = None, DesiredCapacity: int = None, DefaultCooldown: int = None, AvailabilityZones: List = None, HealthCheckType: str = None, HealthCheckGracePeriod: int = None, PlacementGroup: str = None, VPCZoneIdentifier: str = None, TerminationPolicies: List = None, NewInstancesProtectedFromScaleIn: bool = None, ServiceLinkedRoleARN: str = None):
+    def update_auto_scaling_group(self, AutoScalingGroupName: str, LaunchConfigurationName: str = None, LaunchTemplate: Dict = None, MixedInstancesPolicy: Dict = None, MinSize: int = None, MaxSize: int = None, DesiredCapacity: int = None, DefaultCooldown: int = None, AvailabilityZones: List = None, HealthCheckType: str = None, HealthCheckGracePeriod: int = None, PlacementGroup: str = None, VPCZoneIdentifier: str = None, TerminationPolicies: List = None, NewInstancesProtectedFromScaleIn: bool = None, ServiceLinkedRoleARN: str = None):
         pass

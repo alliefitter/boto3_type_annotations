@@ -1,9 +1,9 @@
 from typing import Optional
 from typing import Union
-from typing import Dict
-from botocore.paginate import Paginator
 from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
 
 
 class Client(BaseClient):
@@ -19,6 +19,9 @@ class Client(BaseClient):
     def describe_cluster(self, name: str) -> Dict:
         pass
 
+    def describe_update(self, name: str, updateId: str) -> Dict:
+        pass
+
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
@@ -29,4 +32,10 @@ class Client(BaseClient):
         pass
 
     def list_clusters(self, maxResults: int = None, nextToken: str = None) -> Dict:
+        pass
+
+    def list_updates(self, name: str, nextToken: str = None, maxResults: int = None) -> Dict:
+        pass
+
+    def update_cluster_version(self, name: str, version: str, clientRequestToken: str = None) -> Dict:
         pass

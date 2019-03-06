@@ -1,9 +1,9 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from boto3.resources.collection import ResourceCollection
 from typing import Dict
+from datetime import datetime
+from typing import Union
+from boto3.resources.collection import ResourceCollection
 from boto3.resources import base
 
 
@@ -19,7 +19,7 @@ class ServiceResource(base.ServiceResource):
     def batch_write_item(self, RequestItems: Dict, ReturnConsumedCapacity: str = None, ReturnItemCollectionMetrics: str = None) -> Dict:
         pass
 
-    def create_table(self, AttributeDefinitions: List, TableName: str, KeySchema: List, ProvisionedThroughput: Dict, LocalSecondaryIndexes: List = None, GlobalSecondaryIndexes: List = None, StreamSpecification: Dict = None, SSESpecification: Dict = None) -> 'Table':
+    def create_table(self, AttributeDefinitions: List, TableName: str, KeySchema: List, LocalSecondaryIndexes: List = None, GlobalSecondaryIndexes: List = None, BillingMode: str = None, ProvisionedThroughput: Dict = None, StreamSpecification: Dict = None, SSESpecification: Dict = None) -> 'Table':
         pass
 
     def get_available_subresources(self) -> List[str]:
@@ -37,6 +37,7 @@ class Table(base.ServiceResource):
     item_count: int
     table_arn: str
     table_id: str
+    billing_mode_summary: Dict
     local_secondary_indexes: List
     global_secondary_indexes: List
     stream_specification: Dict
@@ -76,7 +77,7 @@ class Table(base.ServiceResource):
     def scan(self, IndexName: str = None, AttributesToGet: List = None, Limit: int = None, Select: str = None, ScanFilter: Dict = None, ConditionalOperator: str = None, ExclusiveStartKey: Dict = None, ReturnConsumedCapacity: str = None, TotalSegments: int = None, Segment: int = None, ProjectionExpression: str = None, FilterExpression: str = None, ExpressionAttributeNames: Dict = None, ExpressionAttributeValues: Dict = None, ConsistentRead: bool = None) -> Dict:
         pass
 
-    def update(self, AttributeDefinitions: List = None, ProvisionedThroughput: Dict = None, GlobalSecondaryIndexUpdates: List = None, StreamSpecification: Dict = None, SSESpecification: Dict = None) -> 'Table':
+    def update(self, AttributeDefinitions: List = None, BillingMode: str = None, ProvisionedThroughput: Dict = None, GlobalSecondaryIndexUpdates: List = None, StreamSpecification: Dict = None, SSESpecification: Dict = None) -> 'Table':
         pass
 
     def update_item(self, Key: Dict, AttributeUpdates: Dict = None, Expected: Dict = None, ConditionalOperator: str = None, ReturnValues: str = None, ReturnConsumedCapacity: str = None, ReturnItemCollectionMetrics: str = None, UpdateExpression: str = None, ConditionExpression: str = None, ExpressionAttributeNames: Dict = None, ExpressionAttributeValues: Dict = None) -> Dict:

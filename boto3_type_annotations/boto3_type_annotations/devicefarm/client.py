@@ -1,17 +1,17 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_device_pool(self, projectArn: str, name: str, rules: List, description: str = None) -> Dict:
+    def create_device_pool(self, projectArn: str, name: str, rules: List, description: str = None, maxDevices: int = None) -> Dict:
         pass
 
     def create_instance_profile(self, name: str, description: str = None, packageCleanup: bool = None, excludeAppPackagesFromCleanup: List = None, rebootAfterUse: bool = None) -> Dict:
@@ -125,7 +125,7 @@ class Client(BaseClient):
     def list_device_pools(self, arn: str, type: str = None, nextToken: str = None) -> Dict:
         pass
 
-    def list_devices(self, arn: str = None, nextToken: str = None) -> Dict:
+    def list_devices(self, arn: str = None, nextToken: str = None, filters: List = None) -> Dict:
         pass
 
     def list_instance_profiles(self, maxResults: int = None, nextToken: str = None) -> Dict:
@@ -179,7 +179,7 @@ class Client(BaseClient):
     def renew_offering(self, offeringId: str = None, quantity: int = None) -> Dict:
         pass
 
-    def schedule_run(self, projectArn: str, devicePoolArn: str, test: Dict, appArn: str = None, name: str = None, configuration: Dict = None, executionConfiguration: Dict = None) -> Dict:
+    def schedule_run(self, projectArn: str, test: Dict, appArn: str = None, devicePoolArn: str = None, deviceSelectionConfiguration: Dict = None, name: str = None, configuration: Dict = None, executionConfiguration: Dict = None) -> Dict:
         pass
 
     def stop_job(self, arn: str) -> Dict:
@@ -194,7 +194,7 @@ class Client(BaseClient):
     def update_device_instance(self, arn: str, profileArn: str = None, labels: List = None) -> Dict:
         pass
 
-    def update_device_pool(self, arn: str, name: str = None, description: str = None, rules: List = None) -> Dict:
+    def update_device_pool(self, arn: str, name: str = None, description: str = None, rules: List = None, maxDevices: int = None, clearMaxDevices: bool = None) -> Dict:
         pass
 
     def update_instance_profile(self, arn: str, name: str = None, description: str = None, packageCleanup: bool = None, excludeAppPackagesFromCleanup: List = None, rebootAfterUse: bool = None) -> Dict:

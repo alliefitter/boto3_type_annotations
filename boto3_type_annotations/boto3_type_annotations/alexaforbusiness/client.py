@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -23,16 +23,22 @@ class Client(BaseClient):
     def associate_skill_with_skill_group(self, SkillId: str, SkillGroupArn: str = None) -> Dict:
         pass
 
+    def associate_skill_with_users(self, SkillId: str, OrganizationArn: str = None) -> Dict:
+        pass
+
     def can_paginate(self, operation_name: str = None):
         pass
 
     def create_address_book(self, Name: str, Description: str = None, ClientRequestToken: str = None) -> Dict:
         pass
 
+    def create_business_report_schedule(self, Format: str, ContentRange: Dict, ScheduleName: str = None, S3BucketName: str = None, S3KeyPrefix: str = None, Recurrence: Dict = None, ClientRequestToken: str = None) -> Dict:
+        pass
+
     def create_conference_provider(self, ConferenceProviderName: str, ConferenceProviderType: str, MeetingSetting: Dict, IPDialIn: Dict = None, PSTNDialIn: Dict = None, ClientRequestToken: str = None) -> Dict:
         pass
 
-    def create_contact(self, FirstName: str, PhoneNumber: str, DisplayName: str = None, LastName: str = None, ClientRequestToken: str = None) -> Dict:
+    def create_contact(self, FirstName: str, DisplayName: str = None, LastName: str = None, PhoneNumber: str = None, ClientRequestToken: str = None) -> Dict:
         pass
 
     def create_profile(self, ProfileName: str, Timezone: str, Address: str, DistanceUnit: str, TemperatureUnit: str, WakeWord: str, ClientRequestToken: str = None, SetupModeDisabled: bool = None, MaxVolumeLimit: int = None, PSTNEnabled: bool = None) -> Dict:
@@ -48,6 +54,9 @@ class Client(BaseClient):
         pass
 
     def delete_address_book(self, AddressBookArn: str) -> Dict:
+        pass
+
+    def delete_business_report_schedule(self, ScheduleArn: str) -> Dict:
         pass
 
     def delete_conference_provider(self, ConferenceProviderArn: str) -> Dict:
@@ -84,6 +93,9 @@ class Client(BaseClient):
         pass
 
     def disassociate_skill_from_skill_group(self, SkillId: str, SkillGroupArn: str = None) -> Dict:
+        pass
+
+    def disassociate_skill_from_users(self, SkillId: str, OrganizationArn: str = None) -> Dict:
         pass
 
     def disassociate_skill_group_from_room(self, SkillGroupArn: str = None, RoomArn: str = None) -> Dict:
@@ -126,6 +138,9 @@ class Client(BaseClient):
         pass
 
     def get_waiter(self, waiter_name: str = None) -> Waiter:
+        pass
+
+    def list_business_report_schedules(self, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def list_conference_providers(self, NextToken: str = None, MaxResults: int = None) -> Dict:
@@ -207,6 +222,9 @@ class Client(BaseClient):
         pass
 
     def update_address_book(self, AddressBookArn: str, Name: str = None, Description: str = None) -> Dict:
+        pass
+
+    def update_business_report_schedule(self, ScheduleArn: str, S3BucketName: str = None, S3KeyPrefix: str = None, Format: str = None, ScheduleName: str = None, Recurrence: Dict = None) -> Dict:
         pass
 
     def update_conference_provider(self, ConferenceProviderArn: str, ConferenceProviderType: str, MeetingSetting: Dict, IPDialIn: Dict = None, PSTNDialIn: Dict = None) -> Dict:

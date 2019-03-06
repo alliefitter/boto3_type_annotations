@@ -1,14 +1,14 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
 from typing import IO
 from typing import Callable
 from boto3.s3.transfer import TransferConfig
+from datetime import datetime
+from typing import Dict
+from botocore.paginate import Paginator
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -24,13 +24,13 @@ class Client(BaseClient):
     def copy(self, CopySource: Dict = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, SourceClient: BaseClient = None, Config: TransferConfig = None):
         pass
 
-    def copy_object(self, Bucket: str, CopySource: Union[str, Dict], Key: str, ACL: str = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentType: str = None, CopySourceIfMatch: str = None, CopySourceIfModifiedSince: datetime = None, CopySourceIfNoneMatch: str = None, CopySourceIfUnmodifiedSince: datetime = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, MetadataDirective: str = None, TaggingDirective: str = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, CopySourceSSECustomerAlgorithm: str = None, CopySourceSSECustomerKey: str = None, CopySourceSSECustomerKeyMD5: str = None, RequestPayer: str = None, Tagging: str = None) -> Dict:
+    def copy_object(self, Bucket: str, CopySource: Union[str, Dict], Key: str, ACL: str = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentType: str = None, CopySourceIfMatch: str = None, CopySourceIfModifiedSince: datetime = None, CopySourceIfNoneMatch: str = None, CopySourceIfUnmodifiedSince: datetime = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, MetadataDirective: str = None, TaggingDirective: str = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, CopySourceSSECustomerAlgorithm: str = None, CopySourceSSECustomerKey: str = None, CopySourceSSECustomerKeyMD5: str = None, RequestPayer: str = None, Tagging: str = None, ObjectLockMode: str = None, ObjectLockRetainUntilDate: datetime = None, ObjectLockLegalHoldStatus: str = None) -> Dict:
         pass
 
-    def create_bucket(self, Bucket: str, ACL: str = None, CreateBucketConfiguration: Dict = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWrite: str = None, GrantWriteACP: str = None) -> Dict:
+    def create_bucket(self, Bucket: str, ACL: str = None, CreateBucketConfiguration: Dict = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWrite: str = None, GrantWriteACP: str = None, ObjectLockEnabledForBucket: bool = None) -> Dict:
         pass
 
-    def create_multipart_upload(self, Bucket: str, Key: str, ACL: str = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentType: str = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, RequestPayer: str = None, Tagging: str = None) -> Dict:
+    def create_multipart_upload(self, Bucket: str, Key: str, ACL: str = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentType: str = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, RequestPayer: str = None, Tagging: str = None, ObjectLockMode: str = None, ObjectLockRetainUntilDate: datetime = None, ObjectLockLegalHoldStatus: str = None) -> Dict:
         pass
 
     def delete_bucket(self, Bucket: str):
@@ -66,16 +66,19 @@ class Client(BaseClient):
     def delete_bucket_website(self, Bucket: str):
         pass
 
-    def delete_object(self, Bucket: str, Key: str, MFA: str = None, VersionId: str = None, RequestPayer: str = None) -> Dict:
+    def delete_object(self, Bucket: str, Key: str, MFA: str = None, VersionId: str = None, RequestPayer: str = None, BypassGovernanceRetention: bool = None) -> Dict:
         pass
 
     def delete_object_tagging(self, Bucket: str, Key: str, VersionId: str = None) -> Dict:
         pass
 
-    def delete_objects(self, Bucket: str, Delete: Dict, MFA: str = None, RequestPayer: str = None) -> Dict:
+    def delete_objects(self, Bucket: str, Delete: Dict, MFA: str = None, RequestPayer: str = None, BypassGovernanceRetention: bool = None) -> Dict:
         pass
 
-    def download_file(self, Filename: str = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
+    def delete_public_access_block(self, Bucket: str):
+        pass
+
+    def download_file(self, Bucket: str = None, Key: str = None, Filename: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
         pass
 
     def download_fileobj(self, Fileobj: IO = None, Bucket: str = None, Key: str = None, ExtraArgs: Dict = None, Callback: Callable = None, Config: TransferConfig = None):
@@ -129,6 +132,9 @@ class Client(BaseClient):
     def get_bucket_policy(self, Bucket: str) -> Dict:
         pass
 
+    def get_bucket_policy_status(self, Bucket: str) -> Dict:
+        pass
+
     def get_bucket_replication(self, Bucket: str) -> Dict:
         pass
 
@@ -150,6 +156,15 @@ class Client(BaseClient):
     def get_object_acl(self, Bucket: str, Key: str, VersionId: str = None, RequestPayer: str = None) -> Dict:
         pass
 
+    def get_object_legal_hold(self, Bucket: str, Key: str, VersionId: str = None, RequestPayer: str = None) -> Dict:
+        pass
+
+    def get_object_lock_configuration(self, Bucket: str) -> Dict:
+        pass
+
+    def get_object_retention(self, Bucket: str, Key: str, VersionId: str = None, RequestPayer: str = None) -> Dict:
+        pass
+
     def get_object_tagging(self, Bucket: str, Key: str, VersionId: str = None) -> Dict:
         pass
 
@@ -157,6 +172,9 @@ class Client(BaseClient):
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
+        pass
+
+    def get_public_access_block(self, Bucket: str) -> Dict:
         pass
 
     def get_waiter(self, waiter_name: str = None) -> Waiter:
@@ -249,13 +267,25 @@ class Client(BaseClient):
     def put_bucket_website(self, Bucket: str, WebsiteConfiguration: Dict):
         pass
 
-    def put_object(self, Bucket: str, Key: str, ACL: str = None, Body: Union[bytes, IO] = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentLength: int = None, ContentMD5: str = None, ContentType: str = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, RequestPayer: str = None, Tagging: str = None) -> Dict:
+    def put_object(self, Bucket: str, Key: str, ACL: str = None, Body: Union[bytes, IO] = None, CacheControl: str = None, ContentDisposition: str = None, ContentEncoding: str = None, ContentLanguage: str = None, ContentLength: int = None, ContentMD5: str = None, ContentType: str = None, Expires: datetime = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWriteACP: str = None, Metadata: Dict = None, ServerSideEncryption: str = None, StorageClass: str = None, WebsiteRedirectLocation: str = None, SSECustomerAlgorithm: str = None, SSECustomerKey: str = None, SSECustomerKeyMD5: str = None, SSEKMSKeyId: str = None, RequestPayer: str = None, Tagging: str = None, ObjectLockMode: str = None, ObjectLockRetainUntilDate: datetime = None, ObjectLockLegalHoldStatus: str = None) -> Dict:
         pass
 
     def put_object_acl(self, Bucket: str, Key: str, ACL: str = None, AccessControlPolicy: Dict = None, GrantFullControl: str = None, GrantRead: str = None, GrantReadACP: str = None, GrantWrite: str = None, GrantWriteACP: str = None, RequestPayer: str = None, VersionId: str = None) -> Dict:
         pass
 
+    def put_object_legal_hold(self, Bucket: str, Key: str, LegalHold: Dict = None, RequestPayer: str = None, VersionId: str = None, ContentMD5: str = None) -> Dict:
+        pass
+
+    def put_object_lock_configuration(self, Bucket: str, ObjectLockConfiguration: Dict = None, RequestPayer: str = None, Token: str = None, ContentMD5: str = None) -> Dict:
+        pass
+
+    def put_object_retention(self, Bucket: str, Key: str, Retention: Dict = None, RequestPayer: str = None, VersionId: str = None, BypassGovernanceRetention: bool = None, ContentMD5: str = None) -> Dict:
+        pass
+
     def put_object_tagging(self, Bucket: str, Key: str, Tagging: Dict, VersionId: str = None, ContentMD5: str = None) -> Dict:
+        pass
+
+    def put_public_access_block(self, Bucket: str, PublicAccessBlockConfiguration: Dict, ContentMD5: str = None):
         pass
 
     def restore_object(self, Bucket: str, Key: str, VersionId: str = None, RestoreRequest: Dict = None, RequestPayer: str = None) -> Dict:

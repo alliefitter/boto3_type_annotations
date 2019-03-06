@@ -5,37 +5,28 @@ from botocore.waiter import Waiter
 class ClusterActive(Waiter):
     def wait(self, name: str, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`EKS.Client.describe_cluster` every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/eks-2017-11-01/DescribeCluster>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
-              name=\'string\',
+              name='string',
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type name: string
-        :param name: **[REQUIRED]** 
-        
+        :param name: **[REQUIRED]**
           The name of the cluster to describe.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 30
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 40
-        
         :returns: None
         """
         pass
@@ -44,37 +35,28 @@ class ClusterActive(Waiter):
 class ClusterDeleted(Waiter):
     def wait(self, name: str, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`EKS.Client.describe_cluster` every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/eks-2017-11-01/DescribeCluster>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
-              name=\'string\',
+              name='string',
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type name: string
-        :param name: **[REQUIRED]** 
-        
+        :param name: **[REQUIRED]**
           The name of the cluster to describe.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 30
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 40
-        
         :returns: None
         """
         pass

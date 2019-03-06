@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from botocore.waiter import Waiter
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -23,6 +23,9 @@ class Client(BaseClient):
     def delete_cors_policy(self, ContainerName: str) -> Dict:
         pass
 
+    def delete_lifecycle_policy(self, ContainerName: str) -> Dict:
+        pass
+
     def describe_container(self, ContainerName: str = None) -> Dict:
         pass
 
@@ -33,6 +36,9 @@ class Client(BaseClient):
         pass
 
     def get_cors_policy(self, ContainerName: str) -> Dict:
+        pass
+
+    def get_lifecycle_policy(self, ContainerName: str) -> Dict:
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
@@ -48,4 +54,13 @@ class Client(BaseClient):
         pass
 
     def put_cors_policy(self, ContainerName: str, CorsPolicy: List) -> Dict:
+        pass
+
+    def put_lifecycle_policy(self, ContainerName: str, LifecyclePolicy: str) -> Dict:
+        pass
+
+    def start_access_logging(self, ContainerName: str) -> Dict:
+        pass
+
+    def stop_access_logging(self, ContainerName: str) -> Dict:
         pass

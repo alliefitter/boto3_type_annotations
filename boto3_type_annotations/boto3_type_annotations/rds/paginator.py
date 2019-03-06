@@ -1,7 +1,32 @@
-from datetime import datetime
 from typing import List
+from datetime import datetime
 from typing import Dict
 from botocore.paginate import Paginator
+
+
+class DescribeCertificates(Paginator):
+    def paginate(self, CertificateIdentifier: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeDBClusterBacktracks(Paginator):
+    def paginate(self, DBClusterIdentifier: str, BacktrackIdentifier: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeDBClusterEndpoints(Paginator):
+    def paginate(self, DBClusterIdentifier: str = None, DBClusterEndpointIdentifier: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeDBClusterParameterGroups(Paginator):
+    def paginate(self, DBClusterParameterGroupName: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeDBClusterParameters(Paginator):
+    def paginate(self, DBClusterParameterGroupName: str, Source: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
 
 
 class DescribeDBClusterSnapshots(Paginator):
@@ -16,6 +41,11 @@ class DescribeDBClusters(Paginator):
 
 class DescribeDBEngineVersions(Paginator):
     def paginate(self, Engine: str = None, EngineVersion: str = None, DBParameterGroupFamily: str = None, Filters: List = None, DefaultOnly: bool = None, ListSupportedCharacterSets: bool = None, ListSupportedTimezones: bool = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeDBInstanceAutomatedBackups(Paginator):
+    def paginate(self, DbiResourceId: str = None, DBInstanceIdentifier: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
@@ -45,12 +75,17 @@ class DescribeDBSecurityGroups(Paginator):
 
 
 class DescribeDBSnapshots(Paginator):
-    def paginate(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, IncludeShared: bool = None, IncludePublic: bool = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, IncludeShared: bool = None, IncludePublic: bool = None, DbiResourceId: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
 class DescribeDBSubnetGroups(Paginator):
     def paginate(self, DBSubnetGroupName: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeEngineDefaultClusterParameters(Paginator):
+    def paginate(self, DBParameterGroupFamily: str, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
@@ -69,6 +104,11 @@ class DescribeEvents(Paginator):
         pass
 
 
+class DescribeGlobalClusters(Paginator):
+    def paginate(self, GlobalClusterIdentifier: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class DescribeOptionGroupOptions(Paginator):
     def paginate(self, EngineName: str, MajorEngineVersion: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
         pass
@@ -84,6 +124,11 @@ class DescribeOrderableDBInstanceOptions(Paginator):
         pass
 
 
+class DescribePendingMaintenanceActions(Paginator):
+    def paginate(self, ResourceIdentifier: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class DescribeReservedDBInstances(Paginator):
     def paginate(self, ReservedDBInstanceId: str = None, ReservedDBInstancesOfferingId: str = None, DBInstanceClass: str = None, Duration: str = None, ProductDescription: str = None, OfferingType: str = None, MultiAZ: bool = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
         pass
@@ -91,6 +136,11 @@ class DescribeReservedDBInstances(Paginator):
 
 class DescribeReservedDBInstancesOfferings(Paginator):
     def paginate(self, ReservedDBInstancesOfferingId: str = None, DBInstanceClass: str = None, Duration: str = None, ProductDescription: str = None, OfferingType: str = None, MultiAZ: bool = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeSourceRegions(Paginator):
+    def paginate(self, RegionName: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

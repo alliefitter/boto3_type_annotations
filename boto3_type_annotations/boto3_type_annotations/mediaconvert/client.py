@@ -1,23 +1,26 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from botocore.waiter import Waiter
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
+    def associate_certificate(self, Arn: str) -> Dict:
+        pass
+
     def can_paginate(self, operation_name: str = None):
         pass
 
     def cancel_job(self, Id: str) -> Dict:
         pass
 
-    def create_job(self, Role: str, Settings: Dict, BillingTagsSource: str = None, ClientRequestToken: str = None, JobTemplate: str = None, Queue: str = None, UserMetadata: Dict = None) -> Dict:
+    def create_job(self, Role: str, Settings: Dict, AccelerationSettings: Dict = None, BillingTagsSource: str = None, ClientRequestToken: str = None, JobTemplate: str = None, Queue: str = None, StatusUpdateIntervalInSecs: int = None, UserMetadata: Dict = None) -> Dict:
         pass
 
-    def create_job_template(self, Name: str, Settings: Dict, Category: str = None, Description: str = None, Queue: str = None, Tags: Dict = None) -> Dict:
+    def create_job_template(self, Name: str, Settings: Dict, AccelerationSettings: Dict = None, Category: str = None, Description: str = None, Queue: str = None, StatusUpdateIntervalInSecs: int = None, Tags: Dict = None) -> Dict:
         pass
 
     def create_preset(self, Name: str, Settings: Dict, Category: str = None, Description: str = None, Tags: Dict = None) -> Dict:
@@ -36,6 +39,9 @@ class Client(BaseClient):
         pass
 
     def describe_endpoints(self, MaxResults: int = None, Mode: str = None, NextToken: str = None) -> Dict:
+        pass
+
+    def disassociate_certificate(self, Arn: str) -> Dict:
         pass
 
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
@@ -80,7 +86,7 @@ class Client(BaseClient):
     def untag_resource(self, Arn: str, TagKeys: List = None) -> Dict:
         pass
 
-    def update_job_template(self, Name: str, Category: str = None, Description: str = None, Queue: str = None, Settings: Dict = None) -> Dict:
+    def update_job_template(self, Name: str, AccelerationSettings: Dict = None, Category: str = None, Description: str = None, Queue: str = None, Settings: Dict = None, StatusUpdateIntervalInSecs: int = None) -> Dict:
         pass
 
     def update_preset(self, Name: str, Category: str = None, Description: str = None, Settings: Dict = None) -> Dict:

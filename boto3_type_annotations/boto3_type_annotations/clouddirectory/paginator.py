@@ -33,8 +33,18 @@ class ListFacetNames(Paginator):
         pass
 
 
+class ListIncomingTypedLinks(Paginator):
+    def paginate(self, DirectoryArn: str, ObjectReference: Dict, FilterAttributeRanges: List = None, FilterTypedLink: Dict = None, ConsistencyLevel: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListIndex(Paginator):
     def paginate(self, DirectoryArn: str, IndexReference: Dict, RangesOnIndexedValues: List = None, ConsistencyLevel: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListManagedSchemaArns(Paginator):
+    def paginate(self, SchemaArn: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
@@ -50,6 +60,11 @@ class ListObjectParentPaths(Paginator):
 
 class ListObjectPolicies(Paginator):
     def paginate(self, DirectoryArn: str, ObjectReference: Dict, ConsistencyLevel: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListOutgoingTypedLinks(Paginator):
+    def paginate(self, DirectoryArn: str, ObjectReference: Dict, FilterAttributeRanges: List = None, FilterTypedLink: Dict = None, ConsistencyLevel: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from datetime import datetime
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -15,13 +15,19 @@ class Client(BaseClient):
     def cancel_key_deletion(self, KeyId: str) -> Dict:
         pass
 
+    def connect_custom_key_store(self, CustomKeyStoreId: str) -> Dict:
+        pass
+
     def create_alias(self, AliasName: str, TargetKeyId: str):
+        pass
+
+    def create_custom_key_store(self, CustomKeyStoreName: str, CloudHsmClusterId: str, TrustAnchorCertificate: str, KeyStorePassword: str) -> Dict:
         pass
 
     def create_grant(self, KeyId: str, GranteePrincipal: str, Operations: List, RetiringPrincipal: str = None, Constraints: Dict = None, GrantTokens: List = None, Name: str = None) -> Dict:
         pass
 
-    def create_key(self, Policy: str = None, Description: str = None, KeyUsage: str = None, Origin: str = None, BypassPolicyLockoutSafetyCheck: bool = None, Tags: List = None) -> Dict:
+    def create_key(self, Policy: str = None, Description: str = None, KeyUsage: str = None, Origin: str = None, CustomKeyStoreId: str = None, BypassPolicyLockoutSafetyCheck: bool = None, Tags: List = None) -> Dict:
         pass
 
     def decrypt(self, CiphertextBlob: bytes, EncryptionContext: Dict = None, GrantTokens: List = None) -> Dict:
@@ -30,7 +36,13 @@ class Client(BaseClient):
     def delete_alias(self, AliasName: str):
         pass
 
+    def delete_custom_key_store(self, CustomKeyStoreId: str) -> Dict:
+        pass
+
     def delete_imported_key_material(self, KeyId: str):
+        pass
+
+    def describe_custom_key_stores(self, CustomKeyStoreId: str = None, CustomKeyStoreName: str = None, Limit: int = None, Marker: str = None) -> Dict:
         pass
 
     def describe_key(self, KeyId: str, GrantTokens: List = None) -> Dict:
@@ -40,6 +52,9 @@ class Client(BaseClient):
         pass
 
     def disable_key_rotation(self, KeyId: str):
+        pass
+
+    def disconnect_custom_key_store(self, CustomKeyStoreId: str) -> Dict:
         pass
 
     def enable_key(self, KeyId: str):
@@ -60,7 +75,7 @@ class Client(BaseClient):
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
-    def generate_random(self, NumberOfBytes: int = None) -> Dict:
+    def generate_random(self, NumberOfBytes: int = None, CustomKeyStoreId: str = None) -> Dict:
         pass
 
     def get_key_policy(self, KeyId: str, PolicyName: str) -> Dict:
@@ -121,6 +136,9 @@ class Client(BaseClient):
         pass
 
     def update_alias(self, AliasName: str, TargetKeyId: str):
+        pass
+
+    def update_custom_key_store(self, CustomKeyStoreId: str, NewCustomKeyStoreName: str = None, KeyStorePassword: str = None, CloudHsmClusterId: str = None) -> Dict:
         pass
 
     def update_key_description(self, KeyId: str, Description: str):

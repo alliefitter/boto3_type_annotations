@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -15,6 +15,9 @@ class Client(BaseClient):
         pass
 
     def create_branch(self, repositoryName: str, branchName: str, commitId: str):
+        pass
+
+    def create_commit(self, repositoryName: str, branchName: str, parentCommitId: str = None, authorName: str = None, email: str = None, commitMessage: str = None, keepEmptyFolders: bool = None, putFiles: List = None, deleteFiles: List = None, setFileModes: List = None) -> Dict:
         pass
 
     def create_pull_request(self, title: str, targets: List, description: str = None, clientRequestToken: str = None) -> Dict:

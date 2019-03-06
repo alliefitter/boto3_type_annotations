@@ -1,6 +1,6 @@
-from datetime import datetime
 from typing import List
 from typing import Dict
+from datetime import datetime
 from botocore.waiter import Waiter
 
 
@@ -20,5 +20,5 @@ class ClusterRestored(Waiter):
 
 
 class SnapshotAvailable(Waiter):
-    def wait(self, ClusterIdentifier: str = None, SnapshotIdentifier: str = None, SnapshotType: str = None, StartTime: datetime = None, EndTime: datetime = None, MaxRecords: int = None, Marker: str = None, OwnerAccount: str = None, TagKeys: List = None, TagValues: List = None, ClusterExists: bool = None, WaiterConfig: Dict = None):
+    def wait(self, ClusterIdentifier: str = None, SnapshotIdentifier: str = None, SnapshotType: str = None, StartTime: datetime = None, EndTime: datetime = None, MaxRecords: int = None, Marker: str = None, OwnerAccount: str = None, TagKeys: List = None, TagValues: List = None, ClusterExists: bool = None, SortingEntities: List = None, WaiterConfig: Dict = None):
         pass

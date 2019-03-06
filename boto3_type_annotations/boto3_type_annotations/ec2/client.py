@@ -1,15 +1,18 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from datetime import datetime
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def accept_reserved_instances_exchange_quote(self, ReservedInstanceIds: List, DryRun: bool = None, TargetConfigurations: List = None) -> Dict:
+        pass
+
+    def accept_transit_gateway_vpc_attachment(self, TransitGatewayAttachmentId: str, DryRun: bool = None) -> Dict:
         pass
 
     def accept_vpc_endpoint_connections(self, ServiceId: str, VpcEndpointIds: List, DryRun: bool = None) -> Dict:
@@ -27,6 +30,9 @@ class Client(BaseClient):
     def allocate_hosts(self, AvailabilityZone: str, InstanceType: str, Quantity: int, AutoPlacement: str = None, ClientToken: str = None, TagSpecifications: List = None) -> Dict:
         pass
 
+    def apply_security_groups_to_client_vpn_target_network(self, ClientVpnEndpointId: str, VpcId: str, SecurityGroupIds: List, DryRun: bool = None) -> Dict:
+        pass
+
     def assign_ipv6_addresses(self, NetworkInterfaceId: str, Ipv6AddressCount: int = None, Ipv6Addresses: List = None) -> Dict:
         pass
 
@@ -34,6 +40,9 @@ class Client(BaseClient):
         pass
 
     def associate_address(self, AllocationId: str = None, InstanceId: str = None, PublicIp: str = None, AllowReassociation: bool = None, DryRun: bool = None, NetworkInterfaceId: str = None, PrivateIpAddress: str = None) -> Dict:
+        pass
+
+    def associate_client_vpn_target_network(self, ClientVpnEndpointId: str, SubnetId: str, DryRun: bool = None) -> Dict:
         pass
 
     def associate_dhcp_options(self, DhcpOptionsId: str, VpcId: str, DryRun: bool = None):
@@ -46,6 +55,9 @@ class Client(BaseClient):
         pass
 
     def associate_subnet_cidr_block(self, Ipv6CidrBlock: str, SubnetId: str) -> Dict:
+        pass
+
+    def associate_transit_gateway_route_table(self, TransitGatewayRouteTableId: str, TransitGatewayAttachmentId: str, DryRun: bool = None) -> Dict:
         pass
 
     def associate_vpc_cidr_block(self, VpcId: str, AmazonProvidedIpv6CidrBlock: bool = None, CidrBlock: str = None) -> Dict:
@@ -64,6 +76,9 @@ class Client(BaseClient):
         pass
 
     def attach_vpn_gateway(self, VpcId: str, VpnGatewayId: str, DryRun: bool = None) -> Dict:
+        pass
+
+    def authorize_client_vpn_ingress(self, ClientVpnEndpointId: str, TargetNetworkCidr: str, AccessGroupId: str = None, AuthorizeAllGroups: bool = None, Description: str = None, DryRun: bool = None) -> Dict:
         pass
 
     def authorize_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
@@ -115,6 +130,12 @@ class Client(BaseClient):
         pass
 
     def create_capacity_reservation(self, InstanceType: str, InstancePlatform: str, AvailabilityZone: str, InstanceCount: int, ClientToken: str = None, Tenancy: str = None, EbsOptimized: bool = None, EphemeralStorage: bool = None, EndDate: datetime = None, EndDateType: str = None, InstanceMatchCriteria: str = None, TagSpecifications: List = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def create_client_vpn_endpoint(self, ClientCidrBlock: str, ServerCertificateArn: str, AuthenticationOptions: List, ConnectionLogOptions: Dict, DnsServers: List = None, TransportProtocol: str = None, Description: str = None, DryRun: bool = None, ClientToken: str = None, TagSpecifications: List = None) -> Dict:
+        pass
+
+    def create_client_vpn_route(self, ClientVpnEndpointId: str, DestinationCidrBlock: str, TargetVpcSubnetId: str, Description: str = None, DryRun: bool = None) -> Dict:
         pass
 
     def create_customer_gateway(self, BgpAsn: int, PublicIp: str, Type: str, DryRun: bool = None) -> Dict:
@@ -174,13 +195,13 @@ class Client(BaseClient):
     def create_network_interface_permission(self, NetworkInterfaceId: str, Permission: str, AwsAccountId: str = None, AwsService: str = None, DryRun: bool = None) -> Dict:
         pass
 
-    def create_placement_group(self, GroupName: str, Strategy: str, DryRun: bool = None):
+    def create_placement_group(self, DryRun: bool = None, GroupName: str = None, Strategy: str = None, PartitionCount: int = None):
         pass
 
     def create_reserved_instances_listing(self, ClientToken: str, InstanceCount: int, PriceSchedules: List, ReservedInstancesId: str) -> Dict:
         pass
 
-    def create_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None) -> Dict:
+    def create_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, TransitGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None) -> Dict:
         pass
 
     def create_route_table(self, VpcId: str, DryRun: bool = None) -> Dict:
@@ -195,10 +216,22 @@ class Client(BaseClient):
     def create_spot_datafeed_subscription(self, Bucket: str, DryRun: bool = None, Prefix: str = None) -> Dict:
         pass
 
-    def create_subnet(self, CidrBlock: str, VpcId: str, AvailabilityZone: str = None, Ipv6CidrBlock: str = None, DryRun: bool = None) -> Dict:
+    def create_subnet(self, CidrBlock: str, VpcId: str, AvailabilityZone: str = None, AvailabilityZoneId: str = None, Ipv6CidrBlock: str = None, DryRun: bool = None) -> Dict:
         pass
 
     def create_tags(self, Resources: List, Tags: List, DryRun: bool = None):
+        pass
+
+    def create_transit_gateway(self, Description: str = None, Options: Dict = None, TagSpecifications: List = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def create_transit_gateway_route(self, DestinationCidrBlock: str, TransitGatewayRouteTableId: str, TransitGatewayAttachmentId: str = None, Blackhole: bool = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def create_transit_gateway_route_table(self, TransitGatewayId: str, TagSpecifications: List = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def create_transit_gateway_vpc_attachment(self, TransitGatewayId: str, VpcId: str, SubnetIds: List, Options: Dict = None, TagSpecifications: List = None, DryRun: bool = None) -> Dict:
         pass
 
     def create_volume(self, AvailabilityZone: str, Encrypted: bool = None, Iops: int = None, KmsKeyId: str = None, Size: int = None, SnapshotId: str = None, VolumeType: str = None, DryRun: bool = None, TagSpecifications: List = None) -> Dict:
@@ -219,13 +252,19 @@ class Client(BaseClient):
     def create_vpc_peering_connection(self, DryRun: bool = None, PeerOwnerId: str = None, PeerVpcId: str = None, VpcId: str = None, PeerRegion: str = None) -> Dict:
         pass
 
-    def create_vpn_connection(self, CustomerGatewayId: str, Type: str, VpnGatewayId: str, DryRun: bool = None, Options: Dict = None) -> Dict:
+    def create_vpn_connection(self, CustomerGatewayId: str, Type: str, VpnGatewayId: str = None, TransitGatewayId: str = None, DryRun: bool = None, Options: Dict = None) -> Dict:
         pass
 
     def create_vpn_connection_route(self, DestinationCidrBlock: str, VpnConnectionId: str):
         pass
 
     def create_vpn_gateway(self, Type: str, AvailabilityZone: str = None, AmazonSideAsn: int = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def delete_client_vpn_endpoint(self, ClientVpnEndpointId: str, DryRun: bool = None) -> Dict:
+        pass
+
+    def delete_client_vpn_route(self, ClientVpnEndpointId: str, DestinationCidrBlock: str, TargetVpcSubnetId: str = None, DryRun: bool = None) -> Dict:
         pass
 
     def delete_customer_gateway(self, CustomerGatewayId: str, DryRun: bool = None):
@@ -297,6 +336,18 @@ class Client(BaseClient):
     def delete_tags(self, Resources: List, DryRun: bool = None, Tags: List = None):
         pass
 
+    def delete_transit_gateway(self, TransitGatewayId: str, DryRun: bool = None) -> Dict:
+        pass
+
+    def delete_transit_gateway_route(self, TransitGatewayRouteTableId: str, DestinationCidrBlock: str, DryRun: bool = None) -> Dict:
+        pass
+
+    def delete_transit_gateway_route_table(self, TransitGatewayRouteTableId: str, DryRun: bool = None) -> Dict:
+        pass
+
+    def delete_transit_gateway_vpc_attachment(self, TransitGatewayAttachmentId: str, DryRun: bool = None) -> Dict:
+        pass
+
     def delete_volume(self, VolumeId: str, DryRun: bool = None):
         pass
 
@@ -339,7 +390,7 @@ class Client(BaseClient):
     def describe_aggregate_id_format(self, DryRun: bool = None) -> Dict:
         pass
 
-    def describe_availability_zones(self, Filters: List = None, ZoneNames: List = None, DryRun: bool = None) -> Dict:
+    def describe_availability_zones(self, Filters: List = None, ZoneNames: List = None, ZoneIds: List = None, DryRun: bool = None) -> Dict:
         pass
 
     def describe_bundle_tasks(self, BundleIds: List = None, Filters: List = None, DryRun: bool = None) -> Dict:
@@ -352,6 +403,21 @@ class Client(BaseClient):
         pass
 
     def describe_classic_link_instances(self, Filters: List = None, DryRun: bool = None, InstanceIds: List = None, MaxResults: int = None, NextToken: str = None) -> Dict:
+        pass
+
+    def describe_client_vpn_authorization_rules(self, ClientVpnEndpointId: str, DryRun: bool = None, NextToken: str = None, Filters: List = None, MaxResults: int = None) -> Dict:
+        pass
+
+    def describe_client_vpn_connections(self, ClientVpnEndpointId: str, Filters: List = None, NextToken: str = None, MaxResults: int = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def describe_client_vpn_endpoints(self, ClientVpnEndpointIds: List = None, MaxResults: int = None, NextToken: str = None, Filters: List = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def describe_client_vpn_routes(self, ClientVpnEndpointId: str, Filters: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def describe_client_vpn_target_networks(self, ClientVpnEndpointId: str, AssociationIds: List = None, MaxResults: int = None, NextToken: str = None, Filters: List = None, DryRun: bool = None) -> Dict:
         pass
 
     def describe_conversion_tasks(self, ConversionTaskIds: List = None, DryRun: bool = None) -> Dict:
@@ -522,7 +588,7 @@ class Client(BaseClient):
     def describe_spot_fleet_requests(self, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, SpotFleetRequestIds: List = None) -> Dict:
         pass
 
-    def describe_spot_instance_requests(self, Filters: List = None, DryRun: bool = None, SpotInstanceRequestIds: List = None) -> Dict:
+    def describe_spot_instance_requests(self, Filters: List = None, DryRun: bool = None, SpotInstanceRequestIds: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def describe_spot_price_history(self, Filters: List = None, AvailabilityZone: str = None, DryRun: bool = None, EndTime: datetime = None, InstanceTypes: List = None, MaxResults: int = None, NextToken: str = None, ProductDescriptions: List = None, StartTime: datetime = None) -> Dict:
@@ -535,6 +601,18 @@ class Client(BaseClient):
         pass
 
     def describe_tags(self, DryRun: bool = None, Filters: List = None, MaxResults: int = None, NextToken: str = None) -> Dict:
+        pass
+
+    def describe_transit_gateway_attachments(self, TransitGatewayAttachmentIds: List = None, Filters: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def describe_transit_gateway_route_tables(self, TransitGatewayRouteTableIds: List = None, Filters: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def describe_transit_gateway_vpc_attachments(self, TransitGatewayAttachmentIds: List = None, Filters: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def describe_transit_gateways(self, TransitGatewayIds: List = None, Filters: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None) -> Dict:
         pass
 
     def describe_volume_attribute(self, Attribute: str, VolumeId: str, DryRun: bool = None) -> Dict:
@@ -576,7 +654,7 @@ class Client(BaseClient):
     def describe_vpc_endpoints(self, DryRun: bool = None, VpcEndpointIds: List = None, Filters: List = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
-    def describe_vpc_peering_connections(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None) -> Dict:
+    def describe_vpc_peering_connections(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def describe_vpcs(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None) -> Dict:
@@ -603,6 +681,9 @@ class Client(BaseClient):
     def detach_vpn_gateway(self, VpcId: str, VpnGatewayId: str, DryRun: bool = None):
         pass
 
+    def disable_transit_gateway_route_table_propagation(self, TransitGatewayRouteTableId: str, TransitGatewayAttachmentId: str, DryRun: bool = None) -> Dict:
+        pass
+
     def disable_vgw_route_propagation(self, GatewayId: str, RouteTableId: str):
         pass
 
@@ -615,6 +696,9 @@ class Client(BaseClient):
     def disassociate_address(self, AssociationId: str = None, PublicIp: str = None, DryRun: bool = None):
         pass
 
+    def disassociate_client_vpn_target_network(self, ClientVpnEndpointId: str, AssociationId: str, DryRun: bool = None) -> Dict:
+        pass
+
     def disassociate_iam_instance_profile(self, AssociationId: str) -> Dict:
         pass
 
@@ -624,7 +708,13 @@ class Client(BaseClient):
     def disassociate_subnet_cidr_block(self, AssociationId: str) -> Dict:
         pass
 
+    def disassociate_transit_gateway_route_table(self, TransitGatewayRouteTableId: str, TransitGatewayAttachmentId: str, DryRun: bool = None) -> Dict:
+        pass
+
     def disassociate_vpc_cidr_block(self, AssociationId: str) -> Dict:
+        pass
+
+    def enable_transit_gateway_route_table_propagation(self, TransitGatewayRouteTableId: str, TransitGatewayAttachmentId: str, DryRun: bool = None) -> Dict:
         pass
 
     def enable_vgw_route_propagation(self, GatewayId: str, RouteTableId: str):
@@ -637,6 +727,15 @@ class Client(BaseClient):
         pass
 
     def enable_vpc_classic_link_dns_support(self, VpcId: str = None) -> Dict:
+        pass
+
+    def export_client_vpn_client_certificate_revocation_list(self, ClientVpnEndpointId: str, DryRun: bool = None) -> Dict:
+        pass
+
+    def export_client_vpn_client_configuration(self, ClientVpnEndpointId: str, DryRun: bool = None) -> Dict:
+        pass
+
+    def export_transit_gateway_routes(self, TransitGatewayRouteTableId: str, S3Bucket: str, Filters: List = None, DryRun: bool = None) -> Dict:
         pass
 
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
@@ -663,7 +762,19 @@ class Client(BaseClient):
     def get_reserved_instances_exchange_quote(self, ReservedInstanceIds: List, DryRun: bool = None, TargetConfigurations: List = None) -> Dict:
         pass
 
+    def get_transit_gateway_attachment_propagations(self, TransitGatewayAttachmentId: str, Filters: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def get_transit_gateway_route_table_associations(self, TransitGatewayRouteTableId: str, Filters: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def get_transit_gateway_route_table_propagations(self, TransitGatewayRouteTableId: str, Filters: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None) -> Dict:
+        pass
+
     def get_waiter(self, waiter_name: str = None) -> Waiter:
+        pass
+
+    def import_client_vpn_client_certificate_revocation_list(self, ClientVpnEndpointId: str, CertificateRevocationList: str, DryRun: bool = None) -> Dict:
         pass
 
     def import_image(self, Architecture: str = None, ClientData: Dict = None, ClientToken: str = None, Description: str = None, DiskContainers: List = None, DryRun: bool = None, Encrypted: bool = None, Hypervisor: str = None, KmsKeyId: str = None, LicenseType: str = None, Platform: str = None, RoleName: str = None) -> Dict:
@@ -682,6 +793,9 @@ class Client(BaseClient):
         pass
 
     def modify_capacity_reservation(self, CapacityReservationId: str, InstanceCount: int = None, EndDate: datetime = None, EndDateType: str = None, DryRun: bool = None) -> Dict:
+        pass
+
+    def modify_client_vpn_endpoint(self, ClientVpnEndpointId: str, ServerCertificateArn: str = None, ConnectionLogOptions: Dict = None, DnsServers: Dict = None, Description: str = None, DryRun: bool = None) -> Dict:
         pass
 
     def modify_fleet(self, FleetId: str, TargetCapacitySpecification: Dict, DryRun: bool = None, ExcessCapacityTerminationPolicy: str = None) -> Dict:
@@ -711,7 +825,7 @@ class Client(BaseClient):
     def modify_instance_credit_specification(self, InstanceCreditSpecifications: List, DryRun: bool = None, ClientToken: str = None) -> Dict:
         pass
 
-    def modify_instance_placement(self, InstanceId: str, Affinity: str = None, GroupName: str = None, HostId: str = None, Tenancy: str = None) -> Dict:
+    def modify_instance_placement(self, InstanceId: str, Affinity: str = None, GroupName: str = None, HostId: str = None, Tenancy: str = None, PartitionNumber: int = None) -> Dict:
         pass
 
     def modify_launch_template(self, DryRun: bool = None, ClientToken: str = None, LaunchTemplateId: str = None, LaunchTemplateName: str = None, DefaultVersion: str = None) -> Dict:
@@ -730,6 +844,9 @@ class Client(BaseClient):
         pass
 
     def modify_subnet_attribute(self, SubnetId: str, AssignIpv6AddressOnCreation: Dict = None, MapPublicIpOnLaunch: Dict = None):
+        pass
+
+    def modify_transit_gateway_vpc_attachment(self, TransitGatewayAttachmentId: str, AddSubnetIds: List = None, RemoveSubnetIds: List = None, Options: Dict = None, DryRun: bool = None) -> Dict:
         pass
 
     def modify_volume(self, VolumeId: str, DryRun: bool = None, Size: int = None, VolumeType: str = None, Iops: int = None) -> Dict:
@@ -783,6 +900,9 @@ class Client(BaseClient):
     def register_image(self, Name: str, ImageLocation: str = None, Architecture: str = None, BlockDeviceMappings: List = None, Description: str = None, DryRun: bool = None, EnaSupport: bool = None, KernelId: str = None, BillingProducts: List = None, RamdiskId: str = None, RootDeviceName: str = None, SriovNetSupport: str = None, VirtualizationType: str = None) -> Dict:
         pass
 
+    def reject_transit_gateway_vpc_attachment(self, TransitGatewayAttachmentId: str, DryRun: bool = None) -> Dict:
+        pass
+
     def reject_vpc_endpoint_connections(self, ServiceId: str, VpcEndpointIds: List, DryRun: bool = None) -> Dict:
         pass
 
@@ -804,10 +924,13 @@ class Client(BaseClient):
     def replace_network_acl_entry(self, Egress: bool, NetworkAclId: str, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None):
         pass
 
-    def replace_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None):
+    def replace_route(self, RouteTableId: str, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, TransitGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None):
         pass
 
     def replace_route_table_association(self, AssociationId: str, RouteTableId: str, DryRun: bool = None) -> Dict:
+        pass
+
+    def replace_transit_gateway_route(self, DestinationCidrBlock: str, TransitGatewayRouteTableId: str, TransitGatewayAttachmentId: str = None, Blackhole: bool = None, DryRun: bool = None) -> Dict:
         pass
 
     def report_instance_status(self, Instances: List, ReasonCodes: List, Status: str, Description: str = None, DryRun: bool = None, EndTime: datetime = None, StartTime: datetime = None):
@@ -837,22 +960,31 @@ class Client(BaseClient):
     def restore_address_to_classic(self, PublicIp: str, DryRun: bool = None) -> Dict:
         pass
 
+    def revoke_client_vpn_ingress(self, ClientVpnEndpointId: str, TargetNetworkCidr: str, AccessGroupId: str = None, RevokeAllGroups: bool = None, DryRun: bool = None) -> Dict:
+        pass
+
     def revoke_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         pass
 
     def revoke_security_group_ingress(self, CidrIp: str = None, FromPort: int = None, GroupId: str = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         pass
 
-    def run_instances(self, MaxCount: int, MinCount: int, BlockDeviceMappings: List = None, ImageId: str = None, InstanceType: str = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, KernelId: str = None, KeyName: str = None, Monitoring: Dict = None, Placement: Dict = None, RamdiskId: str = None, SecurityGroupIds: List = None, SecurityGroups: List = None, SubnetId: str = None, UserData: str = None, AdditionalInfo: str = None, ClientToken: str = None, DisableApiTermination: bool = None, DryRun: bool = None, EbsOptimized: bool = None, IamInstanceProfile: Dict = None, InstanceInitiatedShutdownBehavior: str = None, NetworkInterfaces: List = None, PrivateIpAddress: str = None, ElasticGpuSpecification: List = None, TagSpecifications: List = None, LaunchTemplate: Dict = None, InstanceMarketOptions: Dict = None, CreditSpecification: Dict = None, CpuOptions: Dict = None, CapacityReservationSpecification: Dict = None) -> Dict:
+    def run_instances(self, MaxCount: int, MinCount: int, BlockDeviceMappings: List = None, ImageId: str = None, InstanceType: str = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, KernelId: str = None, KeyName: str = None, Monitoring: Dict = None, Placement: Dict = None, RamdiskId: str = None, SecurityGroupIds: List = None, SecurityGroups: List = None, SubnetId: str = None, UserData: str = None, AdditionalInfo: str = None, ClientToken: str = None, DisableApiTermination: bool = None, DryRun: bool = None, EbsOptimized: bool = None, IamInstanceProfile: Dict = None, InstanceInitiatedShutdownBehavior: str = None, NetworkInterfaces: List = None, PrivateIpAddress: str = None, ElasticGpuSpecification: List = None, ElasticInferenceAccelerators: List = None, TagSpecifications: List = None, LaunchTemplate: Dict = None, InstanceMarketOptions: Dict = None, CreditSpecification: Dict = None, CpuOptions: Dict = None, CapacityReservationSpecification: Dict = None, HibernationOptions: Dict = None, LicenseSpecifications: List = None) -> Dict:
         pass
 
     def run_scheduled_instances(self, LaunchSpecification: Dict, ScheduledInstanceId: str, ClientToken: str = None, DryRun: bool = None, InstanceCount: int = None) -> Dict:
         pass
 
+    def search_transit_gateway_routes(self, TransitGatewayRouteTableId: str, Filters: List, MaxResults: int = None, DryRun: bool = None) -> Dict:
+        pass
+
     def start_instances(self, InstanceIds: List, AdditionalInfo: str = None, DryRun: bool = None) -> Dict:
         pass
 
-    def stop_instances(self, InstanceIds: List, DryRun: bool = None, Force: bool = None) -> Dict:
+    def stop_instances(self, InstanceIds: List, Hibernate: bool = None, DryRun: bool = None, Force: bool = None) -> Dict:
+        pass
+
+    def terminate_client_vpn_connections(self, ClientVpnEndpointId: str, ConnectionId: str = None, Username: str = None, DryRun: bool = None) -> Dict:
         pass
 
     def terminate_instances(self, InstanceIds: List, DryRun: bool = None) -> Dict:

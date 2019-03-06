@@ -1,18 +1,21 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from datetime import datetime
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def accept_certificate_transfer(self, certificateId: str, setAsActive: bool = None):
         pass
 
-    def add_thing_to_thing_group(self, thingGroupName: str = None, thingGroupArn: str = None, thingName: str = None, thingArn: str = None) -> Dict:
+    def add_thing_to_billing_group(self, billingGroupName: str = None, billingGroupArn: str = None, thingName: str = None, thingArn: str = None) -> Dict:
+        pass
+
+    def add_thing_to_thing_group(self, thingGroupName: str = None, thingGroupArn: str = None, thingName: str = None, thingArn: str = None, overrideDynamicGroups: bool = None) -> Dict:
         pass
 
     def associate_targets_with_job(self, targets: List, jobId: str, comment: str = None) -> Dict:
@@ -39,7 +42,7 @@ class Client(BaseClient):
     def cancel_certificate_transfer(self, certificateId: str):
         pass
 
-    def cancel_job(self, jobId: str, comment: str = None, force: bool = None) -> Dict:
+    def cancel_job(self, jobId: str, reasonCode: str = None, comment: str = None, force: bool = None) -> Dict:
         pass
 
     def cancel_job_execution(self, jobId: str, thingName: str, force: bool = None, expectedVersion: int = None, statusDetails: Dict = None):
@@ -51,10 +54,16 @@ class Client(BaseClient):
     def create_authorizer(self, authorizerName: str, authorizerFunctionArn: str, tokenKeyName: str, tokenSigningPublicKeys: Dict, status: str = None) -> Dict:
         pass
 
+    def create_billing_group(self, billingGroupName: str, billingGroupProperties: Dict = None, tags: List = None) -> Dict:
+        pass
+
     def create_certificate_from_csr(self, certificateSigningRequest: str, setAsActive: bool = None) -> Dict:
         pass
 
-    def create_job(self, jobId: str, targets: List, documentSource: str = None, document: str = None, description: str = None, presignedUrlConfig: Dict = None, targetSelection: str = None, jobExecutionsRolloutConfig: Dict = None, timeoutConfig: Dict = None) -> Dict:
+    def create_dynamic_thing_group(self, thingGroupName: str, queryString: str, thingGroupProperties: Dict = None, indexName: str = None, queryVersion: str = None, tags: List = None) -> Dict:
+        pass
+
+    def create_job(self, jobId: str, targets: List, documentSource: str = None, document: str = None, description: str = None, presignedUrlConfig: Dict = None, targetSelection: str = None, jobExecutionsRolloutConfig: Dict = None, abortConfig: Dict = None, timeoutConfig: Dict = None, tags: List = None) -> Dict:
         pass
 
     def create_keys_and_certificate(self, setAsActive: bool = None) -> Dict:
@@ -72,25 +81,25 @@ class Client(BaseClient):
     def create_role_alias(self, roleAlias: str, roleArn: str, credentialDurationSeconds: int = None) -> Dict:
         pass
 
-    def create_scheduled_audit(self, frequency: str, targetCheckNames: List, scheduledAuditName: str, dayOfMonth: str = None, dayOfWeek: str = None) -> Dict:
+    def create_scheduled_audit(self, frequency: str, targetCheckNames: List, scheduledAuditName: str, dayOfMonth: str = None, dayOfWeek: str = None, tags: List = None) -> Dict:
         pass
 
-    def create_security_profile(self, securityProfileName: str, behaviors: List, securityProfileDescription: str = None, alertTargets: Dict = None) -> Dict:
+    def create_security_profile(self, securityProfileName: str, securityProfileDescription: str = None, behaviors: List = None, alertTargets: Dict = None, additionalMetricsToRetain: List = None, tags: List = None) -> Dict:
         pass
 
     def create_stream(self, streamId: str, files: List, roleArn: str, description: str = None) -> Dict:
         pass
 
-    def create_thing(self, thingName: str, thingTypeName: str = None, attributePayload: Dict = None) -> Dict:
+    def create_thing(self, thingName: str, thingTypeName: str = None, attributePayload: Dict = None, billingGroupName: str = None) -> Dict:
         pass
 
-    def create_thing_group(self, thingGroupName: str, parentGroupName: str = None, thingGroupProperties: Dict = None) -> Dict:
+    def create_thing_group(self, thingGroupName: str, parentGroupName: str = None, thingGroupProperties: Dict = None, tags: List = None) -> Dict:
         pass
 
-    def create_thing_type(self, thingTypeName: str, thingTypeProperties: Dict = None) -> Dict:
+    def create_thing_type(self, thingTypeName: str, thingTypeProperties: Dict = None, tags: List = None) -> Dict:
         pass
 
-    def create_topic_rule(self, ruleName: str, topicRulePayload: Dict):
+    def create_topic_rule(self, ruleName: str, topicRulePayload: Dict, tags: str = None):
         pass
 
     def delete_account_audit_configuration(self, deleteScheduledAudits: bool = None) -> Dict:
@@ -99,10 +108,16 @@ class Client(BaseClient):
     def delete_authorizer(self, authorizerName: str) -> Dict:
         pass
 
+    def delete_billing_group(self, billingGroupName: str, expectedVersion: int = None) -> Dict:
+        pass
+
     def delete_ca_certificate(self, certificateId: str) -> Dict:
         pass
 
     def delete_certificate(self, certificateId: str, forceDelete: bool = None):
+        pass
+
+    def delete_dynamic_thing_group(self, thingGroupName: str, expectedVersion: int = None) -> Dict:
         pass
 
     def delete_job(self, jobId: str, force: bool = None):
@@ -160,6 +175,9 @@ class Client(BaseClient):
         pass
 
     def describe_authorizer(self, authorizerName: str) -> Dict:
+        pass
+
+    def describe_billing_group(self, billingGroupName: str) -> Dict:
         pass
 
     def describe_ca_certificate(self, certificateId: str) -> Dict:
@@ -282,6 +300,9 @@ class Client(BaseClient):
     def list_authorizers(self, pageSize: int = None, marker: str = None, ascendingOrder: bool = None, status: str = None) -> Dict:
         pass
 
+    def list_billing_groups(self, nextToken: str = None, maxResults: int = None, namePrefixFilter: str = None) -> Dict:
+        pass
+
     def list_ca_certificates(self, pageSize: int = None, marker: str = None, ascendingOrder: bool = None) -> Dict:
         pass
 
@@ -339,6 +360,9 @@ class Client(BaseClient):
     def list_streams(self, maxResults: int = None, nextToken: str = None, ascendingOrder: bool = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, resourceArn: str, nextToken: str = None) -> Dict:
+        pass
+
     def list_targets_for_policy(self, policyName: str, marker: str = None, pageSize: int = None) -> Dict:
         pass
 
@@ -366,6 +390,9 @@ class Client(BaseClient):
     def list_things(self, nextToken: str = None, maxResults: int = None, attributeName: str = None, attributeValue: str = None, thingTypeName: str = None) -> Dict:
         pass
 
+    def list_things_in_billing_group(self, billingGroupName: str, nextToken: str = None, maxResults: int = None) -> Dict:
+        pass
+
     def list_things_in_thing_group(self, thingGroupName: str, recursive: bool = None, nextToken: str = None, maxResults: int = None) -> Dict:
         pass
 
@@ -388,6 +415,9 @@ class Client(BaseClient):
         pass
 
     def reject_certificate_transfer(self, certificateId: str, rejectReason: str = None):
+        pass
+
+    def remove_thing_from_billing_group(self, billingGroupName: str = None, billingGroupArn: str = None, thingName: str = None, thingArn: str = None) -> Dict:
         pass
 
     def remove_thing_from_thing_group(self, thingGroupName: str = None, thingGroupArn: str = None, thingName: str = None, thingArn: str = None) -> Dict:
@@ -423,6 +453,9 @@ class Client(BaseClient):
     def stop_thing_registration_task(self, taskId: str) -> Dict:
         pass
 
+    def tag_resource(self, resourceArn: str, tags: List) -> Dict:
+        pass
+
     def test_authorization(self, authInfos: List, principal: str = None, cognitoIdentityPoolId: str = None, clientId: str = None, policyNamesToAdd: List = None, policyNamesToSkip: List = None) -> Dict:
         pass
 
@@ -432,10 +465,16 @@ class Client(BaseClient):
     def transfer_certificate(self, certificateId: str, targetAwsAccount: str, transferMessage: str = None) -> Dict:
         pass
 
+    def untag_resource(self, resourceArn: str, tagKeys: List) -> Dict:
+        pass
+
     def update_account_audit_configuration(self, roleArn: str = None, auditNotificationTargetConfigurations: Dict = None, auditCheckConfigurations: Dict = None) -> Dict:
         pass
 
     def update_authorizer(self, authorizerName: str, authorizerFunctionArn: str = None, tokenKeyName: str = None, tokenSigningPublicKeys: Dict = None, status: str = None) -> Dict:
+        pass
+
+    def update_billing_group(self, billingGroupName: str, billingGroupProperties: Dict, expectedVersion: int = None) -> Dict:
         pass
 
     def update_ca_certificate(self, certificateId: str, newStatus: str = None, newAutoRegistrationStatus: str = None, registrationConfig: Dict = None, removeAutoRegistration: bool = None):
@@ -444,10 +483,16 @@ class Client(BaseClient):
     def update_certificate(self, certificateId: str, newStatus: str):
         pass
 
+    def update_dynamic_thing_group(self, thingGroupName: str, thingGroupProperties: Dict, expectedVersion: int = None, indexName: str = None, queryString: str = None, queryVersion: str = None) -> Dict:
+        pass
+
     def update_event_configurations(self, eventConfigurations: Dict = None) -> Dict:
         pass
 
     def update_indexing_configuration(self, thingIndexingConfiguration: Dict = None, thingGroupIndexingConfiguration: Dict = None) -> Dict:
+        pass
+
+    def update_job(self, jobId: str, description: str = None, presignedUrlConfig: Dict = None, jobExecutionsRolloutConfig: Dict = None, abortConfig: Dict = None, timeoutConfig: Dict = None):
         pass
 
     def update_role_alias(self, roleAlias: str, roleArn: str = None, credentialDurationSeconds: int = None) -> Dict:
@@ -456,7 +501,7 @@ class Client(BaseClient):
     def update_scheduled_audit(self, scheduledAuditName: str, frequency: str = None, dayOfMonth: str = None, dayOfWeek: str = None, targetCheckNames: List = None) -> Dict:
         pass
 
-    def update_security_profile(self, securityProfileName: str, securityProfileDescription: str = None, behaviors: List = None, alertTargets: Dict = None, expectedVersion: int = None) -> Dict:
+    def update_security_profile(self, securityProfileName: str, securityProfileDescription: str = None, behaviors: List = None, alertTargets: Dict = None, additionalMetricsToRetain: List = None, deleteBehaviors: bool = None, deleteAlertTargets: bool = None, deleteAdditionalMetricsToRetain: bool = None, expectedVersion: int = None) -> Dict:
         pass
 
     def update_stream(self, streamId: str, description: str = None, files: List = None, roleArn: str = None) -> Dict:
@@ -468,7 +513,7 @@ class Client(BaseClient):
     def update_thing_group(self, thingGroupName: str, thingGroupProperties: Dict, expectedVersion: int = None) -> Dict:
         pass
 
-    def update_thing_groups_for_thing(self, thingName: str = None, thingGroupsToAdd: List = None, thingGroupsToRemove: List = None) -> Dict:
+    def update_thing_groups_for_thing(self, thingName: str = None, thingGroupsToAdd: List = None, thingGroupsToRemove: List = None, overrideDynamicGroups: bool = None) -> Dict:
         pass
 
     def validate_security_profile_behaviors(self, behaviors: List) -> Dict:

@@ -1,5 +1,5 @@
-from datetime import datetime
 from typing import List
+from datetime import datetime
 from typing import Dict
 from botocore.paginate import Paginator
 
@@ -26,6 +26,11 @@ class ListInstanceGroups(Paginator):
 
 class ListInstances(Paginator):
     def paginate(self, ClusterId: str, InstanceGroupId: str = None, InstanceGroupTypes: List = None, InstanceFleetId: str = None, InstanceFleetType: str = None, InstanceStates: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListSecurityConfigurations(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

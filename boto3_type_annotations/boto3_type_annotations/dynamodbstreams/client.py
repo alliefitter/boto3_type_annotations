@@ -1,9 +1,9 @@
 from typing import Optional
 from typing import Union
-from typing import Dict
-from botocore.paginate import Paginator
 from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
 
 
 class Client(BaseClient):

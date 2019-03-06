@@ -6,47 +6,35 @@ from botocore.waiter import Waiter
 class FleetStarted(Waiter):
     def wait(self, Names: List = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`AppStream.Client.describe_fleets` every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/DescribeFleets>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
               Names=[
-                  \'string\',
+                  'string',
               ],
-              NextToken=\'string\',
+              NextToken='string',
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type Names: list
-        :param Names: 
-        
+        :param Names:
           The names of the fleets to describe.
-        
-          - *(string) --* 
-        
+          - *(string) --*
         :type NextToken: string
-        :param NextToken: 
-        
+        :param NextToken:
           The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 30
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 40
-        
         :returns: None
         """
         pass
@@ -55,47 +43,35 @@ class FleetStarted(Waiter):
 class FleetStopped(Waiter):
     def wait(self, Names: List = None, NextToken: str = None, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`AppStream.Client.describe_fleets` every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/DescribeFleets>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
               Names=[
-                  \'string\',
+                  'string',
               ],
-              NextToken=\'string\',
+              NextToken='string',
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type Names: list
-        :param Names: 
-        
+        :param Names:
           The names of the fleets to describe.
-        
-          - *(string) --* 
-        
+          - *(string) --*
         :type NextToken: string
-        :param NextToken: 
-        
+        :param NextToken:
           The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 30
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 40
-        
         :returns: None
         """
         pass

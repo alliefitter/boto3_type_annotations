@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -26,16 +26,16 @@ class Client(BaseClient):
     def create_directory_config(self, DirectoryName: str, OrganizationalUnitDistinguishedNames: List, ServiceAccountCredentials: Dict) -> Dict:
         pass
 
-    def create_fleet(self, Name: str, InstanceType: str, ComputeCapacity: Dict, ImageName: str = None, ImageArn: str = None, FleetType: str = None, VpcConfig: Dict = None, MaxUserDurationInSeconds: int = None, DisconnectTimeoutInSeconds: int = None, Description: str = None, DisplayName: str = None, EnableDefaultInternetAccess: bool = None, DomainJoinInfo: Dict = None) -> Dict:
+    def create_fleet(self, Name: str, InstanceType: str, ComputeCapacity: Dict, ImageName: str = None, ImageArn: str = None, FleetType: str = None, VpcConfig: Dict = None, MaxUserDurationInSeconds: int = None, DisconnectTimeoutInSeconds: int = None, Description: str = None, DisplayName: str = None, EnableDefaultInternetAccess: bool = None, DomainJoinInfo: Dict = None, Tags: Dict = None) -> Dict:
         pass
 
-    def create_image_builder(self, Name: str, InstanceType: str, ImageName: str = None, ImageArn: str = None, Description: str = None, DisplayName: str = None, VpcConfig: Dict = None, EnableDefaultInternetAccess: bool = None, DomainJoinInfo: Dict = None, AppstreamAgentVersion: str = None) -> Dict:
+    def create_image_builder(self, Name: str, InstanceType: str, ImageName: str = None, ImageArn: str = None, Description: str = None, DisplayName: str = None, VpcConfig: Dict = None, EnableDefaultInternetAccess: bool = None, DomainJoinInfo: Dict = None, AppstreamAgentVersion: str = None, Tags: Dict = None) -> Dict:
         pass
 
     def create_image_builder_streaming_url(self, Name: str, Validity: int = None) -> Dict:
         pass
 
-    def create_stack(self, Name: str, Description: str = None, DisplayName: str = None, StorageConnectors: List = None, RedirectURL: str = None, FeedbackURL: str = None, UserSettings: List = None, ApplicationSettings: Dict = None) -> Dict:
+    def create_stack(self, Name: str, Description: str = None, DisplayName: str = None, StorageConnectors: List = None, RedirectURL: str = None, FeedbackURL: str = None, UserSettings: List = None, ApplicationSettings: Dict = None, Tags: Dict = None) -> Dict:
         pass
 
     def create_streaming_url(self, StackName: str, FleetName: str, UserId: str, ApplicationId: str = None, Validity: int = None, SessionContext: str = None) -> Dict:

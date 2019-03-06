@@ -1,5 +1,5 @@
-from datetime import datetime
 from typing import List
+from datetime import datetime
 from typing import Dict
 from botocore.paginate import Paginator
 
@@ -11,6 +11,11 @@ class ListBackups(Paginator):
 
 class ListTables(Paginator):
     def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListTagsOfResource(Paginator):
+    def paginate(self, ResourceArn: str, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

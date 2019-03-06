@@ -8,10 +8,10 @@ class GetQueryResults(Paginator):
 
 
 class ListNamedQueries(Paginator):
-    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, WorkGroup: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
 class ListQueryExecutions(Paginator):
-    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, WorkGroup: str = None, PaginationConfig: Dict = None) -> Dict:
         pass

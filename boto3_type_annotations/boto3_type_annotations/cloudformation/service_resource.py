@@ -1,6 +1,6 @@
 from typing import Optional
-from typing import Union
 from typing import List
+from typing import Union
 from boto3.resources.collection import ResourceCollection
 from datetime import datetime
 from typing import Dict

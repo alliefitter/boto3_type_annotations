@@ -1,26 +1,32 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_broker(self, AutoMinorVersionUpgrade: bool = None, BrokerName: str = None, Configuration: Dict = None, CreatorRequestId: str = None, DeploymentMode: str = None, EngineType: str = None, EngineVersion: str = None, HostInstanceType: str = None, Logs: Dict = None, MaintenanceWindowStartTime: Dict = None, PubliclyAccessible: bool = None, SecurityGroups: List = None, SubnetIds: List = None, Users: List = None) -> Dict:
+    def create_broker(self, AutoMinorVersionUpgrade: bool = None, BrokerName: str = None, Configuration: Dict = None, CreatorRequestId: str = None, DeploymentMode: str = None, EngineType: str = None, EngineVersion: str = None, HostInstanceType: str = None, Logs: Dict = None, MaintenanceWindowStartTime: Dict = None, PubliclyAccessible: bool = None, SecurityGroups: List = None, SubnetIds: List = None, Tags: Dict = None, Users: List = None) -> Dict:
         pass
 
-    def create_configuration(self, EngineType: str = None, EngineVersion: str = None, Name: str = None) -> Dict:
+    def create_configuration(self, EngineType: str = None, EngineVersion: str = None, Name: str = None, Tags: Dict = None) -> Dict:
+        pass
+
+    def create_tags(self, ResourceArn: str, Tags: Dict = None):
         pass
 
     def create_user(self, BrokerId: str, Username: str, ConsoleAccess: bool = None, Groups: List = None, Password: str = None) -> Dict:
         pass
 
     def delete_broker(self, BrokerId: str) -> Dict:
+        pass
+
+    def delete_tags(self, ResourceArn: str, TagKeys: List):
         pass
 
     def delete_user(self, BrokerId: str, Username: str) -> Dict:
@@ -54,6 +60,9 @@ class Client(BaseClient):
         pass
 
     def list_configurations(self, MaxResults: int = None, NextToken: str = None) -> Dict:
+        pass
+
+    def list_tags(self, ResourceArn: str) -> Dict:
         pass
 
     def list_users(self, BrokerId: str, MaxResults: int = None, NextToken: str = None) -> Dict:

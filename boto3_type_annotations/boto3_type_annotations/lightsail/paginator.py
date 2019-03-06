@@ -17,7 +17,27 @@ class GetBundles(Paginator):
         pass
 
 
+class GetCloudFormationStackRecords(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetDiskSnapshots(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetDisks(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class GetDomains(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetExportSnapshotRecords(Paginator):
     def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass
 
@@ -37,7 +57,42 @@ class GetKeyPairs(Paginator):
         pass
 
 
+class GetLoadBalancers(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class GetOperations(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetRelationalDatabaseBlueprints(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetRelationalDatabaseBundles(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetRelationalDatabaseEvents(Paginator):
+    def paginate(self, relationalDatabaseName: str, durationInMinutes: int = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetRelationalDatabaseParameters(Paginator):
+    def paginate(self, relationalDatabaseName: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetRelationalDatabaseSnapshots(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetRelationalDatabases(Paginator):
     def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass
 

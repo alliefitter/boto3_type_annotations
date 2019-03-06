@@ -28,6 +28,11 @@ class ListGateways(Paginator):
         pass
 
 
+class ListTapes(Paginator):
+    def paginate(self, TapeARNs: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListVolumes(Paginator):
     def paginate(self, GatewayARN: str = None, PaginationConfig: Dict = None) -> Dict:
         pass

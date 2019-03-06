@@ -1,17 +1,17 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from botocore.waiter import Waiter
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_certificate_authority(self, CertificateAuthorityConfiguration: Dict, CertificateAuthorityType: str, RevocationConfiguration: Dict = None, IdempotencyToken: str = None) -> Dict:
+    def create_certificate_authority(self, CertificateAuthorityConfiguration: Dict, CertificateAuthorityType: str, RevocationConfiguration: Dict = None, IdempotencyToken: str = None, Tags: List = None) -> Dict:
         pass
 
     def create_certificate_authority_audit_report(self, CertificateAuthorityArn: str, S3BucketName: str, AuditReportResponseFormat: str) -> Dict:

@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -23,7 +23,19 @@ class Client(BaseClient):
     def batch_delete_table_version(self, DatabaseName: str, TableName: str, VersionIds: List, CatalogId: str = None) -> Dict:
         pass
 
+    def batch_get_crawlers(self, CrawlerNames: List) -> Dict:
+        pass
+
+    def batch_get_dev_endpoints(self, DevEndpointNames: List) -> Dict:
+        pass
+
+    def batch_get_jobs(self, JobNames: List) -> Dict:
+        pass
+
     def batch_get_partition(self, DatabaseName: str, TableName: str, PartitionsToGet: List, CatalogId: str = None) -> Dict:
+        pass
+
+    def batch_get_triggers(self, TriggerNames: List) -> Dict:
         pass
 
     def batch_stop_job_run(self, JobName: str, JobRunIds: List) -> Dict:
@@ -38,16 +50,16 @@ class Client(BaseClient):
     def create_connection(self, ConnectionInput: Dict, CatalogId: str = None) -> Dict:
         pass
 
-    def create_crawler(self, Name: str, Role: str, DatabaseName: str, Targets: Dict, Description: str = None, Schedule: str = None, Classifiers: List = None, TablePrefix: str = None, SchemaChangePolicy: Dict = None, Configuration: str = None, CrawlerSecurityConfiguration: str = None) -> Dict:
+    def create_crawler(self, Name: str, Role: str, DatabaseName: str, Targets: Dict, Description: str = None, Schedule: str = None, Classifiers: List = None, TablePrefix: str = None, SchemaChangePolicy: Dict = None, Configuration: str = None, CrawlerSecurityConfiguration: str = None, Tags: Dict = None) -> Dict:
         pass
 
     def create_database(self, DatabaseInput: Dict, CatalogId: str = None) -> Dict:
         pass
 
-    def create_dev_endpoint(self, EndpointName: str, RoleArn: str, SecurityGroupIds: List = None, SubnetId: str = None, PublicKey: str = None, PublicKeys: List = None, NumberOfNodes: int = None, ExtraPythonLibsS3Path: str = None, ExtraJarsS3Path: str = None, SecurityConfiguration: str = None) -> Dict:
+    def create_dev_endpoint(self, EndpointName: str, RoleArn: str, SecurityGroupIds: List = None, SubnetId: str = None, PublicKey: str = None, PublicKeys: List = None, NumberOfNodes: int = None, ExtraPythonLibsS3Path: str = None, ExtraJarsS3Path: str = None, SecurityConfiguration: str = None, Tags: Dict = None) -> Dict:
         pass
 
-    def create_job(self, Name: str, Role: str, Command: Dict, Description: str = None, LogUri: str = None, ExecutionProperty: Dict = None, DefaultArguments: Dict = None, Connections: Dict = None, MaxRetries: int = None, AllocatedCapacity: int = None, Timeout: int = None, NotificationProperty: Dict = None, SecurityConfiguration: str = None) -> Dict:
+    def create_job(self, Name: str, Role: str, Command: Dict, Description: str = None, LogUri: str = None, ExecutionProperty: Dict = None, DefaultArguments: Dict = None, Connections: Dict = None, MaxRetries: int = None, AllocatedCapacity: int = None, Timeout: int = None, MaxCapacity: float = None, NotificationProperty: Dict = None, SecurityConfiguration: str = None, Tags: Dict = None) -> Dict:
         pass
 
     def create_partition(self, DatabaseName: str, TableName: str, PartitionInput: Dict, CatalogId: str = None) -> Dict:
@@ -62,7 +74,7 @@ class Client(BaseClient):
     def create_table(self, DatabaseName: str, TableInput: Dict, CatalogId: str = None) -> Dict:
         pass
 
-    def create_trigger(self, Name: str, Type: str, Actions: List, Schedule: str = None, Predicate: Dict = None, Description: str = None, StartOnCreation: bool = None) -> Dict:
+    def create_trigger(self, Name: str, Type: str, Actions: List, Schedule: str = None, Predicate: Dict = None, Description: str = None, StartOnCreation: bool = None, Tags: Dict = None) -> Dict:
         pass
 
     def create_user_defined_function(self, DatabaseName: str, FunctionInput: Dict, CatalogId: str = None) -> Dict:
@@ -119,10 +131,10 @@ class Client(BaseClient):
     def get_classifiers(self, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
-    def get_connection(self, Name: str, CatalogId: str = None) -> Dict:
+    def get_connection(self, Name: str, CatalogId: str = None, HidePassword: bool = None) -> Dict:
         pass
 
-    def get_connections(self, CatalogId: str = None, Filter: Dict = None, NextToken: str = None, MaxResults: int = None) -> Dict:
+    def get_connections(self, CatalogId: str = None, Filter: Dict = None, HidePassword: bool = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def get_crawler(self, Name: str) -> Dict:
@@ -200,6 +212,9 @@ class Client(BaseClient):
     def get_tables(self, DatabaseName: str, CatalogId: str = None, Expression: str = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
+    def get_tags(self, ResourceArn: str) -> Dict:
+        pass
+
     def get_trigger(self, Name: str) -> Dict:
         pass
 
@@ -218,6 +233,18 @@ class Client(BaseClient):
     def import_catalog_to_glue(self, CatalogId: str = None) -> Dict:
         pass
 
+    def list_crawlers(self, MaxResults: int = None, NextToken: str = None, Tags: Dict = None) -> Dict:
+        pass
+
+    def list_dev_endpoints(self, NextToken: str = None, MaxResults: int = None, Tags: Dict = None) -> Dict:
+        pass
+
+    def list_jobs(self, NextToken: str = None, MaxResults: int = None, Tags: Dict = None) -> Dict:
+        pass
+
+    def list_triggers(self, NextToken: str = None, DependentJobName: str = None, MaxResults: int = None, Tags: Dict = None) -> Dict:
+        pass
+
     def put_data_catalog_encryption_settings(self, DataCatalogEncryptionSettings: Dict, CatalogId: str = None) -> Dict:
         pass
 
@@ -233,7 +260,7 @@ class Client(BaseClient):
     def start_crawler_schedule(self, CrawlerName: str) -> Dict:
         pass
 
-    def start_job_run(self, JobName: str, JobRunId: str = None, Arguments: Dict = None, AllocatedCapacity: int = None, Timeout: int = None, NotificationProperty: Dict = None, SecurityConfiguration: str = None) -> Dict:
+    def start_job_run(self, JobName: str, JobRunId: str = None, Arguments: Dict = None, AllocatedCapacity: int = None, Timeout: int = None, MaxCapacity: float = None, NotificationProperty: Dict = None, SecurityConfiguration: str = None) -> Dict:
         pass
 
     def start_trigger(self, Name: str) -> Dict:
@@ -246,6 +273,12 @@ class Client(BaseClient):
         pass
 
     def stop_trigger(self, Name: str) -> Dict:
+        pass
+
+    def tag_resource(self, ResourceArn: str, TagsToAdd: Dict) -> Dict:
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagsToRemove: List) -> Dict:
         pass
 
     def update_classifier(self, GrokClassifier: Dict = None, XMLClassifier: Dict = None, JsonClassifier: Dict = None) -> Dict:

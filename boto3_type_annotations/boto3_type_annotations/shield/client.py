@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from botocore.waiter import Waiter
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -38,7 +38,7 @@ class Client(BaseClient):
     def describe_emergency_contact_settings(self) -> Dict:
         pass
 
-    def describe_protection(self, ProtectionId: str) -> Dict:
+    def describe_protection(self, ProtectionId: str = None, ResourceArn: str = None) -> Dict:
         pass
 
     def describe_subscription(self) -> Dict:

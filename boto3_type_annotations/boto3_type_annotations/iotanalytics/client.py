@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from datetime import datetime
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -21,7 +21,7 @@ class Client(BaseClient):
     def create_channel(self, channelName: str, retentionPeriod: Dict = None, tags: List = None) -> Dict:
         pass
 
-    def create_dataset(self, datasetName: str, actions: List, triggers: List = None, retentionPeriod: Dict = None, tags: List = None) -> Dict:
+    def create_dataset(self, datasetName: str, actions: List, triggers: List = None, contentDeliveryRules: List = None, retentionPeriod: Dict = None, tags: List = None) -> Dict:
         pass
 
     def create_dataset_content(self, datasetName: str) -> Dict:
@@ -78,7 +78,7 @@ class Client(BaseClient):
     def list_channels(self, nextToken: str = None, maxResults: int = None) -> Dict:
         pass
 
-    def list_dataset_contents(self, datasetName: str, nextToken: str = None, maxResults: int = None) -> Dict:
+    def list_dataset_contents(self, datasetName: str, nextToken: str = None, maxResults: int = None, scheduledOnOrAfter: datetime = None, scheduledBefore: datetime = None) -> Dict:
         pass
 
     def list_datasets(self, nextToken: str = None, maxResults: int = None) -> Dict:
@@ -114,7 +114,7 @@ class Client(BaseClient):
     def update_channel(self, channelName: str, retentionPeriod: Dict = None):
         pass
 
-    def update_dataset(self, datasetName: str, actions: List, triggers: List = None, retentionPeriod: Dict = None):
+    def update_dataset(self, datasetName: str, actions: List, triggers: List = None, contentDeliveryRules: List = None, retentionPeriod: Dict = None):
         pass
 
     def update_datastore(self, datastoreName: str, retentionPeriod: Dict = None):

@@ -1,17 +1,17 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from botocore.waiter import Waiter
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_stream(self, StreamName: str, DeviceName: str = None, MediaType: str = None, KmsKeyId: str = None, DataRetentionInHours: int = None) -> Dict:
+    def create_stream(self, StreamName: str, DeviceName: str = None, MediaType: str = None, KmsKeyId: str = None, DataRetentionInHours: int = None, Tags: Dict = None) -> Dict:
         pass
 
     def delete_stream(self, StreamARN: str, CurrentVersion: str = None) -> Dict:

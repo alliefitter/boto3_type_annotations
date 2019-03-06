@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -21,6 +21,9 @@ class Client(BaseClient):
         pass
 
     def add_working_storage(self, GatewayARN: str, DiskIds: List) -> Dict:
+        pass
+
+    def attach_volume(self, GatewayARN: str, VolumeARN: str, NetworkInterfaceId: str, TargetName: str = None, DiskId: str = None) -> Dict:
         pass
 
     def can_paginate(self, operation_name: str = None):
@@ -131,6 +134,9 @@ class Client(BaseClient):
     def describe_working_storage(self, GatewayARN: str) -> Dict:
         pass
 
+    def detach_volume(self, VolumeARN: str, ForceDetach: bool = None) -> Dict:
+        pass
+
     def disable_gateway(self, GatewayARN: str) -> Dict:
         pass
 
@@ -143,7 +149,7 @@ class Client(BaseClient):
     def get_waiter(self, waiter_name: str = None) -> Waiter:
         pass
 
-    def join_domain(self, GatewayARN: str, DomainName: str, UserName: str, Password: str) -> Dict:
+    def join_domain(self, GatewayARN: str, DomainName: str, UserName: str, Password: str, OrganizationalUnit: str = None, DomainControllers: List = None) -> Dict:
         pass
 
     def list_file_shares(self, GatewayARN: str = None, Limit: int = None, Marker: str = None) -> Dict:

@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from datetime import datetime
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -30,46 +30,52 @@ class Client(BaseClient):
     def close_instance_public_ports(self, portInfo: Dict, instanceName: str) -> Dict:
         pass
 
-    def create_disk(self, diskName: str, availabilityZone: str, sizeInGb: int) -> Dict:
+    def copy_snapshot(self, sourceSnapshotName: str, targetSnapshotName: str, sourceRegion: str) -> Dict:
         pass
 
-    def create_disk_from_snapshot(self, diskName: str, diskSnapshotName: str, availabilityZone: str, sizeInGb: int) -> Dict:
+    def create_cloud_formation_stack(self, instances: List) -> Dict:
         pass
 
-    def create_disk_snapshot(self, diskName: str, diskSnapshotName: str) -> Dict:
+    def create_disk(self, diskName: str, availabilityZone: str, sizeInGb: int, tags: List = None) -> Dict:
         pass
 
-    def create_domain(self, domainName: str) -> Dict:
+    def create_disk_from_snapshot(self, diskName: str, diskSnapshotName: str, availabilityZone: str, sizeInGb: int, tags: List = None) -> Dict:
+        pass
+
+    def create_disk_snapshot(self, diskSnapshotName: str, diskName: str = None, instanceName: str = None, tags: List = None) -> Dict:
+        pass
+
+    def create_domain(self, domainName: str, tags: List = None) -> Dict:
         pass
 
     def create_domain_entry(self, domainName: str, domainEntry: Dict) -> Dict:
         pass
 
-    def create_instance_snapshot(self, instanceSnapshotName: str, instanceName: str) -> Dict:
+    def create_instance_snapshot(self, instanceSnapshotName: str, instanceName: str, tags: List = None) -> Dict:
         pass
 
-    def create_instances(self, instanceNames: List, availabilityZone: str, blueprintId: str, bundleId: str, customImageName: str = None, userData: str = None, keyPairName: str = None) -> Dict:
+    def create_instances(self, instanceNames: List, availabilityZone: str, blueprintId: str, bundleId: str, customImageName: str = None, userData: str = None, keyPairName: str = None, tags: List = None) -> Dict:
         pass
 
-    def create_instances_from_snapshot(self, instanceNames: List, availabilityZone: str, instanceSnapshotName: str, bundleId: str, attachedDiskMapping: Dict = None, userData: str = None, keyPairName: str = None) -> Dict:
+    def create_instances_from_snapshot(self, instanceNames: List, availabilityZone: str, instanceSnapshotName: str, bundleId: str, attachedDiskMapping: Dict = None, userData: str = None, keyPairName: str = None, tags: List = None) -> Dict:
         pass
 
-    def create_key_pair(self, keyPairName: str) -> Dict:
+    def create_key_pair(self, keyPairName: str, tags: List = None) -> Dict:
         pass
 
-    def create_load_balancer(self, loadBalancerName: str, instancePort: int, healthCheckPath: str = None, certificateName: str = None, certificateDomainName: str = None, certificateAlternativeNames: List = None) -> Dict:
+    def create_load_balancer(self, loadBalancerName: str, instancePort: int, healthCheckPath: str = None, certificateName: str = None, certificateDomainName: str = None, certificateAlternativeNames: List = None, tags: List = None) -> Dict:
         pass
 
-    def create_load_balancer_tls_certificate(self, loadBalancerName: str, certificateName: str, certificateDomainName: str, certificateAlternativeNames: List = None) -> Dict:
+    def create_load_balancer_tls_certificate(self, loadBalancerName: str, certificateName: str, certificateDomainName: str, certificateAlternativeNames: List = None, tags: List = None) -> Dict:
         pass
 
-    def create_relational_database(self, relationalDatabaseName: str, relationalDatabaseBlueprintId: str, relationalDatabaseBundleId: str, masterDatabaseName: str, masterUsername: str, availabilityZone: str = None, masterUserPassword: str = None, preferredBackupWindow: str = None, preferredMaintenanceWindow: str = None, publiclyAccessible: bool = None) -> Dict:
+    def create_relational_database(self, relationalDatabaseName: str, relationalDatabaseBlueprintId: str, relationalDatabaseBundleId: str, masterDatabaseName: str, masterUsername: str, availabilityZone: str = None, masterUserPassword: str = None, preferredBackupWindow: str = None, preferredMaintenanceWindow: str = None, publiclyAccessible: bool = None, tags: List = None) -> Dict:
         pass
 
-    def create_relational_database_from_snapshot(self, relationalDatabaseName: str, availabilityZone: str = None, publiclyAccessible: bool = None, relationalDatabaseSnapshotName: str = None, relationalDatabaseBundleId: str = None, sourceRelationalDatabaseName: str = None, restoreTime: datetime = None, useLatestRestorableTime: bool = None) -> Dict:
+    def create_relational_database_from_snapshot(self, relationalDatabaseName: str, availabilityZone: str = None, publiclyAccessible: bool = None, relationalDatabaseSnapshotName: str = None, relationalDatabaseBundleId: str = None, sourceRelationalDatabaseName: str = None, restoreTime: datetime = None, useLatestRestorableTime: bool = None, tags: List = None) -> Dict:
         pass
 
-    def create_relational_database_snapshot(self, relationalDatabaseName: str, relationalDatabaseSnapshotName: str) -> Dict:
+    def create_relational_database_snapshot(self, relationalDatabaseName: str, relationalDatabaseSnapshotName: str, tags: List = None) -> Dict:
         pass
 
     def delete_disk(self, diskName: str) -> Dict:
@@ -117,6 +123,9 @@ class Client(BaseClient):
     def download_default_key_pair(self) -> Dict:
         pass
 
+    def export_snapshot(self, sourceSnapshotName: str) -> Dict:
+        pass
+
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
@@ -127,6 +136,9 @@ class Client(BaseClient):
         pass
 
     def get_bundles(self, includeInactive: bool = None, pageToken: str = None) -> Dict:
+        pass
+
+    def get_cloud_formation_stack_records(self, pageToken: str = None) -> Dict:
         pass
 
     def get_disk(self, diskName: str) -> Dict:
@@ -145,6 +157,9 @@ class Client(BaseClient):
         pass
 
     def get_domains(self, pageToken: str = None) -> Dict:
+        pass
+
+    def get_export_snapshot_records(self, pageToken: str = None) -> Dict:
         pass
 
     def get_instance(self, instanceName: str) -> Dict:
@@ -285,7 +300,13 @@ class Client(BaseClient):
     def stop_relational_database(self, relationalDatabaseName: str, relationalDatabaseSnapshotName: str = None) -> Dict:
         pass
 
+    def tag_resource(self, resourceName: str, tags: List) -> Dict:
+        pass
+
     def unpeer_vpc(self) -> Dict:
+        pass
+
+    def untag_resource(self, resourceName: str, tagKeys: List) -> Dict:
         pass
 
     def update_domain_entry(self, domainName: str, domainEntry: Dict) -> Dict:

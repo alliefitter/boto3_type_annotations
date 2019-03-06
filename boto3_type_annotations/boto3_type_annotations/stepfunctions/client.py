@@ -1,19 +1,20 @@
 from typing import Optional
-from typing import Union
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
+from typing import List
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_activity(self, name: str) -> Dict:
+    def create_activity(self, name: str, tags: List = None) -> Dict:
         pass
 
-    def create_state_machine(self, name: str, definition: str, roleArn: str) -> Dict:
+    def create_state_machine(self, name: str, definition: str, roleArn: str, tags: List = None) -> Dict:
         pass
 
     def delete_activity(self, activityArn: str) -> Dict:
@@ -58,6 +59,9 @@ class Client(BaseClient):
     def list_state_machines(self, maxResults: int = None, nextToken: str = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, resourceArn: str) -> Dict:
+        pass
+
     def send_task_failure(self, taskToken: str, error: str = None, cause: str = None) -> Dict:
         pass
 
@@ -71,6 +75,12 @@ class Client(BaseClient):
         pass
 
     def stop_execution(self, executionArn: str, error: str = None, cause: str = None) -> Dict:
+        pass
+
+    def tag_resource(self, resourceArn: str, tags: List) -> Dict:
+        pass
+
+    def untag_resource(self, resourceArn: str, tagKeys: List) -> Dict:
         pass
 
     def update_state_machine(self, stateMachineArn: str, definition: str = None, roleArn: str = None) -> Dict:

@@ -15,3 +15,18 @@ class ListEventSourceMappings(Paginator):
 class ListFunctions(Paginator):
     def paginate(self, MasterRegion: str = None, FunctionVersion: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
+
+
+class ListLayerVersions(Paginator):
+    def paginate(self, LayerName: str, CompatibleRuntime: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListLayers(Paginator):
+    def paginate(self, CompatibleRuntime: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListVersionsByFunction(Paginator):
+    def paginate(self, FunctionName: str, PaginationConfig: Dict = None) -> Dict:
+        pass

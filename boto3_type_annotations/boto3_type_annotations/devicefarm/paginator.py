@@ -1,3 +1,4 @@
+from typing import List
 from typing import Dict
 from botocore.paginate import Paginator
 
@@ -12,18 +13,38 @@ class ListArtifacts(Paginator):
         pass
 
 
+class ListDeviceInstances(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListDevicePools(Paginator):
     def paginate(self, arn: str, type: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
 class ListDevices(Paginator):
-    def paginate(self, arn: str = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, arn: str = None, filters: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListInstanceProfiles(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
 class ListJobs(Paginator):
     def paginate(self, arn: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListNetworkProfiles(Paginator):
+    def paginate(self, arn: str, type: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListOfferingPromotions(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
@@ -39,6 +60,11 @@ class ListOfferings(Paginator):
 
 class ListProjects(Paginator):
     def paginate(self, arn: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListRemoteAccessSessions(Paginator):
+    def paginate(self, arn: str, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
@@ -69,4 +95,9 @@ class ListUniqueProblems(Paginator):
 
 class ListUploads(Paginator):
     def paginate(self, arn: str, type: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListVPCEConfigurations(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass

@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -209,7 +209,7 @@ class Client(BaseClient):
     def list_tag_options(self, Filters: Dict = None, PageSize: int = None, PageToken: str = None) -> Dict:
         pass
 
-    def provision_product(self, ProductId: str, ProvisioningArtifactId: str, ProvisionedProductName: str, ProvisionToken: str, AcceptLanguage: str = None, PathId: str = None, ProvisioningParameters: List = None, Tags: List = None, NotificationArns: List = None) -> Dict:
+    def provision_product(self, ProductId: str, ProvisioningArtifactId: str, ProvisionedProductName: str, ProvisionToken: str, AcceptLanguage: str = None, PathId: str = None, ProvisioningParameters: List = None, ProvisioningPreferences: Dict = None, Tags: List = None, NotificationArns: List = None) -> Dict:
         pass
 
     def reject_portfolio_share(self, PortfolioId: str, AcceptLanguage: str = None, PortfolioShareType: str = None) -> Dict:
@@ -239,7 +239,7 @@ class Client(BaseClient):
     def update_product(self, Id: str, AcceptLanguage: str = None, Name: str = None, Owner: str = None, Description: str = None, Distributor: str = None, SupportDescription: str = None, SupportEmail: str = None, SupportUrl: str = None, AddTags: List = None, RemoveTags: List = None) -> Dict:
         pass
 
-    def update_provisioned_product(self, UpdateToken: str, AcceptLanguage: str = None, ProvisionedProductName: str = None, ProvisionedProductId: str = None, ProductId: str = None, ProvisioningArtifactId: str = None, PathId: str = None, ProvisioningParameters: List = None) -> Dict:
+    def update_provisioned_product(self, UpdateToken: str, AcceptLanguage: str = None, ProvisionedProductName: str = None, ProvisionedProductId: str = None, ProductId: str = None, ProvisioningArtifactId: str = None, PathId: str = None, ProvisioningParameters: List = None, ProvisioningPreferences: Dict = None) -> Dict:
         pass
 
     def update_provisioning_artifact(self, ProductId: str, ProvisioningArtifactId: str, AcceptLanguage: str = None, Name: str = None, Description: str = None, Active: bool = None) -> Dict:

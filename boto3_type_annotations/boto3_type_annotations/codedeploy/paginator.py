@@ -28,6 +28,21 @@ class ListDeploymentInstances(Paginator):
         pass
 
 
+class ListDeploymentTargets(Paginator):
+    def paginate(self, deploymentId: str = None, targetFilters: Dict = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListDeployments(Paginator):
     def paginate(self, applicationName: str = None, deploymentGroupName: str = None, includeOnlyStatuses: List = None, createTimeRange: Dict = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListGitHubAccountTokenNames(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListOnPremisesInstances(Paginator):
+    def paginate(self, registrationStatus: str = None, tagFilters: List = None, PaginationConfig: Dict = None) -> Dict:
         pass

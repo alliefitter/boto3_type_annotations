@@ -8,6 +8,11 @@ class GetApiKeys(Paginator):
         pass
 
 
+class GetAuthorizers(Paginator):
+    def paginate(self, restApiId: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class GetBasePathMappings(Paginator):
     def paginate(self, domainName: str, PaginationConfig: Dict = None) -> Dict:
         pass
@@ -23,12 +28,32 @@ class GetDeployments(Paginator):
         pass
 
 
+class GetDocumentationParts(Paginator):
+    def paginate(self, restApiId: str, type: str = None, nameQuery: str = None, path: str = None, locationStatus: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetDocumentationVersions(Paginator):
+    def paginate(self, restApiId: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class GetDomainNames(Paginator):
     def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
+class GetGatewayResponses(Paginator):
+    def paginate(self, restApiId: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class GetModels(Paginator):
+    def paginate(self, restApiId: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetRequestValidators(Paginator):
     def paginate(self, restApiId: str, PaginationConfig: Dict = None) -> Dict:
         pass
 
@@ -39,6 +64,11 @@ class GetResources(Paginator):
 
 
 class GetRestApis(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetSdkTypes(Paginator):
     def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass
 

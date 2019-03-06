@@ -1,5 +1,5 @@
-from datetime import datetime
 from typing import List
+from datetime import datetime
 from typing import Dict
 from botocore.paginate import Paginator
 
@@ -11,6 +11,11 @@ class DescribeAlarmHistory(Paginator):
 
 class DescribeAlarms(Paginator):
     def paginate(self, AlarmNames: List = None, AlarmNamePrefix: str = None, StateValue: str = None, ActionPrefix: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetMetricData(Paginator):
+    def paginate(self, MetricDataQueries: List, StartTime: datetime, EndTime: datetime, ScanBy: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from datetime import datetime
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -18,13 +18,22 @@ class Client(BaseClient):
     def authorize_snapshot_access(self, SnapshotIdentifier: str, AccountWithRestoreAccess: str, SnapshotClusterIdentifier: str = None) -> Dict:
         pass
 
+    def batch_delete_cluster_snapshots(self, Identifiers: List) -> Dict:
+        pass
+
+    def batch_modify_cluster_snapshots(self, SnapshotIdentifierList: List, ManualSnapshotRetentionPeriod: int = None, Force: bool = None) -> Dict:
+        pass
+
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def copy_cluster_snapshot(self, SourceSnapshotIdentifier: str, TargetSnapshotIdentifier: str, SourceSnapshotClusterIdentifier: str = None) -> Dict:
+    def cancel_resize(self, ClusterIdentifier: str) -> Dict:
         pass
 
-    def create_cluster(self, ClusterIdentifier: str, NodeType: str, MasterUsername: str, MasterUserPassword: str, DBName: str = None, ClusterType: str = None, ClusterSecurityGroups: List = None, VpcSecurityGroupIds: List = None, ClusterSubnetGroupName: str = None, AvailabilityZone: str = None, PreferredMaintenanceWindow: str = None, ClusterParameterGroupName: str = None, AutomatedSnapshotRetentionPeriod: int = None, Port: int = None, ClusterVersion: str = None, AllowVersionUpgrade: bool = None, NumberOfNodes: int = None, PubliclyAccessible: bool = None, Encrypted: bool = None, HsmClientCertificateIdentifier: str = None, HsmConfigurationIdentifier: str = None, ElasticIp: str = None, Tags: List = None, KmsKeyId: str = None, EnhancedVpcRouting: bool = None, AdditionalInfo: str = None, IamRoles: List = None, MaintenanceTrackName: str = None) -> Dict:
+    def copy_cluster_snapshot(self, SourceSnapshotIdentifier: str, TargetSnapshotIdentifier: str, SourceSnapshotClusterIdentifier: str = None, ManualSnapshotRetentionPeriod: int = None) -> Dict:
+        pass
+
+    def create_cluster(self, ClusterIdentifier: str, NodeType: str, MasterUsername: str, MasterUserPassword: str, DBName: str = None, ClusterType: str = None, ClusterSecurityGroups: List = None, VpcSecurityGroupIds: List = None, ClusterSubnetGroupName: str = None, AvailabilityZone: str = None, PreferredMaintenanceWindow: str = None, ClusterParameterGroupName: str = None, AutomatedSnapshotRetentionPeriod: int = None, ManualSnapshotRetentionPeriod: int = None, Port: int = None, ClusterVersion: str = None, AllowVersionUpgrade: bool = None, NumberOfNodes: int = None, PubliclyAccessible: bool = None, Encrypted: bool = None, HsmClientCertificateIdentifier: str = None, HsmConfigurationIdentifier: str = None, ElasticIp: str = None, Tags: List = None, KmsKeyId: str = None, EnhancedVpcRouting: bool = None, AdditionalInfo: str = None, IamRoles: List = None, MaintenanceTrackName: str = None, SnapshotScheduleIdentifier: str = None) -> Dict:
         pass
 
     def create_cluster_parameter_group(self, ParameterGroupName: str, ParameterGroupFamily: str, Description: str, Tags: List = None) -> Dict:
@@ -33,7 +42,7 @@ class Client(BaseClient):
     def create_cluster_security_group(self, ClusterSecurityGroupName: str, Description: str, Tags: List = None) -> Dict:
         pass
 
-    def create_cluster_snapshot(self, SnapshotIdentifier: str, ClusterIdentifier: str, Tags: List = None) -> Dict:
+    def create_cluster_snapshot(self, SnapshotIdentifier: str, ClusterIdentifier: str, ManualSnapshotRetentionPeriod: int = None, Tags: List = None) -> Dict:
         pass
 
     def create_cluster_subnet_group(self, ClusterSubnetGroupName: str, Description: str, SubnetIds: List, Tags: List = None) -> Dict:
@@ -51,10 +60,13 @@ class Client(BaseClient):
     def create_snapshot_copy_grant(self, SnapshotCopyGrantName: str, KmsKeyId: str = None, Tags: List = None) -> Dict:
         pass
 
+    def create_snapshot_schedule(self, ScheduleDefinitions: List = None, ScheduleIdentifier: str = None, ScheduleDescription: str = None, Tags: List = None, DryRun: bool = None, NextInvocations: int = None) -> Dict:
+        pass
+
     def create_tags(self, ResourceName: str, Tags: List):
         pass
 
-    def delete_cluster(self, ClusterIdentifier: str, SkipFinalClusterSnapshot: bool = None, FinalClusterSnapshotIdentifier: str = None) -> Dict:
+    def delete_cluster(self, ClusterIdentifier: str, SkipFinalClusterSnapshot: bool = None, FinalClusterSnapshotIdentifier: str = None, FinalClusterSnapshotRetentionPeriod: int = None) -> Dict:
         pass
 
     def delete_cluster_parameter_group(self, ParameterGroupName: str):
@@ -81,7 +93,13 @@ class Client(BaseClient):
     def delete_snapshot_copy_grant(self, SnapshotCopyGrantName: str):
         pass
 
+    def delete_snapshot_schedule(self, ScheduleIdentifier: str):
+        pass
+
     def delete_tags(self, ResourceName: str, TagKeys: List):
+        pass
+
+    def describe_account_attributes(self, AttributeNames: List = None) -> Dict:
         pass
 
     def describe_cluster_db_revisions(self, ClusterIdentifier: str = None, MaxRecords: int = None, Marker: str = None) -> Dict:
@@ -96,7 +114,7 @@ class Client(BaseClient):
     def describe_cluster_security_groups(self, ClusterSecurityGroupName: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None) -> Dict:
         pass
 
-    def describe_cluster_snapshots(self, ClusterIdentifier: str = None, SnapshotIdentifier: str = None, SnapshotType: str = None, StartTime: datetime = None, EndTime: datetime = None, MaxRecords: int = None, Marker: str = None, OwnerAccount: str = None, TagKeys: List = None, TagValues: List = None, ClusterExists: bool = None) -> Dict:
+    def describe_cluster_snapshots(self, ClusterIdentifier: str = None, SnapshotIdentifier: str = None, SnapshotType: str = None, StartTime: datetime = None, EndTime: datetime = None, MaxRecords: int = None, Marker: str = None, OwnerAccount: str = None, TagKeys: List = None, TagValues: List = None, ClusterExists: bool = None, SortingEntities: List = None) -> Dict:
         pass
 
     def describe_cluster_subnet_groups(self, ClusterSubnetGroupName: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None) -> Dict:
@@ -147,6 +165,12 @@ class Client(BaseClient):
     def describe_snapshot_copy_grants(self, SnapshotCopyGrantName: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None) -> Dict:
         pass
 
+    def describe_snapshot_schedules(self, ClusterIdentifier: str = None, ScheduleIdentifier: str = None, TagKeys: List = None, TagValues: List = None, Marker: str = None, MaxRecords: int = None) -> Dict:
+        pass
+
+    def describe_storage(self) -> Dict:
+        pass
+
     def describe_table_restore_status(self, ClusterIdentifier: str = None, TableRestoreRequestId: str = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         pass
 
@@ -162,7 +186,7 @@ class Client(BaseClient):
     def enable_logging(self, ClusterIdentifier: str, BucketName: str, S3KeyPrefix: str = None) -> Dict:
         pass
 
-    def enable_snapshot_copy(self, ClusterIdentifier: str, DestinationRegion: str, RetentionPeriod: int = None, SnapshotCopyGrantName: str = None) -> Dict:
+    def enable_snapshot_copy(self, ClusterIdentifier: str, DestinationRegion: str, RetentionPeriod: int = None, SnapshotCopyGrantName: str = None, ManualSnapshotRetentionPeriod: int = None) -> Dict:
         pass
 
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
@@ -180,7 +204,7 @@ class Client(BaseClient):
     def get_waiter(self, waiter_name: str = None) -> Waiter:
         pass
 
-    def modify_cluster(self, ClusterIdentifier: str, ClusterType: str = None, NodeType: str = None, NumberOfNodes: int = None, ClusterSecurityGroups: List = None, VpcSecurityGroupIds: List = None, MasterUserPassword: str = None, ClusterParameterGroupName: str = None, AutomatedSnapshotRetentionPeriod: int = None, PreferredMaintenanceWindow: str = None, ClusterVersion: str = None, AllowVersionUpgrade: bool = None, HsmClientCertificateIdentifier: str = None, HsmConfigurationIdentifier: str = None, NewClusterIdentifier: str = None, PubliclyAccessible: bool = None, ElasticIp: str = None, EnhancedVpcRouting: bool = None, MaintenanceTrackName: str = None, Encrypted: bool = None, KmsKeyId: str = None) -> Dict:
+    def modify_cluster(self, ClusterIdentifier: str, ClusterType: str = None, NodeType: str = None, NumberOfNodes: int = None, ClusterSecurityGroups: List = None, VpcSecurityGroupIds: List = None, MasterUserPassword: str = None, ClusterParameterGroupName: str = None, AutomatedSnapshotRetentionPeriod: int = None, ManualSnapshotRetentionPeriod: int = None, PreferredMaintenanceWindow: str = None, ClusterVersion: str = None, AllowVersionUpgrade: bool = None, HsmClientCertificateIdentifier: str = None, HsmConfigurationIdentifier: str = None, NewClusterIdentifier: str = None, PubliclyAccessible: bool = None, ElasticIp: str = None, EnhancedVpcRouting: bool = None, MaintenanceTrackName: str = None, Encrypted: bool = None, KmsKeyId: str = None) -> Dict:
         pass
 
     def modify_cluster_db_revision(self, ClusterIdentifier: str, RevisionTarget: str) -> Dict:
@@ -189,7 +213,16 @@ class Client(BaseClient):
     def modify_cluster_iam_roles(self, ClusterIdentifier: str, AddIamRoles: List = None, RemoveIamRoles: List = None) -> Dict:
         pass
 
+    def modify_cluster_maintenance(self, ClusterIdentifier: str, DeferMaintenance: bool = None, DeferMaintenanceIdentifier: str = None, DeferMaintenanceStartTime: datetime = None, DeferMaintenanceEndTime: datetime = None, DeferMaintenanceDuration: int = None) -> Dict:
+        pass
+
     def modify_cluster_parameter_group(self, ParameterGroupName: str, Parameters: List) -> Dict:
+        pass
+
+    def modify_cluster_snapshot(self, SnapshotIdentifier: str, ManualSnapshotRetentionPeriod: int = None, Force: bool = None) -> Dict:
+        pass
+
+    def modify_cluster_snapshot_schedule(self, ClusterIdentifier: str, ScheduleIdentifier: str = None, DisassociateSchedule: bool = None):
         pass
 
     def modify_cluster_subnet_group(self, ClusterSubnetGroupName: str, SubnetIds: List, Description: str = None) -> Dict:
@@ -198,7 +231,10 @@ class Client(BaseClient):
     def modify_event_subscription(self, SubscriptionName: str, SnsTopicArn: str = None, SourceType: str = None, SourceIds: List = None, EventCategories: List = None, Severity: str = None, Enabled: bool = None) -> Dict:
         pass
 
-    def modify_snapshot_copy_retention_period(self, ClusterIdentifier: str, RetentionPeriod: int) -> Dict:
+    def modify_snapshot_copy_retention_period(self, ClusterIdentifier: str, RetentionPeriod: int, Manual: bool = None) -> Dict:
+        pass
+
+    def modify_snapshot_schedule(self, ScheduleIdentifier: str, ScheduleDefinitions: List) -> Dict:
         pass
 
     def purchase_reserved_node_offering(self, ReservedNodeOfferingId: str, NodeCount: int = None) -> Dict:
@@ -213,7 +249,7 @@ class Client(BaseClient):
     def resize_cluster(self, ClusterIdentifier: str, NumberOfNodes: int, ClusterType: str = None, NodeType: str = None, Classic: bool = None) -> Dict:
         pass
 
-    def restore_from_cluster_snapshot(self, ClusterIdentifier: str, SnapshotIdentifier: str, SnapshotClusterIdentifier: str = None, Port: int = None, AvailabilityZone: str = None, AllowVersionUpgrade: bool = None, ClusterSubnetGroupName: str = None, PubliclyAccessible: bool = None, OwnerAccount: str = None, HsmClientCertificateIdentifier: str = None, HsmConfigurationIdentifier: str = None, ElasticIp: str = None, ClusterParameterGroupName: str = None, ClusterSecurityGroups: List = None, VpcSecurityGroupIds: List = None, PreferredMaintenanceWindow: str = None, AutomatedSnapshotRetentionPeriod: int = None, KmsKeyId: str = None, NodeType: str = None, EnhancedVpcRouting: bool = None, AdditionalInfo: str = None, IamRoles: List = None, MaintenanceTrackName: str = None) -> Dict:
+    def restore_from_cluster_snapshot(self, ClusterIdentifier: str, SnapshotIdentifier: str, SnapshotClusterIdentifier: str = None, Port: int = None, AvailabilityZone: str = None, AllowVersionUpgrade: bool = None, ClusterSubnetGroupName: str = None, PubliclyAccessible: bool = None, OwnerAccount: str = None, HsmClientCertificateIdentifier: str = None, HsmConfigurationIdentifier: str = None, ElasticIp: str = None, ClusterParameterGroupName: str = None, ClusterSecurityGroups: List = None, VpcSecurityGroupIds: List = None, PreferredMaintenanceWindow: str = None, AutomatedSnapshotRetentionPeriod: int = None, ManualSnapshotRetentionPeriod: int = None, KmsKeyId: str = None, NodeType: str = None, EnhancedVpcRouting: bool = None, AdditionalInfo: str = None, IamRoles: List = None, MaintenanceTrackName: str = None, SnapshotScheduleIdentifier: str = None) -> Dict:
         pass
 
     def restore_table_from_cluster_snapshot(self, ClusterIdentifier: str, SnapshotIdentifier: str, SourceDatabaseName: str, SourceTableName: str, NewTableName: str, SourceSchemaName: str = None, TargetDatabaseName: str = None, TargetSchemaName: str = None) -> Dict:

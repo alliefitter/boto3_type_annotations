@@ -1,17 +1,17 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def delete_rule(self, Name: str):
+    def delete_rule(self, Name: str, Force: bool = None):
         pass
 
     def describe_event_bus(self) -> Dict:
@@ -59,7 +59,7 @@ class Client(BaseClient):
     def remove_permission(self, StatementId: str):
         pass
 
-    def remove_targets(self, Rule: str, Ids: List) -> Dict:
+    def remove_targets(self, Rule: str, Ids: List, Force: bool = None) -> Dict:
         pass
 
     def test_event_pattern(self, EventPattern: str, Event: str) -> Dict:

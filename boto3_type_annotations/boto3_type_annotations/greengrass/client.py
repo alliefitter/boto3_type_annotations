@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from botocore.waiter import Waiter
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -15,6 +15,12 @@ class Client(BaseClient):
         pass
 
     def can_paginate(self, operation_name: str = None):
+        pass
+
+    def create_connector_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+        pass
+
+    def create_connector_definition_version(self, ConnectorDefinitionId: str, AmznClientToken: str = None, Connectors: List = None) -> Dict:
         pass
 
     def create_core_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
@@ -35,7 +41,7 @@ class Client(BaseClient):
     def create_function_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
         pass
 
-    def create_function_definition_version(self, FunctionDefinitionId: str, AmznClientToken: str = None, Functions: List = None) -> Dict:
+    def create_function_definition_version(self, FunctionDefinitionId: str, AmznClientToken: str = None, DefaultConfig: Dict = None, Functions: List = None) -> Dict:
         pass
 
     def create_group(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
@@ -44,7 +50,7 @@ class Client(BaseClient):
     def create_group_certificate_authority(self, GroupId: str, AmznClientToken: str = None) -> Dict:
         pass
 
-    def create_group_version(self, GroupId: str, AmznClientToken: str = None, CoreDefinitionVersionArn: str = None, DeviceDefinitionVersionArn: str = None, FunctionDefinitionVersionArn: str = None, LoggerDefinitionVersionArn: str = None, ResourceDefinitionVersionArn: str = None, SubscriptionDefinitionVersionArn: str = None) -> Dict:
+    def create_group_version(self, GroupId: str, AmznClientToken: str = None, ConnectorDefinitionVersionArn: str = None, CoreDefinitionVersionArn: str = None, DeviceDefinitionVersionArn: str = None, FunctionDefinitionVersionArn: str = None, LoggerDefinitionVersionArn: str = None, ResourceDefinitionVersionArn: str = None, SubscriptionDefinitionVersionArn: str = None) -> Dict:
         pass
 
     def create_logger_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
@@ -66,6 +72,9 @@ class Client(BaseClient):
         pass
 
     def create_subscription_definition_version(self, SubscriptionDefinitionId: str, AmznClientToken: str = None, Subscriptions: List = None) -> Dict:
+        pass
+
+    def delete_connector_definition(self, ConnectorDefinitionId: str) -> Dict:
         pass
 
     def delete_core_definition(self, CoreDefinitionId: str) -> Dict:
@@ -105,6 +114,12 @@ class Client(BaseClient):
         pass
 
     def get_connectivity_info(self, ThingName: str) -> Dict:
+        pass
+
+    def get_connector_definition(self, ConnectorDefinitionId: str) -> Dict:
+        pass
+
+    def get_connector_definition_version(self, ConnectorDefinitionId: str, ConnectorDefinitionVersionId: str, NextToken: str = None) -> Dict:
         pass
 
     def get_core_definition(self, CoreDefinitionId: str) -> Dict:
@@ -173,6 +188,12 @@ class Client(BaseClient):
     def list_bulk_deployments(self, MaxResults: str = None, NextToken: str = None) -> Dict:
         pass
 
+    def list_connector_definition_versions(self, ConnectorDefinitionId: str, MaxResults: str = None, NextToken: str = None) -> Dict:
+        pass
+
+    def list_connector_definitions(self, MaxResults: str = None, NextToken: str = None) -> Dict:
+        pass
+
     def list_core_definition_versions(self, CoreDefinitionId: str, MaxResults: str = None, NextToken: str = None) -> Dict:
         pass
 
@@ -231,6 +252,9 @@ class Client(BaseClient):
         pass
 
     def update_connectivity_info(self, ThingName: str, ConnectivityInfo: List = None) -> Dict:
+        pass
+
+    def update_connector_definition(self, ConnectorDefinitionId: str, Name: str = None) -> Dict:
         pass
 
     def update_core_definition(self, CoreDefinitionId: str, Name: str = None) -> Dict:

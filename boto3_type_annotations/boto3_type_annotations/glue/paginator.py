@@ -9,7 +9,7 @@ class GetClassifiers(Paginator):
 
 
 class GetConnections(Paginator):
-    def paginate(self, CatalogId: str = None, Filter: Dict = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, CatalogId: str = None, Filter: Dict = None, HidePassword: bool = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
@@ -45,6 +45,11 @@ class GetJobs(Paginator):
 
 class GetPartitions(Paginator):
     def paginate(self, DatabaseName: str, TableName: str, CatalogId: str = None, Expression: str = None, Segment: Dict = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetSecurityConfigurations(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

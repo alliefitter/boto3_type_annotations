@@ -14,15 +14,15 @@ class DBInstanceDeleted(Waiter):
 
 
 class DBSnapshotAvailable(Waiter):
-    def wait(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None, WaiterConfig: Dict = None):
+    def wait(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None, DbiResourceId: str = None, WaiterConfig: Dict = None):
         pass
 
 
 class DBSnapshotCompleted(Waiter):
-    def wait(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None, WaiterConfig: Dict = None):
+    def wait(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None, DbiResourceId: str = None, WaiterConfig: Dict = None):
         pass
 
 
 class DBSnapshotDeleted(Waiter):
-    def wait(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None, WaiterConfig: Dict = None):
+    def wait(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None, DbiResourceId: str = None, WaiterConfig: Dict = None):
         pass

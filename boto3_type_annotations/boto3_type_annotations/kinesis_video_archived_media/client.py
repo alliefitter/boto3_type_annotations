@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -14,7 +14,7 @@ class Client(BaseClient):
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
-    def get_hls_streaming_session_url(self, StreamName: str = None, StreamARN: str = None, PlaybackMode: str = None, HLSFragmentSelector: Dict = None, DiscontinuityMode: str = None, Expires: int = None, MaxMediaPlaylistFragmentResults: int = None) -> Dict:
+    def get_hls_streaming_session_url(self, StreamName: str = None, StreamARN: str = None, PlaybackMode: str = None, HLSFragmentSelector: Dict = None, ContainerFormat: str = None, DiscontinuityMode: str = None, DisplayFragmentTimestamp: str = None, Expires: int = None, MaxMediaPlaylistFragmentResults: int = None) -> Dict:
         pass
 
     def get_media_for_fragment_list(self, StreamName: str, Fragments: List) -> Dict:

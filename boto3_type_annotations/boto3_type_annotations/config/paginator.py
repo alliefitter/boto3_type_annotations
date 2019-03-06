@@ -1,7 +1,17 @@
-from datetime import datetime
 from typing import List
+from datetime import datetime
 from typing import Dict
 from botocore.paginate import Paginator
+
+
+class DescribeAggregateComplianceByConfigRules(Paginator):
+    def paginate(self, ConfigurationAggregatorName: str, Filters: Dict = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeAggregationAuthorizations(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
 
 
 class DescribeComplianceByConfigRule(Paginator):
@@ -14,8 +24,38 @@ class DescribeComplianceByResource(Paginator):
         pass
 
 
+class DescribeConfigRuleEvaluationStatus(Paginator):
+    def paginate(self, ConfigRuleNames: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class DescribeConfigRules(Paginator):
     def paginate(self, ConfigRuleNames: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeConfigurationAggregatorSourcesStatus(Paginator):
+    def paginate(self, ConfigurationAggregatorName: str, UpdateStatus: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeConfigurationAggregators(Paginator):
+    def paginate(self, ConfigurationAggregatorNames: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribePendingAggregationRequests(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeRetentionConfigurations(Paginator):
+    def paginate(self, RetentionConfigurationNames: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class GetAggregateComplianceDetailsByConfigRule(Paginator):
+    def paginate(self, ConfigurationAggregatorName: str, ConfigRuleName: str, AccountId: str, AwsRegion: str, ComplianceType: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
@@ -31,6 +71,11 @@ class GetComplianceDetailsByResource(Paginator):
 
 class GetResourceConfigHistory(Paginator):
     def paginate(self, resourceType: str, resourceId: str, laterTime: datetime = None, earlierTime: datetime = None, chronologicalOrder: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListAggregateDiscoveredResources(Paginator):
+    def paginate(self, ConfigurationAggregatorName: str, ResourceType: str, Filters: Dict = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

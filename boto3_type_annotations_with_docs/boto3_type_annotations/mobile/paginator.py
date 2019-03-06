@@ -5,104 +5,71 @@ from botocore.paginate import Paginator
 class ListBundles(Paginator):
     def paginate(self, PaginationConfig: Dict = None) -> Dict:
         """
-        
+        Creates an iterator that will paginate through responses from :py:meth:`Mobile.Client.list_bundles`.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mobile-2017-07-01/ListBundles>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  \'MaxItems\': 123,
-                  \'PageSize\': 123,
-                  \'StartingToken\': \'string\'
+                  'MaxItems': 123,
+                  'PageSize': 123,
+                  'StartingToken': 'string'
               }
           )
-        :type PaginationConfig: dict
-        :param PaginationConfig: 
         
-          A dictionary that provides parameters to control pagination.
-        
-          - **MaxItems** *(integer) --* 
-        
-            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
-        
-          - **PageSize** *(integer) --* 
-        
-            The size of each page.
-        
-          - **StartingToken** *(string) --* 
-        
-            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
-        
-        :rtype: dict
-        :returns: 
-          
-          **Response Syntax** 
-        
-          ::
-        
+        **Response Syntax**
+        ::
             {
-                \'bundleList\': [
+                'bundleList': [
                     {
-                        \'bundleId\': \'string\',
-                        \'title\': \'string\',
-                        \'version\': \'string\',
-                        \'description\': \'string\',
-                        \'iconUrl\': \'string\',
-                        \'availablePlatforms\': [
-                            \'OSX\'|\'WINDOWS\'|\'LINUX\'|\'OBJC\'|\'SWIFT\'|\'ANDROID\'|\'JAVASCRIPT\',
+                        'bundleId': 'string',
+                        'title': 'string',
+                        'version': 'string',
+                        'description': 'string',
+                        'iconUrl': 'string',
+                        'availablePlatforms': [
+                            'OSX'|'WINDOWS'|'LINUX'|'OBJC'|'SWIFT'|'ANDROID'|'JAVASCRIPT',
                         ]
                     },
                 ],
-                \'NextToken\': \'string\'
+                'NextToken': 'string'
             }
-          **Response Structure** 
         
+        **Response Structure**
           - *(dict) --* 
-        
             Result structure contains a list of all available bundles with details. 
-        
             - **bundleList** *(list) --* 
-        
               A list of bundles. 
-        
               - *(dict) --* 
-        
                 The details of the bundle. 
-        
                 - **bundleId** *(string) --* 
-        
                   Unique bundle identifier. 
-        
                 - **title** *(string) --* 
-        
                   Title of the download bundle. 
-        
                 - **version** *(string) --* 
-        
                   Version of the download bundle. 
-        
                 - **description** *(string) --* 
-        
                   Description of the download bundle. 
-        
                 - **iconUrl** *(string) --* 
-        
                   Icon for the download bundle. 
-        
                 - **availablePlatforms** *(list) --* 
-        
                   Developer desktop or mobile app or website platforms. 
-        
                   - *(string) --* 
-        
                     Developer desktop or target mobile app or website platform. 
-        
             - **NextToken** *(string) --* 
-        
               A token to resume pagination.
-        
+        :type PaginationConfig: dict
+        :param PaginationConfig:
+          A dictionary that provides parameters to control pagination.
+          - **MaxItems** *(integer) --*
+            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+          - **PageSize** *(integer) --*
+            The size of each page.
+          - **StartingToken** *(string) --*
+            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+        :rtype: dict
+        :returns:
         """
         pass
 
@@ -110,77 +77,54 @@ class ListBundles(Paginator):
 class ListProjects(Paginator):
     def paginate(self, PaginationConfig: Dict = None) -> Dict:
         """
-        
+        Creates an iterator that will paginate through responses from :py:meth:`Mobile.Client.list_projects`.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mobile-2017-07-01/ListProjects>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  \'MaxItems\': 123,
-                  \'PageSize\': 123,
-                  \'StartingToken\': \'string\'
+                  'MaxItems': 123,
+                  'PageSize': 123,
+                  'StartingToken': 'string'
               }
           )
-        :type PaginationConfig: dict
-        :param PaginationConfig: 
         
-          A dictionary that provides parameters to control pagination.
-        
-          - **MaxItems** *(integer) --* 
-        
-            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
-        
-          - **PageSize** *(integer) --* 
-        
-            The size of each page.
-        
-          - **StartingToken** *(string) --* 
-        
-            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
-        
-        :rtype: dict
-        :returns: 
-          
-          **Response Syntax** 
-        
-          ::
-        
+        **Response Syntax**
+        ::
             {
-                \'projects\': [
+                'projects': [
                     {
-                        \'name\': \'string\',
-                        \'projectId\': \'string\'
+                        'name': 'string',
+                        'projectId': 'string'
                     },
                 ],
-                \'NextToken\': \'string\'
+                'NextToken': 'string'
             }
-          **Response Structure** 
         
+        **Response Structure**
           - *(dict) --* 
-        
             Result structure used for requests to list projects in AWS Mobile Hub. 
-        
             - **projects** *(list) --* 
-        
               List of projects. 
-        
               - *(dict) --* 
-        
                 Summary information about an AWS Mobile Hub project. 
-        
                 - **name** *(string) --* 
-        
                   Name of the project. 
-        
                 - **projectId** *(string) --* 
-        
                   Unique project identifier. 
-        
             - **NextToken** *(string) --* 
-        
               A token to resume pagination.
-        
+        :type PaginationConfig: dict
+        :param PaginationConfig:
+          A dictionary that provides parameters to control pagination.
+          - **MaxItems** *(integer) --*
+            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+          - **PageSize** *(integer) --*
+            The size of each page.
+          - **StartingToken** *(string) --*
+            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+        :rtype: dict
+        :returns:
         """
         pass

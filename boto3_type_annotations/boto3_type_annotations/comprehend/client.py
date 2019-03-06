@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from botocore.waiter import Waiter
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -26,10 +26,31 @@ class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
+    def create_document_classifier(self, DocumentClassifierName: str, DataAccessRoleArn: str, InputDataConfig: Dict, LanguageCode: str, ClientRequestToken: str = None) -> Dict:
+        pass
+
+    def create_entity_recognizer(self, RecognizerName: str, DataAccessRoleArn: str, InputDataConfig: Dict, LanguageCode: str, ClientRequestToken: str = None) -> Dict:
+        pass
+
+    def delete_document_classifier(self, DocumentClassifierArn: str) -> Dict:
+        pass
+
+    def delete_entity_recognizer(self, EntityRecognizerArn: str) -> Dict:
+        pass
+
+    def describe_document_classification_job(self, JobId: str) -> Dict:
+        pass
+
+    def describe_document_classifier(self, DocumentClassifierArn: str) -> Dict:
+        pass
+
     def describe_dominant_language_detection_job(self, JobId: str) -> Dict:
         pass
 
     def describe_entities_detection_job(self, JobId: str) -> Dict:
+        pass
+
+    def describe_entity_recognizer(self, EntityRecognizerArn: str) -> Dict:
         pass
 
     def describe_key_phrases_detection_job(self, JobId: str) -> Dict:
@@ -65,10 +86,19 @@ class Client(BaseClient):
     def get_waiter(self, waiter_name: str = None) -> Waiter:
         pass
 
+    def list_document_classification_jobs(self, Filter: Dict = None, NextToken: str = None, MaxResults: int = None) -> Dict:
+        pass
+
+    def list_document_classifiers(self, Filter: Dict = None, NextToken: str = None, MaxResults: int = None) -> Dict:
+        pass
+
     def list_dominant_language_detection_jobs(self, Filter: Dict = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def list_entities_detection_jobs(self, Filter: Dict = None, NextToken: str = None, MaxResults: int = None) -> Dict:
+        pass
+
+    def list_entity_recognizers(self, Filter: Dict = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def list_key_phrases_detection_jobs(self, Filter: Dict = None, NextToken: str = None, MaxResults: int = None) -> Dict:
@@ -80,10 +110,13 @@ class Client(BaseClient):
     def list_topics_detection_jobs(self, Filter: Dict = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
+    def start_document_classification_job(self, DocumentClassifierArn: str, InputDataConfig: Dict, OutputDataConfig: Dict, DataAccessRoleArn: str, JobName: str = None, ClientRequestToken: str = None) -> Dict:
+        pass
+
     def start_dominant_language_detection_job(self, InputDataConfig: Dict, OutputDataConfig: Dict, DataAccessRoleArn: str, JobName: str = None, ClientRequestToken: str = None) -> Dict:
         pass
 
-    def start_entities_detection_job(self, InputDataConfig: Dict, OutputDataConfig: Dict, DataAccessRoleArn: str, LanguageCode: str, JobName: str = None, ClientRequestToken: str = None) -> Dict:
+    def start_entities_detection_job(self, InputDataConfig: Dict, OutputDataConfig: Dict, DataAccessRoleArn: str, LanguageCode: str, JobName: str = None, EntityRecognizerArn: str = None, ClientRequestToken: str = None) -> Dict:
         pass
 
     def start_key_phrases_detection_job(self, InputDataConfig: Dict, OutputDataConfig: Dict, DataAccessRoleArn: str, LanguageCode: str, JobName: str = None, ClientRequestToken: str = None) -> Dict:
@@ -105,4 +138,10 @@ class Client(BaseClient):
         pass
 
     def stop_sentiment_detection_job(self, JobId: str) -> Dict:
+        pass
+
+    def stop_training_document_classifier(self, DocumentClassifierArn: str) -> Dict:
+        pass
+
+    def stop_training_entity_recognizer(self, EntityRecognizerArn: str) -> Dict:
         pass

@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -32,6 +32,18 @@ class Client(BaseClient):
     def delete_tags(self, ResourceId: str, TagKeys: List) -> Dict:
         pass
 
+    def delete_workspace_image(self, ImageId: str) -> Dict:
+        pass
+
+    def describe_account(self) -> Dict:
+        pass
+
+    def describe_account_modifications(self, NextToken: str = None) -> Dict:
+        pass
+
+    def describe_client_properties(self, ResourceIds: List) -> Dict:
+        pass
+
     def describe_ip_groups(self, GroupIds: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
@@ -42,6 +54,9 @@ class Client(BaseClient):
         pass
 
     def describe_workspace_directories(self, DirectoryIds: List = None, NextToken: str = None) -> Dict:
+        pass
+
+    def describe_workspace_images(self, ImageIds: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def describe_workspaces(self, WorkspaceIds: List = None, DirectoryId: str = None, UserName: str = None, BundleId: str = None, Limit: int = None, NextToken: str = None) -> Dict:
@@ -60,6 +75,18 @@ class Client(BaseClient):
         pass
 
     def get_waiter(self, waiter_name: str = None) -> Waiter:
+        pass
+
+    def import_workspace_image(self, Ec2ImageId: str, IngestionProcess: str, ImageName: str, ImageDescription: str) -> Dict:
+        pass
+
+    def list_available_management_cidr_ranges(self, ManagementCidrRangeConstraint: str, MaxResults: int = None, NextToken: str = None) -> Dict:
+        pass
+
+    def modify_account(self, DedicatedTenancySupport: str = None, DedicatedTenancyManagementCidrRange: str = None) -> Dict:
+        pass
+
+    def modify_client_properties(self, ResourceId: str, ClientProperties: Dict) -> Dict:
         pass
 
     def modify_workspace_properties(self, WorkspaceId: str, WorkspaceProperties: Dict) -> Dict:

@@ -1,15 +1,18 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from datetime import datetime
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def add_role_to_db_cluster(self, DBClusterIdentifier: str, RoleArn: str):
+        pass
+
+    def add_role_to_db_instance(self, DBInstanceIdentifier: str, RoleArn: str, FeatureName: str):
         pass
 
     def add_source_identifier_to_subscription(self, SubscriptionName: str, SourceIdentifier: str) -> Dict:
@@ -45,7 +48,7 @@ class Client(BaseClient):
     def copy_option_group(self, SourceOptionGroupIdentifier: str, TargetOptionGroupIdentifier: str, TargetOptionGroupDescription: str, Tags: List = None) -> Dict:
         pass
 
-    def create_db_cluster(self, DBClusterIdentifier: str, Engine: str, AvailabilityZones: List = None, BackupRetentionPeriod: int = None, CharacterSetName: str = None, DatabaseName: str = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, DBSubnetGroupName: str = None, EngineVersion: str = None, Port: int = None, MasterUsername: str = None, MasterUserPassword: str = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, ReplicationSourceIdentifier: str = None, Tags: List = None, StorageEncrypted: bool = None, KmsKeyId: str = None, PreSignedUrl: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, EnableCloudwatchLogsExports: List = None, EngineMode: str = None, ScalingConfiguration: Dict = None, DeletionProtection: bool = None, SourceRegion: str = None) -> Dict:
+    def create_db_cluster(self, DBClusterIdentifier: str, Engine: str, AvailabilityZones: List = None, BackupRetentionPeriod: int = None, CharacterSetName: str = None, DatabaseName: str = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, DBSubnetGroupName: str = None, EngineVersion: str = None, Port: int = None, MasterUsername: str = None, MasterUserPassword: str = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, ReplicationSourceIdentifier: str = None, Tags: List = None, StorageEncrypted: bool = None, KmsKeyId: str = None, PreSignedUrl: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, EnableCloudwatchLogsExports: List = None, EngineMode: str = None, ScalingConfiguration: Dict = None, DeletionProtection: bool = None, GlobalClusterIdentifier: str = None, SourceRegion: str = None) -> Dict:
         pass
 
     def create_db_cluster_endpoint(self, DBClusterIdentifier: str, DBClusterEndpointIdentifier: str, EndpointType: str, StaticMembers: List = None, ExcludedMembers: List = None) -> Dict:
@@ -60,7 +63,7 @@ class Client(BaseClient):
     def create_db_instance(self, DBInstanceIdentifier: str, DBInstanceClass: str, Engine: str, DBName: str = None, AllocatedStorage: int = None, MasterUsername: str = None, MasterUserPassword: str = None, DBSecurityGroups: List = None, VpcSecurityGroupIds: List = None, AvailabilityZone: str = None, DBSubnetGroupName: str = None, PreferredMaintenanceWindow: str = None, DBParameterGroupName: str = None, BackupRetentionPeriod: int = None, PreferredBackupWindow: str = None, Port: int = None, MultiAZ: bool = None, EngineVersion: str = None, AutoMinorVersionUpgrade: bool = None, LicenseModel: str = None, Iops: int = None, OptionGroupName: str = None, CharacterSetName: str = None, PubliclyAccessible: bool = None, Tags: List = None, DBClusterIdentifier: str = None, StorageType: str = None, TdeCredentialArn: str = None, TdeCredentialPassword: str = None, StorageEncrypted: bool = None, KmsKeyId: str = None, Domain: str = None, CopyTagsToSnapshot: bool = None, MonitoringInterval: int = None, MonitoringRoleArn: str = None, DomainIAMRoleName: str = None, PromotionTier: int = None, Timezone: str = None, EnableIAMDatabaseAuthentication: bool = None, EnablePerformanceInsights: bool = None, PerformanceInsightsKMSKeyId: str = None, PerformanceInsightsRetentionPeriod: int = None, EnableCloudwatchLogsExports: List = None, ProcessorFeatures: List = None, DeletionProtection: bool = None) -> Dict:
         pass
 
-    def create_db_instance_read_replica(self, DBInstanceIdentifier: str, SourceDBInstanceIdentifier: str, DBInstanceClass: str = None, AvailabilityZone: str = None, Port: int = None, MultiAZ: bool = None, AutoMinorVersionUpgrade: bool = None, Iops: int = None, OptionGroupName: str = None, PubliclyAccessible: bool = None, Tags: List = None, DBSubnetGroupName: str = None, StorageType: str = None, CopyTagsToSnapshot: bool = None, MonitoringInterval: int = None, MonitoringRoleArn: str = None, KmsKeyId: str = None, PreSignedUrl: str = None, EnableIAMDatabaseAuthentication: bool = None, EnablePerformanceInsights: bool = None, PerformanceInsightsKMSKeyId: str = None, PerformanceInsightsRetentionPeriod: int = None, EnableCloudwatchLogsExports: List = None, ProcessorFeatures: List = None, UseDefaultProcessorFeatures: bool = None, DeletionProtection: bool = None, SourceRegion: str = None) -> Dict:
+    def create_db_instance_read_replica(self, DBInstanceIdentifier: str, SourceDBInstanceIdentifier: str, DBInstanceClass: str = None, AvailabilityZone: str = None, Port: int = None, MultiAZ: bool = None, AutoMinorVersionUpgrade: bool = None, Iops: int = None, OptionGroupName: str = None, PubliclyAccessible: bool = None, Tags: List = None, DBSubnetGroupName: str = None, VpcSecurityGroupIds: List = None, StorageType: str = None, CopyTagsToSnapshot: bool = None, MonitoringInterval: int = None, MonitoringRoleArn: str = None, KmsKeyId: str = None, PreSignedUrl: str = None, EnableIAMDatabaseAuthentication: bool = None, EnablePerformanceInsights: bool = None, PerformanceInsightsKMSKeyId: str = None, PerformanceInsightsRetentionPeriod: int = None, EnableCloudwatchLogsExports: List = None, ProcessorFeatures: List = None, UseDefaultProcessorFeatures: bool = None, DeletionProtection: bool = None, SourceRegion: str = None) -> Dict:
         pass
 
     def create_db_parameter_group(self, DBParameterGroupName: str, DBParameterGroupFamily: str, Description: str, Tags: List = None) -> Dict:
@@ -78,6 +81,9 @@ class Client(BaseClient):
     def create_event_subscription(self, SubscriptionName: str, SnsTopicArn: str, SourceType: str = None, EventCategories: List = None, SourceIds: List = None, Enabled: bool = None, Tags: List = None) -> Dict:
         pass
 
+    def create_global_cluster(self, GlobalClusterIdentifier: str = None, SourceDBClusterIdentifier: str = None, Engine: str = None, EngineVersion: str = None, DeletionProtection: bool = None, DatabaseName: str = None, StorageEncrypted: bool = None) -> Dict:
+        pass
+
     def create_option_group(self, OptionGroupName: str, EngineName: str, MajorEngineVersion: str, OptionGroupDescription: str, Tags: List = None) -> Dict:
         pass
 
@@ -93,7 +99,10 @@ class Client(BaseClient):
     def delete_db_cluster_snapshot(self, DBClusterSnapshotIdentifier: str) -> Dict:
         pass
 
-    def delete_db_instance(self, DBInstanceIdentifier: str, SkipFinalSnapshot: bool = None, FinalDBSnapshotIdentifier: str = None) -> Dict:
+    def delete_db_instance(self, DBInstanceIdentifier: str, SkipFinalSnapshot: bool = None, FinalDBSnapshotIdentifier: str = None, DeleteAutomatedBackups: bool = None) -> Dict:
+        pass
+
+    def delete_db_instance_automated_backup(self, DbiResourceId: str) -> Dict:
         pass
 
     def delete_db_parameter_group(self, DBParameterGroupName: str):
@@ -109,6 +118,9 @@ class Client(BaseClient):
         pass
 
     def delete_event_subscription(self, SubscriptionName: str) -> Dict:
+        pass
+
+    def delete_global_cluster(self, GlobalClusterIdentifier: str) -> Dict:
         pass
 
     def delete_option_group(self, OptionGroupName: str):
@@ -144,6 +156,9 @@ class Client(BaseClient):
     def describe_db_engine_versions(self, Engine: str = None, EngineVersion: str = None, DBParameterGroupFamily: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, DefaultOnly: bool = None, ListSupportedCharacterSets: bool = None, ListSupportedTimezones: bool = None) -> Dict:
         pass
 
+    def describe_db_instance_automated_backups(self, DbiResourceId: str = None, DBInstanceIdentifier: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
+        pass
+
     def describe_db_instances(self, DBInstanceIdentifier: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         pass
 
@@ -162,7 +177,7 @@ class Client(BaseClient):
     def describe_db_snapshot_attributes(self, DBSnapshotIdentifier: str) -> Dict:
         pass
 
-    def describe_db_snapshots(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None) -> Dict:
+    def describe_db_snapshots(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None, DbiResourceId: str = None) -> Dict:
         pass
 
     def describe_db_subnet_groups(self, DBSubnetGroupName: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
@@ -181,6 +196,9 @@ class Client(BaseClient):
         pass
 
     def describe_events(self, SourceIdentifier: str = None, SourceType: str = None, StartTime: datetime = None, EndTime: datetime = None, Duration: int = None, EventCategories: List = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
+        pass
+
+    def describe_global_clusters(self, GlobalClusterIdentifier: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         pass
 
     def describe_option_group_options(self, EngineName: str, MajorEngineVersion: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
@@ -210,7 +228,7 @@ class Client(BaseClient):
     def download_db_log_file_portion(self, DBInstanceIdentifier: str, LogFileName: str, Marker: str = None, NumberOfLines: int = None) -> Dict:
         pass
 
-    def failover_db_cluster(self, DBClusterIdentifier: str = None, TargetDBInstanceIdentifier: str = None) -> Dict:
+    def failover_db_cluster(self, DBClusterIdentifier: str, TargetDBInstanceIdentifier: str = None) -> Dict:
         pass
 
     def generate_db_auth_token(self, DBHostname: str = None, Port: int = None, DBUsername: str = None, Region: str = None):
@@ -231,7 +249,7 @@ class Client(BaseClient):
     def modify_current_db_cluster_capacity(self, DBClusterIdentifier: str, Capacity: int = None, SecondsBeforeTimeout: int = None, TimeoutAction: str = None) -> Dict:
         pass
 
-    def modify_db_cluster(self, DBClusterIdentifier: str, NewDBClusterIdentifier: str = None, ApplyImmediately: bool = None, BackupRetentionPeriod: int = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, Port: int = None, MasterUserPassword: str = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, CloudwatchLogsExportConfiguration: Dict = None, EngineVersion: str = None, ScalingConfiguration: Dict = None, DeletionProtection: bool = None) -> Dict:
+    def modify_db_cluster(self, DBClusterIdentifier: str, NewDBClusterIdentifier: str = None, ApplyImmediately: bool = None, BackupRetentionPeriod: int = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, Port: int = None, MasterUserPassword: str = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, CloudwatchLogsExportConfiguration: Dict = None, EngineVersion: str = None, ScalingConfiguration: Dict = None, DeletionProtection: bool = None, EnableHttpEndpoint: bool = None) -> Dict:
         pass
 
     def modify_db_cluster_endpoint(self, DBClusterEndpointIdentifier: str, EndpointType: str = None, StaticMembers: List = None, ExcludedMembers: List = None) -> Dict:
@@ -261,6 +279,9 @@ class Client(BaseClient):
     def modify_event_subscription(self, SubscriptionName: str, SnsTopicArn: str = None, SourceType: str = None, EventCategories: List = None, Enabled: bool = None) -> Dict:
         pass
 
+    def modify_global_cluster(self, GlobalClusterIdentifier: str = None, NewGlobalClusterIdentifier: str = None, DeletionProtection: bool = None) -> Dict:
+        pass
+
     def modify_option_group(self, OptionGroupName: str, OptionsToInclude: List = None, OptionsToRemove: List = None, ApplyImmediately: bool = None) -> Dict:
         pass
 
@@ -276,7 +297,13 @@ class Client(BaseClient):
     def reboot_db_instance(self, DBInstanceIdentifier: str, ForceFailover: bool = None) -> Dict:
         pass
 
+    def remove_from_global_cluster(self, GlobalClusterIdentifier: str = None, DbClusterIdentifier: str = None) -> Dict:
+        pass
+
     def remove_role_from_db_cluster(self, DBClusterIdentifier: str, RoleArn: str):
+        pass
+
+    def remove_role_from_db_instance(self, DBInstanceIdentifier: str, RoleArn: str, FeatureName: str):
         pass
 
     def remove_source_identifier_from_subscription(self, SubscriptionName: str, SourceIdentifier: str) -> Dict:
@@ -300,13 +327,13 @@ class Client(BaseClient):
     def restore_db_cluster_to_point_in_time(self, DBClusterIdentifier: str, SourceDBClusterIdentifier: str, RestoreType: str = None, RestoreToTime: datetime = None, UseLatestRestorableTime: bool = None, Port: int = None, DBSubnetGroupName: str = None, OptionGroupName: str = None, VpcSecurityGroupIds: List = None, Tags: List = None, KmsKeyId: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, EnableCloudwatchLogsExports: List = None, DBClusterParameterGroupName: str = None, DeletionProtection: bool = None) -> Dict:
         pass
 
-    def restore_db_instance_from_db_snapshot(self, DBInstanceIdentifier: str, DBSnapshotIdentifier: str, DBInstanceClass: str = None, Port: int = None, AvailabilityZone: str = None, DBSubnetGroupName: str = None, MultiAZ: bool = None, PubliclyAccessible: bool = None, AutoMinorVersionUpgrade: bool = None, LicenseModel: str = None, DBName: str = None, Engine: str = None, Iops: int = None, OptionGroupName: str = None, Tags: List = None, StorageType: str = None, TdeCredentialArn: str = None, TdeCredentialPassword: str = None, Domain: str = None, CopyTagsToSnapshot: bool = None, DomainIAMRoleName: str = None, EnableIAMDatabaseAuthentication: bool = None, EnableCloudwatchLogsExports: List = None, ProcessorFeatures: List = None, UseDefaultProcessorFeatures: bool = None, DBParameterGroupName: str = None, DeletionProtection: bool = None) -> Dict:
+    def restore_db_instance_from_db_snapshot(self, DBInstanceIdentifier: str, DBSnapshotIdentifier: str, DBInstanceClass: str = None, Port: int = None, AvailabilityZone: str = None, DBSubnetGroupName: str = None, MultiAZ: bool = None, PubliclyAccessible: bool = None, AutoMinorVersionUpgrade: bool = None, LicenseModel: str = None, DBName: str = None, Engine: str = None, Iops: int = None, OptionGroupName: str = None, Tags: List = None, StorageType: str = None, TdeCredentialArn: str = None, TdeCredentialPassword: str = None, VpcSecurityGroupIds: List = None, Domain: str = None, CopyTagsToSnapshot: bool = None, DomainIAMRoleName: str = None, EnableIAMDatabaseAuthentication: bool = None, EnableCloudwatchLogsExports: List = None, ProcessorFeatures: List = None, UseDefaultProcessorFeatures: bool = None, DBParameterGroupName: str = None, DeletionProtection: bool = None) -> Dict:
         pass
 
     def restore_db_instance_from_s3(self, DBInstanceIdentifier: str, DBInstanceClass: str, Engine: str, SourceEngine: str, SourceEngineVersion: str, S3BucketName: str, S3IngestionRoleArn: str, DBName: str = None, AllocatedStorage: int = None, MasterUsername: str = None, MasterUserPassword: str = None, DBSecurityGroups: List = None, VpcSecurityGroupIds: List = None, AvailabilityZone: str = None, DBSubnetGroupName: str = None, PreferredMaintenanceWindow: str = None, DBParameterGroupName: str = None, BackupRetentionPeriod: int = None, PreferredBackupWindow: str = None, Port: int = None, MultiAZ: bool = None, EngineVersion: str = None, AutoMinorVersionUpgrade: bool = None, LicenseModel: str = None, Iops: int = None, OptionGroupName: str = None, PubliclyAccessible: bool = None, Tags: List = None, StorageType: str = None, StorageEncrypted: bool = None, KmsKeyId: str = None, CopyTagsToSnapshot: bool = None, MonitoringInterval: int = None, MonitoringRoleArn: str = None, EnableIAMDatabaseAuthentication: bool = None, S3Prefix: str = None, EnablePerformanceInsights: bool = None, PerformanceInsightsKMSKeyId: str = None, PerformanceInsightsRetentionPeriod: int = None, EnableCloudwatchLogsExports: List = None, ProcessorFeatures: List = None, UseDefaultProcessorFeatures: bool = None, DeletionProtection: bool = None) -> Dict:
         pass
 
-    def restore_db_instance_to_point_in_time(self, SourceDBInstanceIdentifier: str, TargetDBInstanceIdentifier: str, RestoreTime: datetime = None, UseLatestRestorableTime: bool = None, DBInstanceClass: str = None, Port: int = None, AvailabilityZone: str = None, DBSubnetGroupName: str = None, MultiAZ: bool = None, PubliclyAccessible: bool = None, AutoMinorVersionUpgrade: bool = None, LicenseModel: str = None, DBName: str = None, Engine: str = None, Iops: int = None, OptionGroupName: str = None, CopyTagsToSnapshot: bool = None, Tags: List = None, StorageType: str = None, TdeCredentialArn: str = None, TdeCredentialPassword: str = None, Domain: str = None, DomainIAMRoleName: str = None, EnableIAMDatabaseAuthentication: bool = None, EnableCloudwatchLogsExports: List = None, ProcessorFeatures: List = None, UseDefaultProcessorFeatures: bool = None, DBParameterGroupName: str = None, DeletionProtection: bool = None) -> Dict:
+    def restore_db_instance_to_point_in_time(self, TargetDBInstanceIdentifier: str, SourceDBInstanceIdentifier: str = None, RestoreTime: datetime = None, UseLatestRestorableTime: bool = None, DBInstanceClass: str = None, Port: int = None, AvailabilityZone: str = None, DBSubnetGroupName: str = None, MultiAZ: bool = None, PubliclyAccessible: bool = None, AutoMinorVersionUpgrade: bool = None, LicenseModel: str = None, DBName: str = None, Engine: str = None, Iops: int = None, OptionGroupName: str = None, CopyTagsToSnapshot: bool = None, Tags: List = None, StorageType: str = None, TdeCredentialArn: str = None, TdeCredentialPassword: str = None, VpcSecurityGroupIds: List = None, Domain: str = None, DomainIAMRoleName: str = None, EnableIAMDatabaseAuthentication: bool = None, EnableCloudwatchLogsExports: List = None, ProcessorFeatures: List = None, UseDefaultProcessorFeatures: bool = None, DBParameterGroupName: str = None, DeletionProtection: bool = None, SourceDbiResourceId: str = None) -> Dict:
         pass
 
     def revoke_db_security_group_ingress(self, DBSecurityGroupName: str, CIDRIP: str = None, EC2SecurityGroupName: str = None, EC2SecurityGroupId: str = None, EC2SecurityGroupOwnerId: str = None) -> Dict:

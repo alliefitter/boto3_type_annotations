@@ -1,5 +1,5 @@
-from datetime import datetime
 from typing import List
+from datetime import datetime
 from typing import Dict
 from botocore.paginate import Paginator
 
@@ -16,6 +16,16 @@ class DescribeAutoScalingInstances(Paginator):
 
 class DescribeLaunchConfigurations(Paginator):
     def paginate(self, LaunchConfigurationNames: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeLoadBalancerTargetGroups(Paginator):
+    def paginate(self, AutoScalingGroupName: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeLoadBalancers(Paginator):
+    def paginate(self, AutoScalingGroupName: str, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

@@ -17,8 +17,18 @@ class ListGroups(Paginator):
         pass
 
 
+class ListMailboxPermissions(Paginator):
+    def paginate(self, OrganizationId: str, EntityId: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListOrganizations(Paginator):
     def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListResourceDelegates(Paginator):
+    def paginate(self, OrganizationId: str, ResourceId: str, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

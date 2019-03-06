@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from datetime import datetime
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -15,7 +15,7 @@ class Client(BaseClient):
     def delete_scaling_policy(self, PolicyName: str, ServiceNamespace: str, ResourceId: str, ScalableDimension: str) -> Dict:
         pass
 
-    def delete_scheduled_action(self, ServiceNamespace: str, ScheduledActionName: str, ResourceId: str, ScalableDimension: str = None) -> Dict:
+    def delete_scheduled_action(self, ServiceNamespace: str, ScheduledActionName: str, ResourceId: str, ScalableDimension: str) -> Dict:
         pass
 
     def deregister_scalable_target(self, ServiceNamespace: str, ResourceId: str, ScalableDimension: str) -> Dict:
@@ -45,7 +45,7 @@ class Client(BaseClient):
     def put_scaling_policy(self, PolicyName: str, ServiceNamespace: str, ResourceId: str, ScalableDimension: str, PolicyType: str = None, StepScalingPolicyConfiguration: Dict = None, TargetTrackingScalingPolicyConfiguration: Dict = None) -> Dict:
         pass
 
-    def put_scheduled_action(self, ServiceNamespace: str, ScheduledActionName: str, ResourceId: str, Schedule: str = None, ScalableDimension: str = None, StartTime: datetime = None, EndTime: datetime = None, ScalableTargetAction: Dict = None) -> Dict:
+    def put_scheduled_action(self, ServiceNamespace: str, ScheduledActionName: str, ResourceId: str, ScalableDimension: str, Schedule: str = None, StartTime: datetime = None, EndTime: datetime = None, ScalableTargetAction: Dict = None) -> Dict:
         pass
 
     def register_scalable_target(self, ServiceNamespace: str, ResourceId: str, ScalableDimension: str, MinCapacity: int = None, MaxCapacity: int = None, RoleARN: str = None) -> Dict:

@@ -4,8 +4,8 @@ with_clients: true
 with_service_resources: true
 with_paginators: true
 with_waiters: true
-package_name: boto3_type_annotations
+package_name: boto3_type_annotations_with_docs
 module_name: boto3_type_annotations
-version: 0.2.4
-readme: README.md
-license: LICENSE
+version: 0.3.0
+readme: "../README.md"
+license: "../LICENSE"

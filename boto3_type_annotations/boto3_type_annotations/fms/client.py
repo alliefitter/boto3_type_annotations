@@ -1,9 +1,9 @@
 from typing import Optional
-from typing import Union
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -16,7 +16,7 @@ class Client(BaseClient):
     def delete_notification_channel(self):
         pass
 
-    def delete_policy(self, PolicyId: str):
+    def delete_policy(self, PolicyId: str, DeleteAllPolicyResources: bool = None):
         pass
 
     def disassociate_admin_account(self):

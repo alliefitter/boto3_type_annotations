@@ -1,6 +1,6 @@
 from boto3.resources.collection import ResourceCollection
-from typing import List
 from typing import Optional
+from typing import List
 from typing import Union
 from datetime import datetime
 from typing import Dict
@@ -98,7 +98,7 @@ class ServiceResource(base.ServiceResource):
     def create_policy(self, PolicyName: str, PolicyDocument: str, Path: str = None, Description: str = None) -> 'Policy':
         pass
 
-    def create_role(self, RoleName: str, AssumeRolePolicyDocument: str, Path: str = None, Description: str = None, MaxSessionDuration: int = None, PermissionsBoundary: str = None) -> 'Role':
+    def create_role(self, RoleName: str, AssumeRolePolicyDocument: str, Path: str = None, Description: str = None, MaxSessionDuration: int = None, PermissionsBoundary: str = None, Tags: List = None) -> 'Role':
         pass
 
     def create_saml_provider(self, SAMLMetadataDocument: str, Name: str) -> 'SamlProvider':
@@ -110,7 +110,7 @@ class ServiceResource(base.ServiceResource):
     def create_signing_certificate(self, CertificateBody: str, UserName: str = None) -> 'SigningCertificate':
         pass
 
-    def create_user(self, UserName: str, Path: str = None, PermissionsBoundary: str = None) -> 'User':
+    def create_user(self, UserName: str, Path: str = None, PermissionsBoundary: str = None, Tags: List = None) -> 'User':
         pass
 
     def create_virtual_mfa_device(self, VirtualMFADeviceName: str, Path: str = None) -> 'VirtualMfaDevice':
@@ -221,6 +221,7 @@ class CurrentUser(base.ServiceResource):
     create_date: datetime
     password_last_used: datetime
     permissions_boundary: Dict
+    tags: List
     access_keys: 'access_keys'
     mfa_devices: 'mfa_devices'
     signing_certificates: 'signing_certificates'
@@ -456,6 +457,7 @@ class Role(base.ServiceResource):
     description: str
     max_session_duration: int
     permissions_boundary: Dict
+    tags: List
     name: str
     attached_policies: 'attached_policies'
     instance_profiles: 'instance_profiles'
@@ -575,6 +577,7 @@ class User(base.ServiceResource):
     create_date: datetime
     password_last_used: datetime
     permissions_boundary: Dict
+    tags: List
     name: str
     access_keys: 'access_keys'
     attached_policies: 'attached_policies'
@@ -589,7 +592,7 @@ class User(base.ServiceResource):
     def attach_policy(self, PolicyArn: str):
         pass
 
-    def create(self, Path: str = None, PermissionsBoundary: str = None) -> 'User':
+    def create(self, Path: str = None, PermissionsBoundary: str = None, Tags: List = None) -> 'User':
         pass
 
     def create_access_key_pair(self) -> 'AccessKeyPair':

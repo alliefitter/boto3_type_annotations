@@ -1,8 +1,9 @@
 import builtins
+import re
 from collections import defaultdict
 from inspect import getmodule
 from keyword import kwlist
-from os import mkdir, getcwd
+from os import mkdir
 from os.path import isdir, dirname, abspath
 from shutil import rmtree, copyfile
 from typing import IO, Set, Union, Tuple, List, Generator, Dict, Optional
@@ -24,22 +25,35 @@ def add_indentation_to_docstring(docstring: str, levels: int) -> str:
 
 def clean_doc(doc: str) -> str:
 
-    def append_line(next_line: str):
-        cleaned_doc.append(next_line.replace('\'', '\\\'').replace('"', '\\\"'))
+    def append_line(section: List, next_line: str):
+        section.append(next_line.replace('\'', '\\\'').replace('"', '\\\"').rstrip())
 
-    cleaned_doc = []
-    previous_line = None
-    for line in doc.split('\n'):
-        if isinstance(previous_line, str) and previous_line.endswith(':'):
-            append_line(previous_line)
-            append_line(line)
-        elif isinstance(previous_line, str) and previous_line.strip() == '' and line.strip() == '':
-            previous_line = line
-            continue
-        elif isinstance(previous_line, str) and not line.endswith(':'):
-            append_line(line)
-        previous_line = line
-    return '\n'.join(cleaned_doc)
+    parameters = []
+    preamble = []
+    indices_to_remove = []
+    parameter_regex = re.compile('^:(.*[a-zA-Z]):')
+    lines = doc.split('\n')
+    for i, line in enumerate(lines):
+        if parameter_regex.search(line.strip()):
+            append_line(parameters, line)
+            indices_to_remove.append(i)
+            n = i + 1
+            while n < len(lines) and not parameter_regex.search(lines[n].strip()) and line.strip() != ':returns:':
+                if lines[n].strip():
+                    append_line(parameters, lines[n])
+                    indices_to_remove.append(n)
+                n += 1
+    for i in reversed(indices_to_remove):
+        del lines[i]
+    for i, line in enumerate(lines):
+        if '::' == line.strip() or line.strip().startswith('**') and line.strip().endswith('**'):
+            lines[i] = line.strip()
+    for line in lines:
+        if line.strip():
+            if line.strip().startswith('**') and line.strip().endswith('**'):
+                preamble.append('')
+            preamble.append(line)
+    return '\n'.join(preamble + parameters)
 
 
 def create_import_statements(types: Set[type]) -> Generator[str, None, None]:
@@ -54,7 +68,8 @@ def create_module_directory(config: Config):
         rmtree(f'{normalized_repository_path()}/{config.package_name}')
     mkdir(f'{normalized_repository_path()}/{config.package_name}')
     mkdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}')
-    with open(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/__init__.py', 'w') as file_object:
+    init_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/__init__.py'
+    with open(init_path, 'w') as file_object:
         file_object.write('\n')
 
 
@@ -81,6 +96,10 @@ def normalize_type_name(type_: Union[type, Tuple, str]):
         return f'Union[{", ".join([normalize_type_name(t) for t in type_])}]'
     if isinstance(type_, str):
         return type_
+    if type_ == Union:
+        return 'Union'
+    if type_ == Optional:
+        return 'Optional'
     return type_._name if hasattr(type_, '_name') and not hasattr(type_, '__name__') else type_.__name__
 
 
@@ -141,7 +160,8 @@ def write_client(client: Client, config: Config):
     normalized_module_name = normalize_module_name(client.name)
     if not isdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}'):
         mkdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}')
-    file_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}/client.py'
+    file_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}' \
+        f'/client.py'
     with open(file_path, 'w') as file_object:
         types = retrieve_types_from_client(client).union({Optional, BaseClient, Union})
         file_object.write('\n'.join(list(create_import_statements(types))))
@@ -267,7 +287,8 @@ def write_service_waiter(
     normalized_module_name = normalize_module_name(service_waiter.name)
     if not isdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}'):
         mkdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}')
-    file_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}/waiter.py'
+    file_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}' \
+        f'/waiter.py'
     if service_waiter.waiters:
         with open(file_path, 'w') as file_object:
             types = set()
@@ -295,7 +316,8 @@ def write_service_paginator(
     print(f'Writing: {service_paginator.name}')
     if not isdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}'):
         mkdir(f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}')
-    file_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}/paginator.py'
+    file_path = f'{normalized_repository_path()}/{config.package_name}/{config.module_name}/{normalized_module_name}' \
+        f'/paginator.py'
     if service_paginator.paginators:
         with open(file_path, 'w') as file_object:
             types = set()
@@ -373,37 +395,27 @@ setup(
 ''')
 
 
-def write_service_paginators(
-        session: Session,
-        config: Config
-):
+def write_service_paginators(session: Session, config: Config):
+    print('\n\nWriting Clients\n\n')
     for service_paginator in parse_service_paginators(session, config):
         write_service_paginator(service_paginator, config)
 
 
-def write_service_waiters(
-        session: Session,
-        config: Config
-):
+def write_service_waiters(session: Session, config: Config):
+    print('\n\nWriting Waiters\n\n')
     for service_waiter in parse_service_waiters(session, config):
         write_service_waiter(service_waiter, config)
 
 
-def write_service_resources(
-        init_files: Dict,
-        session: Session,
-        config: Config
-) -> Dict[str, List]:
+def write_service_resources(init_files: Dict, session: Session, config: Config) -> Dict[str, List]:
+    print('\n\nWriting Service Resources\n\n')
     for service_resource in parse_service_resources(session, config):
         init_files[service_resource.name] += write_service_resource(service_resource, config)
     return init_files
 
 
-def write_clients(
-        init_files: Dict,
-        session: Session,
-        config: Config
-) -> Dict[str, List]:
+def write_clients(init_files: Dict, session: Session, config: Config) -> Dict[str, List]:
+    print('\n\nWriting Clients\n\n')
     for client in parse_clients(session, config):
         init_files[client.name] += write_client(client, config)
     return init_files

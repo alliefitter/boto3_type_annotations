@@ -5,37 +5,28 @@ from botocore.waiter import Waiter
 class ClusterRunning(Waiter):
     def wait(self, ClusterId: str, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`EMR.Client.describe_cluster` every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/DescribeCluster>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
-              ClusterId=\'string\',
+              ClusterId='string',
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type ClusterId: string
-        :param ClusterId: **[REQUIRED]** 
-        
+        :param ClusterId: **[REQUIRED]**
           The identifier of the cluster to describe.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 30
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 60
-        
         :returns: None
         """
         pass
@@ -44,37 +35,28 @@ class ClusterRunning(Waiter):
 class ClusterTerminated(Waiter):
     def wait(self, ClusterId: str, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`EMR.Client.describe_cluster` every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/DescribeCluster>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
-              ClusterId=\'string\',
+              ClusterId='string',
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type ClusterId: string
-        :param ClusterId: **[REQUIRED]** 
-        
+        :param ClusterId: **[REQUIRED]**
           The identifier of the cluster to describe.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 30
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 60
-        
         :returns: None
         """
         pass
@@ -83,43 +65,32 @@ class ClusterTerminated(Waiter):
 class StepComplete(Waiter):
     def wait(self, ClusterId: str, StepId: str, WaiterConfig: Dict = None):
         """
-        
+        Polls :py:meth:`EMR.Client.describe_step` every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/DescribeStep>`_
         
-        **Request Syntax** 
+        **Request Syntax**
         ::
-        
           waiter.wait(
-              ClusterId=\'string\',
-              StepId=\'string\',
+              ClusterId='string',
+              StepId='string',
               WaiterConfig={
-                  \'Delay\': 123,
-                  \'MaxAttempts\': 123
+                  'Delay': 123,
+                  'MaxAttempts': 123
               }
           )
         :type ClusterId: string
-        :param ClusterId: **[REQUIRED]** 
-        
+        :param ClusterId: **[REQUIRED]**
           The identifier of the cluster with steps to describe.
-        
         :type StepId: string
-        :param StepId: **[REQUIRED]** 
-        
+        :param StepId: **[REQUIRED]**
           The identifier of the step to describe.
-        
         :type WaiterConfig: dict
-        :param WaiterConfig: 
-        
+        :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
-        
-          - **Delay** *(integer) --* 
-        
+          - **Delay** *(integer) --*
             The amount of time in seconds to wait between attempts. Default: 30
-        
-          - **MaxAttempts** *(integer) --* 
-        
+          - **MaxAttempts** *(integer) --*
             The maximum number of attempts to be made. Default: 60
-        
         :returns: None
         """
         pass

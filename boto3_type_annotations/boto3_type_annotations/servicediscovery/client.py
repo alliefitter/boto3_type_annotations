@@ -1,14 +1,17 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
+        pass
+
+    def create_http_namespace(self, Name: str, CreatorRequestId: str = None, Description: str = None) -> Dict:
         pass
 
     def create_private_dns_namespace(self, Name: str, Vpc: str, CreatorRequestId: str = None, Description: str = None) -> Dict:
@@ -17,7 +20,7 @@ class Client(BaseClient):
     def create_public_dns_namespace(self, Name: str, CreatorRequestId: str = None, Description: str = None) -> Dict:
         pass
 
-    def create_service(self, Name: str, DnsConfig: Dict, CreatorRequestId: str = None, Description: str = None, HealthCheckConfig: Dict = None, HealthCheckCustomConfig: Dict = None) -> Dict:
+    def create_service(self, Name: str, NamespaceId: str = None, CreatorRequestId: str = None, Description: str = None, DnsConfig: Dict = None, HealthCheckConfig: Dict = None, HealthCheckCustomConfig: Dict = None) -> Dict:
         pass
 
     def delete_namespace(self, Id: str) -> Dict:
@@ -27,6 +30,9 @@ class Client(BaseClient):
         pass
 
     def deregister_instance(self, ServiceId: str, InstanceId: str) -> Dict:
+        pass
+
+    def discover_instances(self, NamespaceName: str, ServiceName: str, MaxResults: int = None, QueryParameters: Dict = None, HealthStatus: str = None) -> Dict:
         pass
 
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):

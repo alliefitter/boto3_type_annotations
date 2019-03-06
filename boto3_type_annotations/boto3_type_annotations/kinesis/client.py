@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from datetime import datetime
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -97,6 +97,9 @@ class Client(BaseClient):
         pass
 
     def stop_stream_encryption(self, StreamName: str, EncryptionType: str, KeyId: str):
+        pass
+
+    def subscribe_to_shard(self, ConsumerARN: str, ShardId: str, StartingPosition: Dict) -> Dict:
         pass
 
     def update_shard_count(self, StreamName: str, TargetShardCount: int, ScalingType: str) -> Dict:

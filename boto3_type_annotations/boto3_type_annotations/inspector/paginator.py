@@ -28,6 +28,11 @@ class ListEventSubscriptions(Paginator):
         pass
 
 
+class ListExclusions(Paginator):
+    def paginate(self, assessmentRunArn: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListFindings(Paginator):
     def paginate(self, assessmentRunArns: List = None, filter: Dict = None, PaginationConfig: Dict = None) -> Dict:
         pass

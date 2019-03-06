@@ -1,9 +1,10 @@
 from typing import Optional
-from typing import Union
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
+from typing import List
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -28,5 +29,14 @@ class Client(BaseClient):
     def list_playback_configurations(self, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
-    def put_playback_configuration(self, AdDecisionServerUrl: str = None, CdnConfiguration: Dict = None, Name: str = None, SlateAdUrl: str = None, VideoContentSourceUrl: str = None) -> Dict:
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        pass
+
+    def put_playback_configuration(self, AdDecisionServerUrl: str = None, CdnConfiguration: Dict = None, DashConfiguration: Dict = None, Name: str = None, SlateAdUrl: str = None, Tags: Dict = None, TranscodeProfileName: str = None, VideoContentSourceUrl: str = None) -> Dict:
+        pass
+
+    def tag_resource(self, ResourceArn: str, Tags: Dict):
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
         pass

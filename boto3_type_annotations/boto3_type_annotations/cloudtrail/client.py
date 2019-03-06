@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from datetime import datetime
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -15,7 +15,7 @@ class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_trail(self, Name: str, S3BucketName: str, S3KeyPrefix: str = None, SnsTopicName: str = None, IncludeGlobalServiceEvents: bool = None, IsMultiRegionTrail: bool = None, EnableLogFileValidation: bool = None, CloudWatchLogsLogGroupArn: str = None, CloudWatchLogsRoleArn: str = None, KmsKeyId: str = None) -> Dict:
+    def create_trail(self, Name: str, S3BucketName: str, S3KeyPrefix: str = None, SnsTopicName: str = None, IncludeGlobalServiceEvents: bool = None, IsMultiRegionTrail: bool = None, EnableLogFileValidation: bool = None, CloudWatchLogsLogGroupArn: str = None, CloudWatchLogsRoleArn: str = None, KmsKeyId: str = None, IsOrganizationTrail: bool = None) -> Dict:
         pass
 
     def delete_trail(self, Name: str) -> Dict:
@@ -60,5 +60,5 @@ class Client(BaseClient):
     def stop_logging(self, Name: str) -> Dict:
         pass
 
-    def update_trail(self, Name: str, S3BucketName: str = None, S3KeyPrefix: str = None, SnsTopicName: str = None, IncludeGlobalServiceEvents: bool = None, IsMultiRegionTrail: bool = None, EnableLogFileValidation: bool = None, CloudWatchLogsLogGroupArn: str = None, CloudWatchLogsRoleArn: str = None, KmsKeyId: str = None) -> Dict:
+    def update_trail(self, Name: str, S3BucketName: str = None, S3KeyPrefix: str = None, SnsTopicName: str = None, IncludeGlobalServiceEvents: bool = None, IsMultiRegionTrail: bool = None, EnableLogFileValidation: bool = None, CloudWatchLogsLogGroupArn: str = None, CloudWatchLogsRoleArn: str = None, KmsKeyId: str = None, IsOrganizationTrail: bool = None) -> Dict:
         pass

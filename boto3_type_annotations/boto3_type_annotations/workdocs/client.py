@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from datetime import datetime
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -66,7 +66,7 @@ class Client(BaseClient):
     def delete_user(self, UserId: str, AuthenticationToken: str = None):
         pass
 
-    def describe_activities(self, AuthenticationToken: str = None, StartTime: datetime = None, EndTime: datetime = None, OrganizationId: str = None, UserId: str = None, Limit: int = None, Marker: str = None) -> Dict:
+    def describe_activities(self, AuthenticationToken: str = None, StartTime: datetime = None, EndTime: datetime = None, OrganizationId: str = None, ActivityTypes: str = None, ResourceId: str = None, UserId: str = None, IncludeIndirectActivities: bool = None, Limit: int = None, Marker: str = None) -> Dict:
         pass
 
     def describe_comments(self, DocumentId: str, VersionId: str, AuthenticationToken: str = None, Limit: int = None, Marker: str = None) -> Dict:
@@ -115,6 +115,9 @@ class Client(BaseClient):
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
+        pass
+
+    def get_resources(self, AuthenticationToken: str = None, UserId: str = None, CollectionType: str = None, Limit: int = None, Marker: str = None) -> Dict:
         pass
 
     def get_waiter(self, waiter_name: str = None) -> Waiter:

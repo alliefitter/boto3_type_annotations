@@ -1,17 +1,17 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_file_system(self, CreationToken: str, PerformanceMode: str = None, Encrypted: bool = None, KmsKeyId: str = None, ThroughputMode: str = None, ProvisionedThroughputInMibps: float = None) -> Dict:
+    def create_file_system(self, CreationToken: str, PerformanceMode: str = None, Encrypted: bool = None, KmsKeyId: str = None, ThroughputMode: str = None, ProvisionedThroughputInMibps: float = None, Tags: List = None) -> Dict:
         pass
 
     def create_mount_target(self, FileSystemId: str, SubnetId: str, IpAddress: str = None, SecurityGroups: List = None) -> Dict:
@@ -30,6 +30,9 @@ class Client(BaseClient):
         pass
 
     def describe_file_systems(self, MaxItems: int = None, Marker: str = None, CreationToken: str = None, FileSystemId: str = None) -> Dict:
+        pass
+
+    def describe_lifecycle_configuration(self, FileSystemId: str) -> Dict:
         pass
 
     def describe_mount_target_security_groups(self, MountTargetId: str) -> Dict:
@@ -51,6 +54,9 @@ class Client(BaseClient):
         pass
 
     def modify_mount_target_security_groups(self, MountTargetId: str, SecurityGroups: List = None):
+        pass
+
+    def put_lifecycle_configuration(self, FileSystemId: str, LifecyclePolicies: List) -> Dict:
         pass
 
     def update_file_system(self, FileSystemId: str, ThroughputMode: str = None, ProvisionedThroughputInMibps: float = None) -> Dict:

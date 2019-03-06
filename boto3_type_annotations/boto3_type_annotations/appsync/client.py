@@ -1,9 +1,9 @@
 from typing import Optional
-from typing import Union
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -13,13 +13,16 @@ class Client(BaseClient):
     def create_api_key(self, apiId: str, description: str = None, expires: int = None) -> Dict:
         pass
 
-    def create_data_source(self, apiId: str, name: str, type: str, description: str = None, serviceRoleArn: str = None, dynamodbConfig: Dict = None, lambdaConfig: Dict = None, elasticsearchConfig: Dict = None, httpConfig: Dict = None) -> Dict:
+    def create_data_source(self, apiId: str, name: str, type: str, description: str = None, serviceRoleArn: str = None, dynamodbConfig: Dict = None, lambdaConfig: Dict = None, elasticsearchConfig: Dict = None, httpConfig: Dict = None, relationalDatabaseConfig: Dict = None) -> Dict:
+        pass
+
+    def create_function(self, apiId: str, name: str, dataSourceName: str, requestMappingTemplate: str, functionVersion: str, description: str = None, responseMappingTemplate: str = None) -> Dict:
         pass
 
     def create_graphql_api(self, name: str, authenticationType: str, logConfig: Dict = None, userPoolConfig: Dict = None, openIDConnectConfig: Dict = None) -> Dict:
         pass
 
-    def create_resolver(self, apiId: str, typeName: str, fieldName: str, dataSourceName: str, requestMappingTemplate: str, responseMappingTemplate: str = None) -> Dict:
+    def create_resolver(self, apiId: str, typeName: str, fieldName: str, requestMappingTemplate: str, dataSourceName: str = None, responseMappingTemplate: str = None, kind: str = None, pipelineConfig: Dict = None) -> Dict:
         pass
 
     def create_type(self, apiId: str, definition: str, format: str) -> Dict:
@@ -29,6 +32,9 @@ class Client(BaseClient):
         pass
 
     def delete_data_source(self, apiId: str, name: str) -> Dict:
+        pass
+
+    def delete_function(self, apiId: str, functionId: str) -> Dict:
         pass
 
     def delete_graphql_api(self, apiId: str) -> Dict:
@@ -44,6 +50,9 @@ class Client(BaseClient):
         pass
 
     def get_data_source(self, apiId: str, name: str) -> Dict:
+        pass
+
+    def get_function(self, apiId: str, functionId: str) -> Dict:
         pass
 
     def get_graphql_api(self, apiId: str) -> Dict:
@@ -73,10 +82,16 @@ class Client(BaseClient):
     def list_data_sources(self, apiId: str, nextToken: str = None, maxResults: int = None) -> Dict:
         pass
 
+    def list_functions(self, apiId: str, nextToken: str = None, maxResults: int = None) -> Dict:
+        pass
+
     def list_graphql_apis(self, nextToken: str = None, maxResults: int = None) -> Dict:
         pass
 
     def list_resolvers(self, apiId: str, typeName: str, nextToken: str = None, maxResults: int = None) -> Dict:
+        pass
+
+    def list_resolvers_by_function(self, apiId: str, functionId: str, nextToken: str = None, maxResults: int = None) -> Dict:
         pass
 
     def list_types(self, apiId: str, format: str, nextToken: str = None, maxResults: int = None) -> Dict:
@@ -88,13 +103,16 @@ class Client(BaseClient):
     def update_api_key(self, apiId: str, id: str, description: str = None, expires: int = None) -> Dict:
         pass
 
-    def update_data_source(self, apiId: str, name: str, type: str, description: str = None, serviceRoleArn: str = None, dynamodbConfig: Dict = None, lambdaConfig: Dict = None, elasticsearchConfig: Dict = None, httpConfig: Dict = None) -> Dict:
+    def update_data_source(self, apiId: str, name: str, type: str, description: str = None, serviceRoleArn: str = None, dynamodbConfig: Dict = None, lambdaConfig: Dict = None, elasticsearchConfig: Dict = None, httpConfig: Dict = None, relationalDatabaseConfig: Dict = None) -> Dict:
+        pass
+
+    def update_function(self, apiId: str, name: str, functionId: str, dataSourceName: str, requestMappingTemplate: str, functionVersion: str, description: str = None, responseMappingTemplate: str = None) -> Dict:
         pass
 
     def update_graphql_api(self, apiId: str, name: str, logConfig: Dict = None, authenticationType: str = None, userPoolConfig: Dict = None, openIDConnectConfig: Dict = None) -> Dict:
         pass
 
-    def update_resolver(self, apiId: str, typeName: str, fieldName: str, dataSourceName: str, requestMappingTemplate: str, responseMappingTemplate: str = None) -> Dict:
+    def update_resolver(self, apiId: str, typeName: str, fieldName: str, requestMappingTemplate: str, dataSourceName: str = None, responseMappingTemplate: str = None, kind: str = None, pipelineConfig: Dict = None) -> Dict:
         pass
 
     def update_type(self, apiId: str, typeName: str, format: str, definition: str = None) -> Dict:

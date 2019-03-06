@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from botocore.waiter import Waiter
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -42,6 +42,9 @@ class Client(BaseClient):
         pass
 
     def get_waiter(self, waiter_name: str = None) -> Waiter:
+        pass
+
+    def list_application_dependencies(self, ApplicationId: str, MaxItems: int = None, NextToken: str = None, SemanticVersion: str = None) -> Dict:
         pass
 
     def list_application_versions(self, ApplicationId: str, MaxItems: int = None, NextToken: str = None) -> Dict:

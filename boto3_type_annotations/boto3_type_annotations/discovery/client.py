@@ -1,15 +1,18 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from datetime import datetime
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
     def associate_configuration_items_to_application(self, applicationConfigurationId: str, configurationIds: List) -> Dict:
+        pass
+
+    def batch_delete_import_data(self, importTaskIds: List) -> Dict:
         pass
 
     def can_paginate(self, operation_name: str = None):
@@ -40,6 +43,9 @@ class Client(BaseClient):
         pass
 
     def describe_export_tasks(self, exportIds: List = None, filters: List = None, maxResults: int = None, nextToken: str = None) -> Dict:
+        pass
+
+    def describe_import_tasks(self, filters: List = None, maxResults: int = None, nextToken: str = None) -> Dict:
         pass
 
     def describe_tags(self, filters: List = None, maxResults: int = None, nextToken: str = None) -> Dict:
@@ -76,6 +82,9 @@ class Client(BaseClient):
         pass
 
     def start_export_task(self, exportDataFormat: List = None, filters: List = None, startTime: datetime = None, endTime: datetime = None) -> Dict:
+        pass
+
+    def start_import_task(self, name: str, importUrl: str, clientRequestToken: str = None) -> Dict:
         pass
 
     def stop_continuous_export(self, exportId: str) -> Dict:

@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -297,6 +297,9 @@ class Client(BaseClient):
         pass
 
     def update_user_pool_client(self, UserPoolId: str, ClientId: str, ClientName: str = None, RefreshTokenValidity: int = None, ReadAttributes: List = None, WriteAttributes: List = None, ExplicitAuthFlows: List = None, SupportedIdentityProviders: List = None, CallbackURLs: List = None, LogoutURLs: List = None, DefaultRedirectURI: str = None, AllowedOAuthFlows: List = None, AllowedOAuthScopes: List = None, AllowedOAuthFlowsUserPoolClient: bool = None, AnalyticsConfiguration: Dict = None) -> Dict:
+        pass
+
+    def update_user_pool_domain(self, Domain: str, UserPoolId: str, CustomDomainConfig: Dict) -> Dict:
         pass
 
     def verify_software_token(self, UserCode: str, AccessToken: str = None, Session: str = None, FriendlyDeviceName: str = None) -> Dict:

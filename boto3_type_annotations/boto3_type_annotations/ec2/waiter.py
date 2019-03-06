@@ -99,7 +99,7 @@ class SnapshotCompleted(Waiter):
 
 
 class SpotInstanceRequestFulfilled(Waiter):
-    def wait(self, Filters: List = None, DryRun: bool = None, SpotInstanceRequestIds: List = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, DryRun: bool = None, SpotInstanceRequestIds: List = None, NextToken: str = None, MaxResults: int = None, WaiterConfig: Dict = None):
         pass
 
 
@@ -139,12 +139,12 @@ class VpcExists(Waiter):
 
 
 class VpcPeeringConnectionDeleted(Waiter):
-    def wait(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, NextToken: str = None, MaxResults: int = None, WaiterConfig: Dict = None):
         pass
 
 
 class VpcPeeringConnectionExists(Waiter):
-    def wait(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, NextToken: str = None, MaxResults: int = None, WaiterConfig: Dict = None):
         pass
 
 

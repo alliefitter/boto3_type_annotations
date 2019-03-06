@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from botocore.waiter import Waiter
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -26,7 +26,7 @@ class Client(BaseClient):
     def create_rule(self, ListenerArn: str, Conditions: List, Priority: int, Actions: List) -> Dict:
         pass
 
-    def create_target_group(self, Name: str, Protocol: str, Port: int, VpcId: str, HealthCheckProtocol: str = None, HealthCheckPort: str = None, HealthCheckPath: str = None, HealthCheckIntervalSeconds: int = None, HealthCheckTimeoutSeconds: int = None, HealthyThresholdCount: int = None, UnhealthyThresholdCount: int = None, Matcher: Dict = None, TargetType: str = None) -> Dict:
+    def create_target_group(self, Name: str, Protocol: str = None, Port: int = None, VpcId: str = None, HealthCheckProtocol: str = None, HealthCheckPort: str = None, HealthCheckEnabled: bool = None, HealthCheckPath: str = None, HealthCheckIntervalSeconds: int = None, HealthCheckTimeoutSeconds: int = None, HealthyThresholdCount: int = None, UnhealthyThresholdCount: int = None, Matcher: Dict = None, TargetType: str = None) -> Dict:
         pass
 
     def delete_listener(self, ListenerArn: str) -> Dict:
@@ -95,7 +95,7 @@ class Client(BaseClient):
     def modify_rule(self, RuleArn: str, Conditions: List = None, Actions: List = None) -> Dict:
         pass
 
-    def modify_target_group(self, TargetGroupArn: str, HealthCheckProtocol: str = None, HealthCheckPort: str = None, HealthCheckPath: str = None, HealthCheckIntervalSeconds: int = None, HealthCheckTimeoutSeconds: int = None, HealthyThresholdCount: int = None, UnhealthyThresholdCount: int = None, Matcher: Dict = None) -> Dict:
+    def modify_target_group(self, TargetGroupArn: str, HealthCheckProtocol: str = None, HealthCheckPort: str = None, HealthCheckPath: str = None, HealthCheckEnabled: bool = None, HealthCheckIntervalSeconds: int = None, HealthCheckTimeoutSeconds: int = None, HealthyThresholdCount: int = None, UnhealthyThresholdCount: int = None, Matcher: Dict = None) -> Dict:
         pass
 
     def modify_target_group_attributes(self, TargetGroupArn: str, Attributes: List) -> Dict:

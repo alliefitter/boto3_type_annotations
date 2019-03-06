@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -56,7 +56,7 @@ class Client(BaseClient):
     def create_policy_version(self, PolicyArn: str, PolicyDocument: str, SetAsDefault: bool = None) -> Dict:
         pass
 
-    def create_role(self, RoleName: str, AssumeRolePolicyDocument: str, Path: str = None, Description: str = None, MaxSessionDuration: int = None, PermissionsBoundary: str = None) -> Dict:
+    def create_role(self, RoleName: str, AssumeRolePolicyDocument: str, Path: str = None, Description: str = None, MaxSessionDuration: int = None, PermissionsBoundary: str = None, Tags: List = None) -> Dict:
         pass
 
     def create_saml_provider(self, SAMLMetadataDocument: str, Name: str) -> Dict:
@@ -68,7 +68,7 @@ class Client(BaseClient):
     def create_service_specific_credential(self, UserName: str, ServiceName: str) -> Dict:
         pass
 
-    def create_user(self, UserName: str, Path: str = None, PermissionsBoundary: str = None) -> Dict:
+    def create_user(self, UserName: str, Path: str = None, PermissionsBoundary: str = None, Tags: List = None) -> Dict:
         pass
 
     def create_virtual_mfa_device(self, VirtualMFADeviceName: str, Path: str = None) -> Dict:
@@ -164,6 +164,9 @@ class Client(BaseClient):
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
+    def generate_service_last_accessed_details(self, Arn: str) -> Dict:
+        pass
+
     def get_access_key_last_used(self, AccessKeyId: str) -> Dict:
         pass
 
@@ -219,6 +222,12 @@ class Client(BaseClient):
         pass
 
     def get_server_certificate(self, ServerCertificateName: str) -> Dict:
+        pass
+
+    def get_service_last_accessed_details(self, JobId: str, MaxItems: int = None, Marker: str = None) -> Dict:
+        pass
+
+    def get_service_last_accessed_details_with_entities(self, JobId: str, ServiceNamespace: str, MaxItems: int = None, Marker: str = None) -> Dict:
         pass
 
     def get_service_linked_role_deletion_status(self, DeletionTaskId: str) -> Dict:
@@ -278,10 +287,16 @@ class Client(BaseClient):
     def list_policies(self, Scope: str = None, OnlyAttached: bool = None, PathPrefix: str = None, PolicyUsageFilter: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
         pass
 
+    def list_policies_granting_service_access(self, Arn: str, ServiceNamespaces: List, Marker: str = None) -> Dict:
+        pass
+
     def list_policy_versions(self, PolicyArn: str, Marker: str = None, MaxItems: int = None) -> Dict:
         pass
 
     def list_role_policies(self, RoleName: str, Marker: str = None, MaxItems: int = None) -> Dict:
+        pass
+
+    def list_role_tags(self, RoleName: str, Marker: str = None, MaxItems: int = None) -> Dict:
         pass
 
     def list_roles(self, PathPrefix: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
@@ -303,6 +318,9 @@ class Client(BaseClient):
         pass
 
     def list_user_policies(self, UserName: str, Marker: str = None, MaxItems: int = None) -> Dict:
+        pass
+
+    def list_user_tags(self, UserName: str, Marker: str = None, MaxItems: int = None) -> Dict:
         pass
 
     def list_users(self, PathPrefix: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
@@ -348,6 +366,18 @@ class Client(BaseClient):
         pass
 
     def simulate_principal_policy(self, PolicySourceArn: str, ActionNames: List, PolicyInputList: List = None, ResourceArns: List = None, ResourcePolicy: str = None, ResourceOwner: str = None, CallerArn: str = None, ContextEntries: List = None, ResourceHandlingOption: str = None, MaxItems: int = None, Marker: str = None) -> Dict:
+        pass
+
+    def tag_role(self, RoleName: str, Tags: List):
+        pass
+
+    def tag_user(self, UserName: str, Tags: List):
+        pass
+
+    def untag_role(self, RoleName: str, TagKeys: List):
+        pass
+
+    def untag_user(self, UserName: str, TagKeys: List):
         pass
 
     def update_access_key(self, AccessKeyId: str, Status: str, UserName: str = None):

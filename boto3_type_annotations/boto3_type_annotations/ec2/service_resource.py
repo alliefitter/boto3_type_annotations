@@ -1,6 +1,6 @@
-from typing import List
 from boto3.resources.collection import ResourceCollection
 from typing import Optional
+from typing import List
 from typing import Union
 from datetime import datetime
 from typing import Dict
@@ -92,7 +92,7 @@ class ServiceResource(base.ServiceResource):
     def create_dhcp_options(self, DhcpConfigurations: List, DryRun: bool = None) -> 'DhcpOptions':
         pass
 
-    def create_instances(self, MaxCount: int, MinCount: int, BlockDeviceMappings: List = None, ImageId: str = None, InstanceType: str = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, KernelId: str = None, KeyName: str = None, Monitoring: Dict = None, Placement: Dict = None, RamdiskId: str = None, SecurityGroupIds: List = None, SecurityGroups: List = None, SubnetId: str = None, UserData: str = None, AdditionalInfo: str = None, ClientToken: str = None, DisableApiTermination: bool = None, DryRun: bool = None, EbsOptimized: bool = None, IamInstanceProfile: Dict = None, InstanceInitiatedShutdownBehavior: str = None, NetworkInterfaces: List = None, PrivateIpAddress: str = None, ElasticGpuSpecification: List = None, TagSpecifications: List = None, LaunchTemplate: Dict = None, InstanceMarketOptions: Dict = None, CreditSpecification: Dict = None, CpuOptions: Dict = None, CapacityReservationSpecification: Dict = None) -> List['Instance']:
+    def create_instances(self, MaxCount: int, MinCount: int, BlockDeviceMappings: List = None, ImageId: str = None, InstanceType: str = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, KernelId: str = None, KeyName: str = None, Monitoring: Dict = None, Placement: Dict = None, RamdiskId: str = None, SecurityGroupIds: List = None, SecurityGroups: List = None, SubnetId: str = None, UserData: str = None, AdditionalInfo: str = None, ClientToken: str = None, DisableApiTermination: bool = None, DryRun: bool = None, EbsOptimized: bool = None, IamInstanceProfile: Dict = None, InstanceInitiatedShutdownBehavior: str = None, NetworkInterfaces: List = None, PrivateIpAddress: str = None, ElasticGpuSpecification: List = None, ElasticInferenceAccelerators: List = None, TagSpecifications: List = None, LaunchTemplate: Dict = None, InstanceMarketOptions: Dict = None, CreditSpecification: Dict = None, CpuOptions: Dict = None, CapacityReservationSpecification: Dict = None, HibernationOptions: Dict = None, LicenseSpecifications: List = None) -> List['Instance']:
         pass
 
     def create_internet_gateway(self, DryRun: bool = None) -> 'InternetGateway':
@@ -107,7 +107,7 @@ class ServiceResource(base.ServiceResource):
     def create_network_interface(self, SubnetId: str, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> 'NetworkInterface':
         pass
 
-    def create_placement_group(self, GroupName: str, Strategy: str, DryRun: bool = None) -> 'PlacementGroup':
+    def create_placement_group(self, DryRun: bool = None, GroupName: str = None, Strategy: str = None, PartitionCount: int = None) -> 'PlacementGroup':
         pass
 
     def create_route_table(self, VpcId: str, DryRun: bool = None) -> 'RouteTable':
@@ -119,7 +119,7 @@ class ServiceResource(base.ServiceResource):
     def create_snapshot(self, VolumeId: str, Description: str = None, TagSpecifications: List = None, DryRun: bool = None) -> 'Snapshot':
         pass
 
-    def create_subnet(self, CidrBlock: str, VpcId: str, AvailabilityZone: str = None, Ipv6CidrBlock: str = None, DryRun: bool = None) -> 'Subnet':
+    def create_subnet(self, CidrBlock: str, VpcId: str, AvailabilityZone: str = None, AvailabilityZoneId: str = None, Ipv6CidrBlock: str = None, DryRun: bool = None) -> 'Subnet':
         pass
 
     def create_tags(self, Resources: List[str], Tags: List, DryRun: bool = None):
@@ -181,6 +181,7 @@ class ClassicAddress(base.ServiceResource):
 class DhcpOptions(base.ServiceResource):
     dhcp_configurations: List
     dhcp_options_id: str
+    owner_id: str
     tags: List
     id: str
 
@@ -288,6 +289,7 @@ class Instance(base.ServiceResource):
     iam_instance_profile: Dict
     instance_lifecycle: str
     elastic_gpu_associations: List
+    elastic_inference_accelerator_associations: List
     network_interfaces_attribute: List
     root_device_name: str
     root_device_type: str
@@ -301,6 +303,8 @@ class Instance(base.ServiceResource):
     cpu_options: Dict
     capacity_reservation_id: str
     capacity_reservation_specification: Dict
+    hibernation_options: Dict
+    licenses: List
     id: str
     volumes: 'volumes'
     vpc_addresses: 'vpc_addresses'
@@ -371,7 +375,7 @@ class Instance(base.ServiceResource):
     def start(self, AdditionalInfo: str = None, DryRun: bool = None) -> Dict:
         pass
 
-    def stop(self, DryRun: bool = None, Force: bool = None) -> Dict:
+    def stop(self, Hibernate: bool = None, DryRun: bool = None, Force: bool = None) -> Dict:
         pass
 
     def terminate(self, DryRun: bool = None) -> Dict:
@@ -396,6 +400,7 @@ class Instance(base.ServiceResource):
 class InternetGateway(base.ServiceResource):
     attachments: List
     internet_gateway_id: str
+    owner_id: str
     tags: List
     id: str
 
@@ -459,6 +464,7 @@ class NetworkAcl(base.ServiceResource):
     network_acl_id: str
     tags: List
     vpc_id: str
+    owner_id: str
     id: str
 
     def create_entry(self, Egress: bool, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None):
@@ -572,6 +578,7 @@ class PlacementGroup(base.ServiceResource):
     group_name: str
     state: str
     strategy: str
+    partition_count: int
     name: str
     instances: 'instances'
 
@@ -596,6 +603,7 @@ class Route(base.ServiceResource):
     instance_id: str
     instance_owner_id: str
     nat_gateway_id: str
+    transit_gateway_id: str
     network_interface_id: str
     origin: str
     state: str
@@ -609,7 +617,7 @@ class Route(base.ServiceResource):
     def get_available_subresources(self) -> List[str]:
         pass
 
-    def replace(self, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None):
+    def replace(self, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, TransitGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None):
         pass
 
 
@@ -620,12 +628,13 @@ class RouteTable(base.ServiceResource):
     routes_attribute: List
     tags: List
     vpc_id: str
+    owner_id: str
     id: str
 
     def associate_with_subnet(self, SubnetId: str, DryRun: bool = None) -> 'RouteTableAssociation':
         pass
 
-    def create_route(self, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None) -> 'Route':
+    def create_route(self, DestinationCidrBlock: str = None, DestinationIpv6CidrBlock: str = None, DryRun: bool = None, EgressOnlyInternetGatewayId: str = None, GatewayId: str = None, InstanceId: str = None, NatGatewayId: str = None, TransitGatewayId: str = None, NetworkInterfaceId: str = None, VpcPeeringConnectionId: str = None) -> 'Route':
         pass
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
@@ -750,6 +759,7 @@ class Snapshot(base.ServiceResource):
 
 class Subnet(base.ServiceResource):
     availability_zone: str
+    availability_zone_id: str
     available_ip_address_count: int
     cidr_block: str
     default_for_az: bool
@@ -757,14 +767,16 @@ class Subnet(base.ServiceResource):
     state: str
     subnet_id: str
     vpc_id: str
+    owner_id: str
     assign_ipv6_address_on_creation: bool
     ipv6_cidr_block_association_set: List
     tags: List
+    subnet_arn: str
     id: str
     instances: 'instances'
     network_interfaces: 'network_interfaces'
 
-    def create_instances(self, MaxCount: int, MinCount: int, BlockDeviceMappings: List = None, ImageId: str = None, InstanceType: str = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, KernelId: str = None, KeyName: str = None, Monitoring: Dict = None, Placement: Dict = None, RamdiskId: str = None, SecurityGroupIds: List = None, SecurityGroups: List = None, UserData: str = None, AdditionalInfo: str = None, ClientToken: str = None, DisableApiTermination: bool = None, DryRun: bool = None, EbsOptimized: bool = None, IamInstanceProfile: Dict = None, InstanceInitiatedShutdownBehavior: str = None, NetworkInterfaces: List = None, PrivateIpAddress: str = None, ElasticGpuSpecification: List = None, TagSpecifications: List = None, LaunchTemplate: Dict = None, InstanceMarketOptions: Dict = None, CreditSpecification: Dict = None, CpuOptions: Dict = None, CapacityReservationSpecification: Dict = None) -> List['Instance']:
+    def create_instances(self, MaxCount: int, MinCount: int, BlockDeviceMappings: List = None, ImageId: str = None, InstanceType: str = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, KernelId: str = None, KeyName: str = None, Monitoring: Dict = None, Placement: Dict = None, RamdiskId: str = None, SecurityGroupIds: List = None, SecurityGroups: List = None, UserData: str = None, AdditionalInfo: str = None, ClientToken: str = None, DisableApiTermination: bool = None, DryRun: bool = None, EbsOptimized: bool = None, IamInstanceProfile: Dict = None, InstanceInitiatedShutdownBehavior: str = None, NetworkInterfaces: List = None, PrivateIpAddress: str = None, ElasticGpuSpecification: List = None, ElasticInferenceAccelerators: List = None, TagSpecifications: List = None, LaunchTemplate: Dict = None, InstanceMarketOptions: Dict = None, CreditSpecification: Dict = None, CpuOptions: Dict = None, CapacityReservationSpecification: Dict = None, HibernationOptions: Dict = None, LicenseSpecifications: List = None) -> List['Instance']:
         pass
 
     def create_network_interface(self, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> 'NetworkInterface':
@@ -863,6 +875,7 @@ class Vpc(base.ServiceResource):
     dhcp_options_id: str
     state: str
     vpc_id: str
+    owner_id: str
     instance_tenancy: str
     ipv6_cidr_block_association_set: List
     cidr_block_association_set: List
@@ -897,7 +910,7 @@ class Vpc(base.ServiceResource):
     def create_security_group(self, Description: str, GroupName: str, DryRun: bool = None) -> 'SecurityGroup':
         pass
 
-    def create_subnet(self, CidrBlock: str, AvailabilityZone: str = None, Ipv6CidrBlock: str = None, DryRun: bool = None) -> 'Subnet':
+    def create_subnet(self, CidrBlock: str, AvailabilityZone: str = None, AvailabilityZoneId: str = None, Ipv6CidrBlock: str = None, DryRun: bool = None) -> 'Subnet':
         pass
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
@@ -970,7 +983,7 @@ class VpcPeeringConnection(base.ServiceResource):
     def reload(self):
         pass
 
-    def wait_until_exists(self, Filters: List = None, DryRun: bool = None):
+    def wait_until_exists(self, Filters: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None):
         pass
 
 
@@ -1151,7 +1164,7 @@ class instances(ResourceCollection):
 
     
     @classmethod
-    def stop(cls, DryRun: bool = None, Force: bool = None) -> Dict:
+    def stop(cls, Hibernate: bool = None, DryRun: bool = None, Force: bool = None) -> Dict:
         pass
 
     
@@ -1525,7 +1538,7 @@ class vpc_peering_connections(ResourceCollection):
 
     
     @classmethod
-    def filter(cls, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None) -> List['VpcPeeringConnection']:
+    def filter(cls, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, NextToken: str = None, MaxResults: int = None) -> List['VpcPeeringConnection']:
         pass
 
     

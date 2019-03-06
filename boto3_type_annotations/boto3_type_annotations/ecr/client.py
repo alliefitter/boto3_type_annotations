@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -23,7 +23,7 @@ class Client(BaseClient):
     def complete_layer_upload(self, repositoryName: str, uploadId: str, layerDigests: List, registryId: str = None) -> Dict:
         pass
 
-    def create_repository(self, repositoryName: str) -> Dict:
+    def create_repository(self, repositoryName: str, tags: List = None) -> Dict:
         pass
 
     def delete_lifecycle_policy(self, repositoryName: str, registryId: str = None) -> Dict:
@@ -71,6 +71,9 @@ class Client(BaseClient):
     def list_images(self, repositoryName: str, registryId: str = None, nextToken: str = None, maxResults: int = None, filter: Dict = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, resourceArn: str) -> Dict:
+        pass
+
     def put_image(self, repositoryName: str, imageManifest: str, registryId: str = None, imageTag: str = None) -> Dict:
         pass
 
@@ -81,6 +84,12 @@ class Client(BaseClient):
         pass
 
     def start_lifecycle_policy_preview(self, repositoryName: str, registryId: str = None, lifecyclePolicyText: str = None) -> Dict:
+        pass
+
+    def tag_resource(self, resourceArn: str, tags: List) -> Dict:
+        pass
+
+    def untag_resource(self, resourceArn: str, tagKeys: List) -> Dict:
         pass
 
     def upload_layer_part(self, repositoryName: str, uploadId: str, partFirstByte: int, partLastByte: int, layerPartBlob: bytes, registryId: str = None) -> Dict:

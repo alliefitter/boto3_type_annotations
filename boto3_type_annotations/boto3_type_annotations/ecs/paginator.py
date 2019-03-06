@@ -2,6 +2,16 @@ from typing import Dict
 from botocore.paginate import Paginator
 
 
+class ListAccountSettings(Paginator):
+    def paginate(self, name: str = None, value: str = None, principalArn: str = None, effectiveSettings: bool = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListAttributes(Paginator):
+    def paginate(self, targetType: str, cluster: str = None, attributeName: str = None, attributeValue: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListClusters(Paginator):
     def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass

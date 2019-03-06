@@ -1,15 +1,18 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
 from typing import IO
+from botocore.paginate import Paginator
+from datetime import datetime
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
+    def add_layer_version_permission(self, LayerName: str, VersionNumber: int, StatementId: str, Action: str, Principal: str, OrganizationId: str = None, RevisionId: str = None) -> Dict:
+        pass
+
     def add_permission(self, FunctionName: str, StatementId: str, Action: str, Principal: str, SourceArn: str = None, SourceAccount: str = None, EventSourceToken: str = None, Qualifier: str = None, RevisionId: str = None) -> Dict:
         pass
 
@@ -22,7 +25,7 @@ class Client(BaseClient):
     def create_event_source_mapping(self, EventSourceArn: str, FunctionName: str, Enabled: bool = None, BatchSize: int = None, StartingPosition: str = None, StartingPositionTimestamp: datetime = None) -> Dict:
         pass
 
-    def create_function(self, FunctionName: str, Runtime: str, Role: str, Handler: str, Code: Dict, Description: str = None, Timeout: int = None, MemorySize: int = None, Publish: bool = None, VpcConfig: Dict = None, DeadLetterConfig: Dict = None, Environment: Dict = None, KMSKeyArn: str = None, TracingConfig: Dict = None, Tags: Dict = None) -> Dict:
+    def create_function(self, FunctionName: str, Runtime: str, Role: str, Handler: str, Code: Dict, Description: str = None, Timeout: int = None, MemorySize: int = None, Publish: bool = None, VpcConfig: Dict = None, DeadLetterConfig: Dict = None, Environment: Dict = None, KMSKeyArn: str = None, TracingConfig: Dict = None, Tags: Dict = None, Layers: List = None) -> Dict:
         pass
 
     def delete_alias(self, FunctionName: str, Name: str):
@@ -35,6 +38,9 @@ class Client(BaseClient):
         pass
 
     def delete_function_concurrency(self, FunctionName: str):
+        pass
+
+    def delete_layer_version(self, LayerName: str, VersionNumber: int):
         pass
 
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
@@ -53,6 +59,12 @@ class Client(BaseClient):
         pass
 
     def get_function_configuration(self, FunctionName: str, Qualifier: str = None) -> Dict:
+        pass
+
+    def get_layer_version(self, LayerName: str, VersionNumber: int) -> Dict:
+        pass
+
+    def get_layer_version_policy(self, LayerName: str, VersionNumber: int) -> Dict:
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
@@ -79,16 +91,28 @@ class Client(BaseClient):
     def list_functions(self, MasterRegion: str = None, FunctionVersion: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
         pass
 
+    def list_layer_versions(self, LayerName: str, CompatibleRuntime: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
+        pass
+
+    def list_layers(self, CompatibleRuntime: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
+        pass
+
     def list_tags(self, Resource: str) -> Dict:
         pass
 
     def list_versions_by_function(self, FunctionName: str, Marker: str = None, MaxItems: int = None) -> Dict:
         pass
 
+    def publish_layer_version(self, LayerName: str, Content: Dict, Description: str = None, CompatibleRuntimes: List = None, LicenseInfo: str = None) -> Dict:
+        pass
+
     def publish_version(self, FunctionName: str, CodeSha256: str = None, Description: str = None, RevisionId: str = None) -> Dict:
         pass
 
     def put_function_concurrency(self, FunctionName: str, ReservedConcurrentExecutions: int) -> Dict:
+        pass
+
+    def remove_layer_version_permission(self, LayerName: str, VersionNumber: int, StatementId: str, RevisionId: str = None):
         pass
 
     def remove_permission(self, FunctionName: str, StatementId: str, Qualifier: str = None, RevisionId: str = None):
@@ -109,5 +133,5 @@ class Client(BaseClient):
     def update_function_code(self, FunctionName: str, ZipFile: bytes = None, S3Bucket: str = None, S3Key: str = None, S3ObjectVersion: str = None, Publish: bool = None, DryRun: bool = None, RevisionId: str = None) -> Dict:
         pass
 
-    def update_function_configuration(self, FunctionName: str, Role: str = None, Handler: str = None, Description: str = None, Timeout: int = None, MemorySize: int = None, VpcConfig: Dict = None, Environment: Dict = None, Runtime: str = None, DeadLetterConfig: Dict = None, KMSKeyArn: str = None, TracingConfig: Dict = None, RevisionId: str = None) -> Dict:
+    def update_function_configuration(self, FunctionName: str, Role: str = None, Handler: str = None, Description: str = None, Timeout: int = None, MemorySize: int = None, VpcConfig: Dict = None, Environment: Dict = None, Runtime: str = None, DeadLetterConfig: Dict = None, KMSKeyArn: str = None, TracingConfig: Dict = None, RevisionId: str = None, Layers: List = None) -> Dict:
         pass

@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -62,6 +62,9 @@ class Client(BaseClient):
     def describe_metric_filters(self, logGroupName: str = None, filterNamePrefix: str = None, nextToken: str = None, limit: int = None, metricName: str = None, metricNamespace: str = None) -> Dict:
         pass
 
+    def describe_queries(self, logGroupName: str = None, status: str = None, maxResults: int = None, nextToken: str = None) -> Dict:
+        pass
+
     def describe_resource_policies(self, nextToken: str = None, limit: int = None) -> Dict:
         pass
 
@@ -80,7 +83,16 @@ class Client(BaseClient):
     def get_log_events(self, logGroupName: str, logStreamName: str, startTime: int = None, endTime: int = None, nextToken: str = None, limit: int = None, startFromHead: bool = None) -> Dict:
         pass
 
+    def get_log_group_fields(self, logGroupName: str, time: int = None) -> Dict:
+        pass
+
+    def get_log_record(self, logRecordPointer: str) -> Dict:
+        pass
+
     def get_paginator(self, operation_name: str = None) -> Paginator:
+        pass
+
+    def get_query_results(self, queryId: str) -> Dict:
         pass
 
     def get_waiter(self, waiter_name: str = None) -> Waiter:
@@ -108,6 +120,12 @@ class Client(BaseClient):
         pass
 
     def put_subscription_filter(self, logGroupName: str, filterName: str, filterPattern: str, destinationArn: str, roleArn: str = None, distribution: str = None):
+        pass
+
+    def start_query(self, logGroupName: str, startTime: int, endTime: int, queryString: str, limit: int = None) -> Dict:
+        pass
+
+    def stop_query(self, queryId: str) -> Dict:
         pass
 
     def tag_log_group(self, logGroupName: str, tags: Dict):

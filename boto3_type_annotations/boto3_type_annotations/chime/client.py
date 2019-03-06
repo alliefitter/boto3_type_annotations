@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from botocore.waiter import Waiter
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -50,7 +50,7 @@ class Client(BaseClient):
     def list_accounts(self, Name: str = None, UserEmail: str = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
-    def list_users(self, AccountId: str, MaxResults: int = None, NextToken: str = None) -> Dict:
+    def list_users(self, AccountId: str, UserEmail: str = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
     def logout_user(self, AccountId: str, UserId: str) -> Dict:

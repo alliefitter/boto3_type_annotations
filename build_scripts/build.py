@@ -1,4 +1,3 @@
-from os import getcwd
 from os.path import dirname, abspath
 from sys import argv
 

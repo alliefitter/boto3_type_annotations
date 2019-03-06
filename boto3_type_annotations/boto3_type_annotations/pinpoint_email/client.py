@@ -1,10 +1,11 @@
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from datetime import datetime
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -18,6 +19,9 @@ class Client(BaseClient):
         pass
 
     def create_dedicated_ip_pool(self, PoolName: str) -> Dict:
+        pass
+
+    def create_deliverability_test_report(self, FromEmailAddress: str, Content: Dict, ReportName: str = None) -> Dict:
         pass
 
     def create_email_identity(self, EmailIdentity: str) -> Dict:
@@ -41,6 +45,9 @@ class Client(BaseClient):
     def get_account(self) -> Dict:
         pass
 
+    def get_blacklist_reports(self, BlacklistItemNames: List) -> Dict:
+        pass
+
     def get_configuration_set(self, ConfigurationSetName: str) -> Dict:
         pass
 
@@ -51,6 +58,15 @@ class Client(BaseClient):
         pass
 
     def get_dedicated_ips(self, PoolName: str = None, NextToken: str = None, PageSize: int = None) -> Dict:
+        pass
+
+    def get_deliverability_dashboard_options(self) -> Dict:
+        pass
+
+    def get_deliverability_test_report(self, ReportId: str) -> Dict:
+        pass
+
+    def get_domain_statistics_report(self, Domain: str, StartDate: datetime, EndDate: datetime) -> Dict:
         pass
 
     def get_email_identity(self, EmailIdentity: str) -> Dict:
@@ -66,6 +82,9 @@ class Client(BaseClient):
         pass
 
     def list_dedicated_ip_pools(self, NextToken: str = None, PageSize: int = None) -> Dict:
+        pass
+
+    def list_deliverability_test_reports(self, NextToken: str = None, PageSize: int = None) -> Dict:
         pass
 
     def list_email_identities(self, NextToken: str = None, PageSize: int = None) -> Dict:
@@ -93,6 +112,9 @@ class Client(BaseClient):
         pass
 
     def put_dedicated_ip_warmup_attributes(self, Ip: str, WarmupPercentage: int) -> Dict:
+        pass
+
+    def put_deliverability_dashboard_option(self, DashboardEnabled: bool) -> Dict:
         pass
 
     def put_email_identity_dkim_attributes(self, EmailIdentity: str, SigningEnabled: bool = None) -> Dict:

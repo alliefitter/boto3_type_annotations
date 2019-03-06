@@ -17,6 +17,11 @@ class ListLaunchPaths(Paginator):
         pass
 
 
+class ListOrganizationPortfolioAccess(Paginator):
+    def paginate(self, PortfolioId: str, OrganizationNodeType: str, AcceptLanguage: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListPortfolios(Paginator):
     def paginate(self, AcceptLanguage: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
@@ -32,13 +37,43 @@ class ListPrincipalsForPortfolio(Paginator):
         pass
 
 
+class ListProvisionedProductPlans(Paginator):
+    def paginate(self, AcceptLanguage: str = None, ProvisionProductId: str = None, AccessLevelFilter: Dict = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListProvisioningArtifactsForServiceAction(Paginator):
+    def paginate(self, ServiceActionId: str, AcceptLanguage: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListRecordHistory(Paginator):
+    def paginate(self, AcceptLanguage: str = None, AccessLevelFilter: Dict = None, SearchFilter: Dict = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListResourcesForTagOption(Paginator):
     def paginate(self, TagOptionId: str, ResourceType: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
+class ListServiceActions(Paginator):
+    def paginate(self, AcceptLanguage: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListServiceActionsForProvisioningArtifact(Paginator):
+    def paginate(self, ProductId: str, ProvisioningArtifactId: str, AcceptLanguage: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListTagOptions(Paginator):
     def paginate(self, Filters: Dict = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ScanProvisionedProducts(Paginator):
+    def paginate(self, AcceptLanguage: str = None, AccessLevelFilter: Dict = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

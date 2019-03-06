@@ -1,11 +1,11 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from botocore.paginate import Paginator
+from typing import Dict
+from datetime import datetime
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -24,7 +24,7 @@ class Client(BaseClient):
     def create_global_table(self, GlobalTableName: str, ReplicationGroup: List) -> Dict:
         pass
 
-    def create_table(self, AttributeDefinitions: List, TableName: str, KeySchema: List, ProvisionedThroughput: Dict, LocalSecondaryIndexes: List = None, GlobalSecondaryIndexes: List = None, StreamSpecification: Dict = None, SSESpecification: Dict = None) -> Dict:
+    def create_table(self, AttributeDefinitions: List, TableName: str, KeySchema: List, LocalSecondaryIndexes: List = None, GlobalSecondaryIndexes: List = None, BillingMode: str = None, ProvisionedThroughput: Dict = None, StreamSpecification: Dict = None, SSESpecification: Dict = None) -> Dict:
         pass
 
     def delete_backup(self, BackupArn: str) -> Dict:
@@ -102,6 +102,12 @@ class Client(BaseClient):
     def tag_resource(self, ResourceArn: str, Tags: List):
         pass
 
+    def transact_get_items(self, TransactItems: List, ReturnConsumedCapacity: str = None) -> Dict:
+        pass
+
+    def transact_write_items(self, TransactItems: List, ReturnConsumedCapacity: str = None, ReturnItemCollectionMetrics: str = None, ClientRequestToken: str = None) -> Dict:
+        pass
+
     def untag_resource(self, ResourceArn: str, TagKeys: List):
         pass
 
@@ -111,13 +117,13 @@ class Client(BaseClient):
     def update_global_table(self, GlobalTableName: str, ReplicaUpdates: List) -> Dict:
         pass
 
-    def update_global_table_settings(self, GlobalTableName: str, GlobalTableProvisionedWriteCapacityUnits: int = None, GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: Dict = None, GlobalTableGlobalSecondaryIndexSettingsUpdate: List = None, ReplicaSettingsUpdate: List = None) -> Dict:
+    def update_global_table_settings(self, GlobalTableName: str, GlobalTableBillingMode: str = None, GlobalTableProvisionedWriteCapacityUnits: int = None, GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: Dict = None, GlobalTableGlobalSecondaryIndexSettingsUpdate: List = None, ReplicaSettingsUpdate: List = None) -> Dict:
         pass
 
     def update_item(self, TableName: str, Key: Dict, AttributeUpdates: Dict = None, Expected: Dict = None, ConditionalOperator: str = None, ReturnValues: str = None, ReturnConsumedCapacity: str = None, ReturnItemCollectionMetrics: str = None, UpdateExpression: str = None, ConditionExpression: str = None, ExpressionAttributeNames: Dict = None, ExpressionAttributeValues: Dict = None) -> Dict:
         pass
 
-    def update_table(self, TableName: str, AttributeDefinitions: List = None, ProvisionedThroughput: Dict = None, GlobalSecondaryIndexUpdates: List = None, StreamSpecification: Dict = None, SSESpecification: Dict = None) -> Dict:
+    def update_table(self, TableName: str, AttributeDefinitions: List = None, BillingMode: str = None, ProvisionedThroughput: Dict = None, GlobalSecondaryIndexUpdates: List = None, StreamSpecification: Dict = None, SSESpecification: Dict = None) -> Dict:
         pass
 
     def update_time_to_live(self, TableName: str, TimeToLiveSpecification: Dict) -> Dict:

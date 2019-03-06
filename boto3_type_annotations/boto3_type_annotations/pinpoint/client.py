@@ -1,9 +1,10 @@
 from typing import Optional
-from typing import Union
-from botocore.waiter import Waiter
+from typing import List
+from botocore.client import BaseClient
 from botocore.paginate import Paginator
 from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
@@ -68,6 +69,9 @@ class Client(BaseClient):
         pass
 
     def delete_user_endpoints(self, ApplicationId: str, UserId: str) -> Dict:
+        pass
+
+    def delete_voice_channel(self, ApplicationId: str) -> Dict:
         pass
 
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
@@ -169,7 +173,13 @@ class Client(BaseClient):
     def get_user_endpoints(self, ApplicationId: str, UserId: str) -> Dict:
         pass
 
+    def get_voice_channel(self, ApplicationId: str) -> Dict:
+        pass
+
     def get_waiter(self, waiter_name: str = None) -> Waiter:
+        pass
+
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
         pass
 
     def phone_number_validate(self, NumberValidateRequest: Dict) -> Dict:
@@ -188,6 +198,12 @@ class Client(BaseClient):
         pass
 
     def send_users_messages(self, ApplicationId: str, SendUsersMessageRequest: Dict) -> Dict:
+        pass
+
+    def tag_resource(self, ResourceArn: str, TagsModel: Dict):
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
         pass
 
     def update_adm_channel(self, ADMChannelRequest: Dict, ApplicationId: str) -> Dict:
@@ -230,4 +246,7 @@ class Client(BaseClient):
         pass
 
     def update_sms_channel(self, ApplicationId: str, SMSChannelRequest: Dict) -> Dict:
+        pass
+
+    def update_voice_channel(self, ApplicationId: str, VoiceChannelRequest: Dict) -> Dict:
         pass

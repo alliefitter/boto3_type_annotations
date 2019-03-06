@@ -16,3 +16,8 @@ class DescribeScalingActivities(Paginator):
 class DescribeScalingPolicies(Paginator):
     def paginate(self, ServiceNamespace: str, PolicyNames: List = None, ResourceId: str = None, ScalableDimension: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
+
+
+class DescribeScheduledActions(Paginator):
+    def paginate(self, ServiceNamespace: str, ScheduledActionNames: List = None, ResourceId: str = None, ScalableDimension: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass

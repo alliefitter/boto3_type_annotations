@@ -8,6 +8,11 @@ class DescribeDestinations(Paginator):
         pass
 
 
+class DescribeExportTasks(Paginator):
+    def paginate(self, taskId: str = None, statusCode: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class DescribeLogGroups(Paginator):
     def paginate(self, logGroupNamePrefix: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
@@ -20,6 +25,16 @@ class DescribeLogStreams(Paginator):
 
 class DescribeMetricFilters(Paginator):
     def paginate(self, logGroupName: str = None, filterNamePrefix: str = None, metricName: str = None, metricNamespace: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeQueries(Paginator):
+    def paginate(self, logGroupName: str = None, status: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeResourcePolicies(Paginator):
+    def paginate(self, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

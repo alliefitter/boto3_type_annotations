@@ -1,14 +1,17 @@
-from datetime import datetime
 from typing import Optional
-from typing import Union
 from typing import List
-from typing import Dict
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
+from datetime import datetime
+from botocore.paginate import Paginator
+from typing import Dict
+from typing import Union
+from botocore.waiter import Waiter
 
 
 class Client(BaseClient):
+    def batch_get_aggregate_resource_config(self, ConfigurationAggregatorName: str, ResourceIdentifiers: List) -> Dict:
+        pass
+
     def batch_get_resource_config(self, resourceKeys: List) -> Dict:
         pass
 
@@ -93,6 +96,12 @@ class Client(BaseClient):
     def get_aggregate_config_rule_compliance_summary(self, ConfigurationAggregatorName: str, Filters: Dict = None, GroupByKey: str = None, Limit: int = None, NextToken: str = None) -> Dict:
         pass
 
+    def get_aggregate_discovered_resource_counts(self, ConfigurationAggregatorName: str, Filters: Dict = None, GroupByKey: str = None, Limit: int = None, NextToken: str = None) -> Dict:
+        pass
+
+    def get_aggregate_resource_config(self, ConfigurationAggregatorName: str, ResourceIdentifier: Dict) -> Dict:
+        pass
+
     def get_compliance_details_by_config_rule(self, ConfigRuleName: str, ComplianceTypes: List = None, Limit: int = None, NextToken: str = None) -> Dict:
         pass
 
@@ -115,6 +124,9 @@ class Client(BaseClient):
         pass
 
     def get_waiter(self, waiter_name: str = None) -> Waiter:
+        pass
+
+    def list_aggregate_discovered_resources(self, ConfigurationAggregatorName: str, ResourceType: str, Filters: Dict = None, Limit: int = None, NextToken: str = None) -> Dict:
         pass
 
     def list_discovered_resources(self, resourceType: str, resourceIds: List = None, resourceName: str = None, limit: int = None, includeDeletedResources: bool = None, nextToken: str = None) -> Dict:

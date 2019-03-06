@@ -1,9 +1,4 @@
 services:
-  - ec2
-  - rds
-  - sqs
-  - sns
-  - lambda
   - s3
 with_docs: true
 with_clients: true
@@ -12,6 +7,6 @@ with_paginators: true
 with_waiters: true
 package_name: boto3_type_annotations_essentials
 module_name: boto3_type_annotations
-version: 0.2.4
-readme: README.md
-license: LICENSE
+version: 0.3.0
+readme: "../README.md"
+license: "../LICENSE"
