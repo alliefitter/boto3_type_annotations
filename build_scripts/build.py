@@ -10,7 +10,7 @@ from writers import write_services
 
 def load(path: str, session_: Session) -> Config:
     with open(path, 'r') as f:
-        file_contents = yaml.load(f)
+        file_contents = yaml.safe_load(f)
     if file_contents.get('services') == 'all':
         file_contents['services'] = session_.get_available_services()
     if not all((service in session_.get_available_services() for service in file_contents.get('services'))):
